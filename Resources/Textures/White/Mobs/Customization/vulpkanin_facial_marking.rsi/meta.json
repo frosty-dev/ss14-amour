@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA 3.0",
+  "copyright": "https://github.com/ParadiseSS13/Paradise/tree/ed08e46fea6734b6237b97b10183c20e397542d0/icons/mob/sprite_accessories/vulpkanin",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "blaze_s",
+      "directions": 4
+    },
+    {
+      "name": "kita_s",
+      "directions": 4
+    },
+    {
+      "name": "mask_s",
+      "directions": 4
+    },
+    {
+      "name": "patch_s",
+      "directions": 4
+    },
+    {
+      "name": "ruff_s",
+      "directions": 4
+    },
+    {
+      "name": "swift_s",
+      "directions": 4
+    },
+    {
+      "name": "vulpine_s",
+      "directions": 4
+    },
+    {
+      "name": "brows_s",
+      "directions": 4
+    },
+    {
+      "name": "vulpinefluff_s",
+      "directions": 4
+    },
+    {
+      "name": "elder_s",
+      "directions": 4
+    },
+    {
+      "name": "elder_chin_s",
+      "directions": 4
+    },
+    {
+      "name": "slash_s",
+      "directions": 4
+    },
+    {
+      "name": "earfluff_s",
+      "directions": 4
+    }
+  ]
+}

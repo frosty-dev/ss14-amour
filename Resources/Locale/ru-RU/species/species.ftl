@@ -8,3 +8,4 @@ species-name-diona = Диона
 species-name-arachnid = Арахнид
 species-name-skrell = Скрелл
 species-name-felinid = Фелинид
+species-name-vulpkanin = Вульпканин

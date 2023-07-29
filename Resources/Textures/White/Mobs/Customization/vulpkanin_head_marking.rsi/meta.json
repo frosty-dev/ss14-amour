@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA 3.0",
+  "copyright": "https://github.com/ParadiseSS13/Paradise/tree/ed08e46fea6734b6237b97b10183c20e397542d0/icons/mob/sprite_accessories/vulpkanin",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "nose_alt_s",
+      "directions": 4
+    },
+    {
+      "name": "tiger_head_s",
+      "directions": 4
+    },
+    {
+      "name": "tiger_face_s",
+      "directions": 4
+    },
+    {
+      "name": "nose_s",
+      "directions": 4
+    },
+    {
+      "name": "muzzle_s",
+      "directions": 4
+    },
+    {
+      "name": "muzzle_ear_s",
+      "directions": 4
+    },
+    {
+      "name": "points_fade_s",
+      "directions": 4
+    },
+    {
+      "name": "points_sharp_s",
+      "directions": 4
+    }
+  ]
+}
