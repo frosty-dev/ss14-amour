@@ -1,0 +1,306 @@
+
+# Vulpkanin Tails
+
+- type: marking
+  id: VulpkaninTailBushFluff
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: White/Mobs/Customization/h_acc.rsi
+      state: bushy_a
+    - sprite: White/Mobs/Customization/vulpkanin_tail_marking.rsi
+      state: bushfluffw_s
+
+
+- type: marking
+  id: VulpkaninTailBasic
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: White/Mobs/Customization/h_acc.rsi
+      state: straightbushy_a
+    - sprite: White/Mobs/Customization/vulpkanin_tail_marking.rsi
+      state: sbfadew_s
+
+
+- type: marking
+  id: VulpkaninTailSilverFade
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: White/Mobs/Customization/h_acc.rsi
+      state: straightbushy_a
+    - sprite: White/Mobs/Customization/vulpkanin_tail_marking.rsi
+      state: sbsilverfadew_s
+
+# Head
+
+- type: marking
+  id: VulpkaninMuzzleEarHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_head_marking.rsi
+      state: muzzle_ear_s
+
+- type: marking
+  id: VulpkaninMuzzleHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_head_marking.rsi
+      state: muzzle_s
+
+- type: marking
+  id: VulpkaninNoseAltHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_head_marking.rsi
+      state: nose_alt_s
+
+- type: marking
+  id: VulpkaninNoseHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_head_marking.rsi
+      state: nose_s
+
+- type: marking
+  id: VulpkaninPointsFadeHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_head_marking.rsi
+      state: points_fade_s
+
+- type: marking
+  id: VulpkaninPointsSharpHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_head_marking.rsi
+      state: points_sharp_s
+
+- type: marking
+  id: VulpkaninTigerFaceHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_head_marking.rsi
+      state: tiger_face_s
+
+- type: marking
+  id: VulpkaninTigerHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_head_marking.rsi
+      state: tiger_head_s
+
+# Body
+
+- type: marking
+  id: VulpkaninAltPointsFadeBellyChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_body_marking.rsi
+      state: altpointsfadebelly_s
+
+- type: marking
+  id: VulpkaninBellyCrestChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_body_marking.rsi
+      state: bellycrest_s
+
+- type: marking
+  id: VulpkaninCrestPointsChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_body_marking.rsi
+      state: crestpoints_s
+
+
+- type: marking
+  id: VulpkaninFoxBellyChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_body_marking.rsi
+      state: foxbelly_s
+
+- type: marking
+  id: VulpkaninFullBellyChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_body_marking.rsi
+      state: fullbelly_s
+
+
+- type: marking
+  id: VulpkaninPointsFadeChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_body_marking.rsi
+      state: pointsfade_s
+
+- type: marking
+  id: VulpkaninPointsFadeBellyChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_body_marking.rsi
+      state: pointsfadebelly_s
+
+- type: marking
+  id: VulpkaninSharpPointsChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_body_marking.rsi
+      state: sharppoints_s
+
+# Facial
+
+- type: marking
+  id: VulpkaninBlazeFacial
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_facial_marking.rsi
+      state: blaze_s
+
+- type: marking
+  id: VulpkaninBrowsFacial
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_facial_marking.rsi
+      state: brows_s
+
+- type: marking
+  id: VulpkaninEarFluffFacial
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_facial_marking.rsi
+      state: earfluff_s
+
+- type: marking
+  id: VulpkaninElderChinFacial
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_facial_marking.rsi
+      state: elder_chin_s
+
+- type: marking
+  id: VulpkaninElderFacial
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_facial_marking.rsi
+      state: elder_s
+
+- type: marking
+  id: VulpkaninKitaFacial
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_facial_marking.rsi
+      state: kita_s
+
+- type: marking
+  id: VulpkaninMaskFacial
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_facial_marking.rsi
+      state: mask_s
+
+- type: marking
+  id: VulpkaninPatchFacial
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_facial_marking.rsi
+      state: patch_s
+
+- type: marking
+  id: VulpkaninRuffFacial
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_facial_marking.rsi
+      state: ruff_s
+
+- type: marking
+  id: VulpkaninSlashFacial
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_facial_marking.rsi
+      state: slash_s
+
+- type: marking
+  id: VulpkaninSwiftFacial
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_facial_marking.rsi
+      state: swift_s
+
+- type: marking
+  id: VulpkaninVulpineFacial
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_facial_marking.rsi
+      state: vulpine_s
+
+- type: marking
+  id: VulpkaninVulpineFluffFacial
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Vulpkanin ]
+  sprites:
+    - sprite: White/Mobs/Customization/vulpkanin_facial_marking.rsi
+      state: vulpinefluff_s
