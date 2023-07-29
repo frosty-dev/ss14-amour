@@ -26,15 +26,31 @@
 
 
 - type: marking
-  id: VulpkaninTailSilverFade
+  id: VulpkaninTailStraight
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: White/Mobs/Customization/h_acc.rsi
-      state: straightbushy_a
-    - sprite: White/Mobs/Customization/vulpkanin_tail_marking.rsi
-      state: sbsilverfadew_s
+      state: straight_a
+
+- type: marking
+  id: VulpkaninTailTiny
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: White/Mobs/Customization/h_acc.rsi
+      state: tiny_a
+
+- type: marking
+  id: VulpkaninTailWingler
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Vulpkanin]
+  sprites:
+    - sprite: White/Mobs/Customization/h_acc.rsi
+      state: winglertail_a
 
 # Head
 
@@ -138,7 +154,6 @@
   sprites:
     - sprite: White/Mobs/Customization/vulpkanin_body_marking.rsi
       state: crestpoints_s
-
 
 - type: marking
   id: VulpkaninFoxBellyChest
