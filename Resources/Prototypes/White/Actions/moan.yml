@@ -1,0 +1,21 @@
+- type: emote
+  id: Moan
+  category: Gesture
+  buttonText: Стонать
+  chatMessages: [ стонет ]
+  chatTriggers:
+    - стонает
+    - стонет
+  allowMenu: true
+
+- type: emote
+  id: EmoteTrahat
+  category: Gesture
+  buttonText: Долбится
+  chatMessages: [ долбится ]
+  chatTriggers:
+    - ебет
+    - долбится
+    - трахает
+    - трах-трах
+  allowMenu: true

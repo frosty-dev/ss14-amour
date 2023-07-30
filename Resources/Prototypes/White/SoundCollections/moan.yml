@@ -1,0 +1,44 @@
+- type: soundCollection
+  id: MoanFemale
+  files:
+    - /Audio/White/Interactions/final_f1.ogg
+    - /Audio/White/Interactions/final_f2.ogg
+    - /Audio/White/Interactions/final_f3.ogg
+    - /Audio/White/Interactions/moan_f1.ogg
+    - /Audio/White/Interactions/moan_f2.ogg
+    - /Audio/White/Interactions/moan_f3.ogg
+    - /Audio/White/Interactions/moan_f4.ogg
+    - /Audio/White/Interactions/moan_f5.ogg
+    - /Audio/White/Interactions/moan_f6.ogg
+    - /Audio/White/Interactions/moan_f7.ogg
+
+
+- type: soundCollection
+  id: MoanMale
+  files:
+    - /Audio/White/Interactions/final_m1.ogg
+    - /Audio/White/Interactions/final_m2.ogg
+    - /Audio/White/Interactions/final_m3.ogg
+    - /Audio/White/Interactions/final_m4.ogg
+    - /Audio/White/Interactions/final_m5.ogg
+    - /Audio/White/Interactions/moan_m0.ogg
+    - /Audio/White/Interactions/moan_m1.ogg
+    - /Audio/White/Interactions/moan_m2.ogg
+    - /Audio/White/Interactions/moan_m3.ogg
+    - /Audio/White/Interactions/moan_m4.ogg
+    - /Audio/White/Interactions/moan_m5.ogg
+    - /Audio/White/Interactions/moan_m6.ogg
+    - /Audio/White/Interactions/moan_m7.ogg
+    - /Audio/White/Interactions/moan_m12.ogg
+
+- type: soundCollection
+  id: Squelch
+  files:
+    - /Audio/White/Interactions/squelch1.ogg
+    - /Audio/White/Interactions/squelch2.ogg
+    - /Audio/White/Interactions/squelch3.ogg
+
+- type: soundCollection
+  id: Slap
+  files:
+    - /Audio/White/Interaction/slap.ogg

@@ -319,6 +319,8 @@
   - type: DeathGasps
   - type: ExaminableClothes
   - type: CharacterInformation
+  - type: Crawlable
+  - type: Cuntable
 
 - type: entity
   save: false

@@ -1,0 +1,40 @@
+- type: instantAction
+  id: Crawl
+  name: action-name-crawl
+  description: action-desc-crawl
+  checkCanInteract: false
+  icon: { sprite: Clothing/Head/Hats/pyjamasyndicatered.rsi, state: icon }
+  event: !type:CrawlToggledEvent
+
+- type: emote
+  id: EmoteCrawl
+  category: Gesture
+  buttonText: Ползти
+  chatMessages: [падает]
+  chatTriggers:
+    - падает
+    - ползет
+    - упала
+    - упало
+    - лежит
+    - улегся
+    - улеглась
+    - улеглось
+    - упал
+    - лёг
+  allowMenu: true
+
+- type: emote
+  id: EmoteCrawlUp
+  category: Gesture
+  buttonText: Встать
+  chatMessages: [встает]
+  chatTriggers:
+    - встает
+    - встал
+    - встала
+    - встало
+    - поднялась
+    - поднялось
+    - поднялся
+  allowMenu: true
