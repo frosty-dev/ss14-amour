@@ -41,4 +41,4 @@
 - type: soundCollection
   id: Slap
   files:
-    - /Audio/White/Interaction/slap.ogg
+    - /Audio/White/Interactions/slap.ogg
