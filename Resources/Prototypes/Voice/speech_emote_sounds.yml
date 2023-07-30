@@ -26,6 +26,8 @@
       collection: Snores
     Honk:
       collection: BikeHorn
+    Moan:
+      collection: MoanMale
 
 - type: emoteSounds
   id: FemaleHuman
@@ -54,6 +56,8 @@
       collection: Snores
     Honk:
       collection: CluwneHorn
+    Moan:
+      collection: MoanFemale
 
 - type: emoteSounds
   id: MaleFelinid
@@ -74,6 +78,8 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
+    Moan:
+      collection: MoanMale
 
 - type: emoteSounds
   id: FemaleFelinid
@@ -94,6 +100,8 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
+    Moan:
+      collection: MoanFemale
 
 - type: emoteSounds
   id: UnisexReptilian
@@ -146,6 +154,8 @@
       collection: MaleLaugh
     Honk:
       collection: BikeHorn
+    Moan:
+      collection: MoanMale
   params:
     variation: 0.125
     pitchscale: 0.75
@@ -159,6 +169,8 @@
       collection: FemaleLaugh
     Honk:
       collection: BikeHorn
+    Moan:
+      collection: MoanFemale
   params:
     variation: 0.125
     pitchscale: 0.75
@@ -173,6 +185,12 @@
       collection: Snaps
       params:
         volume: -6
+    Squelch:
+      collection: Squelch
+    EmoteTrahat:
+      collection: Claps
+    Moan:
+      collection: MoanFemale
 
 - type: emoteSounds
   id: DionaBodyEmotes
