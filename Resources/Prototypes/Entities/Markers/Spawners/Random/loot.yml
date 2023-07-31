@@ -70,7 +70,6 @@
       prototypes:
        - ToyAi
        - ToyNuke
-       - ToyAssistant
        - ToyGriffin
        - ToyHonk
        - ToyIan
@@ -137,7 +136,7 @@
         - ClothingOuterArmorBulletproof
         - FlashlightSeclite
         - ClothingHandsGlovesColorBlack
-        - ClothingHeadHelmetHelmet
+        - ClothingHeadHelmetBasic
         - Handcuffs
         - Zipties
         - ClothingBeltSecurityWebbing
