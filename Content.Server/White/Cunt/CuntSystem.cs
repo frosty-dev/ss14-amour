@@ -23,7 +23,6 @@ public sealed class CuntSystem : EntitySystem
     {
         SubscribeLocalEvent<CuntableComponent,EmoteEvent>(OnCunt);
         SubscribeLocalEvent<CuntableComponent,ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<CuntableComponent,EntityUnpausedEvent>(OnUnpaused);
     }
 
     private void OnStartup(EntityUid uid, CuntableComponent component, ComponentStartup args)
@@ -53,7 +52,7 @@ public sealed class CuntSystem : EntitySystem
             return false;
 
         _puddle.TrySpillAt(uid, cuntSolution, out _);
-        _solutionContainer.SplitSolution(uid,cuntSolution,50);
+        _solutionContainer.SplitSolution(uid,cuntSolution,cuntSolution.MaxVolume);
 
         return true;
     }
@@ -68,36 +67,9 @@ public sealed class CuntSystem : EntitySystem
             if (solution.AvailableVolume <= FixedPoint2.Zero)
                return;
 
-            var generated = new Solution("Cunt", 2);
+            var generated = new Solution("Cunt", 1);
 
             _solutionContainer.TryAddSolution(uid, solution, generated);
         }
-    }
-    //public override void Update(float frameTime)
-    //{
-    //    base.Update(frameTime);
-//
-    //    var query = EntityQueryEnumerator<CuntableComponent, SolutionContainerManagerComponent>();
-     //   while (query.MoveNext(out var uid, out var regen, out var manager))
-     //   {
-     //       if (_timing.CurTime < regen.NextRegenTime)
-     //           continue;
-
-     //       regen.NextRegenTime = _timing.CurTime + regen.Duration;
-     //       if (_solutionContainer.TryGetSolution(uid, CuntableComponent.CuntSolutionName, out var solution, manager))
-     //       {
-     //           if (solution.AvailableVolume <= FixedPoint2.Zero)
-     //               continue;
-//
-     //           var generated = new Solution("Cunt", 5);
-//
-      //          _solutionContainer.TryAddSolution(uid, solution, generated);
-      //      }
-      //  }
-    //}
-
-    private void OnUnpaused(EntityUid uid, CuntableComponent comp, ref EntityUnpausedEvent args)
-    {
-        comp.NextRegenTime += args.PausedTime;
     }
 }
