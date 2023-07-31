@@ -1,0 +1,12 @@
+- type: entity
+  name: leash
+  parent: BaseItem
+  id: Leash
+  components:
+    - type: Sprite
+      sprite: White/Objects/Specific/leash.rsi
+      layers:
+        - state: base
+    - type: UseDelay
+      delay: 1.5
+    - type: Leash
