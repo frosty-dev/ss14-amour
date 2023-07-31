@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Cargo;
 using Content.Client.Cargo.UI;
 using Content.Shared.Cargo.BUI;
@@ -38,9 +39,10 @@ namespace Content.Client.Cargo.BUI
         /// <summary>
         /// Currently selected product
         /// </summary>
+        [ViewVariables]
         private CargoProductPrototype? _product;
 
-        public CargoOrderConsoleBoundUserInterface(ClientUserInterfaceComponent owner, Enum uiKey) : base(owner, uiKey)
+        public CargoOrderConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
         }
 
@@ -48,17 +50,15 @@ namespace Content.Client.Cargo.BUI
         {
             base.Open();
 
-            var entityManager = IoCManager.Resolve<IEntityManager>();
-            var sysManager = entityManager.EntitySysManager;
-            var spriteSystem = sysManager.GetEntitySystem<SpriteSystem>();
+            var spriteSystem = EntMan.System<SpriteSystem>();
             _menu = new CargoConsoleMenu(IoCManager.Resolve<IPrototypeManager>(), spriteSystem);
             var localPlayer = IoCManager.Resolve<IPlayerManager>()?.LocalPlayer?.ControlledEntity;
             var description = new FormattedMessage();
 
             string orderRequester;
 
-            if (entityManager.TryGetComponent<MetaDataComponent>(localPlayer, out var metadata))
-                orderRequester = Identity.Name(localPlayer.Value, entityManager);
+            if (EntMan.TryGetComponent<MetaDataComponent>(localPlayer, out var metadata))
+                orderRequester = Identity.Name(localPlayer.Value, EntMan);
             else
                 orderRequester = string.Empty;
 
@@ -138,15 +138,18 @@ namespace Content.Client.Cargo.BUI
 
         private bool AddOrder()
         {
-            int orderAmt = _orderMenu?.Amount.Value ?? 0;
+            var orderAmt = _orderMenu?.Amount.Value ?? 0;
             if (orderAmt < 1 || orderAmt > OrderCapacity)
             {
                 return false;
             }
 
+            var requester = new string(_orderMenu?.Requester.Text.Take(200).ToArray()) ?? "";
+            var reason = new string(_orderMenu?.Reason.Text.Take(200).ToArray()) ?? "";
+
             SendMessage(new CargoConsoleAddOrderMessage(
-                _orderMenu?.Requester.Text ?? "",
-                _orderMenu?.Reason.Text ?? "",
+                requester,
+                reason,
                 _product?.ID ?? "",
                 orderAmt));
 

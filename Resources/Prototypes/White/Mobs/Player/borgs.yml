@@ -14,9 +14,6 @@
           shader: unshaded
           visible: false
           map: [ "enum.ToggleVisuals.Layer" ]
-    - type: MovementSpeedModifier
-      baseWalkSpeed : 2.4
-      baseSprintSpeed : 3.6
     - type: Puller
       needsHands: false
     - type: Speech
@@ -159,7 +156,7 @@
           - CyborgRadioModule
           - CyborgLawsModule
           - CyborgInstrumentModuleFilled
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - NanoTrasen
 
@@ -187,6 +184,7 @@
           - CyborgRadioModule
           - CyborgLawsModule
           - CyborgInstrumentModuleFilledMedicine
+          - CyborgHUDModuleMed
     - type: DeviceNetwork
       deviceNetId: Wireless
       transmitFrequencyId: CyborgSensor
@@ -205,7 +203,7 @@
     - type: MovementSpeedModifier
       baseWalkSpeed: 2.3
       baseSprintSpeed: 3.2
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - NanoTrasen
     - type: Cyborg
@@ -216,6 +214,7 @@
           - CyborgRadioModuleSec
           - CyborgLawsModule
           - CyborgInstrumentModuleFilledSecurity
+          - CyborgHUDModuleSec
     - type: CombatMode
       canDisarm: false
     - type: DeviceNetwork
@@ -244,7 +243,7 @@
   id: PlayerCyborgEng
   name: engineer cyborg
   components:
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - NanoTrasen
     - type: Cyborg
@@ -280,7 +279,7 @@
   id: PlayerCyborgNeko
   name: neko cyborg
   components:
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - NanoTrasen
     - type: Cyborg
@@ -467,7 +466,7 @@
             keywords: [ "AI", "console", "interface", "select", "borg" ]
             priority: -3
             event: !type:ToggleIntrinsicUIEvent
-    - type: Faction
+    - type: NpcFactionMember
       factions:
         - NanoTrasen
     - type: CombatMode
@@ -505,6 +504,7 @@
           - CyborgRadioModule
           - CyborgLawsModule
           - CyborgInstrumentModuleFilledMedicine
+          - CyborgHUDModuleMed
         battery-slot:
           - PowerCellHigh
         brain-slot:
@@ -521,6 +521,7 @@
           - CyborgRadioModuleSec
           - CyborgLawsModule
           - CyborgInstrumentModuleFilledSecurity
+          - CyborgHUDModuleSec
         battery-slot:
           - PowerCellHigh
         brain-slot:

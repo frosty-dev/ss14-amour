@@ -98,6 +98,7 @@
       - GasAnalyzer
       - UtilityBelt
       - Pickaxe
+      - ModularReceiver
       - AppraisalTool
       - SheetRGlass
       - Beaker
@@ -228,6 +229,10 @@
       - JawsOfLife
       - PositronicBrain #WD EDIT
       - ManMachineInterface #WD EDIT
+      - CyborgHUDModuleSec #WD EDIT
+      - CyborgHUDModuleMed #WD EDIT
+      - CyborgSpeedModule #WD EDIT
+      - CyborgInstrumentModuleFilled #WD EDIT
 
 - type: entity
   id: CircuitImprinter
@@ -271,6 +276,7 @@
       - SurveillanceWirelessCameraAnchoredCircuitboard
       - HydroponicsTrayMachineCircuitboard
       - SolarControlComputerCircuitboard
+      - SolarTrackerElectronics
       - PowerComputerCircuitboard
       - AutolatheMachineCircuitboard
       - ProtolatheMachineCircuitboard
