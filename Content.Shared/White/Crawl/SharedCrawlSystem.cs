@@ -40,13 +40,23 @@ public abstract class SharedCrawlSystem : EntitySystem
     private void OnShutdown(EntityUid uid, CrawlComponent component, ComponentShutdown args)
     {
         RemComp<KnockedDownComponent>(uid);
-        RemComp<MovementSpeedModifierComponent>(uid);
+        if (TryComp<MovementSpeedModifierComponent>(uid, out var mod))
+        {
+            _speed.ChangeBaseSpeed(uid,component.WalkSpeed,component.SpringSpeed,mod.Acceleration,mod);
+            Dirty(mod);
+        }
     }
 
     private void OnStartup(EntityUid uid, CrawlComponent component, ComponentStartup args)
     {
         _statusEffectsSystem.TryRemoveStatusEffect(uid, "KnockedDown");
         EnsureComp<KnockedDownComponent>(uid);
+
+        if (TryComp<MovementSpeedModifierComponent>(uid, out var mod))
+        {
+            component.SpringSpeed = mod.BaseSprintSpeed;
+            component.WalkSpeed = mod.BaseWalkSpeed;
+        }
 
         var modifierComponent = EnsureComp<MovementSpeedModifierComponent>(uid);
         _speed.ChangeBaseSpeed(uid,1,2,modifierComponent.Acceleration,modifierComponent);
@@ -55,14 +65,15 @@ public abstract class SharedCrawlSystem : EntitySystem
     public void ToggleCrawl(EntityUid uid)
     {
         if (!HasComp<CrawlComponent>(uid))
-            EnsureComp<CrawlComponent>(uid);
+            EnableCrawl(uid);
         else
-            RemComp<CrawlComponent>(uid);
+            DisableCrawl(uid);
     }
 
     public void EnableCrawl(EntityUid uid)
     {
-        EnsureComp<CrawlComponent>(uid);
+        if(!HasComp<KnockedDownComponent>(uid))
+            EnsureComp<CrawlComponent>(uid);
     }
 
     public void DisableCrawl(EntityUid uid)
