@@ -6,7 +6,6 @@
   chatTriggers:
     - стонает
     - стонет
-  allowMenu: true
 
 - type: emote
   id: EmoteTrahat
@@ -18,4 +17,3 @@
     - долбится
     - трахает
     - трах-трах
-  allowMenu: true
