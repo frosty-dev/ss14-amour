@@ -22,8 +22,8 @@
       animation: WeaponArcClaw
       damage:
         types:
-          Blunt: 1
-          Slash: 5
+          Blunt: 2
+          Slash: 6
     - type: Thieving
       stealthy: true
       stripTimeReduction: 1
@@ -38,6 +38,7 @@
     - type: Stamina
       excess: 85
     - type: Perishable
+    - type: VulpAccent
 
 - type: entity
   save: false

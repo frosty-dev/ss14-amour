@@ -1,0 +1,22 @@
+- type: emote
+  id: Barking
+  category: Vocal
+  buttonText: Гавкать
+  chatMessages: [ гавкает ]
+  chatTriggers:
+    - гавкает
+    - гав
+    - гавкать
+    - гав-гав
+    - лает
+
+- type: emote
+  id: Yapping
+  category: Vocal
+  buttonText: Тявкать
+  chatMessages: [ тявкает ]
+  chatTriggers:
+    - тявкает
+    - тяв
+    - тявкать
+    - тяв-тяв
