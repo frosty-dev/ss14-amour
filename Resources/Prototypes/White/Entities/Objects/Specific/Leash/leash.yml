@@ -10,3 +10,4 @@
     - type: UseDelay
       delay: 1.5
     - type: Leash
+    - type: Puller
