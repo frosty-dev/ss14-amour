@@ -1,6 +1,6 @@
 - type: emote
   id: Moan
-  category: Gesture
+  category: Vocal
   buttonText: Стонать
   chatMessages: [ стонет ]
   chatTriggers:
@@ -10,10 +10,10 @@
 - type: emote
   id: EmoteTrahat
   category: Gesture
-  buttonText: Долбится
-  chatMessages: [ долбится ]
+  buttonText: Долбиться
+  chatMessages: [ долбиться ]
   chatTriggers:
     - ебет
-    - долбится
+    - долбиться
     - трахает
     - трах-трах

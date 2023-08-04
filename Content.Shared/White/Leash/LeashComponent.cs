@@ -7,4 +7,6 @@ public sealed class LeashComponent : Component
     [DataField("max")] public int LeashedMax = 1;
 
     [ViewVariables] public List<EntityUid> LeashedUid = new();
+
+    [ViewVariables] public EntityUid? PickupedUid;
 }

@@ -1,0 +1,8 @@
+- type: emote
+  id: Awo
+  category: Vocal
+  buttonText: Авукать
+  chatMessages: [ авукает ]
+  chatTriggers:
+    - авукает
+    - увукает

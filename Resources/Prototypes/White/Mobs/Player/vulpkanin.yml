@@ -20,17 +20,17 @@
         types:
           Asphyxiation: -1.5
     - type: Alerts
-    - type: Vocal
-      wilhelm: "/Audio/Voice/Felinid/cat_wilhelm.ogg"
-      sounds:
-        Male: MaleHuman
-        Female: FemaleHuman
-        Unsexed: MaleHuman
     - type: Actions
     - type: Eye
     - type: CameraRecoil
     - type: Examiner
     - type: CanHostGuardian
+    - type: Vocal
+      wilhelm: "/Audio/White/Voice/Barking/bark2.ogg"
+      sounds:
+        Male: MaleVulpkanin
+        Female: FemaleVulpkanin
+        Unsexed: MaleVulpkanin
     - type: Felinid #since this just adds an action...
     - type: InteractionPopup
       successChance: 1
