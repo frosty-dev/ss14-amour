@@ -192,7 +192,7 @@ namespace Content.Client.Inventory
 
         private void AddInventoryButton(EntityUid invUid, string slotId, InventoryTemplatePrototype _, InventoryComponent inv)
         {
-            if (!_inv.TryGetSlotContainer(invUid, slotId, out var container, out var slotDef, inv))
+            if (!_inv.TryGetSlotContainer(invUid, slotId, out var container, out var slotDef, inv) || slotDef.Hidden)
                 return;
 
             var entity = container.ContainedEntity;

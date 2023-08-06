@@ -25,6 +25,9 @@
     - type: CameraRecoil
     - type: Examiner
     - type: CanHostGuardian
+    - type: NpcFactionMember
+      factions:
+        - NanoTrasen
     - type: Vocal
       wilhelm: "/Audio/White/Voice/Barking/bark2.ogg"
       sounds:
