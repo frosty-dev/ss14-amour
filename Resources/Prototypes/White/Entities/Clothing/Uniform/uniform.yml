@@ -1,0 +1,273 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: BlackSuitFem
+  name: Black Suit Fem
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/black_suit_fem.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/black_suit_fem.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: BlackSuitFemSkirt
+  name: Black Suit Fem Skirt
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/black_suit_fem_skirt.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/black_suit_fem_skirt.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: BlackTango
+  name: Black Tango
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/black_tango.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/black_tango.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: BluesuitSkirt
+  name: Bluesuit Skirt
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/bluesuit_skirt.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/bluesuit_skirt.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: BluePyjamas
+  name: Blue Pyjamas
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/blue_pyjamas.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/blue_pyjamas.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: BrideBlue
+  name: Bride Blue
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/bride_blue.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/bride_blue.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: BrideOrange
+  name: Bride Orange
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/bride_orange.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/bride_orange.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: BrideRed
+  name: Bride Red
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/bride_red.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/bride_red.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: BrideWhite
+  name: Bride White
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/bride_white.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/bride_white.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: BurgundySuit
+  name: Burgundy Suit
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/burgundy_suit.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/burgundy_suit.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Corset
+  name: Corset
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/corset.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/corset.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Darkholme
+  name: Darkholme
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/darkholme.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/darkholme.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Gladiator
+  name: Gladiator
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/gladiator.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/gladiator.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: RedEveningGown
+  name: Red Evening Gown
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/red_evening_gown.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/red_evening_gown.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Sailor
+  name: Sailor
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/sailor.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/sailor.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: SailorDress
+  name: Sailor Dress
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/sailor_dress.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/sailor_dress.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Scarecrow
+  name: Scarecrow
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/scarecrow.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/scarecrow.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Schoolgirl
+  name: Schoolgirl
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/schoolgirl.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/schoolgirl.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Schoolgirlgreen
+  name: Schoolgirlgreen
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/schoolgirlgreen.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/schoolgirlgreen.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Schoolgirlorange
+  name: Schoolgirlorange
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/schoolgirlorange.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/schoolgirlorange.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Schoolgirlred
+  name: Schoolgirlred
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/schoolgirlred.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/schoolgirlred.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Sexyclown
+  name: Sexyclown
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/sexyclown.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/sexyclown.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Sexymime
+  name: Sexymime
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/sexymime.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/sexymime.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Sundress
+  name: Sundress
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/sundress.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/sundress.rsi
+
+
+- type: entity
+  parent: ClothingUniformBase
+  id: Ysing
+  name: Ysing
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/ysing.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/ysing.rsi

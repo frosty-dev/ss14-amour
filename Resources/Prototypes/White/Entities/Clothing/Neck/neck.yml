@@ -1,0 +1,20 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: Choker
+  name: Choker
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Neck/choker.rsi
+    - type: Clothing
+      sprite: White/Clothing/Neck/choker.rsi
+
+
+- type: entity
+  parent: ClothingNeckBase
+  id: Petcollar
+  name: Petcollar
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Neck/petcollar.rsi
+    - type: Clothing
+      sprite: White/Clothing/Neck/petcollar.rsi
