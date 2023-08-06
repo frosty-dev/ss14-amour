@@ -211,7 +211,7 @@
     Blunt: 1.15
     Slash: 0.65
     Piercing: 0.75
-    Heat: 2.2
+    Heat: 1.5
     Cold: 0.35
 
 - type: damageModifierSet

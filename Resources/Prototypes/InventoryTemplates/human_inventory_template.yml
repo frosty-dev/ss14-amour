@@ -144,4 +144,12 @@
       uiWindowPos: 3,0
       strippingWindowPos: 0,5
       displayName: Back
-
+    - name: anus
+      slotTexture: anus
+      slotFlags: POCKET
+      stripTime: 9
+      uiWindowPos: 0,3
+      strippingWindowPos: 0,3
+      displayName: Anus
+      stripHidden: true
+      hidden: true

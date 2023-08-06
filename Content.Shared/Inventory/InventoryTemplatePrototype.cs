@@ -49,4 +49,7 @@ public sealed class SlotDefinition
     ///     Entity blacklist for CanEquip checks.
     /// </summary>
     [DataField("blacklist")] public EntityWhitelist? Blacklist = null;
+
+    // WD EDIT FOR ASS
+    [DataField("hidden")] public bool Hidden;
 }
