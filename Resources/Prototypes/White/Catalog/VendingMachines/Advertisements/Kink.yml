@@ -1,0 +1,5 @@
+- type: advertisementsPack
+  id: KinkMachineAds
+  advertisements:
+    - advertisement-kink-1
+    - advertisement-kink-2
