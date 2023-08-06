@@ -28,13 +28,14 @@ public abstract class SharedAnusSystem : EntitySystem
 
     private void OnInsert(EntityUid uid, AnusComponent component, InsertToAnusDoAfterEvent args)
     {
-        if(args.Used.HasValue)
+        if(args is { Used: not null, Cancelled: false })
             InsertToAnus(uid,args.Used.Value,component);
     }
 
     private void OnInspect(EntityUid uid, AnusComponent component, InspectAnusDoAfterEvent args)
     {
-        InspectAnus(uid, args.User, component);
+        if(!args.Cancelled)
+            InspectAnus(uid, args.User, component);
     }
 
     private void OnVerb(EntityUid uid, AnusComponent component, GetVerbsEvent<AlternativeVerb> args)
@@ -50,7 +51,8 @@ public abstract class SharedAnusSystem : EntitySystem
                 Act = () =>
                 {
                     var doAfterArgs = new DoAfterArgs(args.User, TimeSpan.FromSeconds(6), new InspectAnusDoAfterEvent(),
-                        uid){
+                        uid,uid)
+                    {
                         BreakOnTargetMove = true,
                         BreakOnUserMove = true,
                         BreakOnDamage = true
@@ -68,7 +70,8 @@ public abstract class SharedAnusSystem : EntitySystem
                 Act = () =>
                 {
                     var doAfterArgs = new DoAfterArgs(args.User, TimeSpan.FromSeconds(6),
-                        new InsertToAnusDoAfterEvent(), uid, uid, hands.ActiveHand.HeldEntity.Value){
+                        new InsertToAnusDoAfterEvent(), uid, uid, hands.ActiveHand.HeldEntity.Value)
+                    {
                         BreakOnTargetMove = true,
                         BreakOnUserMove = true,
                         BreakOnDamage = true
@@ -99,7 +102,8 @@ public abstract class SharedAnusSystem : EntitySystem
             args.Cancel();
 
             var doAfterArgs = new DoAfterArgs(args.UnEquipTarget, TimeSpan.FromSeconds(6), new InspectAnusDoAfterEvent(),
-                args.UnEquipTarget){
+                args.UnEquipTarget,args.UnEquipTarget)
+            {
                 BreakOnTargetMove = true,
                 BreakOnUserMove = true,
                 BreakOnDamage = true
