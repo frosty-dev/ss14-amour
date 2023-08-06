@@ -1,8 +1,10 @@
+using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
@@ -15,6 +17,7 @@ public abstract class SharedAnusSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {
@@ -58,6 +61,8 @@ public abstract class SharedAnusSystem : EntitySystem
                         BreakOnDamage = true
                     };
 
+                    if(_net.IsServer)
+                        _popup.PopupEntity(Loc.GetString("anus-inspecting"),uid,uid,PopupType.Medium);
                     _doAfter.TryStartDoAfter(doAfterArgs);
                 },
                 Text = Loc.GetString("anus-inspect")
@@ -77,6 +82,8 @@ public abstract class SharedAnusSystem : EntitySystem
                         BreakOnDamage = true
                     };
 
+                    if(_net.IsServer)
+                        _popup.PopupEntity(Loc.GetString("anus-inserting"),uid,uid,PopupType.Medium);
                     _doAfter.TryStartDoAfter(doAfterArgs);
                 },
                 Text = Loc.GetString("anus-insert")
