@@ -1,0 +1,11 @@
+- type: vendingMachineInventory
+  id: KinkMachineInventory
+  startingInventory:
+    Leash: 4
+    ClothingUniformJumpskirtJanimaid: 6
+    ClothingMaskSexyMime: 6
+    ClothingMaskSexyClown: 6
+    ClothingMaskMuzzle: 6
+    ClothingEyesBlindfold: 6
+    ClothingHeadHatCatEars: 6
+    ClothingHeadHatBunny: 6
