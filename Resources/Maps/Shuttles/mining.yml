@@ -520,18 +520,86 @@ entities:
       type: GravityShake
     - type: GasTileOverlay
     - type: GridPathfinding
-- proto: AirlockExternal
+- proto: AtmosDeviceFanTiny
   entities:
-  - uid: 4
+  - uid: 121
     components:
     - pos: -6.5,2.5
       parent: 181
       type: Transform
-  - uid: 14
+  - uid: 125
     components:
     - pos: -6.5,1.5
       parent: 181
       type: Transform
+  - uid: 126
+    components:
+    - pos: 1.5,1.5
+      parent: 181
+      type: Transform
+  - uid: 127
+    components:
+    - pos: 1.5,2.5
+      parent: 181
+      type: Transform
+  - uid: 128
+    components:
+    - pos: -5.5,-2.5
+      parent: 181
+      type: Transform
+  - uid: 129
+    components:
+    - pos: -5.5,-3.5
+      parent: 181
+      type: Transform
+  - uid: 130
+    components:
+    - pos: -5.5,-1.5
+      parent: 181
+      type: Transform
+  - uid: 131
+    components:
+    - pos: 0.5,-3.5
+      parent: 181
+      type: Transform
+  - uid: 133
+    components:
+    - pos: 0.5,-1.5
+      parent: 181
+      type: Transform
+  - uid: 134
+    components:
+    - pos: 0.5,-2.5
+      parent: 181
+      type: Transform
+- proto: AirlockShuttle
+  entities:
+  - uid: 4
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -6.5,2.5
+      parent: 181
+      type: Transform
+  - uid: 14
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -6.5,1.5
+      parent: 181
+      type: Transform
+  - uid: 34
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 1.5,1.5
+      parent: 181
+      type: Transform
+  - uid: 36
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 1.5,2.5
+      parent: 181
+      type: Transform
+- proto: AirlockExternal
+  entities:
   - uid: 29
     components:
     - pos: -4.5,1.5
@@ -540,16 +608,6 @@ entities:
   - uid: 30
     components:
     - pos: -4.5,2.5
-      parent: 181
-      type: Transform
-  - uid: 34
-    components:
-    - pos: 1.5,1.5
-      parent: 181
-      type: Transform
-  - uid: 36
-    components:
-    - pos: 1.5,2.5
       parent: 181
       type: Transform
   - uid: 49
@@ -982,7 +1040,7 @@ entities:
     - pos: -1.5,-5.5
       parent: 181
       type: Transform
-- proto: GeneratorBasic15kW
+- proto: GeneratorPlasma
   entities:
   - uid: 67
     components:
