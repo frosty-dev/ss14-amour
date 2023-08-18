@@ -29,7 +29,7 @@
     zeroVisible: false
   - type: Appearance
   - type: StaticPrice
-    price: 500
+    price: 350
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -478,6 +478,10 @@
           shader: unshaded
     - type: Clothing
       sprite: Objects/Weapons/Guns/Battery/egun.rsi
+      quickEquip: false
+      slots:
+      - Belt
+      - suitStorage
     - type: Gun
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
