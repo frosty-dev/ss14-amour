@@ -12,7 +12,8 @@ public sealed class SmokeComponent : Component
 {
     public const string SolutionName = "solutionArea";
 
-    public float AccumulatedFrametime = 0.0f;
+    [DataField("nextReact", customTypeSerializer:typeof(TimeOffsetSerializer))]
+    public TimeSpan NextReact = TimeSpan.Zero;
 
     [DataField("spreadAmount")]
     public int SpreadAmount = 0;

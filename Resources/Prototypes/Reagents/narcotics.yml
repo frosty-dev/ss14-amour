@@ -472,7 +472,7 @@
             - norepinephricacid-effect-blindness
           conditions:
             - !type:ReagentThreshold
-              min: 15
+              min: 20
           probability: 0.03
         - !type:Emote
           emote: Scream
@@ -482,4 +482,4 @@
           component: TemporaryBlindness
           conditions:
             - !type:ReagentThreshold
-              min: 15
+              min: 20

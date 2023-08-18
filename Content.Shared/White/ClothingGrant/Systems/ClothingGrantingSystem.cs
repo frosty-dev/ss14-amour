@@ -2,11 +2,10 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Tag;
-using Content.Shared.White.ClothingGrant.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.White.ClothingGrant.Systems;
+namespace Content.Shared.Clothing;
 
 public sealed class ClothingGrantingSystem : EntitySystem
 {
@@ -52,10 +51,9 @@ public sealed class ClothingGrantingSystem : EntitySystem
             var temp = (object) newComp;
             _serializationManager.CopyTo(data.Component, ref temp);
             EntityManager.AddComponent(args.Equipee, (Component)temp!);
-        }
 
-        component.IsActive = true;
-        Dirty(component);
+            component.IsActive = true;
+        }
     }
 
     private void OnCompUnequip(EntityUid uid, ClothingGrantComponentComponent component, GotUnequippedEvent args)
@@ -73,7 +71,6 @@ public sealed class ClothingGrantingSystem : EntitySystem
         }
 
         component.IsActive = false;
-        Dirty(component);
     }
 
     private void OnTagEquip(EntityUid uid, ClothingGrantTagComponent component, GotEquippedEvent args)
@@ -86,7 +83,6 @@ public sealed class ClothingGrantingSystem : EntitySystem
         _tagSystem.AddTag(args.Equipee, component.Tag);
 
         component.IsActive = true;
-        Dirty(component);
     }
 
     private void OnTagUnequip(EntityUid uid, ClothingGrantTagComponent component, GotUnequippedEvent args)
@@ -96,6 +92,5 @@ public sealed class ClothingGrantingSystem : EntitySystem
         _tagSystem.RemoveTag(args.Equipee, component.Tag);
 
         component.IsActive = false;
-        Dirty(component);
     }
 }

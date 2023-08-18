@@ -10,9 +10,9 @@
     state: telecrystal
   - type: Item
     sprite: Objects/Specific/Syndicate/telecrystal.rsi
+    size: 20
   - type: Stack
     count: 20
-    sizeMultiplier: 0.25
     stackType: Telecrystal
   - type: StaticPrice
     price: 0
@@ -29,7 +29,6 @@
   components:
   - type: Stack
     count: 1
-    sizeMultiplier: 0.25
   - type: Item
     size: 1
 
@@ -40,9 +39,8 @@
   components:
   - type: Stack
     count: 5
-    sizeMultiplier: 0.25
   - type: Item
-    size: 1
+    size: 5
 
 - type: entity
   parent: Telecrystal
@@ -51,9 +49,8 @@
   components:
   - type: Stack
     count: 10
-    sizeMultiplier: 0.25
   - type: Item
-    size: 3
+    size: 10
 
 # Uplinks
 - type: entity

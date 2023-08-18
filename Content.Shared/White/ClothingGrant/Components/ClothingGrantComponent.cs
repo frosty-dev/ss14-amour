@@ -1,17 +1,15 @@
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.White.ClothingGrant.Components;
-
-[RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
-public sealed partial class ClothingGrantComponentComponent : Component
+namespace Content.Shared.Clothing
 {
-    [DataField("component", required: true)]
-    [AlwaysPushInheritance]
-    public ComponentRegistry Components { get; } = new();
+    [RegisterComponent]
+    public sealed class ClothingGrantComponentComponent : Component
+    {
+        [DataField("component", required: true)]
+        [AlwaysPushInheritance]
+        public ComponentRegistry Components { get; } = new();
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    [AutoNetworkedField]
-    public bool IsActive = false;
+        [ViewVariables(VVAccess.ReadWrite)]
+        public bool IsActive = false;
+    }
 }

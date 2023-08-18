@@ -58,9 +58,7 @@ namespace Content.Client.Info
                 _infoLinks.Add((cVar, button));
             }
 
-            var saltedYaycaButton = new Button() {Text = "Привязать Discord"};
-
-            saltedYaycaButton.AddStyleClass("ButtonColorPurple");
+            var saltedYaycaButton = new Button() {Text = "Привязать дискорд"};
 
             saltedYaycaButton.OnPressed += _ =>
             {

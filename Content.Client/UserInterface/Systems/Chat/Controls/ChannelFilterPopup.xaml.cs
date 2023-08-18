@@ -24,8 +24,7 @@ public sealed partial class ChannelFilterPopup : Popup
         ChatChannel.AdminChat,
         ChatChannel.Server,
         // WD EDIT
-        ChatChannel.Cult,
-        ChatChannel.MOOC
+        ChatChannel.Cult
         // WD EDIT END
     };
 

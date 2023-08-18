@@ -1,11 +1,9 @@
-using Robust.Shared.GameStates;
-
-namespace Content.Shared.White.EntityJobInfo;
+namespace Content.Shared.EntityJobInfo;
 
 /// <summary>
 /// This component allows you to see job icon from entity(char)
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed class ShowJobInfoComponent : Component
 {
 }

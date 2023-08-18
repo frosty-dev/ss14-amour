@@ -300,14 +300,10 @@
     - !type:IncompatibleConditionsRequirement
       conditions:
         - DieCondition
-    - !type:NotRoleRequirement
-      roleId: HeadOfPersonnel
-    - !type:NotRoleRequirement
-      roleId: Captain
   conditions:
     - !type:StealFewItemsCondition
       prototype: WeaponEgun
-      quantityRange: [1, 2]
+      quantityRange: [2, 5]
 
 - type: objective
   id: FewIDCardObjective
@@ -369,7 +365,7 @@
   conditions:
     - !type:StealFewItemsCondition
       prototype: Stunbaton
-      quantityRange: [2, 4]
+      quantityRange: [2, 5]
 
 - type: objective
   id: FewHeadHelmetHelmetObjective

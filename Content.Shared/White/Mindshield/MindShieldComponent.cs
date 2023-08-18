@@ -12,6 +12,6 @@ public sealed class MindShieldComponent : Component
 [Serializable, NetSerializable]
 public sealed class MindShieldComponentState : ComponentState { }
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed class ShowMindShieldHudComponent : Component { }
 

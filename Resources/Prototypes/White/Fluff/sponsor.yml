@@ -137,9 +137,3 @@
   id: derderiotSynthesizerLoadout
   entity: SuperSynthesizerInstrumentDerderiot
   sponsorOnly: true
-
-# koitorra
-- type: loadout
-  id: koitorraMaskLoadout
-  entity: ClothingMaskGasKoitorra
-  sponsorOnly: true

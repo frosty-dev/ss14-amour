@@ -202,7 +202,7 @@
   - type: StorageFill
     contents:
       - id: Brutepack
-        amount: 6
+        amount: 3
   - type: Tag
     tags:
       - BoxHug

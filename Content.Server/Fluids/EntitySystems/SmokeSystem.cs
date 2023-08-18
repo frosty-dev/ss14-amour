@@ -22,6 +22,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -32,6 +33,7 @@ public sealed class SmokeSystem : EntitySystem
 {
     // If I could do it all again this could probably use a lot more of puddles.
     [Dependency] private readonly IAdminLogManager _logger = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
@@ -46,6 +48,7 @@ public sealed class SmokeSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<SmokeComponent, EntityUnpausedEvent>(OnSmokeUnpaused);
         SubscribeLocalEvent<SmokeComponent, ReactionAttemptEvent>(OnReactionAttempt);
         SubscribeLocalEvent<SmokeComponent, SpreadNeighborsEvent>(OnSmokeSpread);
         SubscribeLocalEvent<SmokeDissipateSpawnComponent, TimedDespawnEvent>(OnSmokeDissipate);
@@ -183,20 +186,24 @@ public sealed class SmokeSystem : EntitySystem
         }
     }
 
+    private void OnSmokeUnpaused(EntityUid uid, SmokeComponent component, ref EntityUnpausedEvent args)
+    {
+        component.NextReact += args.PausedTime;
+    }
+
     /// <inheritdoc/>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
         var query = EntityQueryEnumerator<SmokeComponent>();
+        var curTime = _timing.CurTime;
 
         while (query.MoveNext(out var uid, out var smoke))
         {
-            smoke.AccumulatedFrametime += frameTime;
-
-            if (smoke.AccumulatedFrametime < 0.5f)
+            if (smoke.NextReact > curTime)
                 continue;
 
-            smoke.AccumulatedFrametime -= 0.5f;
+            smoke.NextReact += TimeSpan.FromSeconds(1.5);
 
             SmokeReact(uid, 1f, smoke);
         }
@@ -283,19 +290,13 @@ public sealed class SmokeSystem : EntitySystem
         }
 
         var cloneSolution = solution.Clone();
-        var transferAmount = FixedPoint2.Min(cloneSolution.Volume * solutionFraction * 0.2, bloodstream.ChemicalSolution.AvailableVolume);
+        var transferAmount = FixedPoint2.Min(cloneSolution.Volume * solutionFraction, bloodstream.ChemicalSolution.AvailableVolume);
         var transferSolution = cloneSolution.SplitSolution(transferAmount);
 
         foreach (var reagentQuantity in transferSolution.Contents.ToArray())
         {
             if (reagentQuantity.Quantity == FixedPoint2.Zero)
                 continue;
-
-            var id = reagentQuantity.ReagentId;
-            var otherQuantity = bloodstream.ChemicalSolution.GetReagentQuantity(id);
-            var newQuantity = FixedPoint2.Max(FixedPoint2.Zero, solution.GetReagentQuantity(id) - otherQuantity);
-            newQuantity = FixedPoint2.Min(newQuantity, reagentQuantity.Quantity);
-            transferSolution.RemoveReagent(id, reagentQuantity.Quantity - newQuantity);
 
             _reactive.ReactionEntity(entity, ReactionMethod.Ingestion, reagentQuantity.ReagentId, reagentQuantity.Quantity, transferSolution);
         }

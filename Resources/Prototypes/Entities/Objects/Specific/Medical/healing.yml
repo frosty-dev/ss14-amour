@@ -6,6 +6,7 @@
   - type: Sprite
     sprite: Objects/Specific/Medical/medical.rsi
   - type: Item
+    size: 10
     sprite: Objects/Specific/Medical/medical.rsi
     heldPrefix: ointment
   # Inherited
@@ -42,7 +43,6 @@
   - type: Stack
     stackType: Ointment
     count: 10
-    sizeMultiplier: 0.5
   - type: StackPrice
     price: 10
 
@@ -54,7 +54,6 @@
   - type: Stack
     stackType: Ointment
     count: 1
-    sizeMultiplier: 0.5
   - type: Item
     size: 1
 
@@ -87,7 +86,6 @@
   - type: Stack
     stackType: RegenerativeMesh
     count: 10
-    sizeMultiplier: 0.5
   - type: StackPrice
     price: 20
 
@@ -98,7 +96,6 @@
   - type: Stack
     stackType: RegenerativeMesh
     count: 1
-    sizeMultiplier: 0.5
   - type: Item
     size: 1
 
@@ -127,7 +124,6 @@
   - type: Stack
     stackType: Brutepack
     count: 10
-    sizeMultiplier: 0.5
   - type: StackPrice
     price: 10
 
@@ -139,7 +135,6 @@
   - type: Stack
     stackType: Brutepack
     count: 1
-    sizeMultiplier: 0.5
   - type: Item
     size: 1
 
@@ -170,7 +165,6 @@
   - type: Stack
     stackType: MedicatedSuture
     count: 10
-    sizeMultiplier: 0.5
   - type: StackPrice
     price: 20
 
@@ -181,7 +175,6 @@
   - type: Stack
     stackType: MedicatedSuture
     count: 1
-    sizeMultiplier: 0.5
   - type: Item
     size: 1
 
@@ -211,7 +204,6 @@
   - type: Stack
     stackType: Bloodpack
     count: 10
-    sizeMultiplier: 0.5
   - type: StackPrice
     price: 10
 
@@ -245,7 +237,6 @@
   - type: Stack
     stackType: Gauze
     count: 10
-    sizeMultiplier: 0.5
   - type: StackPrice
     price: 10
 
@@ -256,7 +247,6 @@
   components:
   - type: Stack
     count: 1
-    sizeMultiplier: 0.5
   - type: Item
     size: 1
 
@@ -272,7 +262,6 @@
   - type: Stack
     stackType: AloeCream
     count: 10
-    sizeMultiplier: 0.5
 
 # Pills
 - type: entity

@@ -1,15 +1,16 @@
-using Content.Shared.White.EntityHealthBar;
+using Content.Shared.EntityHealthBar;
 using Content.Shared.GameTicking;
 using Robust.Client.Player;
 using Robust.Client.Graphics;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.White.EntityHealthBar
+namespace Content.Client.EntityHealthBar
 {
     public sealed class ShowHealthBarsSystem : EntitySystem
     {
         [Dependency] private readonly IPlayerManager _player = default!;
+        [Dependency] private readonly IPrototypeManager _protoMan = default!;
         [Dependency] private readonly IOverlayManager _overlayMan = default!;
 
         private EntityHealthBarOverlay _overlay = default!;
@@ -23,7 +24,7 @@ namespace Content.Client.White.EntityHealthBar
             SubscribeLocalEvent<ShowHealthBarsComponent, PlayerDetachedEvent>(OnPlayerDetached);
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
 
-            _overlay = new(EntityManager);
+            _overlay = new(EntityManager, _protoMan);
         }
 
         private void OnInit(EntityUid uid, ShowHealthBarsComponent component, ComponentInit args)

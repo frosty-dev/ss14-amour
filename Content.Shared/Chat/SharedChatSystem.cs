@@ -21,7 +21,6 @@ public abstract class SharedChatSystem : EntitySystem
     public const char WhisperPrefix = ',';
     
     public const char CultPrefix = '^';
-    public const char MOOCPrefix = '{';
 
     public const char DefaultChannelKey = 'h';
     public const string CommonChannel = "Common";

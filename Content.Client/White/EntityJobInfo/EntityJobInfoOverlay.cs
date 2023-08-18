@@ -11,7 +11,7 @@ using Content.Shared.Roles;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 
-namespace Content.Client.White.EntityJobInfo;
+namespace Content.Client.EntityJobInfo;
 
 public sealed class EntityJobInfoOverlay : Overlay
 {
@@ -19,6 +19,7 @@ public sealed class EntityJobInfoOverlay : Overlay
     private readonly SharedTransformSystem _transform;
     private readonly IPrototypeManager _prototypeManager;
     private readonly InventorySystem _inventorySystem;
+    private readonly ShaderInstance _shader;
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
 
     public EntityJobInfoOverlay(IEntityManager entManager, IPrototypeManager protoManager, InventorySystem inventorySystem)
@@ -27,6 +28,7 @@ public sealed class EntityJobInfoOverlay : Overlay
         _prototypeManager = protoManager;
         _inventorySystem = inventorySystem;
         _transform = _entManager.EntitySysManager.GetEntitySystem<SharedTransformSystem>();
+        _shader = protoManager.Index<ShaderPrototype>("unshaded").Instance();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -39,6 +41,7 @@ public sealed class EntityJobInfoOverlay : Overlay
         const float scale = 1f;
         var scaleMatrix = Matrix3.CreateScale(new Vector2(scale, scale));
         var rotationMatrix = Matrix3.CreateRotation(-rotation);
+        handle.UseShader(_shader);
 
         foreach (var hum in _entManager.EntityQuery<HumanoidAppearanceComponent>(true))
         {

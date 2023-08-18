@@ -18,8 +18,7 @@ public sealed class ChannelSelectorPopup : Popup
         ChatSelectChannel.Dead,
         ChatSelectChannel.Admin,
         // WD EDIT
-        ChatSelectChannel.Cult,
-        ChatSelectChannel.MOOC
+        ChatSelectChannel.Cult
         // WD EDIT END
         // NOTE: Console is not in there and it can never be permanently selected.
         // You can, however, still submit commands as console by prefixing with /.

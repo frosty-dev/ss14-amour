@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Content.Server.GameTicking;
+﻿using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Components;
@@ -93,10 +92,5 @@ public sealed class RampingStationEventSchedulerSystem : GameRuleSystem<RampingS
 
         // 4-12 minutes baseline. Will get faster over time as the chaos mod increases.
         component.TimeUntilNextEvent = _random.NextFloat(240f / mod, 720f / mod);
-    }
-
-    public bool CheckRampingEventRule() // WD
-    {
-        return EntityQuery<RampingStationEventSchedulerComponent>().Any();
     }
 }
