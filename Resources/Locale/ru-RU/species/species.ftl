@@ -9,3 +9,4 @@ species-name-arachnid = Арахнид
 species-name-skrell = Скрелл
 species-name-felinid = Фелинид
 species-name-vulpkanin = Вульпканин
+species-name-tajaran = Таяран
