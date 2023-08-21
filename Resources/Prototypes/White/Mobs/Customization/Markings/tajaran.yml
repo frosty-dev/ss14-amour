@@ -1,0 +1,8 @@
+- type: marking
+  id: TajaranTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Tajaran]
+  sprites:
+    - sprite: White/Mobs/Customization/tajaran_tail.rsi
+      state: tajaran

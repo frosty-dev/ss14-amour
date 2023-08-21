@@ -164,3 +164,22 @@
     RLeg: MobVulpkaninRLeg
     LFoot: MobVulpkaninLFoot
     RFoot: MobVulpkaninRFoot
+
+
+- type: bodyType
+  id: TajaranNormal
+  name: body-normal
+  sprites:
+    Head: MobTajaranHead
+    Snout: MobHumanoidAnyMarking
+    Chest: MobTajaranTorso
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobHumanoidEyes
+    LArm: MobTajaranLArm
+    RArm: MobTajaranRArm
+    LLeg: MobTajaranLLeg
+    RLeg: MobTajaranRLeg
