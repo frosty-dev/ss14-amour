@@ -16,6 +16,8 @@
     - type: Damageable
       damageContainer: Biological
       damageModifierSet: Vulpkanin
+    - type: Hunger
+    - type: Thirst
     - type: MeleeWeapon
       soundHit:
         collection: Punch

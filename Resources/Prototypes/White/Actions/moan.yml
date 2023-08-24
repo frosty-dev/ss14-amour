@@ -6,14 +6,23 @@
   chatTriggers:
     - стонает
     - стонет
+    - простонала
+    - простонал
+    - ах
+    - ох
 
 - type: emote
   id: EmoteTrahat
   category: Gesture
   buttonText: Долбиться
-  chatMessages: [ долбиться ]
+  chatMessages: [ долбится ]
   chatTriggers:
     - ебет
-    - долбиться
+    - ебёт
+    - шпёхается
+    - шпёхает
+    - шпехается
+    - шпехает
+    - долбится
     - трахает
     - трах-трах

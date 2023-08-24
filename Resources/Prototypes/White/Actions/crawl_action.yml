@@ -1,14 +1,3 @@
-- type: instantAction
-  id: Crawl
-  name: action-name-crawl
-  description: action-desc-crawl
-  checkCanInteract: false
-  icon:
-   sprite: Clothing/Head/Hats/pyjamasyndicateblack.rsi
-   state: icon
-  event: !type:CrawlToggledEvent
-  useDelay: 1
-
 - type: emote
   id: EmoteCrawl
   category: Gesture
