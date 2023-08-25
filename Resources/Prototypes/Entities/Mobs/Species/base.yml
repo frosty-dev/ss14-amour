@@ -290,6 +290,8 @@
         type: TeleportRunesListWindowBUI
       - key: enum.SummonCultistUiKey.Key
         type: SummonCultistListWindowBUI
+      - key: enum.SinguloCallUIKey.Key
+        type: SinguloCallBUI
         # WD-EDIT
   - type: Puller
   - type: Butcherable
@@ -324,6 +326,7 @@
   - type: DeathGasps
   - type: ExaminableClothes
   - type: CharacterInformation
+  - type: Penetrated
   - type: Crawlable
   - type: Cuntable
   - type: Anus
