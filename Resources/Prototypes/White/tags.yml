@@ -12,3 +12,15 @@
 
 - type: Tag
   id: Lighter
+
+- type: Tag
+  id: Heart
+
+- type: Tag
+  id: Brain
+
+- type: Tag
+  id: Kidneys
+
+- type: Tag
+  id: CrossbowBolt

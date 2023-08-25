@@ -38,7 +38,6 @@
       soundHit:
         path: /Audio/Effects/hit_kick.ogg
     - type: Stamina
-      excess: 85
     - type: Perishable
     - type: VulpAccent
 
