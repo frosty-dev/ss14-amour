@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA 3.0",
+  "copyright": "skyrat-yaica",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "testicles_single_1_0_ADJ",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_1_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_2_0_ADJ",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_2_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_3_0_ADJ",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_3_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_1-s_0_ADJ",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_1-s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_2-s_0_ADJ",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_2-s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_3-s_0_ADJ",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_3-s_0_BEHIND",
+      "directions": 4
+    }
+  ]
+}

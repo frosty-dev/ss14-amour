@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA 3.0",
+  "copyright": "skyrat-siski",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "breasts_pair_a_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_b_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_c_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_d_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_d_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_e_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_e_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_f_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_f_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_g_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_g_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_h_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_h_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_i_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_i_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_j_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_j_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_k_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_k_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_l_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_l_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_m_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_m_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_n_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_n_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_o_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_o_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_huge_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_huge_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_a_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_b_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_c_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_d_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_d_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_e_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_e_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_f_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_f_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_g_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_g_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_h_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_h_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_i_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_i_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_j_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_j_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_k_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_k_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_l_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_l_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_m_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_m_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_n_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_n_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_o_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_o_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_huge_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_pair_huge_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_a_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_b_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_c_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_d_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_d_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_e_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_e_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_a_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_b_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_c_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_d_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_d_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_e_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_quad_e-s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_a_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_b_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_c_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_d_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_d_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_e_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_e_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_a_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_b_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_c_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_d_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_d_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_e_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "breasts_sextuple_e_s_0_BEHIND",
+      "directions": 4
+    }
+  ]
+}
