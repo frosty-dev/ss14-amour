@@ -1,0 +1,43 @@
+- type: entity
+  parent: BaseItem
+  id: DildoHuman
+  name: dildo
+  description: Dildo goes br-r-r-r
+  components:
+    - type: Sprite
+      sprite: White/Items/Misc/dildo.rsi
+      state: dildo_human_3
+    - type: Item
+    - type: ItemCooldown
+    - type: Dildo
+    - type: UseDelay
+      delay: 2.0
+
+- type: entity
+  parent: DildoHuman
+  id: DildoKnocked
+  name: dildo
+  description: Dildo goes br-r-r-r
+  components:
+    - type: Sprite
+      state: dildo_knotted_3
+
+
+- type: entity
+  parent: DildoHuman
+  id: DildoPlain
+  name: dildo
+  description: Dildo goes br-r-r-r
+  components:
+    - type: Sprite
+      state: dildo_plain_3
+
+
+- type: entity
+  parent: DildoHuman
+  id: DildoFlared
+  name: dildo
+  description: Dildo goes br-r-r-r
+  components:
+    - type: Sprite
+      state: dildo_flared_4

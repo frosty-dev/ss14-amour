@@ -1,0 +1,231 @@
+- type: marking
+  id: Penis
+  bodyPart: Genitals
+  markingCategory: Genitals
+  sprites:
+    - sprite: White/Genitals/testicles.rsi
+      state: testicles_single_2-s_0_ADJ
+    - sprite: White/Genitals/penis.rsi
+      state: penis_human_3_0_FRONT
+
+- type: marking
+  id: PenisMid
+  bodyPart: Genitals
+  markingCategory: Genitals
+  sprites:
+    - sprite: White/Genitals/testicles.rsi
+      state: testicles_single_2-s_0_ADJ
+    - sprite: White/Genitals/penis.rsi
+      state: penis_human_2_0_FRONT
+
+- type: marking
+  id: PenisSmall
+  bodyPart: Genitals
+  markingCategory: Genitals
+  sprites:
+    - sprite: White/Genitals/testicles.rsi
+      state: testicles_single_2-s_0_ADJ
+    - sprite: White/Genitals/penis.rsi
+      state: penis_human_1_0_FRONT
+
+- type: marking
+  id: Vagina
+  bodyPart: Genitals
+  markingCategory: Genitals
+  sprites:
+    - sprite: White/Genitals/vagina.rsi
+      state: vagina_human_1_0_FRONT
+
+- type: marking
+  id: BreastsHuge
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_huge_s_0_FRONT
+
+- type: marking
+  id: BreastsA
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_a_0_FRONT
+
+- type: marking
+  id: BreastsB
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_b_0_FRONT
+
+- type: marking
+  id: BreastsC
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_c_0_FRONT
+
+- type: marking
+  id: BreastsD
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_d_0_FRONT
+
+- type: marking
+  id: BreastsE
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_e_0_FRONT
+
+- type: marking
+  id: BreastsF
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_f_0_FRONT
+
+- type: marking
+  id: BreastsG
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_g_0_FRONT
+
+- type: marking
+  id: BreastsH
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_h_0_FRONT
+
+- type: marking
+  id: BreastsI
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_i_0_FRONT
+
+- type: marking
+  id: BreastsJ
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_j_0_FRONT
+
+- type: marking
+  id: BreastsK
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_k_0_FRONT
+
+- type: marking
+  id: BreastsL
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_l_0_FRONT
+
+
+- type: marking
+  id: BreastsM
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_m_0_FRONT
+
+- type: marking
+  id: BreastsN
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_n_0_FRONT
+
+
+- type: marking
+  id: BreastsO
+  bodyPart: Breasts
+  markingCategory: Breasts
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  sprites:
+    - sprite: White/Genitals/breasts.rsi
+      state: breasts_pair_o_0_FRONT

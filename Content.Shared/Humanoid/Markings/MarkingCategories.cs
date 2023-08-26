@@ -15,6 +15,8 @@ namespace Content.Shared.Humanoid.Markings
         Arms,
         Legs,
         Tail,
+        Genitals, //WD EDIT
+        Breasts, //WD EDIT
         Overlay
     }
 
