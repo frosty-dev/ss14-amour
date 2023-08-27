@@ -37,10 +37,10 @@ public abstract class ClothingSystem : EntitySystem
         if(!HasComp<HumanoidAppearanceComponent>(args.Equipee))
             return;
 
-        if(args.Slot == "underwearb" || args.Slot == "jumpsuit")
+        if(args.Slot is "underwearb" or "jumpsuit" or "outerClothing" or "suitstorage")
             _humanoidSystem.SetLayerVisibility(args.Equipee,HumanoidVisualLayers.Genitals,false);
 
-        if (args.Slot == "underweart" || args.Slot == "jumpsuit")
+        if (args.Slot is "underweart" or "jumpsuit" or "outerClothing" or "suitstorage")
             _humanoidSystem.SetLayerVisibility(args.Equipee, HumanoidVisualLayers.Breasts, false);
     }
 
@@ -55,10 +55,10 @@ public abstract class ClothingSystem : EntitySystem
            _inventory.TryGetSlotEntity(args.Equipee, "suitstorage", out _))
             return;
 
-        if (args.Slot == "underwearb")
+        if (!_inventory.TryGetSlotEntity(args.Equipee,  "underwearb",out _))
             _humanoidSystem.SetLayerVisibility(args.Equipee,HumanoidVisualLayers.Genitals,true);
 
-        if (args.Slot == "underweart")
+        if (!_inventory.TryGetSlotEntity(args.Equipee,  "underweart",out _))
             _humanoidSystem.SetLayerVisibility(args.Equipee, HumanoidVisualLayers.Breasts, true);
     }
 
