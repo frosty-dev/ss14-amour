@@ -22,3 +22,15 @@ marking-BreastsM = Грудь
 marking-BreastsN = Грудь
 marking-BreastsO = Грудь
 marking-BreastsHuge = Грудь Доярки
+
+ent-DildoHuman = Дилдо
+    .desc = Дилдо делает Бр-р-р
+
+ent-DildoKnocked = Дилдо
+    .desc = Дилдо делает Бр-р-р
+
+ent-DildoPlain = Дилдо
+    .desc = Дилдо делает Бр-р-р
+
+ent-DildoFlared = Дилдо
+    .desc = Дилдо делает Бр-р-р

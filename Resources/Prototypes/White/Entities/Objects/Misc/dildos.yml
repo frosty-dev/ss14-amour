@@ -9,6 +9,9 @@
       state: dildo_human_3
     - type: Item
     - type: ItemCooldown
+    - type: DeviceLinkSink
+      ports:
+        - Toggle
     - type: Dildo
     - type: UseDelay
       delay: 2.0
