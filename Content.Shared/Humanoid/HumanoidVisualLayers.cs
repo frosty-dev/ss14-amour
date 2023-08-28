@@ -17,6 +17,8 @@ namespace Content.Shared.Humanoid
         Eyes,
         RArm,
         LArm,
+        Genitals, //WD EDIT
+        Breasts, //WD EDIT
         RHand,
         LHand,
         RLeg,

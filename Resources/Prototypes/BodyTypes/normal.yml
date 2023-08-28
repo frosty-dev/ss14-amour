@@ -13,6 +13,8 @@
     RArm: MobHumanRArm
     LHand: MobHumanLHand
     RHand: MobHumanRHand
+    Breasts: MobHumanoidAnyMarking
+    Genitals: MobHumanoidAnyMarking
     LLeg: MobHumanLLeg
     RLeg: MobHumanRLeg
     LFoot: MobHumanLFoot
@@ -33,6 +35,8 @@
     RArm: MobReptilianRArm
     LHand: MobReptilianLHand
     RHand: MobReptilianRHand
+    Breasts: MobHumanoidAnyMarking
+    Genitals: MobHumanoidAnyMarking
     LLeg: MobReptilianLLeg
     RLeg: MobReptilianRLeg
     LFoot: MobReptilianLFoot
@@ -48,6 +52,8 @@
     RArm: MobSkeletonRArm
     LHand: MobSkeletonLHand
     RHand: MobSkeletonRHand
+    Breasts: MobHumanoidAnyMarking
+    Genitals: MobHumanoidAnyMarking
     LLeg: MobSkeletonLLeg
     RLeg: MobSkeletonRLeg
     LFoot: MobSkeletonLFoot
@@ -66,6 +72,8 @@
     RArm: MobSlimeRArm
     LHand: MobSlimeLHand
     RHand: MobSlimeRHand
+    Breasts: MobHumanoidAnyMarking
+    Genitals: MobHumanoidAnyMarking
     LLeg: MobSlimeLLeg
     RLeg: MobSlimeRLeg
     LFoot: MobSlimeLFoot
@@ -84,6 +92,8 @@
     RArm: MobVoxRArm
     LHand: MobVoxLHand
     RHand: MobVoxRHand
+    Breasts: MobHumanoidAnyMarking
+    Genitals: MobHumanoidAnyMarking
     LLeg: MobVoxLLeg
     RLeg: MobVoxRLeg
     LFoot: MobVoxLFoot
@@ -101,6 +111,8 @@
     RArm: MobSkrellRArm
     LHand: MobSkrellLHand
     RHand: MobSkrellRHand
+    Breasts: MobHumanoidAnyMarking
+    Genitals: MobHumanoidAnyMarking
     LLeg: MobSkrellLLeg
     RLeg: MobSkrellRLeg
     LFoot: MobSkrellLFoot
@@ -118,6 +130,8 @@
     RArm: MobDionaRArm
     LHand: MobDionaLHand
     RHand: MobDionaRHand
+    Breasts: MobHumanoidAnyMarking
+    Genitals: MobHumanoidAnyMarking
     LLeg: MobDionaLLeg
     RLeg: MobDionaRLeg
     LFoot: MobDionaLFoot
@@ -138,6 +152,8 @@
     RArm: MobArachnidRArm
     LHand: MobArachnidLHand
     RHand: MobArachnidRHand
+    Breasts: MobHumanoidAnyMarking
+    Genitals: MobHumanoidAnyMarking
     LLeg: MobArachnidLLeg
     RLeg: MobArachnidRLeg
     LFoot: MobArachnidLFoot
@@ -160,6 +176,8 @@
     RArm: MobVulpkaninRArm
     LHand: MobVulpkaninLHand
     RHand: MobVulpkaninRHand
+    Breasts: MobHumanoidAnyMarking
+    Genitals: MobHumanoidAnyMarking
     LLeg: MobVulpkaninLLeg
     RLeg: MobVulpkaninRLeg
     LFoot: MobVulpkaninLFoot
@@ -181,5 +199,7 @@
     Eyes: MobHumanoidEyes
     LArm: MobTajaranLArm
     RArm: MobTajaranRArm
+    Breasts: MobHumanoidAnyMarking
+    Genitals: MobHumanoidAnyMarking
     LLeg: MobTajaranLLeg
     RLeg: MobTajaranRLeg

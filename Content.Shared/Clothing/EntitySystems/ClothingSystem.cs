@@ -13,6 +13,7 @@ public abstract class ClothingSystem : EntitySystem
     [Dependency] private readonly SharedItemSystem _itemSys = default!;
     [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     [ValidatePrototypeId<TagPrototype>]
     private const string HairTag = "HidesHair";
@@ -32,6 +33,15 @@ public abstract class ClothingSystem : EntitySystem
         component.InSlot = args.Slot;
         if (args.Slot == "head" && _tagSystem.HasTag(args.Equipment, HairTag))
             _humanoidSystem.SetLayerVisibility(args.Equipee, HumanoidVisualLayers.Hair, false);
+
+        if(!HasComp<HumanoidAppearanceComponent>(args.Equipee))
+            return;
+
+        if(args.Slot is "underwearb" or "jumpsuit" or "outerClothing" or "suitstorage")
+            _humanoidSystem.SetLayerVisibility(args.Equipee,HumanoidVisualLayers.Genitals,false);
+
+        if (args.Slot is "underweart" or "jumpsuit" or "outerClothing" or "suitstorage")
+            _humanoidSystem.SetLayerVisibility(args.Equipee, HumanoidVisualLayers.Breasts, false);
     }
 
     protected virtual void OnGotUnequipped(EntityUid uid, ClothingComponent component, GotUnequippedEvent args)
@@ -39,6 +49,20 @@ public abstract class ClothingSystem : EntitySystem
         component.InSlot = null;
         if (args.Slot == "head" && _tagSystem.HasTag(args.Equipment, HairTag))
             _humanoidSystem.SetLayerVisibility(args.Equipee, HumanoidVisualLayers.Hair, true);
+
+        if(!HasComp<HumanoidAppearanceComponent>(args.Equipee))
+            return;
+
+        if(_inventory.TryGetSlotEntity(args.Equipee, "jumpsuit", out _) ||
+           _inventory.TryGetSlotEntity(args.Equipee, "outerClothing", out _) ||
+           _inventory.TryGetSlotEntity(args.Equipee, "suitstorage", out _))
+            return;
+
+        if (!_inventory.TryGetSlotEntity(args.Equipee,  "underwearb",out _))
+            _humanoidSystem.SetLayerVisibility(args.Equipee,HumanoidVisualLayers.Genitals,true);
+
+        if (!_inventory.TryGetSlotEntity(args.Equipee,  "underweart",out _))
+            _humanoidSystem.SetLayerVisibility(args.Equipee, HumanoidVisualLayers.Breasts, true);
     }
 
     private void OnGetState(EntityUid uid, ClothingComponent component, ref ComponentGetState args)
