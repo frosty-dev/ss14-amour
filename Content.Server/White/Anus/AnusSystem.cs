@@ -15,7 +15,6 @@ public sealed class AnusSystem : SharedAnusSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -49,7 +48,7 @@ public sealed class AnusSystem : SharedAnusSystem
 
         while (query.MoveNext(out var uid,out var component))
         {
-            if (_timing.CurTime < component.NextMoanTime)
+            if (Timing.CurTime < component.NextMoanTime)
                 return;
             component.NextMoanTime += component.MoanRate;
 

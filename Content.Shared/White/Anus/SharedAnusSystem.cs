@@ -8,6 +8,7 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.White.Anus;
 
@@ -18,6 +19,7 @@ public abstract class SharedAnusSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] protected readonly IGameTiming Timing = default!;
 
     public override void Initialize()
     {
@@ -155,6 +157,7 @@ public abstract class SharedAnusSystem : EntitySystem
             return;
         }
 
+        component.NextMoanTime = Timing.CurTime;
         component.AnusSlot = anusSlot;
     }
 
