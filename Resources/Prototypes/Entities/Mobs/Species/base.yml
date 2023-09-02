@@ -332,6 +332,11 @@
   - type: Crawlable
   - type: Cuntable
   - type: Anus
+  - type: MobStateActions
+    actions:
+      Critical:
+        - CritSuccumb
+        - CritLastWords
 
 - type: entity
   save: false
