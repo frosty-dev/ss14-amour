@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
+using Content.Shared.Movement.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Sound.Components;
 using Content.Shared.Throwing;
@@ -30,14 +31,39 @@ namespace Content.Shared.Projectiles
         {
             base.Initialize();
             SubscribeLocalEvent<ProjectileComponent, PreventCollideEvent>(PreventCollision);
-            SubscribeLocalEvent<EmbeddableProjectileComponent, ProjectileCollideEvent>(OnEmbedProjectileCollide);
+            SubscribeLocalEvent<EmbeddableProjectileComponent, ProjectileHitEvent>(OnEmbedProjectileHit);
             SubscribeLocalEvent<EmbeddableProjectileComponent, ThrowDoHitEvent>(OnEmbedThrowDoHit);
             SubscribeLocalEvent<EmbeddableProjectileComponent, ActivateInWorldEvent>(OnEmbedActivate);
             SubscribeLocalEvent<EmbeddableProjectileComponent, RemoveEmbeddedProjectileEvent>(OnEmbedRemove);
+
             SubscribeLocalEvent<EmbeddableProjectileComponent, LandEvent>(OnLand); // WD
+            SubscribeLocalEvent<EmbeddableProjectileComponent, ComponentRemove>(OnRemove); // WD
+            SubscribeLocalEvent<EmbeddableProjectileComponent, EntityTerminatingEvent>(OnEntityTerminating); // WD
         }
 
         // WD EDIT START
+        private void OnEntityTerminating(EntityUid uid, EmbeddableProjectileComponent component,
+            ref EntityTerminatingEvent args)
+        {
+            if (!_netManager.IsClient)
+                FreePenetrated(component);
+        }
+
+        private void OnRemove(EntityUid uid, EmbeddableProjectileComponent component, ComponentRemove args)
+        {
+            if (!_netManager.IsClient)
+                FreePenetrated(component);
+        }
+
+        private void FreePenetrated(EmbeddableProjectileComponent component)
+        {
+            if (component.PenetratedUid == null)
+                return;
+
+            _penetratedSystem.FreePenetrated(component.PenetratedUid.Value);
+            component.PenetratedUid = null;
+        }
+
         private void OnLand(EntityUid uid, EmbeddableProjectileComponent component, ref LandEvent args)
         {
             if (component.PenetratedUid == null)
@@ -54,26 +80,39 @@ namespace Content.Shared.Projectiles
         private void OnEmbedActivate(EntityUid uid, EmbeddableProjectileComponent component, ActivateInWorldEvent args)
         {
             if (args.Handled || !TryComp<PhysicsComponent>(uid, out var physics) || physics.BodyType != BodyType.Static)
+            {
+                FreePenetrated(component);
                 return;
+            }
 
             args.Handled = true;
-            AttemptEmbedRemove(uid, args.User, component);
+            if (!AttemptEmbedRemove(uid, args.User, component))
+                FreePenetrated(component);
         }
 
-        public void AttemptEmbedRemove(EntityUid uid, EntityUid user, EmbeddableProjectileComponent? component = null)
+        public bool AttemptEmbedRemove(EntityUid uid, EntityUid user, EmbeddableProjectileComponent? component = null)
         {
             if (!Resolve(uid, ref component, false))
-                return;
+                return false;
 
             // Nuh uh
             if (component.RemovalTime == null)
-                return;
+                return false;
+
+            if (!TryComp(uid, out TransformComponent? xform) || !TryComp(user, out TransformComponent? userXform) ||
+                !xform.Coordinates.InRange(EntityManager, _transform, userXform.Coordinates,
+                    SharedInteractionSystem.InteractionRange + 1f) || !TryComp(user, out DoAfterComponent? doAfter))
+            {
+                return false;
+            }
 
             _doAfter.TryStartDoAfter(new DoAfterArgs(user, component.RemovalTime.Value,
                 new RemoveEmbeddedProjectileEvent(), eventTarget: uid, target: uid)
             {
                 DistanceThreshold = SharedInteractionSystem.InteractionRange,
-            });
+            }, doAfter);
+
+            return true;
         }
         // WD EDIT END
 
@@ -86,6 +125,10 @@ namespace Content.Shared.Projectiles
             if (component.DeleteOnRemove)
             {
                 QueueDel(uid);
+                // WD START
+                FreePenetrated(component);
+                RaiseLocalEvent(uid, new EmbedRemovedEvent());
+                // WD END
                 return;
             }
 
@@ -95,12 +138,7 @@ namespace Content.Shared.Projectiles
             _transform.AttachToGridOrMap(uid, xform);
 
             // WD START
-            if (component.PenetratedUid != null)
-            {
-                _penetratedSystem.FreePenetrated(component.PenetratedUid.Value);
-                component.PenetratedUid = null;
-            }
-
+            FreePenetrated(component);
             RaiseLocalEvent(uid, new EmbedRemovedEvent());
             // WD END
 
@@ -123,28 +161,32 @@ namespace Content.Shared.Projectiles
                 _physics.SetLinearVelocity(args.Target, Vector2.Zero, body: physics);
                 _physics.SetBodyType(args.Target, BodyType.Static, body: physics);
                 var xform = Transform(args.Target);
+                _transform.SetLocalPosition(xform, Transform(uid).LocalPosition);
                 _transform.SetParent(args.Target, xform, uid);
-                _transform.SetLocalPosition(xform,
-                    xform.LocalPosition + Transform(uid).LocalRotation.RotateVec(new Vector2(0.5f, 0.5f)));
+                if (TryComp(uid, out PhysicsComponent? projPhysics))
+                    _physics.SetLinearVelocity(uid, projPhysics.LinearVelocity / 2, body: projPhysics);
                 Dirty(component);
+                Dirty(penetrated);
                 return;
             }
 
             if (component.PenetratedUid == args.Target)
                 args.Handled = true;
+            else if (HasComp<MobMoverComponent>(args.Target) || HasComp<InputMoverComponent>(args.Target))
+                FreePenetrated(component);
             // WD END
 
             Embed(uid, args.Target, component);
         }
 
-        private void OnEmbedProjectileCollide(EntityUid uid, EmbeddableProjectileComponent component, ref ProjectileCollideEvent args)
+        private void OnEmbedProjectileHit(EntityUid uid, EmbeddableProjectileComponent component, ref ProjectileHitEvent args)
         {
-            Embed(uid, args.OtherEntity, component);
+            Embed(uid, args.Target, component);
 
             // Raise a specific event for projectiles.
             if (TryComp<ProjectileComponent>(uid, out var projectile))
             {
-                var ev = new ProjectileEmbedEvent(projectile.Shooter, projectile.Weapon, args.OtherEntity);
+                var ev = new ProjectileEmbedEvent(projectile.Shooter, projectile.Weapon, args.Target);
                 RaiseLocalEvent(uid, ref ev);
             }
         }

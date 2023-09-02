@@ -19,7 +19,7 @@ chat-manager-whisper-headset-on-message = Вы не можете шептать 
 chat-manager-server-wrap-message = [bold]{$message}[/bold]
 chat-manager-sender-announcement-wrap-message = [font size=14][bold]Объявление { $sender }:[/font][font size=12]
     { $message }[/bold][/font]
-chat-manager-entity-say-wrap-message = [bold]{$entityName}[/bold] говорит, "{$message}"
+chat-manager-entity-say-wrap-message = [bold]{$entityName}[/bold] [italic]говорит[/italic], "{$message}"
 chat-manager-entity-whisper-wrap-message = [font size=11][italic]{$entityName} шепчет, "{$message}"[/italic][/font]
 chat-manager-entity-whisper-unknown-wrap-message = [font size=11][italic]Кто-то шепчет, "{$message}"[/italic][/font]
 chat-manager-entity-me-wrap-message = [italic]{$entityName} {$message}[/italic]
@@ -36,3 +36,4 @@ chat-manager-admin-channel-name = АДМИН
 chat-manager-admin-discord-channel-name = Д-АДМИН
 chat-manager-cooldown-warn-message_channel = Вы сможете писать { $inChat } через: { $remainingTime } сек.
 chat-manager-cooldown-warn-message = Вы сможете писать через { $remainingTime } сек.
+chat-manager-antispam-warn-message = Вы сможете повторить сообщение через { $remainingTime } сек.

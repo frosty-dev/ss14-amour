@@ -85,7 +85,7 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
 
         if (_recruitment.GetEventSpawners(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayer)
         {
-            _logger.Error("Not enough spawners!");
+            _logger.Info("Not enough spawners!");
 
             DeclineERT(component.TargetStation.Value);
             return;
@@ -129,7 +129,7 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
 
     private void OnStartAttempt(RoundStartAttemptEvent ev)
     {
-        if(_cfgManager.GetCVar(WhiteCVars.LoadERTMap))
+        if(_cfgManager.GetCVar(WhiteCVars.LoadErtMap))
             SpawnMap();
     }
 
