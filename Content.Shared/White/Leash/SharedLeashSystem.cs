@@ -1,15 +1,13 @@
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Body.Components;
+using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Physics;
-using Content.Shared.Pulling;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Dynamics.Joints;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
@@ -22,6 +20,7 @@ public sealed class SharedLeashSystem : EntitySystem
 
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     public override void Initialize()
     {
@@ -36,6 +35,14 @@ public sealed class SharedLeashSystem : EntitySystem
         SubscribeLocalEvent<LeashComponent, EntGotInsertedIntoContainerMessage>(OnGettingPickedUp);
         SubscribeLocalEvent<LeashComponent, EntGotRemovedFromContainerMessage>(OnGettingRemoved);
         SubscribeLocalEvent<LeashComponent, UseInHandEvent>(OnUseInHand);
+
+        SubscribeLocalEvent<BodyComponent, LeashingEvent>(OnLeashed);
+    }
+
+    private void OnLeashed(EntityUid uid, BodyComponent component, LeashingEvent args)
+    {
+        if (args is { Used: not null, Target: not null, Cancelled: false })
+            LeashEntity(args.Used.Value, args.Target.Value, bodyComponent: component);
     }
 
     private void OnGettingRemoved(EntityUid uid, LeashComponent component, EntGotRemovedFromContainerMessage args)
@@ -77,7 +84,15 @@ public sealed class SharedLeashSystem : EntitySystem
         if(!args.Target.HasValue || !TryComp<BodyComponent>(args.Target,out var bodyComponent) || !args.CanReach || args.User == args.Target)
             return;
 
-        LeashEntity(uid,args.Target.Value,component,bodyComponent);
+        var doAfterArgs = new DoAfterArgs(args.User, TimeSpan.FromSeconds(5),
+            new LeashingEvent(), args.Target.Value, args.Target.Value, uid)
+        {
+            BreakOnTargetMove = true,
+            BreakOnUserMove = true,
+            BreakOnDamage = true
+        };
+
+        _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
     public void RemoveJoint(EntityUid leashUid, EntityUid uid, LeashedComponent? component = null)

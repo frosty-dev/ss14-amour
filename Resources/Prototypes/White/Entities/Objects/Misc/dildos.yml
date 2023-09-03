@@ -15,6 +15,10 @@
     - type: Dildo
     - type: UseDelay
       delay: 2.0
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 2
 
 - type: entity
   parent: DildoHuman

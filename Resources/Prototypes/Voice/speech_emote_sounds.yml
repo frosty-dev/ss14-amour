@@ -28,6 +28,8 @@
       collection: BikeHorn
     Moan:
       collection: MoanMale
+    Awo:
+      collection: AwoMale
 
 - type: emoteSounds
   id: FemaleHuman
@@ -94,6 +96,8 @@
       collection: Barking
     Yapping:
       collection: Yapping
+    Awo:
+      collection: AwoMale
 
 - type: emoteSounds
   id: FemaleVulpkanin
