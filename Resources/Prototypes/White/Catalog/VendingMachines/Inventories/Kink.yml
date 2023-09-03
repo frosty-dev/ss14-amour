@@ -1,7 +1,7 @@
 - type: vendingMachineInventory
   id: KinkMachineInventory
   startingInventory:
-    Leash: 4
+    Leash: 2
     ClothingUniformJumpskirtJanimaid: 6
     ClothingMaskSexyMime: 6
     ClothingMaskSexyClown: 6

@@ -4,3 +4,9 @@
     - /Audio/White/Voice/Awo/awoo1.ogg
     - /Audio/White/Voice/Awo/awoo2.ogg
     - /Audio/White/Voice/Awo/awoo3.ogg
+
+- type: soundCollection
+  id: AwoMale
+  files:
+    - /Audio/White/Voice/Awo/awoo_man_1.ogg
+    - /Audio/White/Voice/Awo/awoo_man_2.ogg
