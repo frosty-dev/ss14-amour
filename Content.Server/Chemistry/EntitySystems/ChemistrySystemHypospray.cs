@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Diagnostics.CodeAnalysis;
-using Content.Server.Atmos.Components;
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Components;
@@ -12,6 +11,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee;
@@ -22,6 +22,7 @@ namespace Content.Server.Chemistry.EntitySystems
     public sealed partial class ChemistrySystem
     {
         [Dependency] private readonly UseDelaySystem _useDelay = default!;
+        [Dependency] private readonly TagSystem _tag = default!; // WD
 
         private void InitializeHypospray()
         {
@@ -54,7 +55,7 @@ namespace Content.Server.Chemistry.EntitySystems
             Dirty(component);
         }
 
-        public void OnAfterInteract(EntityUid uid, HyposprayComponent component, AfterInteractEvent args)
+        private void OnAfterInteract(EntityUid uid, HyposprayComponent component, AfterInteractEvent args)
         {
             if (!args.CanReach)
                 return;
@@ -65,7 +66,7 @@ namespace Content.Server.Chemistry.EntitySystems
             TryDoInject(uid, target, user);
         }
 
-        public void OnAttack(EntityUid uid, HyposprayComponent component, MeleeHitEvent args)
+        private void OnAttack(EntityUid uid, HyposprayComponent component, MeleeHitEvent args)
         {
             if (!args.HitEntities.Any())
                 return;
@@ -76,7 +77,8 @@ namespace Content.Server.Chemistry.EntitySystems
             }
         }
 
-        public bool TryDoInject(EntityUid uid, EntityUid? target, EntityUid user, HyposprayComponent? component = null, bool hard = false)
+        public bool TryDoInject(EntityUid uid, EntityUid? target, EntityUid user, HyposprayComponent? component = null,
+            bool hard = false)
         {
             if (!Resolve(uid, ref component))
                 return false;
@@ -107,18 +109,23 @@ namespace Content.Server.Chemistry.EntitySystems
 
             if (!_solutions.TryGetInjectableSolution(target.Value, out var targetSolution))
             {
-                _popup.PopupCursor(Loc.GetString("hypospray-cant-inject", ("target", Identity.Entity(target.Value, _entMan))), user);
+                _popup.PopupCursor(
+                    Loc.GetString("hypospray-cant-inject", ("target", Identity.Entity(target.Value, _entMan))), user);
                 return false;
             }
 
             // WD EDIT Start
 
-            if (hard == false && _inventorySystem.TryGetSlotEntity(target.Value, "outerClothing", out var suit) && TryComp<PressureProtectionComponent>(suit, out _))
-            {
+            if (hard == false && _inventorySystem.TryGetSlotEntity(target.Value, "outerClothing", out var suit) &&
+                _tag.HasTag(suit.Value, "Hardsuit") &&
+                _inventorySystem.TryGetSlotEntity(target.Value, "head", out var helmet) &&
+                _tag.HasAnyTag(helmet.Value, new List<string> {"HardsuitHelmet", "HelmetEVA"}))
+
+        {
                 // If the target is wearing a pressure protection component, let's add a delay.
                 msgFormat = Loc.GetString("hypospray-component-inject-self-message-space");
 
-                var delay = _random.Next(2, 3);
+                var delay = _random.NextFloat() / 3f + 0.4f;
 
                 if (delayComp is not null)
                     _useDelay.BeginDelay(uid, delayComp);
@@ -139,10 +146,7 @@ namespace Content.Server.Chemistry.EntitySystems
                     RealTransferAmount = realTransferAmountDoAfter
                 }, uid, target: target.Value, used: uid)
                 {
-                    BreakOnUserMove = true,
-                    BreakOnDamage = true,
-                    BreakOnTargetMove = true,
-                    MovementThreshold = 0.1f,
+                    DistanceThreshold = SharedInteractionSystem.InteractionRange
                 });
 
                 // For the user
@@ -156,7 +160,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 }
 
                 return true;
-            }
+        }
 
             // WD EDIT End
 
