@@ -9,8 +9,7 @@
     litDamageBonus:
         types:
             Slash: 15
-            Heat: 15
-            Blunt: -4.5
+            Laser: 15 #WD edit
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword.rsi
     layers:
@@ -79,8 +78,7 @@
     litDamageBonus:
         types:
             Slash: 9
-            Heat: 9
-            Blunt: -1
+            Laser: 9 #WD edit
     activateSound: !type:SoundPathSpecifier
       path: /Audio/Weapons/ebladeon.ogg
       params:
@@ -156,8 +154,7 @@
     litDamageBonus:
         types:
             Slash: 7.5
-            Heat: 7.5
-            Blunt: -1
+            Laser: 7.5
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
     layers:
@@ -194,12 +191,12 @@
     - type: IncreaseDamageOnWield
       damage:
         types:
-          Slash: 1.8
-          Heat: 1.8
+          Slash: 15 #WD edit
+          Laser: 15 #WD edit
     - type: MeleeWeapon
       attackRate: 1.3
     - type: Reflect
-      reflectProb: 0.55
+      reflectProb: 1 #WD edit
       enabled: false
       reflects:
         - Energy
