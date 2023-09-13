@@ -34,7 +34,6 @@
 
 - type: markingPoints
   id: MobReptilianMarkingLimits
-  onlyWhitelisted: true
   points:
     Hair:
       points: 0
@@ -54,6 +53,12 @@
       points: 1
       required: false
     HeadSide:
+      points: 1
+      required: false
+    Genitals: # piska
+      points: 1
+      required: false
+    Breasts: # siska
       points: 1
       required: false
 

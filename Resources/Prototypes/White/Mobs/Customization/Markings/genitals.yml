@@ -2,6 +2,10 @@
   id: Penis
   bodyPart: Genitals
   markingCategory: Genitals
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
   sprites:
     - sprite: White/Genitals/testicles.rsi
       state: testicles_single_2-s_0_ADJ
@@ -12,6 +16,10 @@
   id: PenisMid
   bodyPart: Genitals
   markingCategory: Genitals
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
   sprites:
     - sprite: White/Genitals/testicles.rsi
       state: testicles_single_2-s_0_ADJ
@@ -22,6 +30,10 @@
   id: PenisSmall
   bodyPart: Genitals
   markingCategory: Genitals
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
   sprites:
     - sprite: White/Genitals/testicles.rsi
       state: testicles_single_2-s_0_ADJ
@@ -32,6 +44,10 @@
   id: Vagina
   bodyPart: Genitals
   markingCategory: Genitals
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
   sprites:
     - sprite: White/Genitals/vagina.rsi
       state: vagina_human_1_0_FRONT
