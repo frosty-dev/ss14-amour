@@ -87,6 +87,7 @@ namespace Content.Client.Preferences.UI
         //WD-EDIT
         private OptionButton _voiceButton => CVoiceButton;
         private Button _voicePlayButton => CVoicePlayButton;
+        private Button _showClothes => CShowClothes;
         //WD-EDIT
 
         private Slider _skinColor => CSkin;
@@ -169,6 +170,7 @@ namespace Content.Client.Preferences.UI
             #region Appearance
 
             _tabContainer.SetTabTitle(0, Loc.GetString("humanoid-profile-editor-appearance-tab"));
+            _showClothes.OnPressed += ToggleClothes;
 
             #region Sex
 
@@ -571,6 +573,11 @@ namespace Content.Client.Preferences.UI
 
 
             IsDirty = false;
+        }
+
+        private void ToggleClothes(BaseButton.ButtonEventArgs obj)
+        {
+            RebuildSpriteView();
         }
 
         private void UpdateRoleRequirements()
@@ -1243,7 +1250,10 @@ namespace Content.Client.Preferences.UI
                 return;
 
             EntitySystem.Get<HumanoidAppearanceSystem>().LoadProfile(_previewDummy!.Value, Profile);
-            LobbyCharacterPreviewPanel.GiveDummyJobClothes(_previewDummy!.Value, Profile);
+            //LobbyCharacterPreviewPanel.GiveDummyJobClothes(_previewDummy!.Value, Profile);
+            // WD EDIT
+            if(_showClothes.Pressed)
+                LobbyCharacterPreviewPanel.GiveDummyJobClothes(_previewDummy!.Value, Profile);
         }
 
         public void UpdateControls()

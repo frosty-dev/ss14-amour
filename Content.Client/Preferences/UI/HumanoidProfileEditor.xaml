@@ -82,6 +82,13 @@
                             <BoxContainer Orientation="Vertical">
                                 <!-- SexAndAgeRow -->
                                 <BoxContainer Orientation="Horizontal" SeparationOverride="10">
+                                    <!-- Show clothing -->
+                                    <prefUi:HighlightedContainer>
+                                        <BoxContainer Orientation="Horizontal">
+                                            <Label Text="{Loc 'humanoid-profile-editor-clothing'}" />
+                                            <Button Name="CShowClothes" Pressed="True" ToggleMode="True" Text="{Loc 'Show'}"/>
+                                        </BoxContainer>
+                                    </prefUi:HighlightedContainer>
                                     <!-- Sex -->
                                     <prefUi:HighlightedContainer>
                                         <BoxContainer Orientation="Horizontal">

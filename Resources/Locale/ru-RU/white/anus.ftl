@@ -5,3 +5,5 @@ anus-no-access = Похоже, что нет доступа к заднице
 anus-blowing = Вы чувствуете,как разрывается анус!
 anus-inserting = Вы чувствуете, будто что-то проталкивают к вашей заднице!
 
+humanoid-profile-editor-clothing = Показать одежду:
+Show = Показать
