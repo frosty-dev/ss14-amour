@@ -1,5 +1,17 @@
 - type: sponsorSpecies
-  id: 2
+  id: 2 #prikolist
+  species:
+    - Tajaran
+    - Vulpkanin
+
+- type: sponsorSpecies
+  id: 1 #mitior
+  species:
+    - Tajaran
+    - Vulpkanin
+
+- type: sponsorSpecies
+  id: 5 #DJ EBAN
   species:
     - Tajaran
     - Vulpkanin
