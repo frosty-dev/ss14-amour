@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Pulling.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 
