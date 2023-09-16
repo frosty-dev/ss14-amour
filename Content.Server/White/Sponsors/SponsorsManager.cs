@@ -16,6 +16,7 @@ public sealed class SponsorsManager
 {
     [Dependency] private readonly IServerNetManager _netMgr = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private readonly HttpClient _httpClient = new();
 
@@ -49,6 +50,11 @@ public sealed class SponsorsManager
             _cachedSponsors.Remove(e.UserId); // Remove from cache if sponsor expired
             return;
         }
+
+        // Amour edit
+        var ev = new SponsorInfoLoadEvent(info);
+        _entityManager.EventBus.RaiseEvent(EventSource.Local,ref ev);
+        info = ev.SponsorInfo;
 
         DebugTools.Assert(!_cachedSponsors.ContainsKey(e.UserId), "Cached data was found on client connect");
 
@@ -88,5 +94,16 @@ public sealed class SponsorsManager
         }
 
         return await response.Content.ReadFromJsonAsync<SponsorInfo>();
+    }
+}
+
+[ByRefEvent]
+public sealed class SponsorInfoLoadEvent
+{
+    public SponsorInfo SponsorInfo;
+
+    public SponsorInfoLoadEvent(SponsorInfo sponsorInfo)
+    {
+        SponsorInfo = sponsorInfo;
     }
 }
