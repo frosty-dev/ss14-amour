@@ -18,16 +18,17 @@
   sponsorOnly: true
 
 # YouWellLeer
+
 #- type: loadout
 #  id: SledgebarLoadout
 #  entity: Sledgebar
 #  sponsorOnly: true
 
-- type: loadout
-  id: LeerBootsLoadout
-  entity: LeerBoots
-  sponsorOnly: true
-  whitelistedJobs: [HeadOfSecurity]
+#- type: loadout
+#  id: LeerBootsLoadout
+#  entity: LeerBoots
+#  sponsorOnly: true
+#  whitelistedJobs: [HeadOfSecurity]
 
 - type: loadout
   id: LeerCapLoadout
@@ -41,11 +42,11 @@
   sponsorOnly: true
   whitelistedJobs: [HeadOfSecurity]
 
-- type: loadout
-  id: LeerGlovesLoadout
-  entity: LeerGloves
-  sponsorOnly: true
-  whitelistedJobs: [HeadOfSecurity]
+#- type: loadout
+#  id: LeerGlovesLoadout
+#  entity: LeerGloves
+#  sponsorOnly: true
+#  whitelistedJobs: [HeadOfSecurity]
 
 - type: loadout
   id: LeerHardsuitLoadout
@@ -68,6 +69,12 @@
 - type: loadout
   id: LeerMaskLoadout
   entity: LeerMask
+  sponsorOnly: true
+  whitelistedJobs: [HeadOfSecurity]
+
+- type: loadout
+  id: LeerTrenchLoadout
+  entity: LeerTrench
   sponsorOnly: true
   whitelistedJobs: [HeadOfSecurity]
 
@@ -164,4 +171,20 @@
 
   id: 6elbluBootsLoadout
   entity: ClothingShoesTourist
+  sponsorOnly: true
+
+#Serafim547
+- type: loadout
+  id: Serafim547MesonBlueLoadout
+  entity: ClothingEyesGlassesMesonBlue
+  sponsorOnly: true
+
+- type: loadout
+  id: Serafim547SalvageSpecialistLoadout
+  entity: ClothingUniformJumpsuitSerafimSalvageSpecialist
+  sponsorOnly: true
+
+- type: loadout
+  id: Serafim547VulpCoinLoadout
+  entity: VulpCoin
   sponsorOnly: true
