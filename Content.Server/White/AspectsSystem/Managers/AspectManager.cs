@@ -24,11 +24,13 @@ namespace Content.Server.White.AspectsSystem.Managers
 
         private double Chance { get; set; }
 
+        private string? ForcedAspect { get; set; }
+
         private void SetEnabled(bool value) => AspectsEnabled = value;
 
         private void SetChance(double value) => Chance = value;
 
-        private string? ForcedAspect { get; set; }
+        private void SetForcedAspect(string? value) => ForcedAspect = value;
 
         public override void Initialize()
         {
@@ -54,7 +56,7 @@ namespace Content.Server.White.AspectsSystem.Managers
             {
                 RunAspect(ForcedAspect);
 
-                ForcedAspect = null;
+                SetForcedAspect(null);
 
                 return;
             }
@@ -110,7 +112,7 @@ namespace Content.Server.White.AspectsSystem.Managers
                 return errStr;
             }
 
-            ForcedAspect = aspectProtoId;
+            SetForcedAspect(aspectProtoId);
 
             var str = $"Successfully forced Aspect with ID '{aspectProtoId}'";
             _sawmill.Info(str);
@@ -127,7 +129,7 @@ namespace Content.Server.White.AspectsSystem.Managers
             if (ForcedAspect != null)
             {
                 response = $"DeForced Aspect : {ForcedAspect}";
-                ForcedAspect = null;
+                SetForcedAspect(null);
             }
             else
             {
@@ -161,29 +163,30 @@ namespace Content.Server.White.AspectsSystem.Managers
 
             foreach (var (proto, aspect) in availableAspects)
             {
-                var aspectId = proto.ID;
+                var initialAspectId = proto.ID;
+                var returnedAspectId = proto.ID;
 
                 if (aspect.Requires != null)
                 {
-                    aspectId += $" (Requires: {aspect.Requires})";
+                    returnedAspectId += $" (Requires: {aspect.Requires})";
                 }
 
                 if (aspect.IsForbidden)
                 {
-                    aspectId += " (ShitSpawn)";
+                    returnedAspectId += " (ShitSpawn)";
                 }
 
-                if (ForcedAspect == aspectId)
+                if (ForcedAspect == initialAspectId)
                 {
-                    aspectId += " (Forced)";
+                    returnedAspectId += " (Forced)";
                 }
 
-                if (CheckIfAspectAlreadyRunning(aspectId))
+                if (CheckIfAspectAlreadyRunning(initialAspectId))
                 {
-                    aspectId += " (Already Running)";
+                    returnedAspectId += " (Already Running)";
                 }
 
-                aspectIds.Add(aspectId);
+                aspectIds.Add(returnedAspectId);
             }
 
             return aspectIds;
