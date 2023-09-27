@@ -14,6 +14,7 @@ using Content.Server.RoundEnd;
 using Content.Server.Station.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Traits.Assorted;
+using Content.Server.White.Administration;
 using Content.Server.White.Mindshield;
 using Content.Server.White.Reva.Components;
 using Content.Shared.CombatMode.Pacification;
@@ -23,6 +24,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Roles;
 using Content.Shared.White.Cyborg.Components;
 using Content.Shared.White.Mindshield;
+using Content.Shared.White.Mood;
 using Content.Shared.White.Reva.Components;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -48,6 +50,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly StorageSystem _storageSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly AntagRoleBanSystem _antagRoleBan = default!;
 
     public override void Initialize()
     {
@@ -285,6 +288,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             }
             CheckRoundShouldEnd();
         }
+
+        RaiseLocalEvent(uid, new MoodRemoveEffectEvent("RevolutionFocused"));
     }
 
     private void OnComponentInit(EntityUid uid, RevolutionaryComponent component, ComponentInit args)
@@ -316,6 +321,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             _faction.RemoveFaction(uid, "NanoTrasen");
             RemComp<PacifistComponent>(uid);
             RemComp<PacifiedComponent>(uid);
+
+            RaiseLocalEvent(uid, new MoodEffectEvent("RevolutionFocused"));
         }
     }
 
@@ -476,7 +483,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                 var jobPrototype = player.ContentData()?.Mind?.CurrentJob!.Prototype;
                 return jobPrototype != null &&
                        !headsPrototypes.Contains(player.ContentData()?.Mind?.CurrentJob?.Prototype!) &&
-                       jobPrototype.CanBeAntag;
+                       jobPrototype.CanBeAntag && !_antagRoleBan.HasAntagBan(player);
             }).ToList();
 
             var headPlayers = players.Where(player => !nonHeadCrew.Contains(player) &&
