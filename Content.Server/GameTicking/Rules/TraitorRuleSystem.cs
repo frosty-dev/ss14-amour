@@ -21,7 +21,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Server.Objectives;
+using Content.Server.White.Administration;
 using Content.Shared.White.Cult;
+using Content.Shared.White.Mood;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -38,6 +40,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     [Dependency] private readonly UplinkSystem _uplink = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
+    //WD EDIT
+    [Dependency] private readonly AntagRoleBanSystem _antagRoleBan = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -205,7 +209,21 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
         for (var i = 0; i < traitorCount; i++)
         {
-            results.Add(_random.PickAndTake(prefList));
+            var pref = _random.PickAndTake(prefList);
+
+            if (_antagRoleBan.HasAntagBan(pref))
+            {
+                if (prefList.Count == 0)
+                {
+                    _sawmill.Info("Insufficient ready players to fill up with traitors, stopping the selection.");
+                    return results;
+                }
+
+                i--;
+                continue;
+            }
+
+            results.Add(pref);
             _sawmill.Info("Selected a preferred traitor.");
         }
         return results;
@@ -281,6 +299,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         // Change the faction
         _npcFaction.RemoveFaction(entity, "NanoTrasen", false);
         _npcFaction.AddFaction(entity, "Syndicate");
+
+        RaiseLocalEvent(mind.OwnedEntity.Value, new MoodEffectEvent("TraitorFocused")); // WD edit
 
         // Give traitors their objectives
         var maxDifficulty = _cfg.GetCVar(CCVars.TraitorMaxDifficulty);

@@ -63,3 +63,7 @@
             SeniorOfficer: [ 1, 1 ]
             SeniorPhysician: [ 1, 1 ]
             SeniorEngineer: [ 1, 1 ]
+            MinerCyborg: [ 2, 0 ]
+            ClownCyborg: [ 1, 0 ]
+            SeniorSalvageSpecialist: [ 1, 1 ]
+

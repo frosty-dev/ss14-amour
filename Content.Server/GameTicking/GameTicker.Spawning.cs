@@ -4,11 +4,13 @@ using System.Numerics;
 using Content.Server.Administration.Managers;
 using System.Text;
 using Content.Server.Ghost;
+using Content.Server.Mind;
 using Content.Server.Players;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
+using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid.Prototypes;
@@ -140,6 +142,70 @@ namespace Content.Server.GameTicking
                 return;
             }
 
+            //WD start
+            //Ghost system return to round, check for whether the character isn't the same.
+            if (lateJoin && !_adminManager.IsAdmin(player))
+            {
+                var sameChar = false;
+                var checkAvoid = false;
+
+                var allPlayerMinds = EntityManager.System<MindTrackerSystem>().AllMinds
+                    .Where(mind => mind.OriginalOwnerUserId == player.UserId);
+                foreach (var mind in allPlayerMinds)
+                {
+                    if (mind.CharacterName == character.Name)
+                    {
+                        sameChar = true;
+                        break;
+                    }
+
+                    if (mind.ClownName == character.ClownName
+                        && mind.BorgName == character.BorgName
+                        && mind.MimeName == character.MimeName)
+                    {
+                        sameChar = true;
+                        break;
+                    }
+
+                    if (mind.CharacterName != null)
+                    {
+                        var similarity = CalculateStringSimilarity(mind.CharacterName, character.Name);
+
+                        switch (similarity)
+                        {
+                            case >= 85f:
+                            {
+                                _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-character-almost-same",
+                                    ("player", player.Name), ("try", false), ("oldName", mind.CharacterName), ("newName", character.Name)));
+                                checkAvoid = true;
+                                sameChar = true;
+                                break;
+                            }
+                            case >= 50f:
+                            {
+                                _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-character-almost-same",
+                                    ("player", player.Name), ("try", true), ("oldName", mind.CharacterName),
+                                    ("newName", character.Name)));
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (sameChar)
+                {
+                    var message = checkAvoid
+                        ? Loc.GetString("ghost-respawn-same-character-slightly-changed-name")
+                        : Loc.GetString("ghost-respawn-same-character");
+                    var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+                    _chatManager.ChatMessageToOne(ChatChannel.Server, message, wrappedMessage,
+                        default, false, player.ConnectedClient, Color.Red);
+
+                    return;
+                }
+            }
+            //WD end
+
             // Automatically de-admin players who are joining.
             if (_cfg.GetCVar(CCVars.AdminDeadminOnJoin) && _adminManager.IsAdmin(player))
                 _adminManager.DeAdmin(player);
@@ -267,6 +333,27 @@ namespace Content.Server.GameTicking
             var aev = new PlayerSpawnCompleteEvent(mob, player, jobId, lateJoin, PlayersJoinedRoundNormally, station, character);
             RaiseLocalEvent(mob, aev, true);
         }
+
+        //WD start - Need this to check player not respawning with the slightly changed name in the same round.
+        private float CalculateStringSimilarity(string str1, string str2)
+        {
+            var minLength = Math.Min(str1.Length, str2.Length);
+            var matchingCharacters = 0;
+
+            for (var i = 0; i < minLength; i++)
+            {
+                if (str1[i] == str2[i])
+                {
+                    matchingCharacters++;
+                }
+            }
+
+            float maxLength = Math.Max(str1.Length, str2.Length);
+            var similarityPercentage = (matchingCharacters / maxLength) * 100;
+
+            return similarityPercentage;
+        }
+        //WD end
 
         private HumanoidCharacterProfile ReplaceBlacklistedSpecies(IPlayerSession player, HumanoidCharacterProfile character, JobPrototype jobPrototype)
         {
