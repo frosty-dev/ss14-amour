@@ -1,0 +1,4 @@
+- type: interactionTargetAction
+  id: ebaka
+  name: Выебать
+  event: !type:EbatEvent
