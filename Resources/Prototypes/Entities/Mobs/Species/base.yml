@@ -333,7 +333,7 @@
   - type: Crawlable
   - type: Cuntable
   - type: Anus
-  - type: Interactible
+  - type: InteractionPerformer
   - type: MobStateActions
     actions:
       Critical:

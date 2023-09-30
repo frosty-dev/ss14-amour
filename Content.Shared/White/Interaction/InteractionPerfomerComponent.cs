@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.White.Interaction;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class InteractibleComponent : Component
+public sealed partial class InteractionPerformerComponent : Component
 {
     [DataField("isActive"), AutoNetworkedField]
     public bool IsActive;

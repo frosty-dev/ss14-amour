@@ -1,6 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared.White.Interaction;
 
@@ -16,4 +17,7 @@ public sealed class InteractionActionPrototype : EntityTargetAction, IPrototype
         get => Event;
         set => Event = value;
     }
+
+    [DataField("interactionTime",customTypeSerializer: typeof(TimeOffsetSerializer) )]
+    public TimeSpan InteractionTime = TimeSpan.Zero;
 }

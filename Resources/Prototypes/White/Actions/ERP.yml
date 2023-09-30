@@ -1,4 +1,6 @@
 - type: interactionTargetAction
   id: ebaka
   name: Выебать
+  itemIconStyle: BigAction
+  icon: White/Icons/tongue.png
   event: !type:EbatEvent

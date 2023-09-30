@@ -15,10 +15,22 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
     {
         base.Initialize();
         SubscribeNetworkEvent<InteractionSelectMessage>(OnSelected);
-        SubscribeLocalEvent<InteractibleComponent,EbatEvent>(OnEbat);
+        SubscribeLocalEvent<InteractionPerformerComponent,BaseInteractionEvent>(OnInteraction);
+        SubscribeLocalEvent<InteractionPerformerComponent,EbatEvent>(OnEbat);
     }
 
-    private void OnEbat(EntityUid uid, InteractibleComponent component, EbatEvent args)
+    private void OnInteraction(EntityUid uid, InteractionPerformerComponent component, BaseInteractionEvent args)
+    {
+        args.Event.Performer = args.Performer;
+        args.Event.Target = args.Target;
+
+        Logger.Debug(args.Performer + " " + args.Target + " Is meow " + args.Event.Target + " " + args.Event.Performer);
+
+        RaiseLocalEvent(args.Performer,args.Event);
+        RaiseLocalEvent(args.Target,args.Event);
+    }
+
+    private void OnEbat(EntityUid uid, InteractionPerformerComponent component, EbatEvent args)
     {
         Logger.Debug(args.Performer + " " + args.Target);
     }
@@ -26,12 +38,17 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
     private void OnSelected(InteractionSelectMessage ev, EntitySessionEventArgs args)
     {
         var playerUid = args.SenderSession.AttachedEntity;
-        if(!playerUid.HasValue || !TryComp<InteractibleComponent>(playerUid.Value,out var component) ||
-           !component.AvailableInteractions.Contains(ev.SelectedInteraction) || !_prototypeManager.TryIndex<InteractionActionPrototype>(ev.SelectedInteraction,
-               out var action) || !TryComp<ActionsComponent>(playerUid,out var actionsComponent))
+        if(!playerUid.HasValue || !TryComp<InteractionPerformerComponent>(playerUid.Value,out var component)
+                               || !component.AvailableInteractions.Contains(ev.SelectedInteraction)
+           || !_prototypeManager.TryIndex<InteractionActionPrototype>(ev.SelectedInteraction, out var action)
+                               || !TryComp<ActionsComponent>(playerUid,out var actionsComponent))
             return;
 
-        component.Action = new EntityTargetAction(action);
+        component.Action = new EntityTargetAction(action)
+        {
+            Event = new BaseInteractionEvent(action.Event!)
+        };
+
 
         _actions.AddAction(playerUid.Value,component.Action,null,actionsComponent);
     }
