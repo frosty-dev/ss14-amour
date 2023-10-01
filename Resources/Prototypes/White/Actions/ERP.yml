@@ -3,4 +3,7 @@
   name: Выебать
   itemIconStyle: BigAction
   icon: White/Icons/tongue.png
-  event: !type:EbatEvent
+  serverEvent: !type:EbatEvent
+  isCloseInteraction: true
+  canTargetSelf: false
+  interactionTime: 5

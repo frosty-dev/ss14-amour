@@ -12,12 +12,10 @@ public sealed class InteractionActionPrototype : EntityTargetAction, IPrototype
     public string ID { get; } = default!;
 
     [DataField("serverEvent", serverOnly: true)]
-    public EntityTargetActionEvent? ServerEvent
-    {
-        get => Event;
-        set => Event = value;
-    }
+    public Interactions.BaseInteractionEvent ServerEvent = default!;
 
-    [DataField("interactionTime",customTypeSerializer: typeof(TimeOffsetSerializer) )]
-    public TimeSpan InteractionTime = TimeSpan.Zero;
+    [DataField("interactionTime" )]
+    public int InteractionTime;
+
+    [DataField("isCloseInteraction")] public bool IsCloseInteraction;
 }

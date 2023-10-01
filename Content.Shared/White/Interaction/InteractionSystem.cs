@@ -15,15 +15,15 @@ public abstract class SharedInteractibleSystem : EntitySystem
             AvailableInteractions.Add(interaction.ID);
         }
 
-        SubscribeLocalEvent<InteractionPerformerComponent,ComponentInit>(OnInit);
+        SubscribeLocalEvent<InteractibleComponent,ComponentInit>(OnInit);
     }
 
-    private void OnInit(EntityUid uid, InteractionPerformerComponent component, ComponentInit args)
+    private void OnInit(EntityUid uid, InteractibleComponent component, ComponentInit args)
     {
         component.AvailableInteractions = AvailableInteractions.ToList();
     }
 
-    public List<string> TryGetAvailableInteractions(EntityUid uid, InteractionPerformerComponent? component = null)
+    public List<string> TryGetAvailableInteractions(EntityUid uid, InteractibleComponent? component = null)
     {
         return !Resolve(uid, ref component) ? new() : component.AvailableInteractions;
     }
