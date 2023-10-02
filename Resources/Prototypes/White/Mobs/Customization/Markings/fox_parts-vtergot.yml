@@ -2,7 +2,7 @@
   id: FoxEarsVtergot
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Human, Felinid]
+  speciesRestriction: [Human, Felinid, SlimePerson]
   sponsorOnly: true
   sprites:
     - sprite: White/Mobs/Customization/vtergot_fox_parts.rsi
@@ -14,7 +14,7 @@
   id: FoxTailVtergot
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Human, Felinid]
+  speciesRestriction: [Human, Felinid, SlimePerson]
   sponsorOnly: true
   sprites:
     - sprite: White/Mobs/Customization/vtergot_fox_parts.rsi
