@@ -40,6 +40,12 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         targetComponent.IsActive = false;
         _actionBlocker.UpdateCanMove(args.User);
         _actionBlocker.UpdateCanMove(args.Target.Value);
+
+        if (args.EndEvent != null)
+        {
+            RaiseLocalEvent(args.EndEvent);
+            RaiseNetworkEvent(args.EndEvent);
+        }
     }
 
     // Оно не вызывается постоянно, так что сущность не будет постоянна неподвижна
@@ -52,38 +58,36 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
     private void OnInteraction(ExecutionInteractionEvent args)
     {
         if(!TryComp<InteractibleComponent>(args.Performer,out var performerComponent) || performerComponent.IsActive ||
-           !TryComp<InteractibleComponent>(args.Target, out var targetComponent) || targetComponent.IsActive)
+           !TryComp<InteractibleComponent>(args.Target, out var targetComponent) || targetComponent.IsActive ||
+           !_prototypeManager.TryIndex<InteractionActionPrototype>(args.EventName,out var eventPrototype))
             return;
 
-        args.Event.Performer = args.Performer;
-        args.Event.Target = args.Target;
+        eventPrototype.ServerEvent.Performer = args.Performer;
+        eventPrototype.ServerEvent.Target = args.Target;
 
         if (performerComponent.Action != null)
             _actions.RemoveAction(args.Performer, performerComponent.Action);
 
-        var ev = args.Event;
-        Logger.Debug((args.Event is EbatEvent) ? "YAY" : "noo...");
-        //EntityManager.EventBus.RaiseLocalEvent(args.Performer,ev);
-        EntityManager.EventBus.RaiseEvent(EventSource.Local,ev);
+        var ev = eventPrototype.ServerEvent;
+        RaiseLocalEvent(ev);
 
-
-        if(args.Event.Cancelled)
+        if(eventPrototype.ServerEvent.Cancelled)
             return;
 
-        RaiseNetworkEvent(args.Event);
+        RaiseNetworkEvent(eventPrototype.ServerEvent);
 
-        if (args.InteractionTime > 0)
+        if (eventPrototype.InteractionTime > 0)
         {
             performerComponent.IsActive = true;
             targetComponent.IsActive = true;
 
-            var doAfterArgs = new DoAfterArgs(args.Performer, TimeSpan.FromSeconds(args.InteractionTime), new InteractionDoAfterEvent(),
+            var doAfterArgs = new DoAfterArgs(args.Performer, TimeSpan.FromSeconds(eventPrototype.InteractionTime), new InteractionDoAfterEvent(eventPrototype.EndEvent),
                 args.Performer, args.Target)
             {
                 BreakOnHandChange = false,
             };
 
-            if (args.IsCloseInteraction)
+            if (eventPrototype.IsCloseInteraction)
             {
                 _actionBlocker.UpdateCanMove(args.Performer);
                 _actionBlocker.UpdateCanMove(args.Target);
@@ -106,7 +110,7 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
 
         component.Action = new EntityTargetAction(action)
         {
-            Event = new ExecutionInteractionEvent(action.ServerEvent,action.InteractionTime,action.IsCloseInteraction)
+            Event = new ExecutionInteractionEvent(ev.SelectedInteraction)
         };
 
 

@@ -6,14 +6,10 @@ namespace Content.Shared.White.Interaction.InteractionEvent;
 
 public sealed class ExecutionInteractionEvent : EntityTargetActionEvent
 {
-    public readonly BaseInteractionEvent Event;
-    public readonly int InteractionTime;
-    public readonly bool IsCloseInteraction;
+    public string EventName;
 
-    public ExecutionInteractionEvent(BaseInteractionEvent @event, int interactionTime, bool isCloseInteraction)
+    public ExecutionInteractionEvent(string eventName)
     {
-        Event = @event;
-        InteractionTime = interactionTime;
-        IsCloseInteraction = isCloseInteraction;
+        EventName = eventName;
     }
 }
