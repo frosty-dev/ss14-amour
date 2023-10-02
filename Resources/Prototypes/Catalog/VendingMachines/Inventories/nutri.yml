@@ -8,6 +8,7 @@
     HydroponicsToolScythe: 4
     HydroponicsToolHatchet: 4
     PlantBag: 4
+    HandheldSeedAnalyzer: 4
     #WD edit end
     PlantBGoneSpray: 20
     WeedSpray: 20
@@ -16,5 +17,6 @@
     RobustHarvestChemistryBottle: 5
     Bucket: 5 #WD edit
     DiseaseSwab: 20 #WD edit
+    Eftpos: 4 #WD edit
     #TO DO:
     #plant analyzer

@@ -22,6 +22,17 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
+  # WD edit sounds start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/White/Items/handling/cloth_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/White/Items/handling/cloth_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/White/Items/handling/cloth_drop.ogg
+  # WD edit sounds end
 
 - type: entity
   abstract: true
@@ -41,7 +52,18 @@
     - key: enum.StorageUiKey.Key
       type: StorageBoundUserInterface
   - type: StaticPrice
-    price: 5
+    price: 20
+  # WD edit sounds start
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/White/Items/handling/cloth_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/White/Items/handling/cloth_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/White/Items/handling/cloth_drop.ogg
+  # WD edit sounds end
 
 - type: entity
   abstract: true
