@@ -6,7 +6,7 @@
     HorizontalExpand="True"
     MinHeight="250"
     MinWidth="300">
-    <GridContainer Name="InteractionsContainer" Access="Public" Columns="3">
+    <GridContainer Name="InteractionsContainer" Access="Public" Columns="1">
 
     </GridContainer>
 </windows:InteractionWindow>

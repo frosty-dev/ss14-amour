@@ -163,8 +163,13 @@ public abstract class SharedAnusSystem : EntitySystem
 
     public bool HasAccessToAnus(EntityUid uid, AnusComponent? component = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!Resolve(uid, ref component,false))
             return false;
+        return HasAccessToButt(uid);
+    }
+
+    public bool HasAccessToButt(EntityUid uid)
+    {
         return !(_inventory.TryGetSlotEntity(uid, "suitstorage", out _) ||
                  _inventory.TryGetSlotEntity(uid, "outerClothing", out _) ||
                  _inventory.TryGetSlotEntity(uid, "jumpsuit", out _) ||

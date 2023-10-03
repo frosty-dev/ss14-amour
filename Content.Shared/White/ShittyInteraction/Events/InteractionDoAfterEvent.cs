@@ -8,9 +8,11 @@ namespace Content.Shared.White.ShittyInteraction.Events;
 public sealed class InteractionDoAfterEvent : SimpleDoAfterEvent
 {
     public BaseInteractionEvent? EndEvent;
+    public int Timeout;
 
-    public InteractionDoAfterEvent(BaseInteractionEvent? endEvent)
+    public InteractionDoAfterEvent(BaseInteractionEvent? endEvent, int timeout)
     {
         EndEvent = endEvent;
+        Timeout = timeout;
     }
 }

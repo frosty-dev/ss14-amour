@@ -1,17 +1,22 @@
 - type: interactionTargetAction
   id: fuckInSraka
-  name: прочистить шоколадный глаз
+  name: inter-target-ass-name
   itemIconStyle: BigAction
   icon: White/Icons/tongue.png
   serverEvent: !type:EbatEvent
   endEvent: !type:EbatEndEvent
   isCloseInteraction: true
   canTargetSelf: false
+  messages:
+    - inter-target-ass1
+    - inter-target-ass2
+    - inter-target-ass3
   interactionTime: 5
+  timeout: 15
 
 - type: interactionTargetAction
   id: upast
-  name: выронить друга
+  name: уронить друга
   itemIconStyle: BigAction
   icon: White/Icons/tongue.png
   serverEvent: !type:EbatEvent

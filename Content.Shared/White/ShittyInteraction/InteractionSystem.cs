@@ -9,12 +9,12 @@ namespace Content.Shared.White.ShittyInteraction;
 
 public abstract class SharedInteractibleSystem : EntitySystem
 {
-    [Dependency] protected readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
 
     public List<string> AvailableInteractions = new List<string>();
     public override void Initialize()
     {
-        foreach (var interaction in _prototypeManager.EnumeratePrototypes<InteractionActionPrototype>())
+        foreach (var interaction in PrototypeManager.EnumeratePrototypes<InteractionActionPrototype>())
         {
             AvailableInteractions.Add(interaction.ID);
         }

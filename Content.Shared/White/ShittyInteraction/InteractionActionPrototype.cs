@@ -18,9 +18,13 @@ public sealed class InteractionActionPrototype : EntityTargetAction, IPrototype
     [NonSerialized]
     public BaseInteractionEvent? EndEvent;
 
+    [DataField("messages")] public List<string> Messages = new List<string>();
 
     [DataField("interactionTime" )]
     public int InteractionTime;
+
+    [DataField("timeout")]
+    public int Timeout;
 
     [DataField("isCloseInteraction")] public bool IsCloseInteraction;
 }

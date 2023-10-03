@@ -23,9 +23,7 @@ public sealed class Interactibles : SharedInteractibles
            || !TryComp<InteractibleComponent>(ev.Target,out var targetComponent))
             return;
 
-        Logger.Debug("IsClient! ");
-
-        if (_animation.HasRunningAnimation(ev.Performer, InteractibleComponent.AnimationKey))
+        if (_animation.HasRunningAnimation(ev.Performer, AnimationKey))
                 return;
 
         var viewer = _playerManager.LocalPlayer?.ControlledEntity;
@@ -40,7 +38,7 @@ public sealed class Interactibles : SharedInteractibles
 
         var animation = new Animation
         {
-            Length = TimeSpan.FromMilliseconds(1750),
+            Length = TimeSpan.FromSeconds(5),
             AnimationTracks =
             {
                 new AnimationTrackComponentProperty
@@ -52,8 +50,11 @@ public sealed class Interactibles : SharedInteractibles
                     {
                         new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0f),
 
-                        new AnimationTrackProperty.KeyFrame(-rotation, 0.125f),
-                        new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.125f),
+                        new AnimationTrackProperty.KeyFrame(-rotation, 0.250f),
+                        new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.250f),
+
+                        new AnimationTrackProperty.KeyFrame(-rotation, 0.250f),
+                        new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.250f),
 
                         new AnimationTrackProperty.KeyFrame(-rotation, 0.125f),
                         new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.125f),
@@ -67,11 +68,17 @@ public sealed class Interactibles : SharedInteractibles
                         new AnimationTrackProperty.KeyFrame(-rotation, 0.125f),
                         new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.125f),
 
-                        new AnimationTrackProperty.KeyFrame(-rotation, 0.125f),
-                        new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.125f),
+                        new AnimationTrackProperty.KeyFrame(-rotation, 0.500f),
+                        new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.500f),
 
-                        new AnimationTrackProperty.KeyFrame(-rotation, 0.125f),
-                        new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.125f),
+                        new AnimationTrackProperty.KeyFrame(-rotation, 0.500f),
+                        new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.500f),
+
+                        new AnimationTrackProperty.KeyFrame(-rotation, 0.250f),
+                        new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.250f),
+
+                        new AnimationTrackProperty.KeyFrame(-rotation, 0.250f),
+                        new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.250f),
 
                     }
                 }

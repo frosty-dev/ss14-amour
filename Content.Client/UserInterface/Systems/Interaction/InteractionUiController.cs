@@ -91,11 +91,11 @@ public sealed class InteractionUiController : UIController, IOnStateChanged<Game
                 var control = new Button();
                 control.OnPressed += _ =>
                     _entity.EntityNetManager?.SendSystemNetworkMessage(new InteractionSelectMessage(interaction));
-                control.Text = action.DisplayName;
+                control.Text = Loc.GetString(action.DisplayName);
                 control.HorizontalExpand = true;
                 control.VerticalExpand = true;
                 control.MaxWidth = 250;
-                control.MaxHeight = 50;
+                control.MaxHeight = 30;
                 _window?.InteractionsContainer.AddChild(control);
             }
         }

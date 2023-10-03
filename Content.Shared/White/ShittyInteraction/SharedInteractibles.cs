@@ -12,11 +12,9 @@ public abstract class SharedInteractibles : EntitySystem
 
     protected virtual void OnEndEbat(EbatEndEvent ev)
     {
-        Logger.Debug(ev.Performer + " end Ebal " + ev.Target);
     }
 
     protected virtual void OnEbat(EbatEvent ev)
     {
-        Logger.Debug(ev.Performer + " Ebal " + ev.Target);
     }
 }

@@ -1,18 +1,18 @@
-using System.Reflection;
 using Content.Server.Actions;
+using Content.Server.Chat.Managers;
+using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
+using Content.Shared.Chat;
 using Content.Shared.DoAfter;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Movement.Events;
 using Content.Shared.White.ShittyInteraction;
 using Content.Shared.White.ShittyInteraction.Events;
 using Robust.Server.GameObjects;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
-using InteractibleComponent = Content.Shared.White.ShittyInteraction.InteractibleComponent;
+using static Content.Shared.White.ShittyInteraction.InteractibleComponent;
 
 namespace Content.Server.White.Interaction;
 
@@ -23,6 +23,9 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
 
     public override void Initialize()
     {
@@ -50,14 +53,25 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
             RaiseLocalEvent((object)args.EndEvent);
             RaiseNetworkEvent(args.EndEvent);
         }
+
+        targetComponent.NextInteractionTime = _timing.CurTime + TimeSpan.FromSeconds(args.Timeout);
+        performerComponent.NextInteractionTime = _timing.CurTime + TimeSpan.FromSeconds(args.Timeout);
     }
 
     private void OnInteraction(ExecutionInteractionEvent args)
     {
         if(!TryComp<InteractibleComponent>(args.Performer,out var performerComponent) || performerComponent.IsActive ||
            !TryComp<InteractibleComponent>(args.Target, out var targetComponent) || targetComponent.IsActive ||
-           !_prototypeManager.TryIndex<InteractionActionPrototype>(args.EventName,out var eventPrototype))
+           !PrototypeManager.TryIndex<InteractionActionPrototype>(args.EventName,out var eventPrototype))
             return;
+
+        if (performerComponent.NextInteractionTime > _timing.CurTime)
+        {
+            var message = Loc.GetString("interaction-tired");
+            if(TryComp<ActorComponent>(args.Performer,out var actor))
+                _chatManager.ChatMessageToOne(ChatChannel.Emotes,message,message,EntityUid.Invalid, false, actor.PlayerSession.ConnectedClient);
+            return;
+        }
 
         eventPrototype.ServerEvent.Performer = args.Performer;
         eventPrototype.ServerEvent.Target = args.Target;
@@ -68,8 +82,11 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         var ev = eventPrototype.ServerEvent;
         RaiseLocalEvent((object)ev);
 
-        if(eventPrototype.ServerEvent.Cancelled)
+        if (ev.Cancelled)
+        {
+            ev.Uncancel();
             return;
+        }
 
         RaiseNetworkEvent(ev);
 
@@ -78,7 +95,8 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
             performerComponent.IsActive = true;
             targetComponent.IsActive = true;
 
-            var doAfterArgs = new DoAfterArgs(args.Performer, TimeSpan.FromSeconds(eventPrototype.InteractionTime), new InteractionDoAfterEvent(eventPrototype.EndEvent),
+            var doAfterArgs = new DoAfterArgs(args.Performer, TimeSpan.FromSeconds(eventPrototype.InteractionTime),
+                new InteractionDoAfterEvent(eventPrototype.EndEvent,eventPrototype.Timeout),
                 args.Performer, args.Target)
             {
                 BreakOnHandChange = false,
@@ -94,6 +112,13 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
             _doAfter.TryStartDoAfter(doAfterArgs);
         }
 
+        if (eventPrototype.Messages.Count > 0)
+        {
+            var message = _random.Pick(eventPrototype.Messages);
+            _chat.TrySendInGameICMessage(ev.Performer,Loc.GetString(message,("target",(MetaData(ev.Target).EntityName))),InGameICChatType.Emote,false);
+        }
+
+
     }
 
     private void OnSelected(InteractionSelectMessage ev, EntitySessionEventArgs args)
@@ -101,9 +126,20 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         var playerUid = args.SenderSession.AttachedEntity;
         if(!playerUid.HasValue || !TryComp<InteractibleComponent>(playerUid.Value,out var component)
                                || !component.AvailableInteractions.Contains(ev.SelectedInteraction)
-           || !_prototypeManager.TryIndex<InteractionActionPrototype>(ev.SelectedInteraction, out var action)
+           || !PrototypeManager.TryIndex<InteractionActionPrototype>(ev.SelectedInteraction, out var action)
                                || !TryComp<ActionsComponent>(playerUid,out var actionsComponent))
             return;
+
+        if (component.NextInteractionTime > _timing.CurTime)
+        {
+            var message = Loc.GetString("interaction-tired");
+            if(TryComp<ActorComponent>(playerUid,out var actor))
+                _chatManager.ChatMessageToOne(ChatChannel.Emotes,message,message,EntityUid.Invalid, false, actor.PlayerSession.ConnectedClient);
+            return;
+        }
+
+        if (component.Action != null)
+            _actions.RemoveAction(playerUid.Value, component.Action, actionsComponent);
 
         component.Action = new EntityTargetAction(action)
         {
