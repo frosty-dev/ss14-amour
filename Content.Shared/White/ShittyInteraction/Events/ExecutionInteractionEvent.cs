@@ -1,8 +1,6 @@
 using Content.Shared.Actions;
-using Content.Shared.White.Interaction.Interactions;
-using Robust.Shared.Serialization;
 
-namespace Content.Shared.White.Interaction.InteractionEvent;
+namespace Content.Shared.White.ShittyInteraction.Events;
 
 public sealed class ExecutionInteractionEvent : EntityTargetActionEvent
 {

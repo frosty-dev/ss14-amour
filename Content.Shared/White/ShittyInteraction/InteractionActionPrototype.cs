@@ -1,10 +1,8 @@
-using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
-using Content.Shared.White.Interaction.Interactions;
+using Content.Shared.White.ShittyInteraction.Interactions;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared.White.Interaction;
+namespace Content.Shared.White.ShittyInteraction;
 
 [Prototype("interactionTargetAction")]
 public sealed class InteractionActionPrototype : EntityTargetAction, IPrototype
@@ -13,9 +11,11 @@ public sealed class InteractionActionPrototype : EntityTargetAction, IPrototype
     public string ID { get; } = default!;
 
     [DataField("serverEvent", serverOnly: true, required:true)]
+    [NonSerialized]
     public BaseInteractionEvent ServerEvent = default!;
 
     [DataField("endEvent", serverOnly: true)]
+    [NonSerialized]
     public BaseInteractionEvent? EndEvent;
 
 

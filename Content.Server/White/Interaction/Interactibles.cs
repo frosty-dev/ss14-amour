@@ -1,6 +1,5 @@
-using Content.Shared.White.Interaction;
-using Content.Shared.White.Interaction.InteractionEvent;
-using Content.Shared.White.Interaction.Interactions;
+using Content.Shared.White.ShittyInteraction;
+using Content.Shared.White.ShittyInteraction.Interactions;
 
 namespace Content.Server.White.Interaction;
 
@@ -10,5 +9,11 @@ public sealed class Interactibles : SharedInteractibles
     {
         base.OnEbat(ev);
         Logger.Debug("IsServer!");
+    }
+
+    protected override void OnEndEbat(EbatEndEvent ev)
+    {
+        base.OnEndEbat(ev);
+        Logger.Debug("IsServer Yay!");
     }
 }

@@ -6,7 +6,7 @@ using Content.Client.UserInterface.Systems.Emotions;
 using Content.Client.UserInterface.Systems.Interaction.Windows;
 using Content.Client.White.Interaction;
 using Content.Shared.Input;
-using Content.Shared.White.Interaction;
+using Content.Shared.White.ShittyInteraction;
 using Robust.Client;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;

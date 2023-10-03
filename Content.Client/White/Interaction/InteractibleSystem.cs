@@ -1,4 +1,4 @@
-using Content.Shared.White.Interaction;
+using Content.Shared.White.ShittyInteraction;
 
 namespace Content.Client.White.Interaction;
 

@@ -1,15 +1,18 @@
+using System.Reflection;
 using Content.Server.Actions;
 using Content.Server.DoAfter;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.DoAfter;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Events;
-using Content.Shared.White.Interaction;
-using Content.Shared.White.Interaction.InteractionEvent;
-using Content.Shared.White.Interaction.Interactions;
+using Content.Shared.White.ShittyInteraction;
+using Content.Shared.White.ShittyInteraction.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
+using InteractibleComponent = Content.Shared.White.ShittyInteraction.InteractibleComponent;
 
 namespace Content.Server.White.Interaction;
 
@@ -27,7 +30,6 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         SubscribeNetworkEvent<InteractionSelectMessage>(OnSelected);
         SubscribeLocalEvent<ExecutionInteractionEvent>(OnInteraction);
         SubscribeLocalEvent<InteractibleComponent, InteractionDoAfterEvent>(OnInteractionDoAfter);
-        SubscribeLocalEvent<InteractibleComponent,UpdateCanMoveEvent>(OnCanMove);
     }
 
     private void OnInteractionDoAfter(EntityUid uid, InteractibleComponent component, InteractionDoAfterEvent args)
@@ -43,16 +45,11 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
 
         if (args.EndEvent != null)
         {
+            args.EndEvent.Performer = args.User;
+            args.EndEvent.Target = args.Target.Value;
             RaiseLocalEvent(args.EndEvent);
             RaiseNetworkEvent(args.EndEvent);
         }
-    }
-
-    // Оно не вызывается постоянно, так что сущность не будет постоянна неподвижна
-    private void OnCanMove(EntityUid uid, InteractibleComponent component, UpdateCanMoveEvent args)
-    {
-        if (component.IsActive)
-            args.Cancel();
     }
 
     private void OnInteraction(ExecutionInteractionEvent args)
@@ -74,7 +71,7 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         if(eventPrototype.ServerEvent.Cancelled)
             return;
 
-        RaiseNetworkEvent(eventPrototype.ServerEvent);
+        RaiseNetworkEvent(ev);
 
         if (eventPrototype.InteractionTime > 0)
         {

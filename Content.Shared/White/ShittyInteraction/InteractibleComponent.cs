@@ -1,7 +1,7 @@
 using Content.Shared.Actions.ActionTypes;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.White.Interaction;
+namespace Content.Shared.White.ShittyInteraction;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class InteractibleComponent : Component
@@ -14,4 +14,6 @@ public sealed partial class InteractibleComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField("action")]
     public TargetedAction? Action;
+
+    public static string AnimationKey = "interaction_animation";
 }

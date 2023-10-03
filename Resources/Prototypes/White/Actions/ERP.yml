@@ -1,19 +1,88 @@
 - type: interactionTargetAction
-  id: ebaka
-  name: Проверка
+  id: fuckInSraka
+  name: прочистить шоколадный глаз
   itemIconStyle: BigAction
   icon: White/Icons/tongue.png
   serverEvent: !type:EbatEvent
+  endEvent: !type:EbatEndEvent
   isCloseInteraction: true
   canTargetSelf: false
   interactionTime: 5
 
 - type: interactionTargetAction
-  id: babaka
-  name: Проверка1
+  id: upast
+  name: выронить друга
   itemIconStyle: BigAction
   icon: White/Icons/tongue.png
   serverEvent: !type:EbatEvent
+  endEvent: !type:EbatEndEvent
+  isCloseInteraction: true
+  canTargetSelf: false
+  interactionTime: 5
+
+- type: interactionTargetAction
+  id: upast1
+  name: отшлифовать огуречик
+  itemIconStyle: BigAction
+  icon: White/Icons/tongue.png
+  serverEvent: !type:EbatEvent
+  endEvent: !type:EbatEndEvent
+  isCloseInteraction: true
+  canTargetSelf: false
+  interactionTime: 5
+
+
+- type: interactionTargetAction
+  id: upast2
+  name: отшлифовать пельмешку
+  itemIconStyle: BigAction
+  icon: White/Icons/tongue.png
+  serverEvent: !type:EbatEvent
+  endEvent: !type:EbatEndEvent
+  isCloseInteraction: true
+  canTargetSelf: false
+  interactionTime: 5
+
+- type: interactionTargetAction
+  id: upast3
+  name: прочистить пельмешку
+  itemIconStyle: BigAction
+  icon: White/Icons/tongue.png
+  serverEvent: !type:EbatEvent
+  endEvent: !type:EbatEndEvent
+  isCloseInteraction: true
+  canTargetSelf: false
+  interactionTime: 5
+
+- type: interactionTargetAction
+  id: upast4
+  name: Вылизать ноги
+  itemIconStyle: BigAction
+  icon: White/Icons/tongue.png
+  serverEvent: !type:EbatEvent
+  endEvent: !type:EbatEndEvent
+  isCloseInteraction: true
+  canTargetSelf: false
+  interactionTime: 5
+
+- type: interactionTargetAction
+  id: upast5
+  name: сесть на лицо
+  itemIconStyle: BigAction
+  icon: White/Icons/tongue.png
+  serverEvent: !type:EbatEvent
+  endEvent: !type:EbatEndEvent
+  isCloseInteraction: true
+  canTargetSelf: false
+  interactionTime: 5
+
+- type: interactionTargetAction
+  id: upast6
+  name: шлёпнуть по заду
+  itemIconStyle: BigAction
+  icon: White/Icons/tongue.png
+  serverEvent: !type:EbatEvent
+  endEvent: !type:EbatEndEvent
   isCloseInteraction: true
   canTargetSelf: false
   interactionTime: 5

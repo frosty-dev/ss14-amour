@@ -1,7 +1,11 @@
 using System.Linq;
+using Content.Shared.Hands;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Item;
+using Content.Shared.Movement.Events;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.White.Interaction;
+namespace Content.Shared.White.ShittyInteraction;
 
 public abstract class SharedInteractibleSystem : EntitySystem
 {
@@ -16,6 +20,19 @@ public abstract class SharedInteractibleSystem : EntitySystem
         }
 
         SubscribeLocalEvent<InteractibleComponent,ComponentInit>(OnInit);
+
+        SubscribeLocalEvent<InteractibleComponent, UseAttemptEvent>(OnCancel);
+        SubscribeLocalEvent<InteractibleComponent, DropAttemptEvent>(OnCancel);
+        SubscribeLocalEvent<InteractibleComponent, PickupAttemptEvent>(OnCancel);
+        SubscribeLocalEvent<InteractibleComponent, UpdateCanMoveEvent>(OnCancel);
+        SubscribeLocalEvent<InteractibleComponent, ChangeDirectionAttemptEvent>(OnCancel);
+
+    }
+
+    private void OnCancel(EntityUid uid, InteractibleComponent component, CancellableEntityEventArgs args)
+    {
+        if(component.IsActive)
+            args.Cancel();
     }
 
     private void OnInit(EntityUid uid, InteractibleComponent component, ComponentInit args)

@@ -1,6 +1,6 @@
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.White.Interaction;
+namespace Content.Shared.White.ShittyInteraction;
 
 [Serializable, NetSerializable]
 public sealed class InteractionSelectMessage : EntityEventArgs
