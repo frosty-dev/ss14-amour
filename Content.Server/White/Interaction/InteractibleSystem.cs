@@ -47,7 +47,7 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         {
             args.EndEvent.Performer = args.User;
             args.EndEvent.Target = args.Target.Value;
-            RaiseLocalEvent(args.EndEvent);
+            RaiseLocalEvent((object)args.EndEvent);
             RaiseNetworkEvent(args.EndEvent);
         }
     }
@@ -66,7 +66,7 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
             _actions.RemoveAction(args.Performer, performerComponent.Action);
 
         var ev = eventPrototype.ServerEvent;
-        RaiseLocalEvent(ev);
+        RaiseLocalEvent((object)ev);
 
         if(eventPrototype.ServerEvent.Cancelled)
             return;
