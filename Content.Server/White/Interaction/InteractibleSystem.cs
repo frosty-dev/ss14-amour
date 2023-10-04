@@ -73,22 +73,25 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
             return;
         }
 
-        eventPrototype.ServerEvent.Performer = args.Performer;
-        eventPrototype.ServerEvent.Target = args.Target;
-
-        if (performerComponent.Action != null)
-            _actions.RemoveAction(args.Performer, performerComponent.Action);
-
-        var ev = eventPrototype.ServerEvent;
-        RaiseLocalEvent((object)ev);
-
-        if (ev.Cancelled)
+        if (eventPrototype.ServerEvent != null)
         {
-            ev.Uncancel();
-            return;
-        }
+            eventPrototype.ServerEvent.Performer = args.Performer;
+            eventPrototype.ServerEvent.Target = args.Target;
 
-        RaiseNetworkEvent(ev);
+            if (performerComponent.Action != null)
+                _actions.RemoveAction(args.Performer, performerComponent.Action);
+
+            var ev = eventPrototype.ServerEvent;
+            RaiseLocalEvent((object) ev);
+
+            if (ev.Cancelled)
+            {
+                ev.Uncancel();
+                return;
+            }
+
+            RaiseNetworkEvent(ev);
+        }
 
         if (eventPrototype.InteractionTime > 0)
         {
@@ -102,20 +105,20 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
                 BreakOnHandChange = false,
             };
 
-            if (eventPrototype.IsCloseInteraction)
-            {
-                _actionBlocker.UpdateCanMove(args.Performer);
-                _actionBlocker.UpdateCanMove(args.Target);
-                _transform.SetCoordinates(args.Performer,Transform(args.Target).Coordinates);
-            }
-
             _doAfter.TryStartDoAfter(doAfterArgs);
+        }
+
+        if (eventPrototype.IsCloseInteraction)
+        {
+            _actionBlocker.UpdateCanMove(args.Performer);
+            _actionBlocker.UpdateCanMove(args.Target);
+            _transform.SetCoordinates(args.Performer,Transform(args.Target).Coordinates);
         }
 
         if (eventPrototype.Messages.Count > 0)
         {
             var message = _random.Pick(eventPrototype.Messages);
-            _chat.TrySendInGameICMessage(ev.Performer,Loc.GetString(message,("target",(MetaData(ev.Target).EntityName))),InGameICChatType.Emote,false);
+            _chat.TrySendInGameICMessage(args.Performer,Loc.GetString(message,("target",(MetaData(args.Target).EntityName))),InGameICChatType.Emote,false);
         }
 
 

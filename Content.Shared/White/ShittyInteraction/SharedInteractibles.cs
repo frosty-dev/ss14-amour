@@ -8,6 +8,7 @@ public abstract class SharedInteractibles : EntitySystem
     {
         SubscribeAllEvent<EbatEvent>(OnEbat);
         SubscribeAllEvent<EbatEndEvent>(OnEndEbat);
+
     }
 
     protected virtual void OnEndEbat(EbatEndEvent ev)

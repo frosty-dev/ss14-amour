@@ -19,11 +19,13 @@
   name: уронить друга
   itemIconStyle: BigAction
   icon: White/Icons/tongue.png
-  serverEvent: !type:EbatEvent
-  endEvent: !type:EbatEndEvent
-  isCloseInteraction: true
-  canTargetSelf: false
+  endEvent: !type:CrawledEvent
+  messages:
+    - inter-target-crawl1
+    - inter-target-crawl2
+    - inter-target-crawl3
   interactionTime: 5
+  timeout: 10
 
 - type: interactionTargetAction
   id: upast1

@@ -1,6 +1,7 @@
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.White.Anus;
+using Content.Server.White.Crawl;
 using Content.Server.White.Cunt;
 using Content.Shared.Chat;
 using Content.Shared.White.ShittyInteraction;
@@ -15,6 +16,19 @@ public sealed class Interactibles : SharedInteractibles
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly CuntSystem _cunt = default!;
+    [Dependency] private readonly CrawlSystem _crawl = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<CrawledEvent>(OnCrawl);
+    }
+
+    private void OnCrawl(CrawledEvent ev)
+    {
+        _crawl.EnableCrawl(ev.Target);
+    }
 
     protected override void OnEbat(EbatEvent ev)
     {

@@ -10,9 +10,9 @@ public sealed class InteractionActionPrototype : EntityTargetAction, IPrototype
     [IdDataField]
     public string ID { get; } = default!;
 
-    [DataField("serverEvent", serverOnly: true, required:true)]
+    [DataField("serverEvent", serverOnly: true)]
     [NonSerialized]
-    public BaseInteractionEvent ServerEvent = default!;
+    public BaseInteractionEvent? ServerEvent;
 
     [DataField("endEvent", serverOnly: true)]
     [NonSerialized]

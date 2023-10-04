@@ -14,3 +14,9 @@ public sealed class EbatEndEvent : BaseInteractionEvent
 {
 
 }
+
+[Serializable,NetSerializable]
+public sealed class CrawledEvent : BaseInteractionEvent
+{
+
+}
