@@ -1,4 +1,8 @@
-interaction-tired = [color=#d16c41]Я так устал(а)..[/color]
+interaction-tired = Я так {$gender ->
+                     [female] устала
+                     *[other] устал
+                     }..
+
 interaction-target-anus-no = Похоже, что у меня нет доступа к заднице
 interaction-performer-ogurec-no = Похоже, у меня нет доступа к моему половому органу, либо он вообще отсутствует
 interaction-performer-ogurec-no-oth = Похоже, у меня нет доступа к половому органу, либо он вообще отсутствует
@@ -19,7 +23,10 @@ inter-target-pelm2 = с осторожностью изучает киску { $
 inter-target-pelm3 = вставляет свой огуречик прямо в дырочку { $target }
 
 interaction-butt-shlep-name = шлёпнуть по заднице
-interaction-butt-shlep = шлёпнуть по заднице { $target }
+interaction-butt-shlep = {$gender ->
+                          [female] шлёпнула
+                          *[other] шлёпнул
+                          } по заднице { $target }
 
 inter-target-shlif-ogur-name = отшлифовать огурчик
 inter-target-shlif-ogur1 = тщательно полирует огурчик { $target }

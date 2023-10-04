@@ -26,7 +26,6 @@ public abstract class SharedInteractibleSystem : EntitySystem
         SubscribeLocalEvent<InteractibleComponent, PickupAttemptEvent>(OnCancel);
         SubscribeLocalEvent<InteractibleComponent, UpdateCanMoveEvent>(OnCancel);
         SubscribeLocalEvent<InteractibleComponent, ChangeDirectionAttemptEvent>(OnCancel);
-
     }
 
     private void OnCancel(EntityUid uid, InteractibleComponent component, CancellableEntityEventArgs args)

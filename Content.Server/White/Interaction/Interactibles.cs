@@ -1,10 +1,8 @@
 using Content.Server.Chat.Managers;
-using Content.Server.Chat.Systems;
 using Content.Server.White.Anus;
 using Content.Server.White.Crawl;
 using Content.Server.White.Cunt;
 using Content.Shared.Chat;
-using Content.Shared.Interaction;
 using Content.Shared.White.ShittyInteraction;
 using Content.Shared.White.ShittyInteraction.Interactions;
 using Robust.Server.GameObjects;
@@ -14,11 +12,10 @@ namespace Content.Server.White.Interaction;
 public sealed class Interactibles : SharedInteractibles
 {
     [Dependency] private readonly AnusSystem _anus = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly CuntSystem _cunt = default!;
     [Dependency] private readonly CrawlSystem _crawl = default!;
-    [Dependency] private readonly RotateToFaceSystem _rotateTo = default!;
+    [Dependency] private readonly InteractibleSystem _interactible = default!;
 
     public override void Initialize()
     {
@@ -80,9 +77,15 @@ public sealed class Interactibles : SharedInteractibles
 
     protected void SpellSomeShit(EntityUid uid, string message)
     {
-        message = Loc.GetString(message);
-        if(TryComp<ActorComponent>(uid,out var actor))
-            _chatManager.ChatMessageToOne(ChatChannel.Emotes,message,message,EntityUid.Invalid, false, actor.PlayerSession.ConnectedClient);
+        var gender = _interactible.GetGender(uid);
 
+        message = Loc.GetString(message,("gender",gender));
+        if(TryComp<ActorComponent>(uid,out var actor))
+        {
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes,message,message,EntityUid.Invalid,
+                false, actor.PlayerSession.ConnectedClient);
+        }
     }
+
+
 }
