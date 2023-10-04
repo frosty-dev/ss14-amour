@@ -4,6 +4,7 @@ using Content.Server.White.Anus;
 using Content.Server.White.Crawl;
 using Content.Server.White.Cunt;
 using Content.Shared.Chat;
+using Content.Shared.Interaction;
 using Content.Shared.White.ShittyInteraction;
 using Content.Shared.White.ShittyInteraction.Interactions;
 using Robust.Server.GameObjects;
@@ -17,12 +18,32 @@ public sealed class Interactibles : SharedInteractibles
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly CuntSystem _cunt = default!;
     [Dependency] private readonly CrawlSystem _crawl = default!;
+    [Dependency] private readonly RotateToFaceSystem _rotateTo = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<CrawledEvent>(OnCrawl);
+    }
+
+    protected override void OnShlifovka(ShlifovkaEvent ev)
+    {
+        base.OnShlifovka(ev);
+
+        if (!_anus.HasAccessToButt(ev.Target))
+        {
+            SpellSomeShit(ev.Performer,"interaction-performer-ogurec-no-oth");
+            ev.Cancel();
+            return;
+        }
+
+        //_rotateTo.TryFaceCoordinates(ev.Performer, Transform(ev.Target).LocalPosition);
+    }
+
+    protected override void OnShlep(ShlepButtEvent ev)
+    {
+        base.OnShlep(ev);
     }
 
     private void OnCrawl(CrawledEvent ev)

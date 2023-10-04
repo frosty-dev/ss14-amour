@@ -1,5 +1,6 @@
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.White.ShittyInteraction.Interactions;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.White.ShittyInteraction;
@@ -18,7 +19,11 @@ public sealed class InteractionActionPrototype : EntityTargetAction, IPrototype
     [NonSerialized]
     public BaseInteractionEvent? EndEvent;
 
+    [DataField("startSound")] public SoundSpecifier? StartSound;
+    [DataField("endSound")] public SoundSpecifier? EndSound;
+
     [DataField("messages")] public List<string> Messages = new List<string>();
+    [DataField("endMessages")] public List<string> EndMessages = new List<string>();
 
     [DataField("interactionTime" )]
     public int InteractionTime;

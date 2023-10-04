@@ -9,6 +9,17 @@ public abstract class SharedInteractibles : EntitySystem
         SubscribeAllEvent<EbatEvent>(OnEbat);
         SubscribeAllEvent<EbatEndEvent>(OnEndEbat);
 
+        SubscribeAllEvent<ShlepButtEvent>(OnShlep);
+        SubscribeAllEvent<ShlifovkaEvent>(OnShlifovka);
+    }
+
+    protected virtual void OnShlifovka(ShlifovkaEvent ev)
+    {
+
+    }
+
+    protected virtual void OnShlep(ShlepButtEvent ev)
+    {
     }
 
     protected virtual void OnEndEbat(EbatEndEvent ev)

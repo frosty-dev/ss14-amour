@@ -2,11 +2,13 @@
   id: fuckInSraka
   name: inter-target-ass-name
   itemIconStyle: BigAction
-  icon: White/Icons/tongue.png
+  icon: Interface/VerbIcons/group.svg.192dpi.png
   serverEvent: !type:EbatEvent
   endEvent: !type:EbatEndEvent
   isCloseInteraction: true
   canTargetSelf: false
+  startSound:
+    path: /Audio/Effects/Emotes/clap1.ogg
   messages:
     - inter-target-ass1
     - inter-target-ass2
@@ -16,80 +18,71 @@
 
 - type: interactionTargetAction
   id: upast
-  name: уронить друга
+  name: inter-target-crawl-name
   itemIconStyle: BigAction
-  icon: White/Icons/tongue.png
+  icon: Interface/VerbIcons/group.svg.192dpi.png
   endEvent: !type:CrawledEvent
-  messages:
+  endMessages:
     - inter-target-crawl1
     - inter-target-crawl2
     - inter-target-crawl3
-  interactionTime: 5
-  timeout: 10
+  interactionTime: 3
+  timeout: 5
 
 - type: interactionTargetAction
-  id: upast1
-  name: отшлифовать огуречик
+  id: shlifovkaOgur
+  name: inter-target-shlif-ogur-name
   itemIconStyle: BigAction
-  icon: White/Icons/tongue.png
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:ShlifovkaEvent
+  isCloseInteraction: true
+  canTargetSelf: false
+  interactionTime: 5
+  messages:
+    - inter-target-shlif-ogur1
+    - inter-target-shlif-ogur2
+    - inter-target-shlif-ogur3
+  timeout: 5
+
+- type: interactionTargetAction
+  id: shlifovkaPelm
+  name: inter-target-shlif-pelm-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:ShlifovkaEvent
+  isCloseInteraction: true
+  canTargetSelf: false
+  interactionTime: 5
+  messages:
+    - inter-target-shlif-pelm1
+    - inter-target-shlif-pelm2
+    - inter-target-shlif-pelm3
+  timeout: 5
+
+- type: interactionTargetAction
+  id: pelmen
+  name: inter-target-pelm-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
   serverEvent: !type:EbatEvent
   endEvent: !type:EbatEndEvent
   isCloseInteraction: true
   canTargetSelf: false
+  messages:
+    - inter-target-pelm1
+    - inter-target-pelm2
+    - inter-target-pelm3
   interactionTime: 5
-
-
-- type: interactionTargetAction
-  id: upast2
-  name: отшлифовать пельмешку
-  itemIconStyle: BigAction
-  icon: White/Icons/tongue.png
-  serverEvent: !type:EbatEvent
-  endEvent: !type:EbatEndEvent
-  isCloseInteraction: true
-  canTargetSelf: false
-  interactionTime: 5
+  timeout: 15
 
 - type: interactionTargetAction
-  id: upast3
-  name: прочистить пельмешку
+  id: shlepButt
+  name: interaction-butt-shlep-name
   itemIconStyle: BigAction
-  icon: White/Icons/tongue.png
-  serverEvent: !type:EbatEvent
-  endEvent: !type:EbatEndEvent
-  isCloseInteraction: true
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:ShlepButtEvent
+  startSound:
+    path: /Audio/White/Interactions/clap.ogg
+  messages:
+    - interaction-butt-shlep
   canTargetSelf: false
-  interactionTime: 5
-
-- type: interactionTargetAction
-  id: upast4
-  name: Вылизать ноги
-  itemIconStyle: BigAction
-  icon: White/Icons/tongue.png
-  serverEvent: !type:EbatEvent
-  endEvent: !type:EbatEndEvent
-  isCloseInteraction: true
-  canTargetSelf: false
-  interactionTime: 5
-
-- type: interactionTargetAction
-  id: upast5
-  name: сесть на лицо
-  itemIconStyle: BigAction
-  icon: White/Icons/tongue.png
-  serverEvent: !type:EbatEvent
-  endEvent: !type:EbatEndEvent
-  isCloseInteraction: true
-  canTargetSelf: false
-  interactionTime: 5
-
-- type: interactionTargetAction
-  id: upast6
-  name: шлёпнуть по заду
-  itemIconStyle: BigAction
-  icon: White/Icons/tongue.png
-  serverEvent: !type:EbatEvent
-  endEvent: !type:EbatEndEvent
-  isCloseInteraction: true
-  canTargetSelf: false
-  interactionTime: 5

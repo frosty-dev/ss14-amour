@@ -26,6 +26,7 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -38,7 +39,8 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
     private void OnInteractionDoAfter(EntityUid uid, InteractibleComponent component, InteractionDoAfterEvent args)
     {
         if(!TryComp<InteractibleComponent>(args.User,out var performerComponent) ||
-           !TryComp<InteractibleComponent>(args.Target, out var targetComponent) )
+           !TryComp<InteractibleComponent>(args.Target, out var targetComponent) ||
+           !PrototypeManager.TryIndex<InteractionActionPrototype>(args.EventName, out var eventPrototype))
             return;
 
         performerComponent.IsActive = false;
@@ -46,30 +48,47 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         _actionBlocker.UpdateCanMove(args.User);
         _actionBlocker.UpdateCanMove(args.Target.Value);
 
-        if (args.EndEvent != null)
+        if(args.Cancelled)
+            return;
+
+        if (eventPrototype.EndEvent != null)
         {
-            args.EndEvent.Performer = args.User;
-            args.EndEvent.Target = args.Target.Value;
-            RaiseLocalEvent((object)args.EndEvent);
-            RaiseNetworkEvent(args.EndEvent);
+            eventPrototype.EndEvent.Performer = args.User;
+            eventPrototype.EndEvent.Target = args.Target.Value;
+            RaiseLocalEvent((object)eventPrototype.EndEvent);
+            RaiseNetworkEvent(eventPrototype.EndEvent);
         }
 
-        targetComponent.NextInteractionTime = _timing.CurTime + TimeSpan.FromSeconds(args.Timeout);
-        performerComponent.NextInteractionTime = _timing.CurTime + TimeSpan.FromSeconds(args.Timeout);
+        if (eventPrototype.EndSound != null)
+        {
+            _audio.PlayPvs(eventPrototype.EndSound, args.User);
+        }
+
+        if (eventPrototype.EndMessages.Count > 0)
+        {
+            var message = _random.Pick(eventPrototype.EndMessages);
+            _chat.TrySendInGameICMessage(args.User,
+                Loc.GetString(message, ("target", (MetaData(args.Target.Value).EntityName))), InGameICChatType.Emote, false);
+        }
+
+        targetComponent.NextInteractionTime = _timing.CurTime + TimeSpan.FromSeconds(eventPrototype.Timeout);
+        performerComponent.NextInteractionTime = _timing.CurTime + TimeSpan.FromSeconds(eventPrototype.Timeout);
     }
 
     private void OnInteraction(ExecutionInteractionEvent args)
     {
-        if(!TryComp<InteractibleComponent>(args.Performer,out var performerComponent) || performerComponent.IsActive ||
-           !TryComp<InteractibleComponent>(args.Target, out var targetComponent) || targetComponent.IsActive ||
-           !PrototypeManager.TryIndex<InteractionActionPrototype>(args.EventName,out var eventPrototype))
+        if (!TryComp<InteractibleComponent>(args.Performer, out var performerComponent) ||
+            performerComponent.IsActive ||
+            !TryComp<InteractibleComponent>(args.Target, out var targetComponent) || targetComponent.IsActive ||
+            !PrototypeManager.TryIndex<InteractionActionPrototype>(args.EventName, out var eventPrototype))
             return;
 
         if (performerComponent.NextInteractionTime > _timing.CurTime)
         {
             var message = Loc.GetString("interaction-tired");
-            if(TryComp<ActorComponent>(args.Performer,out var actor))
-                _chatManager.ChatMessageToOne(ChatChannel.Emotes,message,message,EntityUid.Invalid, false, actor.PlayerSession.ConnectedClient);
+            if (TryComp<ActorComponent>(args.Performer, out var actor))
+                _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, message, EntityUid.Invalid, false,
+                    actor.PlayerSession.ConnectedClient);
             return;
         }
 
@@ -93,36 +112,44 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
             RaiseNetworkEvent(ev);
         }
 
+        if (eventPrototype.IsCloseInteraction)
+        {
+            _actionBlocker.UpdateCanMove(args.Performer);
+            _actionBlocker.UpdateCanMove(args.Target);
+            _transform.SetCoordinates(args.Performer, Transform(args.Target).Coordinates);
+        }
+
         if (eventPrototype.InteractionTime > 0)
         {
             performerComponent.IsActive = true;
             targetComponent.IsActive = true;
 
             var doAfterArgs = new DoAfterArgs(args.Performer, TimeSpan.FromSeconds(eventPrototype.InteractionTime),
-                new InteractionDoAfterEvent(eventPrototype.EndEvent,eventPrototype.Timeout),
+                new InteractionDoAfterEvent(args.EventName),
                 args.Performer, args.Target)
             {
                 BreakOnHandChange = false,
+                BreakOnUserMove = true,
+                BreakOnTargetMove = true
             };
 
             _doAfter.TryStartDoAfter(doAfterArgs);
         }
 
-        if (eventPrototype.IsCloseInteraction)
-        {
-            _actionBlocker.UpdateCanMove(args.Performer);
-            _actionBlocker.UpdateCanMove(args.Target);
-            _transform.SetCoordinates(args.Performer,Transform(args.Target).Coordinates);
-        }
-
         if (eventPrototype.Messages.Count > 0)
         {
             var message = _random.Pick(eventPrototype.Messages);
-            _chat.TrySendInGameICMessage(args.Performer,Loc.GetString(message,("target",(MetaData(args.Target).EntityName))),InGameICChatType.Emote,false);
+            _chat.TrySendInGameICMessage(args.Performer,
+                Loc.GetString(message, ("target", (MetaData(args.Target).EntityName))), InGameICChatType.Emote, false);
+        }
+
+        if (eventPrototype.StartSound != null)
+        {
+            _audio.PlayPvs(eventPrototype.StartSound, args.Performer);
         }
 
 
-    }
+}
 
     private void OnSelected(InteractionSelectMessage ev, EntitySessionEventArgs args)
     {

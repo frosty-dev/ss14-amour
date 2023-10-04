@@ -7,12 +7,10 @@ namespace Content.Shared.White.ShittyInteraction.Events;
 [Serializable, NetSerializable]
 public sealed class InteractionDoAfterEvent : SimpleDoAfterEvent
 {
-    public BaseInteractionEvent? EndEvent;
-    public int Timeout;
+    public string EventName;
 
-    public InteractionDoAfterEvent(BaseInteractionEvent? endEvent, int timeout)
+    public InteractionDoAfterEvent(string eventName)
     {
-        EndEvent = endEvent;
-        Timeout = timeout;
+        EventName = eventName;
     }
 }

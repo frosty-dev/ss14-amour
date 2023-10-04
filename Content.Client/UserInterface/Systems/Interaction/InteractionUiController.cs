@@ -23,19 +23,16 @@ namespace Content.Client.UserInterface.Systems.Interaction;
 public sealed class InteractionUiController : UIController, IOnStateChanged<GameplayState>
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IClientEntityManager _entity = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
     [UISystemDependency] private readonly InteractibleSystem _interaction = default!;
-    [UISystemDependency] private readonly ActionsSystem _actionsSystem = default!;
 
     private InteractionWindow? _window;
     private MenuButton? InteractionButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.InteractionButton;
     public void OnStateEntered(GameplayState state)
     {
         _window = new InteractionWindow();
-        // _interaction = _entity.System<InteractibleSystem>();
 
         _window.OnOpen += OnWindowOpened;
         _window.OnClose += OnWindowClosed;
@@ -84,7 +81,11 @@ public sealed class InteractionUiController : UIController, IOnStateChanged<Game
             return;
 
         _window?.InteractionsContainer.Children.Clear();
-        foreach (var interaction in _interaction.TryGetAvailableInteractions(playerEntity.Value))
+
+        var avaliableInteractions = _interaction.TryGetAvailableInteractions(playerEntity.Value);
+        avaliableInteractions.Sort(string.CompareOrdinal);
+
+        foreach (var interaction in avaliableInteractions)
         {
             if (_prototypeManager.TryIndex<InteractionActionPrototype>(interaction, out var action))
             {
