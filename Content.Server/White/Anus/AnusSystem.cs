@@ -52,9 +52,9 @@ public sealed class AnusSystem : SharedAnusSystem
                 return;
             component.NextMoanTime += component.MoanRate;
 
-            if(!component.AnusSlot.ContainedEntity.HasValue ||
+            if((!component.AnusSlot.ContainedEntity.HasValue ||
                !TryComp<DildoComponent>(component.AnusSlot.ContainedEntity.Value,out var dildoComponent) ||
-               !dildoComponent.IsVibrating)
+               !dildoComponent.IsVibrating) && !HasComp<MoanComponent>(uid))
                 continue;
 
             _chat.TryEmoteWithChat(uid,"Moan");

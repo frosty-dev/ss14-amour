@@ -1,0 +1,175 @@
+- type: interactionTargetAction
+  id: fuckInSraka
+  name: inter-target-ass-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:EbatEvent
+    isOchello: true
+  endEvent: !type:EbatEndEvent
+  isCloseInteraction: true
+  canTargetSelf: false
+  startSound:
+    path: /Audio/Effects/Emotes/clap1.ogg
+  messages:
+    - inter-target-ass1
+    - inter-target-ass2
+    - inter-target-ass3
+  interactionTime: 5
+  timeout: 15
+
+- type: interactionTargetAction
+  id: upast
+  name: inter-target-crawl-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  endEvent: !type:CrawledEvent
+  endMessages:
+    - inter-target-crawl1
+    - inter-target-crawl2
+    - inter-target-crawl3
+  messages:
+    - inter-target-crawl-attempt
+  interactionTime: 2
+  timeout: 5
+
+- type: interactionTargetAction
+  id: shlifovkaOgur
+  name: inter-target-shlif-ogur-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:ShlifovkaEvent
+  isCloseInteraction: true
+  canTargetSelf: false
+  interactionTime: 5
+  startSound:
+    path: /Audio/White/Felinid/lick.ogg
+  messages:
+    - inter-target-shlif-ogur1
+    - inter-target-shlif-ogur2
+    - inter-target-shlif-ogur3
+    - inter-target-shlif-ogur4
+  timeout: 5
+
+- type: interactionTargetAction
+  id: shlifovkaPelm
+  name: inter-target-shlif-pelm-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:ShlifovkaEvent
+    isPelmashka: true
+  isCloseInteraction: true
+  canTargetSelf: false
+  interactionTime: 5
+  startSound:
+    path: /Audio/White/Felinid/lick.ogg
+  messages:
+    - inter-target-shlif-pelm1
+    - inter-target-shlif-pelm2
+    - inter-target-shlif-pelm3
+    - inter-target-shlif-pelm4
+  timeout: 5
+
+- type: interactionTargetAction
+  id: pelmen
+  name: inter-target-pelm-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:EbatEvent
+  endEvent: !type:EbatEndEvent
+  isCloseInteraction: true
+  canTargetSelf: false
+  messages:
+    - inter-target-pelm1
+    - inter-target-pelm2
+    - inter-target-pelm3
+  interactionTime: 5
+  timeout: 15
+
+- type: interactionTargetAction
+  id: shlepButt
+  name: interaction-butt-shlep-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:ShlepButtEvent
+  startSound:
+    path: /Audio/White/Interactions/clap.ogg
+  messages:
+    - interaction-butt-shlep1
+    - interaction-butt-shlep2
+    - interaction-butt-shlep3
+  canTargetSelf: false
+  timeout: 1
+
+- type: interactionTargetAction
+  id: kissMouth
+  name: interaction-kiss-mouth-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:ComeToTargetEvent
+  startSound:
+    collection: Kiss
+  messages:
+    - interaction-kiss-mouth1
+    - interaction-kiss-mouth2
+    - interaction-kiss-mouth3
+  canTargetSelf: false
+  timeout: 5
+
+- type: interactionTargetAction
+  id: kissNeck
+  name: interaction-kiss-neck-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:ComeToTargetEvent
+  startSound:
+    collection: Kiss
+  messages:
+    - interaction-kiss-neck1
+    - interaction-kiss-neck2
+    - interaction-kiss-neck3
+    - interaction-kiss-neck4
+  canTargetSelf: false
+  timeout: 5
+
+- type: interactionTargetAction
+  id: kissFace
+  name: interaction-kiss-face-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:ComeToTargetEvent
+  startSound:
+    collection: Kiss
+  messages:
+    - interaction-kiss-face1
+    - interaction-kiss-face2
+  canTargetSelf: false
+  timeout: 5
+
+- type: interactionTargetAction
+  id: shiff
+  name: interaction-sniff-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:ComeToTargetEvent
+  startSound:
+    collection: Sniff
+  messages:
+    - interaction-sniff1
+    - interaction-sniff2
+    - interaction-sniff3
+  canTargetSelf: false
+  timeout: 5
+
+- type: interactionTargetAction
+  id: lickFace
+  name: interaction-lick-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:ComeToTargetEvent
+  startSound:
+    path: /Audio/White/Felinid/lick.ogg
+  messages:
+    - interaction-lick1
+    - interaction-lick2
+  canTargetSelf: false
+  timeout: 5

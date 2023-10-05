@@ -35,7 +35,7 @@ public sealed class CuntSystem : EntitySystem
     {
         if (args.Emote.ID == "Squelch")
         {
-            GenCum(uid, component);
+            GenCum(uid,1, component);
             TryCunt(uid, component);
         }
     }
@@ -57,7 +57,7 @@ public sealed class CuntSystem : EntitySystem
         return true;
     }
 
-    public void GenCum(EntityUid uid, CuntableComponent? component = null)
+    public void GenCum(EntityUid uid,FixedPoint2 quantity, CuntableComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return ;
@@ -67,7 +67,7 @@ public sealed class CuntSystem : EntitySystem
             if (solution.AvailableVolume <= FixedPoint2.Zero)
                return;
 
-            var generated = new Solution("Cunt", 1);
+            var generated = new Solution("Cunt", quantity);
 
             _solutionContainer.TryAddSolution(uid, solution, generated);
         }

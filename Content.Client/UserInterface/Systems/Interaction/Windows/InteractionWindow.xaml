@@ -1,0 +1,12 @@
+<windows:InteractionWindow
+    xmlns="https://spacestation14.io"
+    xmlns:windows="clr-namespace:Content.Client.UserInterface.Systems.Interaction.Windows"
+    Title="Меню действий"
+    VerticalExpand="True"
+    HorizontalExpand="True"
+    MinHeight="250"
+    MinWidth="300">
+    <GridContainer Name="InteractionsContainer" Access="Public" Columns="1">
+
+    </GridContainer>
+</windows:InteractionWindow>
