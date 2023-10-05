@@ -1,0 +1,27 @@
+- type: job
+  id: Prositutka
+  name: Ночная бабочка
+  description: Удовлетворяйте потребности работников станции
+  playTimeTracker: JobPassenger
+  startingGear: NekoGear
+  icon: "Sluha"
+  supervisors: job-supervisors-everyone
+  access:
+    - Maintenance
+    - Theatre
+
+- type: startingGear
+  id: NekoGear
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtJanimaid
+    back: ClothingBackpackFilled
+    head: ClothingHeadHatCatEars
+    ears: ClothingHeadsetService
+    shoes: ClothingShoesColorBlack
+    id: PassengerPDA
+    underwearb: ClothingUnderwearBottomBoxersWhite # White-Underwear
+  underweart: ClothingUnderwearTopBraWhite # White-Underwear
+  underwearb: ClothingUnderwearBottomPantiesWhite # White-Underwear
+  innerclothingskirt: ClothingUniformJumpskirtJanimaid
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled

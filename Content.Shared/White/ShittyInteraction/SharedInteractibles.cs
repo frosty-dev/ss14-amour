@@ -29,11 +29,9 @@ public abstract class SharedInteractibles : EntitySystem
 
     protected virtual void OnEndEbat(EbatEndEvent ev)
     {
-        RemComp<MoanComponent>(ev.Target);
     }
 
     protected virtual void OnEbat(EbatEvent ev)
     {
-        EnsureComp<MoanComponent>(ev.Target);
     }
 }
