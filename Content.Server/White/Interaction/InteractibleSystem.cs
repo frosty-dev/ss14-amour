@@ -118,7 +118,6 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         if (eventPrototype.IsCloseInteraction)
             _transform.SetCoordinates(args.Performer, Transform(args.Target).Coordinates);
 
-
         if (eventPrototype.InteractionTime > 0)
         {
             performerComponent.IsActive = true;

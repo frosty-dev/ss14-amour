@@ -1,0 +1,7 @@
+- type: soundCollection
+  id: Kiss
+  files:
+    - /Audio/White/Interactions/Kiss/kiss1.ogg
+    - /Audio/White/Interactions/Kiss/kiss2.ogg
+    - /Audio/White/Interactions/Kiss/kiss3.ogg
+    - /Audio/White/Interactions/Kiss/kiss4.ogg

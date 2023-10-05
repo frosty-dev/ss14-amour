@@ -16,6 +16,51 @@ public sealed class Interactibles : SharedInteractibles
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
 
+    protected override void OnCome(ComeToTargetEvent ev)
+    {
+        base.OnCome(ev);
+        if(ev.Cancelled
+           || !TryComp<InteractibleComponent>(ev.Performer,out var performerComponent)
+           || !TryComp<InteractibleComponent>(ev.Target,out var targetComponent))
+            return;
+
+        if (_animation.HasRunningAnimation(ev.Performer, AnimationKey))
+            return;
+
+        var viewer = _playerManager.LocalPlayer?.ControlledEntity;
+        if(!viewer.HasValue)
+            return;
+
+        if(!TryComp<InputMoverComponent>(viewer,out var moverComponent))
+            return;
+
+        var viewerRot = moverComponent.TargetRelativeRotation;
+        var rotation = (Transform(ev.Performer).LocalRotation - viewerRot).ToWorldVec()*0.25f;
+
+        var animation = new Animation
+        {
+            Length = TimeSpan.FromSeconds(3),
+            AnimationTracks =
+            {
+                new AnimationTrackComponentProperty
+                {
+                    ComponentType = typeof(SpriteComponent),
+                    Property = nameof(SpriteComponent.Offset),
+                    InterpolationMode = AnimationInterpolationMode.Cubic,
+                    KeyFrames =
+                    {
+                        new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0),
+                        new AnimationTrackProperty.KeyFrame(rotation, 0.150f),
+                        new AnimationTrackProperty.KeyFrame(rotation, 1.250f),
+                        new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.150f),
+                    }
+                }
+            }
+        };
+
+        _animation.Play(ev.Performer, animation, AnimationKey);
+    }
+
     protected override void OnShlifovka(ShlifovkaEvent ev)
     {
         base.OnShlifovka(ev);
@@ -27,6 +72,15 @@ public sealed class Interactibles : SharedInteractibles
         if (_animation.HasRunningAnimation(ev.Performer, AnimationKey))
                 return;
 
+        var viewer = _playerManager.LocalPlayer?.ControlledEntity;
+        if(!viewer.HasValue)
+            return;
+
+        if(!TryComp<InputMoverComponent>(viewer,out var moverComponent))
+            return;
+
+        var viewerRot = moverComponent.TargetRelativeRotation;
+        var rotation1 = -(Transform(ev.Performer).LocalRotation - viewerRot).ToWorldVec()*0.1f;
 
         var rotation = new Vector2(0,0.5f);
 
@@ -44,34 +98,34 @@ public sealed class Interactibles : SharedInteractibles
                     {
                         new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0f),
 
-                        new AnimationTrackProperty.KeyFrame(-rotation*0.5f, 0.250f),
-                        new AnimationTrackProperty.KeyFrame(-rotation*0.5f, 0.250f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation*0.5f, 0.250f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation*0.5f, 0.250f),
 
-                        new AnimationTrackProperty.KeyFrame(-rotation, 0.250f),
-                        new AnimationTrackProperty.KeyFrame(-rotation*0.5f, 0.250f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation, 0.250f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation*0.5f, 0.250f),
 
-                        new AnimationTrackProperty.KeyFrame(-rotation, 0.125f),
-                        new AnimationTrackProperty.KeyFrame(-rotation*0.5f, 0.125f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation, 0.125f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation*0.5f, 0.125f),
 
-                        new AnimationTrackProperty.KeyFrame(-rotation, 0.125f),
-                        new AnimationTrackProperty.KeyFrame(-rotation*0.5f, 0.125f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation, 0.125f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation*0.5f, 0.125f),
 
-                        new AnimationTrackProperty.KeyFrame(-rotation, 0.125f),
-                        new AnimationTrackProperty.KeyFrame(-rotation*0.5f, 0.125f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation, 0.125f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation*0.5f, 0.125f),
 
-                        new AnimationTrackProperty.KeyFrame(-rotation, 0.125f),
-                        new AnimationTrackProperty.KeyFrame(-rotation*0.5f, 0.125f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation, 0.125f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation*0.5f, 0.125f),
 
-                        new AnimationTrackProperty.KeyFrame(-rotation, 0.500f),
-                        new AnimationTrackProperty.KeyFrame(-rotation*0.5f, 0.500f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation, 0.500f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation*0.5f, 0.500f),
 
-                        new AnimationTrackProperty.KeyFrame(-rotation, 0.500f),
-                        new AnimationTrackProperty.KeyFrame(-rotation*0.5f, 0.500f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation, 0.500f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation*0.5f, 0.500f),
 
-                        new AnimationTrackProperty.KeyFrame(-rotation, 0.250f),
-                        new AnimationTrackProperty.KeyFrame(-rotation*0.5f, 0.250f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation, 0.250f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation*0.5f, 0.250f),
 
-                        new AnimationTrackProperty.KeyFrame(-rotation*0.5f, 0.250f),
+                        new AnimationTrackProperty.KeyFrame(rotation1-rotation*0.5f, 0.250f),
                         new AnimationTrackProperty.KeyFrame(Vector2.Zero, 0.250f),
 
                     }
@@ -80,7 +134,6 @@ public sealed class Interactibles : SharedInteractibles
         };
 
         _animation.Play(ev.Performer, animation, InteractibleComponent.AnimationKey);
-
     }
 
     protected override void OnShlep(ShlepButtEvent ev)
@@ -202,10 +255,4 @@ public sealed class Interactibles : SharedInteractibles
         _animation.Play(ev.Performer, animation, InteractibleComponent.AnimationKey);
 
     }
-
-    protected override void OnEndEbat(EbatEndEvent ev)
-    {
-        base.OnEndEbat(ev);
-    }
-
 }

@@ -3,6 +3,7 @@ using Content.Server.White.Anus;
 using Content.Server.White.Crawl;
 using Content.Server.White.Cunt;
 using Content.Shared.Chat;
+using Content.Shared.Humanoid;
 using Content.Shared.White.ShittyInteraction;
 using Content.Shared.White.ShittyInteraction.Interactions;
 using Robust.Server.GameObjects;
@@ -28,19 +29,24 @@ public sealed class Interactibles : SharedInteractibles
     {
         base.OnShlifovka(ev);
 
-        if (!_anus.HasAccessToButt(ev.Target))
+        if(!ev.IsPelmashka)
         {
-            SpellSomeShit(ev.Performer,"interaction-performer-ogurec-no-oth");
-            ev.Cancel();
-            return;
+            if (!_anus.HasAccessToButt(ev.Target) || !HasOgurec(ev.Target))
+            {
+                SpellSomeShit(ev.Performer,"interaction-performer-ogurec-no");
+                ev.Cancel();
+                return;
+            }
         }
-
-        //_rotateTo.TryFaceCoordinates(ev.Performer, Transform(ev.Target).LocalPosition);
-    }
-
-    protected override void OnShlep(ShlepButtEvent ev)
-    {
-        base.OnShlep(ev);
+        else
+        {
+            if (!_anus.HasAccessToButt(ev.Target) || !HasPelmeshka(ev.Target))
+            {
+                SpellSomeShit(ev.Performer,"interaction-target-pelmesh-no");
+                ev.Cancel();
+                return;
+            }
+        }
     }
 
     private void OnCrawl(CrawledEvent ev)
@@ -52,9 +58,16 @@ public sealed class Interactibles : SharedInteractibles
     {
         base.OnEbat(ev);
 
-        if (!_anus.HasAccessToButt(ev.Performer))
+        if (!_anus.HasAccessToButt(ev.Performer) || !HasOgurec(ev.Performer))
         {
             SpellSomeShit(ev.Performer,"interaction-performer-ogurec-no");
+            ev.Cancel();
+            return;
+        }
+
+        if (!ev.IsOchello && !HasPelmeshka(ev.Target))
+        {
+            SpellSomeShit(ev.Performer,"interaction-target-pelmesh-no");
             ev.Cancel();
             return;
         }
@@ -87,5 +100,13 @@ public sealed class Interactibles : SharedInteractibles
         }
     }
 
+    private bool HasOgurec(EntityUid uid,HumanoidAppearanceComponent? component = null)
+    {
+        return _interactible.GetGender(uid, component) == "male";
+    }
 
+    private bool HasPelmeshka(EntityUid uid,HumanoidAppearanceComponent? component = null)
+    {
+        return _interactible.GetGender(uid, component) == "female";
+    }
 }

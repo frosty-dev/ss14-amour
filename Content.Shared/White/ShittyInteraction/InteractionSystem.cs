@@ -41,6 +41,6 @@ public abstract class SharedInteractibleSystem : EntitySystem
 
     public List<string> TryGetAvailableInteractions(EntityUid uid, InteractibleComponent? component = null)
     {
-        return !Resolve(uid, ref component) ? new() : component.AvailableInteractions;
+        return !Resolve(uid, ref component,false) ? new() : component.AvailableInteractions;
     }
 }
