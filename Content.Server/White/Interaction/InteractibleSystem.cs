@@ -2,6 +2,7 @@ using Content.Server.Actions;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
+using Content.Server.Interaction;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
@@ -28,6 +29,7 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly InteractionSystem _interactionSystem = default!;
 
     public override void Initialize()
     {
@@ -49,16 +51,21 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         _actionBlocker.UpdateCanMove(args.User);
         _actionBlocker.UpdateCanMove(args.Target.Value);
 
-        if(args.Cancelled)
-            return;
-
         if (eventPrototype.EndEvent != null)
         {
             eventPrototype.EndEvent.Performer = args.User;
             eventPrototype.EndEvent.Target = args.Target.Value;
+            if (args.Cancelled)
+                eventPrototype.EndEvent.Cancel();
+
             RaiseLocalEvent((object)eventPrototype.EndEvent);
             RaiseNetworkEvent(eventPrototype.EndEvent);
+
+            eventPrototype.EndEvent.Uncancel();
         }
+
+        if(args.Cancelled)
+            return;
 
         if (eventPrototype.EndSound != null)
         {
