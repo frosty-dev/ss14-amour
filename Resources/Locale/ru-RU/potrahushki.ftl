@@ -27,7 +27,7 @@ inter-target-pelm3 = вставляет член по самые яйца в к�
 interaction-butt-shlep-name = шлёпнуть по попке
 interaction-butt-shlep1 = шлёпает попку { $target }
 interaction-butt-shlep2 = со всей силы бьёт по жопе { $target }
-interaction-butt-shlep3 = даёт пощёчину попке { $target }
+interaction-butt-shlep3 = шлёпает попкуе { $target }
 
 inter-target-shlif-ogur-name = отсосать орган
 inter-target-shlif-ogur1 = облизывает пенис { $target }
