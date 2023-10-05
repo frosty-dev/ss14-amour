@@ -101,21 +101,6 @@
   timeout: 1
 
 - type: interactionTargetAction
-  id: shlepButt
-  name: interaction-butt-shlep-name
-  itemIconStyle: BigAction
-  icon: Interface/VerbIcons/group.svg.192dpi.png
-  serverEvent: !type:ShlepButtEvent
-  startSound:
-    path: /Audio/White/Interactions/clap.ogg
-  messages:
-    - interaction-butt-shlep1
-    - interaction-butt-shlep2
-    - interaction-butt-shlep3
-  canTargetSelf: false
-  timeout: 1
-
-- type: interactionTargetAction
   id: kissMouth
   name: interaction-kiss-mouth-name
   itemIconStyle: BigAction

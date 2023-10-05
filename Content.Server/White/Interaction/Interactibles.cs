@@ -4,6 +4,7 @@ using Content.Server.White.Crawl;
 using Content.Server.White.Cunt;
 using Content.Shared.Chat;
 using Content.Shared.Humanoid;
+using Content.Shared.White.Anus;
 using Content.Shared.White.ShittyInteraction;
 using Content.Shared.White.ShittyInteraction.Interactions;
 using Robust.Server.GameObjects;
@@ -78,6 +79,8 @@ public sealed class Interactibles : SharedInteractibles
             ev.Cancel();
             return;
         }
+
+        EnsureComp<MoanComponent>(ev.Target);
     }
 
     protected override void OnEndEbat(EbatEndEvent ev)
@@ -86,6 +89,7 @@ public sealed class Interactibles : SharedInteractibles
 
         _cunt.GenCum(ev.Performer,10);
         _cunt.TryCunt(ev.Performer);
+        RemComp<MoanComponent>(ev.Target);
     }
 
     protected void SpellSomeShit(EntityUid uid, string message)
