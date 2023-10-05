@@ -16,6 +16,7 @@
     - inter-target-ass3
   interactionTime: 5
   timeout: 15
+  range: 0.25
 
 - type: interactionTargetAction
   id: upast
@@ -31,6 +32,7 @@
     - inter-target-crawl-attempt
   interactionTime: 2
   timeout: 5
+  range: 0.25
 
 - type: interactionTargetAction
   id: shlifovkaOgur
@@ -49,6 +51,7 @@
     - inter-target-shlif-ogur3
     - inter-target-shlif-ogur4
   timeout: 5
+  range: 0.35
 
 - type: interactionTargetAction
   id: shlifovkaPelm
@@ -68,6 +71,7 @@
     - inter-target-shlif-pelm3
     - inter-target-shlif-pelm4
   timeout: 5
+  range: 0.25
 
 - type: interactionTargetAction
   id: pelmen
@@ -84,6 +88,7 @@
     - inter-target-pelm3
   interactionTime: 5
   timeout: 15
+  range: 0.25
 
 - type: interactionTargetAction
   id: shlepButt
@@ -99,6 +104,7 @@
     - interaction-butt-shlep3
   canTargetSelf: false
   timeout: 1
+  range: 0.25
 
 - type: interactionTargetAction
   id: kissMouth
@@ -114,6 +120,7 @@
     - interaction-kiss-mouth3
   canTargetSelf: false
   timeout: 5
+  range: 0.25
 
 - type: interactionTargetAction
   id: kissNeck
@@ -130,6 +137,7 @@
     - interaction-kiss-neck4
   canTargetSelf: false
   timeout: 5
+  range: 0.25
 
 - type: interactionTargetAction
   id: kissFace
@@ -144,6 +152,7 @@
     - interaction-kiss-face2
   canTargetSelf: false
   timeout: 5
+  range: 0.25
 
 - type: interactionTargetAction
   id: shiff
@@ -159,6 +168,7 @@
     - interaction-sniff3
   canTargetSelf: false
   timeout: 5
+  range: 0.25
 
 - type: interactionTargetAction
   id: lickFace
@@ -173,3 +183,4 @@
     - interaction-lick2
   canTargetSelf: false
   timeout: 5
+  range: 0.25

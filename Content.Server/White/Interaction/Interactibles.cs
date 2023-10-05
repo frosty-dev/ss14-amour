@@ -2,6 +2,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.White.Anus;
 using Content.Server.White.Crawl;
 using Content.Server.White.Cunt;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Chat;
 using Content.Shared.Humanoid;
 using Content.Shared.White.Anus;
@@ -52,7 +53,8 @@ public sealed class Interactibles : SharedInteractibles
 
     private void OnCrawl(CrawledEvent ev)
     {
-        _crawl.EnableCrawl(ev.Target);
+        if(!ev.Cancelled)
+            _crawl.EnableCrawl(ev.Target);
     }
 
     protected override void OnEbat(EbatEvent ev)
