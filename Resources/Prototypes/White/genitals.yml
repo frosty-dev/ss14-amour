@@ -1,0 +1,15 @@
+- type: genital
+  id: Penis
+  sex: Male
+
+- type: genital
+  id: PenisMid
+  sex: Male
+
+- type: genital
+  id: PenisSmall
+  sex: Male
+
+- type: genital
+  id: Vagina
+  sex: Female

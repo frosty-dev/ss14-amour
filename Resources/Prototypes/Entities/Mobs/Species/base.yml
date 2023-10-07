@@ -295,6 +295,8 @@
         type: SummonCultistListWindowBUI
       - key: enum.SinguloCallUIKey.Key
         type: SinguloCallBUI
+      - key: enum.InteractionUiKey.Key
+        type: InteractionBoundUserInterface
         # WD-EDIT
   - type: Puller
   - type: Butcherable

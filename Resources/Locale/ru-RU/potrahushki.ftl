@@ -3,6 +3,8 @@ interaction-tired = Я так {$gender ->
                      *[other] устал
                      }..
 
+interaction-far = До цели так далеко...
+interaction-dress = У цели одежда! Я не могу!
 interaction-target-anus-no = Похоже, что у меня нет доступа к заднице
 interaction-target-pelmesh-no = Похоже, у меня нет доступа к вагине, либо его нет
 interaction-performer-ogurec-no = Похоже, у меня нет доступа к половому органу, либо он вообще отсутствует
@@ -27,7 +29,7 @@ inter-target-pelm3 = вставляет член по самые яйца в к�
 interaction-butt-shlep-name = шлёпнуть по попке
 interaction-butt-shlep1 = шлёпает попку { $target }
 interaction-butt-shlep2 = со всей силы бьёт по жопе { $target }
-interaction-butt-shlep3 = шлёпает попкуе { $target }
+interaction-butt-shlep3 = шлёпает попку { $target }
 
 inter-target-shlif-ogur-name = отсосать орган
 inter-target-shlif-ogur1 = облизывает пенис { $target }

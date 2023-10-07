@@ -1,0 +1,21 @@
+<windows1:InteractionContainer
+    xmlns="https://spacestation14.io"
+    xmlns:windows1="clr-namespace:Content.Client.White.Interaction.UI.Windows"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    VerticalExpand="True"
+    HorizontalExpand="True">
+    <Button Name="InvokeInteraction">
+        <BoxContainer Orientation="Horizontal">
+            <TextureRect Name="InteractionIcon"
+                        Margin="10 0 0 0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Left"
+                        SetSize="32 32"
+                        MaxSize="32 32"
+                        Stretch="Scale" />
+
+            <customControls:HSeparator/>
+            <Label Name="InteractionName" Margin="10 0 0 0"/>
+        </BoxContainer>
+    </Button>
+</windows1:InteractionContainer>

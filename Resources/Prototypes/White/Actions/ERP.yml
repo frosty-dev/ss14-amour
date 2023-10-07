@@ -17,6 +17,11 @@
   interactionTime: 5
   timeout: 15
   range: 0.25
+  targetRequirement:
+    ass: true
+  performerRequirement:
+    ass: true
+    penis: true
 
 - type: interactionTargetAction
   id: upast
@@ -38,7 +43,7 @@
   id: shlifovkaOgur
   name: inter-target-shlif-ogur-name
   itemIconStyle: BigAction
-  icon: Interface/VerbIcons/group.svg.192dpi.png
+  icon: White/Icons/tongue.png
   serverEvent: !type:ShlifovkaEvent
   isCloseInteraction: true
   canTargetSelf: false
@@ -52,12 +57,15 @@
     - inter-target-shlif-ogur4
   timeout: 5
   range: 0.35
+  targetRequirement:
+    ass: true
+    penis: true
 
 - type: interactionTargetAction
   id: shlifovkaPelm
   name: inter-target-shlif-pelm-name
   itemIconStyle: BigAction
-  icon: Interface/VerbIcons/group.svg.192dpi.png
+  icon: White/Icons/tongue.png
   serverEvent: !type:ShlifovkaEvent
     isPelmashka: true
   isCloseInteraction: true
@@ -72,6 +80,9 @@
     - inter-target-shlif-pelm4
   timeout: 5
   range: 0.25
+  targetRequirement:
+    ass: true
+    vagina: true
 
 - type: interactionTargetAction
   id: pelmen
@@ -89,6 +100,12 @@
   interactionTime: 5
   timeout: 15
   range: 0.25
+  targetRequirement:
+    ass: true
+    vagina: true
+  performerRequirement:
+    ass: true
+    penis: true
 
 - type: interactionTargetAction
   id: shlepButt

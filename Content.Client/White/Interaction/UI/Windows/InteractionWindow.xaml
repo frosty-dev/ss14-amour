@@ -1,0 +1,14 @@
+<windows1:InteractionWindow
+    xmlns="https://spacestation14.io"
+    xmlns:windows1="clr-namespace:Content.Client.White.Interaction.UI.Windows"
+    Title="Меню действий"
+    VerticalExpand="True"
+    HorizontalExpand="True"
+    MinHeight="250"
+    MinWidth="300">
+    <ScrollContainer>
+        <BoxContainer Name="InteractionsContainer" Orientation="Vertical">
+
+        </BoxContainer>
+    </ScrollContainer>
+</windows1:InteractionWindow>
