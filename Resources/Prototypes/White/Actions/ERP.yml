@@ -184,3 +184,18 @@
   canTargetSelf: false
   timeout: 5
   range: 0.25
+
+- type: interactionTargetAction
+  id: combHead
+  name: interaction-comb-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:ComeToTargetEvent
+  startSound:
+    path: /Audio/White/Interactions/ches.ogg
+  messages:
+    - interaction-comb1
+    - interaction-comb2
+  canTargetSelf: false
+  timeout: 5
+  range: 0.25
