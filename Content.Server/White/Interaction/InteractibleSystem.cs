@@ -46,18 +46,32 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         SubscribeLocalEvent<InteractibleComponent, EntRemovedFromContainerMessage>(OnUpdate);
     }
 
-    private void OnUpdate(EntityUid uid, InteractibleComponent component, ContainerModifiedMessage args)
+    private void OnUpdate(EntityUid uid, InteractibleComponent component, EntityEventArgs args)
     {
-        if(!TryComp<ServerUserInterfaceComponent>(uid,out var serverUserInterfaceComponent))
-            return;
-        UpdateUserInterface(uid,serverUserInterfaceComponent);
+        OnUpdateRequired(uid,component);
     }
 
     private void OnSexChanged(EntityUid uid, InteractibleComponent component, SexChangedEvent args)
     {
-        if(!TryComp<ServerUserInterfaceComponent>(uid,out var serverUserInterfaceComponent))
-            return;
-        UpdateUserInterface(uid,serverUserInterfaceComponent);
+        OnUpdateRequired(uid,component);
+    }
+
+    private void OnUpdateRequired(EntityUid uid, InteractibleComponent component)
+    {
+        if(TryComp<ServerUserInterfaceComponent>(uid,out var serverUserInterfaceComponent))
+            UpdateUserInterface(uid,serverUserInterfaceComponent);
+
+        if (TryComp<ActorComponent>(uid, out var actorComponent))
+        {
+            var buiList = _userInterfaceSystem.GetAllUIsForSession(actorComponent.PlayerSession);
+            if(buiList == null)
+                return;
+
+            foreach (var bui in buiList)
+            {
+                UpdateUserInterface(bui.Owner);
+            }
+        }
     }
 
     private void OnDrag(EntityUid uid, InteractibleComponent component,ref DragDropDraggedEvent args)
@@ -213,7 +227,6 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         if(!Resolve(target,ref component))
             return;
 
-        Logger.Debug($"Meow {target}");
         if(!component.Interfaces.TryGetValue(InteractionUiKey.Key, out var interactionsSessions))
             return;
 
@@ -223,7 +236,6 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
                 new InteractionAvailableMessage(
                     GetAvailableInteractions(session.AttachedEntity!.Value, target).ToList()
                     ), session);
-            Logger.Debug($"Send {session.AttachedEntity}");
         }
     }
 

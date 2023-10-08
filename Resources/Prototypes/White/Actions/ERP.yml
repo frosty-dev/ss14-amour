@@ -88,7 +88,7 @@
   id: pelmen
   name: inter-target-pelm-name
   itemIconStyle: BigAction
-  icon: Interface/VerbIcons/group.svg.192dpi.png
+  icon: White/Icons/tongue.png
   serverEvent: !type:EbatEvent
   endEvent: !type:EbatEndEvent
   isCloseInteraction: true
@@ -191,7 +191,7 @@
   id: lickFace
   name: interaction-lick-name
   itemIconStyle: BigAction
-  icon: Interface/VerbIcons/group.svg.192dpi.png
+  icon: White/Icons/tongue.png
   serverEvent: !type:ComeToTargetEvent
   startSound:
     path: /Audio/White/Felinid/lick.ogg
