@@ -18,6 +18,7 @@ public sealed class InteractionBoundUserInterface : BoundUserInterface
     public InteractionBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         _window = new InteractionWindow();
+        _window.SetSelectListener(SendInteractionMessage);
     }
 
     protected override void Open()
@@ -48,7 +49,7 @@ public sealed class InteractionBoundUserInterface : BoundUserInterface
         if(message is not InteractionAvailableMessage availableMessage)
             return;
 
-        _window?.UpdateInteractions(ToProto(availableMessage.AvailableInteractions),SendInteractionMessage);
+        _window?.UpdateInteractions(ToProto(availableMessage.AvailableInteractions));
     }
 
     public List<InteractionActionPrototype> ToProto(List<string> inter)
@@ -60,6 +61,8 @@ public sealed class InteractionBoundUserInterface : BoundUserInterface
                 protoList.Add(prototype);
         }
 
+        protoList.Sort((a,b) => string.CompareOrdinal(
+            Loc.GetString(a.DisplayName),Loc.GetString(b.DisplayName)));
         return protoList;
     }
 }

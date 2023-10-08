@@ -1,4 +1,5 @@
 using Content.Server.Chat.Managers;
+using Content.Server.Pulling;
 using Content.Server.White.Anus;
 using Content.Server.White.Crawl;
 using Content.Server.White.Cunt;
@@ -14,12 +15,19 @@ public sealed class Interactibles : SharedInteractibles
 {
     [Dependency] private readonly CuntSystem _cunt = default!;
     [Dependency] private readonly CrawlSystem _crawl = default!;
+    [Dependency] private readonly PullingSystem _pulling = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<CrawledEvent>(OnCrawl);
+        SubscribeLocalEvent<PullTargetEvent>(OnPull);
+    }
+
+    private void OnPull(PullTargetEvent ev)
+    {
+        _pulling.TryStartPull(ev.Performer, ev.Target);
     }
 
     private void OnCrawl(CrawledEvent ev)

@@ -64,13 +64,14 @@ public abstract class SharedInteractibleSystem : EntitySystem
         return true;
     }
 
-    public Gender GetGender(EntityUid uid, HumanoidAppearanceComponent? component = null)
+    public Gender GetGender(EntityUid uid, HumanoidAppearanceComponent? component = null, bool cogenitals = false)
     {
         if (!Resolve(uid, ref component))
             return Gender.Male;
 
-        if(component.MarkingSet.Markings.TryGetValue(MarkingCategories.Genitals,out var genitals)
-           && genitals.Count > 0 && PrototypeManager.TryIndex<GenitalPrototype>(genitals[0].ToString(),out var genitalPrototype))
+        if (cogenitals && component.MarkingSet.Markings.TryGetValue(MarkingCategories.Genitals, out var genitals)
+                       && genitals.Count > 0 &&
+                       PrototypeManager.TryIndex<GenitalPrototype>(genitals[0].MarkingId, out var genitalPrototype))
             return genitalPrototype.Sex;
 
         return component.Gender;
@@ -83,11 +84,11 @@ public abstract class SharedInteractibleSystem : EntitySystem
 
     public bool HasOgurec(EntityUid uid,HumanoidAppearanceComponent? component = null)
     {
-        return GetGender(uid, component) == Gender.Male;
+        return GetGender(uid, component, true) == Gender.Male;
     }
 
     public bool HasPelmeshka(EntityUid uid,HumanoidAppearanceComponent? component = null)
     {
-        return GetGender(uid, component) == Gender.Female;
+        return GetGender(uid, component , true) == Gender.Female;
     }
 }

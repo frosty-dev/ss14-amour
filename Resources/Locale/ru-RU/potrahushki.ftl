@@ -70,3 +70,10 @@ interaction-lick2 = как собачка лижет нос { $target }
 interaction-comb-name = погладить
 interaction-comb1 = гладит по головушке { $target }
 interaction-comb2 = подчёсывает за ушком { $target }
+
+interaction-pull-name = взять за ручки
+interaction-pull1 = {$gender ->
+                      [female] взяла
+                     *[other] взял
+                     } за руку { $target }
+interaction-pull2 = берёт за руку { $target }

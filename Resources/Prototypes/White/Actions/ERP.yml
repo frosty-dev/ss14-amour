@@ -216,3 +216,16 @@
   canTargetSelf: false
   timeout: 5
   range: 0.25
+
+- type: interactionTargetAction
+  id: pull
+  name: interaction-pull-name
+  itemIconStyle: BigAction
+  icon: Interface/VerbIcons/group.svg.192dpi.png
+  serverEvent: !type:PullTargetEvent
+  messages:
+    - interaction-pull1
+    - interaction-pull2
+  canTargetSelf: false
+  timeout: 5
+  range: 0.5

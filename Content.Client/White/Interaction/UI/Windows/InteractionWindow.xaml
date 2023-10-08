@@ -1,14 +1,17 @@
 <windows1:InteractionWindow
     xmlns="https://spacestation14.io"
     xmlns:windows1="clr-namespace:Content.Client.White.Interaction.UI.Windows"
+    xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
     Title="Меню действий"
     VerticalExpand="True"
     HorizontalExpand="True"
     MinHeight="250"
     MinWidth="300">
-    <ScrollContainer>
-        <BoxContainer Name="InteractionsContainer" Orientation="Vertical">
-
-        </BoxContainer>
-    </ScrollContainer>
+    <BoxContainer Orientation="Vertical">
+        <LineEdit HorizontalExpand="True" Name="Query"/>
+        <customControls:HSeparator HorizontalExpand="True" Margin="0 10 0 10"/>
+        <ScrollContainer VerticalExpand="True">
+            <BoxContainer Name="InteractionsContainer" Orientation="Vertical"/>
+        </ScrollContainer>
+    </BoxContainer>
 </windows1:InteractionWindow>
