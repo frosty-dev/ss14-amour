@@ -93,6 +93,9 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
 
     private void OnDrag(EntityUid uid, InteractibleComponent component,ref DragDropDraggedEvent args)
     {
+        if (args.Handled || args.Target != args.User || !HasComp<InteractibleComponent>(args.User))
+            return;
+
         OpenInteractionMenu(args.User,uid);
         args.Handled = true;
     }
