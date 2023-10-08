@@ -13,11 +13,13 @@ using Content.Shared.DragDrop;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Strip;
+using Content.Shared.Verbs;
 using Content.Shared.White.ShittyInteraction;
 using Content.Shared.White.ShittyInteraction.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server.White.Interaction;
 
@@ -40,10 +42,25 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         SubscribeLocalEvent<InteractibleComponent, InteractionDoAfterEvent>(OnInteractionDoAfter);
         SubscribeLocalEvent<InteractibleComponent, InteractionSelectedMessage>(OnInteractionSelected);
         SubscribeLocalEvent<InteractibleComponent, DragDropDraggedEvent>(OnDrag, new []{ typeof(SharedStrippableSystem) });
+        SubscribeLocalEvent<InteractibleComponent, GetVerbsEvent<Verb>>(OnVerb);
 
         SubscribeLocalEvent<InteractibleComponent, SexChangedEvent>(OnSexChanged);
         SubscribeLocalEvent<InteractibleComponent, EntInsertedIntoContainerMessage>(OnUpdate);
         SubscribeLocalEvent<InteractibleComponent, EntRemovedFromContainerMessage>(OnUpdate);
+    }
+
+    private void OnVerb(EntityUid uid, InteractibleComponent component, GetVerbsEvent<Verb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract || args.Target == args.User)
+            return;
+
+        Verb verb = new()
+        {
+            Text = Loc.GetString("interaction-verb-get-data-text"),
+            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/group.svg.192dpi.png")),
+            Act = () => OpenInteractionMenu(args.User,args.Target),
+        };
+        args.Verbs.Add(verb);
     }
 
     private void OnUpdate(EntityUid uid, InteractibleComponent component, EntityEventArgs args)
