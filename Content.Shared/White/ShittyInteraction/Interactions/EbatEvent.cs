@@ -34,3 +34,8 @@ public sealed class ShlifovkaEvent : BaseInteractionEvent
 public sealed class ComeToTargetEvent : BaseInteractionEvent
 {
 }
+
+[Serializable, NetSerializable]
+public sealed class PullTargetEvent : BaseInteractionEvent
+{
+}

@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -8,20 +9,20 @@ using Content.Shared.Actions;
 using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
+using Content.Shared.DragDrop;
 using Content.Shared.Humanoid;
+using Content.Shared.Interaction;
+using Content.Shared.Strip;
 using Content.Shared.White.ShittyInteraction;
 using Content.Shared.White.ShittyInteraction.Events;
 using Robust.Server.GameObjects;
-using Robust.Shared.Enums;
+using Robust.Shared.Containers;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server.White.Interaction;
 
 public sealed class InteractibleSystem : SharedInteractibleSystem
 {
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
@@ -29,88 +30,147 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly InteractionSystem _interactionSystem = default!;
+    [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly RotateToFaceSystem _face = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeNetworkEvent<InteractionSelectMessage>(OnSelected);
-        SubscribeLocalEvent<ExecutionInteractionEvent>(OnInteraction);
         SubscribeLocalEvent<InteractibleComponent, InteractionDoAfterEvent>(OnInteractionDoAfter);
+        SubscribeLocalEvent<InteractibleComponent, InteractionSelectedMessage>(OnInteractionSelected);
+        SubscribeLocalEvent<InteractibleComponent, DragDropDraggedEvent>(OnDrag, new []{ typeof(SharedStrippableSystem) });
+
+        SubscribeLocalEvent<InteractibleComponent, SexChangedEvent>(OnSexChanged);
+        SubscribeLocalEvent<InteractibleComponent, EntInsertedIntoContainerMessage>(OnUpdate);
+        SubscribeLocalEvent<InteractibleComponent, EntRemovedFromContainerMessage>(OnUpdate);
+    }
+
+    private void OnUpdate(EntityUid uid, InteractibleComponent component, EntityEventArgs args)
+    {
+        OnUpdateRequired(uid,component);
+    }
+
+    private void OnSexChanged(EntityUid uid, InteractibleComponent component, SexChangedEvent args)
+    {
+        OnUpdateRequired(uid,component);
+    }
+
+    private void OnUpdateRequired(EntityUid uid, InteractibleComponent component)
+    {
+        if(TryComp<ServerUserInterfaceComponent>(uid,out var serverUserInterfaceComponent))
+            UpdateUserInterface(uid,serverUserInterfaceComponent);
+
+        if (TryComp<ActorComponent>(uid, out var actorComponent))
+        {
+            var buiList = _userInterfaceSystem.GetAllUIsForSession(actorComponent.PlayerSession);
+            if(buiList == null)
+                return;
+
+            foreach (var bui in buiList)
+            {
+                UpdateUserInterface(bui.Owner);
+            }
+        }
+    }
+
+    private void OnDrag(EntityUid uid, InteractibleComponent component,ref DragDropDraggedEvent args)
+    {
+        OpenInteractionMenu(args.User,uid);
+        args.Handled = true;
+    }
+
+    private void OnInteractionSelected(EntityUid uid, InteractibleComponent targetComponent, InteractionSelectedMessage args)
+    {
+        var playerUid = args.Session.AttachedEntity;
+        if(!playerUid.HasValue
+           || !PrototypeManager.TryIndex<InteractionActionPrototype>(args.SelectedInteraction, out var interaction))
+            return;
+
+        Interact(playerUid.Value,uid,new InteractionAction(interaction));
     }
 
     private void OnInteractionDoAfter(EntityUid uid, InteractibleComponent component, InteractionDoAfterEvent args)
     {
         if(!TryComp<InteractibleComponent>(args.User,out var performerComponent) ||
-           !TryComp<InteractibleComponent>(args.Target, out var targetComponent) ||
-           !PrototypeManager.TryIndex<InteractionActionPrototype>(args.EventName, out var eventPrototype))
+           !TryComp<InteractibleComponent>(args.Target, out var targetComponent))
             return;
+
+        var interactionAction = args.Action;
 
         performerComponent.IsActive = false;
         targetComponent.IsActive = false;
         _actionBlocker.UpdateCanMove(args.User);
         _actionBlocker.UpdateCanMove(args.Target.Value);
 
-        if (eventPrototype.EndEvent != null)
+        if (interactionAction.EndEvent != null)
         {
-            eventPrototype.EndEvent.Performer = args.User;
-            eventPrototype.EndEvent.Target = args.Target.Value;
+            interactionAction.EndEvent.Performer = args.User;
+            interactionAction.EndEvent.Target = args.Target.Value;
             if (args.Cancelled)
-                eventPrototype.EndEvent.Cancel();
+                interactionAction.EndEvent.Cancel();
 
-            RaiseLocalEvent((object)eventPrototype.EndEvent);
-            RaiseNetworkEvent(eventPrototype.EndEvent);
+            RaiseLocalEvent((object)interactionAction.EndEvent);
+            RaiseNetworkEvent(interactionAction.EndEvent);
 
-            eventPrototype.EndEvent.Uncancel();
+            interactionAction.EndEvent.Uncancel();
         }
 
         if(args.Cancelled)
             return;
 
-        if (eventPrototype.EndSound != null)
+        if (interactionAction.EndSound != null)
         {
-            _audio.PlayPvs(eventPrototype.EndSound, args.User);
+            _audio.PlayPvs(interactionAction.EndSound, args.User);
         }
 
-        if (eventPrototype.EndMessages.Count > 0)
+        if (interactionAction.EndMessages.Count > 0)
         {
             var gender = GetGender(args.User);
-            var message = _random.Pick(eventPrototype.EndMessages);
+            var message = _random.Pick(interactionAction.EndMessages);
             _chat.TrySendInGameICMessage(args.User, Loc.GetString(message, ("target",
-                    (MetaData(args.Target.Value).EntityName)),("gender",gender)), InGameICChatType.Emote, false);
+                    (MetaData(args.Target.Value).EntityName)),("gender",GenderToString(gender))), InGameICChatType.Emote, false);
         }
 
-        targetComponent.NextInteractionTime = _timing.CurTime + TimeSpan.FromSeconds(eventPrototype.Timeout);
-        performerComponent.NextInteractionTime = _timing.CurTime + TimeSpan.FromSeconds(eventPrototype.Timeout);
+        targetComponent.NextInteractionTime = Timing.CurTime + TimeSpan.FromSeconds(interactionAction.Timeout);
+        performerComponent.NextInteractionTime = Timing.CurTime + TimeSpan.FromSeconds(interactionAction.Timeout);
     }
 
-    private void OnInteraction(ExecutionInteractionEvent args)
+    public void Interact(EntityUid uid, EntityUid target,InteractionAction interactionAction,
+        InteractibleComponent? targetComponent = null,InteractibleComponent? performerComponent = null)
     {
-        if (!TryComp<InteractibleComponent>(args.Performer, out var performerComponent) ||
-            performerComponent.IsActive ||
-            !TryComp<InteractibleComponent>(args.Target, out var targetComponent) || targetComponent.IsActive ||
-            !PrototypeManager.TryIndex<InteractionActionPrototype>(args.EventName, out var eventPrototype))
+        if(!Resolve(target,ref targetComponent) || !Resolve(uid,ref performerComponent))
             return;
 
-        if (performerComponent.NextInteractionTime > _timing.CurTime)
+        if (TryComp<ActorComponent>(uid, out var actor))
+            _userInterfaceSystem.TryClose(target, InteractionUiKey.Key, actor.PlayerSession);
+
+        if(!_actions.ValidateEntityTarget(uid,target,interactionAction))
         {
-            var gender = GetGender(args.Performer);
-            var message = Loc.GetString("interaction-tired",("gender",gender));
-            if (TryComp<ActorComponent>(args.Performer, out var actor))
-                _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, message, EntityUid.Invalid, false,
-                    actor.PlayerSession.ConnectedClient);
+            SpellSomeShit(uid,"interaction-far");
             return;
         }
 
-        if (eventPrototype.ServerEvent != null)
+        if (!IsInteractionAvailable(uid, target, interactionAction))
         {
-            eventPrototype.ServerEvent.Performer = args.Performer;
-            eventPrototype.ServerEvent.Target = args.Target;
+            SpellSomeShit(uid,"interaction-dress");
+            return;
+        }
 
-            if (performerComponent.Action != null)
-                _actions.RemoveAction(args.Performer, performerComponent.Action);
+        if (targetComponent.NextInteractionTime > Timing.CurTime)
+        {
+            SpellSomeShit(uid,"interaction-tired");
+            return;
+        }
 
-            var ev = eventPrototype.ServerEvent;
+        _face.TryFaceCoordinates(uid, _transform.GetWorldPosition(target));
+
+        if (interactionAction.StartEvent != null)
+        {
+            interactionAction.StartEvent.Performer = uid;
+            interactionAction.StartEvent.Target = target;
+
+            var ev = interactionAction.StartEvent;
             RaiseLocalEvent((object) ev);
 
             if (ev.Cancelled)
@@ -122,23 +182,23 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
             RaiseNetworkEvent(ev);
         }
 
-        if (eventPrototype.IsCloseInteraction)
-            _transform.SetCoordinates(args.Performer, Transform(args.Target).Coordinates);
+        if (interactionAction.IsCloseInteraction)
+            _transform.SetCoordinates(uid, Transform(target).Coordinates);
 
-        if (eventPrototype.InteractionTime > 0)
+        if (interactionAction.InteractionTime > 0)
         {
             performerComponent.IsActive = true;
             targetComponent.IsActive = true;
 
-            if (eventPrototype.IsCloseInteraction)
+            if (interactionAction.IsCloseInteraction)
             {
-                _actionBlocker.UpdateCanMove(args.Performer);
-                _actionBlocker.UpdateCanMove(args.Target);
+                _actionBlocker.UpdateCanMove(uid);
+                _actionBlocker.UpdateCanMove(target);
             }
 
-            var doAfterArgs = new DoAfterArgs(args.Performer, TimeSpan.FromSeconds(eventPrototype.InteractionTime),
-                new InteractionDoAfterEvent(args.EventName),
-                args.Performer, args.Target)
+            var doAfterArgs = new DoAfterArgs(uid, TimeSpan.FromSeconds(interactionAction.InteractionTime),
+                new InteractionDoAfterEvent(interactionAction),
+                uid, target)
             {
                 BreakOnHandChange = false,
                 BreakOnUserMove = true,
@@ -148,61 +208,61 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
             _doAfter.TryStartDoAfter(doAfterArgs);
         }
 
-        if (eventPrototype.Messages.Count > 0)
+        if (interactionAction.Messages.Count > 0)
         {
-            var gender = GetGender(args.Performer);
-            var message = _random.Pick(eventPrototype.Messages);
-            _chat.TrySendInGameICMessage(args.Performer,
-                Loc.GetString(message, ("target", (MetaData(args.Target).EntityName)),("gender",gender)), InGameICChatType.Emote, false);
+            var gender = GetGender(uid);
+            var message = _random.Pick(interactionAction.Messages);
+            _chat.TrySendInGameICMessage(uid,
+                Loc.GetString(message, ("target", (MetaData(target).EntityName)),("gender",GenderToString(gender))), InGameICChatType.Emote, false);
         }
 
-        if (eventPrototype.StartSound != null)
+        if (interactionAction.StartSound != null)
         {
-            _audio.PlayPvs(eventPrototype.StartSound, args.Performer);
+            _audio.PlayPvs(interactionAction.StartSound, uid);
         }
     }
 
-    private void OnSelected(InteractionSelectMessage ev, EntitySessionEventArgs args)
+    public void UpdateUserInterface(EntityUid target,ServerUserInterfaceComponent? component = null)
     {
-        var playerUid = args.SenderSession.AttachedEntity;
-        if(!playerUid.HasValue || !TryComp<InteractibleComponent>(playerUid.Value,out var component)
-                               || !component.AvailableInteractions.Contains(ev.SelectedInteraction)
-           || !PrototypeManager.TryIndex<InteractionActionPrototype>(ev.SelectedInteraction, out var action)
-                               || !TryComp<ActionsComponent>(playerUid,out var actionsComponent))
+        if(!Resolve(target,ref component))
             return;
 
-        if (component.Action != null)
-            _actions.RemoveAction(playerUid.Value, component.Action, actionsComponent);
-
-        if (component.NextInteractionTime > _timing.CurTime)
-        {
-            var gender = GetGender(playerUid.Value);
-            var message = Loc.GetString("interaction-tired",("gender",gender));
-
-            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, message, EntityUid.Invalid, false,
-                args.SenderSession.ConnectedClient);
+        if(!component.Interfaces.TryGetValue(InteractionUiKey.Key, out var interactionsSessions))
             return;
+
+        foreach (var session in interactionsSessions.SubscribedSessions)
+        {
+            _userInterfaceSystem.TrySendUiMessage(target, InteractionUiKey.Key,
+                new InteractionAvailableMessage(
+                    GetAvailableInteractions(session.AttachedEntity!.Value, target).ToList()
+                    ), session);
+        }
+    }
+
+    public void OpenInteractionMenu(EntityUid uid, EntityUid target, InteractibleComponent? component = null)
+    {
+        if(!Resolve(target,ref component))
+            return;
+
+        if (TryComp<ActorComponent>(uid, out var actor))
+        {
+            if (_userInterfaceSystem.SessionHasOpenUi(target, InteractionUiKey.Key, actor.PlayerSession))
+                return;
+            _userInterfaceSystem.TryOpen(target, InteractionUiKey.Key, actor.PlayerSession);
         }
 
-        component.Action = new EntityTargetAction(action)
+        UpdateUserInterface(target);
+    }
+
+    protected void SpellSomeShit(EntityUid uid, string message)
+    {
+        var gender = GetGender(uid);
+
+        message = Loc.GetString(message,("gender",GenderToString(gender)));
+        if(TryComp<ActorComponent>(uid,out var actor))
         {
-            Event = new ExecutionInteractionEvent(ev.SelectedInteraction)
-        };
-
-
-        _actions.AddAction(playerUid.Value,component.Action,null,actionsComponent);
-        _actions.SetToggled(component.Action,true);
-    }
-
-    public string GetGender(EntityUid uid, HumanoidAppearanceComponent? component = null)
-    {
-        if (!Resolve(uid, ref component))
-            return GenderToString(Gender.Male);
-        return GenderToString(component.Gender);
-    }
-
-    public string GenderToString(Gender gender)
-    {
-        return gender.ToString().ToLowerInvariant();
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes,message,message,EntityUid.Invalid,
+                false, actor.PlayerSession.ConnectedClient);
+        }
     }
 }

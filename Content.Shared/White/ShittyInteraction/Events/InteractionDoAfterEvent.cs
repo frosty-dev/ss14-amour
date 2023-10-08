@@ -7,10 +7,10 @@ namespace Content.Shared.White.ShittyInteraction.Events;
 [Serializable, NetSerializable]
 public sealed class InteractionDoAfterEvent : SimpleDoAfterEvent
 {
-    public string EventName;
+    public InteractionAction Action;
 
-    public InteractionDoAfterEvent(string eventName)
+    public InteractionDoAfterEvent(InteractionAction action)
     {
-        EventName = eventName;
+        Action = action;
     }
 }
