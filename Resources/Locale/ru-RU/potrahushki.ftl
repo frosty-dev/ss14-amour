@@ -3,6 +3,7 @@ interaction-tired = Я так {$gender ->
                      *[other] устал
                      }..
 
+interaction-verb-get-data-text = Взаимодействовать
 interaction-far = До цели так далеко...
 interaction-dress = У цели одежда! Я не могу!
 interaction-target-anus-no = Похоже, что у меня нет доступа к заднице
