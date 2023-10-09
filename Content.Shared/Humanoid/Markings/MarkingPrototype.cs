@@ -22,6 +22,8 @@ namespace Content.Shared.Humanoid.Markings
 
         // WD-EDIT
         [DataField("sponsorOnly")] public bool SponsorOnly;
+        [DataField("layerAlpha")]
+        public float LayerAlpha { get; private set; } = 1.0f;
         // WD-EDIT
 
         [DataField("followSkinColor")]
