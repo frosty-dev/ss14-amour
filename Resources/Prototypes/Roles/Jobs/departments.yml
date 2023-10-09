@@ -29,7 +29,6 @@
   - Reporter
   - Zookeeper
   - ServiceWorker
-  - Prositutka
 
 - type: department
   id: Command
