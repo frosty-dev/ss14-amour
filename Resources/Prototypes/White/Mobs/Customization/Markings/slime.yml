@@ -1,0 +1,163 @@
+- type: marking
+  id: SlimePersonEarsBasic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  layerAlpha: 0.5
+  sprites:
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: basic_outer
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: basic_inner
+
+- type: marking
+  id: SlimePersonEarsCurled
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  layerAlpha: 0.5
+  sprites:
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: curled_outer
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: curled_inner
+
+- type: marking
+  id: SlimePersonEarsDroopy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  layerAlpha: 0.5
+  sprites:
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: droopy_outer
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: droopy_inner
+
+- type: marking
+  id: SlimePersonEarsFuzzy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  layerAlpha: 0.5
+  sprites:
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: basic_outer
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: fuzzy_inner
+
+- type: marking
+  id: SlimePersonEarsStubby
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  layerAlpha: 0.5
+  sprites:
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: stubby_outer
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: stubby_inner
+
+- type: marking
+  id: SlimePersonEarsTall
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  layerAlpha: 0.5
+  sprites:
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: tall_outer
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: tall_inner
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: tall_fuzz
+
+- type: marking
+  id: SlimePersonEarsTorn
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  layerAlpha: 0.5
+  sprites:
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: torn_outer
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: torn_inner
+
+- type: marking
+  id: SlimePersonEarsWide
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [SlimePerson]
+  layerAlpha: 0.5
+  sprites:
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: wide_outer
+    - sprite: White/Mobs/Customization/felinid_ears.rsi
+      state: wide_inner
+
+# Tails
+
+- type: marking
+  id: SlimePersonTailBasic
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [SlimePerson]
+  layerAlpha: 0.5
+  sprites:
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_tail_tip
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_tail_stripes_even
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_tail_stripes_odd
+
+- type: marking
+  id: SlimePersonTailBasicWithBow
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [SlimePerson]
+  layerAlpha: 0.5
+  sprites:
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_tail_tip
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_tail_stripes_even
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_tail_stripes_odd
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_bow
+
+- type: marking
+  id: SlimePersonTailBasicWithBell
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [SlimePerson]
+  layerAlpha: 0.5
+  sprites:
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_tail_tip
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_tail_stripes_even
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_tail_stripes_odd
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_bell
+
+- type: marking
+  id: SlimePersonTailBasicWithBowAndBell
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [SlimePerson]
+  layerAlpha: 0.5
+  sprites:
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_tail_tip
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_tail_stripes_even
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_tail_stripes_odd
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_bow
+    - sprite: White/Mobs/Customization/felinid_tails.rsi
+      state: basic_bell
