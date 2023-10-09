@@ -330,13 +330,14 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
                 continue;
             }
 
+            // Alpha WD EDIT
             if (colors != null)
             {
-                sprite.LayerSetColor(layerId, colors[j]);
+                sprite.LayerSetColor(layerId, colors[j].WithAlpha(markingPrototype.LayerAlpha));
             }
             else
             {
-                sprite.LayerSetColor(layerId, Color.White);
+                sprite.LayerSetColor(layerId, Color.White.WithAlpha(markingPrototype.LayerAlpha));
             }
         }
     }
