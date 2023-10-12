@@ -3,6 +3,7 @@ using Content.Server.Actions;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
+using Content.Server.Humanoid;
 using Content.Server.Interaction;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -10,10 +11,12 @@ using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
+using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Strip;
 using Content.Shared.Verbs;
+using Content.Shared.White.RolePlayThink;
 using Content.Shared.White.ShittyInteraction;
 using Content.Shared.White.ShittyInteraction.Events;
 using Robust.Server.GameObjects;
@@ -43,15 +46,29 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         SubscribeLocalEvent<InteractibleComponent, InteractionSelectedMessage>(OnInteractionSelected);
         SubscribeLocalEvent<InteractibleComponent, DragDropDraggedEvent>(OnDrag, new []{ typeof(SharedStrippableSystem) });
         SubscribeLocalEvent<InteractibleComponent, GetVerbsEvent<Verb>>(OnVerb);
+        SubscribeLocalEvent<InteractibleComponent, ExaminedEvent>(OnExamine, after: new[] { typeof(HumanoidAppearanceSystem)});
 
         SubscribeLocalEvent<InteractibleComponent, SexChangedEvent>(OnSexChanged);
         SubscribeLocalEvent<InteractibleComponent, EntInsertedIntoContainerMessage>(OnUpdate);
         SubscribeLocalEvent<InteractibleComponent, EntRemovedFromContainerMessage>(OnUpdate);
     }
 
+    private void OnExamine(EntityUid uid, InteractibleComponent component, ExaminedEvent args)
+    {
+        if(component.Preferences.Count == 0)
+            return;
+        args.PushText($"\n{Loc.GetString("roleplay-info")}");
+
+        foreach (var (protoname,pref) in component.Preferences)
+        {
+            if(PrototypeManager.TryIndex<RoleplayThinkPrototype>(protoname,out var proto))
+                args.PushMarkup($"[bold]{Loc.GetString(proto.Name)}[/bold] - {Loc.GetString("roleplay-" + pref.ToString().ToLower())}");
+        }
+    }
+
     private void OnVerb(EntityUid uid, InteractibleComponent component, GetVerbsEvent<Verb> args)
     {
-        if (!args.CanAccess || !args.CanInteract || args.Target == args.User)
+        if (!args.CanAccess || !args.CanInteract || args.Target == args.User || !HasComp<InteractibleComponent>(args.User))
             return;
 
         Verb verb = new()
@@ -259,9 +276,9 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         }
     }
 
-    public void OpenInteractionMenu(EntityUid uid, EntityUid target, InteractibleComponent? component = null)
+    public void OpenInteractionMenu(EntityUid uid, EntityUid target, InteractibleComponent? component = null, InteractibleComponent? performerComponent = null)
     {
-        if(!Resolve(target,ref component))
+        if(!Resolve(target,ref component) || !Resolve(uid,ref performerComponent))
             return;
 
         if (TryComp<ActorComponent>(uid, out var actor))

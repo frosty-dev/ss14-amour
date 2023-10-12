@@ -3,10 +3,13 @@ using Content.Client.Examine;
 using Content.Client.Inventory;
 using Content.Shared.Access.Components;
 using Content.Shared.CCVar;
+using Content.Shared.Humanoid;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
 using Content.Shared.Verbs;
 using Content.Shared.White.CharacterExamine;
+using Content.Shared.White.RolePlayThink;
+using Content.Shared.White.ShittyInteraction;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -64,6 +67,7 @@ public sealed class CharacterInformationSystem : EntitySystem
         string? name = null;
         string? job = null;
         string? flavorText = null;
+        Dictionary<RoleplayThinkPrototype,RoleplaySelection> roleplaySelections = new();
 
         // Get ID from inventory, get name and job from ID
         if (_inventory.TryGetSlotEntity(uid, "id", out var idUid))
@@ -106,8 +110,17 @@ public sealed class CharacterInformationSystem : EntitySystem
             flavorText = detail.Content;
         }
 
+        if (TryComp<InteractibleComponent>(uid, out var interactible))
+        {
+            foreach (var (key,value) in interactible.Preferences)
+            {
+                if (_prototype.TryIndex<RoleplayThinkPrototype>(key, out var rp))
+                    roleplaySelections.Add(rp,value);
+            }
+        }
+
         _window.OpenCentered();
-        _window.UpdateUi(uid, name, job, flavorText);
+        _window.UpdateUi(uid, name, job, flavorText, roleplaySelections);
         _examine.CloseTooltip();
     }
 

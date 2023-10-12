@@ -1,0 +1,9 @@
+- type: rolePlayThink
+  id: ERP
+  name: wanna-erp
+  description: wanna-erp-desc
+
+- type: rolePlayThink
+  id: NonoConERP
+  name: wanna-non-con-erp
+  description: wanna-non-con-erp-desc

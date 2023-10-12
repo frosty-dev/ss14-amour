@@ -27,6 +27,7 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
+                .Include(p => p.Profiles).ThenInclude(h => h.RoleplaySelections)
                 .AsSingleQuery()
                 .SingleOrDefaultAsync(p => p.UserId == userId.UserId);
 
@@ -74,6 +75,7 @@ namespace Content.Server.Database
                 .Include(p => p.Jobs)
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
+                .Include(p => p.RoleplaySelections)
                 .AsSplitQuery()
                 .SingleOrDefault(h => h.Slot == slot);
 
@@ -199,6 +201,10 @@ namespace Content.Server.Database
                 }
             }
 
+            //WD EDIT
+            var rpSel = profile.RoleplaySelections.ToDictionary(r => r.RoleplaySelectionName,
+                r => (Shared.White.RolePlayThink.RoleplaySelection) r.RoleplaySelectionValue);
+
             return new HumanoidCharacterProfile(
                 profile.CharacterName,
                 profile.ClownName,
@@ -226,7 +232,7 @@ namespace Content.Server.Database
                 jobs,
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToList(),
-                traits.ToList()
+                traits.ToList(), rpSel
             );
         }
 
@@ -270,6 +276,18 @@ namespace Content.Server.Database
                     .Where(j => j.Value != JobPriority.Never)
                     .Select(j => new Job {JobName = j.Key, Priority = (DbJobPriority) j.Value})
             );
+
+            //WD EDIT
+            profile.RoleplaySelections.Clear();
+            profile.RoleplaySelections.AddRange(
+                humanoid.RoleplaySelections
+                    .Select(a =>
+                        new RoleplaySelection
+                        {
+                            RoleplaySelectionName = a.Key,
+                            RoleplaySelectionValue = (int) a.Value
+                        }
+                    ));
 
             profile.Antags.Clear();
             profile.Antags.AddRange(
