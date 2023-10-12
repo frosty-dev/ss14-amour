@@ -198,6 +198,12 @@
                             <humanoid:MarkingPicker Name="CMarkings" IgnoreCategories="Hair,FacialHair" />
                         </ScrollContainer>
                     </BoxContainer>
+                    <BoxContainer Name="CRolePlayThinkTab" Orientation="Vertical" Margin="10">
+                        <!-- RolePlay sel -->
+                        <ScrollContainer VerticalExpand="True">
+                            <BoxContainer Name="CRolePlayThing" Orientation="Vertical"></BoxContainer>
+                        </ScrollContainer>
+                    </BoxContainer>
                 </TabContainer>
             </PanelContainer>
         </BoxContainer>

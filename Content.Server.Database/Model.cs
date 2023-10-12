@@ -57,6 +57,8 @@ namespace Content.Server.Database
                         .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.TraitName})
                         .IsUnique();
 
+            modelBuilder.Entity<RoleplaySelection>().HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.RoleplaySelectionName }).IsUnique();
+
             modelBuilder.Entity<Job>()
                 .HasIndex(j => j.ProfileId);
 
@@ -201,6 +203,16 @@ namespace Content.Server.Database
         public Guid UserId { get; set; }
         public float Reputation { get; set; }
     }
+
+    public class RoleplaySelection
+    {
+        public int Id { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public int ProfileId { get; set; }
+
+        public string RoleplaySelectionName { get; set; } = null!;
+        public int RoleplaySelectionValue { get; set; } = 0;
+    }
     // WD end
 
     public class Preference
@@ -233,6 +245,8 @@ namespace Content.Server.Database
         //WD-EDIT
         public string BodyType { get; set; } = null!;
         public string Voice { get; set; } = null!;
+
+        public List<RoleplaySelection> RoleplaySelections { get; } = new();
         //WD-EDIT
 
         public string Species { get; set; } = null!;

@@ -17,6 +17,7 @@ using Robust.Shared.Maths;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
+using RoleplaySelection = Content.Shared.White.RolePlayThink.RoleplaySelection;
 
 namespace Content.Tests.Server.Preferences
 {
@@ -75,7 +76,8 @@ namespace Content.Tests.Server.Preferences
                 },
                 PreferenceUnavailableMode.StayInLobby,
                 new List<string> (),
-                new List<string>()
+                new List<string>(),
+                new Dictionary<string, RoleplaySelection>()
             );
         }
 
