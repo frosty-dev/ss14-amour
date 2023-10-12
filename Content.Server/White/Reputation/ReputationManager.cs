@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Database;
+using Content.Server.GameTicking;
 using Content.Shared.GameTicking;
 using Content.Shared.White.Reputation;
 using Robust.Server.Player;
@@ -16,6 +17,7 @@ public sealed class ReputationManager : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
 
     private readonly Dictionary<NetUserId, ReputationInfo> _cacheReputation = new();
+    private readonly Dictionary<NetUserId, DateTime> _playerConnectionTime = new();
 
     public override void Initialize()
     {
@@ -28,11 +30,17 @@ public sealed class ReputationManager : EntitySystem
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
         SubscribeLocalEvent<UpdateCachedReputationEvent>(UpdateCachedReputation);
+        SubscribeLocalEvent<PlayerBeforeSpawnEvent>(OnPlayerSpawn);
     }
 
     #region Cache
 
-    private void OnConnected(object? sender, NetChannelArgs e)
+        private void OnPlayerSpawn(PlayerBeforeSpawnEvent ev)
+        {
+            _playerConnectionTime.Add(ev.Player.UserId, DateTime.UtcNow);
+        }
+
+        private void OnConnected(object? sender, NetChannelArgs e)
         {
             _cacheReputation.TryGetValue(e.Channel.UserId, out var info);
             var msg = new ReputationNetMsg() { Info = info };
@@ -74,6 +82,7 @@ public sealed class ReputationManager : EntitySystem
                 .ToDictionary(player => player.Key, player => player.Value);
 
             _cacheReputation.Clear();
+            _playerConnectionTime.Clear();
 
             foreach (var kvp in newDictionary)
             {
@@ -82,7 +91,6 @@ public sealed class ReputationManager : EntitySystem
         }
 
     #endregion
-
 
     #region PublicApi
 
@@ -113,20 +121,32 @@ public sealed class ReputationManager : EntitySystem
         return success;
     }
 
-    public int GetPlayerWeight(float reputation)
+    public bool GetCachedPlayerConnection(NetUserId player, out DateTime date)
     {
-        return reputation switch
-        {
-            > 1000 => 9,
-            > 700 => 8,
-            > 500 => 7,
-            > 300 => 6,
-            > 100 => 5,
-            > 50 => 4,
-            > 15 => 3,
-            < 0 => 1,
-            _ => 2
-        };
+        var success = _playerConnectionTime.TryGetValue(player, out var dateTime);
+        date = dateTime;
+        return success;
+    }
+
+    public int GetPlayerWeight(float rep)
+    {
+        // Min-max return values
+        const int minValue = 30;
+        const int maxValue = 50;
+
+        // Min-max reputation values
+        const float minReputation = 0f;
+        const float maxReputation = 1000f;
+
+        if (rep < minReputation)
+            return 20;
+
+        var normalizedReputation = (rep - minReputation) / (maxReputation - minReputation);
+        var result = (int)(minValue + (normalizedReputation * (maxValue - minValue)));
+
+        result = Math.Max(minValue, Math.Min(maxValue, result));
+
+        return result;
     }
 
     public IPlayerSession PickPlayerBasedOnReputation(List<IPlayerSession> prefList)
