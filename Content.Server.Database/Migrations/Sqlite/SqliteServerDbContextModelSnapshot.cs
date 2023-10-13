@@ -1023,6 +1023,22 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("uploaded_resource_log", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.UserJobWhitelist", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.Property<string>("JobId")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("job_id");
+
+                    b.HasKey("UserId", "JobId")
+                        .HasName("PK_job_whitelist");
+
+                    b.ToTable("job_whitelist", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Whitelist", b =>
                 {
                     b.Property<Guid>("UserId")

@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Content.Server.Administration;
 using Content.Server.Database;
+using Content.Server.GameTicking;
 using Content.Shared.GameTicking;
 using Content.Shared.White.Reputation;
 using Robust.Server.Player;
@@ -14,8 +16,14 @@ public sealed class ReputationManager : EntitySystem
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly IServerNetManager _netMgr = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private readonly IPlayerLocator _locator = default!;
 
     private readonly Dictionary<NetUserId, ReputationInfo> _cacheReputation = new();
+    private readonly Dictionary<NetUserId, DateTime> _playerConnectionTime = new();
+
+    private ISawmill _sawmill = default!;
+    private const string SawmillId = "reputation.logs";
 
     public override void Initialize()
     {
@@ -28,11 +36,17 @@ public sealed class ReputationManager : EntitySystem
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
         SubscribeLocalEvent<UpdateCachedReputationEvent>(UpdateCachedReputation);
+        SubscribeLocalEvent<PlayerBeforeSpawnEvent>(OnPlayerSpawn);
     }
 
     #region Cache
 
-    private void OnConnected(object? sender, NetChannelArgs e)
+        private void OnPlayerSpawn(PlayerBeforeSpawnEvent ev)
+        {
+            _playerConnectionTime.Add(ev.Player.UserId, DateTime.UtcNow);
+        }
+
+        private void OnConnected(object? sender, NetChannelArgs e)
         {
             _cacheReputation.TryGetValue(e.Channel.UserId, out var info);
             var msg = new ReputationNetMsg() { Info = info };
@@ -74,6 +88,7 @@ public sealed class ReputationManager : EntitySystem
                 .ToDictionary(player => player.Key, player => player.Value);
 
             _cacheReputation.Clear();
+            _playerConnectionTime.Clear();
 
             foreach (var kvp in newDictionary)
             {
@@ -83,21 +98,32 @@ public sealed class ReputationManager : EntitySystem
 
     #endregion
 
-
     #region PublicApi
 
-    public async void SetPlayerReputation(NetUserId player, float value)
+    public async void SetPlayerReputation(NetUserId player, float value, string? admin = null)
     {
+        var preValue = await GetPlayerReputation(player);
+        if (preValue == null)
+            return;
+
         var guid = player.UserId;
         await SetPlayerReputationTask(guid, value);
+
         RaiseLocalEvent(new UpdateCachedReputationEvent(player));
+        await LogReputationChange(player, preValue.Value, false, admin);
     }
 
-    public async void ModifyPlayerReputation(NetUserId player, float value)
+    public async void ModifyPlayerReputation(NetUserId player, float value, string? admin = null)
     {
+        var preValue = await GetPlayerReputation(player);
+        if (preValue == null)
+            return;
+
         var guid = player.UserId;
         await ModifyPlayerReputationTask(guid, value);
+
         RaiseLocalEvent(new UpdateCachedReputationEvent(player));
+        await LogReputationChange(player, preValue.Value, true, admin);
     }
 
     public async Task<float?> GetPlayerReputation(NetUserId player)
@@ -113,20 +139,32 @@ public sealed class ReputationManager : EntitySystem
         return success;
     }
 
-    public int GetPlayerWeight(float reputation)
+    public bool GetCachedPlayerConnection(NetUserId player, out DateTime date)
     {
-        return reputation switch
-        {
-            > 1000 => 9,
-            > 700 => 8,
-            > 500 => 7,
-            > 300 => 6,
-            > 100 => 5,
-            > 50 => 4,
-            > 15 => 3,
-            < 0 => 1,
-            _ => 2
-        };
+        var success = _playerConnectionTime.TryGetValue(player, out var dateTime);
+        date = dateTime;
+        return success;
+    }
+
+    public int GetPlayerWeight(float rep)
+    {
+        // Min-max return values
+        const int minValue = 30;
+        const int maxValue = 50;
+
+        // Min-max reputation values
+        const float minReputation = 0f;
+        const float maxReputation = 1000f;
+
+        if (rep < minReputation)
+            return 20;
+
+        var normalizedReputation = (rep - minReputation) / (maxReputation - minReputation);
+        var result = (int)(minValue + (normalizedReputation * (maxValue - minValue)));
+
+        result = Math.Max(minValue, Math.Min(maxValue, result));
+
+        return result;
     }
 
     public IPlayerSession PickPlayerBasedOnReputation(List<IPlayerSession> prefList)
@@ -194,6 +232,26 @@ public sealed class ReputationManager : EntitySystem
         {
             return null;
         }
+    }
+
+    private async Task LogReputationChange(NetUserId user, float preValue, bool modify, string? admin = null)
+    {
+        var located = await _locator.LookupIdAsync(user);
+        if (located == null)
+            return;
+
+        var newValue = await GetPlayerReputation(user);
+        if (newValue == null)
+            return;
+
+        var adminName = admin != null ? $" by {admin}" : "";
+
+        var msg = modify
+            ? $"Reputation of {located.Username} was modified from {preValue} to {newValue.Value}{adminName}."
+            : $"Reputation of {located.Username} was set from {preValue} to {newValue.Value}{adminName}.";
+
+        _sawmill = _logManager.GetSawmill(SawmillId);
+        _sawmill.Info(msg);
     }
 
     #endregion
