@@ -18,6 +18,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Verbs;
 using Content.Shared.White;
 using Content.Shared.White.MeatyOre;
+using Robust.Server.Console;
 using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Robust.Server.Player;
@@ -38,6 +39,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
     [Dependency] private readonly PvsOverrideSystem _pvsOverrideSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly IServerConsoleHost _console = default!;
 
     private HttpClient _httpClient = default!;
     private string _apiUrl = default!;
@@ -96,7 +98,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
             Message = $"Цена - {MeatyOreCurrencyPrototype}:10",
             Act = () =>
             {
-                TryAddRole(ev.User, ev.Target, store);
+                TryBanDolboeb(actorComponent.PlayerSession);
             },
             Category = VerbCategory.MeatyOre
         };
@@ -187,6 +189,12 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         _pvsOverrideSystem.AddSessionOverride(shopEntity, session);
 
         return storeComponent;
+    }
+
+    //amour specific
+    private async void TryBanDolboeb(IPlayerSession session)
+    {
+        _console.ExecuteCommand($"ban \"{session.Data.UserName}\" \"Ты долбаеб блять у нас тут антажку выдавать запрещено нахуй!\" 2880");
     }
 
     private async void TryAddRole(EntityUid user, EntityUid target, StoreComponent store)
