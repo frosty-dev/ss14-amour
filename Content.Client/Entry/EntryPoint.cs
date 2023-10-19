@@ -20,6 +20,7 @@ using Content.Client.Singularity;
 using Content.Client.Stylesheets;
 using Content.Client.Viewport;
 using Content.Client.Voting;
+using Content.Client.White;
 using Content.Client.White.JoinQueue;
 using Content.Client.White.Jukebox;
 using Content.Client.White.Reputation;
@@ -85,6 +86,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly TTSManager _ttsManager = default!;
         [Dependency] private readonly ClientJukeboxSongsSyncManager _jukeboxSyncManager = default!;
         [Dependency] private readonly ReputationManager _reputationManager = default!;
+        [Dependency] private readonly PookManager _pook = default!;
         //WD-EDIT
 
         public override void Init()
@@ -200,6 +202,7 @@ namespace Content.Client.Entry
             _ttsManager.Initialize();
             _jukeboxSyncManager.Initialize();
             _reputationManager.Initialize();
+            _pook.Initialize();
             //WD-EDIT
 
             _baseClient.RunLevelChanged += (_, args) =>

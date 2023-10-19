@@ -17,6 +17,7 @@ using Content.Shared.Administration;
 using Content.Shared.Administration.Logs;
 using Content.Client.Guidebook;
 using Content.Client.Replay;
+using Content.Client.White;
 using Content.Client.White.JoinQueue;
 using Content.Client.White.Jukebox;
 using Content.Client.White.Reputation;
@@ -60,6 +61,7 @@ namespace Content.Client.IoC
             IoCManager.Register<ClientJukeboxSongsSyncManager>();
             IoCManager.Register<ITrailLineManager, TrailSplineManager>();
             IoCManager.Register<ReputationManager>();
+            IoCManager.Register<PookManager>();
             //WD-EDIT
         }
     }
