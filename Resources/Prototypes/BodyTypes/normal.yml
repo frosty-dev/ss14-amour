@@ -68,6 +68,7 @@
     FacialHair: MobSlimeMarkingFollowSkin
     Chest: MobSlimeTorso
     HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Eyes: MobHumanoidEyes
     LArm: MobSlimeLArm
@@ -108,6 +109,9 @@
     Head: MobSkrellHead
     Hair: MobHumanoidAnyMarking
     Chest: MobSkrellTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
     Eyes: MobSkrellEyes
     LArm: MobSkrellLArm
     RArm: MobSkrellRArm
@@ -127,6 +131,7 @@
     Head: MobDionaHead
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
     Chest: MobDionaTorso
     LArm: MobDionaLArm
     RArm: MobDionaRArm

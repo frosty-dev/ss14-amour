@@ -22,6 +22,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Server.Objectives;
 using Content.Server.White.Administration;
+using Content.Server.White.AspectsSystem.Aspects;
+using Content.Server.White.AspectsSystem.Aspects.Components;
 using Content.Server.White.Reputation;
 using Content.Shared.White.Cult;
 using Content.Shared.White.Mood;
@@ -44,6 +46,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     //WD EDIT
     [Dependency] private readonly AntagRoleBanSystem _antagRoleBan = default!;
     [Dependency] private readonly ReputationManager _reputationManager = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -215,7 +218,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             var pref = _reputationManager.PickPlayerBasedOnReputation(prefList);
             prefList.Remove(pref);
 
-            if (_antagRoleBan.HasAntagBan(pref))
+            if (_antagRoleBan.HasAntagBan(pref.UserId))
             {
                 if (prefList.Count == 0)
                 {
@@ -235,6 +238,10 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
     public bool MakeTraitor(IPlayerSession traitor)
     {
+        //WD EDIT
+        if (_antagRoleBan.HasAntagBan(traitor.UserId))
+            return false;
+
         var traitorRule = EntityQuery<TraitorRuleComponent>().FirstOrDefault();
         if (traitorRule == null)
         {
@@ -270,6 +277,15 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (mind.CurrentJob != null)
             startingBalance = Math.Max(startingBalance - mind.CurrentJob.Prototype.AntagAdvantage, 0);
 
+        // WD START
+        var richAspect = false;
+        if (_gameTicker.GetActiveGameRules().Where(HasComp<TraitorRichAspectComponent>).Any())
+        {
+            startingBalance += 10;
+            richAspect = true;
+        }
+        // WD END
+
         // creadth: we need to create uplink for the antag.
         // PDA should be in place already
         var pda = _uplink.FindUplinkTarget(mind.OwnedEntity!.Value);
@@ -292,6 +308,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         // Assign traitor roles
         _mindSystem.AddRole(mind, traitorRole);
         SendTraitorBriefing(mind, traitorRule.Codewords, code);
+        if (richAspect) // WD
+            TraitorRichAspect.NotifyTraitor(mind, _chatManager);
         traitorRule.Traitors.Add(traitorRole);
 
         if (_mindSystem.TryGetSession(mind, out var session))
