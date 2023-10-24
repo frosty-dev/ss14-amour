@@ -280,3 +280,16 @@
   id: GeraldiyUSSPCoat
   entity: ClothingOuterCoatUSSPOvercoatBlack
   sponsorOnly: true
+
+# KnifeCappy
+
+- type: loadout
+  id: KnifeCappySamuraiJacket
+  entity: ClothingOuterCoatSamuraiCappy
+  sponsorOnly: true
+
+# Medicgaming
+- type: loadout
+  id: MedicgamingDealGlasses
+  entity: ClothingEyesDealGlassesMedic
+  sponsorOnly: true

@@ -9,6 +9,7 @@ using Content.Server.Mind.Components;
 using Content.Server.Popups;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
+using Content.Server.White.Administration;
 using Content.Server.White.Sponsors;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
@@ -40,6 +41,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     [Dependency] private readonly PvsOverrideSystem _pvsOverrideSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IServerConsoleHost _console = default!;
+    [Dependency] private readonly AntagRoleBanSystem _antagBan = default!;
 
     private HttpClient _httpClient = default!;
     private string _apiUrl = default!;
@@ -85,6 +87,10 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         if(targetMind.Mind.CurrentJob?.CanBeAntag != true)
             return;
         if(targetMind.Mind.Session == null)
+            return;
+        if(_antagBan.HasAntagBan(actorComponent.PlayerSession.UserId))
+            return;
+        if(_antagBan.HasAntagBan(targetMind.Mind.Session.UserId))
             return;
         if (!store.Balance.TryGetValue("MeatyOreCoin", out var currency))
             return;
