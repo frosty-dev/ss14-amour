@@ -148,6 +148,17 @@
                                         </BoxContainer>
                                     </prefUi:HighlightedContainer>
                                 </BoxContainer>
+                                <!-- Height -->
+                                <prefUi:HighlightedContainer Name="HeightContainer">
+                                    <BoxContainer HorizontalExpand="True" Orientation="Vertical">
+                                        <Label Text="{Loc 'humanoid-profile-editor-height-label'}" />
+                                        <Slider HorizontalExpand="True" Name="CHeight" MinValue="0" MaxValue="100" Value="1"/>
+                                        <BoxContainer Orientation="Horizontal">
+                                            <Label Name="CHeightInformation"/>
+                                            <Button Name="ResetHeightButton" Text="{Loc 'height-reset'}"/>
+                                        </BoxContainer>
+                                    </BoxContainer>
+                                </prefUi:HighlightedContainer>
                                 <!-- Skin -->
                                 <prefUi:HighlightedContainer>
                                     <BoxContainer HorizontalExpand="True" Orientation="Vertical">

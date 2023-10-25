@@ -52,6 +52,8 @@
   - type: Speech
     speechSounds: Bass
   - type: Perishable
+  - type: HumanoidAppearance
+    enableHeight: false
 
 - type: entity
   save: false
@@ -65,3 +67,5 @@
     noRot: true
     drawdepth: Mobs
     scale: 1, 0.8
+  - type: HumanoidAppearance
+    enableHeight: false

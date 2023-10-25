@@ -625,6 +625,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("hair_name");
 
+                    b.Property<int>("Height")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("height");
+
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
@@ -1235,7 +1239,7 @@ namespace Content.Server.Database.Migrations.Sqlite
             modelBuilder.Entity("Content.Server.Database.RoleplaySelection", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
-                        .WithMany()
+                        .WithMany("RoleplaySelections")
                         .HasForeignKey("ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
@@ -1377,6 +1381,8 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Antags");
 
                     b.Navigation("Jobs");
+
+                    b.Navigation("RoleplaySelections");
 
                     b.Navigation("Traits");
                 });

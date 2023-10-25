@@ -1,9 +1,11 @@
 using System.Linq;
+using System.Numerics;
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
+using Content.Shared.White.CharacterSize;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -44,12 +46,21 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         component.PermanentlyHidden = new(state.PermanentlyHidden);
 
         component.CustomBaseLayers = state.CustomBaseLayers.ShallowClone();
+        component.Height = state.Height;
 
         UpdateLayers(component, sprite);
+
+        UpdateHeight(component, sprite);
 
         ApplyMarkingSet(uid, state.Markings, component, sprite);
 
         sprite[sprite.LayerMapReserveBlank(HumanoidVisualLayers.Eyes)].Color = state.EyeColor;
+    }
+
+    private void UpdateHeight(HumanoidAppearanceComponent component, SpriteComponent sprite)
+    {
+        if(component.EnableHeight)
+            sprite.Scale = new Vector2(component.Height);
     }
 
     private static bool IsHidden(HumanoidAppearanceComponent humanoid, HumanoidVisualLayers layer)
@@ -202,6 +213,8 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             profile.Appearance.EyeColor,
             _markingManager);
 
+        var height = SizeConstants.GetSize(profile.Appearance.Height);
+
         DebugTools.Assert(uid.IsClientSide());
 
         var state = new HumanoidAppearanceState(markings,
@@ -214,7 +227,8 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             profile.Age,
             profile.Species,
             profile.Appearance.SkinColor,
-            profile.Appearance.EyeColor);
+            profile.Appearance.EyeColor,
+            height);
 
         ApplyState(uid, humanoid, Comp<SpriteComponent>(uid), state);
     }

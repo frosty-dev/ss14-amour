@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.White.CharacterSize;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
@@ -17,7 +18,7 @@ namespace Content.Shared.Humanoid
             Color facialHairColor,
             Color eyeColor,
             Color skinColor,
-            List<Marking> markings)
+            List<Marking> markings, int height)
         {
             HairStyleId = hairStyleId;
             HairColor = ClampColor(hairColor);
@@ -26,6 +27,7 @@ namespace Content.Shared.Humanoid
             EyeColor = ClampColor(eyeColor);
             SkinColor = ClampColor(skinColor);
             Markings = markings;
+            Height = height;
         }
 
         [DataField("hair")]
@@ -49,39 +51,47 @@ namespace Content.Shared.Humanoid
         [DataField("markings")]
         public List<Marking> Markings { get; }
 
+        [DataField("height")] public int Height { get; private set; }
+
         public HumanoidCharacterAppearance WithHairStyleName(string newName)
         {
-            return new(newName, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Markings);
+            return new(newName, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Markings, Height);
         }
 
         public HumanoidCharacterAppearance WithHairColor(Color newColor)
         {
-            return new(HairStyleId, newColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Markings);
+            return new(HairStyleId, newColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Markings, Height);
         }
 
         public HumanoidCharacterAppearance WithFacialHairStyleName(string newName)
         {
-            return new(HairStyleId, HairColor, newName, FacialHairColor, EyeColor, SkinColor, Markings);
+            return new(HairStyleId, HairColor, newName, FacialHairColor, EyeColor, SkinColor, Markings, Height);
         }
 
         public HumanoidCharacterAppearance WithFacialHairColor(Color newColor)
         {
-            return new(HairStyleId, HairColor, FacialHairStyleId, newColor, EyeColor, SkinColor, Markings);
+            return new(HairStyleId, HairColor, FacialHairStyleId, newColor, EyeColor, SkinColor, Markings, Height);
         }
 
         public HumanoidCharacterAppearance WithEyeColor(Color newColor)
         {
-            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, newColor, SkinColor, Markings);
+            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, newColor, SkinColor, Markings, Height);
         }
 
         public HumanoidCharacterAppearance WithSkinColor(Color newColor)
         {
-            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, newColor, Markings);
+            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, newColor, Markings, Height);
         }
 
         public HumanoidCharacterAppearance WithMarkings(List<Marking> newMarkings)
         {
-            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, newMarkings);
+            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, newMarkings, Height);
+        }
+
+        //WD EDIT
+        public HumanoidCharacterAppearance WithHeight(int height)
+        {
+            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Markings, height);
         }
 
         public HumanoidCharacterAppearance() : this(
@@ -91,7 +101,7 @@ namespace Content.Shared.Humanoid
             Color.Black,
             Color.Black,
             Humanoid.SkinColor.ValidHumanSkinTone,
-            new ()
+            new (),SizeConstants.Default
         )
         {
         }
@@ -121,7 +131,7 @@ namespace Content.Shared.Humanoid
                 Color.Black,
                 Color.Black,
                 skinColor,
-                new ()
+                new (),SizeConstants.Default
             );
         }
 
@@ -182,11 +192,16 @@ namespace Content.Shared.Humanoid
                 newSkinColor = Humanoid.SkinColor.ValidTintedHuesSkinTone(newSkinColor);
             }
 
-            return new HumanoidCharacterAppearance(newHairStyle, newHairColor, newFacialHairStyle, newHairColor, newEyeColor, newSkinColor, new ());
+            return new HumanoidCharacterAppearance(newHairStyle, newHairColor, newFacialHairStyle, newHairColor, newEyeColor, newSkinColor, new (), RandomizeHeight());
 
             float RandomizeColor(float channel)
             {
                 return MathHelper.Clamp01(channel + random.Next(-25, 25) / 100f);
+            }
+
+            int RandomizeHeight()
+            {
+               return random.Next(0,100);
             }
         }
 
@@ -203,6 +218,10 @@ namespace Content.Shared.Humanoid
             var hairColor = ClampColor(appearance.HairColor);
             var facialHairColor = ClampColor(appearance.FacialHairColor);
             var eyeColor = ClampColor(appearance.EyeColor);
+
+            //WD EDIT
+            var height = Math.Clamp(appearance.Height, 0, 100);
+            //WD END
 
             var proto = IoCManager.Resolve<IPrototypeManager>();
             var markingManager = IoCManager.Resolve<MarkingManager>();
@@ -261,7 +280,7 @@ namespace Content.Shared.Humanoid
                 facialHairColor,
                 eyeColor,
                 skinColor,
-                markingSet.GetForwardEnumerator().ToList());
+                markingSet.GetForwardEnumerator().ToList(),height);
         }
 
         public bool MemberwiseEquals(ICharacterAppearance maybeOther)

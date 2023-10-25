@@ -248,6 +248,8 @@ namespace Content.Server.Database
         public string Voice { get; set; } = null!;
 
         public List<RoleplaySelection> RoleplaySelections { get; } = new();
+
+        public int Height { get; set; }
         //WD-EDIT
 
         public string Species { get; set; } = null!;

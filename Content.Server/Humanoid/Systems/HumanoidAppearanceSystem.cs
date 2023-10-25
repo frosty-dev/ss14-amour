@@ -6,6 +6,8 @@ using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Preferences;
 using Content.Shared.Verbs;
+using Content.Shared.White.CharacterSize;
+using Robust.Shared.Enums;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Prototypes;
 
@@ -57,6 +59,10 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         var age = GetAgeRepresentation(component.Species, component.Age);
 
         args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("species", species)));
+
+        //WD EDIT
+        var height = GetHeightRepresentation(component.Gender, component.Height);
+        if(component.EnableHeight) args.PushText(height);
     }
 
     /// <summary>
@@ -75,6 +81,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         SetSpecies(uid, profile.Species, false, humanoid);
         SetSex(uid, profile.Sex, false, humanoid);
         humanoid.EyeColor = profile.Appearance.EyeColor;
+        humanoid.Height = SizeConstants.GetSize(profile.Appearance.Height);
 
         SetBodyType(uid, profile.BodyType, false, humanoid);
 
@@ -399,6 +406,17 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         }
 
         return Loc.GetString("identity-age-old");
+    }
+
+    //WD EDIT
+    public string GetHeightRepresentation(Gender gender, float height)
+    {
+        if (height < 0.9)
+            return Loc.GetString("identity-height-small",("gender",gender.ToString().ToLower()));
+        if (height > 1.1)
+            return Loc.GetString("identity-height-tall",("gender",gender.ToString().ToLower()));
+
+        return Loc.GetString("identity-height-sred",("gender",gender.ToString().ToLower()));
     }
 
     private void EnsureDefaultMarkings(EntityUid uid, HumanoidAppearanceComponent? humanoid)

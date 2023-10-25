@@ -81,6 +81,9 @@ public sealed class HumanoidAppearanceComponent : Component
     [DataField("voice", customTypeSerializer: typeof(PrototypeIdSerializer<TTSVoicePrototype>))]
     public string Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
 
+    [DataField("height")] public float Height = 1;
+    [DataField("enableHeight")] public bool EnableHeight = true;
+
     /// <summary>
     ///     Hair color of this humanoid. Used to avoid looping through all markings
     /// </summary>
@@ -108,6 +111,7 @@ public sealed class HumanoidAppearanceState : ComponentState
     public readonly string Species;
     public readonly Color SkinColor;
     public readonly Color EyeColor;
+    public readonly float Height;
 
     public HumanoidAppearanceState(
         MarkingSet currentMarkings,
@@ -120,7 +124,7 @@ public sealed class HumanoidAppearanceState : ComponentState
         int age,
         string species,
         Color skinColor,
-        Color eyeColor)
+        Color eyeColor, float height)
     {
         Markings = currentMarkings;
         PermanentlyHidden = permanentlyHidden;
@@ -133,6 +137,7 @@ public sealed class HumanoidAppearanceState : ComponentState
         Species = species;
         SkinColor = skinColor;
         EyeColor = eyeColor;
+        Height = height;
     }
 
     [DataDefinition]

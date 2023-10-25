@@ -102,6 +102,7 @@
       visible: false
   - type: HumanoidAppearance
     species: Felinid
+    enableHeight: false
   - type: Body
     prototype: Felinid
   - type: Damageable
@@ -137,6 +138,9 @@
   noSpawn: true
   description: A dummy felinid meant to be used in character setup.
   components:
+  - type: HumanoidAppearance
+    species: Felinid
+    enableHeight: false
   - type: Sprite
     netsync: false
     noRot: true
