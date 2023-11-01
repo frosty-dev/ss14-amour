@@ -126,6 +126,7 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
 
         while (querry.MoveNext(out _, out var cultRuleComponent, out _))
         {
+            var cultists = 0;
             foreach (var cultistComponent in cultRuleComponent.Cultists)
             {
                 var owner = cultistComponent.Owner;
@@ -134,9 +135,14 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
 
                 if (_mobStateSystem.IsAlive(owner, mobState))
                 {
-                    aliveCultistsCount++;
+                    cultists++;
                 }
             }
+
+            if (cultists == 0)
+                cultRuleComponent.WinCondition = CultWinCondition.CultFailure;
+
+            aliveCultistsCount += cultists;
         }
 
         if (aliveCultistsCount == 0)
@@ -490,6 +496,28 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
             _bodySystem.GibBody(mobState.Owner);
         }
 
+        foreach (var rule in EntityQuery<CultRuleComponent>())
+        {
+            rule.WinCondition = CultWinCondition.CultWin;
+        }
+
         _roundEndSystem.EndRound();
+    }
+
+    public void TransferRole(EntityUid uid, EntityUid transferTo)
+    {
+        var query = EntityQueryEnumerator<CultRuleComponent, GameRuleComponent>();
+        while (query.MoveNext(out var ruleEnt, out var cultRuleComponent, out var gameRule))
+        {
+            if (!GameTicker.IsGameRuleAdded(ruleEnt, gameRule))
+                continue;
+
+            var name = MetaData(uid).EntityName;
+
+            cultRuleComponent.CultistsList.Remove(name);
+        }
+
+        AddComp<CultistComponent>(transferTo);
+        RemComp<CultistComponent>(uid);
     }
 }
