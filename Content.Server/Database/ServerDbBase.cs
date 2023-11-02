@@ -225,7 +225,8 @@ namespace Content.Server.Database
                     Color.FromHex(profile.FacialHairColor),
                     Color.FromHex(profile.EyeColor),
                     Color.FromHex(profile.SkinColor),
-                    markings
+                    markings,
+                    profile.Height //WD
                 ),
                 clothing,
                 backpack,
@@ -264,6 +265,9 @@ namespace Content.Server.Database
             profile.FacialHairColor = appearance.FacialHairColor.ToHex();
             profile.EyeColor = appearance.EyeColor.ToHex();
             profile.SkinColor = appearance.SkinColor.ToHex();
+            //WD EDIT
+            profile.Height = appearance.Height;
+            //END WD
             profile.Clothing = humanoid.Clothing.ToString();
             profile.Backpack = humanoid.Backpack.ToString();
             profile.Markings = markings;
@@ -288,6 +292,7 @@ namespace Content.Server.Database
                             RoleplaySelectionValue = (int) a.Value
                         }
                     ));
+            //END WD
 
             profile.Antags.Clear();
             profile.Antags.AddRange(

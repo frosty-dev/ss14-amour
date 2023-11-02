@@ -66,7 +66,7 @@ namespace Content.Tests.Server.Preferences
                     Color.Aquamarine,
                     Color.Azure,
                     Color.Beige,
-                    new ()
+                    new (),1
                 ),
                 ClothingPreference.Jumpskirt,
                 BackpackPreference.Backpack,
