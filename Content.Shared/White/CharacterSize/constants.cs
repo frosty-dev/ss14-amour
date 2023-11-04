@@ -2,12 +2,15 @@ namespace Content.Shared.White.CharacterSize;
 
 public static class SizeConstants
 {
-    public static float MinSize = 0.8f;
     public static int Default = 50;
-    public static float MaxSize = 1.2f;
 
-    public static float GetSize(int size)
+    public static float GetSize(int size,float min,float max)
     {
-        return MinSize + (MaxSize - MinSize) * size / 100;
+        return min + (max - min) * size / 100;
+    }
+
+    public static int GetSizePersent(float size, float min, float max)
+    {
+        return (int)((size - min) / (max - min) * 100);
     }
 }

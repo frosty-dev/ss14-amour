@@ -213,7 +213,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             profile.Appearance.EyeColor,
             _markingManager);
 
-        var height = SizeConstants.GetSize(profile.Appearance.Height);
+        var height = SizeConstants.GetSize(profile.Appearance.Height,humanoid.MinHeight,humanoid.MaxHeight);
 
         DebugTools.Assert(uid.IsClientSide());
 

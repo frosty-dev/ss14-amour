@@ -81,7 +81,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         SetSpecies(uid, profile.Species, false, humanoid);
         SetSex(uid, profile.Sex, false, humanoid);
         humanoid.EyeColor = profile.Appearance.EyeColor;
-        humanoid.Height = SizeConstants.GetSize(profile.Appearance.Height);
+        humanoid.Height = SizeConstants.GetSize(profile.Appearance.Height,humanoid.MinHeight,humanoid.MaxHeight);
 
         SetBodyType(uid, profile.BodyType, false, humanoid);
 
