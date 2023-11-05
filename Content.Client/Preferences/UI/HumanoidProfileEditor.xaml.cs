@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net.Mime;
 using System.Numerics;
@@ -63,6 +64,7 @@ namespace Content.Client.Preferences.UI
         //WD-EDIT
         private readonly SponsorsManager _sponsorsManager;
         private readonly IClientAdminManager _adminManager;
+        private readonly IComponentFactory _componentFactory;
         //WD-EDIT
 
         private readonly IClientPreferencesManager _preferencesManager;
@@ -118,6 +120,11 @@ namespace Content.Client.Preferences.UI
         private readonly List<TraitPreferenceSelector> _traitPreferences;
         private List<BodyTypePrototype> _bodyTypesList = new();
 
+        private float _minHeight = 0.8f;
+        private float _maxHeight = 1.2f;
+        private float _defaultHeight = 1f;
+
+
         private Control _previewSpriteControl => CSpriteViewFront;
         private Control _previewSpriteSideControl => CSpriteViewSide;
 
@@ -153,6 +160,7 @@ namespace Content.Client.Preferences.UI
             _preferencesManager = preferencesManager;
             _configurationManager = configurationManager;
             _markingManager = IoCManager.Resolve<MarkingManager>();
+            _componentFactory = IoCManager.Resolve<IComponentFactory>();
 
             #region Left
 
@@ -253,7 +261,6 @@ namespace Content.Client.Preferences.UI
                 SetSpecies(_speciesList[args.Id].ID);
                 UpdateHairPickers();
                 OnSkinColorOnValueChanged();
-                UpdateHeight(); //WD EDIT
             };
 
             #endregion Species
@@ -427,9 +434,11 @@ namespace Content.Client.Preferences.UI
             _height.OnValueChanged += (_) => OnHeightChanged();
             ResetHeightButton.OnPressed += (_) =>
             {
-                _height.Value = SizeConstants.Default;
+                _height.Value = SizeConstants.GetSizePersent(_defaultHeight, _minHeight, _maxHeight);
                 OnHeightChanged();
             };
+
+            UpdateHeight();
 
             #endregion
             //WD END
@@ -800,9 +809,14 @@ namespace Content.Client.Preferences.UI
         private void OnHeightChanged()
         {
             if (Profile is null) return;
+
             var height = (int)_height.Value;
             _heightInformation.Text =
-                Loc.GetString("doll-height", ("height", (int) (SizeConstants.GetSize(height) * 180)));
+                Loc.GetString("doll-height",
+                    ("height", (int) (SizeConstants.GetSize(height,_minHeight,_maxHeight) * 180)));
+
+            Logger.Debug($"MIN: {_minHeight} MAX: {_maxHeight} H: {height} P: {SizeConstants.GetSize(height,_minHeight,_maxHeight)}");
+
             Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithHeight(height));
 
             IsDirty = true;
@@ -928,6 +942,7 @@ namespace Content.Client.Preferences.UI
             UpdateSexControls(); // update sex for new species
             RebuildSpriteView(); // they might have different inv so we need a new dummy
             UpdateBodyTypes();
+            UpdateHeight(); //WD EDIT
             IsDirty = true;
             _needUpdatePreview = true;
         }
@@ -1129,11 +1144,14 @@ namespace Content.Client.Preferences.UI
 
         private void UpdateHeight()
         {
-            if (Profile == null)
+            if(Profile == null || !TryGetHumanoidAppearance(Profile.Species,out var humanoidAppearance))
                 return;
 
-            if (_previewDummy != null && _entMan.TryGetComponent<HumanoidAppearanceComponent>(_previewDummy.Value, out var appearanceComponent))
-                HeightContainer.Visible = appearanceComponent.EnableHeight;
+            _minHeight = humanoidAppearance.MinHeight;
+            _maxHeight = humanoidAppearance.MaxHeight;
+            _defaultHeight = humanoidAppearance.DefaultHeight;
+
+            HeightContainer.Visible = humanoidAppearance.EnableHeight;
 
             _height.Value = Profile.Appearance.Height;
         }
@@ -1410,6 +1428,18 @@ namespace Content.Client.Preferences.UI
             }
 
             return allowedSpecies;
+        }
+
+        private bool TryGetHumanoidAppearance(string species,[NotNullWhen(true)] out HumanoidAppearanceComponent? humanoidAppearance)
+        {
+            humanoidAppearance = null;
+            if (!_prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype)
+                || !_prototypeManager.TryIndex<EntityPrototype>(speciesPrototype.Prototype,out var entityPrototype)
+                || !entityPrototype.Components.TryGetComponent(_componentFactory.GetComponentName(typeof(HumanoidAppearanceComponent)),out var component)
+                || component is not HumanoidAppearanceComponent humanoidAppearanceComponent) return false;
+
+            humanoidAppearance = humanoidAppearanceComponent;
+            return true;
         }
         //WD EDIT END
 

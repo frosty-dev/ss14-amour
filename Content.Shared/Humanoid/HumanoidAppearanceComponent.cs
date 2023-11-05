@@ -81,8 +81,14 @@ public sealed class HumanoidAppearanceComponent : Component
     [DataField("voice", customTypeSerializer: typeof(PrototypeIdSerializer<TTSVoicePrototype>))]
     public string Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
 
+    //Amour edit
     [DataField("height")] public float Height = 1;
+    //for the specific race
     [DataField("enableHeight")] public bool EnableHeight = true;
+    [DataField("minHeight",readOnly:true)] public float MinHeight = 0.94f;
+    [DataField("maxHeight",readOnly:true)] public float MaxHeight = 1.06f;
+    [DataField("defaultHeight",readOnly:true)] public float DefaultHeight = 1f;
+    //End Amour edit
 
     /// <summary>
     ///     Hair color of this humanoid. Used to avoid looping through all markings

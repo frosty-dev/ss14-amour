@@ -7,6 +7,8 @@
   components:
   - type: HumanoidAppearance
     species: Reptilian
+    minHeight: 0.94
+    maxHeight: 1.2
   - type: Hunger
   - type: Thirst
   - type: Icon

@@ -51,6 +51,7 @@ namespace Content.Shared.Humanoid
         [DataField("markings")]
         public List<Marking> Markings { get; }
 
+        //Height from 0 to 100%
         [DataField("height")] public int Height { get; private set; }
 
         public HumanoidCharacterAppearance WithHairStyleName(string newName)

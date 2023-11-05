@@ -11,6 +11,9 @@
   - type: Perishable
   - type: HumanoidAppearance
     species: Arachnid
+    minHeight: 0.94
+    maxHeight: 1.2
+    defaultHeight: 0.8
   - type: Hunger
     baseDecayRate: 0.0125 # Spiders have slow metabolisms all things considered, so I decided to just make their hunger drain slower.
     starvationDamage:
