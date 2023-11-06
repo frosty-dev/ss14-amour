@@ -251,6 +251,7 @@
       - SignalTrigger
       - VoiceTrigger
       - PowerCellMedium
+      - PowerCellMicroreactor
       - PowerCellHigh
       - WeaponPistolCHIMP
       - CartridgeAnomalousParticleDelta
