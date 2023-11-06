@@ -85,8 +85,8 @@ public sealed class HumanoidAppearanceComponent : Component
     [DataField("height")] public float Height = 1;
     //for the specific race
     [DataField("enableHeight")] public bool EnableHeight = true;
-    [DataField("minHeight",readOnly:true)] public float MinHeight = 0.94f;
-    [DataField("maxHeight",readOnly:true)] public float MaxHeight = 1.06f;
+    [DataField("minHeight",readOnly:true)] public float MinHeight = 0.89f;
+    [DataField("maxHeight",readOnly:true)] public float MaxHeight = 1.1f;
     [DataField("defaultHeight",readOnly:true)] public float DefaultHeight = 1f;
     //End Amour edit
 
