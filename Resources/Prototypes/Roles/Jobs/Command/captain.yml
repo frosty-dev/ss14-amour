@@ -26,7 +26,6 @@
       implants: [ MindShieldImplant ]
   whitelistedSpecies:
     - Human
-    - Felinid
   canBeAntag: false
   accessGroups:
   - AllAccess

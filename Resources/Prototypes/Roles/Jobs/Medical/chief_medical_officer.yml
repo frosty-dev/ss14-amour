@@ -18,7 +18,6 @@
   supervisors: job-supervisors-captain
   whitelistedSpecies:
     - Human
-    - Felinid
   canBeAntag: true
   access:
   - Medical
