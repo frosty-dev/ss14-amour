@@ -18,7 +18,6 @@
     Piercing: 0.2
     Shock: 1.2
   flatReductions:
-    Blunt: 5
     Heat: 5
     Piercing: 10
     Laser: 5
@@ -103,9 +102,9 @@
   id: Web # Very flammable, can be easily hacked and slashed, but shooting or hitting it is another story.
   coefficients:
     Blunt: 0.7
-    Slash: 2.0
+    Slash: 1.4
     Piercing: 0.7
-    Heat: 3.0
+    Heat: 2.0
 
 - type: damageModifierSet
   id: Slime

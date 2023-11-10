@@ -291,6 +291,11 @@
   entity: ClothingOuterCoatUSSPOvercoatBlack
   sponsorOnly: true
 
+- type: loadout
+  id: GeraldiyUSSPMask
+  entity: ClothingMaskGasGeraldiy
+  sponsorOnly: true
+
 # KnifeCappy
 
 - type: loadout
@@ -318,4 +323,20 @@
 - type: loadout
   id: TinkoffSuitGop
   entity: ClothingUniformGopTinkoff
+  sponsorOnly: true
+
+# Zilendorie
+- type: loadout
+  id: ZilendorieFurazhka
+  entity: ClothingHeadFurazhkaZilendorie
+  sponsorOnly: true
+
+- type: loadout
+  id: ZilendorieMundir
+  entity: ClothingUniformMundirZilendorie
+  sponsorOnly: true
+
+- type: loadout
+  id: ZilendorieShinel
+  entity: ClothingOuterShinelZilendorie
   sponsorOnly: true

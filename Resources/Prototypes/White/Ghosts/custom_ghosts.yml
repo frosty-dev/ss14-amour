@@ -250,8 +250,8 @@
   size: 1.0, 1.0
 
 - type: customGhost
-  id: afanasy-ghost
-  ckey: afanasiy_pogudov
+  id: svinka-ghost
+  ckey: svinka
   sprite: White/Ghosts/afanasy-ghost.rsi
   alpha: 0.8
   ghostName: Свинка
@@ -305,3 +305,12 @@
   sprite: White/Ghosts/psychopath-ghost.rsi
   ghostName: ЕРП Кицуне
   ghostDescription: Тут тебе не рады.
+
+- type: customGhost
+  id: ssao-ghost
+  ckey: ssao
+  sprite: White/Ghosts/ssao-ghost.rsi
+  alpha: 0.9
+  ghostName: Мяукалка
+  ghostDescription: Мяу!
+  size: 0.6, 0.6

@@ -721,6 +721,18 @@
     - type: Clothing
       sprite: White/Fluff/Geraldiy/ussp_coat.rsi
 
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasGeraldiy
+  name: противогаз СССП
+  description: Противогаз времен эпохи СССП. На нем видно много потёртостей, изношены укрепляющие пластины, но он до сих пор служит своему владельцу на протяжении сотен лет.
+  suffix: Fluff
+  components:
+    - type: Sprite
+      sprite: White/Fluff/Geraldiy/ussp_mask.rsi
+    - type: Clothing
+      sprite: White/Fluff/Geraldiy/ussp_mask.rsi
+
 # KnifeCappy
 - type: entity
   parent: ClothingOuterStorageBase
@@ -783,3 +795,40 @@
       sprite: White/Fluff/Oleg_Tinkoff/uniform_gop.rsi
     - type: Clothing
       sprite: White/Fluff/Oleg_Tinkoff/uniform_gop.rsi
+
+# Zilendorie
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadFurazhkaZilendorie
+  name: фуражка комиссара
+  description: Фирменная фуражка Имперских комиссаров. Символ власти, объект страха и просто красивая шляпа.
+  suffix: Fluff
+  components:
+    - type: Sprite
+      sprite: White/Fluff/Zilendorie/furazhka.rsi
+    - type: Clothing
+      sprite: White/Fluff/Zilendorie/furazhka.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformMundirZilendorie
+  name: форма комиссара
+  description: Стандартная форма Имперского Комиссара. Пояс украшает знаковый красный кушак, выдаваемый юным комиссарам по завершению Схолы Прогениум.
+  suffix: Fluff
+  components:
+    - type: Sprite
+      sprite: White/Fluff/Zilendorie/mundir.rsi
+    - type: Clothing
+      sprite: White/Fluff/Zilendorie/mundir.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterShinelZilendorie
+  name: шинель комиссара
+  description: Парадная шинель Имперского Комиссара.
+  suffix: Fluff
+  components:
+    - type: Sprite
+      sprite: White/Fluff/Zilendorie/shinel.rsi
+    - type: Clothing
+      sprite: White/Fluff/Zilendorie/shinel.rsi
