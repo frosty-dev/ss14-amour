@@ -1,11 +1,8 @@
-using Content.Shared.Actions;
-using Content.Shared.Actions.ActionTypes;
-using Content.Shared.Carrying;
+using Content.Shared.Buckle;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
-using Content.Shared.Stunnable;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.White.Crawl;
 
@@ -13,33 +10,33 @@ public abstract class SharedCrawlSystem : EntitySystem
 {
     [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly StandingStateSystem _standingStateSystem = default!;
+    [Dependency] private readonly SharedBuckleSystem _buckle = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<CrawlComponent,ComponentStartup>(OnStartup);
         SubscribeLocalEvent<CrawlComponent,ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<CrawlableComponent,ComponentStartup>(OnCrawlStart);
-        SubscribeLocalEvent<CrawlableComponent,CrawlToggledEvent>(OnToggled);
+        SubscribeLocalEvent<CrawlableComponent,ComponentShutdown>(OnCrawlShutdown);
+        SubscribeLocalEvent<CrawlComponent,StoodEvent>(OnStood);
     }
 
-    private void OnToggled(EntityUid uid, CrawlableComponent component, CrawlToggledEvent args)
+    private void OnCrawlShutdown(EntityUid uid, CrawlableComponent component, ComponentShutdown args)
     {
-       ToggleCrawl(uid);
+        DisableCrawl(uid);
     }
 
-    private void OnCrawlStart(EntityUid uid, CrawlableComponent component, ComponentStartup args)
+    private void OnStood(EntityUid uid, CrawlComponent component, StoodEvent args)
     {
-        if(!_prototypeManager.TryIndex<InstantActionPrototype>("Crawl", out var crawlAction))
+        if(component.LifeStage == ComponentLifeStage.Stopping)
             return;
 
-        _actionsSystem.AddAction(uid,new InstantAction(crawlAction),null);
+        DisableCrawl(uid);
     }
 
     private void OnShutdown(EntityUid uid, CrawlComponent component, ComponentShutdown args)
     {
-        RemComp<KnockedDownComponent>(uid);
+        _standingStateSystem.Stand(uid);
         if (TryComp<MovementSpeedModifierComponent>(uid, out var mod))
         {
             _speed.ChangeBaseSpeed(uid,component.WalkSpeed,component.SpringSpeed,mod.Acceleration,mod);
@@ -50,7 +47,6 @@ public abstract class SharedCrawlSystem : EntitySystem
     private void OnStartup(EntityUid uid, CrawlComponent component, ComponentStartup args)
     {
         _statusEffectsSystem.TryRemoveStatusEffect(uid, "KnockedDown");
-        EnsureComp<KnockedDownComponent>(uid);
 
         if (TryComp<MovementSpeedModifierComponent>(uid, out var mod))
         {
@@ -60,28 +56,20 @@ public abstract class SharedCrawlSystem : EntitySystem
 
         var modifierComponent = EnsureComp<MovementSpeedModifierComponent>(uid);
         _speed.ChangeBaseSpeed(uid,1,2,modifierComponent.Acceleration,modifierComponent);
-    }
 
-    public void ToggleCrawl(EntityUid uid)
-    {
-        if (!HasComp<CrawlComponent>(uid))
-            EnableCrawl(uid);
-        else
+        if (_buckle.TryUnbuckle(uid, uid) || !_standingStateSystem.Down(uid))
+        {
             DisableCrawl(uid);
+        }
     }
 
     public void EnableCrawl(EntityUid uid)
     {
-        if(!HasComp<KnockedDownComponent>(uid))
-            EnsureComp<CrawlComponent>(uid);
+        EnsureComp<CrawlComponent>(uid);
     }
 
     public void DisableCrawl(EntityUid uid)
     {
         RemComp<CrawlComponent>(uid);
     }
-}
-
-public sealed class CrawlToggledEvent : InstantActionEvent
-{
 }
