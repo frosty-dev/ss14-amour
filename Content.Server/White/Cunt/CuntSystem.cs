@@ -23,19 +23,25 @@ public sealed class CuntSystem : EntitySystem
     {
         SubscribeLocalEvent<CuntableComponent,EmoteEvent>(OnCunt);
         SubscribeLocalEvent<CuntableComponent,ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<CuntableComponent,EntityUnpausedEvent>(OnUnpaused);
     }
 
     private void OnStartup(EntityUid uid, CuntableComponent component, ComponentStartup args)
     {
         var cuntSolution = _solutionContainer.EnsureSolution(uid, CuntableComponent.CuntSolutionName);
-        cuntSolution.MaxVolume = 10;
+        cuntSolution.MaxVolume = component.CuntCount;
+        component.NextRegenTime = _timing.CurTime;
+    }
+
+    private void OnUnpaused(EntityUid uid, CuntableComponent comp, ref EntityUnpausedEvent args)
+    {
+        comp.NextRegenTime += args.PausedTime;
     }
 
     private void OnCunt(EntityUid uid, CuntableComponent component, ref EmoteEvent args)
     {
         if (args.Emote.ID == "Squelch")
         {
-            GenCum(uid,1, component);
             TryCunt(uid, component);
         }
     }
@@ -48,7 +54,7 @@ public sealed class CuntSystem : EntitySystem
         if(!_solutionContainer.TryGetSolution(uid,CuntableComponent.CuntSolutionName,out var cuntSolution))
             return false;
 
-        if(cuntSolution.Volume < 5)
+        if(cuntSolution.Volume < component.CuntCount)
             return false;
 
         _puddle.TrySpillAt(uid, cuntSolution, out _);
@@ -57,12 +63,12 @@ public sealed class CuntSystem : EntitySystem
         return true;
     }
 
-    public void GenCum(EntityUid uid,FixedPoint2 quantity, CuntableComponent? component = null)
+    public void GenCum(EntityUid uid,FixedPoint2 quantity, CuntableComponent? component = null, SolutionContainerManagerComponent? solutionContainerManagerComponent = null)
     {
-        if (!Resolve(uid, ref component))
+        if (!Resolve(uid, ref component, ref solutionContainerManagerComponent))
             return ;
 
-        if (_solutionContainer.TryGetSolution(uid, CuntableComponent.CuntSolutionName, out var solution))
+        if (_solutionContainer.TryGetSolution(uid, CuntableComponent.CuntSolutionName, out var solution, solutionContainerManagerComponent))
         {
             if (solution.AvailableVolume <= FixedPoint2.Zero)
                return;
@@ -70,6 +76,22 @@ public sealed class CuntSystem : EntitySystem
             var generated = new Solution("Cunt", quantity);
 
             _solutionContainer.TryAddSolution(uid, solution, generated);
+        }
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<CuntableComponent, SolutionContainerManagerComponent>();
+        while (query.MoveNext(out var uid, out var regen, out var manager))
+        {
+            if (_timing.CurTime < regen.NextRegenTime)
+                continue;
+
+            regen.NextRegenTime = _timing.CurTime + regen.Duration;
+
+            GenCum(uid,regen.CuntGetCount, regen, manager);
         }
     }
 }
