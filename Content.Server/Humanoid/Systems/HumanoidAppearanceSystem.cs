@@ -180,6 +180,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
         targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
         targetHumanoid.BodyType = sourceHumanoid.BodyType;
+        targetHumanoid.Height = sourceHumanoid.Height;
         SetTTSVoice(target, sourceHumanoid.Voice, targetHumanoid);
 
         targetHumanoid.Gender = sourceHumanoid.Gender;
