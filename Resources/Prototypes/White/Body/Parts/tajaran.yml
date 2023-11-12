@@ -84,6 +84,9 @@
   name: "left tajaran hand"
   parent: PartTajaran
   components:
+    - type: Icon
+      sprite: White/Mobs/Species/Tajaran/parts.rsi
+      state: "l_arm_m"
     - type: BodyPart
       partType: Hand
       symmetry: Left
@@ -93,6 +96,9 @@
   name: "right tajaran hand"
   parent: PartTajaran
   components:
+    - type: Icon
+      sprite: White/Mobs/Species/Tajaran/parts.rsi
+      state: "r_arm_m"
     - type: BodyPart
       partType: Hand
       symmetry: Right
@@ -134,6 +140,9 @@
   name: "left tajaran foot"
   parent: PartTajaran
   components:
+    - type: Icon
+      sprite: White/Mobs/Species/Tajaran/parts.rsi
+      state: "l_leg_m"
     - type: BodyPart
       partType: Foot
       symmetry: Left
@@ -143,6 +152,9 @@
   name: "right tajaran foot"
   parent: PartTajaran
   components:
+    - type: Icon
+      sprite: White/Mobs/Species/Tajaran/parts.rsi
+      state: "r_leg_m"
     - type: BodyPart
       partType: Foot
       symmetry: Right
