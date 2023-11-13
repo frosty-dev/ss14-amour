@@ -14,8 +14,6 @@ using Content.Server.White.Sponsors;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Verbs;
 using Content.Shared.White;
 using Content.Shared.White.MeatyOre;
@@ -50,6 +48,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     private static readonly string MeatyOreCurrencyPrototype = "MeatyOreCoin";
 
     private bool _meatyOrePanelEnabled;
+    private bool _antagGrantEnabled;
 
     private readonly Dictionary<NetUserId, StoreComponent> _meatyOreStores = new();
 
@@ -61,6 +60,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
         _configurationManager.OnValueChanged(WhiteCVars.MeatyOrePanelEnabled, OnPanelEnableChanged, true);
         _configurationManager.OnValueChanged(WhiteCVars.OnlyInOhio, s => _apiUrl = s, true);
+        _configurationManager.OnValueChanged(WhiteCVars.EnableGrantAntag, b => _antagGrantEnabled = b, true );
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnPostRoundCleanup);
         SubscribeNetworkEvent<MeatyOreShopRequestEvent>(OnShopRequested);
@@ -70,31 +70,19 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
     private void MeatyOreVerbs(GetVerbsEvent<Verb> ev)
     {
-        if(!EntityManager.TryGetComponent<ActorComponent>(ev.User, out var actorComponent))
+        if(!_antagGrantEnabled)
             return;
-        if(!_sponsorsManager.TryGetInfo(actorComponent.PlayerSession.UserId, out _))
+
+        if (!EntityManager.TryGetComponent<ActorComponent>(ev.User, out var actorComponent))
             return;
-        if(!HasComp<HumanoidAppearanceComponent>(ev.Target))
+
+        if (!_sponsorsManager.TryGetInfo(actorComponent.PlayerSession.UserId, out _))
             return;
-        if(!TryComp<MobStateComponent>(ev.Target, out var state) || state.CurrentState != MobState.Alive)
+
+        if (!HasComp<HumanoidAppearanceComponent>(ev.Target))
             return;
-        if(!TryGetStore(actorComponent.PlayerSession, out var store))
-            return;
-        if(!TryComp<MindContainerComponent>(ev.Target, out var targetMind) || !targetMind.HasMind)
-            return;
-        if (targetMind.Mind!.AllRoles.Any(x => x.Antagonist))
-            return;
-        if(targetMind.Mind.CurrentJob?.CanBeAntag != true)
-            return;
-        if(targetMind.Mind.Session == null)
-            return;
-        if(_antagBan.HasAntagBan(actorComponent.PlayerSession.UserId))
-            return;
-        if(_antagBan.HasAntagBan(targetMind.Mind.Session.UserId))
-            return;
-        if (!store.Balance.TryGetValue("MeatyOreCoin", out var currency))
-            return;
-        if(currency - 10 < 0)
+
+        if (!TryGetStore(actorComponent.PlayerSession, out var store))
             return;
 
         var verb = new Verb()
@@ -147,8 +135,10 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
         if(!playerEntity.HasValue)
             return;
+
         if(!HasComp<HumanoidAppearanceComponent>(playerEntity.Value))
             return;
+
         if(!TryGetStore(playerSession!, out var storeComponent))
             return;
 
@@ -207,8 +197,26 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     {
         if (!EntityManager.TryGetComponent<ActorComponent>(user, out var userActorComponent))
             return;
+
         if (!EntityManager.TryGetComponent<ActorComponent>(target, out var targetActorComponent))
             return;
+
+        if (!TryComp<MindContainerComponent>(target, out var targetMind) || !targetMind.HasMind || targetMind.Mind.Session == null)
+        {
+            return;
+        }
+
+        if (!store.Balance.TryGetValue(MeatyOreCurrencyPrototype, out var currency))
+            return;
+
+        if(currency - 10 < 0)
+            return;
+
+
+        var fake = _antagBan.HasAntagBan(userActorComponent.PlayerSession.UserId)
+                   || _antagBan.HasAntagBan(targetMind.Mind.Session.UserId)
+                   || targetMind.Mind.AllRoles.Any(x => x.Antagonist)
+                   || targetMind.Mind.CurrentJob?.CanBeAntag != true;
 
         var ckey = userActorComponent.PlayerSession.Name;
         var grant = user == target;
@@ -216,8 +224,21 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
         if (result)
         {
-            _traitorRuleSystem.MakeTraitor(targetActorComponent.PlayerSession);
             _storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2> { { MeatyOreCurrencyPrototype, -10 } }, store.Owner, store);
+
+            if (!fake)
+            {
+                _traitorRuleSystem.MakeTraitor(targetActorComponent.PlayerSession);
+
+                var msg = $"Игрок с сикеем {ckey} выдал антажку {targetActorComponent.PlayerSession.Name}";
+                _chatManager.SendAdminAnnouncement(msg);
+            }
+            else
+            {
+                var msg = $"Игрок с сикеем {ckey} попытался выдать антажку {targetActorComponent.PlayerSession.Name}. Но обосрался. Была выдана фейковая антажка.";
+                _chatManager.SendAdminAnnouncement(msg);
+            }
+
         }
         else
         {
@@ -228,7 +249,6 @@ public sealed class MeatyOreStoreSystem : EntitySystem
             _popupSystem.PopupEntity(timeMessage, user, user);
         }
     }
-
 
     private async Task<bool> GrantAntagonist(string ckey, bool isFriend)
     {
