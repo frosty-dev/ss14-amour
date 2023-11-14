@@ -1,5 +1,5 @@
 - type: soundCollection
-  id: LobbyMusicOld
+  id: LobbyMusic
   files:
     - /Audio/Lobby/thunderdome.ogg
     - /Audio/Lobby/absconditus.ogg
@@ -24,7 +24,7 @@
     - /Audio/Lobby/roomishere.ogg
 
 - type: soundCollection
-  id: LobbyMusic
+  id: LobbyMusic1
   files:
     - /Audio/Lobby/1.ogg
     - /Audio/Lobby/2.ogg
