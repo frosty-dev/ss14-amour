@@ -47,6 +47,8 @@
         type: SummonCultistListWindowBUI
       - key: enum.SinguloCallUIKey.Key
         type: SinguloCallBUI
+      - key: enum.InteractionUiKey.Key
+        type: InteractionBoundUserInterface
       #WD EDIT
   - type: Sprite
     scale: 0.9, 0.9
@@ -150,8 +152,8 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "underpants" ]
-      - map: [ "undershirt" ]
+      - map: [ "underwearb" ] #White
+      - map: [ "underweart" ] #White
       - map: [ "socks" ]
       - map: [ "jumpsuit" ]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
