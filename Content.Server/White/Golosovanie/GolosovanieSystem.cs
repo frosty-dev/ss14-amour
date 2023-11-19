@@ -14,7 +14,6 @@ public sealed class GolosovanieSystem : EntitySystem
 
     private void OnRoundEnd(RoundRestartCleanupEvent ev)
     {
-        Logger.Debug("MEOW! END NAHUI");
         _vote.CreateStandardVote(null,StandardVoteType.Map);
         _vote.CreateStandardVote(null,StandardVoteType.Preset);
     }
