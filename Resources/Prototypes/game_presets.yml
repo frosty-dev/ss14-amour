@@ -26,6 +26,7 @@
     - sekrit
   name: secret-title
   showInVote: true
+  delay: 2
   description: secret-description
   rules:
     - Secret
@@ -68,6 +69,7 @@
     - nukeops
   name: nukeops-title
   description: nukeops-description
+  delay: 5
   showInVote: true
   rules:
     - Nukeops
@@ -94,6 +96,7 @@
     - cult
   name: CULT
   description: CULT
+  delay: 5
   showInVote: true
   rules:
     - Cult
@@ -104,6 +107,7 @@
   alias:
     - pirates
   name: pirates-title
+  delay: 2
   description: pirates-description
   showInVote: true
   rules:
@@ -115,6 +119,7 @@
   alias:
     - revolution
   name: rev-title
+  delay: 4
   description: rev-description
   minPlayers: 20
   showInVote: true

@@ -31,6 +31,8 @@ namespace Content.Server.GameTicking.Presets
         [DataField("maxPlayers")]
         public readonly int? MaxPlayers;
 
+        [DataField("delay")] public readonly int Delay; //AMOUR how round?
+
         [DataField("rules", customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
         public IReadOnlyList<string> Rules { get; } = Array.Empty<string>();
     }
