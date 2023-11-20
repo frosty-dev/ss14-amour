@@ -14,6 +14,12 @@ namespace Content.Server.Voting.Managers
 {
     public sealed partial class VoteManager
     {
+        [ViewVariables]
+        private string _previousMap = string.Empty;
+
+        [ViewVariables]
+        private readonly Dictionary<string, int> _presetDelay = new Dictionary<string, int>();
+
         private static readonly Dictionary<StandardVoteType, CVarDef<bool>> _voteTypesToEnableCVars = new()
         {
             {StandardVoteType.Restart, CCVars.VoteRestartEnabled},
@@ -150,6 +156,11 @@ namespace Content.Server.Voting.Managers
                     _chatManager.DispatchServerAnnouncement(
                         Loc.GetString("ui-vote-gamemode-win", ("winner", Loc.GetString(presets[picked]))));
                 }
+
+                if (_prototypeManager.TryIndex<GamePresetPrototype>(picked, out var prototype) && prototype.Delay > 0)
+                    _presetDelay.Add(picked,prototype.Delay);
+
+
                 _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Preset vote finished: {picked}");
                 var ticker = _entityManager.EntitySysManager.GetEntitySystem<GameTicker>();
                 ticker.SetGamePreset(picked);
@@ -158,7 +169,7 @@ namespace Content.Server.Voting.Managers
 
         private void CreateMapVote(IPlayerSession? initiator)
         {
-            var maps = _gameMapManager.CurrentlyEligibleMaps().ToDictionary(map => map, map => map.MapName);
+            var maps = _gameMapManager.CurrentlyEligibleMaps().Where((prototype => prototype.MapName != _previousMap)).ToDictionary(map => map, map => map.MapName); //AMOUR MUR MUR
 
             var alone = _playerManager.PlayerCount == 1 && initiator != null;
             var options = new VoteOptions
@@ -197,6 +208,8 @@ namespace Content.Server.Voting.Managers
                         Loc.GetString("ui-vote-map-win", ("winner", maps[picked])));
                 }
 
+                _previousMap = picked.MapName; //AMOUR EDIT
+
                 _adminLogger.Add(LogType.Vote, LogImpact.Medium, $"Map vote finished: {picked.MapName}");
                 var ticker = _entityManager.EntitySysManager.GetEntitySystem<GameTicker>();
                 if (ticker.CanUpdateMap())
@@ -234,6 +247,17 @@ namespace Content.Server.Voting.Managers
 
             foreach (var preset in _prototypeManager.EnumeratePrototypes<GamePresetPrototype>())
             {
+                if (_presetDelay.TryGetValue(preset.ID,out var delay)) //AMOUR EDIT
+                {
+                    var next = delay - 1;
+                    if (next > 0)
+                        _presetDelay[preset.ID] = next;
+                    else
+                        _presetDelay.Remove(preset.ID);
+
+                    continue;
+                }
+
                 if(!preset.ShowInVote)
                     continue;
 
