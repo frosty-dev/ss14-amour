@@ -232,6 +232,10 @@
       collection: HarpyCaws
     Chirp:
       collection: HarpyChirps
+    Awo:
+      collection: Awo
+    Moan:
+      collection: HarpyMoan
 
 
 - type: emoteSounds

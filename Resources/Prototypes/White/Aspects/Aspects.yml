@@ -1,15 +1,15 @@
-- type: entity
-  id: RandomAccentAspect
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-    - type: Aspect
-      name: "Акценты вне контроля"
-      description: "Всегда интересно, какой акцент вы услышите следующим."
-      weight: 3
-      startAudio:
-        path: /Audio/White/Aspects/accent.ogg
-    - type: RandomAccentAspect
+#- type: entity
+#  id: RandomAccentAspect
+#  parent: BaseGameRule
+#  noSpawn: true
+#  components:
+#    - type: Aspect
+#      name: "Акценты вне контроля"
+#      description: "Всегда интересно, какой акцент вы услышите следующим."
+#      weight: 3
+#      startAudio:
+#        path: /Audio/White/Aspects/accent.ogg
+#    - type: RandomAccentAspect
 
 - type: entity
   id: FastAndFuriousAspect
@@ -24,18 +24,18 @@
         path: /Audio/White/Aspects/accent.ogg
     - type: FastAndFuriousAspect
 
-- type: entity
-  id: RandomAppearanceAspect
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-    - type: Aspect
-      name: "Random appearance"
-      description: "Экипаж перестал узнавать друг-друга в лицо."
-      weight: 3
-      startAudio:
-        path: /Audio/White/Aspects/accent.ogg
-    - type: RandomAppearanceAspect
+#- type: entity
+#  id: RandomAppearanceAspect
+#  parent: BaseGameRule
+#  noSpawn: true
+#  components:
+#    - type: Aspect
+#      name: "Random appearance"
+#      description: "Экипаж перестал узнавать друг-друга в лицо."
+#      weight: 3
+#      startAudio:
+#        path: /Audio/White/Aspects/accent.ogg
+#    - type: RandomAppearanceAspect
 
 - type: entity
   id: BombassAspect
@@ -326,15 +326,15 @@
       hidden: true
     - type: NothingAspect
 
-- type: entity
-  id: SkeletonAspect
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-    - type: Aspect
-      name: "Skeletons"
-      description: "АЧК АЧК!"
-      weight: 1
-      startAudio:
-        path: /Audio/White/Aspects/accent.ogg
-    - type: SkeletonAspect
+#- type: entity
+#  id: SkeletonAspect
+#  parent: BaseGameRule
+#  noSpawn: true
+#  components:
+#    - type: Aspect
+#      name: "Skeletons"
+#      description: "АЧК АЧК!"
+#      weight: 1
+#      startAudio:
+#        path: /Audio/White/Aspects/accent.ogg
+#    - type: SkeletonAspect
