@@ -39,7 +39,7 @@
         - id: OxygenTankFilled
         - id: ClothingOuterSuitEmergency
         - id: ClothingMaskBreath
-     
+
 #Prisoner EVA
 - type: entity
   id: SuitStorageEVAPrisoner
@@ -80,7 +80,7 @@
         - id: OxygenTankFilled
         - id: ClothingOuterHardsuitPirateEVA
         - id: ClothingMaskGas
-        
+
 #NTSRA Voidsuit
 - type: entity
   id: SuitStorageNTSRA
@@ -93,7 +93,7 @@
         - id: ClothingOuterHardsuitAncientEVA
         - id: ClothingHeadHelmetAncient
         - id: ClothingMaskBreath
-        
+
 #HARDSUITS
 #Basic hardsuit
 - type: entity
@@ -203,6 +203,20 @@
         - id: ClothingOuterHardsuitSecurityRed
         - id: ClothingMaskGasSwat
 
+#HoP's hardsuit
+- type: entity
+  id: SuitStorageHOP
+  parent: SuitStorageBase
+  suffix: Head of Personnel
+  components:
+    - type: StorageFill
+      contents:
+        - id: NitrogenTankFilled
+        - id: OxygenTankFilled
+        - id: ClothingOuterHardsuitHOP
+        - id: ClothingMaskBreath
+        - id: ToyIan
+
 #Warden's hardsuit
 - type: entity
   id: SuitStorageWarden
@@ -282,4 +296,3 @@
         - id: OxygenTankFilled
         - id: ClothingOuterHardsuitWizard
         - id: ClothingMaskBreath
-        
