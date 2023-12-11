@@ -423,6 +423,7 @@
   - type: InteractionPopup
     successChance: 1
   - type: Butcherable
+    syndieRoleRequired: true
     spawned:
     - id: FoodMeat
       amount: 3
