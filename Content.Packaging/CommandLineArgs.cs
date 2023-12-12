@@ -114,6 +114,7 @@ public sealed class CommandLineArgs
     {
         Console.WriteLine(@"
 Usage: Content.Packaging [client/server] [options]
+
 Options:
   --skip-build          Should we skip building the project and use what's already there.
   --no-wipe-release     Don't wipe the release folder before creating files.
