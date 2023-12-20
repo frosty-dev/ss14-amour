@@ -9,3 +9,15 @@
     sprite: Objects/Weapons/Grenades/smokegrenade.rsi
     state: icon
   event: !type:ActivateImplantEvent
+
+- type: instantAction
+  id: ActivateHardlightSpearImplant
+  name: use-hardlight-spear-implant-action-name
+  description: use-hardlight-spear-implant-action-description
+  useDelay: 1.5
+  itemIconStyle: BigAction
+  priority: -20
+  icon:
+    sprite: White/Objects/Weapons/hardlight_spear.rsi
+    state: spear
+  event: !type:ActivateHardlightSpearImplantEvent
