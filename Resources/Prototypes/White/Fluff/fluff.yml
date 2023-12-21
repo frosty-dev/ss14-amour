@@ -602,7 +602,7 @@
   id: ClothingOuterStorage6elbluOvercoat
   name: Белая шинель
   suffix: fluff
-  description: Очень удобная и приятная на ощупь шинель с меховым воротником. На нарукавных повязках виднеется эмблема  NT.
+  description: Очень удобная и приятная на ощупь шинель с меховым воротником. На нарукавных повязках виднеется эмблема NT.
   components:
     - type: Sprite
       sprite: White/Fluff/6elblu/white-overcoat.rsi
