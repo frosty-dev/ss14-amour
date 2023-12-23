@@ -34,7 +34,6 @@
 
 - type: markingPoints
   id: MobSkrellMarkingLimits
-  onlyWhitelisted: true
   points:
     Hair:
       points: 1
@@ -53,6 +52,12 @@
       required: false
     Arms:
       points: 2
+      required: false
+    Genitals: # piska
+      points: 1
+      required: false
+    Breasts: # siska
+      points: 1
       required: false
 
 - type: humanoidBaseSprite
