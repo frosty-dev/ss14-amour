@@ -162,3 +162,13 @@
       uiWindowPos: 0,4
       strippingWindowPos: 0,5
       displayName: Pocket 3
+
+    - name: anus
+      slotTexture: anus
+      slotFlags: POCKET
+      stripTime: 9
+      uiWindowPos: 0,3
+      strippingWindowPos: 0,3
+      displayName: Anus
+      stripHidden: true
+      hidden: true
