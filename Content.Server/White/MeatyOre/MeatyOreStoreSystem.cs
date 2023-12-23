@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text.Json;
@@ -64,7 +64,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnPostRoundCleanup);
         SubscribeNetworkEvent<MeatyOreShopRequestEvent>(OnShopRequested);
-        SubscribeLocalEvent<GetVerbsEvent<Verb>>(MeatyOreVerbs);
+        // SubscribeLocalEvent<GetVerbsEvent<Verb>>(MeatyOreVerbs);
 
     }
 
