@@ -39,7 +39,7 @@ namespace Content.Client.White.Overlays
             _shader.SetParameter("noise_amount", component.Noise);
 
             handle.UseShader(_shader);
-            handle.DrawRect(args.WorldBounds, Color.White);
+            handle.DrawRect(args.WorldBounds, component.Color);
             handle.UseShader(null);
         }
     }

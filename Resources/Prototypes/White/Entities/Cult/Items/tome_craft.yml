@@ -41,6 +41,7 @@
         - type: ShowHealthBars
           damageContainer: Biological
         - type: NightVision
+          color: White
     - type: CultItem
 
 - type: entity

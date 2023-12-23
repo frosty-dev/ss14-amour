@@ -14,14 +14,12 @@ jobs:
       - name: Install dependencies
         run: sudo apt-get install -y python3-paramiko
 
-      - name: Fix home dir permissions
-        run: sudo chown -R $(whoami) .
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.6.0
         with:
           submodules: 'recursive'
 
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v3.2.0
         with:
           dotnet-version: 7.0.302
 
@@ -29,10 +27,12 @@ jobs:
         run: |
           cd RobustToolbox
           git fetch --depth=1
-      - name: Package all
+
+      - name: Package client
         run: |
           Tools/package_server_build.py -p win-x64 linux-x64 osx-x64 linux-arm64
           Tools/package_client_build.py
+
       - name: Update Build Info
         run: Tools/gen_build_info.py
 
@@ -40,6 +40,7 @@ jobs:
         run: |
           mkdir "release/${{ github.sha }}"
           mv release/*.zip "release/${{ github.sha }}"
+
       - name: Upload files to hive
         uses: burnett01/rsync-deployments@5.2
         with:
@@ -62,7 +63,7 @@ jobs:
           passphrase: ${{ secrets.BUILDS_SSH_KEY_PASS }}
           script: sh ~/ss14/anvil/cortice.sh ${{ github.sha }}
 
-      - name: Publish changelog
+      - name: Publish changelog (Discord)
         run: Tools/actions_changelogs_since_last_run.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

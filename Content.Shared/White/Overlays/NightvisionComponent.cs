@@ -3,15 +3,18 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.White.Overlays;
 
-[RegisterComponent, NetworkedComponent]
-public sealed class NightVisionComponent : Component
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class NightVisionComponent : Component
 {
-    [DataField("tint"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("tint"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public Vector3 Tint = new(0.3f, 0.3f, 0.3f);
 
-    [DataField("strength"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("strength"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float Strength = 2f;
 
-    [DataField("noise"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("noise"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float Noise = 0.5f;
+
+    [DataField("color"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public Color Color = Color.LawnGreen;
 }

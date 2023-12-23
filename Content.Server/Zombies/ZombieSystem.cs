@@ -37,9 +37,6 @@ namespace Content.Server.Zombies
         [Dependency] private readonly MetaDataSystem _metaData = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly TagSystem _tag = default!;
-
-        private const string ZombifyableTag = "ZombifyableByMelee";
 
         public override void Initialize()
         {
@@ -208,9 +205,6 @@ namespace Content.Server.Zombies
                     continue;
 
                 if (!TryComp<MobStateComponent>(entity, out var mobState))
-                    continue;
-
-                if (!_tag.HasTag(entity, ZombifyableTag))
                     continue;
 
                 if (HasComp<CyborgComponent>(entity))
