@@ -45,7 +45,7 @@ void fragment() {
     highp vec2 uv2 = 2.0 * FRAGCOORD.xy / vec2(1024) - 1.0;
 	highp vec2 uvs = uv2 * vec2(1024)  / 1024.0;
 
-	highp float time = TIME * 0.03;
+	highp float time = TIME * 0.01;
 	highp float time2 = time;
     highp float speed = -speed2;
     speed = 0.005 * cos(time2*0.02 + 3.1415926/4.0);

@@ -7,12 +7,14 @@
     Orientation="Horizontal"
     HorizontalExpand="False"
 >
-    <BoxContainer Orientation="Vertical">
+    <BoxContainer Name="ActionsBox" Orientation="Horizontal" Access="Public">
         <controls:ActionButtonContainer
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            MaxSize="64 9999"
+            VerticalAlignment="Top"
+            MaxSize="9999 64"
             Name="ActionsContainer"
+            Columns="10"
+            Rows="1"
             Access="Public"/>
         <controls:ActionPageButtons Name="PageButtons" Access="Public"/>
     </BoxContainer>

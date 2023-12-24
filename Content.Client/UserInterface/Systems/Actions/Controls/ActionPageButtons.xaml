@@ -1,9 +1,9 @@
 ﻿<controls:ActionPageButtons
     xmlns="https://spacestation14.io"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Systems.Actions.Controls">
-    <BoxContainer Orientation="Horizontal">
+    <BoxContainer Name="PageButtonsContainer" MaxHeight="64" Orientation="Vertical" VerticalAlignment="Center" Margin="8 0 0 0" Access="Public">
         <Control HorizontalExpand="True" SizeFlagsStretchRatio="1"/>
-        <TextureButton TexturePath="left_arrow.svg.192dpi"
+        <TextureButton TexturePath="up_arrow.svg.192dpi"
                        SizeFlagsStretchRatio="1"
                        Scale="0.5 0.5"
                        HorizontalAlignment="Center"
@@ -11,9 +11,9 @@
                        Name="LeftArrow"
                        Access="Public"/>
         <Control HorizontalExpand="True" SizeFlagsStretchRatio="2"/>
-        <Label Text="1" SizeFlagsStretchRatio="1" Name="Label" Access="Public" />
+        <Label Text="1" SizeFlagsStretchRatio="1" Name="Label" Access="Public" HorizontalAlignment="Center" />
         <Control HorizontalExpand="True" SizeFlagsStretchRatio="2"/>
-        <TextureButton TexturePath="right_arrow.svg.192dpi"
+        <TextureButton TexturePath="down_arrow.svg.192dpi"
                        SizeFlagsStretchRatio="1"
                        Scale="0.5 0.5"
                        HorizontalAlignment="Center"

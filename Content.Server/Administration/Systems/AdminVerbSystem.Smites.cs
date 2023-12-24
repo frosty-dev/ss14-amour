@@ -766,7 +766,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = "Disarm Prone",
             Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/Actions/disarm.png")),
+            Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/Actions/intents.rsi/disarmNoAnime.png")),
             Act = () =>
             {
                 EnsureComp<DisarmProneComponent>(args.Target);

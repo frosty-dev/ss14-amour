@@ -21,7 +21,8 @@ public sealed class MenuButton : ContainerButton
     private static readonly Color ColorRedHovered = Color.FromHex("#FFFFFF");
     private static readonly Color ColorPressed = Color.FromHex("#788C9B");
 
-    private const float VertPad = 8f;
+    private const float HorPad = 8f;
+    private const float VerPad = 4f;
     private Color NormalColor => HasStyleClass(StyleClassRedTopButton) ? ColorRedNormal : ColorNormal;
     private Color HoveredColor => HasStyleClass(StyleClassRedTopButton) ? ColorRedHovered : ColorHovered;
 
@@ -51,11 +52,11 @@ public sealed class MenuButton : ContainerButton
         TooltipDelay = CustomTooltipDelay;
         _buttonIcon = new TextureRect()
         {
-            TextureScale = new Vector2(0.5f, 0.5f),
+            TextureScale = new Vector2(1f, 1f),
             HorizontalAlignment = HAlignment.Center,
             VerticalAlignment = VAlignment.Center,
             VerticalExpand = true,
-            Margin = new Thickness(0, VertPad),
+            Margin = new Thickness(HorPad, VerPad),
             ModulateSelfOverride = NormalColor,
             Stretch = TextureRect.StretchMode.KeepCentered
         };
@@ -68,7 +69,7 @@ public sealed class MenuButton : ContainerButton
         };
         _root = new BoxContainer
         {
-            Orientation = BoxContainer.LayoutOrientation.Vertical,
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
             Children =
             {
                 _buttonIcon,

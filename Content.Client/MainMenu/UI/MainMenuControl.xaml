@@ -1,7 +1,7 @@
 ﻿<Control xmlns="https://spacestation14.io"
-         xmlns:pllax="clr-namespace:Content.Client.Parallax"
-         xmlns:clog="clr-namespace:Content.Client.Changelog">
-    <pllax:ParallaxControl />
+         xmlns:clog="clr-namespace:Content.Client.Changelog"
+         xmlns:mainMenu="clr-namespace:Content.Client.MainMenu">
+    <mainMenu:BackgroundControl TexturePath="/Textures/Logo/logo-ru.png" Stretch="KeepAspectCentered" Name="Background"/>
     <LayoutContainer>
         <BoxContainer Name="VBox"
                       Orientation="Vertical"
@@ -41,6 +41,6 @@
                 Name="ChangelogButton"
                 Access="Public"/>
         </BoxContainer>
-        <Label Name="VersionLabel" Text="v0.1" />
+        <Label Name="VersionLabel" Text="hz" />
     </LayoutContainer>
 </Control>

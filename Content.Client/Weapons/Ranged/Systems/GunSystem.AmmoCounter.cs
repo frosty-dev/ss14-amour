@@ -184,7 +184,8 @@ public sealed partial class GunSystem
                 container.AddChild(new TextureRect
                 {
                     Texture = texture,
-                    ModulateSelfOverride = altColor ? colorGoneA : colorGoneB
+                    ModulateSelfOverride = altColor ? colorGoneA : colorGoneB,
+                    Margin = new(0, 0, -8, 0)
                 });
 
                 altColor ^= true;
@@ -195,7 +196,8 @@ public sealed partial class GunSystem
                 container.AddChild(new TextureRect
                 {
                     Texture = texture,
-                    ModulateSelfOverride = altColor ? colorA : colorB
+                    ModulateSelfOverride = altColor ? colorA : colorB,
+                    Margin = new(0, 0, -8, 0)
                 });
 
                 altColor ^= true;
@@ -337,7 +339,7 @@ public sealed partial class GunSystem
                             }),
                             (_noMagazineLabel = new Label
                             {
-                                Text = "No Magazine!",
+                                Text = "Нет магазина!",
                                 StyleClasses = {StyleNano.StyleClassItemStatus}
                             })
                         }
@@ -393,7 +395,9 @@ public sealed partial class GunSystem
                 {
                     Texture = texture,
                     ModulateSelfOverride = altColor ? colorGoneA : colorGoneB,
-                    Stretch = TextureRect.StretchMode.KeepCentered
+                    Stretch = TextureRect.StretchMode.KeepCentered,
+                    Margin = new(0, 0, -8, 0)
+
                 });
 
                 altColor ^= true;
@@ -407,7 +411,8 @@ public sealed partial class GunSystem
                 {
                     Texture = texture,
                     ModulateSelfOverride = altColor ? colorA : colorB,
-                    Stretch = TextureRect.StretchMode.KeepCentered
+                    Stretch = TextureRect.StretchMode.KeepCentered,
+                    Margin = new(0, 0, -8, 0)
                 });
 
                 altColor ^= true;
@@ -491,6 +496,7 @@ public sealed partial class GunSystem
                         Texture = texture,
                         TextureScale = new Vector2(scale, scale),
                         ModulateSelfOverride = Color.LimeGreen,
+                        Margin = new(0, 0, -8, 0)
                     });
                 }
                 Color color;
@@ -518,6 +524,7 @@ public sealed partial class GunSystem
                     Stretch = TextureRect.StretchMode.KeepCentered,
                     Texture = bulletTexture,
                     ModulateSelfOverride = color,
+                    Margin = new(0, 0, -8, 0)
                 });
                 altColor ^= true;
                 container.AddChild(box);
