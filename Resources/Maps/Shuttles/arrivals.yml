@@ -851,29 +851,15 @@ entities:
         - 0
         - 0
       type: EntityStorage
+- proto: VendingMachineKink
+  entities:
   - uid: 260
     components:
+    - flags: SessionSpecific
+      type: MetaData
     - pos: -2.5,-3.5
       parent: 292
       type: Transform
-    - air:
-        volume: 200
-        immutable: False
-        temperature: 293.14963
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-      type: EntityStorage
 - proto: ClosetFireFilled
   entities:
   - uid: 253
