@@ -19,6 +19,8 @@
       damage:
         types:
           Blunt: 2
+    - type: StaticPrice
+      price: 25
 
 - type: entity
   parent: DildoHuman

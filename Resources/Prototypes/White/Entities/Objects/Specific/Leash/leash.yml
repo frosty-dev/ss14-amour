@@ -11,3 +11,5 @@
       delay: 1.5
     - type: Leash
     - type: Puller
+    - type: StaticPrice
+      price: 25

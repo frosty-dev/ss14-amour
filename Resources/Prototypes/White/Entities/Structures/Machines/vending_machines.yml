@@ -11,7 +11,7 @@
       offState: off
       brokenState: broken
       normalState: normal-unshaded
-      ejectDelay: 5
+      priceMultiplier: 1.0
     - type: Advertise
       pack: KinkMachineAds
     - type: Speech
