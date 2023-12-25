@@ -1,8 +1,8 @@
-﻿#Hunger
+#Hunger
 - type: moodEffect
   id: HungerOverfed
   desc: "Во мне столько жира..."
-  moodChange: enum.MoodChangeLevel.Big
+  moodChange: enum.MoodChangeLevel.Small
   positiveEffect: false
   category: "Hunger"
 
@@ -15,15 +15,15 @@
 
 - type: moodEffect
   id: HungerPeckish
-  desc: "Не хочу есть."
-  moodChange: enum.MoodChangeLevel.Small
-  positiveEffect: true
+  desc: "Хочу есть."
+  moodChange: enum.MoodChangeLevel.Medium
+  positiveEffect: false
   category: "Hunger"
 
 - type: moodEffect
   id: HungerStarving
   desc: "Голодаю!"
-  moodChange: enum.MoodChangeLevel.Medium
+  moodChange: enum.MoodChangeLevel.Big
   positiveEffect: false
   category: "Hunger"
 
@@ -45,14 +45,14 @@
 - type: moodEffect
   id: ThirstThirsty
   desc: "Хочу пить."
-  moodChange: enum.MoodChangeLevel.Small
+  moodChange: enum.MoodChangeLevel.Medium
   positiveEffect: false
   category: "Thirst"
 
 - type: moodEffect
   id: ThirstParched
   desc: "ВОДЫ!"
-  moodChange: enum.MoodChangeLevel.Medium
+  moodChange: enum.MoodChangeLevel.Big
   positiveEffect: false
   category: "Thirst"
 

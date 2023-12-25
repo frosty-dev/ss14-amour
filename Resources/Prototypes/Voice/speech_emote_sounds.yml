@@ -249,6 +249,8 @@
       path: /Audio/Animals/lizard_happy.ogg
     Honk:
       collection: BikeHorn
+    Moan:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
 
 - type: emoteSounds
   id: UnisexVox
@@ -266,6 +268,8 @@
       collection: DionaLaugh
     Honk:
       collection: BikeHorn
+    Moan:
+      path: /Audio/Voice/Diona/diona_scream.ogg
   params:
     variation: 0.125
 
@@ -279,6 +283,8 @@
       path: /Audio/Voice/Arachnid/arachnid_scream.ogg
     Laugh:
       path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
+    Moan:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
 
 - type: emoteSounds
   id: UnisexDwarf
