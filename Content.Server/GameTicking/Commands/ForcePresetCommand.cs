@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Commands
 {
-    [AdminCommand(AdminFlags.Host)] //AMOUR EDIT Pedali pidorasi
+    [AdminCommand(AdminFlags.Round)]
     sealed class ForcePresetCommand : IConsoleCommand
     {
         public string Command => "forcepreset";

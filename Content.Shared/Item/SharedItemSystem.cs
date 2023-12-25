@@ -3,6 +3,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Stacks;
 using Content.Shared.Verbs;
+using Content.Shared.White.Anus;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -111,6 +112,9 @@ public abstract class SharedItemSystem : EntitySystem
             !args.CanAccess ||
             !args.CanInteract ||
             !_handsSystem.CanPickupAnyHand(args.User, args.Target, handsComp: args.Hands, item: component))
+            return;
+
+        if (Container.TryGetContainingContainer(args.User, uid, out var cont) && cont.ID == AnusComponent.SlotName) // AMOUR EDIT
             return;
 
         InteractionVerb verb = new();

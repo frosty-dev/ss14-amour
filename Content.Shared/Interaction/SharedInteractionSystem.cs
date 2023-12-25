@@ -27,6 +27,7 @@ using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Content.Shared.Wall;
 using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.White.Anus;
 using Content.Shared.White.MeatyOre;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;

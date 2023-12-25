@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Commands
 {
-    [AdminCommand(AdminFlags.Host)] //AMOUR EDIT Pedali pidorasi
+    [AdminCommand(AdminFlags.Round)]
     sealed class ForceMapCommand : IConsoleCommand
     {
         [Dependency] private readonly IConfigurationManager _configurationManager = default!;
