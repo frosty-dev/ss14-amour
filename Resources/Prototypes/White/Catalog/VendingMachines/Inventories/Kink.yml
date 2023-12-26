@@ -2,6 +2,7 @@
   id: KinkMachineInventory
   startingInventory:
     Leash: 2
+    PinkHandcuffs: 3
     ClothingUniformJumpskirtJanimaid: 6
     ClothingMaskSexyMime: 6
     ClothingMaskSexyClown: 6
