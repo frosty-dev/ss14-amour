@@ -157,7 +157,8 @@ namespace Content.Server.Voting.Managers
                         Loc.GetString("ui-vote-gamemode-win", ("winner", Loc.GetString(presets[picked]))));
                 }
 
-                if (_prototypeManager.TryIndex<GamePresetPrototype>(picked, out var prototype) && prototype.Delay > 0)
+                if (_playerManager.PlayerCount >= 20 &&
+                    _prototypeManager.TryIndex<GamePresetPrototype>(picked, out var prototype) && prototype.Delay > 0)
                     _presetDelay.Add(picked,prototype.Delay);
 
 

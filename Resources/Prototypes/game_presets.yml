@@ -16,6 +16,7 @@
   name: extended-title
   showInVote: true #2boring2vote (??????)
   description: extended-description
+  delay: 1
   rules:
   - BasicStationEventScheduler
 
@@ -68,7 +69,7 @@
     - nukeops
   name: nukeops-title
   description: nukeops-description
-  delay: 1
+  delay: 2
   showInVote: true
   rules:
     - Nukeops
