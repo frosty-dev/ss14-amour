@@ -1,0 +1,10 @@
+- type: entity
+  parent: Handcuffs
+  id: PinkHandcuffs
+  name: pink handcuffs
+  description: Very comfortable, soft handcuffs for criminals with taste.
+  components:
+  - type: Handcuff
+    cuffedRSI: White/Objects/Misc/handcuffs_pink.rsi
+  - type: Sprite
+    sprite: White/Objects/Misc/handcuffs_pink.rsi

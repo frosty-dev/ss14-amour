@@ -1,7 +1,7 @@
 - type: vendingMachineInventory
   id: KinkMachineInventory
   startingInventory:
-    Leash: 4
+    PinkHandcuffs: 3
     ClothingUniformJumpskirtJanimaid: 6
     ClothingMaskSexyMime: 6
     ClothingMaskSexyClown: 6
@@ -9,3 +9,11 @@
     ClothingEyesBlindfold: 6
     ClothingHeadHatCatEars: 6
     ClothingHeadHatBunny: 6
+    DildoHuman: 3
+    DildoKnocked: 3
+    DildoPlain: 3
+    DildoFlared: 3
+    Darkholme: 3
+    Gladiator: 3
+    Sexyclown: 3
+    Sexymime: 3
