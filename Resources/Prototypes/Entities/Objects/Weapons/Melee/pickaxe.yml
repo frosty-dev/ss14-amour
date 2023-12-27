@@ -12,6 +12,7 @@
     state: pickaxe
   - type: ItemCooldown
   - type: MeleeWeapon
+    heavyStaminaCost: 0 # for mining
     damage:
       types:
         Blunt: 2.5
@@ -42,6 +43,7 @@
     state: handdrill
   - type: ItemCooldown
   - type: MeleeWeapon
+    heavyStaminaCost: 0 # for mining
     attackRate: 1.5
     damage:
       types:
