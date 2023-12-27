@@ -12,6 +12,9 @@ namespace Content.Shared.White;
 [CVarDefs]
 public sealed class WhiteCVars
 {
+
+    public static readonly CVarDef<bool> AutoVote = CVarDef.Create("amour.auto_vote", true, CVar.SERVERONLY);
+
     /*
  * Wiki rules
     */

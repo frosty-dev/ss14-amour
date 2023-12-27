@@ -1,4 +1,4 @@
-﻿[game]
+[game]
 # Straight in-game baby
 lobbyenabled = false
 # Dev map for faster loading & convenience
@@ -28,3 +28,6 @@ enabled = false
 
 [white]
 ert_load = false
+
+[amour]
+auto_vote = false
