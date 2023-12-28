@@ -20,7 +20,7 @@ public sealed class DoAfterOverlay : Overlay
     /// <summary>
     ///     Flash time for cancelled DoAfters
     /// </summary>
-    private const float FlashTime = 0.125f;
+    private const float FlashTime = 0.250f;
 
     // Hardcoded width of the progress bar because it doesn't match the texture.
     private const float StartX = 2;
@@ -117,7 +117,7 @@ public sealed class DoAfterOverlay : Overlay
                 }
 
                 var xProgress = (EndX - StartX) * elapsedRatio + StartX;
-                var box = new Box2(new Vector2(StartX, 3f) / EyeManager.PixelsPerMeter,
+                var box = new Box2(new Vector2(StartX, 2f) / EyeManager.PixelsPerMeter,
                     new Vector2(xProgress, 4f) / EyeManager.PixelsPerMeter);
 
                 box = box.Translated(position);

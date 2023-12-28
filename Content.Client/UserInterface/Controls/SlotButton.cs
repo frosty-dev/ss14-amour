@@ -13,6 +13,7 @@ namespace Content.Client.UserInterface.Controls
             Highlight = slotData.Highlighted;
             StorageTexturePath = "Slots/back";
             SlotName = slotData.SlotName;
+            Modulate = new Color(255, 255, 255, 200);
         }
     }
 }

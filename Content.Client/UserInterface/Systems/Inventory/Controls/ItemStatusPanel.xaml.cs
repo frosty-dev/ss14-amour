@@ -60,7 +60,7 @@ public sealed partial class ItemStatusPanel : BoxContainer
 
         var panel = (StyleBoxTexture) Panel.PanelOverride!;
         panel.Texture = ResC.GetTexture(texture);
-        panel.SetPatchMargin(flat, 2);
+        panel.SetPatchMargin(flat, 3);
         panel.SetPatchMargin(cutOut, 13);
 
         ItemNameLabel.Align = textAlign;
