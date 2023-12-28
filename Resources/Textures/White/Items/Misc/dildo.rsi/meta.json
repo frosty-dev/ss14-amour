@@ -1,50 +1,124 @@
 {
   "version": 1,
-  "license": "CC-BY-NC-SA 3.0",
-  "copyright": "skyrat hz",
+  "license": "CC-BY-SA-3.0",
+  "copyright": "taken from Skyrat-tg at https://github.com/Skyrat-SS13/Skyrat-tg/ at 08668ffb5e567907783e86d839c144b1f746b252",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "dildo_knotted_1"
+      "name": "dildo_avian"
     },
     {
-      "name": "dildo_knotted_2"
+      "name": "dildo_canine"
     },
     {
-      "name": "dildo_knotted_3"
+      "name": "dildo_equine"
     },
     {
-      "name": "dildo_human_1"
+      "name": "dildo_dragon"
     },
     {
-      "name": "dildo_human_2"
+      "name": "dildo_human"
     },
     {
-      "name": "dildo_human_3"
+      "name": "dildo_tentacle"
     },
     {
-      "name": "dildo_plain_1"
+      "name": "polydildo_small"
     },
     {
-      "name": "dildo_plain_2"
+      "name": "polydildo_medium"
     },
     {
-      "name": "dildo_plain_3"
+      "name": "polydildo_big"
     },
     {
-      "name": "dildo_flared_1"
+      "name": "dildo_double"
     },
     {
-      "name": "dildo_flared_2"
+      "name": "dildo_side"
     },
     {
-      "name": "dildo_flared_3"
+      "name": "dildo_avian-inhand-left",
+      "directions": 4
     },
     {
-      "name": "dildo_flared_4"
+      "name": "dildo_canine-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "dildo_dragon-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "dildo_equine-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "dildo_human-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "dildo_tentacle-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "polydildo_small-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "polydildo_medium-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "polydildo_big-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "dildo_double-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "dildo_avian-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "dildo_canine-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "dildo_dragon-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "dildo_equine-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "dildo_human-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "dildo_tentacle-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "polydildo_small-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "polydildo_medium-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "polydildo_big-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "dildo_double-inhand-right",
+      "directions": 4
     }
   ]
 }

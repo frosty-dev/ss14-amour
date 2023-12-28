@@ -2,12 +2,17 @@
   parent: BaseItem
   id: DildoHuman
   name: dildo
-  description: Dildo goes br-r-r-r
+  description: Human
   components:
     - type: Sprite
       sprite: White/Items/Misc/dildo.rsi
-      state: dildo_human_3
+      state: dildo_human
     - type: Item
+      inhandVisuals:
+        left:
+        - state: dildo_human-inhand-left
+        right:
+        - state: dildo_human-inhand-right
     - type: ItemCooldown
     - type: DeviceLinkSink
       ports:
@@ -24,29 +29,75 @@
 
 - type: entity
   parent: DildoHuman
-  id: DildoKnocked
+  id: DildoAvian
   name: dildo
-  description: Dildo goes br-r-r-r
+  description: Avian
   components:
     - type: Sprite
-      state: dildo_knotted_3
-
+      state: dildo_avian
+    - type: Item
+      inhandVisuals:
+        left:
+        - state: dildo_avian-inhand-left
+        right:
+        - state: dildo_avian-inhand-right
 
 - type: entity
   parent: DildoHuman
-  id: DildoPlain
+  id: DildoDragon
   name: dildo
-  description: Dildo goes br-r-r-r
+  description: Dragon
   components:
     - type: Sprite
-      state: dildo_plain_3
-
+      state: dildo_dragon
+    - type: Item
+      inhandVisuals:
+        left:
+        - state: dildo_dragon-inhand-left
+        right:
+        - state: dildo_dragon-inhand-right
 
 - type: entity
   parent: DildoHuman
-  id: DildoFlared
+  id: DildoCanine
   name: dildo
-  description: Dildo goes br-r-r-r
+  description: Canine
   components:
     - type: Sprite
-      state: dildo_flared_4
+      state: dildo_canine
+    - type: Item
+      inhandVisuals:
+        left:
+        - state: dildo_canine-inhand-left
+        right:
+        - state: dildo_canine-inhand-right
+
+- type: entity
+  parent: DildoHuman
+  id: DildoEquine
+  name: dildo
+  description: Equine
+  components:
+    - type: Sprite
+      state: dildo_equine
+    - type: Item
+      inhandVisuals:
+        left:
+        - state: dildo_equine-inhand-left
+        right:
+        - state: dildo_equine-inhand-right
+
+- type: entity
+  parent: DildoHuman
+  id: DildoTentacle
+  name: dildo
+  description: Tentacle
+  components:
+    - type: Sprite
+      state: dildo_tentacle
+    - type: Item
+      inhandVisuals:
+        left:
+        - state: dildo_tentacle-inhand-left
+        right:
+        - state: dildo_tentacle-inhand-right

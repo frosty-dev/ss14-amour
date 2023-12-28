@@ -23,14 +23,20 @@ marking-BreastsN = Грудь
 marking-BreastsO = Грудь
 marking-BreastsHuge = Грудь Доярки
 
-ent-DildoHuman = Дилдо
-    .desc = Дилдо делает Бр-р-р
+ent-DildoHuman = дилдо
+    .desc = Человеческое
 
-ent-DildoKnocked = Дилдо
-    .desc = Дилдо делает Бр-р-р
+ent-DildoAvian = дилдо
+    .desc = Птичье
 
-ent-DildoPlain = Дилдо
-    .desc = Дилдо делает Бр-р-р
+ent-DildoDragon = дилдо
+    .desc = Драконье
 
-ent-DildoFlared = Дилдо
-    .desc = Дилдо делает Бр-р-р
+ent-DildoCanine = дилдо
+    .desc = Собачье
+
+ent-DildoEquine = дилдо
+    .desc = Лошадиное
+
+ent-DildoTentacle = дилдо
+    .desc = Тентакля
