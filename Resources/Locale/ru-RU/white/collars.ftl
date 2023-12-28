@@ -19,3 +19,5 @@ ent-CollarBlack = черный ошейник
 ent-CollarTealblack = черный ошейник
 
 ent-CollarSpike = шипованный ошейник
+
+ent-CollarShock = шоковый ошейник

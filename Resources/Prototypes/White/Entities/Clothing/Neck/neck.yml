@@ -152,3 +152,21 @@
       clothingVisuals:
         neck:
         - state: collar_spike-equipped
+
+- type: entity
+  parent: ClothingNeckBase
+  id: CollarShock
+  name: shock collar
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Neck/lewd_neck.rsi
+      state: shockcollar
+    - type: Clothing
+      sprite: White/Clothing/Neck/lewd_neck.rsi
+      clothingVisuals:
+        neck:
+        - state: shockcollar-equipped
+    - type: ShockClothing
+    - type: DeviceLinkSink
+      ports:
+        - Trigger

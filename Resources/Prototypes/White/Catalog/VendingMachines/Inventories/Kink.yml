@@ -1,8 +1,8 @@
 - type: vendingMachineInventory
   id: KinkMachineInventory
   startingInventory:
-    Leash: 2
-    PinkHandcuffs: 3
+    Leash: 6
+    PinkHandcuffs: 6
     ClothingUniformJumpskirtJanimaid: 6
     ClothingMaskSexyMime: 6
     ClothingMaskSexyClown: 6
@@ -16,17 +16,18 @@
     DildoCanine: 3
     DildoEquine: 3
     DildoTentacle: 3
-    CollarCyan: 2
-    CollarYellow: 2
-    CollarGreen: 2
-    CollarRed: 2
-    CollarLatex: 2
-    CollarOrange: 2
-    CollarWhite: 2
-    CollarPurple: 2
-    CollarBlack: 2
-    CollarTealblack: 2
-    CollarSpike: 2
+    CollarCyan: 3
+    CollarYellow: 3
+    CollarGreen: 3
+    CollarRed: 3
+    CollarLatex: 3
+    CollarOrange: 3
+    CollarWhite: 3
+    CollarPurple: 3
+    CollarBlack: 3
+    CollarTealblack: 3
+    CollarSpike: 3
+    CollarShock: 6
     Darkholme: 3
     Gladiator: 3
     Sexyclown: 3
