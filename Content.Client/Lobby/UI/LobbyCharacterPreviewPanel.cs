@@ -6,6 +6,7 @@ using Content.Client.Inventory;
 using Content.Client.Preferences;
 // WD-EDIT start
 using Content.Client.Stylesheets;
+using Content.Client.Resources;
 // WD-EDIT end
 using Content.Client.UserInterface.Controls;
 using Content.Shared.GameTicking;
@@ -14,6 +15,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Client.GameObjects;
+using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Map;
@@ -27,6 +29,7 @@ namespace Content.Client.Lobby.UI
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IResourceCache _resourceCache = default!;
 
 
         private EntityUid? _previewDummy;
@@ -41,8 +44,8 @@ namespace Content.Client.Lobby.UI
             // WD-EDIT start
             var justLine = new HLine
             {
-                Color = StyleNano.NanoGold,
-                Thickness = 2
+                Color = StyleNano.ButtonColorDefault,
+                Thickness = 1
             };
             // WD-EDIT end
 
@@ -52,7 +55,7 @@ namespace Content.Client.Lobby.UI
                 HorizontalAlignment = HAlignment.Left
             };
 
-            _summaryLabel = new Label();
+            _summaryLabel = new Label { FontOverride = _resourceCache.GetFont("/Fonts/NotoSansDisplay/NotoSansDisplay-Bold.ttf", 14) };
 
             var vBox = new BoxContainer
             {
@@ -110,7 +113,7 @@ namespace Content.Client.Lobby.UI
             {
                 Sprite = _entityManager.GetComponent<SpriteComponent>(entity),
                 OverrideDirection = direction,
-                Scale = new Vector2(2, 2)
+                Scale = new Vector2(4, 4)
             };
         }
 

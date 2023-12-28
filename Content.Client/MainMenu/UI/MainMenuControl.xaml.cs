@@ -17,12 +17,11 @@ namespace Content.Client.MainMenu.UI
 
                 LayoutContainer.SetAnchorPreset(this, LayoutContainer.LayoutPreset.Wide);
 
-                LayoutContainer.SetAnchorPreset(VBox, LayoutContainer.LayoutPreset.TopRight);
-                LayoutContainer.SetMarginRight(VBox, -25);
+                LayoutContainer.SetAnchorPreset(VBox, LayoutContainer.LayoutPreset.CenterTop);
                 LayoutContainer.SetMarginTop(VBox, 30);
-                LayoutContainer.SetGrowHorizontal(VBox, LayoutContainer.GrowDirection.Begin);
+                LayoutContainer.SetGrowHorizontal(VBox, LayoutContainer.GrowDirection.Both);
 
-                var logoTexture = resCache.GetResource<TextureResource>("/Textures/Logo/logo.png");
+                var logoTexture = resCache.GetResource<TextureResource>("/Textures/Logo/logo-ru-mini.png");
                 Logo.Texture = logoTexture;
 
                 var currentUserName = configMan.GetCVar(CVars.PlayerName);
