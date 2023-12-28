@@ -36,7 +36,7 @@ public sealed class ShockClothingSystem : EntitySystem
         if (!_containerSystem.TryGetContainingContainer(uid, out var container))
             return;
 
-        _electrocution.TryDoElectrocution(container.Owner, uid, 0, TimeSpan.FromSeconds(5), true,
+        _electrocution.TryDoElectrocution(container.Owner, uid, 1, TimeSpan.FromSeconds(5), true,
             ignoreInsulation: true);
     }
 }
