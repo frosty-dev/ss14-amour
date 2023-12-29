@@ -2,6 +2,7 @@
   parent: ClothingNeckBase
   id: CollarCyan
   name: cyan collar
+  description: A nice, tight collar.
   components:
     - type: Sprite
       sprite: White/Clothing/Neck/lewd_neck.rsi
@@ -157,6 +158,7 @@
   parent: ClothingNeckBase
   id: CollarShock
   name: shock collar
+  description: A reinforced metal collar. It has some sort of wiring near the front.
   components:
     - type: Sprite
       sprite: White/Clothing/Neck/lewd_neck.rsi

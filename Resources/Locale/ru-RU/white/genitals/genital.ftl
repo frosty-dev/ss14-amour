@@ -24,19 +24,19 @@ marking-BreastsO = Грудь
 marking-BreastsHuge = Грудь Доярки
 
 ent-DildoHuman = дилдо
-    .desc = Человеческое
+    .desc = Дилдо делает Бр-р-р.
 
 ent-DildoAvian = дилдо
-    .desc = Птичье
+    .desc = Дилдо делает Бр-р-р.
 
 ent-DildoDragon = дилдо
-    .desc = Драконье
+    .desc = Дилдо делает Бр-р-р.
 
 ent-DildoCanine = дилдо
-    .desc = Собачье
+    .desc = Дилдо делает Бр-р-р.
 
 ent-DildoEquine = дилдо
-    .desc = Лошадиное
+    .desc = Дилдо делает Бр-р-р.
 
 ent-DildoTentacle = дилдо
-    .desc = Тентакля
+    .desc = Дилдо делает Бр-р-р.

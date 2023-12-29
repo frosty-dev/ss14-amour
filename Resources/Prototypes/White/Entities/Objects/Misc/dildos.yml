@@ -2,7 +2,7 @@
   parent: BaseItem
   id: DildoHuman
   name: dildo
-  description: Human
+  description: Dildo goes br-r-r-r.
   components:
     - type: Sprite
       sprite: White/Items/Misc/dildo.rsi
@@ -30,8 +30,6 @@
 - type: entity
   parent: DildoHuman
   id: DildoAvian
-  name: dildo
-  description: Avian
   components:
     - type: Sprite
       state: dildo_avian
@@ -45,8 +43,6 @@
 - type: entity
   parent: DildoHuman
   id: DildoDragon
-  name: dildo
-  description: Dragon
   components:
     - type: Sprite
       state: dildo_dragon
@@ -60,8 +56,6 @@
 - type: entity
   parent: DildoHuman
   id: DildoCanine
-  name: dildo
-  description: Canine
   components:
     - type: Sprite
       state: dildo_canine
@@ -75,8 +69,6 @@
 - type: entity
   parent: DildoHuman
   id: DildoEquine
-  name: dildo
-  description: Equine
   components:
     - type: Sprite
       state: dildo_equine
@@ -90,8 +82,6 @@
 - type: entity
   parent: DildoHuman
   id: DildoTentacle
-  name: dildo
-  description: Tentacle
   components:
     - type: Sprite
       state: dildo_tentacle
