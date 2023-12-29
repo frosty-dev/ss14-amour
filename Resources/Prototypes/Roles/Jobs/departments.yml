@@ -21,7 +21,6 @@
   - Clown
   - HeadOfPersonnel
   - Janitor
-  - Lawyer
   - Librarian
   - Mime
   - Musician
@@ -99,3 +98,11 @@
   - Reporter
   - Zookeeper
   - Psychologist
+
+- type: department
+  id: Justice
+  description: department-Justice-description
+  color: "#6b0d0d"
+  roles:
+  - Inspector
+  - Lawyer

@@ -1,33 +1,34 @@
 - type: job
-  id: Lawyer
-  name: job-name-lawyer
-  description: job-description-lawyer
-  playTimeTracker: JobLawyer
+  id: Inspector
+  name: job-name-inspector
+  description: job-description-inspector
+  playTimeTracker: JobInspector
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 36000 # 10 hrs
-  startingGear: LawyerGear
-  icon: "Lawyer"
-  supervisors: job-supervisors-inspector
+  startingGear: InspectorGear
+  icon: "Brigmedic" # TODO change to Inspector
+  supervisors: job-supervisors-captain
   access:
-  - Service
-  - Brig
-  - Maintenance
+    - Service
+    - Brig
+    - Maintenance
+    - Command
 
 - type: startingGear
-  id: LawyerGear
+  id: InspectorGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitLawyerBlack  # TODO change jumpsuit to randomiser of the 4 variants
+    jumpsuit: ClothingUniformJumpsuitLawyerGood # TODO change to inspector jumpsuit
     back: ClothingBackpackFilled
     shoes: ClothingShoesBootsLaceup
-    id: LawyerPDA
-    ears: ClothingHeadsetSecurity
-    # TODO add copy of space law
+    id: InspectorPDA
+    ears: ClothingHeadsetAltSecurity
+    pocket1: BookSpaceLaws
     underwearb: ClothingUnderwearBottomBoxersWhite # White-Underwear
   underweart: ClothingUnderwearTopBraWhite # White-Underwear
   underwearb: ClothingUnderwearBottomPantiesWhite # White-Underwear
   inhand:
     right hand: BriefcaseBrownFilled
-  innerclothingskirt: ClothingUniformJumpskirtLawyerBlack
+  innerclothingskirt: ClothingUniformJumpskirtInspector
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
