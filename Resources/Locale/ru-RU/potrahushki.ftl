@@ -66,7 +66,7 @@ interaction-sniff3 = с интересом нюхает { $target }
 
 interaction-lick-name = облизать лицо
 interaction-lick1 = проводит языком по лицу { $target }
-interaction-lick2 = как собачка лижет нос { $target }
+interaction-lick2 = облизывает личико { $target }
 
 interaction-comb-name = погладить
 interaction-comb1 = гладит по головушке { $target }
