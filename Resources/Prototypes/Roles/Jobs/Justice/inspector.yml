@@ -7,7 +7,7 @@
     - !type:OverallPlaytimeRequirement
       time: 36000 # 10 hrs
   startingGear: InspectorGear
-  icon: "Brigmedic" # TODO change to Inspector
+  icon: "Inspector"
   supervisors: job-supervisors-captain
   access:
     - Service

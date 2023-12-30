@@ -102,7 +102,7 @@
 - type: department
   id: Justice
   description: department-Justice-description
-  color: "#6b0d0d"
+  color: "#710d00"
   roles:
   - Inspector
   - Lawyer
