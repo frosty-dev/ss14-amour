@@ -1,5 +1,7 @@
 using Content.Server.Access.Systems;
+using Content.Server.Chat.Managers;
 using Content.Shared.Access.Components;
+using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Robust.Shared.Enums;
 using Content.Shared.Humanoid;
@@ -9,7 +11,6 @@ using Content.Shared.PDA;
 using Content.Shared.White;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
-using Robust.Shared.Console;
 
 namespace Content.Server.White.Other.ExamineSystem
 {
@@ -20,8 +21,8 @@ namespace Content.Server.White.Other.ExamineSystem
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly EntityManager _entityManager = default!;
         [Dependency] private readonly IdCardSystem _idCard = default!;
-        [Dependency] private readonly IConsoleHost _consoleHost = default!;
         [Dependency] private readonly INetConfigurationManager _netConfigManager = default!;
+        [Dependency] private readonly IChatManager _chatManager = default!;
 
 
         public override void Initialize()
@@ -35,7 +36,8 @@ namespace Content.Server.White.Other.ExamineSystem
 
             if (should)
             {
-                _consoleHost.RemoteExecuteCommand(actorComponent.PlayerSession, $"notice [font size=10][color=#aeabc4]{message}[/color][/font]");
+                _chatManager.ChatMessageToOne(ChatChannel.Server, message, $"[font size=10][color=#aeabc4]{message}[/color][/font]",
+                    default, false, actorComponent.PlayerSession.ConnectedClient);
             }
         }
 
