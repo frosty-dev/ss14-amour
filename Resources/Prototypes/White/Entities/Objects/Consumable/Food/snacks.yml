@@ -1,0 +1,77 @@
+- type: entity
+  name: карамельная трость
+  parent: FoodSnackBase
+  id: CandyCane
+  description: Твёрдая сладкая палочка.
+  components:
+    - type: Sprite
+      sprite: White/Objects/Consumable/candycane.rsi
+      layers:
+        - state: canered
+    - type: Item
+      solutions:
+        food:
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 3
+            - ReagentId: Sugar
+              Quantity: 1
+
+- type: entity
+  parent: CandyCane
+  id: CandyCaneGreen
+  components:
+    - type: Sprite
+      sprite: White/Objects/Consumable/candycane.rsi
+      layers:
+        - state: canegreen
+
+- type: entity
+  parent: CandyCane
+  id: CandyCaneRedAndGreen
+  components:
+    - type: Sprite
+      sprite: White/Objects/Consumable/candycane.rsi
+      layers:
+        - state: caneboth
+
+- type: entity
+  name: шоколадный Дед Мороз
+  parent: BaseItem
+  id: ChocolateGrandpa
+  description: Шоколадная фигурка с изображением Деда Мороза, держащего мешок с подарками, в обертке.
+  components:
+    - type: Sprite
+      sprite: White/Objects/Consumable/chocolategrandpa.rsi
+      state: chocolategrandpa
+    - type: Item
+      heldPrefix: chocolategrandpa
+      size: 3
+    - type: SpawnItemsOnUse
+      items:
+        - id: ChocolateGrandpaUnwrapped
+      sound:
+        path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  name: шоколадный Дед Мороз
+  parent: FoodSnackBase
+  id: ChocolateGrandpaUnwrapped
+  description: Шоколадная фигурка с изображением Дед Мороза, держащего мешок с подарками, вне обертки.
+  components:
+    - type: FlavorProfile
+      flavors:
+        - chocolate
+    - type: Sprite
+      sprite: White/Objects/Consumable/chocolategrandpa.rsi
+      state: chocolategrandpa_open
+    - type: Item
+    - type: SolutionContainerManager
+      solutions:
+        food:
+          maxVol: 30
+          reagents:
+            - ReagentId: Nutriment
+              Quantity: 10
+            - ReagentId: Theobromine
+              Quantity: 3

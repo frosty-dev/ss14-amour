@@ -17,6 +17,10 @@
   extendedAccess:
   - Kitchen
   - Hydroponics
+  special:
+    - !type:GiveItemOnHolidaySpecial
+      holiday: NewYear
+      prototype: FestiveBox
 
 - type: startingGear
   id: BartenderGear
