@@ -15,10 +15,27 @@ public abstract class SharedCrawlSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<CrawlComponent,ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<CrawlComponent,ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<CrawlableComponent,ComponentShutdown>(OnCrawlShutdown);
-        SubscribeLocalEvent<CrawlComponent,StoodEvent>(OnStood);
+        SubscribeLocalEvent<CrawlComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<CrawlComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<CrawlableComponent, ComponentShutdown>(OnCrawlShutdown);
+        SubscribeLocalEvent<CrawlComponent, StoodEvent>(OnStood);
+        SubscribeLocalEvent<CrawlComponent, RefreshMovementSpeedModifiersEvent>(OnRefresh);
+    }
+
+    private void OnRefresh(EntityUid uid, CrawlComponent component, RefreshMovementSpeedModifiersEvent args)
+    {
+        args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
+    }
+
+    private void OnInit(EntityUid uid, CrawlComponent component, ComponentInit args)
+    {
+        if (_buckle.TryUnbuckle(uid, uid) || !_standingStateSystem.Down(uid, true, false))
+        {
+            DisableCrawl(uid);
+            return;
+        }
+
+        _speed.RefreshMovementSpeedModifiers(uid);
     }
 
     private void OnCrawlShutdown(EntityUid uid, CrawlableComponent component, ComponentShutdown args)
@@ -28,7 +45,7 @@ public abstract class SharedCrawlSystem : EntitySystem
 
     private void OnStood(EntityUid uid, CrawlComponent component, StoodEvent args)
     {
-        if(component.LifeStage == ComponentLifeStage.Stopping)
+        if (component.LifeStage == ComponentLifeStage.Stopping)
             return;
 
         DisableCrawl(uid);
@@ -37,30 +54,9 @@ public abstract class SharedCrawlSystem : EntitySystem
     private void OnShutdown(EntityUid uid, CrawlComponent component, ComponentShutdown args)
     {
         _standingStateSystem.Stand(uid);
-        if (TryComp<MovementSpeedModifierComponent>(uid, out var mod))
-        {
-            _speed.ChangeBaseSpeed(uid,component.WalkSpeed,component.SpringSpeed,mod.Acceleration,mod);
-            Dirty(mod);
-        }
-    }
-
-    private void OnStartup(EntityUid uid, CrawlComponent component, ComponentStartup args)
-    {
-        _statusEffectsSystem.TryRemoveStatusEffect(uid, "KnockedDown");
-
-        if (TryComp<MovementSpeedModifierComponent>(uid, out var mod))
-        {
-            component.SpringSpeed = mod.BaseSprintSpeed;
-            component.WalkSpeed = mod.BaseWalkSpeed;
-        }
-
-        var modifierComponent = EnsureComp<MovementSpeedModifierComponent>(uid);
-        _speed.ChangeBaseSpeed(uid,1,2,modifierComponent.Acceleration,modifierComponent);
-
-        if (_buckle.TryUnbuckle(uid, uid) || !_standingStateSystem.Down(uid))
-        {
-            DisableCrawl(uid);
-        }
+        component.SprintSpeedModifier = 1f;
+        component.WalkSpeedModifier = 1f;
+        _speed.RefreshMovementSpeedModifiers(uid);
     }
 
     public void EnableCrawl(EntityUid uid)

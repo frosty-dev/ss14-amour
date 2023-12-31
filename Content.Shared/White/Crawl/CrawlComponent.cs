@@ -5,6 +5,6 @@ namespace Content.Shared.White.Crawl;
 [RegisterComponent, NetworkedComponent]
 public sealed class CrawlComponent : Component
 {
-    [ViewVariables] public float SpringSpeed = 1;
-    [ViewVariables] public float WalkSpeed = 1;
+    public float SprintSpeedModifier { get; set; } = 0.4f;
+    public float WalkSpeedModifier { get; set; } = 0.4f;
 }
