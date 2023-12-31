@@ -25,6 +25,9 @@
       chance: 1.0
   - !type:AddImplantSpecial
     implants: [ SadTromboneImplant ]
+  - !type:GiveItemOnHolidaySpecial
+    holiday: NewYear
+    prototype: FestiveBoxRed
 
 - type: startingGear
   id: ClownGear

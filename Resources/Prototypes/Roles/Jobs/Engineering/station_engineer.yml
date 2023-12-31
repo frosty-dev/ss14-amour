@@ -16,7 +16,10 @@
   - External
   extendedAccess:
   - Atmospherics
-
+  special:
+    - !type:GiveItemOnHolidaySpecial
+      holiday: NewYear
+      prototype: FestiveBoxRed
 - type: startingGear
   id: StationEngineerGear
   equipment:

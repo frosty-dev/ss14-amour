@@ -17,6 +17,10 @@
   extendedAccess:
   - Hydroponics
   - Bar
+  special:
+    - !type:GiveItemOnHolidaySpecial
+      holiday: NewYear
+      prototype: FestiveBoxRed
 
 - type: startingGear
   id: ChefGear

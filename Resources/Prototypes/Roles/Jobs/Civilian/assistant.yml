@@ -8,6 +8,10 @@
   supervisors: job-supervisors-everyone
   access:
   - Maintenance
+  special:
+    - !type:GiveItemOnHolidaySpecial
+      holiday: NewYear
+      prototype: FestiveBox
 
 - type: startingGear
   id: PassengerGear
