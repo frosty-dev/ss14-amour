@@ -1,0 +1,7 @@
+author: "Valtos"
+time: "2023-12-31T06:50:43.0000000+00:00"
+url: "https://api.github.com/repos/frosty-dev/ss14-new/pulls/597"
+changes:
+- type: "Fix"
+  message: "Исправлена позиция панели голосований."
+...
