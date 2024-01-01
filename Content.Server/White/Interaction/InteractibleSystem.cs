@@ -4,16 +4,14 @@ using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Humanoid;
-using Content.Server.Interaction;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Actions;
-using Content.Shared.Actions.ActionTypes;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Strip;
 using Content.Shared.Verbs;
 using Content.Shared.White.RolePlayThink;
@@ -38,6 +36,7 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
     [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly RotateToFaceSystem _face = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -197,6 +196,12 @@ public sealed class InteractibleSystem : SharedInteractibleSystem
         if (targetComponent.NextInteractionTime > Timing.CurTime)
         {
             SpellSomeShit(uid,"interaction-tired");
+            return;
+        }
+
+        if (_mobState.IsDead(target))
+        {
+            SpellSomeShit(uid, "interaction-dead");
             return;
         }
 
