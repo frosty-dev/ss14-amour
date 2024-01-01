@@ -45,6 +45,7 @@
   itemIconStyle: BigAction
   icon: White/Icons/tongue.png
   serverEvent: !type:ShlifovkaEvent
+  endEvent: !type:ShlifovkaEndEvent
   isCloseInteraction: true
   canTargetSelf: false
   interactionTime: 5
@@ -68,6 +69,7 @@
   icon: White/Icons/tongue.png
   serverEvent: !type:ShlifovkaEvent
     isPelmashka: true
+  endEvent: !type:ShlifovkaEndEvent
   isCloseInteraction: true
   canTargetSelf: false
   interactionTime: 5
@@ -129,6 +131,7 @@
   itemIconStyle: BigAction
   icon: Interface/VerbIcons/group.svg.192dpi.png
   serverEvent: !type:ComeToTargetEvent
+    kiss: true
   startSound:
     collection: Kiss
   messages:
@@ -145,6 +148,7 @@
   itemIconStyle: BigAction
   icon: Interface/VerbIcons/group.svg.192dpi.png
   serverEvent: !type:ComeToTargetEvent
+    kiss: true
   startSound:
     collection: Kiss
   messages:
@@ -162,6 +166,7 @@
   itemIconStyle: BigAction
   icon: Interface/VerbIcons/group.svg.192dpi.png
   serverEvent: !type:ComeToTargetEvent
+    kiss: true
   startSound:
     collection: Kiss
   messages:

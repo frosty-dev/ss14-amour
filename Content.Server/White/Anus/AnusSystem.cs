@@ -5,6 +5,7 @@ using Content.Shared.Item;
 using Content.Shared.Popups;
 using Content.Shared.White.Anus;
 using Content.Shared.White.Dildo;
+using Content.Shared.White.Mood;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
@@ -32,6 +33,7 @@ public sealed class AnusSystem : SharedAnusSystem
             _popup.PopupEntity(Loc.GetString("anus-blowing"),uid,uid,PopupType.MediumCaution);
             _bloodstream.TryModifyBleedAmount(uid, (itemComponent.Size)*2);
             _chat.TryEmoteWithChat(uid,"Scream");
+            RaiseLocalEvent(uid, new MoodEffectEvent("AnusTorn"));
         }
         else
         {
@@ -58,6 +60,7 @@ public sealed class AnusSystem : SharedAnusSystem
                 continue;
 
             _chat.TryEmoteWithChat(uid,"Moan");
+            RaiseLocalEvent(uid, new MoodEffectEvent("Dildo"));
         }
     }
 }

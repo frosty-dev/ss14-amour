@@ -3,3 +3,38 @@
   desc: "Кажется, меня сейчас будут наказывать."
   moodChange: enum.MoodChangeLevel.Small
   positiveEffect: true
+
+- type: moodEffect
+  id: AnusTorn
+  desc: "Мой анус порвало!"
+  moodChange: enum.MoodChangeLevel.Big
+  positiveEffect: false
+  timeout: 8
+
+- type: moodEffect
+  id: Kiss
+  desc: "Обожаю поцелуйчики."
+  moodChange: enum.MoodChangeLevel.Small
+  positiveEffect: true
+  timeout: 6
+
+- type: moodEffect
+  id: FuckedSomeone
+  desc: "Люблю делать кому-то приятно."
+  moodChange: enum.MoodChangeLevel.Small
+  positiveEffect: true
+  timeout: 8
+
+- type: moodEffect
+  id: Sex
+  desc: "Этот секс был превосходным."
+  moodChange: enum.MoodChangeLevel.Medium
+  positiveEffect: true
+  timeout: 8
+
+- type: moodEffect
+  id: Dildo
+  desc: "Дилдо доставило мне удовольствие."
+  moodChange: enum.MoodChangeLevel.Small
+  positiveEffect: true
+  timeout: 4

@@ -1,13 +1,10 @@
-using Content.Server.Chat.Managers;
 using Content.Server.Pulling;
-using Content.Server.White.Anus;
 using Content.Server.White.Crawl;
 using Content.Server.White.Cunt;
-using Content.Shared.Chat;
 using Content.Shared.White.Anus;
+using Content.Shared.White.Mood;
 using Content.Shared.White.ShittyInteraction;
 using Content.Shared.White.ShittyInteraction.Interactions;
-using Robust.Server.GameObjects;
 
 namespace Content.Server.White.Interaction;
 
@@ -47,8 +44,31 @@ public sealed class Interactibles : SharedInteractibles
     {
         base.OnEndEbat(ev);
 
+        RaiseLocalEvent(ev.Performer, new MoodEffectEvent("Sex"));
+        RaiseLocalEvent(ev.Performer, new MoodEffectEvent("FuckedSomeone"));
+        RaiseLocalEvent(ev.Target, new MoodEffectEvent("Sex"));
+
         _cunt.GenCum(ev.Performer,10);
         _cunt.TryCunt(ev.Performer);
         RemComp<MoanComponent>(ev.Target);
+    }
+
+    protected override void OnCome(ComeToTargetEvent ev)
+    {
+        base.OnCome(ev);
+
+        if (!ev.Kiss)
+            return;
+
+        RaiseLocalEvent(ev.Target, new MoodEffectEvent("Kiss"));
+        RaiseLocalEvent(ev.Performer, new MoodEffectEvent("Kiss"));
+    }
+
+    protected override void OnShlifovkaEnd(ShlifovkaEndEvent ev)
+    {
+        base.OnShlifovkaEnd(ev);
+
+        RaiseLocalEvent(ev.Target, new MoodEffectEvent("Sex"));
+        RaiseLocalEvent(ev.Performer, new MoodEffectEvent("FuckedSomeone"));
     }
 }

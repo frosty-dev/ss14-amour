@@ -31,8 +31,14 @@ public sealed class ShlifovkaEvent : BaseInteractionEvent
 }
 
 [Serializable, NetSerializable]
+public sealed class ShlifovkaEndEvent : BaseInteractionEvent
+{
+}
+
+[Serializable, NetSerializable]
 public sealed class ComeToTargetEvent : BaseInteractionEvent
 {
+    [DataField("kiss")] public bool Kiss;
 }
 
 [Serializable, NetSerializable]

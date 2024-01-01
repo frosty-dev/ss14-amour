@@ -1,4 +1,3 @@
-using Content.Shared.White.Anus;
 using Content.Shared.White.ShittyInteraction.Interactions;
 
 namespace Content.Shared.White.ShittyInteraction;
@@ -13,6 +12,12 @@ public abstract class SharedInteractibles : EntitySystem
         SubscribeAllEvent<ShlepButtEvent>(OnShlep);
         SubscribeAllEvent<ShlifovkaEvent>(OnShlifovka);
         SubscribeAllEvent<ComeToTargetEvent>(OnCome);
+
+        SubscribeAllEvent<ShlifovkaEndEvent>(OnShlifovkaEnd);
+    }
+
+    protected virtual void OnShlifovkaEnd(ShlifovkaEndEvent ev)
+    {
     }
 
     protected virtual void OnCome(ComeToTargetEvent ev)

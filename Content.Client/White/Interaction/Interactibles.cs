@@ -2,7 +2,6 @@ using System.Numerics;
 using Content.Shared.Movement.Components;
 using Content.Shared.White.ShittyInteraction;
 using Content.Shared.White.ShittyInteraction.Interactions;
-using Robust.Client;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
