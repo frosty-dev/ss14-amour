@@ -6,5 +6,6 @@
   components:
   - type: Handcuff
     cuffedRSI: White/Objects/Misc/handcuffs_pink.rsi
+    kinky: true
   - type: Sprite
     sprite: White/Objects/Misc/handcuffs_pink.rsi

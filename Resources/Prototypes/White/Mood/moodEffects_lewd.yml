@@ -1,0 +1,5 @@
+- type: moodEffect
+  id: HandcuffedKink
+  desc: "Кажется, меня сейчас будут наказывать."
+  moodChange: enum.MoodChangeLevel.Small
+  positiveEffect: true

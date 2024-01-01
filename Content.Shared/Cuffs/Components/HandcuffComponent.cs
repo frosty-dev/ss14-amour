@@ -89,6 +89,9 @@ public sealed class HandcuffComponent : Component
 
     [DataField("endUncuffSound"), ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier EndUncuffSound = new SoundPathSpecifier("/Audio/Items/Handcuffs/cuff_takeoff_end.ogg");
+
+    [DataField("kinky"), ViewVariables(VVAccess.ReadWrite)]
+    public bool Kinky;
 }
 
 [Serializable, NetSerializable]

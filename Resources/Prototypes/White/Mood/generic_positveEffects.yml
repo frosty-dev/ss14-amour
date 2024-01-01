@@ -1,4 +1,4 @@
-﻿- type: moodEffect
+- type: moodEffect
   id: BeingHugged
   desc: "Обнимашки - круто."
   moodChange: enum.MoodChangeLevel.Small

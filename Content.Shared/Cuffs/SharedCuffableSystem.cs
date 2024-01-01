@@ -151,16 +151,21 @@ namespace Content.Shared.Cuffs
                 return;
 
             _handVirtualItem.DeleteInHandsMatching(uid, args.Entity);
-            UpdateCuffState(uid, component);
+            TryComp(args.Entity, out HandcuffComponent? handcuffComponent); // Amour edit
+            UpdateCuffState(uid, component, handcuffComponent); // Amour edit
         }
 
         private void OnCuffsInsertedIntoContainer(EntityUid uid, CuffableComponent component, ContainerModifiedMessage args)
         {
-            if (args.Container == component.Container)
-                UpdateCuffState(uid, component);
+            if (args.Container != component.Container) // Amour edit start
+                return;
+
+            TryComp(args.Entity, out HandcuffComponent? handcuffComponent);
+            UpdateCuffState(uid, component, handcuffComponent);
+            // Amour edit end
         }
 
-        public void UpdateCuffState(EntityUid uid, CuffableComponent component)
+        public void UpdateCuffState(EntityUid uid, CuffableComponent component, HandcuffComponent? handcuffComponent = null) // Amour edit
         {
             var canInteract = TryComp(uid, out HandsComponent? hands) && hands.Hands.Count > component.CuffedHandCount;
 
@@ -174,12 +179,13 @@ namespace Content.Shared.Cuffs
             if (component.CanStillInteract)
             {
                 _alerts.ClearAlert(uid, AlertType.Handcuffed);
-                RaiseLocalEvent(uid, new MoodRemoveEffectEvent("Handcuffed")); //WD edit
+                RaiseLocalEvent(uid,
+                    new MoodRemoveEffectEvent(handcuffComponent is {Kinky: true} ? "HandcuffedKink" : "Handcuffed")); //WD edit, Amour edit
             }
             else
             {
                 _alerts.ShowAlert(uid, AlertType.Handcuffed);
-                RaiseLocalEvent(uid, new MoodEffectEvent("Handcuffed")); // WD edit
+                RaiseLocalEvent(uid, new MoodEffectEvent(handcuffComponent is {Kinky: true} ? "HandcuffedKink" : "Handcuffed")); // WD edit, Amour edit
             }
 
             var ev = new CuffedStateChangeEvent();

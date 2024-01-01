@@ -1,6 +1,6 @@
-﻿- type: moodEffect
+- type: moodEffect
   id: Handcuffed
-  desc: "Кажется мои выходки кто-то заметил."
+  desc: "Кажется, мои выходки кто-то заметил."
   moodChange: enum.MoodChangeLevel.Small
   positiveEffect: false
 
