@@ -145,7 +145,7 @@ public sealed class RevenantComponent : Component
     /// The amount of essence that is needed to use the ability.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("blightCost")]
-    public float BlightCost = -65;
+    public float BlightCost = -50;
 
     /// <summary>
     /// The status effects applied after the ability
@@ -159,7 +159,7 @@ public sealed class RevenantComponent : Component
     /// The radius around the user that this ability affects
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("blightRadius")]
-    public float BlightRadius = 3.0f;
+    public float BlightRadius = 3.5f;
     #endregion
 
     #region Malfunction Ability
