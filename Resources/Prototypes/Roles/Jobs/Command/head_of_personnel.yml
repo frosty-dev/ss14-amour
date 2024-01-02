@@ -24,10 +24,6 @@
     - Human
     - Felinid
   canBeAntag: true
-  special:
-    - !type:GiveItemOnHolidaySpecial
-      holiday: NewYear
-      prototype: FestiveBox
   access:
   - Command
   - HeadOfPersonnel

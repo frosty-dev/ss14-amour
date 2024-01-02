@@ -12,10 +12,6 @@
   - External
   extendedAccess:
   - Salvage
-  special:
-    - !type:GiveItemOnHolidaySpecial
-      holiday: NewYear
-      prototype: FestiveBox
 
 - type: startingGear
   id: CargoTechGear

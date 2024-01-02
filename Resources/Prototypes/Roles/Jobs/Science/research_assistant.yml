@@ -15,10 +15,6 @@
   access:
   - Research
   - Maintenance
-  special:
-    - !type:GiveItemOnHolidaySpecial
-      holiday: NewYear
-      prototype: FestiveBox
 
 - type: startingGear
   id: ResearchAssistantGear

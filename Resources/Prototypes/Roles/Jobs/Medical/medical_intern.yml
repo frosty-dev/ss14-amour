@@ -15,10 +15,6 @@
   access:
   - Medical
   - Maintenance
-  special:
-    - !type:GiveItemOnHolidaySpecial
-      holiday: NewYear
-      prototype: FestiveBoxRed
 
 - type: startingGear
   id: MedicalInternGear

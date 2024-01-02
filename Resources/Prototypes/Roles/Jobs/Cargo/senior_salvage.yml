@@ -12,10 +12,6 @@
   startingGear: SeniorSalvageSpecialistGear
   icon: "SeniorSalvageSpecialist"
   supervisors: job-supervisors-qm
-  special:
-    - !type:GiveItemOnHolidaySpecial
-      holiday: NewYear
-      prototype: FestiveBox
   canBeAntag: false
   special:
     - !type:AddImplantSpecial

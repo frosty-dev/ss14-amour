@@ -13,10 +13,6 @@
   - Service
   - Brig
   - Maintenance
-  special:
-    - !type:GiveItemOnHolidaySpecial
-      holiday: NewYear
-      prototype: FestiveBoxRed
 
 - type: startingGear
   id: LawyerGear

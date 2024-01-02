@@ -13,9 +13,6 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: GarbageDay
     prototype: WeaponRevolverInspector
-  - !type:GiveItemOnHolidaySpecial
-    holiday: NewYear
-    prototype: FestiveBoxRed
 
 - type: startingGear
   id: JanitorGear
