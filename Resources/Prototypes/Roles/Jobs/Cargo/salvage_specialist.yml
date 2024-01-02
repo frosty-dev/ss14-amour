@@ -12,10 +12,6 @@
   icon: "ShaftMiner"
   startingGear: SalvageSpecialistGear
   supervisors: job-supervisors-qm
-  special:
-    - !type:GiveItemOnHolidaySpecial
-      holiday: NewYear
-      prototype: FestiveBox
   access:
   - Cargo
   - Salvage

@@ -16,9 +16,6 @@
   - !type:AddComponentSpecial
     components:
     - type: MimePowers
-  - !type:GiveItemOnHolidaySpecial
-    holiday: NewYear
-    prototype: FestiveBoxRed
 
 - type: startingGear
   id: MimeGear

@@ -20,9 +20,6 @@
   special:
     - !type:AddImplantSpecial
       implants: [ MindShieldImplant ]
-    - !type:GiveItemOnHolidaySpecial
-      holiday: NewYear
-      prototype: FestiveBox
   whitelistedSpecies:
     - Human
   canBeAntag: false

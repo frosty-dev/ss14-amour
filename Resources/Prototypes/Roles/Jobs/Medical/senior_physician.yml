@@ -16,9 +16,6 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  - !type:GiveItemOnHolidaySpecial
-    holiday: NewYear
-    prototype: FestiveBoxRed
   access:
   - Medical
   - Maintenance

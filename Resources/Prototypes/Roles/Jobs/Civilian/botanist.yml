@@ -13,10 +13,7 @@
   extendedAccess:
   - Kitchen
   - Bar
-  special:
-    - !type:GiveItemOnHolidaySpecial
-      holiday: NewYear
-      prototype: FestiveBox
+
 - type: startingGear
   id: BotanistGear
   equipment:
