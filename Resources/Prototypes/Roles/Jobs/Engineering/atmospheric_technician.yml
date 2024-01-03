@@ -16,6 +16,10 @@
   - Engineering
   - External
   - Atmospherics
+  special:
+    - !type:GiveItemOnHolidaySpecial
+      holiday: NewYear
+      prototype: FestiveBox
 
 - type: startingGear
   id: AtmosphericTechnicianGear

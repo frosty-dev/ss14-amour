@@ -29,6 +29,10 @@
   - External
   - ChiefEngineer
   - Atmospherics
+  special:
+    - !type:GiveItemOnHolidaySpecial
+      holiday: NewYear
+      prototype: FestiveBox
 
 - type: startingGear
   id: ChiefEngineerGear

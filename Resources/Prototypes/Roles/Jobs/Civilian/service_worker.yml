@@ -13,6 +13,10 @@
   - Kitchen
   extendedAccess:
   - Hydroponics
+  special:
+    - !type:GiveItemOnHolidaySpecial
+      holiday: NewYear
+      prototype: FestiveBox
 
 - type: startingGear
   id: ServiceWorkerGear
