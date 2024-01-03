@@ -138,7 +138,6 @@
   - type: Actions
   - type: DoAfter
   - type: Climbing
-  - type: Flashable
   - type: Polymorphable
   - type: Pullable
   - type: Buckle
@@ -153,6 +152,7 @@
   - type: MobPrice
     price: 1000 # Living critters are valuable in space.
   - type: Perishable
+  - type: ContentEye
 
 - type: entity
   save: false
