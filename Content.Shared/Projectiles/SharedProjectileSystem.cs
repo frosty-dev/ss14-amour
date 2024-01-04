@@ -30,6 +30,7 @@ namespace Content.Shared.Projectiles
         [Dependency] private readonly PenetratedSystem _penetratedSystem = default!; // WD
         [Dependency] private readonly SharedBuckleSystem _buckle = default!; // WD
         [Dependency] private readonly MobStateSystem _mobState = default!; // WD
+        [Dependency] private readonly SharedAudioSystem _audio = default!;
 
         public override void Initialize()
         {
@@ -219,6 +220,11 @@ namespace Content.Shared.Projectiles
             if (component.Offset != Vector2.Zero)
             {
                 _transform.SetLocalPosition(xform, xform.LocalPosition + xform.LocalRotation.RotateVec(component.Offset));
+            }
+
+            if (component.Sound != null)
+            {
+                _audio.PlayPredicted(component.Sound, uid, null);
             }
         }
 
