@@ -283,6 +283,7 @@
       - CyborgInstrumentModuleFilled #WD EDIT
       - CyborgJetpackModule #WD EDIT
       - ClothingEyesNightVisionGoggles # WD EDIT
+      - WeaponTempGun # WD EDIT
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - ExplosivePayload
@@ -532,6 +533,7 @@
       - WeaponLaserCannon
       - WeaponXrayCannon
       - WeaponTaser
+      - WeaponTempGun # WD EDIT
   - type: EmagLatheRecipes
     emagStaticRecipes:
        - CartridgeMagnumAP

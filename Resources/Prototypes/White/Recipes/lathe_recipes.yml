@@ -62,3 +62,11 @@
     Steel: 200
     Glass: 100
     Silver: 100
+
+- type: latheRecipe
+  id: WeaponTempGun
+  result: WeaponTempGun
+  completetime: 8
+  materials:
+    Steel: 1500
+    Glass: 1000

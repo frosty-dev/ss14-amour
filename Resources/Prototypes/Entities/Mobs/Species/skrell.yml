@@ -25,7 +25,7 @@
         Cold : 0.2 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat : 0.1 #per second, scales with temperature & other constants
+        Heat : 0.5 #per second, scales with temperature & other constants
 
 - type: entity
   save: false

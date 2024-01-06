@@ -34,3 +34,5 @@ gun-twomode-mode-examine = Выбран тип огня [color={ $color }]{ $mod
 # TwoModeSelected
 gun-twomode-Stun = шокер
 gun-twomode-Laser = лазер
+gun-twomode-Cool = охлаждение
+gun-twomode-Heat = нагрев
