@@ -6,6 +6,9 @@
   requirements:
     - !type:OverallPlaytimeRequirement
       time: 36000 # 10 hrs
+    - !type:DepartmentTimeRequirement
+      department: Justice
+      time: 54000 #15 hrs
   startingGear: InspectorGear
   icon: "Inspector"
   supervisors: job-supervisors-captain
@@ -18,15 +21,14 @@
 - type: startingGear
   id: InspectorGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitLawyerGood # TODO change to inspector jumpsuit
+    jumpsuit: ClothingUniformJumpsuitWhiteInspectorFormal
     back: ClothingBackpackFilled
-    shoes: ClothingShoesBootsLaceup
+    shoes: ClothingShoesBootsInspector
     id: InspectorPDA
     ears: ClothingHeadsetAltSecurity
-    pocket1: BookSpaceLaws
-    underwearb: ClothingUnderwearBottomBoxersWhite # White-Underwear
-  underweart: ClothingUnderwearTopBraWhite # White-Underwear
-  underwearb: ClothingUnderwearBottomPantiesWhite # White-Underwear
+    underwearb: ClothingUnderwearBottomBoxersInspector # White-Underwear
+  underweart: ClothingUnderwearTopBraInspector # White-Underwear
+  underwearb: ClothingUnderwearBottomPantiesInspector # White-Underwear
   inhand:
     right hand: BriefcaseBrownFilled
   innerclothingskirt: ClothingUniformJumpskirtInspector

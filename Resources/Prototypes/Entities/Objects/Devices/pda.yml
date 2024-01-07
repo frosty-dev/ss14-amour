@@ -405,7 +405,7 @@
   components:
   - type: Pda
     id: InspectorIDCard
-    state: pda-captain
+    state: pda-inspector
 
 
 - type: entity

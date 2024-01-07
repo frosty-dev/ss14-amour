@@ -31,3 +31,4 @@
           - Captain
           availableJobs:
             Captain: [ -1, -1 ]
+            Inspector: [ -1, -1 ]

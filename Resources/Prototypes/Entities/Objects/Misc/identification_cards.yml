@@ -349,8 +349,8 @@
   components:
   - type: Sprite
     layers:
-    - state: default
-    - state: idlawyer
+    - state: silver
+    - state: idinspector
   - type: PresetIdCard
     job: Inspector
 

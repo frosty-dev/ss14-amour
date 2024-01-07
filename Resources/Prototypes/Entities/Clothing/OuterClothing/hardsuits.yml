@@ -310,6 +310,41 @@
       - type: StaminaProtection
         damageReduction: 0.5
 
+#Inspector's Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitInspector
+  name: inspector's hardsuit
+  description: Definitely not for spece assholes.
+  components:
+    - type: Sprite
+      sprite: Clothing/OuterClothing/Hardsuits/inspector.rsi
+    - type: Clothing
+      sprite: Clothing/OuterClothing/Hardsuits/inspector.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.45
+      lowPressureMultiplier: 1000
+    - type: ExplosionResistance
+      damageCoefficient: 0.2
+    - type: Armor
+      modifiers:
+        coefficients: # 0.9 -> 10% защиты, блять!
+          Blunt: 0.8
+          Slash: 0.9
+          Piercing: 0.9
+          Radiation: 0.9
+          Caustic: 0.8
+          Laser: 0.9
+    - type: ClothingSpeedModifier
+      walkModifier: 0.9
+      sprintModifier: 0.9
+    - type: ToggleableClothing
+      clothingPrototype: ClothingHeadHelmetHardsuitInspector
+    - type: ClothingGrantComponent
+      component:
+        - type: StaminaProtection
+          damageReduction: 0.4
+
 #Chief Engineer's Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitBase

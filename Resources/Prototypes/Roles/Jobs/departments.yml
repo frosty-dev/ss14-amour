@@ -42,6 +42,7 @@
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
+  - Inspector
 
 - type: department
   id: Engineering
