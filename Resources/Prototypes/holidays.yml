@@ -1,9 +1,9 @@
 - type: holiday
   id: NewYear
   name: holiday-name-new-year
-  beginDay: 30
+  beginDay: 25
   beginMonth: December
-  endDay: 2
+  endDay: 8
   endMonth: January
 
 - type: holiday

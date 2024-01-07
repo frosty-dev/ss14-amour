@@ -16,10 +16,6 @@
   startingGear: QuartermasterGear
   icon: "QuarterMaster"
   supervisors: job-supervisors-captain
-  special:
-    - !type:GiveItemOnHolidaySpecial
-      holiday: NewYear
-      prototype: FestiveBox
   whitelistedSpecies:
     - Human
     - Dwarf
@@ -32,6 +28,10 @@
   - Maintenance
   - External
   - Command
+  special:
+    - !type:GiveItemOnHolidaySpecial
+      holiday: NewYear
+      prototype: FestiveBox
 
 - type: startingGear
   id: QuartermasterGear

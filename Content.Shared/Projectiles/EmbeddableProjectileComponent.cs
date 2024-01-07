@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.White.Crossbow;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Projectiles;
@@ -45,4 +46,10 @@ public sealed partial class EmbeddableProjectileComponent : Component
     [ViewVariables, AutoNetworkedField]
     public EntityUid? PenetratedUid;
     // WD END
+
+    /// <summary>
+    /// Sound to play after embedding into a hit target.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField("sound"), AutoNetworkedField]
+    public SoundSpecifier? Sound;
 }

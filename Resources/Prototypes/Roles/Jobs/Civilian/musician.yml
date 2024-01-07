@@ -14,8 +14,8 @@
     holiday: MikuDay
     prototype: BoxPerformer
   - !type:GiveItemOnHolidaySpecial
-     holiday: NewYear
-     prototype: FestiveBoxRed
+    holiday: NewYear
+    prototype: FestiveBox
 
 - type: startingGear
   id: MusicianGear

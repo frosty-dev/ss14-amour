@@ -18,7 +18,7 @@
     - type: MimePowers
   - !type:GiveItemOnHolidaySpecial
     holiday: NewYear
-    prototype: FestiveBoxRed
+    prototype: FestiveBox
 
 - type: startingGear
   id: MimeGear

@@ -923,4 +923,7 @@
 - type: Tag
   id: WallMountConsoleElectronics
 
+- type: Tag
+  id: SurveillanceBodyCamera
+
 # WHITE END

@@ -19,9 +19,9 @@
   extendedAccess:
   - Chemistry
   special:
-    - !type:GiveItemOnHolidaySpecial
-      holiday: NewYear
-      prototype: FestiveBoxRed
+  - !type:GiveItemOnHolidaySpecial
+    holiday: NewYear
+    prototype: FestiveBox
 
 - type: startingGear
   id: ParamedicGear

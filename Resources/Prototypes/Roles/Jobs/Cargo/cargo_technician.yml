@@ -13,9 +13,9 @@
   extendedAccess:
   - Salvage
   special:
-    - !type:GiveItemOnHolidaySpecial
-      holiday: NewYear
-      prototype: FestiveBox
+  - !type:GiveItemOnHolidaySpecial
+    holiday: NewYear
+    prototype: FestiveBox
 
 - type: startingGear
   id: CargoTechGear

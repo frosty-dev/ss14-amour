@@ -24,10 +24,6 @@
     - Human
     - Felinid
   canBeAntag: true
-  special:
-    - !type:GiveItemOnHolidaySpecial
-      holiday: NewYear
-      prototype: FestiveBox
   access:
   - Command
   - HeadOfPersonnel
@@ -54,6 +50,10 @@
   - Cargo
   - Atmospherics
   - Medical
+  special:
+    - !type:GiveItemOnHolidaySpecial
+      holiday: NewYear
+      prototype: FestiveBox
 
 - type: startingGear
   id: HoPGear
