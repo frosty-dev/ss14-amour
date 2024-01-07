@@ -5,10 +5,13 @@
   playTimeTracker: JobInspector
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs
+      time: 108000 #30 hrs
     - !type:DepartmentTimeRequirement
       department: Justice
       time: 54000 #15 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 #10 hrs
   startingGear: InspectorGear
   icon: "Inspector"
   supervisors: job-supervisors-captain
