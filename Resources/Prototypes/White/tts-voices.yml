@@ -436,3 +436,214 @@
   name: tts-voice-name-richardson
   sex: Male
   speaker: richardson
+
+- type: ttsVoice
+  id: Elenwen
+  name: tts-voice-name-elenwen
+  sex: Female
+  speaker: elenwen
+
+- type: ttsVoice
+  id: EmperorTit
+  name: tts-voice-name-emperor-tit
+  sex: Male
+  speaker: emperor
+
+- type: ttsVoice
+  id: GuardSkyrim
+  name: tts-voice-name-guard-skyrim
+  sex: Male
+  speaker: guard
+
+- type: ttsVoice
+  id: Hagraven
+  name: tts-voice-name-hagraven
+  sex: Male
+  speaker: hagraven
+
+- type: ttsVoice
+  id: HermaeusMora
+  name: tts-voice-name-hermaeus-mora
+  sex: Male
+  speaker: hermaeus_mora
+
+- type: ttsVoice
+  id: Nord
+  name: tts-voice-name-nord
+  sex: Male
+  speaker: nord
+
+- type: ttsVoice
+  id: Ulfric
+  name: tts-voice-name-ulfric
+  sex: Male
+  speaker: ulfric
+
+- type: ttsVoice
+  id: GoodThalya
+  name: tts-voice-name-good-thalya
+  sex: Female
+  speaker: good_thalya
+
+- type: ttsVoice
+  id: Cerys
+  name: tts-voice-name-cerys
+  sex: Female
+  speaker: cerys
+
+- type: ttsVoice
+  id: Judy
+  name: tts-voice-name-judy
+  sex: Female
+  speaker: judy
+
+- type: ttsVoice
+  id: Mitch
+  name: tts-voice-name-mitch
+  sex: Male
+  speaker: mitch
+
+- type: ttsVoice
+  id: Skippy
+  name: tts-voice-name-skippy
+  sex: Male
+  speaker: skippy
+
+- type: ttsVoice
+  id: Butch
+  name: tts-voice-name-butch
+  sex: Male
+  speaker: butch
+
+- type: ttsVoice
+  id: Marcus
+  name: tts-voice-name-marcus
+  sex: Male
+  speaker: marcus
+
+- type: ttsVoice
+  id: Sulik
+  name: tts-voice-name-sulik
+  sex: Male
+  speaker: sulik
+
+- type: ttsVoice
+  id: Astrid
+  name: tts-voice-name-astrid
+  sex: Female
+  speaker: astrid
+
+- type: ttsVoice
+  id: Maven
+  name: tts-voice-name-maven
+  sex: Female
+  speaker: maven
+
+- type: ttsVoice
+  id: Nazir
+  name: tts-voice-name-nazir
+  sex: Male
+  speaker: nazir
+
+- type: ttsVoice
+  id: Jackie
+  name: tts-voice-name-jackie
+  sex: Male
+  speaker: jackie
+
+- type: ttsVoice
+  id: EvilThalya
+  name: tts-voice-name-evil-thalya
+  sex: Female
+  speaker: evil_thalya
+
+- type: ttsVoice
+  id: PostalDude
+  name: tts-voice-name-dude
+  sex: Male
+  speaker: dude
+
+- type: ttsVoice
+  id: Anduin
+  name: tts-voice-name-anduin
+  sex: Male
+  speaker: anduin
+
+- type: ttsVoice
+  id: Brukan
+  name: tts-voice-name-brukan
+  sex: Male
+  speaker: brukan
+
+- type: ttsVoice
+  id: Puchkow
+  name: tts-voice-name-puchkow
+  sex: Male
+  speaker: puchkow
+
+- type: ttsVoice
+  id: Moriarti
+  name: tts-voice-name-moriarti
+  sex: Male
+  speaker: moriarti
+
+- type: ttsVoice
+  id: NecoArcTwo
+  name: tts-voice-name-neco-arc-two
+  sex: Female
+  speaker: neco_arc_2
+
+- type: ttsVoice
+  id: AngryNecoArc
+  name: tts-voice-name-angry-neco-arc
+  sex: Female
+  speaker: angry_neco_arc
+
+- type: ttsVoice
+  id: Squidward
+  name: tts-voice-name-squidward
+  sex: Male
+  speaker: squidward
+
+- type: ttsVoice
+  id: Garrosh
+  name: tts-voice-name-garrosh
+  sex: Male
+  speaker: garrosh
+
+- type: ttsVoice
+  id: Jaina
+  name: tts-voice-name-jaina
+  sex: Female
+  speaker: jaina
+
+- type: ttsVoice
+  id: Adjutant
+  name: tts-voice-name-adjutant
+  sex: Female
+  speaker: adjutant
+
+- type: ttsVoice
+  id: Hanson
+  name: tts-voice-name-hanson
+  sex: Female
+  speaker: hanson
+
+- type: ttsVoice
+  id: Bralik
+  name: tts-voice-name-bralik
+  sex: Male
+  speaker: bralik
+
+- type: ttsVoice
+  id: Horner
+  name: tts-voice-name-horner
+  sex: Male
+  speaker: horner
+
+- type: ttsVoice
+  id: Villager
+  name: tts-voice-name-villager
+  sex: Male
+  speaker: villager
+  roundStart: false

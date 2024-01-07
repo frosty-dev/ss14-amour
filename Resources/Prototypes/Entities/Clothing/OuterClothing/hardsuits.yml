@@ -495,6 +495,41 @@
       - type: StaminaProtection
         damageReduction: 0.4
 
+#Head of Personnel's Hardsuit WD
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitHOP
+  name: head of personnel's hardsuit
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of light armor.
+  components:
+    - type: Sprite
+      sprite: Clothing/OuterClothing/Hardsuits/hop.rsi
+    - type: Clothing
+      sprite: Clothing/OuterClothing/Hardsuits/hop.rsi
+    - type: PressureProtection
+      highPressureMultiplier: 0.45
+      lowPressureMultiplier: 1000
+    - type: ExplosionResistance
+      damageCoefficient: 0.2
+    - type: Armor
+      modifiers:
+        coefficients: # 0.9 -> 10% защиты, блять!
+          Blunt: 0.8
+          Slash: 0.9
+          Piercing: 0.9
+          Radiation: 0.9
+          Caustic: 0.8
+          Laser: 0.9
+    - type: ClothingSpeedModifier
+      walkModifier: 0.9
+      sprintModifier: 0.9
+    - type: ToggleableClothing
+      clothingPrototype: ClothingHeadHelmetHardsuitHOP
+    - type: ClothingGrantComponent
+      component:
+        - type: StaminaProtection
+          damageReduction: 0.4
+
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
 - type: entity

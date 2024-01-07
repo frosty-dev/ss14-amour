@@ -28,7 +28,7 @@ namespace Content.Client.Info
 
             _richTextLabelLeft = new RichTextLabel
             {
-                MinWidth = 200
+                MinWidth = 300
             };
             _richTextLabelRight = new RichTextLabel
             {

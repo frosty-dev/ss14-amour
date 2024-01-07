@@ -405,7 +405,7 @@
       color: blue
     - type: Reflect
       enabled: false
-      reflectProb: 0.95
+      reflectProb: 1
       reflects:
         - Energy
       passiveReflect: true
@@ -416,15 +416,15 @@
           Blunt: 1.0
           Slash: 0.9
           Piercing: 0.85
-          Heat: 0.6
-          Laser: 0.6
+          Heat: 0.5
+          Laser: 0.5
       activeBlockModifier:
         coefficients:
           Blunt: 1.2
           Slash: 0.85
           Piercing: 0.5
-          Heat: 0.4
-          Laser: 0.4
+          Heat: 0.3
+          Laser: 0.3
         flatReductions:
           Heat: 1
           Piercing: 1
@@ -432,6 +432,8 @@
     - type: Damageable
       damageContainer: Shield
     - type: Rechargeable
+      maxCharge: 20
+      rechargeDelay: 15
     - type: StaticPrice
       price: 350
 

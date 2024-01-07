@@ -1,0 +1,6 @@
+- type: objective
+  id: CustomObjective
+  issuer: syndicate
+  conditions:
+    - !type:CustomCondition {}
+  canBeDuplicate: true

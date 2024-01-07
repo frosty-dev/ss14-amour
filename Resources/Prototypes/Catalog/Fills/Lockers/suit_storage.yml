@@ -203,6 +203,20 @@
         - id: ClothingOuterHardsuitSecurityRed
         - id: ClothingMaskGasSwat
 
+#HoP's hardsuit
+- type: entity
+  id: SuitStorageHOP
+  parent: SuitStorageBase
+  suffix: Head of Personnel
+  components:
+    - type: StorageFill
+      contents:
+        - id: NitrogenTankFilled
+        - id: OxygenTankFilled
+        - id: ClothingOuterHardsuitHOP
+        - id: ClothingMaskBreath
+        - id: ToyIan
+
 #Warden's hardsuit
 - type: entity
   id: SuitStorageWarden

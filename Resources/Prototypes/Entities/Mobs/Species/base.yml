@@ -21,7 +21,6 @@
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
-    - ZombifyableByMelee
   - type: Reactive
     groups:
       Flammable: [ Touch ]

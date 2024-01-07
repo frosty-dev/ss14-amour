@@ -551,7 +551,7 @@
   id: ClothingOuterCoatThechaotic
   name: Тренч Маллена
   suffix: fluff
-  description: Провонял сигаретами и разрушенными мечтами.
+  description: Сшитый на заказ тренч криминалиста. Пропах никотином насквозь.
   components:
     - type: Sprite
       sprite: White/Fluff/thechaotic/coat.rsi
@@ -595,6 +595,17 @@
   components:
     - type: Sprite
       sprite: White/Fluff/6elblu/white-cloak.rsi
+
+#6elblu
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterStorage6elbluOvercoat
+  name: Белая шинель
+  suffix: fluff
+  description: Очень удобная и приятная на ощупь шинель с меховым воротником. На нарукавных повязках виднеется эмблема NT.
+  components:
+    - type: Sprite
+      sprite: White/Fluff/6elblu/white-overcoat.rsi
 
 #Serafim547
 - type: entity
@@ -944,3 +955,70 @@
       sprite: White/Fluff/antohag/hosmask.rsi
     - type: Clothing
       sprite: White/Fluff/antohag/hosmask.rsi
+
+# kreses
+- type: entity
+  parent: ClothingBackpack
+  id: KresesClothingBackpackDeath
+  name: рюкзак из исследователя пустоты
+  suffix: fluff
+  description: Кажется когда то это не было рюкзаком. Вы чувствуйте на себя взгляды из пустоты.
+  components:
+    - type: Sprite
+      sprite: Clothing/Back/Backpacks/ertleader.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitDeathSquad
+  id: KresesClothingJumpsuitDeath
+  name: комбинезон исследователя из пустоты
+  suffix: fluff
+  description: Костюм тех, кто видел что внутри черной дыры. Если слишком долго смотреть в пустоту, то пустота начнёт смотреть в тебя.
+
+- type: entity
+  parent: ClothingMaskGas
+  id: KresesClothingMaskGasDeath
+  name: противогаз исследователя пустоты
+  suffix: fluff
+  description: Стандартный противогаз для тех, кто любит полетать в космосе и понаблюдать вблизи за чёрной дырой.
+  components:
+    - type: Sprite
+      sprite: Clothing/Mask/squadron.rsi
+    - type: Clothing
+      sprite: Clothing/Mask/squadron.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterJacketReider207
+  name: Куртка "Trauma Team"
+  description: Эта куртка, выполненная из высокотехнологичных материалов, идеально сочетает в себе практичность и эстетику. С ходом времени и сменой владельцев, её функции и предназначения были утеряны. Единственный понятный элемент – это зелёный символ, нанесённый несмываемой краской, каким-то идиотом.
+  suffix: fluff
+  components:
+    - type: Sprite
+      sprite: White/Fluff/Reider207/jacket.rsi
+    - type: Clothing
+      sprite: White/Fluff/Reider207/jacket.rsi
+
+# egoruch17
+- type: entity
+  parent: ClothingMaskMime
+  id: EgoruchClothingMaskHoly
+  name: фальшивая аугметика
+  description: Встроенный фильтр предаёт вдыхаемому воздуху аромат  мира-кузницы. Неповторимое сочетание промышленных выхлопов и свинца.
+  suffix: fluff
+  components:
+    - type: Sprite
+      sprite: White/Fluff/egoruch17/mask.rsi
+    - type: Clothing
+      sprite: White/Fluff/egoruch17/mask.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: EgoruchClothingOuterMantle
+  name: ряса техножреца
+  description: Идеально подходит, чтобы скрыть слабость своей плоти! Ткань сильно наэлектризована и пахнет машинным маслом.
+  suffix: fluff
+  components:
+    - type: Sprite
+      sprite: White/Fluff/egoruch17/mantle.rsi
+    - type: Clothing
+      sprite: White/Fluff/egoruch17/mantle.rsi

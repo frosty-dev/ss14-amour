@@ -1,0 +1,79 @@
+﻿- type: worldTargetAction
+  id: ActionRyodanDash
+  name: action-name-ryodan-dash
+  description: action-description-ryodan-dash
+  itemIconStyle: NoItem
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: blink
+  range: 0
+  checkCanAccess: false
+  event: !type:DashEvent
+
+- type: instantAction
+  id: ActionThrowingStar
+  name: action-name-ryodan-throwing-star
+  description: action-description-ryodan-throwing-star
+  itemIconStyle: NoItem
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: spell_default
+  event: !type:ThrowingStarEvent
+
+- type: entity
+  parent: BaseItem
+  id: ThrowingStarRyodan
+  name: "throwing star"
+  description: "An ancient weapon still used to this day, due to its ease of lodging itself into its victim's body parts. Poison included!."
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Throwable/throwing_star.rsi
+      state: icon
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PhysShapeCircle
+            radius: 0.2
+          density: 5
+          mask:
+            - ItemMask
+          restitution: 0.3
+          friction: 0.2
+    - type: EmbeddableProjectile
+      deleteOnRemove: true
+      sound: /Audio/Weapons/star_hit.ogg
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Slash: 10
+          Piercing: 15
+          Poison: 5
+
+
+- type: entity
+  name: "Ryodan`s katana"
+  parent: Katana
+  id: RyodanKatana
+  description: "A ceremonial weapon belonging to the ryodan clan."
+  components:
+    - type: Reflect
+      reflectProb: 1
+      enabled: true
+    - type: RyodanKatana
+    - type: DashAbility
+      dashAction: ActionRyodanDash
+    - type: ThrowingStarAbility
+      actionId: ActionThrowingStar
+    - type: LimitedCharges
+      maxCharges: 3
+      charges: 3
+    - type: AutoRecharge
+      rechargeDuration: 20
+    - type: MeleeWeapon
+      damage:
+        types:
+          Slash: 25
+          Poison: 10
+          Piercing: 2
+      soundHit:
+        path: /Audio/Weapons/bladeslice.ogg

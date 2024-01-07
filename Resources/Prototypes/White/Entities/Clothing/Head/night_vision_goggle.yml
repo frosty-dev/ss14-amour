@@ -1,4 +1,4 @@
-﻿# Night Vision Goggles
+# Night Vision Goggles
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesNightVisionGoggles
@@ -17,6 +17,7 @@
 - type: entity
   parent: ClothingEyesNightVisionGoggles
   id: ClothingEyesNightVisionGogglesSyndie
+  suffix: Chameleon
   components:
   - type: ChameleonClothing
     slot: [ eyes ]

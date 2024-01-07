@@ -71,12 +71,12 @@
 # Time mods -> at least 1 required
 - type: salvageTimeMod
   id: StandardTime
+  minDuration: 720
+  maxDuration: 900
 
 - type: salvageTimeMod
   id: RushTime
   desc: Rush
-  minDuration: 420
-  maxDuration: 465
   cost: 1
 
 # Misc mods

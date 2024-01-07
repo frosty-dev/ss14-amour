@@ -16,7 +16,7 @@
         <controls:MainViewport Name="MainViewport"/>
     </LayoutContainer>
     <BoxContainer Name="TopLeft" Access="Protected" Orientation="Vertical">
-        <BoxContainer Orientation="Horizontal">
+        <BoxContainer Orientation="Horizontal" VerticalAlignment="Bottom">
             <menuBar:GameTopMenuBar Name="TopBar" Access="Protected" />
             <!-- Buffer so big votes don't skew it -->
             <Control/>

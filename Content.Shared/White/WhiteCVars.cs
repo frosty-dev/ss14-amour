@@ -126,7 +126,7 @@ public sealed class WhiteCVars
     public static readonly CVarDef<bool> StalinEnabled =
         CVarDef.Create("stalin.enabled", false, CVar.SERVERONLY | CVar.ARCHIVE);
     public static readonly CVarDef<float> StalinDiscordMinimumAge =
-        CVarDef.Create("stalin.minimal_discord_age_minutes", 30.0f, CVar.SERVERONLY | CVar.ARCHIVE);
+        CVarDef.Create("stalin.minimal_discord_age_minutes", 1440.0f, CVar.SERVERONLY | CVar.ARCHIVE);
 
 
     /*
@@ -198,7 +198,7 @@ public sealed class WhiteCVars
         CVarDef.Create("white.chat_size_separated", "0.6;0", CVar.CLIENTONLY | CVar.ARCHIVE);
 
     public static readonly CVarDef<string> DefaultChatSize =
-        CVarDef.Create("white.chat_size_default", "300;500", CVar.CLIENTONLY | CVar.ARCHIVE);
+        CVarDef.Create("white.chat_size_default", "300;-500", CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
     * Chat GPT

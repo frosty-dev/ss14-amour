@@ -15,6 +15,8 @@ using Content.Shared.Item;
 using Content.Shared.Bed.Sleep;
 using System.Linq;
 using System.Numerics;
+using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Content.Server.Maps;
 using Content.Server.Revenant.Components;
 using Content.Shared.DoAfter;
@@ -25,6 +27,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Revenant.Components;
+using Content.Shared.Chemistry.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 
@@ -40,6 +43,7 @@ public sealed partial class RevenantSystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
     private void InitializeAbilities()
     {
@@ -305,6 +309,17 @@ public sealed partial class RevenantSystem
             return;
 
         args.Handled = true;
+
+        var targets = GetEntityQuery<BloodstreamComponent>();
+
+        foreach (var e in _lookup.GetEntitiesInRange(uid, component.BlightRadius))
+        {
+            if (!targets.TryGetComponent(e, out var comp))
+                continue;
+            var solution = new Solution("ChloralHydrate", FixedPoint2.New(15f));
+            _bloodstream.TryAddToChemicals(e, solution, comp);
+        }
+
         // TODO: When disease refactor is in.
     }
 

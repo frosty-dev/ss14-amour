@@ -98,8 +98,10 @@
   name: action-name-combat
   description: action-description-combat
   checkCanInteract: false
-  icon: Interface/Actions/harmOff.png
-  iconOn: Interface/Actions/harm.png
+  icon: Interface/Actions/intents.rsi/harmOff.png
+  iconOn:
+    sprite: Interface/Actions/intents.rsi
+    state: harm
   event: !type:ToggleCombatActionEvent
 
 - type: instantAction

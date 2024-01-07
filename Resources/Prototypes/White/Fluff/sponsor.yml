@@ -1,4 +1,4 @@
-﻿# DOOMMAX
+# DOOMMAX
 - type: loadout
   id: SuitGlamorousLoadout
   entity: ClothingOuterSuitGlamorous
@@ -207,11 +207,11 @@
   sponsorOnly: true
 
 - type: loadout
-  id: 6elbluGlovesLoadout
-  entity: ClothingHandsGlovesColorBlack
+  id: 6elbluOvercoatLoadout
+  entity: ClothingOuterStorage6elbluOvercoat
   sponsorOnly: true
-- type: loadout
 
+- type: loadout
   id: 6elbluBootsLoadout
   entity: ClothingShoesTourist
   sponsorOnly: true
@@ -374,3 +374,37 @@
   id: ForgPlushieRyan
   entity: PlushieRyanForg
   sponsorOnly: true
+
+# kreses
+- type: loadout
+  id: KresesGasMaskDeath
+  entity: KresesClothingMaskGasDeath
+  sponsorOnly: true
+
+- type: loadout
+  id: KresesJumpsuitDeath
+  entity: KresesClothingJumpsuitDeath
+  sponsorOnly: true
+
+- type: loadout
+  id: KresesBackpackDeath
+  entity: KresesClothingBackpackDeath
+
+# Reider207
+- type: loadout
+  id: Reider207Jacket
+  entity: ClothingOuterJacketReider207
+  sponsorOnly: true
+
+# egoruch17
+- type: loadout
+  id: Egoruch17Mask
+  entity: EgoruchClothingMaskHoly
+  sponsorOnly: true
+  whitelistJobs: [ AtmosphericTechnician, ChiefEngineer, SeniorEngineer, StationEngineer, TechnicalAssistant, Chaplain, ResearchDirector, SeniorResearcher, Scientist, ResearchAssistant ]
+
+- type: loadout
+  id: Egoruch17Mantle
+  entity: EgoruchClothingOuterMantle
+  sponsorOnly: true
+  whitelistJobs: [ AtmosphericTechnician, ChiefEngineer, SeniorEngineer, StationEngineer, TechnicalAssistant, Chaplain, ResearchDirector, SeniorResearcher, Scientist, ResearchAssistant ]

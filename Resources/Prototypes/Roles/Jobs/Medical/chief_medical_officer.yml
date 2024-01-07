@@ -26,6 +26,10 @@
   - Maintenance
   - Chemistry
   - ChiefMedicalOfficer
+  special:
+    - !type:GiveItemOnHolidaySpecial
+      holiday: NewYear
+      prototype: FestiveBox
 
 - type: startingGear
   id: CMOGear
