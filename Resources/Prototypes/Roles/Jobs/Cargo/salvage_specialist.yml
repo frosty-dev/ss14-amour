@@ -17,6 +17,10 @@
   - Salvage
   - Maintenance
   - External
+  special:
+    - !type:GiveItemOnHolidaySpecial
+      holiday: NewYear
+      prototype: FestiveBox
 
 - type: startingGear
   id: SalvageSpecialistGear

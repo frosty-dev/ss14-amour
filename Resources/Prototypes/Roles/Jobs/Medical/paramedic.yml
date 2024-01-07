@@ -18,6 +18,10 @@
   - External
   extendedAccess:
   - Chemistry
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: NewYear
+    prototype: FestiveBox
 
 - type: startingGear
   id: ParamedicGear

@@ -23,6 +23,10 @@
   - Command
   - Maintenance
   - ResearchDirector
+  special:
+    - !type:GiveItemOnHolidaySpecial
+      holiday: NewYear
+      prototype: FestiveBox
 
 - type: startingGear
   id: ResearchDirectorGear

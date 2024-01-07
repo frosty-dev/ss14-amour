@@ -97,3 +97,12 @@
       contents:
         - id: MindshieldImplanter
           amount: 5
+
+- type: entity
+  id: CrateSecurityBodyCamera
+  parent: CrateSecgear
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxBodyCamera
+          amount: 2
