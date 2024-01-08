@@ -83,5 +83,8 @@ namespace Content.Server.Temperature.Components
         ///     Used to keep track of when damage starts/stops. Useful for logs.
         /// </summary>
         public bool TakingDamage = false;
+
+        [DataField("slowdown"), ViewVariables(VVAccess.ReadWrite)]
+        public bool Slowdown = true;
     }
 }

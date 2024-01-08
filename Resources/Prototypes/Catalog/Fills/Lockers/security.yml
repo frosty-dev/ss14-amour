@@ -232,3 +232,13 @@
     contents:
     - id: WeaponLaserCarbine
       amount: 3
+
+- type: entity
+  parent: GunSafe
+  id: GunSafeTempGun
+  name: temperature gun safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponTempGun
+      amount: 3

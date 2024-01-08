@@ -79,6 +79,7 @@
       types:
         Heat: 1 #per second, scales with number of fire 'stacks'
   - type: Temperature
+    slowdown: false
     heatDamageThreshold: 360
     coldDamageThreshold: 0
     currentTemperature: 310.15
@@ -209,6 +210,7 @@
       types:
         Asphyxiation: -1.0
   - type: Temperature
+    slowdown: true
     heatDamageThreshold: 360
     coldDamageThreshold: 260
     currentTemperature: 310.15
