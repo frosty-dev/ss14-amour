@@ -58,7 +58,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetName>(OnSetName);
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetNetwork>(OnSetNetwork);
         SubscribeLocalEvent<SurveillanceCameraComponent, GetVerbsEvent<AlternativeVerb>>(AddVerbs);
-        
+
         SubscribeLocalEvent<SurveillanceCameraComponent, EmpPulseEvent>(OnEmpPulse);
         SubscribeLocalEvent<SurveillanceCameraComponent, EmpDisabledRemoved>(OnEmpDisabledRemoved);
     }
@@ -131,6 +131,11 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         if (!_actionBlocker.CanInteract(verbs.User, uid))
         {
             return;
+        }
+
+        if (TryComp<SurveillanceBodyCameraComponent>(uid, out var bodycamComp))
+        {
+            component.NameSet = false;
         }
 
         if (component.NameSet && component.NetworkSet)
