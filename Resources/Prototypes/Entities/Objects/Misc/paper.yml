@@ -471,15 +471,15 @@
 - type: entity
   name: lawyer's rubber stamp
   parent: BaseItem
-  id: RubberStampLawyer
+  id: RubberStampInspector
   description: A rubber stamp for stamping important documents.
   components:
   - type: Stamp
-    stampedName: stamp-component-stamped-name-lawyer
-    stampState: "paper_stamp-lawyer"
+    stampedName: stamp-component-stamped-name-inspector
+    stampState: "paper_stamp-inspector"
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
-    state: stamp-lawyer
+    state: stamp-inspector
   - type: Item
     size: 3
 

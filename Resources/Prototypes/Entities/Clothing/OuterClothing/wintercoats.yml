@@ -529,3 +529,14 @@
           Quantity: 20
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWeb
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterWinterInspector
+  name: inspector's winter coat
+  description: A heavy jacket made from 'synthetic' animal furs. Just warms, without pathos.
+  components:
+    - type: Sprite
+      sprite: Clothing/OuterClothing/WinterCoats/inspector.rsi
+    - type: Clothing
+      sprite: Clothing/OuterClothing/WinterCoats/inspector.rsi

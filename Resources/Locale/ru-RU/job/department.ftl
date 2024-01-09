@@ -7,3 +7,4 @@ department-Security = Служба безопасности
 department-Science = Научный отдел
 department-Specific = Особые для станции
 department-Silicon = Киборги
+department-Justice = Отдел юстиции

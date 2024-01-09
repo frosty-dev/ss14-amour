@@ -168,6 +168,9 @@
         },
         {
             "name": "SeniorSalvageSpecialist"
+        },
+        {
+            "name": "Inspector"
         }
     ]
 }

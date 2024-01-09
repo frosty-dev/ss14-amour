@@ -793,3 +793,41 @@
         Piercing: 0.9
         Heat: 0.9
         Laser: 0.9
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatInspector
+  name: inspector's hat
+  description: A strict inspector's cap. Let the crew fear you!
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Hats/inspector.rsi
+    - type: Clothing
+      sprite: Clothing/Head/Hats/inspector.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.95
+          Slash: 0.95
+          Piercing: 0.95
+          Heat: 0.95
+          Laser: 0.95
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadCapInspector
+  name: inspector's cap
+  description: A strict inspector's cap. Let the crew know that you are a dandy!
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Hats/inspectorcap.rsi
+    - type: Clothing
+      sprite: Clothing/Head/Hats/inspectorcap.rsi
+    - type: Armor
+      modifiers:
+        coefficients:
+          Blunt: 0.95
+          Slash: 0.95
+          Piercing: 0.95
+          Heat: 0.95
+          Laser: 0.95

@@ -243,6 +243,19 @@
         - id: ClothingOuterHardsuitCap
         - id: ClothingMaskGasCaptain
 
+#Inspector's hardsuit
+- type: entity
+  id: SuitStorageInspector
+  parent: SuitStorageBase
+  suffix: Inspector
+  components:
+    - type: StorageFill
+      contents:
+        - id: NitrogenTankFilled
+        - id: OxygenTankFilled
+        - id: ClothingOuterHardsuitInspector
+        - id: ClothingMaskInspector
+
 #Salvage hardsuit
 - type: entity
   id: SuitStorageSalv
