@@ -2,8 +2,8 @@
 using Content.Server.Administration;
 using Content.Server.GameTicking;
 using Content.Server.Mind.Components;
-using Content.Server.UtkaIntegration;
 using Content.Server.White.AspectsSystem.Base;
+using Content.Server.White.PandaSocket.Main;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.White;

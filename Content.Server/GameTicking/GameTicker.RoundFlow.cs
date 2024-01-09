@@ -18,7 +18,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
 using System.Threading.Tasks;
-using Content.Server.UtkaIntegration;
+using Content.Server.White.PandaSocket.Main;
 using Content.Server.White.Reputation;
 using Content.Server.White.Stalin;
 using Content.Shared.Database;
@@ -33,7 +33,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly ITaskManager _taskManager = default!;
 
         //WD-EDIT
-        [Dependency] private readonly UtkaTCPWrapper _utkaSocketWrapper = default!;
+        [Dependency] private readonly PandaWebManager _pandaWeb = default!;
         [Dependency] private readonly StalinManager _stalinManager = default!;
         [Dependency] private readonly ReputationSystem _repSys = default!;
         //WD-EDIT
@@ -534,7 +534,7 @@ namespace Content.Server.GameTicking
                 Message = status
             };
 
-            _utkaSocketWrapper.SendMessageToAll(utkaRoundStatusEvent);
+            _pandaWeb.SendBotMessage(utkaRoundStatusEvent);
 
         }
 

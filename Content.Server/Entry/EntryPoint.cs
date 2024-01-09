@@ -29,11 +29,11 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Server.Station.Systems;
-using Content.Server.UtkaIntegration;
 using Content.Server.White;
 using Content.Server.White.JobWhitelist;
 using Content.Server.White.JoinQueue;
 using Content.Server.White.Jukebox;
+using Content.Server.White.PandaSocket.Main;
 using Content.Server.White.Reputation;
 using Content.Server.White.Sponsors;
 using Content.Server.White.Stalin;
@@ -124,6 +124,8 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<StalinManager>().Initialize();
                 IoCManager.Resolve<ServerJukeboxSongsSyncManager>().Initialize();
                 IoCManager.Resolve<SalusManager>().Initialize();
+                IoCManager.Resolve<PandaStatusHost>().Start();
+                IoCManager.Resolve<PandaWebManager>().Initialize();
                 //WD-EDIT
 
                 _voteManager.Initialize();
@@ -166,8 +168,6 @@ namespace Content.Server.Entry
 
                 //WD-EDIT
                 IoCManager.Resolve<JobWhitelistManager>().Initialize();
-                IoCManager.Resolve<UtkaTCPWrapper>().Initialize();
-                UtkaTCPServer.RegisterCommands();
                 //WD-EDIT
 
             }

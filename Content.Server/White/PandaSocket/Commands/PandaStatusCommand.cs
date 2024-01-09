@@ -1,52 +1,45 @@
 ﻿using System.Linq;
-using System.Net;
 using Content.Server.Administration.Managers;
 using Content.Server.AlertLevel;
 using Content.Server.GameTicking;
 using Content.Server.Maps;
 using Content.Server.RoundEnd;
 using Content.Server.Station.Systems;
+using Content.Server.White.PandaSocket.Interfaces;
+using Content.Server.White.PandaSocket.Main;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
-using Robust.Shared.Enums;
 using Robust.Shared.Player;
 
-namespace Content.Server.UtkaIntegration;
+namespace Content.Server.White.PandaSocket.Commands;
 
-public sealed class UtkaStatusCommand : IUtkaCommand
+public sealed class PandaStatusCommand : IPandaCommand
 {
-    public string Name => "status";
-    public Type RequestMessageType => typeof(UtkaStatusRequsets);
-
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly UtkaTCPWrapper _utkaSocketWrapper = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IGameMapManager _gameMapManager = default!;
 
-    public void Execute(UtkaTCPSession session, UtkaBaseMessage baseMessage)
+    public string Name => "status";
+    public Type RequestMessageType => typeof(UtkaStatusRequest);
+    public void Execute(IPandaStatusHandlerContext context, PandaBaseMessage baseMessage)
     {
-        if(baseMessage is not UtkaStatusRequsets message) return;
+        if (baseMessage is not UtkaStatusRequest message) return;
+
         var _gameTicker = EntitySystem.Get<GameTicker>();
         var _roundEndSystem = EntitySystem.Get<RoundEndSystem>();
         var _station = EntitySystem.Get<StationSystem>();
+
         IoCManager.InjectDependencies(this);
 
         var players = Filter.GetAllPlayers().ToList().Count;
 
         var admins = _adminManager.ActiveAdmins.Select(x => x.Name).ToList().Count;
 
-        string shuttleData = string.Empty;
+        var shuttleData = string.Empty;
 
-        if (_roundEndSystem.ExpectedCountdownEnd == null)
-        {
-            shuttleData = "idle";
-        }
-        else
-        {
-            shuttleData = "called";
-        }
+        shuttleData = _roundEndSystem.ExpectedCountdownEnd == null ? "idle" : "called";
 
         var roundDuration = _gameTicker.RoundDuration().TotalSeconds;
 
@@ -59,7 +52,7 @@ public sealed class UtkaStatusCommand : IUtkaCommand
                 continue;
             }
 
-            if (alert is { CurrentLevel: { } })
+            if (alert is { CurrentLevel: not null })
             {
                 stationCode = alert.CurrentLevel;
 
@@ -78,6 +71,11 @@ public sealed class UtkaStatusCommand : IUtkaCommand
             StationCode = stationCode
         };
 
-        _utkaSocketWrapper.SendMessageToAll(toUtkaMessage);
+        Response(context, toUtkaMessage);
+    }
+
+    public void Response(IPandaStatusHandlerContext context, PandaBaseMessage? message = null)
+    {
+        context.RespondJsonAsync(message!);
     }
 }
