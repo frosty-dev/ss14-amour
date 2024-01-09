@@ -218,3 +218,24 @@
       coefficients:
         Heat: 0.95
   - type: GroupExamine
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesInspector
+  name: inspector's sunglasses
+  description: Inspector's sunglasses. The same as usual, but cooler.
+  components:
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/inspectorglasses.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/inspectorglasses.rsi
+    - type: FlashImmunity
+    - type: EyeProtection
+      protectionTime: 5
+    - type: Tag
+      tags:
+        - WhitelistChameleon
+    - type: ClothingGrantComponent
+      component:
+        - type: ShowJobInfo
+        - type: ShowMindShieldHud

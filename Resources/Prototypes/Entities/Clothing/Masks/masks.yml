@@ -492,3 +492,16 @@
   - type: AddAccentClothing
     accent: ReplacementAccent
     replacement: italian
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskInspector
+  name: inspector's gas mask
+  description: Inspector's personal gas mask. Used for intimidation or in emergency conditions.
+  components:
+    - type: Sprite
+      sprite: Clothing/Mask/inspector.rsi
+    - type: Clothing
+      sprite: Clothing/Mask/inspector.rsi
+    - type: BreathMask
+    - type: IdentityBlocker

@@ -150,3 +150,7 @@
 
 - type: playTimeTracker
   id: JobZookeeper
+
+# WHITE
+- type: playTimeTracker
+  id: JobInspector
