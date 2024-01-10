@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 using Content.Server.Database;
 using Content.Shared.Players;
 using Content.Server.GameTicking;
-using Content.Server.UtkaIntegration;
 using Content.Server.White;
+using Content.Server.White.PandaSocket.Interfaces;
+using Content.Server.White.PandaSocket.Main;
 using Content.Shared.CCVar;
 using Content.Shared.Roles;
 using Robust.Server.Player;
@@ -27,7 +28,7 @@ public sealed class RoleBanManager
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IPlayerLocator _playerLocator = default!;
-    [Dependency] private readonly UtkaTCPWrapper _utkaSockets = default!; // WD
+    [Dependency] private readonly PandaWebManager _pandaWeb = default!; // WD
     [Dependency] private readonly IEntityManager _entMan = default!; // WD
 
     private const string JobPrefix = "Job:";
@@ -154,12 +155,13 @@ public sealed class RoleBanManager
     }
 
     //WD start
-    public async void UtkaCreateDepartmentBan(string admin, string target, DepartmentPrototype department, string reason, uint minutes, bool isGlobalBan)
+    public async void UtkaCreateDepartmentBan(string admin, string target, DepartmentPrototype department, string reason, uint minutes, bool isGlobalBan,
+        IPandaStatusHandlerContext context)
     {
         var located = await _playerLocator.LookupIdByNameOrIdAsync(target);
         if (located == null)
         {
-            UtkaSendResponse(false);
+            UtkaSendResponse(false, context);
             return;
         }
 
@@ -195,12 +197,12 @@ public sealed class RoleBanManager
         var locatedPlayer = await _playerLocator.LookupIdByNameOrIdAsync(admin);
         if (locatedPlayer == null)
         {
-            UtkaSendResponse(false);
+            UtkaSendResponse(false, context);
             return;
         }
         var player = locatedPlayer.UserId;
 
-        UtkaSendResponse(true);
+        UtkaSendResponse(true, context);
 
         foreach (var job in department.Roles)
         {
@@ -230,11 +232,12 @@ public sealed class RoleBanManager
         SendRoleBans(located);
     }
 
-    public async void UtkaCreateJobBan(string admin, string target, string job, string reason, uint minutes, bool isGlobalBan)
+    public async void UtkaCreateJobBan(string admin, string target, string job, string reason, uint minutes, bool isGlobalBan,
+        IPandaStatusHandlerContext context)
     {
         if (!_prototypeManager.TryIndex<JobPrototype>(job, out _))
         {
-            UtkaSendResponse(false);
+            UtkaSendResponse(false, context);
             return;
         }
 
@@ -243,7 +246,7 @@ public sealed class RoleBanManager
         var located = await _playerLocator.LookupIdByNameOrIdAsync(target);
         if (located == null)
         {
-            UtkaSendResponse(false);
+            UtkaSendResponse(false, context);
             return;
         }
 
@@ -279,7 +282,7 @@ public sealed class RoleBanManager
         var locatedPlayer = await _playerLocator.LookupIdByNameOrIdAsync(admin);
         if (locatedPlayer == null)
         {
-            UtkaSendResponse(false);
+            UtkaSendResponse(false, context);
             return;
         }
 
@@ -299,14 +302,14 @@ public sealed class RoleBanManager
 
         if (!await AddRoleBan(banDef))
         {
-            UtkaSendResponse(false);
+            UtkaSendResponse(false, context);
             return;
         }
 
         var banId = await UtkaGetBanId(reason, role, targetUid);
 
         UtkaSendJobBanEvent(admin, target, minutes, job, isGlobalBan, reason, banId);
-        UtkaSendResponse(true);
+        UtkaSendResponse(true, context);
 
         SendRoleBans(located);
     }
@@ -387,14 +390,14 @@ public sealed class RoleBanManager
     #endregion
 
     //WD start
-    private void UtkaSendResponse(bool banned)
+    private void UtkaSendResponse(bool banned, IPandaStatusHandlerContext context)
     {
         var utkaBanned = new UtkaJobBanResponse()
         {
             Banned = banned
         };
 
-        _utkaSockets.SendMessageToAll(utkaBanned);
+        context.RespondJsonAsync(utkaBanned);
     }
 
     private async void UtkaSendJobBanEvent(string ackey, string ckey, uint duration, string job, bool global,
@@ -417,7 +420,7 @@ public sealed class RoleBanManager
             BanId = banId
         };
 
-        _utkaSockets.SendMessageToAll(utkaBanned);
+        _pandaWeb.SendBotMessage(utkaBanned);
         _entMan.EventBus.RaiseEvent(EventSource.Local, utkaBanned);
     }
 

@@ -21,11 +21,11 @@ using Content.Server.ServerInfo;
 using Content.Server.ServerUpdates;
 using Content.Server.Voting.Managers;
 using Content.Server.Worldgen.Tools;
-using Content.Server.UtkaIntegration;
 using Content.Server.White;
 using Content.Server.White.JobWhitelist;
 using Content.Server.White.JoinQueue;
 using Content.Server.White.Jukebox;
+using Content.Server.White.PandaSocket.Main;
 using Content.Server.White.Reputation;
 using Content.Server.White.Sponsors;
 using Content.Server.White.Stalin;
@@ -75,12 +75,13 @@ namespace Content.Server.IoC
             IoCManager.Register<JobWhitelistManager>();
             IoCManager.Register<SponsorsManager>();
             IoCManager.Register<JoinQueueManager>();
-            IoCManager.Register<UtkaTCPWrapper>();
             IoCManager.Register<TTSManager>();
             IoCManager.Register<StalinManager>();
             IoCManager.Register<ServerJukeboxSongsSyncManager>();
             IoCManager.Register<SalusManager>();
             IoCManager.Register<ReputationManager>();
+            IoCManager.Register<PandaStatusHost>();
+            IoCManager.Register<PandaWebManager>();
             // WD-EDIT
         }
     }
