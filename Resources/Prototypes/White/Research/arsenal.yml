@@ -5,7 +5,7 @@
     sprite: White/Objects/Weapons/Guns/Battery/tempgun.rsi
     state: icon
   discipline: Arsenal
-  tier: 1
-  cost: 5000
+  tier: 2
+  cost: 7500
   recipeUnlocks:
   - WeaponTempGun
