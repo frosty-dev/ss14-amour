@@ -5668,3 +5668,9 @@ Entries:
     type: Add
   id: 469
   time: '2024-01-09T12:54:17.0000000+00:00'
+- author: Aviu
+  changes:
+  - message: Eshield no longer blocks damage while inactive.
+    type: Fix
+  id: 470
+  time: '2024-01-19T17:20:22.0000000+00:00'
