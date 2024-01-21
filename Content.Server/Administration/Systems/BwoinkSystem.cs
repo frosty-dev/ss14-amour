@@ -588,7 +588,7 @@ namespace Content.Server.Administration.Systems
                 Entity = entity
             };
 
-            _pandaWeb.SendBotMessage(utkaAhelpEvent);
+            _pandaWeb.SendBotPostMessage(utkaAhelpEvent);
         }
         //WD-EDIT
 
