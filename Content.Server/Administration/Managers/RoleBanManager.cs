@@ -420,7 +420,7 @@ public sealed class RoleBanManager
             BanId = banId
         };
 
-        _pandaWeb.SendBotMessage(utkaBanned);
+        _pandaWeb.SendBotPostMessage(utkaBanned);
         _entMan.EventBus.RaiseEvent(EventSource.Local, utkaBanned);
     }
 
