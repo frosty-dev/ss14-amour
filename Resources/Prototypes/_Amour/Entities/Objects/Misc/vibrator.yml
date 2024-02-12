@@ -1,0 +1,92 @@
+﻿- type: entity
+  parent: BaseItem
+  id: DildoHuman
+  name: dildo
+  description: Dildo goes br-r-r-r.
+  components:
+  - type: Sprite
+    sprite: _Amour/Items/Misc/dildo.rsi
+    state: dildo_human
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: dildo_human-inhand-left
+      right:
+      - state: dildo_human-inhand-right
+  - type: DeviceLinkSink
+    ports:
+    - Toggle
+  - type: Vibrator
+  - type: UseDelay
+    delay: 2.0
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 2
+  - type: StaticPrice
+    price: 25
+
+- type: entity
+  parent: DildoHuman
+  id: DildoAvian
+  components:
+  - type: Sprite
+    state: dildo_avian
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: dildo_avian-inhand-left
+      right:
+      - state: dildo_avian-inhand-right
+
+- type: entity
+  parent: DildoHuman
+  id: DildoDragon
+  components:
+  - type: Sprite
+    state: dildo_dragon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: dildo_dragon-inhand-left
+      right:
+      - state: dildo_dragon-inhand-right
+
+- type: entity
+  parent: DildoHuman
+  id: DildoCanine
+  components:
+  - type: Sprite
+    state: dildo_canine
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: dildo_canine-inhand-left
+      right:
+      - state: dildo_canine-inhand-right
+
+- type: entity
+  parent: DildoHuman
+  id: DildoEquine
+  components:
+  - type: Sprite
+    state: dildo_equine
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: dildo_equine-inhand-left
+      right:
+      - state: dildo_equine-inhand-right
+
+- type: entity
+  parent: DildoHuman
+  id: DildoTentacle
+  components:
+  - type: Sprite
+    state: dildo_tentacle
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: dildo_tentacle-inhand-left
+      right:
+      - state: dildo_tentacle-inhand-right
