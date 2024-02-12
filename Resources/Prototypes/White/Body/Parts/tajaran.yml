@@ -69,7 +69,7 @@
   components:
   - type: Sprite
     sprite: White/Mobs/Species/Tajaran/parts.rsi
-    state: "l_hand_m"
+    state: "l_arm_m"
 
 - type: entity
   id: RightHandTajaran
@@ -78,7 +78,7 @@
   components:
   - type: Sprite
     sprite: White/Mobs/Species/Tajaran/parts.rsi
-    state: "r_hand_m"
+    state: "r_arm_m"
 
 - type: entity
   id: LeftLegTajaran
@@ -107,7 +107,7 @@
   components:
   - type: Sprite
     sprite: White/Mobs/Species/Tajaran/parts.rsi
-    state: "l_foot_m"
+    state: "l_leg_m"
 
 - type: entity
   id: RightFootTajaran
@@ -116,4 +116,4 @@
   components:
   - type: Sprite
     sprite: White/Mobs/Species/Tajaran/parts.rsi
-    state: "r_foot_m"
+    state: "r_leg_m"
