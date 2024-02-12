@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA 3.0",
+  "copyright": "https://github.com/ParadiseSS13/Paradise/tree/ed08e46fea6734b6237b97b10183c20e397542d0/icons/mob/sprite_accessories/vulpkanin",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "foxbelly_s",
+      "directions": 4
+    },
+    {
+      "name": "bellycrest_s",
+      "directions": 4
+    },
+    {
+      "name": "fullbelly_s",
+      "directions": 4
+    },
+    {
+      "name": "pointsfade_s",
+      "directions": 4
+    },
+    {
+      "name": "pointsfadebelly_s",
+      "directions": 4
+    },
+    {
+      "name": "sharppoints_s",
+      "directions": 4
+    },
+    {
+      "name": "crestpoints_s",
+      "directions": 4
+    },
+    {
+      "name": "altpointsfadebelly_s",
+      "directions": 4
+    }
+  ]
+}

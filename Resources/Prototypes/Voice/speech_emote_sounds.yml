@@ -26,6 +26,11 @@
       collection: Snores
     Honk:
       collection: BikeHorn
+    Moan:
+      collection: MoanMale
+    Awo:
+      collection: AwoMale
+
 
 - type: emoteSounds
   id: FemaleHuman
@@ -54,6 +59,82 @@
       collection: Snores
     Honk:
       collection: CluwneHorn
+    Moan:
+      collection: MoanFemale
+    Awo:
+      collection: Awo
+
+- type: emoteSounds
+  id: MaleVulpkanin
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: MaleScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Moan:
+      collection: MoanMale
+    Barking:
+      collection: Barking
+    Yapping:
+      collection: Yapping
+    Awo:
+      collection: AwoMale
+
+- type: emoteSounds
+  id: FemaleVulpkanin
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      collection: FemaleScreams
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: CluwneHorn
+    Moan:
+      collection: MoanFemale
+    Awo:
+      collection: Awo
+    Barking:
+      collection: Barking
+    Yapping:
+      collection: Yapping
 
 - type: emoteSounds
   id: MaleFelinid
@@ -90,6 +171,8 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
+    Moan:
+      collection: MoanMale
 
 - type: emoteSounds
   id: FemaleFelinid
@@ -124,6 +207,8 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
+    Moan:
+      collection: MoanFemale
 
 - type: emoteSounds
   id: SoundsHarpy
@@ -178,6 +263,10 @@
       collection: HarpyCaws
     Chirp:
       collection: HarpyChirps
+    Awo:
+      collection: Awo
+    Moan:
+      collection: HarpyMoan
 
 
 - type: emoteSounds
@@ -191,6 +280,8 @@
       path: /Audio/Animals/lizard_happy.ogg
     Honk:
       collection: BikeHorn
+    Moan:
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
 
 - type: emoteSounds
   id: MaleSlime
@@ -297,6 +388,8 @@
       path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
     Click:
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
+    Moan:
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
 
 - type: emoteSounds
   id: UnisexDwarf
@@ -325,6 +418,8 @@
       collection: MaleSigh
     Honk:
       collection: BikeHorn
+    Moan:
+      collection: MoanMale
   params:
     variation: 0.125
     pitch: 0.75
@@ -356,6 +451,8 @@
       collection: FemaleSigh
     Honk:
       collection: BikeHorn
+    Moan:
+      collection: MoanFemale
   params:
     variation: 0.125
     pitch: 0.75

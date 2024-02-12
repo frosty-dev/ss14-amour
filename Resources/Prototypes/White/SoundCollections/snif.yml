@@ -1,0 +1,7 @@
+- type: soundCollection
+  id: Sniff
+  files:
+    - /Audio/White/Interactions/Sniffing/snif1.ogg
+    - /Audio/White/Interactions/Sniffing/snif2.ogg
+    - /Audio/White/Interactions/Sniffing/snif3.ogg
+    - /Audio/White/Interactions/Sniffing/snif4.ogg

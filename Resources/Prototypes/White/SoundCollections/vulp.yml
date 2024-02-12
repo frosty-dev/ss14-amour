@@ -1,0 +1,12 @@
+- type: soundCollection
+  id: Yapping
+  files:
+    - /Audio/White/Voice/Yapping/yapping1.ogg
+    - /Audio/White/Voice/Yapping/yapping2.ogg
+
+- type: soundCollection
+  id: Barking
+  files:
+    - /Audio/White/Voice/Barking/bark1.ogg
+    - /Audio/White/Voice/Barking/bark2.ogg
+    - /Audio/White/Voice/Barking/bark3.ogg

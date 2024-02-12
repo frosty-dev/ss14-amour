@@ -1,0 +1,67 @@
+﻿- type: entity
+  save: false
+  name: Urist McSobaka
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobVulpkanin
+  abstract: true
+  components:
+  - type: Icon
+    sprite: White/Mobs/Species/Vulpkanin/parts.rsi
+    state: preview
+  - type: Body
+    prototype: Vulpkanin
+    requiredLegs: 2 # It would be funny if arachnids could use their little back limbs to move around once they lose their legs, but just something to consider post-woundmed
+  - type: HumanoidAppearance
+    species: Vulpkanin
+  - type: Hunger
+  - type: Thirst
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - SpiderCraft
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 2
+        Slash: 6
+  - type: Speech
+    speechSounds: Alto
+  - type: Vocal
+    sounds:
+      Male: MaleVulpkanin
+      Female: FemaleVulpkanin
+      Unsexed: MaleVulpkanin
+  - type: VulpAccent
+  - type: Felinid #since this just adds an action...
+  - type: SelfHeal
+    damageContainers:
+    - Biological
+    damage:
+      types:
+        Slash: -0.4
+        Piercing: -0.4
+    disallowedClothingUser:
+    - mask
+    disallowedClothingTarget:
+    - jumpsuit
+    - outerClothing
+    healingSound:
+      path: "/Audio/White/Felinid/lick.ogg"
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobVulpkaninDummy
+  noSpawn: true
+  components:
+  - type: HumanoidAppearance
+    species: Vulpkanin

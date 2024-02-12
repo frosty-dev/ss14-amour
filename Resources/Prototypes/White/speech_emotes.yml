@@ -1,0 +1,44 @@
+﻿- type: emote
+  id: Awo
+  category: Vocal
+  buttonText: Авукать
+  chatMessages: [ авукает ]
+  chatTriggers:
+  - авукает
+  - увукает
+
+- type: emote
+  id: Moan
+  category: Vocal
+  buttonText: Стонать
+  chatMessages: [ стонет ]
+  chatTriggers:
+  - стонает
+  - стонет
+  - простонала
+  - простонал
+  - ах
+  - ох
+
+- type: emote
+  id: Barking
+  category: Vocal
+  buttonText: Гавкать
+  chatMessages: [ гавкает ]
+  chatTriggers:
+  - гавкает
+  - гав
+  - гавкать
+  - гав-гав
+  - лает
+
+- type: emote
+  id: Yapping
+  category: Vocal
+  buttonText: Тявкать
+  chatMessages: [ тявкает ]
+  chatTriggers:
+  - тявкает
+  - тяв
+  - тявкать
+  - тяв-тяв
