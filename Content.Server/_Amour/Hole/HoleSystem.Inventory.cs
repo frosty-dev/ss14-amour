@@ -7,7 +7,8 @@ namespace Content.Server._Amour.Hole;
 public sealed partial class HoleSystem
 {
     [Dependency] private readonly ContainerSystem _container = default!;
-    public void InitializeInventory()
+
+    private void InitializeInventory()
     {
         SubscribeLocalEvent<HoleInventoryComponent,ComponentInit>(OnInventoryInit);
     }

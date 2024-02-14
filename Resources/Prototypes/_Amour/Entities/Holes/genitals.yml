@@ -1,15 +1,22 @@
 ﻿- type: entity
   id: BaseDick
+  abstract: true
   name: Чилен
   components:
   - type: Hole
     holeType: Father
-    frontLayer:
-    - state: penis_thick_4_1_FRONT
-      sprite: _Amour/Genitals/penis.rsi
-    behindLayer:
-    - state: penis_thick_4_1_BEHIND
-      sprite: _Amour/Genitals/penis.rsi
+    holeName: Dick
+    holeNotVisibleIn:
+    - suitstorage
+    - outerClothing
+    - jumpsuit
+    - underwearb
+    sprite: _Amour/Genitals/penis.rsi
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: "_BEHIND"
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: "_FRONT"
   - type: HoleSolution
   - type: HoleInventory
     size: Tiny
@@ -17,35 +24,63 @@
 
 - type: entity
   id: BaseVagina
+  abstract: true
   name: Пизда
   components:
   - type: Hole
     holeType: Mother
+    holeName: Vagina
+    holeNotVisibleIn:
+    - suitstorage
+    - outerClothing
+    - jumpsuit
+    - underwearb
+    sprite: _Amour/Genitals/butt.rsi
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.VaginaBehind"
+      prefix: "_BEHIND"
+    - layer: "enum.GenitalVisualLayers.VaginaFront"
+      prefix: "_FRONT"
   - type: HoleSolution
   - type: HoleInventory
 
 - type: entity
   id: BaseButt
+  abstract: true
   name: Очко
   components:
   - type: Hole
     holeType: Mother
-    frontLayer:
-    - state: butt_pair_3_s_0_FRONT
-      sprite: _Amour/Genitals/butt.rsi
+    holeName: Anus
+    holeNotVisibleIn:
+    - suitstorage
+    - outerClothing
+    - jumpsuit
+    - underwearb
+    sprite: _Amour/Genitals/butt.rsi
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.ButtFront"
+      prefix: "_FRONT"
   - type: HoleInventory
 
 - type: entity
   id: BaseBreast
+  abstract: true
   name: Сиськи
   components:
   - type: Hole
-    frontLayer:
-    - state: breasts_pair_i_s_0_FRONT
-      sprite: _Amour/Genitals/breasts.rsi
-    behindLayer:
-    - state: breasts_pair_i_s_0_BEHIND
-      sprite: _Amour/Genitals/breasts.rsi
+    holeName: Breast
+    holeNotVisibleIn:
+    - suitstorage
+    - outerClothing
+    - jumpsuit
+    - underweart
+    sprite: _Amour/Genitals/breasts.rsi
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: "_BEHIND"
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: "_FRONT"
   - type: HoleInventory
 
 - type: entity
@@ -53,6 +88,51 @@
   name: Яички
   components:
   - type: Hole
-    frontLayer:
-    - state: testicles_single_5_s_1_FRONT
-      sprite: _Amour/Genitals/testicles.rsi
+    holeName: Dick
+    holeNotVisibleIn:
+    - suitstorage
+    - outerClothing
+    - jumpsuit
+    - underwearb
+    sprite: _Amour/Genitals/testicles.rsi
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesBehind"
+      prefix: "_BEHIND"
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+
+- type: entity
+  parent: BaseDick
+  id: Dick
+  components:
+  - type: Hole
+    layers:
+    - state: penis_thick_4_1
+
+- type: entity
+  parent: BaseButt
+  id: Butt
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_3_s_0
+
+- type: entity
+  parent: BaseBreast
+  id: Breast
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_huge_s_0
+
+- type: entity
+  parent: BaseTesticles
+  id: Testicles
+  components:
+  - type: Hole
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+    layers:
+    - state: testicles_sheath_5_s_0

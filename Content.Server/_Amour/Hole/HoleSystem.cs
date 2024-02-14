@@ -12,14 +12,8 @@ public sealed partial class HoleSystem : SharedHoleSystem
 
     public override void Initialize()
     {
-        InitializeContainer();
+        base.Initialize();
         InitializeInventory();
-        SubscribeLocalEvent<HoleComponent,EntGotInsertedIntoContainerMessage>(OnInsert);
-    }
-
-    private void OnInsert(EntityUid uid, HoleComponent component, EntGotInsertedIntoContainerMessage args)
-    {
-        component.Parent = GetNetEntity(args.Container.Owner);
     }
 
     public override void Update(float frameTime)

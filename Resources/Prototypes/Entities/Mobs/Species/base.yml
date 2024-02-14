@@ -9,6 +9,13 @@
   components:
   - type: Sprite
     layers:
+    # START AMOUR EDIT
+    - map: [ "enum.GenitalVisualLayers.ButtBehind"]
+    - map: [ "enum.GenitalVisualLayers.BreastBehind"]
+    - map: [ "enum.GenitalVisualLayers.VaginaBehind"]
+    - map: [ "enum.GenitalVisualLayers.TesticlesBehind"]
+    - map: [ "enum.GenitalVisualLayers.DickBehind"]
+    # END AMOUR EDIT
     - map: [ "enum.HumanoidVisualLayers.Chest" ]
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
@@ -35,6 +42,13 @@
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
+    # START AMOUR EDIT
+    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+    - map: [ "enum.GenitalVisualLayers.BreastFront" ]
+    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+    - map: [ "enum.GenitalVisualLayers.DickFront" ]
+    # END AMOUR EDIT
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]

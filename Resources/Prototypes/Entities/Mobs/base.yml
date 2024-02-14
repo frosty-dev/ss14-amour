@@ -43,11 +43,6 @@
   - type: MovementSpeedModifier
   - type: Polymorphable
   - type: StatusIcon
-  - type: HoleContainer
-    holePrototypes:
-    - BaseDick
-    - BaseBreast
-    - BaseButt
 
 # Used for mobs that have health and can take damage.
 - type: entity
