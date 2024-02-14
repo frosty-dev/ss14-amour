@@ -1,0 +1,58 @@
+﻿- type: entity
+  id: BaseDick
+  name: Чилен
+  components:
+  - type: Hole
+    holeType: Father
+    frontLayer:
+    - state: penis_thick_4_1_FRONT
+      sprite: _Amour/Genitals/penis.rsi
+    behindLayer:
+    - state: penis_thick_4_1_BEHIND
+      sprite: _Amour/Genitals/penis.rsi
+  - type: HoleSolution
+  - type: HoleInventory
+    size: Tiny
+    maxSize: Small
+
+- type: entity
+  id: BaseVagina
+  name: Пизда
+  components:
+  - type: Hole
+    holeType: Mother
+  - type: HoleSolution
+  - type: HoleInventory
+
+- type: entity
+  id: BaseButt
+  name: Очко
+  components:
+  - type: Hole
+    holeType: Mother
+    frontLayer:
+    - state: butt_pair_3_s_0_FRONT
+      sprite: _Amour/Genitals/butt.rsi
+  - type: HoleInventory
+
+- type: entity
+  id: BaseBreast
+  name: Сиськи
+  components:
+  - type: Hole
+    frontLayer:
+    - state: breasts_pair_i_s_0_FRONT
+      sprite: _Amour/Genitals/breasts.rsi
+    behindLayer:
+    - state: breasts_pair_i_s_0_BEHIND
+      sprite: _Amour/Genitals/breasts.rsi
+  - type: HoleInventory
+
+- type: entity
+  id: BaseTesticles
+  name: Яички
+  components:
+  - type: Hole
+    frontLayer:
+    - state: testicles_single_5_s_1_FRONT
+      sprite: _Amour/Genitals/testicles.rsi

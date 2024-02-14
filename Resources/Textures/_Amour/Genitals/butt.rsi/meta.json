@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "asd",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "butt_pair_0_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "butt_pair_1_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "butt_pair_2_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "butt_pair_3_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "butt_pair_4_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "butt_pair_5_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "butt_pair_0_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "butt_pair_1_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "butt_pair_2_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "butt_pair_3_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "butt_pair_4_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "butt_pair_5_0_FRONT",
+      "directions": 4
+    }
+  ]
+}

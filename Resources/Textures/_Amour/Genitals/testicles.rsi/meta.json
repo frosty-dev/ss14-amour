@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "sss",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "testicles_single_1_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_2_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_3_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_1_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_1_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_1_1_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_2_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_2_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_2_1_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_3_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_3_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_3_1_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_hidden_1_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_hidden_1_1_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_hidden_2_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_hidden_2_1_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_hidden_3_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_hidden_3_1_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_1_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_1_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_2_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_2_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_3_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_3_s_0_BEHIND",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_1_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_1_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_2_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_2_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_3_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_4_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_4_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_5_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_5_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_4_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_4_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_5_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_5_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_3_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_4_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_4_s_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_5_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_single_5_s_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_1_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_1_s_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_2_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_2_s_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_3_s_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_3_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_4_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_4_s_1_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_5_s_0_FRONT",
+      "directions": 4
+    },
+    {
+      "name": "testicles_sheath_5_s_1_FRONT",
+      "directions": 4
+    }
+  ]
+}
