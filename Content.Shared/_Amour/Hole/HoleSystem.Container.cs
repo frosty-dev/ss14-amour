@@ -6,6 +6,7 @@ namespace Content.Shared._Amour.Hole;
 public abstract partial class SharedHoleSystem
 {
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     public void InitializeContainer()
     {
         SubscribeLocalEvent<HoleContainerComponent,ComponentInit>(OnContainerInit);
@@ -20,13 +21,26 @@ public abstract partial class SharedHoleSystem
         }
     }
 
-    public void AddHole(Entity<HoleContainerComponent?> entity, EntProtoId protoId)
+    public void AddHole(Entity<HoleContainerComponent?> entity, EntProtoId protoId, Color? color = null)
     {
-        if (!Resolve(entity.Owner, ref entity.Comp))
+        if (!_prototypeManager.TryIndex<EntityPrototype>(protoId, out _))
+        {
+            Log.Error(protoId + " NOT EXIST YOU BASTARD!");
             return;
-        //entity.Comp = EnsureComp<HoleContainerComponent>(entity.Owner);
+        }
+        if (!Resolve(entity.Owner, ref entity.Comp,logMissing:false))
+           entity.Comp = EnsureComp<HoleContainerComponent>(entity.Owner);
+
+        var spawned = Spawn(protoId);
+        if (!TryComp<HoleComponent>(spawned, out var component))
+        {
+            QueueDel(spawned);
+            return;
+        }
 
         Log.Debug("ADDED " + protoId);
-        _containerSystem.Insert(Spawn(protoId), entity.Comp.Slot);
+        component.Layers[0].Color = color;
+
+        _containerSystem.Insert(spawned, entity.Comp.Slot);
     }
 }

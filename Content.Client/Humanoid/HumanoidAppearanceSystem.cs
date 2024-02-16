@@ -1,3 +1,4 @@
+using Content.Client._Amour.Hole;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -12,6 +13,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
+    [Dependency] private readonly HoleSystem _holeSystem = default!;
 
     public override void Initialize()
     {
@@ -194,6 +196,13 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoid.Species = profile.Species;
         humanoid.SkinColor = profile.Appearance.SkinColor;
         humanoid.EyeColor = profile.Appearance.EyeColor;
+
+        //AMOUR
+        foreach (var genitals in profile.Appearance.Genitals)
+        {
+            Log.Debug("CHLEN! " + genitals.GenitalId);
+            _holeSystem.AddHole(uid,genitals.GenitalId,genitals.Color);
+        }
 
         UpdateSprite(humanoid, Comp<SpriteComponent>(uid));
     }

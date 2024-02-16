@@ -1,0 +1,8 @@
+﻿<humanoidProfileEditorExt:GenitalBoxView
+    xmlns="https://spacestation14.io"
+    xmlns:humanoidProfileEditorExt="clr-namespace:Content.Client._Amour.HumanoidProfileEditorExt">
+    <BoxContainer Orientation="Vertical">
+        <Label Text="{Loc 'genitals-group'}"/>
+        <BoxContainer Name="Container" Orientation="Vertical"></BoxContainer>
+    </BoxContainer>
+</humanoidProfileEditorExt:GenitalBoxView>

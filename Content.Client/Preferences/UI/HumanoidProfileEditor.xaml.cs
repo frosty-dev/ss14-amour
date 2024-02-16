@@ -211,6 +211,12 @@ namespace Content.Client.Preferences.UI
             #endregion
             //TTS-End
 
+            //AMOUR START
+            #region Genitals
+            InitializeGenitals();
+            #endregion
+            //AMOUR END
+
             #region Species
 
             //WD EDIT
@@ -1238,6 +1244,10 @@ namespace Content.Client.Preferences.UI
             //WD-EDIT
             UpdateTTSVoicesControls();
             //WD-EDIT
+
+            //Amour edit
+            UpdateGenitalsControls();
+            //Amour edit
 
             _preferenceUnavailableButton.SelectId((int) Profile.PreferenceUnavailable);
         }

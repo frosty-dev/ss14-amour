@@ -1,0 +1,192 @@
+﻿- type: entity
+  parent: BaseVagina
+  id: VaginaCloaca10
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_cloaca_1_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaCloaca11
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_cloaca_1_1
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaDentata10
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_dentata_1_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaDentata11
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_dentata_1_1
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaDentata1S0
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_dentata_1_s_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaDentata1S1
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_dentata_1_s_1
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaFurred10
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_furred_1_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaFurred1S0
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_furred_1_s_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaGaping10
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_gaping_1_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaGaping11
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_gaping_1_1
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaGaping1S0
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_gaping_1_s_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaGaping1S1
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_gaping_1_s_1
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaHairy10
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_hairy_1_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaHairy1S0
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_hairy_1_s_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaHuman10
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_human_1_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaHuman11
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_human_1_1
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaHuman1S0
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_human_1_s_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaHuman1S1
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_human_1_s_1
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaSpade10
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_spade_1_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaSpade1S0
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_spade_1_s_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaTentacle10
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_tentacle_1_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaTentacle11
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_tentacle_1_1
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaTentacle1S0
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_tentacle_1_s_0
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaTentacle1S1
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_tentacle_1_s_1
+

@@ -1,0 +1,101 @@
+﻿- type: entity
+  id: BaseDick
+  abstract: true
+  name: Член
+  components:
+  - type: Hole
+    holeType: Father
+    holeName: Dick
+    holeNotVisibleIn:
+    - suitstorage
+    - outerClothing
+    - jumpsuit
+    - underwearb
+    sprite: _Amour/Genitals/penis.rsi
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: "_BEHIND"
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: "_FRONT"
+  - type: HoleSolution
+  - type: HoleInventory
+    size: Tiny
+    maxSize: Small
+
+- type: entity
+  id: BaseVagina
+  abstract: true
+  name: Пизда
+  components:
+  - type: Hole
+    holeType: Mother
+    holeName: Vagina
+    holeNotVisibleIn:
+    - suitstorage
+    - outerClothing
+    - jumpsuit
+    - underwearb
+    sprite: _Amour/Genitals/vagina.rsi
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickFront" #Hmm
+      prefix: "_FRONT"
+  - type: HoleSolution
+  - type: HoleInventory
+
+- type: entity
+  id: BaseButt
+  abstract: true
+  name: Попа
+  components:
+  - type: Hole
+    holeType: Mother
+    holeName: Anus
+    holeNotVisibleIn:
+    - suitstorage
+    - outerClothing
+    - jumpsuit
+    - underwearb
+    sprite: _Amour/Genitals/butt.rsi
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.ButtFront"
+      prefix: "_FRONT"
+  - type: HoleInventory
+
+- type: entity
+  id: BaseBreast
+  abstract: true
+  name: Сиськи
+  components:
+  - type: Hole
+    holeName: Breast
+    holeNotVisibleIn:
+    - suitstorage
+    - outerClothing
+    - jumpsuit
+    - underweart
+    sprite: _Amour/Genitals/breasts.rsi
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: "_BEHIND"
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: "_FRONT"
+  - type: HoleSolution
+  - type: HoleInventory
+
+- type: entity
+  id: BaseTesticles
+  name: Яички
+  components:
+  - type: Hole
+    holeName: Dick
+    holeNotVisibleIn:
+    - suitstorage
+    - outerClothing
+    - jumpsuit
+    - underwearb
+    sprite: _Amour/Genitals/testicles.rsi
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesBehind"
+      prefix: "_BEHIND"
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"

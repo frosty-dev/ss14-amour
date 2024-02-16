@@ -1,0 +1,380 @@
+﻿- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath10
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_1_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath11
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_1_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath1S0
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_1_s_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath1S1
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_1_s_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath20
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_2_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath21
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_2_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath2S0
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_2_s_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath2S1
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_2_s_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath30
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_3_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath31
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_3_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath3S0
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_3_s_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath3S1
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_3_s_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath40
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_4_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath41
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_4_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath4S0
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_4_s_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath4S1
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_4_s_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath50
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_5_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath51
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_5_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath5S0
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_5_s_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath5S1
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_5_s_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle10
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_1_0
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle11
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_1_1
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle1S0
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_1_s_0
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle20
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_2_0
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle21
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_2_1
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle2S0
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_2_s_0
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle30
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_3_0
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle31
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_3_1
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle3S0
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_3_s_0
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle40
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_4_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle41
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_4_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle4S0
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_4_s_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle4S1
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_4_s_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle50
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_5_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle51
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_5_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle5S0
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_5_s_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle5S1
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_5_s_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: "_FRONT"
+

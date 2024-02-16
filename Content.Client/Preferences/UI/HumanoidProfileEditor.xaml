@@ -2,7 +2,8 @@
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
          xmlns:prefUi="clr-namespace:Content.Client.Preferences.UI"
          xmlns:humanoid="clr-namespace:Content.Client.Humanoid"
-         xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls">
+         xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+         xmlns:humanoidProfileEditorExt="clr-namespace:Content.Client._Amour.HumanoidProfileEditorExt">
     <BoxContainer Orientation="Horizontal">
         <!-- Left side -->
         <BoxContainer Orientation="Vertical" Margin="10 10 10 10">
@@ -141,6 +142,8 @@
                                 <Label Text="{Loc 'humanoid-profile-editor-eyes-label'}" />
                                 <humanoid:EyeColorPicker Name="CEyeColorPicker" />
                             </BoxContainer>
+                            <!-- AMOUR -->
+                            <humanoidProfileEditorExt:GenitalBoxView Name="GenitalBoxView"/>
                         </BoxContainer>
                     </ScrollContainer>
                 </BoxContainer>

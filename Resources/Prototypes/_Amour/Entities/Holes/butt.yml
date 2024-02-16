@@ -1,0 +1,96 @@
+﻿- type: entity
+  parent: BaseButt
+  id: ButtPair00
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_0_0
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair0S0
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_0_s_0
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair10
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_1_0
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair1S0
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_1_s_0
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair20
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_2_0
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair2S0
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_2_s_0
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair30
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_3_0
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair3S0
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_3_s_0
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair40
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_4_0
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair4S0
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_4_s_0
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair50
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_5_0
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair5S0
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_5_s_0
+

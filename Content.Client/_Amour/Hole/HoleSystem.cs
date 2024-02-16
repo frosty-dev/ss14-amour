@@ -3,7 +3,6 @@ using Content.Shared.Humanoid;
 using Robust.Client.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Reflection;
-using Robust.Shared.Serialization.Manager;
 
 namespace Content.Client._Amour.Hole;
 
@@ -35,10 +34,6 @@ public sealed class HoleSystem : SharedHoleSystem
             return;
 
         UpdateVisuals(uid);
-        if(args.Container != component.Slot)
-            return;
-
-        //UpdateVisual(uid,args.Entity);
     }
 
     private void UpdateVisuals(Entity<HoleContainerComponent?> entity)
@@ -78,8 +73,6 @@ public sealed class HoleSystem : SharedHoleSystem
                     spriteComp.LayerSetData(GenitalVisualLayers.DickFront, layer);
                     spriteComp.LayerSetVisible(GenitalVisualLayers.DickFront,true);
                 }
-
-
                 return;
             }
 

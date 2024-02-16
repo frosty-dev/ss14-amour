@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._Amour.Hole;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -15,6 +16,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 {
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly HoleSystem _holeSystem = default!;
 
     public override void Initialize()
     {
@@ -115,6 +117,13 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         }
 
         humanoid.Age = profile.Age;
+
+        //AMOUR
+        foreach (var genitals in profile.Appearance.Genitals)
+        {
+            Log.Debug("CHLEN! " + genitals.GenitalId);
+            _holeSystem.AddHole(uid,genitals.GenitalId,genitals.Color);
+        }
 
         Dirty(humanoid);
     }

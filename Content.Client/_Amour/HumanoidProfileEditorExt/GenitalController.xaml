@@ -1,0 +1,18 @@
+﻿<controls:GenitalController
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Amour.HumanoidProfileEditorExt">
+    <BoxContainer Orientation="Vertical" Margin="15 15 15 15">
+        <Label Text="Meow" Name="Label"/>
+        <BoxContainer Margin="15 15 15 15">
+            <Button Text="Назад" Name="BackButton"/>
+            <LineEdit Name="Input" MinWidth="45" SetWidth="45"/>
+            <Label Text="/"/>
+            <Label Text="0" Name="Count"/>
+            <Button Text="Вперед" Name="GoButton"/>
+            <Label Name="GenitalName"/>
+        </BoxContainer>
+        <CheckBox Text="{Loc 'genitals-same-color'}" Name="CheckBox"/>
+        <ColorSelectorSliders Name="Color"/>
+    </BoxContainer>
+
+</controls:GenitalController>
