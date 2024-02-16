@@ -41,6 +41,7 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
+                .Include(p => p.Profiles).ThenInclude(h => h.Genitals)
                 .AsSingleQuery()
                 .SingleOrDefaultAsync(p => p.UserId == userId.UserId);
 
@@ -89,6 +90,7 @@ namespace Content.Server.Database
                 .Include(p => p.Jobs)
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
+                .Include(p => p.Genitals)
                 .AsSplitQuery()
                 .SingleOrDefault(h => h.Slot == slot);
 
@@ -214,6 +216,11 @@ namespace Content.Server.Database
                 }
             }
 
+            Console.WriteLine(profile.Genitals.Count + "<><>");
+            var genitals = profile.Genitals.Select(genital =>
+                new Shared._Amour.Hole.Genital(genital.GenitalPrototype,
+                    string.IsNullOrEmpty(genital.Color) ? null : Color.FromHex(genital.Color)));
+
             return new HumanoidCharacterProfile(
                 profile.CharacterName,
                 profile.ClownName,
@@ -233,7 +240,7 @@ namespace Content.Server.Database
                     Color.FromHex(profile.FacialHairColor),
                     Color.FromHex(profile.EyeColor),
                     Color.FromHex(profile.SkinColor),
-                    markings, new List<Genital>() //TEMP
+                    markings, genitals.ToList() // Amour edit
                 ),
                 clothing,
                 backpack,
@@ -296,6 +303,17 @@ namespace Content.Server.Database
                 humanoid.TraitPreferences
                         .Select(t => new Trait {TraitName = t})
             );
+
+            profile.Genitals.Clear();
+            profile.Genitals.AddRange(
+                appearance.Genitals.Select(t => new Genital()
+                {
+                    GenitalPrototype = t.GenitalId,
+                    Color = t.Color?.ToHex() ?? ""
+                }));
+
+            Console.WriteLine(profile.Genitals);
+            Console.WriteLine(profile.Antags);
 
             return profile;
         }

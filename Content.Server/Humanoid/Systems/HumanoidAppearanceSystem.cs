@@ -55,6 +55,12 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         SetSkinColor(uid, profile.Appearance.SkinColor, false);
 
+        //AMOUR
+        foreach (var genitals in profile.Appearance.Genitals)
+        {
+            _holeSystem.AddHole(uid,genitals.GenitalId,genitals.Color);
+        }
+
         humanoid.MarkingSet.Clear();
 
         // Add markings that doesn't need coloring. We store them until we add all other markings that doesn't need it.
@@ -117,13 +123,6 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         }
 
         humanoid.Age = profile.Age;
-
-        //AMOUR
-        foreach (var genitals in profile.Appearance.Genitals)
-        {
-            Log.Debug("CHLEN! " + genitals.GenitalId);
-            _holeSystem.AddHole(uid,genitals.GenitalId,genitals.Color);
-        }
 
         Dirty(humanoid);
     }

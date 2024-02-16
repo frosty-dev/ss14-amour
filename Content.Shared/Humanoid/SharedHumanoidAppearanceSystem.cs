@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Amour.Hole;
 using Content.Shared.Decals;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -23,6 +24,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
+    [Dependency] private readonly SharedHoleSystem _holeSystem = default!;
 
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
@@ -273,6 +275,12 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         humanoid.EyeColor = profile.Appearance.EyeColor;
 
         SetSkinColor(uid, profile.Appearance.SkinColor, false);
+
+        //AMOUR
+        foreach (var genitals in profile.Appearance.Genitals)
+        {
+            _holeSystem.AddHole(uid,genitals.GenitalId,genitals.Color);
+        }
 
         humanoid.MarkingSet.Clear();
 

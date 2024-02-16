@@ -21,17 +21,22 @@ public sealed partial class HumanoidProfileEditor
         _genitals.Clear();
         GenitalBoxView.ClearChilds();
 
-        Logger.Debug(Profile.Appearance.Genitals.Count + "<<");
+        var genitalsList = Profile.Appearance.Genitals.ToList();
 
         foreach (var prototype in _prototypeManager.EnumeratePrototypes<GenitalsGroupPrototype>())
         {
+            var controller = new GenitalController();
+
             var selected = 0;
-            foreach (var genital in Profile.Appearance.Genitals.Where(genital => prototype.Prototypes.Contains(genital.GenitalId)))
+            foreach (var genital in genitalsList)
             {
-                selected = prototype.Prototypes.IndexOf(genital.GenitalId);
+                if (!prototype.Prototypes.Contains(genital.GenitalId))
+                    continue;
+
+                selected = prototype.Prototypes.IndexOf(genital.GenitalId) + 1;
+                controller.SetColor(genital.Color);
             }
 
-            var controller = new GenitalController();
             controller.GenitalsCollectionPrototype = prototype;
             controller.InChange += ControllerOnInChange;
             controller.SelectedId = selected;

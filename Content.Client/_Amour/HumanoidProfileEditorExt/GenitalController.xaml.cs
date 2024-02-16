@@ -65,6 +65,14 @@ public sealed partial class GenitalController : Control
         };
     }
 
+    public void SetColor(Color? color)
+    {
+        if (color is null)
+            CheckBox.Pressed = true;
+        else
+            Color.Color = color.Value;
+    }
+
     private void OnColorChanged(Color obj)
     {
         if(!CheckBox.Pressed)

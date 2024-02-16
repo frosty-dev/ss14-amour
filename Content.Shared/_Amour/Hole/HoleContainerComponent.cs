@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Amour.Hole;
 
-[RegisterComponent]
+[RegisterComponent,NetworkedComponent]
 public sealed partial class HoleContainerComponent : Component
 {
     public const string SlotName = "Funny";

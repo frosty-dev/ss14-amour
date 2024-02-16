@@ -38,9 +38,9 @@ public abstract partial class SharedHoleSystem
             return;
         }
 
-        Log.Debug("ADDED " + protoId);
         component.Layers[0].Color = color;
 
         _containerSystem.Insert(spawned, entity.Comp.Slot);
+        Dirty(entity);
     }
 }
