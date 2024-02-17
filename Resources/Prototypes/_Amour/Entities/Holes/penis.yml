@@ -1,1300 +1,750 @@
-﻿- type: entity
+﻿
+- type: entity
   parent: BaseDick
-  id: Amputated
+  id: PenisAmputated0
   components:
   - type: Hole
     layers:
-    - state: amputated
+    - state: penis_amputated_0
     prefixes:
     - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
+      prefix: _0_FRONT
+      excitedPrefix: _0_FRONT
 
 - type: entity
   parent: BaseDick
-  id: PenisBarbknot10
+  id: PenisBarbknot1
   components:
   - type: Hole
     layers:
-    - state: penis_barbknot_1_0
+    - state: penis_barbknot_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
 
 - type: entity
   parent: BaseDick
-  id: PenisBarbknot11
+  id: PenisBarbknot2
   components:
   - type: Hole
     layers:
-    - state: penis_barbknot_1_1
+    - state: penis_barbknot_2
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisBarbknot3
+  components:
+  - type: Hole
+    layers:
+    - state: penis_barbknot_3
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisBarbknot4
+  components:
+  - type: Hole
+    layers:
+    - state: penis_barbknot_4
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisBarbknot5
+  components:
+  - type: Hole
+    layers:
+    - state: penis_barbknot_5
     prefixes:
     - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
 
 - type: entity
   parent: BaseDick
-  id: PenisBarbknot1S0
+  id: PenisFlared1
   components:
   - type: Hole
     layers:
-    - state: penis_barbknot_1_s_0
+    - state: penis_flared_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
 
 - type: entity
   parent: BaseDick
-  id: PenisBarbknot1S1
+  id: PenisFlared2
   components:
   - type: Hole
     layers:
-    - state: penis_barbknot_1_s_1
+    - state: penis_flared_2
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisFlared3
+  components:
+  - type: Hole
+    layers:
+    - state: penis_flared_3
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisFlared4
+  components:
+  - type: Hole
+    layers:
+    - state: penis_flared_4
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisFlared5
+  components:
+  - type: Hole
+    layers:
+    - state: penis_flared_5
     prefixes:
     - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
 
 - type: entity
   parent: BaseDick
-  id: PenisBarbknot20
+  id: PenisHemiknot1
   components:
   - type: Hole
     layers:
-    - state: penis_barbknot_2_0
+    - state: penis_hemiknot_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
 
 - type: entity
   parent: BaseDick
-  id: PenisBarbknot21
+  id: PenisHemiknot2
   components:
   - type: Hole
     layers:
-    - state: penis_barbknot_2_1
+    - state: penis_hemiknot_2
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisHemiknot3
+  components:
+  - type: Hole
+    layers:
+    - state: penis_hemiknot_3
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisHemiknot4
+  components:
+  - type: Hole
+    layers:
+    - state: penis_hemiknot_4
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisHemiknot5
+  components:
+  - type: Hole
+    layers:
+    - state: penis_hemiknot_5
     prefixes:
     - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
 
 - type: entity
   parent: BaseDick
-  id: PenisBarbknot2S0
+  id: PenisHemi1
   components:
   - type: Hole
     layers:
-    - state: penis_barbknot_2_s_0
+    - state: penis_hemi_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
 
 - type: entity
   parent: BaseDick
-  id: PenisBarbknot2S1
+  id: PenisHemi2
   components:
   - type: Hole
     layers:
-    - state: penis_barbknot_2_s_1
+    - state: penis_hemi_2
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisHemi3
+  components:
+  - type: Hole
+    layers:
+    - state: penis_hemi_3
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisHemi4
+  components:
+  - type: Hole
+    layers:
+    - state: penis_hemi_4
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisHuman1
+  components:
+  - type: Hole
+    layers:
+    - state: penis_human_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisHuman2
+  components:
+  - type: Hole
+    layers:
+    - state: penis_human_2
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisHuman3
+  components:
+  - type: Hole
+    layers:
+    - state: penis_human_3
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisHuman4
+  components:
+  - type: Hole
+    layers:
+    - state: penis_human_4
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisHuman5
+  components:
+  - type: Hole
+    layers:
+    - state: penis_human_5
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+
+- type: entity
+  parent: BaseDick
+  id: PenisKnotted1
+  components:
+  - type: Hole
+    layers:
+    - state: penis_knotted_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisKnotted2
+  components:
+  - type: Hole
+    layers:
+    - state: penis_knotted_2
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisKnotted3
+  components:
+  - type: Hole
+    layers:
+    - state: penis_knotted_3
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisKnotted4
+  components:
+  - type: Hole
+    layers:
+    - state: penis_knotted_4
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisKnotted5
+  components:
+  - type: Hole
+    layers:
+    - state: penis_knotted_5
     prefixes:
     - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
 
 - type: entity
   parent: BaseDick
-  id: PenisBarbknot30
+  id: PenisTapered1
   components:
   - type: Hole
     layers:
-    - state: penis_barbknot_3_0
+    - state: penis_tapered_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
 
 - type: entity
   parent: BaseDick
-  id: PenisBarbknot31
+  id: PenisTapered2
   components:
   - type: Hole
     layers:
-    - state: penis_barbknot_3_1
+    - state: penis_tapered_2
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisTapered3
+  components:
+  - type: Hole
+    layers:
+    - state: penis_tapered_3
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisTapered4
+  components:
+  - type: Hole
+    layers:
+    - state: penis_tapered_4
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisTentacle1
+  components:
+  - type: Hole
+    layers:
+    - state: penis_tentacle_1
     prefixes:
     - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
 
 - type: entity
   parent: BaseDick
-  id: PenisBarbknot3S0
+  id: PenisTentacle2
   components:
   - type: Hole
     layers:
-    - state: penis_barbknot_3_s_0
+    - state: penis_tentacle_2
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
 
 - type: entity
   parent: BaseDick
-  id: PenisBarbknot3S1
+  id: PenisTentacle3
   components:
   - type: Hole
     layers:
-    - state: penis_barbknot_3_s_1
+    - state: penis_tentacle_3
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisTentacle4
+  components:
+  - type: Hole
+    layers:
+    - state: penis_tentacle_4
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseDick
+  id: PenisThick1
+  components:
+  - type: Hole
+    layers:
+    - state: penis_thick_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+
+- type: entity
+  parent: BaseDick
+  id: PenisThick2
+  components:
+  - type: Hole
+    layers:
+    - state: penis_thick_2
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+
+- type: entity
+  parent: BaseDick
+  id: PenisThick3
+  components:
+  - type: Hole
+    layers:
+    - state: penis_thick_3
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+
+- type: entity
+  parent: BaseDick
+  id: PenisThick4
+  components:
+  - type: Hole
+    layers:
+    - state: penis_thick_4
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+
+- type: entity
+  parent: BaseDick
+  id: PenisThick5
+  components:
+  - type: Hole
+    layers:
+    - state: penis_thick_5
     prefixes:
     - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisBarbknot40
-  components:
-  - type: Hole
-    layers:
-    - state: penis_barbknot_4_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisBarbknot41
-  components:
-  - type: Hole
-    layers:
-    - state: penis_barbknot_4_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisBarbknot4S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_barbknot_4_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisBarbknot4S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_barbknot_4_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisBarbknot50
-  components:
-  - type: Hole
-    layers:
-    - state: penis_barbknot_5_0
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisBarbknot51
-  components:
-  - type: Hole
-    layers:
-    - state: penis_barbknot_5_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared10
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_1_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared11
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_1_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared1S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_1_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared1S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_1_s_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared20
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_2_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared21
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_2_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared2S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_2_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared2S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_2_s_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared30
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_3_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared31
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_3_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared3S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_3_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared3S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_3_s_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared40
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_4_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared41
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_4_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared4S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_4_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared4S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_4_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared50
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_5_0
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisFlared51
-  components:
-  - type: Hole
-    layers:
-    - state: penis_flared_5_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot10
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_1_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot11
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_1_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot1S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_1_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot1S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_1_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot20
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_2_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot21
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_2_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot2S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_2_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot2S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_2_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot30
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_3_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot31
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_3_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot3S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_3_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot3S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_3_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot40
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_4_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot41
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_4_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot4S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_4_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot4S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_4_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot50
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_5_0
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemiknot51
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemiknot_5_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi10
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_1_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi11
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_1_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi1S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_1_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi1S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_1_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi20
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_2_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi21
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_2_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi2S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_2_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi2S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_2_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi30
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_3_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi31
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_3_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi3S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_3_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi3S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_3_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi40
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_4_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi41
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_4_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi4S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_4_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHemi4S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_hemi_4_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman10
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_1_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman11
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_1_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman1S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_1_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman1S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_1_s_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman20
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_2_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman21
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_2_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman2S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_2_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman2S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_2_s_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman30
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_3_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman31
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_3_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman3S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_3_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman3S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_3_s_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman40
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_4_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman41
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_4_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman4S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_4_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman4S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_4_s_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman50
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_5_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisHuman51
-  components:
-  - type: Hole
-    layers:
-    - state: penis_human_5_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted10
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_1_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted11
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_1_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted1S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_1_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted1S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_1_s_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted20
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_2_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted21
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_2_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted2S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_2_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted2S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_2_s_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted30
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_3_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted31
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_3_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted3S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_3_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted3S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_3_s_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted40
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_4_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted41
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_4_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted4S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_4_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted4S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_4_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted50
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_5_0
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisKnotted51
-  components:
-  - type: Hole
-    layers:
-    - state: penis_knotted_5_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered10
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_1_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered11
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_1_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered1S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_1_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered1S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_1_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered20
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_2_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered21
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_2_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered2S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_2_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered2S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_2_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered30
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_3_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered31
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_3_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered3S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_3_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered3S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_3_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered40
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_4_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered41
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_4_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered4S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_4_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTapered4S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tapered_4_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisTentacle10
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tentacle_1_0
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisTentacle11
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tentacle_1_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisTentacle1S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tentacle_1_s_0
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisTentacle20
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tentacle_2_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTentacle21
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tentacle_2_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisTentacle2S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tentacle_2_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTentacle30
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tentacle_3_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTentacle31
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tentacle_3_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisTentacle3S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tentacle_3_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTentacle40
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tentacle_4_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTentacle41
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tentacle_4_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisTentacle4S0
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tentacle_4_s_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisTentacle4S1
-  components:
-  - type: Hole
-    layers:
-    - state: penis_tentacle_4_s_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisThick10
-  components:
-  - type: Hole
-    layers:
-    - state: penis_thick_1_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisThick11
-  components:
-  - type: Hole
-    layers:
-    - state: penis_thick_1_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisThick20
-  components:
-  - type: Hole
-    layers:
-    - state: penis_thick_2_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisThick21
-  components:
-  - type: Hole
-    layers:
-    - state: penis_thick_2_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisThick30
-  components:
-  - type: Hole
-    layers:
-    - state: penis_thick_3_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisThick31
-  components:
-  - type: Hole
-    layers:
-    - state: penis_thick_3_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisThick40
-  components:
-  - type: Hole
-    layers:
-    - state: penis_thick_4_0
-
-- type: entity
-  parent: BaseDick
-  id: PenisThick41
-  components:
-  - type: Hole
-    layers:
-    - state: penis_thick_4_1
-
-- type: entity
-  parent: BaseDick
-  id: PenisThick50
-  components:
-  - type: Hole
-    layers:
-    - state: penis_thick_5_0
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
-- type: entity
-  parent: BaseDick
-  id: PenisThick51
-  components:
-  - type: Hole
-    layers:
-    - state: penis_thick_5_1
-    prefixes:
-    - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
-
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT

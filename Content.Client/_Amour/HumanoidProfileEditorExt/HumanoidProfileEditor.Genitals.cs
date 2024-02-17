@@ -1,16 +1,31 @@
 ﻿using System.Linq;
+using Content.Client._Amour.Hole;
 using Content.Client._Amour.HumanoidProfileEditorExt;
 using Content.Shared._Amour.Hole;
+using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client.Preferences.UI;
 
 public sealed partial class HumanoidProfileEditor
 {
     private Dictionary<string, Genital> _genitals = new();
+    private HoleSystem _holeSystem = default!;
 
     private void InitializeGenitals()
     {
+        _holeSystem = _entMan.System<HoleSystem>();
+        GenitalBoxView.OnExide(OnExide);
+    }
 
+    private void OnExide(BaseButton.ButtonEventArgs obj)
+    {
+        if (_entMan.TryGetComponent<HoleContainerComponent>(_previewDummy, out var component))
+        {
+            foreach (var entity in component.Slot.ContainedEntities)
+            {
+                _holeSystem.Exide(entity);
+            }
+        }
     }
 
     private void UpdateGenitalsControls()

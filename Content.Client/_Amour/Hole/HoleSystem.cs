@@ -46,9 +46,9 @@ public sealed class HoleSystem : SharedHoleSystem
         }
     }
 
-    private void UpdateVisual(Entity<SpriteComponent?,HumanoidAppearanceComponent?> owner, Entity<HoleComponent?> entity, bool clear = false)
+    private void UpdateVisual(Entity<SpriteComponent?,HumanoidAppearanceComponent?,HoleContainerComponent?> owner, Entity<HoleComponent?> entity, bool clear = false)
     {
-        if(!Resolve(owner.Owner,ref owner.Comp1) || !Resolve(entity.Owner,ref entity.Comp))
+        if(!Resolve(owner.Owner,ref owner.Comp1, ref owner.Comp3) || !Resolve(entity.Owner,ref entity.Comp))
             return;
 
         var spriteComp = owner.Comp1;
@@ -59,8 +59,11 @@ public sealed class HoleSystem : SharedHoleSystem
             if (string.IsNullOrEmpty(layer.RsiPath))
                 layer.RsiPath = holeComp.RsiPath;
 
-            if(Resolve(owner.Owner,ref owner.Comp2))
+            if (Resolve(owner.Owner, ref owner.Comp2))
+            {
                 layer.Color ??= owner.Comp2.SkinColor;
+                layer.Color.Value.WithAlpha(owner.Comp2.SkinColor.A);
+            }
 
             var state = layer.State;
 
@@ -84,20 +87,35 @@ public sealed class HoleSystem : SharedHoleSystem
                     continue;
                 }
 
-                layer.State = state + prefix.Prefix;
                 if (clear)
                 {
                     spriteComp.LayerSetVisible(@enum,false);
                 }
                 else
                 {
-                    Log.Debug(@enum.ToString());
+                    var s = "";
+                    if (prefix.HasForHuman && owner.Comp3.UseHumanGenitalLayers)
+                        s = "_s";
+
+                    var mainPrefix = prefix.Prefix;
+                    if (holeComp.IsExcited && !string.IsNullOrEmpty(prefix.ExcitedPrefix))
+                        mainPrefix = prefix.ExcitedPrefix;
+
+                    layer.State = state + s + mainPrefix;
                     spriteComp.LayerSetData(@enum, layer);
                     spriteComp.LayerSetVisible(@enum,true);
+                    layer.State = state;
                 }
 
-                layer.State = state;
             }
         }
+    }
+
+    public override void Exide(Entity<HoleComponent?> entity, bool value = true)
+    {
+        base.Exide(entity, value);
+        var netEntity = entity.Comp!.Parent;
+        if (netEntity != null)
+            UpdateVisual(GetEntity(netEntity.Value), entity);
     }
 }

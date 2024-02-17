@@ -216,7 +216,6 @@ namespace Content.Server.Database
                 }
             }
 
-            Console.WriteLine(profile.Genitals.Count + "<><>");
             var genitals = profile.Genitals.Select(genital =>
                 new Shared._Amour.Hole.Genital(genital.GenitalPrototype,
                     string.IsNullOrEmpty(genital.Color) ? null : Color.FromHex(genital.Color)));
@@ -311,9 +310,6 @@ namespace Content.Server.Database
                     GenitalPrototype = t.GenitalId,
                     Color = t.Color?.ToHex() ?? ""
                 }));
-
-            Console.WriteLine(profile.Genitals);
-            Console.WriteLine(profile.Antags);
 
             return profile;
         }

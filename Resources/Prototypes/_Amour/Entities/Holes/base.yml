@@ -14,9 +14,11 @@
     sprite: _Amour/Genitals/penis.rsi
     prefixes:
     - layer: "enum.GenitalVisualLayers.DickBehind"
-      prefix: "_BEHIND"
+      prefix: "_0_BEHIND"
+      excitedPrefix: "_1_BEHIND"
     - layer: "enum.GenitalVisualLayers.DickFront"
-      prefix: "_FRONT"
+      prefix: "_0_FRONT"
+      excitedPrefix: "_1_FRONT"
   - type: HoleSolution
   - type: HoleInventory
     size: Tiny
@@ -38,7 +40,8 @@
     sprite: _Amour/Genitals/vagina.rsi
     prefixes:
     - layer: "enum.GenitalVisualLayers.DickFront" #Hmm
-      prefix: "_FRONT"
+      prefix: "_0_FRONT"
+      excitedPrefix: "_1_FRONT"
   - type: HoleSolution
   - type: HoleInventory
 
@@ -58,7 +61,8 @@
     sprite: _Amour/Genitals/butt.rsi
     prefixes:
     - layer: "enum.GenitalVisualLayers.ButtFront"
-      prefix: "_FRONT"
+      prefix: "_0_FRONT"
+      excitedPrefix: "_1_FRONT"
   - type: HoleInventory
 
 - type: entity
@@ -76,9 +80,11 @@
     sprite: _Amour/Genitals/breasts.rsi
     prefixes:
     - layer: "enum.GenitalVisualLayers.BreastBehind"
-      prefix: "_BEHIND"
+      prefix: "_0_BEHIND"
+      excitedPrefix: "_1_BEHIND"
     - layer: "enum.GenitalVisualLayers.BreastFront"
-      prefix: "_FRONT"
+      prefix: "_0_FRONT"
+      excitedPrefix: "_1_FRONT"
   - type: HoleSolution
   - type: HoleInventory
 
@@ -96,6 +102,8 @@
     sprite: _Amour/Genitals/testicles.rsi
     prefixes:
     - layer: "enum.GenitalVisualLayers.TesticlesBehind"
-      prefix: "_BEHIND"
+      prefix: "_0_BEHIND"
+      excitedPrefix: "_1_BEHIND"
     - layer: "enum.GenitalVisualLayers.TesticlesFront"
-      prefix: "_FRONT"
+      prefix: "_0_FRONT"
+      excitedPrefix: "_1_FRONT"

@@ -15,8 +15,13 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
+  - type: HoleContainer
+    useHumanGenitalLayers: true
 
 - type: entity
   parent: BaseSpeciesDummy
   id: MobHumanDummy
   noSpawn: true
+  components:
+  - type: HoleContainer
+    useHumanGenitalLayers: true

@@ -2,13 +2,14 @@
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Item;
 using Robust.Shared.Containers;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._Amour.Hole;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class HoleComponent : Component
 {
     [ViewVariables] public NetEntity? Parent;
@@ -24,6 +25,9 @@ public sealed partial class HoleComponent : Component
 
     // this shit just for sprite prefix like state: dildo_FRONT
     [DataField] public List<HolePrefix> Prefixes = new();
+
+    [ViewVariables] public bool IsExcited = false;
+    [DataField] public bool IsMainOrgan = false;
 }
 
 [Serializable, NetSerializable, DataDefinition]
@@ -33,6 +37,10 @@ public sealed partial class HolePrefix
     public string Layer;
     [DataField]
     public string Prefix;
+    [DataField]
+    public string ExcitedPrefix;
+    [DataField]
+    public bool HasForHuman;
 }
 
 public enum HoleType : byte

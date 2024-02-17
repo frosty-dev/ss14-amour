@@ -10,4 +10,5 @@ public sealed partial class HoleContainerComponent : Component
     public const string SlotName = "Funny";
     [ViewVariables] public Container Slot = default!;
     [DataField] public List<EntProtoId> HolePrototypes = new();
+    [DataField] public bool UseHumanGenitalLayers = false;
 }

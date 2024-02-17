@@ -42,13 +42,6 @@
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
-    # START AMOUR EDIT
-    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
-    - map: [ "enum.GenitalVisualLayers.BreastFront" ]
-    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
-    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
-    - map: [ "enum.GenitalVisualLayers.DickFront" ]
-    # END AMOUR EDIT
     - map: [ "gloves" ]
     - map: [ "shoes" ]
     - map: [ "ears" ]
@@ -76,6 +69,13 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
+    # START AMOUR EDIT
+    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+    - map: [ "enum.GenitalVisualLayers.BreastFront" ]
+    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+    - map: [ "enum.GenitalVisualLayers.DickFront" ]
+    # END AMOUR EDIT
   - type: DamageVisuals
     thresholds: [ 20, 40, 100 ]
     targetLayers:
@@ -263,6 +263,7 @@
   - type: CharacterInformation
   - type: Penetrated
   - type: Mood
+  - type: HoleContainer
 
 - type: entity
   save: false
@@ -392,13 +393,6 @@
     - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
-    # START AMOUR EDIT
-    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
-    - map: [ "enum.GenitalVisualLayers.BreastFront" ]
-    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
-    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
-    - map: [ "enum.GenitalVisualLayers.DickFront" ]
-    # END AMOUR EDIT
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
@@ -422,6 +416,13 @@
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
+    # START AMOUR EDIT
+    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+    - map: [ "enum.GenitalVisualLayers.BreastFront" ]
+    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+    - map: [ "enum.GenitalVisualLayers.DickFront" ]
+    # END AMOUR EDIT
   - type: Appearance
   - type: HumanoidAppearance
     species: Human
@@ -432,3 +433,4 @@
     interfaces:
       - key: enum.HumanoidMarkingModifierKey.Key # sure, this can go here too
         type: HumanoidMarkingModifierBoundUserInterface
+  - type: HoleContainer

@@ -20,4 +20,10 @@ public abstract partial class SharedHoleSystem : EntitySystem
     {
         component.Parent = GetNetEntity(args.Container.Owner);
     }
+
+    public virtual void Exide(Entity<HoleComponent?> entity, bool value = true)
+    {
+        if(!Resolve(entity.Owner,ref entity.Comp)) return;
+        entity.Comp.IsExcited = value;
+    }
 }
