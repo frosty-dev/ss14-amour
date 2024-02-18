@@ -2,6 +2,7 @@
 using Content.Shared.Humanoid;
 using Robust.Client.GameObjects;
 using Robust.Shared.Containers;
+using Robust.Shared.GameStates;
 using Robust.Shared.Reflection;
 
 namespace Content.Client._Amour.Hole;
@@ -14,6 +15,22 @@ public sealed class HoleSystem : SharedHoleSystem
         base.Initialize();
         SubscribeLocalEvent<HoleContainerComponent,EntInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<HoleContainerComponent,EntRemovedFromContainerMessage>(OnRemoved);
+
+        SubscribeLocalEvent<HoleComponent,ComponentHandleState>(OnHandleState);
+    }
+
+    private void OnHandleState(EntityUid uid, HoleComponent component,ref ComponentHandleState args)
+    {
+        if(args.Current is not HoleComponentState componentState)
+            return;
+
+        component.IsExcited = componentState.IsExcited;
+        component.Parent = componentState.Parent;
+
+        if (component.Parent is not null)
+        {
+            UpdateVisual(GetEntity(component.Parent.Value),uid);
+        }
     }
 
     private void OnRemoved(EntityUid uid, HoleContainerComponent component, EntRemovedFromContainerMessage args)
@@ -40,6 +57,7 @@ public sealed class HoleSystem : SharedHoleSystem
     {
         if(!Resolve(entity,ref entity.Comp) || entity.Comp.Slot == null)
             return;
+
         foreach (var hole in entity.Comp.Slot.ContainedEntities)
         {
             UpdateVisual(entity.Owner,hole,!HasAccessTo(entity,hole));
@@ -62,7 +80,6 @@ public sealed class HoleSystem : SharedHoleSystem
             if (Resolve(owner.Owner, ref owner.Comp2))
             {
                 layer.Color ??= owner.Comp2.SkinColor;
-                layer.Color.Value.WithAlpha(owner.Comp2.SkinColor.A);
             }
 
             var state = layer.State;
@@ -113,8 +130,9 @@ public sealed class HoleSystem : SharedHoleSystem
 
     public override void Exide(Entity<HoleComponent?> entity, bool value = true)
     {
+        if(!Resolve(entity.Owner,ref entity.Comp)) return;
         base.Exide(entity, value);
-        var netEntity = entity.Comp!.Parent;
+        var netEntity = entity.Comp.Parent;
         if (netEntity != null)
             UpdateVisual(GetEntity(netEntity.Value), entity);
     }

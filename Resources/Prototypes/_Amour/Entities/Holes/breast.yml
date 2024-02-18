@@ -1,0 +1,918 @@
+﻿
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairA
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_a
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairB
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_b
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairC
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_c
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairD
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_d
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairE
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_e
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairF
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_f
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairGiga
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_giga
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairG
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_g
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairHuge
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_huge
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairH
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_h
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairImpossible
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_impossible
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairI
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_i
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairJ
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_j
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairK
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_k
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairL
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_l
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairMassive
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_massive
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairM
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_m
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairN
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_n
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsPairO
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_pair_o
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadA
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_a
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadB
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_b
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadC
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_c
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadD
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_d
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadE
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_e
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadF
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_f
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadGiga
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_giga
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadG
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_g
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadHuge
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_huge
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadH
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_h
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadImpossible
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_impossible
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadI
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_i
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadJ
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_j
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadK
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_k
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadL
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_l
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadMassive
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_massive
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadM
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_m
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadN
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_n
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsQuadO
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_quad_o
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleA
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_a
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleB
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_b
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleC
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_c
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleD
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_d
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleE
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_e
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleF
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_f
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleGiga
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_giga
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleG
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_g
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleHuge
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_huge
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _0_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleH
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_h
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleImpossible
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_impossible
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleI
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_i
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleJ
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_j
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleK
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_k
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleL
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_l
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleMassive
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_massive
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleM
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_m
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleN
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_n
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseBreast
+  id: BreastsSextupleO
+  components:
+  - type: Hole
+    layers:
+    - state: breasts_sextuple_o
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.BreastFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+

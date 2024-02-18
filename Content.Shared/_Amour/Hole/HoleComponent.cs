@@ -26,8 +26,8 @@ public sealed partial class HoleComponent : Component
     // this shit just for sprite prefix like state: dildo_FRONT
     [DataField] public List<HolePrefix> Prefixes = new();
 
-    [ViewVariables] public bool IsExcited = false;
-    [DataField] public bool IsMainOrgan = false;
+    [ViewVariables(VVAccess.ReadWrite)] public bool IsExcited = false;
+    [DataField] public bool IsMainHole = false;
 }
 
 [Serializable, NetSerializable, DataDefinition]
@@ -48,4 +48,17 @@ public enum HoleType : byte
     Father,
     Flat,
     Mother
+}
+
+[Serializable,NetSerializable]
+public sealed partial class HoleComponentState : ComponentState
+{
+    public readonly NetEntity? Parent;
+    public readonly bool IsExcited;
+
+    public HoleComponentState(NetEntity? parent, bool isExcited)
+    {
+        Parent = parent;
+        IsExcited = isExcited;
+    }
 }

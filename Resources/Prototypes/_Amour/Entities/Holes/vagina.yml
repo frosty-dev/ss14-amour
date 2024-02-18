@@ -1,0 +1,108 @@
+﻿
+- type: entity
+  parent: BaseVagina
+  id: VaginaCloaca1
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_cloaca_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaDentata1
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_dentata_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaFurred1
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_furred_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _0_FRONT
+
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaGaping1
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_gaping_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaHairy1
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_hairy_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _0_FRONT
+
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaHuman1
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_human_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaSpade1
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_spade_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _0_FRONT
+
+
+- type: entity
+  parent: BaseVagina
+  id: VaginaTentacle1
+  components:
+  - type: Hole
+    layers:
+    - state: vagina_tentacle_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.DickFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+

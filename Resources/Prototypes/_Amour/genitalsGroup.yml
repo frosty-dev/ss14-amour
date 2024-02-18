@@ -44,3 +44,96 @@
   - PenisThick3
   - PenisThick4
   - PenisThick5
+  - VaginaCloaca1
+  - VaginaDentata1
+  - VaginaFurred1
+  - VaginaGaping1
+  - VaginaHairy1
+  - VaginaHuman1
+  - VaginaSpade1
+  - VaginaTentacle1
+
+- type: genitalsGroup
+  id: Butt
+  prototypes:
+  - ButtPair0
+  - ButtPair1
+  - ButtPair2
+  - ButtPair3
+  - ButtPair4
+  - ButtPair5
+
+- type: genitalsGroup
+  id: Breast
+  prototypes:
+  - BreastsPairA
+  - BreastsPairB
+  - BreastsPairC
+  - BreastsPairD
+  - BreastsPairE
+  - BreastsPairF
+  - BreastsPairGiga
+  - BreastsPairG
+  - BreastsPairHuge
+  - BreastsPairH
+  - BreastsPairImpossible
+  - BreastsPairI
+  - BreastsPairJ
+  - BreastsPairK
+  - BreastsPairL
+  - BreastsPairMassive
+  - BreastsPairM
+  - BreastsPairN
+  - BreastsPairO
+  - BreastsQuadA
+  - BreastsQuadB
+  - BreastsQuadC
+  - BreastsQuadD
+  - BreastsQuadE
+  - BreastsQuadF
+  - BreastsQuadGiga
+  - BreastsQuadG
+  - BreastsQuadHuge
+  - BreastsQuadH
+  - BreastsQuadImpossible
+  - BreastsQuadI
+  - BreastsQuadJ
+  - BreastsQuadK
+  - BreastsQuadL
+  - BreastsQuadMassive
+  - BreastsQuadM
+  - BreastsQuadN
+  - BreastsQuadO
+  - BreastsSextupleA
+  - BreastsSextupleB
+  - BreastsSextupleC
+  - BreastsSextupleD
+  - BreastsSextupleE
+  - BreastsSextupleF
+  - BreastsSextupleGiga
+  - BreastsSextupleG
+  - BreastsSextupleHuge
+  - BreastsSextupleH
+  - BreastsSextupleImpossible
+  - BreastsSextupleI
+  - BreastsSextupleJ
+  - BreastsSextupleK
+  - BreastsSextupleL
+  - BreastsSextupleMassive
+  - BreastsSextupleM
+  - BreastsSextupleN
+  - BreastsSextupleO
+
+- type: genitalsGroup
+  id: Testicles
+  prototypes:
+  - TesticlesSheath1
+  - TesticlesSheath2
+  - TesticlesSheath3
+  - TesticlesSheath4
+  - TesticlesSheath5
+  - TesticlesSingle1
+  - TesticlesSingle2
+  - TesticlesSingle3
+  - TesticlesSingle4
+  - TesticlesSingle5

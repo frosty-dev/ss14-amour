@@ -2,9 +2,9 @@
     xmlns="https://spacestation14.io"
     xmlns:humanoidProfileEditorExt="clr-namespace:Content.Client._Amour.HumanoidProfileEditorExt">
     <BoxContainer Orientation="Vertical">
-        <BoxContainer>
-            <Label Text="{Loc 'genitals-group'}"/>
-            <CheckBox Text="{Loc 'genitals-exide'}" Name="Exide"/>
+        <BoxContainer Margin="15 60 15 3">
+            <Label Text="{Loc 'genitals-group'}" Margin="15 0 15 0"/>
+            <CheckBox Text="{Loc 'genitals-exide'}" Name="Exide" Margin="15 0 15 0"/>
         </BoxContainer>
         <BoxContainer Name="Container" Orientation="Vertical"></BoxContainer>
     </BoxContainer>

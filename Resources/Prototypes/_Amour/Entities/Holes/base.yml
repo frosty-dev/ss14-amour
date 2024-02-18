@@ -6,6 +6,7 @@
   - type: Hole
     holeType: Father
     holeName: Dick
+    isMainHole: true
     holeNotVisibleIn:
     - suitstorage
     - outerClothing
@@ -32,6 +33,7 @@
   - type: Hole
     holeType: Mother
     holeName: Vagina
+    isMainHole: true
     holeNotVisibleIn:
     - suitstorage
     - outerClothing

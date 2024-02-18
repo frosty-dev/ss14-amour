@@ -1,0 +1,83 @@
+﻿- type: entity
+  parent: BaseButt
+  id: ButtPair0
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_0
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.ButtFront"
+      prefix: _0_FRONT
+      excitedPrefix: _0_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair1
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.ButtFront"
+      prefix: _0_FRONT
+      excitedPrefix: _0_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair2
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_2
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.ButtFront"
+      prefix: _0_FRONT
+      excitedPrefix: _0_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair3
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_3
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.ButtFront"
+      prefix: _0_FRONT
+      excitedPrefix: _0_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair4
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_4
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.ButtFront"
+      prefix: _0_FRONT
+      excitedPrefix: _0_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseButt
+  id: ButtPair5
+  components:
+  - type: Hole
+    layers:
+    - state: butt_pair_5
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.ButtFront"
+      prefix: _0_FRONT
+      excitedPrefix: _0_FRONT
+      hasForHuman: true
+

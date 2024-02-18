@@ -1,5 +1,4 @@
-﻿
-- type: entity
+﻿- type: entity
   parent: BaseDick
   id: PenisAmputated0
   components:
@@ -23,7 +22,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -42,7 +40,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -61,7 +58,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -80,7 +76,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -111,7 +106,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -130,7 +124,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -149,7 +142,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -168,7 +160,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -199,7 +190,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -218,7 +208,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -237,7 +226,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -256,7 +244,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -287,7 +274,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -306,7 +292,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -325,7 +310,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -344,7 +328,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -363,7 +346,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -382,7 +364,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -401,7 +382,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -418,9 +398,8 @@
     prefixes:
     - layer: "enum.GenitalVisualLayers.DickBehind"
       prefix: _0_BEHIND
-      excitedPrefix: _1_BEHIND
+      excitedPrefix: _0_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -454,7 +433,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -473,7 +451,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -492,7 +469,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -511,7 +487,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -542,7 +517,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -561,7 +535,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -580,7 +553,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -599,7 +571,6 @@
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
       hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
@@ -617,7 +588,6 @@
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
-      hasForHuman: true
 
 
 - type: entity
@@ -631,12 +601,9 @@
     - layer: "enum.GenitalVisualLayers.DickBehind"
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
-      hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
-      hasForHuman: true
 
 
 - type: entity
@@ -650,12 +617,9 @@
     - layer: "enum.GenitalVisualLayers.DickBehind"
       prefix: _0_BEHIND
       excitedPrefix: _0_BEHIND
-      hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
-      hasForHuman: true
 
 
 - type: entity
@@ -669,12 +633,9 @@
     - layer: "enum.GenitalVisualLayers.DickBehind"
       prefix: _0_BEHIND
       excitedPrefix: _1_BEHIND
-      hasForHuman: true
-
     - layer: "enum.GenitalVisualLayers.DickFront"
       prefix: _0_FRONT
       excitedPrefix: _1_FRONT
-      hasForHuman: true
 
 
 - type: entity

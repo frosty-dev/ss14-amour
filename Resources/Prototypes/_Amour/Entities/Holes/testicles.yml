@@ -1,0 +1,191 @@
+﻿
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesHidden1
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_hidden_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesHidden2
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_hidden_2
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesHidden3
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_hidden_3
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath1
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath2
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_2
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath3
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_3
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath4
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_4
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSheath5
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_sheath_5
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle1
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_1
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle2
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_2
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle3
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_3
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesBehind"
+      prefix: _0_BEHIND
+      excitedPrefix: _1_BEHIND
+      hasForHuman: true
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle4
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_4
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+
+
+- type: entity
+  parent: BaseTesticles
+  id: TesticlesSingle5
+  components:
+  - type: Hole
+    layers:
+    - state: testicles_single_5
+    prefixes:
+    - layer: "enum.GenitalVisualLayers.TesticlesFront"
+      prefix: _0_FRONT
+      excitedPrefix: _1_FRONT
+      hasForHuman: true
+

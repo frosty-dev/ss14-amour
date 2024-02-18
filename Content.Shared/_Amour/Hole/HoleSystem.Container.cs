@@ -40,6 +40,9 @@ public abstract partial class SharedHoleSystem
 
         component.Layers[0].Color = color;
 
+        if (component.IsMainHole)
+            entity.Comp.MainHole = GetNetEntity(spawned);
+
         _containerSystem.Insert(spawned, entity.Comp.Slot);
         Dirty(entity);
     }

@@ -7,3 +7,4 @@ genitals-group-testicles = Яйца
 genitals-group-butt = Попа
 genitals-group-breast = Сисечки
 
+genitals-exide = Переключить другой прикол

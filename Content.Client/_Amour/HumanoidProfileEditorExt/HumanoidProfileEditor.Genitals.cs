@@ -19,13 +19,8 @@ public sealed partial class HumanoidProfileEditor
 
     private void OnExide(BaseButton.ButtonEventArgs obj)
     {
-        if (_entMan.TryGetComponent<HoleContainerComponent>(_previewDummy, out var component))
-        {
-            foreach (var entity in component.Slot.ContainedEntities)
-            {
-                _holeSystem.Exide(entity);
-            }
-        }
+        if (_previewDummy != null)
+            _holeSystem.ExideEntity(_previewDummy.Value,obj.Button.Pressed);
     }
 
     private void UpdateGenitalsControls()
