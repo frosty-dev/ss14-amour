@@ -11,6 +11,7 @@ public enum AlertCategory
     Buckled,
     Health,
     Mood, //WD-edit
+    Arousal, //AMOUR-edit
     Internals,
     Stamina,
     Piloting,

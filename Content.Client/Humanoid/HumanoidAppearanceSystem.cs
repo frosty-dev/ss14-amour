@@ -1,4 +1,5 @@
 using Content.Client._Amour.Hole;
+using Content.Shared._Amour.HumanoidAppearanceExtension;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
@@ -117,6 +118,11 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             return;
         }
 
+        // AMOUR START
+        var ev = new HumanoidAppearanceLoadingEvent(new Entity<HumanoidAppearanceComponent>(uid, humanoid), profile);
+        RaiseLocalEvent(uid, ev);
+        // AMOUR END
+
         var customBaseLayers = new Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo>();
 
         var speciesPrototype = _prototypeManager.Index<SpeciesPrototype>(profile.Species);
@@ -197,12 +203,10 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoid.SkinColor = profile.Appearance.SkinColor;
         humanoid.EyeColor = profile.Appearance.EyeColor;
 
-        //AMOUR
-        foreach (var genitals in profile.Appearance.Genitals)
-        {
-            Log.Debug("CHLEN! " + genitals.GenitalId);
-            _holeSystem.AddHole(uid,genitals.GenitalId,genitals.Color);
-        }
+        // AMOUR START
+        var ev2 = new HumanoidAppearanceLoadedEvent(new Entity<HumanoidAppearanceComponent>(uid, humanoid), profile);
+        RaiseLocalEvent(uid, ev2);
+        // AMOUR END
 
         UpdateSprite(humanoid, Comp<SpriteComponent>(uid));
     }

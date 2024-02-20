@@ -38,6 +38,7 @@ namespace Content.Shared.Alert
         VeryGood,
         VeryVeryGood,
         MoodDead,
+        Arousal, //AMOUR
         //WD end
         CultBuffed,
         PilotingShuttle,

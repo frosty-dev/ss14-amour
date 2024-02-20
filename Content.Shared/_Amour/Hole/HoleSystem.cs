@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Containers;
+﻿using Content.Shared._Amour.Arousal;
+using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Amour.Hole;
@@ -24,7 +25,9 @@ public abstract partial class SharedHoleSystem : EntitySystem
 
     public virtual void Exide(Entity<HoleComponent?> entity, bool value = true)
     {
-        if(!Resolve(entity.Owner,ref entity.Comp)) return;
+        if(!Resolve(entity.Owner,ref entity.Comp))
+            return;
+
         entity.Comp.IsExcited = value;
         Dirty(entity);
     }

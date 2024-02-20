@@ -1,4 +1,6 @@
-﻿using Robust.Shared.Containers;
+﻿using Content.Shared._Amour.Arousal;
+using Content.Shared._Amour.HumanoidAppearanceExtension;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Amour.Hole;
@@ -10,6 +12,15 @@ public abstract partial class SharedHoleSystem
     public void InitializeContainer()
     {
         SubscribeLocalEvent<HoleContainerComponent,ComponentInit>(OnContainerInit);
+        SubscribeLocalEvent<HoleContainerComponent,HumanoidAppearanceLoadedEvent>(OnAppearanceLoaded);
+    }
+
+    private void OnAppearanceLoaded(EntityUid uid, HoleContainerComponent component, HumanoidAppearanceLoadedEvent args)
+    {
+        foreach (var genitals in args.Profile.Appearance.Genitals)
+        {
+            AddHole(new Entity<HoleContainerComponent?>(uid,component),genitals.GenitalId,genitals.Color);
+        }
     }
 
     private void OnContainerInit(EntityUid uid, HoleContainerComponent component, ComponentInit args)

@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server._Amour.Hole;
+using Content.Shared._Amour.HumanoidAppearanceExtension;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -49,17 +50,17 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             return;
         }
 
+        // AMOUR START
+        var ev = new HumanoidAppearanceLoadingEvent(new Entity<HumanoidAppearanceComponent>(uid, humanoid), profile);
+        RaiseLocalEvent(uid, ev);
+        // AMOUR END
+
         SetSpecies(uid, profile.Species, false, humanoid);
         SetSex(uid, profile.Sex, false, humanoid);
         humanoid.EyeColor = profile.Appearance.EyeColor;
 
         SetSkinColor(uid, profile.Appearance.SkinColor, false);
 
-        //AMOUR
-        foreach (var genitals in profile.Appearance.Genitals)
-        {
-            _holeSystem.AddHole(uid,genitals.GenitalId,genitals.Color);
-        }
 
         humanoid.MarkingSet.Clear();
 
@@ -123,6 +124,11 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         }
 
         humanoid.Age = profile.Age;
+
+        // AMOUR START
+        var ev2 = new HumanoidAppearanceLoadedEvent(new Entity<HumanoidAppearanceComponent>(uid, humanoid), profile);
+        RaiseLocalEvent(uid, ev2);
+        // AMOUR END
 
         Dirty(humanoid);
     }

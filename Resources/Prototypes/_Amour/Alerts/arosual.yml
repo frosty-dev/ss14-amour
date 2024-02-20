@@ -1,0 +1,30 @@
+﻿- type: alert
+  id: Arousal
+  category: Arousal
+  icons:
+  - sprite: /Textures/_Amour/Alerts/arousal.rsi
+    state: arousal0
+  - sprite: /Textures/_Amour/Alerts/arousal.rsi
+    state: arousal10
+  - sprite: /Textures/_Amour/Alerts/arousal.rsi
+    state: arousal20
+  - sprite: /Textures/_Amour/Alerts/arousal.rsi
+    state: arousal30
+  - sprite: /Textures/_Amour/Alerts/arousal.rsi
+    state: arousal40
+  - sprite: /Textures/_Amour/Alerts/arousal.rsi
+    state: arousal50
+  - sprite: /Textures/_Amour/Alerts/arousal.rsi
+    state: arousal60
+  - sprite: /Textures/_Amour/Alerts/arousal.rsi
+    state: arousal70
+  - sprite: /Textures/_Amour/Alerts/arousal.rsi
+    state: arousal80
+  - sprite: /Textures/_Amour/Alerts/arousal.rsi
+    state: arousal90
+  - sprite: /Textures/_Amour/Alerts/arousal.rsi
+    state: arousal100
+  name: alerts-arousal-name
+  description: alerts-arousal-desc
+  minSeverity: 0
+  maxSeverity: 10
