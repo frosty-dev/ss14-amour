@@ -1,0 +1,6 @@
+- type: interaction
+  id: basic
+  checks:
+  - !type:HasSmallDistance
+  beginningMessages:
+  - шлёпает по попе

@@ -95,7 +95,7 @@
   name: Яички
   components:
   - type: Hole
-    holeName: Dick
+    holeName: Testicles
     holeNotVisibleIn:
     - suitstorage
     - outerClothing

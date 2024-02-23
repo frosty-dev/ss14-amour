@@ -1,0 +1,42 @@
+﻿<ui:InteractionPanelWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:ui="clr-namespace:Content.Client._Amour.InteractionPanel.UI"
+    Title="{Loc 'interaction-panel-title'}"
+    MinSize="400 500">
+    <BoxContainer Orientation="Vertical" Margin="5 5 5 5">
+        <BoxContainer Orientation="Vertical" Margin="5 20 5 20" HorizontalAlignment="Stretch" HorizontalExpand="True">
+            <BoxContainer HorizontalAlignment="Center" HorizontalExpand="True">
+                <BoxContainer Orientation="Vertical" Margin="5 5 5 5">
+                    <SpriteView Name="PerformerView" Margin="5 10 5 15" HorizontalAlignment="Center"/>
+                    <RichTextLabel Name="PerformerDesc"/>
+                </BoxContainer>
+
+                <controls1:HighDivider Margin="5 5 5 5"/>
+
+                <BoxContainer Orientation="Vertical" Margin="5 5 5 5">
+                    <SpriteView Name="TargetView" Margin="5 10 5 15" HorizontalAlignment="Center"/>
+                    <RichTextLabel Name="TargerDesc"/>
+                </BoxContainer>
+            </BoxContainer>
+            <ProgressBar Name="CummingProgress"
+                         HorizontalExpand="True"
+                         MinValue="0"
+                         MaxValue="1"
+                         MinHeight = "25"
+                         Page="0"
+                         Margin="10 10 0 0"
+                         Value="0.5"
+                         Modulate="#795695"
+                         Visible="False">
+                <Label Text="Смешной прогресс" HorizontalAlignment="Center"/>
+            </ProgressBar>
+        </BoxContainer>
+
+        <PanelContainer StyleClasses="LowDivider" />
+
+        <BoxContainer Orientation="Vertical" Margin="5 20 5 20" Name="Interactions">
+        </BoxContainer>
+
+    </BoxContainer>
+</ui:InteractionPanelWindow>

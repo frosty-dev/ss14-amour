@@ -265,6 +265,9 @@
   - type: Mood
   - type: HoleContainer
   - type: Arousal
+  - type: InteractionPanel
+    actionPrototypes:
+    - basic
 
 - type: entity
   save: false

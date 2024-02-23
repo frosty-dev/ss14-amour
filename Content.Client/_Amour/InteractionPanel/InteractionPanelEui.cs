@@ -1,16 +1,40 @@
 ﻿using Content.Client.Eui;
+using Content.Shared._Amour.InteractionPanel;
 using Content.Shared.Eui;
 
 namespace Content.Client._Amour.InteractionPanel;
 
 public sealed class InteractionPanelEui : BaseEui
 {
-    private InteractionPanelWindow _interactionPanelWindow;
+    private readonly IEntityManager _entityManager;
+
+    private UI.InteractionPanelWindow _interactionPanelWindow;
+    private InteractionState _interactionState = default!;
 
     public InteractionPanelEui()
     {
-        _interactionPanelWindow = new InteractionPanelWindow();
+        IoCManager.InjectDependencies(this);
+        _entityManager = IoCManager.Resolve<IEntityManager>();
+
+        _interactionPanelWindow = new UI.InteractionPanelWindow();
         _interactionPanelWindow.OnClose += () => SendMessage(new CloseEuiMessage());
+        _interactionPanelWindow.OnInteraction += InteractionPanelWindowOnInteraction;
+    }
+
+    private void InteractionPanelWindowOnInteraction(string id)
+    {
+        SendMessage(new InteractionSelectedMessage(id));
+    }
+
+    public override void HandleState(EuiStateBase state)
+    {
+        base.HandleState(state);
+
+        if(state is not InteractionState interactionState)
+            return;
+
+        _interactionState = interactionState;
+        _interactionPanelWindow.Update(_interactionState);
     }
 
     public override void Closed()
