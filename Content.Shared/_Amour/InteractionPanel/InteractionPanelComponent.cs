@@ -11,6 +11,7 @@ public sealed partial class InteractionPanelComponent : Component
     [ViewVariables] public bool IsBlocked = false;
     [ViewVariables] public ProtoId<InteractionPrototype> CurrentAction;
     [ViewVariables] public TimeSpan Timeout;
+    [ViewVariables] public TimeSpan EndTime;
     [ViewVariables] public Entity<InteractionPanelComponent>? CurrentPartner;
 
     [DataField] public List<ProtoId<InteractionPrototype>> ActionPrototypes = new();

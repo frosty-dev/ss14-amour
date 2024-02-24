@@ -1,7 +1,11 @@
 - type: interaction
   id: SlapButt
+  beginningSound:
+    path: /Audio/White/Interactions/clap.ogg
   checks:
   - !type:HasSmallDistance
   - !type:CantInteractSelf
   beginningMessages:
-  - interaction-butt-slap
+  - interaction-butt-slap1
+  - interaction-butt-slap2
+  - interaction-butt-slap3

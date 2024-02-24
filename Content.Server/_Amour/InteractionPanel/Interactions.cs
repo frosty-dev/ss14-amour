@@ -2,7 +2,6 @@ using System.Numerics;
 using Content.Server._Amour.Animation;
 using Content.Shared._Amour.Animation;
 using Content.Shared._Amour.InteractionPanel;
-using Content.Shared.Movement.Components;
 using Robust.Shared.Animations;
 
 namespace Content.Server._Amour.InteractionPanel;
