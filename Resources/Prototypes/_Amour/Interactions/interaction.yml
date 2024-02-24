@@ -2,5 +2,6 @@
   id: SlapButt
   checks:
   - !type:HasSmallDistance
+  - !type:CantInteractSelf
   beginningMessages:
   - interaction-butt-slap

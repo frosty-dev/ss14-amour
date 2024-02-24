@@ -42,31 +42,28 @@ public sealed class Interactions : EntitySystem
 
     private void OnSlapButt(EntityUid uid, InteractionPanelComponent component, InteractionBeginningEvent args)
     {
-        if(!TryComp<InputMoverComponent>(uid,out var moverComponent))
-            return;
+        var rotation = (Transform(args.Target).LocalPosition - Transform(args.Performer).LocalPosition)*0.5f;
 
-        var viewerRot = moverComponent.TargetRelativeRotation;
-        var rotation = (Transform(args.Performer).LocalRotation - viewerRot).ToWorldVec()*0.25f;
-
-
-        _animationSystem.Play(uid,new AnimationData()
+        var animation = new Shared._Amour.Animation.Animation()
         {
             Length = TimeSpan.FromSeconds(0.5),
             AnimationTracks =
             {
                 new AnimationTrackData()
                 {
-                    ComponentType = "SpriteComponent",
+                    ComponentType = "Sprite",
                     Property = "Offset",
                     InterpolationMode = AnimationInterpolationMode.Cubic,
                     KeyFrames =
                     {
-                        _animationSystem.KeyFrame(Vector2.Zero,0),
-                        _animationSystem.KeyFrame(rotation,0.150f),
-                        _animationSystem.KeyFrame(Vector2.Zero,0.250f)
+                        _animationSystem.KeyFrame(Vector2.Zero, 0),
+                        _animationSystem.KeyFrame(rotation, 0.100f),
+                        _animationSystem.KeyFrame(Vector2.Zero, 0.250f)
                     }
                 }
             }
-        });
+        };
+
+        _animationSystem.Play(uid,animation);
     }
 }
