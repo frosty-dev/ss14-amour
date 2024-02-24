@@ -33,9 +33,9 @@ public sealed class VibratorSystem : SharedVibratorSystem
 
     }
 
-    private Animation GetAnimation()
+    private Robust.Client.Animations.Animation GetAnimation()
     {
-        return new Animation
+        return new Robust.Client.Animations.Animation
         {
             Length = TimeSpan.FromMilliseconds(100),
             AnimationTracks =

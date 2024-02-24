@@ -267,7 +267,7 @@
   - type: Arousal
   - type: InteractionPanel
     actionPrototypes:
-    - basic
+    - SlapButt
 
 - type: entity
   save: false

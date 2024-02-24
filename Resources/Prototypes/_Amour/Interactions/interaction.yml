@@ -1,6 +1,6 @@
 - type: interaction
-  id: basic
+  id: SlapButt
   checks:
   - !type:HasSmallDistance
   beginningMessages:
-  - шлёпает по попе
+  - interaction-butt-slap

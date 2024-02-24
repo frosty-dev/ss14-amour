@@ -1,0 +1,28 @@
+﻿- type: animation
+  id: meow
+  length: 1
+  animationTracks:
+  - componentType: Sprite
+    property: Scale
+    interpolationMode: Linear
+    keyFrames:
+    - keyTime: 0
+      value: 1,1
+    - keyTime: 0.2
+      value: 1.5,1.5
+    - keyTime: 0.3
+      value: 0.25,0.25
+    - keyTime: 0.3
+      value: 1,1
+  - componentType: Sprite
+    property: Rotation
+    interpolationMode: Linear
+    keyFrames:
+    - keyTime: 0
+      value: 15
+    - keyTime: 0.2
+      value: 45
+    - keyTime: 0.3
+      value: 90
+    - keyTime: 0.3
+      value: 0
