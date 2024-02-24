@@ -265,6 +265,7 @@
   - type: Mood
   - type: HoleContainer
   - type: Arousal
+  - type: Crawlable
   - type: InteractionPanel
     actionPrototypes:
     - SlapButt
