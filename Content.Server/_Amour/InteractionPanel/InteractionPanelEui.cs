@@ -36,13 +36,15 @@ public sealed class InteractionPanelEui : BaseEui
         if (_entityManager.TryGetComponent<ArousalComponent>(User, out var arousalComponent))
             arousal = (byte) (arousalComponent.Arousal / 100 * 255);
 
-        var availableActions = new HashSet<string>();
+        var availableActions = new HashSet<InteractionEntry>();
         foreach (var protoId in Target.Comp.ActionPrototypes)
         {
-            if(!_prototypeManager.TryIndex(protoId,out var prototype)
-               || !prototype.Checks.All(check => check.IsAvailable(User,Target,_entityManager)))
+            if(!_prototypeManager.TryIndex(protoId,out var prototype))
                 continue;
-            availableActions.Add(protoId);
+
+            var isAvailable = prototype.Checks.All(check => check.IsAvailable(User, Target, _entityManager));
+
+            availableActions.Add(new InteractionEntry(protoId,isAvailable));
         }
 
 
@@ -52,9 +54,16 @@ public sealed class InteractionPanelEui : BaseEui
     public override void HandleMessage(EuiMessageBase msg)
     {
         base.HandleMessage(msg);
-        if (msg is InteractionSelectedMessage selectedMessage && Target.Comp.ActionPrototypes.Contains(selectedMessage.Id))
+
+        switch (msg)
         {
-            _entityManager.System<InteractionPanelSystem>().Interact(User.Owner,Target.Owner,selectedMessage.Id);
+            case CloseEuiMessage:
+                return;
+            case InteractionSelectedMessage selectedMessage when Target.Comp.ActionPrototypes.Contains(selectedMessage.Id):
+                _entityManager.System<InteractionPanelSystem>().Interact(User.Owner,Target.Owner,selectedMessage.Id);
+                break;
         }
+
+        StateDirty();
     }
 }

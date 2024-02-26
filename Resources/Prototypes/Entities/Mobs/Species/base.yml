@@ -267,8 +267,7 @@
   - type: Arousal
   - type: Crawlable
   - type: InteractionPanel
-    actionPrototypes:
-    - SlapButt
+    actionListPrototype: Humanoid
 
 - type: entity
   save: false

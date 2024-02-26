@@ -5,7 +5,305 @@
   checks:
   - !type:HasSmallDistance
   - !type:CantInteractSelf
+  beginningActions:
+  - !type:RequireAnimation
+    k0: 0
+    k1: 0.1
+    k3: 0.25
   beginningMessages:
   - interaction-butt-slap1
   - interaction-butt-slap2
   - interaction-butt-slap3
+  group: Moderate
+
+- type: interaction
+  id: CrawlTarget
+  beginningTimeout: 5
+  checks:
+  - !type:HasSmallDistance
+  - !type:CantInteractSelf
+  preBeginMessages:
+  - interaction-crawl-before1
+  beginningMessages:
+  - interaction-crawl1
+  - interaction-crawl2
+  - interaction-crawl3
+  group: Safe
+
+- type: interaction
+  id: DickInButt
+  checks:
+  - !type:HasSmallDistance
+  - !type:CantInteractSelf
+  - !type:UserHasPenis
+  #- !type:TargetHasButt
+  beginningSound:
+    path: /Audio/Effects/Emotes/clap1.ogg
+  beginningActions:
+  - !type:RequireAnimation
+    k0: 0
+    k1: 0.1
+    k3: 0.25
+    repeat: 12
+  beginningMessages:
+  - interaction-butt-fuck1
+  - interaction-butt-fuck2
+  - interaction-butt-fuck3
+  group: Danger
+
+- type: interaction
+  id: DickInVagina
+  checks:
+  - !type:HasSmallDistance
+  - !type:CantInteractSelf
+  - !type:UserHasPenis
+  - !type:TargetHasVagina
+  beginningSound:
+    path: /Audio/Effects/Emotes/clap1.ogg
+  beginningMessages:
+  - interaction-butt-fuck1
+  - interaction-butt-fuck2
+  - interaction-butt-fuck3
+  group: Danger
+
+- type: interaction
+  id: ItemOnButt
+  checks:
+  - !type:HasSmallDistance
+  - !type:TargetHasButt
+  beginningMessages:
+  - interaction-butt-put1
+  - interaction-butt-put2
+  - interaction-butt-put3
+  group: Danger
+
+- type: interaction
+  id: ItemOnVagina
+  checks:
+  - !type:HasSmallDistance
+  - !type:TargetHasVagina
+  beginningMessages:
+  - interaction-vagina-put1
+  - interaction-vagina-put2
+  - interaction-vagina-put3
+  group: Danger
+
+
+- type: interaction
+  id: ItemOnPenis
+  checks:
+  - !type:HasSmallDistance
+  - !type:TargetHasPenis
+  beginningMessages:
+  - interaction-penis-put1
+  - interaction-penis-put2
+  - interaction-penis-put3
+  group: Extreme
+
+
+- type: interaction
+  id: SitWithButt
+  checks:
+  - !type:HasSmallDistance
+  - !type:TargetHasPenis
+  #- !type:UserHasButt
+  - !type:IsTargetCrawl
+  beginningSound:
+    path: /Audio/Effects/Emotes/clap1.ogg
+  beginningActions:
+  - !type:RequireHorizontalAnimation
+  beginningMessages:
+  - interaction-sit-butt1
+  - interaction-sit-butt2
+  - interaction-sit-butt3
+  group: Danger
+
+
+- type: interaction
+  id: SitWithVagina
+  checks:
+  - !type:HasSmallDistance
+  - !type:TargetHasPenis
+  - !type:UserHasVagina
+  - !type:IsTargetCrawl
+  beginningSound:
+    path: /Audio/Effects/Emotes/clap1.ogg
+  beginningActions:
+  - !type:RequireHorizontalAnimation
+  beginningMessages:
+  - interaction-sit-vagina1
+  - interaction-sit-vagina2
+  - interaction-sit-vagina3
+  group: Danger
+
+- type: interaction
+  id: LickDick
+  checks:
+  - !type:HasSmallDistance
+  - !type:TargetHasPenis
+  beginningSound:
+    path: /Audio/White/Felinid/lick.ogg
+  beginningActions:
+  - !type:RequireHorizontalAnimation
+  beginningMessages:
+  - interaction-dick-lick1
+  - interaction-dick-lick2
+  - interaction-dick-lick3
+  group: Danger
+
+- type: interaction
+  id: LickVagina
+  checks:
+  - !type:HasSmallDistance
+  - !type:TargetHasVagina
+  beginningSound:
+    path: /Audio/White/Felinid/lick.ogg
+  beginningAction:
+  - !type:RequireHorizontalAnimation
+  beginningMessages:
+  - interaction-vagina-lick1
+  - interaction-vagina-lick2
+  - interaction-vagina-lick3
+  group: Danger
+
+- type: interaction
+  id: LickFace
+  checks:
+  - !type:CantInteractSelf
+  - !type:HasSmallDistance
+  beginningActions:
+  - !type:RequireAnimation
+    k0: 0
+    k1: 0.1
+    k2: 0.75
+    k3: 0.25
+  beginningMessages:
+  - interaction-face-lick1
+  - interaction-face-lick2
+  - interaction-face-lick3
+  group: Danger
+
+- type: interaction
+  id: KissMouth
+  checks:
+  - !type:CantInteractSelf
+  - !type:HasSmallDistance
+  beginningSound:
+    collection: Kiss
+  beginningActions:
+  - !type:RequireAnimation
+    k0: 0
+    k1: 0.1
+    k2: 0.75
+    k3: 0.25
+  beginningMessages:
+  - interaction-mouth-kiss1
+  - interaction-mouth-kiss2
+  - interaction-mouth-kiss3
+  group: Moderate
+
+- type: interaction
+  id: KissNeck
+  checks:
+  - !type:CantInteractSelf
+  - !type:HasSmallDistance
+  beginningSound:
+    collection: Kiss
+  beginningActions:
+  - !type:RequireAnimation
+    k0: 0
+    k1: 0.1
+    k2: 0.75
+    k3: 0.25
+  beginningMessages:
+  - interaction-neck-kiss1
+  - interaction-neck-kiss2
+  - interaction-neck-kiss3
+  group: Moderate
+
+- type: interaction
+  id: KissFace
+  checks:
+  - !type:CantInteractSelf
+  - !type:HasSmallDistance
+  beginningSound:
+    collection: Kiss
+  beginningActions:
+  - !type:RequireAnimation
+    k0: 0
+    k1: 0.1
+    k2: 0.75
+    k3: 0.25
+  beginningMessages:
+  - interaction-face-kiss1
+  - interaction-face-kiss2
+  - interaction-face-kiss3
+  group: Moderate
+
+
+- type: interaction
+  id: CombHead
+  checks:
+  - !type:CantInteractSelf
+  - !type:HasSmallDistance
+  beginningSound:
+    path: /Audio/White/Interactions/ches.ogg
+  beginningActions:
+  - !type:RequireAnimation
+    k0: 0
+    k1: 0.1
+    k2: 0.75
+    k3: 0.25
+  beginningMessages:
+  - interaction-head-comb1
+  - interaction-head-comb2
+  - interaction-head-comb3
+  group: Safe
+
+- type: interaction
+  id: CombEars
+  checks:
+  - !type:CantInteractSelf
+  - !type:HasSmallDistance
+  beginningSound:
+    path: /Audio/White/Interactions/ches.ogg
+  beginningActions:
+  - !type:RequireAnimation
+    k0: 0
+    k1: 0.1
+    k2: 0.75
+    k3: 0.25
+  beginningMessages:
+  - interaction-ears-comb1
+  - interaction-ears-comb2
+  - interaction-ears-comb3
+  group: Safe
+
+- type: interaction
+  id: CombButt
+  checks:
+  - !type:HasSmallDistance
+  beginningSound:
+    path: /Audio/White/Interactions/ches.ogg
+  beginningActions:
+  - !type:RequireAnimation
+    k0: 0
+    k1: 0.1
+    k2: 0.75
+    k3: 0.25
+  beginningMessages:
+  - interaction-butt-comb1
+  - interaction-butt-comb2
+  - interaction-butt-comb3
+  group: Moderate
+
+- type: interaction
+  id: PullTarget
+  checks:
+  - !type:CantInteractSelf
+  - !type:HasSmallDistance
+  beginningMessages:
+  - interaction-pull1
+  - interaction-pull2
+  - interaction-pull3
+  group: Safe

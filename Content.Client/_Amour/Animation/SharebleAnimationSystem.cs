@@ -46,8 +46,11 @@ public sealed class SharebleAnimationSystem : SharedAnimationSystem
 
     public override void Play(EntityUid uid,AnimationData data, string animationId = "funny")
     {
-        if(_animation.HasRunningAnimation(uid,animationId))
-            return;
+        if (_animation.HasRunningAnimation(uid, animationId))
+        {
+            Logger.Error($"Entity {ToPrettyString(uid)} has running animation {animationId}");
+            _animation.Stop(uid,animationId);
+        }
 
         var animation = ParseAnimation(data);
         _animation.Play(uid,animation,animationId);

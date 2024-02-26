@@ -1,10 +1,16 @@
 ﻿using System.Linq;
 using Content.Server.Access.Systems;
+using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.DoAfter;
 using Content.Server.EUI;
 using Content.Shared._Amour.Hole;
 using Content.Shared._Amour.InteractionPanel;
+using Content.Shared.Carrying;
+using Content.Shared.Chat;
+using Content.Shared.DoAfter;
 using Content.Shared.Emoting;
+using Content.Shared.Fluids;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Random.Helpers;
@@ -15,6 +21,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Amour.InteractionPanel;
@@ -28,18 +35,36 @@ public sealed class InteractionPanelSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly IdCardSystem _cardSystem = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<InteractionPanelComponent,GetVerbsEvent<Verb>>(OnVerb);
         SubscribeLocalEvent<InteractionPanelComponent,ComponentInit>(OnInit);
+        SubscribeLocalEvent<InteractionPanelComponent,PanelDoAfterEvent>(OnPanel);
+    }
+
+    private void OnPanel(EntityUid uid, InteractionPanelComponent component, PanelDoAfterEvent args)
+    {
+        component.IsBlocked = false;
+        if(args.Cancelled
+           || !_prototypeManager.TryIndex<InteractionPrototype>(args.Prototype, out var prototype)
+           || !TryComp<InteractionPanelComponent>(args.Target, out var targetInteractionPanelComponent))
+            return;
+
+        Interact(new Entity<InteractionPanelComponent>(uid,component),new Entity<InteractionPanelComponent>(args.Target.Value,targetInteractionPanelComponent),prototype,false);
     }
 
     private void OnInit(EntityUid uid, InteractionPanelComponent component, ComponentInit args)
     {
         component.Timeout = _gameTiming.CurTime;
         component.EndTime = _gameTiming.CurTime;
+
+        if (_prototypeManager.TryIndex(component.ActionListPrototype, out var prototype))
+        {
+            component.ActionPrototypes.AddRange(prototype.Prototypes);
+        }
     }
 
     private void OnVerb(EntityUid uid, InteractionPanelComponent component, GetVerbsEvent<Verb> args)
@@ -74,14 +99,69 @@ public sealed class InteractionPanelSystem : EntitySystem
            || target.Comp.IsActive || target.Comp.IsBlocked
            || user.Comp.Timeout > _gameTiming.CurTime
            || target.Comp.Timeout > _gameTiming.CurTime
-           || !_prototypeManager.TryIndex(protoId, out var prototype)
-           || !prototype.Checks.All(check => check.IsAvailable(user!,target!,EntityManager)))
+           || !_prototypeManager.TryIndex(protoId, out var prototype))
             return;
+
+        foreach (var check in prototype.Checks.Where(check => !check.IsAvailable(user!, target!, EntityManager)))
+        {
+            if(!_playerManager.TryGetSessionByEntity(user,out var session))
+                return;
+
+            var message = ParseMessage(target, $"interaction-fail-{check.GetType().Name.ToLower()}");
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes,message,message,EntityUid.Invalid,false,session.Channel);
+            return;
+        }
+
+        if (prototype.BeginningTimeout == TimeSpan.Zero)
+        {
+            Interact(user!,target!,prototype);
+            return;
+        }
+
+        user.Comp.IsBlocked = true;
+
+        if(prototype.PreBeginMessages.Count > 0)
+        {
+            _chatSystem.TrySendInGameICMessage(user,
+                ParseMessage(target,_robustRandom.Pick(prototype.PreBeginMessages)),
+                InGameICChatType.Emote,
+                false);
+        }
+
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(
+            EntityManager,
+            user,
+            prototype.BeginningTimeout,
+            new PanelDoAfterEvent(prototype.ID),user,target
+            )
+        {
+            BreakOnDamage = true,
+            BreakOnTargetMove = true,
+            BreakOnUserMove = true,
+            BreakOnHandChange = true
+        });
+    }
+
+    private void Interact(Entity<InteractionPanelComponent> user,
+        Entity<InteractionPanelComponent> target, InteractionPrototype prototype, bool hasChecked = true)
+    {
+        if (!hasChecked)
+        {
+            foreach (var check in prototype.Checks.Where(check => !check.IsAvailable(user!, target!, EntityManager)))
+            {
+                if(!_playerManager.TryGetSessionByEntity(user,out var session))
+                    return;
+
+                var message = ParseMessage(target, $"interaction-fail-{check.GetType().Name.ToLower()}");
+                _chatManager.ChatMessageToOne(ChatChannel.Emotes,message,message,EntityUid.Invalid,false,session.Channel);
+                return;
+            }
+        }
 
         user.Comp.Timeout = _gameTiming.CurTime + prototype.Timeout;
         user.Comp.EndTime = _gameTiming.CurTime + prototype.EndTime;
         user.Comp.IsActive = true;
-        user.Comp.CurrentAction = protoId;
+        user.Comp.CurrentAction = prototype.ID;
         user.Comp.CurrentPartner = new Entity<InteractionPanelComponent>(target,target.Comp);
 
         if(prototype.BeginningMessages.Count > 0)
@@ -95,7 +175,12 @@ public sealed class InteractionPanelSystem : EntitySystem
         if (prototype.BeginningSound is not null)
             _audioSystem.PlayPvs(prototype.BeginningSound, user);
 
-        RaiseLocalEvent(user,new InteractionBeginningEvent(protoId,user!,target!));
+        foreach (var action in prototype.BeginningActions)
+        {
+            action.Run(user!,target!,EntityManager);
+        }
+
+        RaiseLocalEvent(user,new InteractionBeginningEvent(prototype.ID,user,target));
     }
 
     private string GetName(EntityUid target)
@@ -124,6 +209,7 @@ public sealed class InteractionPanelSystem : EntitySystem
     {
         base.Update(frameTime);
         var query = EntityQueryEnumerator<InteractionPanelComponent>();
+
         while (query.MoveNext(out var uid, out var component))
         {
             if(component.EndTime > _gameTiming.CurTime || !component.IsActive)
@@ -133,6 +219,8 @@ public sealed class InteractionPanelSystem : EntitySystem
             {
                 continue;
             }
+
+            var user = new Entity<InteractionPanelComponent>(uid, component);
 
             if (_prototypeManager.TryIndex(component.CurrentAction, out var prototype))
             {
@@ -147,12 +235,17 @@ public sealed class InteractionPanelSystem : EntitySystem
 
                 if (prototype.EndingSound is not null)
                     _audioSystem.PlayPvs(prototype.EndingSound, uid);
+
+                foreach (var action in prototype.EndingActions)
+                {
+                    action.Run(user,component.CurrentPartner.Value,EntityManager);
+                }
             }
 
 
             component.IsActive = false;
             RaiseLocalEvent(uid, new InteractionEndingEvent(component.CurrentAction,
-                new Entity<InteractionPanelComponent>(uid,component),
+                user,
                 component.CurrentPartner.Value));
         }
     }

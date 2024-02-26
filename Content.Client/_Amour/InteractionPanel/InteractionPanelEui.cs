@@ -19,6 +19,7 @@ public sealed class InteractionPanelEui : BaseEui
         _interactionPanelWindow = new UI.InteractionPanelWindow();
         _interactionPanelWindow.OnClose += () => SendMessage(new CloseEuiMessage());
         _interactionPanelWindow.OnInteraction += InteractionPanelWindowOnInteraction;
+        _interactionPanelWindow.OnUpdateRequired += () => SendMessage(new InteractionUpdateMessage());
     }
 
     private void InteractionPanelWindowOnInteraction(string id)

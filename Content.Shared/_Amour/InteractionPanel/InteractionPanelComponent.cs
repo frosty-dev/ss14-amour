@@ -15,5 +15,6 @@ public sealed partial class InteractionPanelComponent : Component
     [ViewVariables] public Entity<InteractionPanelComponent>? CurrentPartner;
 
     [DataField] public List<ProtoId<InteractionPrototype>> ActionPrototypes = new();
+    [DataField] public ProtoId<InteractionListPrototype> ActionListPrototype;
 }
 

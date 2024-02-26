@@ -6,9 +6,20 @@ using Robust.Client.UserInterface.XAML;
 namespace Content.Client._Amour.InteractionPanel.UI;
 
 [GenerateTypedNameReferences]
-public sealed partial class InteractionPanelButton : ContainerButton
+public sealed partial class InteractionPanelButton : Button
 {
     public event Action<string>? OnInteraction;
+
+    private Color _color = Color.White;
+    public Color Color
+    {
+        get => _color;
+        set
+        {
+            _color = value;
+            ModulateSelfOverride = value;
+        }
+    }
 
     private string _interactionId = "Interaction";
     public string InteractionId

@@ -1,0 +1,19 @@
+﻿- type: interactionGroup
+  id: Safe
+  color: "#4E4E50"
+  priority: 0
+
+- type: interactionGroup
+  id: Moderate
+  color: "#394053"
+  priority: 1
+
+- type: interactionGroup
+  id: Danger
+  color: "#950740"
+  priority: 2
+
+- type: interactionGroup
+  id: Extreme
+  color: "#C3073F"
+  priority: 3
