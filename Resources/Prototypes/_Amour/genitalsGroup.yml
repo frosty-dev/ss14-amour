@@ -1,7 +1,7 @@
 ﻿- type: genitalsGroup
   id: Penis
   prototypes:
-  - PenisAmputated0
+  #- PenisAmputated0
   - PenisBarbknot1
   - PenisBarbknot2
   - PenisBarbknot3
@@ -39,12 +39,12 @@
   - PenisTentacle2
   - PenisTentacle3
   - PenisTentacle4
-  - PenisThick1
-  - PenisThick2
-  - PenisThick3
-  - PenisThick4
-  - PenisThick5
-  - VaginaCloaca1
+  #- PenisThick1
+  #- PenisThick2
+  #- PenisThick3
+  #- PenisThick4
+  #- PenisThick5
+  #- VaginaCloaca1
   - VaginaDentata1
   - VaginaFurred1
   - VaginaGaping1
@@ -72,16 +72,16 @@
   - BreastsPairD
   - BreastsPairE
   - BreastsPairF
-  - BreastsPairGiga
+  #- BreastsPairGiga
   - BreastsPairG
-  - BreastsPairHuge
+  #- BreastsPairHuge
   - BreastsPairH
-  - BreastsPairImpossible
+  #- BreastsPairImpossible
   - BreastsPairI
   - BreastsPairJ
   - BreastsPairK
   - BreastsPairL
-  - BreastsPairMassive
+  #- BreastsPairMassive
   - BreastsPairM
   - BreastsPairN
   - BreastsPairO
@@ -91,16 +91,16 @@
   - BreastsQuadD
   - BreastsQuadE
   - BreastsQuadF
-  - BreastsQuadGiga
+  #- BreastsQuadGiga
   - BreastsQuadG
-  - BreastsQuadHuge
+  #- BreastsQuadHuge
   - BreastsQuadH
-  - BreastsQuadImpossible
+  #- BreastsQuadImpossible
   - BreastsQuadI
   - BreastsQuadJ
   - BreastsQuadK
   - BreastsQuadL
-  - BreastsQuadMassive
+  #- BreastsQuadMassive
   - BreastsQuadM
   - BreastsQuadN
   - BreastsQuadO
@@ -110,16 +110,16 @@
   - BreastsSextupleD
   - BreastsSextupleE
   - BreastsSextupleF
-  - BreastsSextupleGiga
+  #- BreastsSextupleGiga
   - BreastsSextupleG
-  - BreastsSextupleHuge
+  #- BreastsSextupleHuge
   - BreastsSextupleH
-  - BreastsSextupleImpossible
+  #- BreastsSextupleImpossible
   - BreastsSextupleI
   - BreastsSextupleJ
   - BreastsSextupleK
   - BreastsSextupleL
-  - BreastsSextupleMassive
+  #- BreastsSextupleMassive
   - BreastsSextupleM
   - BreastsSextupleN
   - BreastsSextupleO
@@ -131,9 +131,9 @@
   - TesticlesSheath2
   - TesticlesSheath3
   - TesticlesSheath4
-  - TesticlesSheath5
-  - TesticlesSingle1
-  - TesticlesSingle2
-  - TesticlesSingle3
-  - TesticlesSingle4
-  - TesticlesSingle5
+  #- TesticlesSheath5
+  #- TesticlesSingle1
+  #- TesticlesSingle2
+  #- TesticlesSingle3
+  #- TesticlesSingle4
+  #- TesticlesSingle5

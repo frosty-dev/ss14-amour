@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Server.Access.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
@@ -6,13 +7,18 @@ using Content.Server.DoAfter;
 using Content.Server.EUI;
 using Content.Shared._Amour.Hole;
 using Content.Shared._Amour.InteractionPanel;
+using Content.Shared._Amour.InteractionPanel.Checks;
+using Content.Shared._White.GhostRecruitment;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Carrying;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Emoting;
 using Content.Shared.Fluids;
 using Content.Shared.Humanoid;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
+using Content.Shared.Movement.Events;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
@@ -37,12 +43,23 @@ public sealed class InteractionPanelSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<InteractionPanelComponent,GetVerbsEvent<Verb>>(OnVerb);
         SubscribeLocalEvent<InteractionPanelComponent,ComponentInit>(OnInit);
         SubscribeLocalEvent<InteractionPanelComponent,PanelDoAfterEvent>(OnPanel);
+        SubscribeLocalEvent<InteractionPanelComponent,ChangeDirectionAttemptEvent>(OnCancelable);
+        SubscribeLocalEvent<InteractionPanelComponent,UpdateCanMoveEvent>(OnCancelable);
+    }
+
+    private void OnCancelable(EntityUid uid, InteractionPanelComponent component, CancellableEntityEventArgs args)
+    {
+        if (component.IsActive || component.IsBlocked)
+        {
+            args.Cancel();
+        }
     }
 
     private void OnPanel(EntityUid uid, InteractionPanelComponent component, PanelDoAfterEvent args)
@@ -71,7 +88,7 @@ public sealed class InteractionPanelSystem : EntitySystem
     {
         args.Verbs.Add(new Verb()
         {
-            Text = "Open funny panel",
+            Text = Loc.GetString("interaction-open"),
             Act = () => OpenPanel(args.User,args.User,uid)
         });
     }
@@ -102,9 +119,9 @@ public sealed class InteractionPanelSystem : EntitySystem
            || !_prototypeManager.TryIndex(protoId, out var prototype))
             return;
 
-        foreach (var check in prototype.Checks.Where(check => !check.IsAvailable(user!, target!, EntityManager)))
+        if(!Check(user!,target!,prototype, out var check))
         {
-            if(!_playerManager.TryGetSessionByEntity(user,out var session))
+            if(_playerManager.TryGetSessionByEntity(user,out var session) || session is null)
                 return;
 
             var message = ParseMessage(target, $"interaction-fail-{check.GetType().Name.ToLower()}");
@@ -145,20 +162,18 @@ public sealed class InteractionPanelSystem : EntitySystem
     private void Interact(Entity<InteractionPanelComponent> user,
         Entity<InteractionPanelComponent> target, InteractionPrototype prototype, bool hasChecked = true)
     {
-        if (!hasChecked)
+        if(!hasChecked && !Check(user,target,prototype, out var check))
         {
-            foreach (var check in prototype.Checks.Where(check => !check.IsAvailable(user!, target!, EntityManager)))
-            {
-                if(!_playerManager.TryGetSessionByEntity(user,out var session))
-                    return;
-
-                var message = ParseMessage(target, $"interaction-fail-{check.GetType().Name.ToLower()}");
-                _chatManager.ChatMessageToOne(ChatChannel.Emotes,message,message,EntityUid.Invalid,false,session.Channel);
+            if(_playerManager.TryGetSessionByEntity(user,out var session) || session is null)
                 return;
-            }
+
+            var message = ParseMessage(target, $"interaction-fail-{check.GetType().Name.ToLower()}");
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes,message,message,EntityUid.Invalid,false,session.Channel);
+            return;
         }
 
-        user.Comp.Timeout = _gameTiming.CurTime + prototype.Timeout;
+
+        user.Comp.Timeout = _gameTiming.CurTime + prototype.Timeout + prototype.EndTime;
         user.Comp.EndTime = _gameTiming.CurTime + prototype.EndTime;
         user.Comp.IsActive = true;
         user.Comp.CurrentAction = prototype.ID;
@@ -179,6 +194,9 @@ public sealed class InteractionPanelSystem : EntitySystem
         {
             action.Run(user!,target!,EntityManager);
         }
+
+        _actionBlockerSystem.UpdateCanMove(user);
+        _actionBlockerSystem.UpdateCanMove(target);
 
         RaiseLocalEvent(user,new InteractionBeginningEvent(prototype.ID,user,target));
     }
@@ -205,6 +223,19 @@ public sealed class InteractionPanelSystem : EntitySystem
             ("target", GetName(target)), ("gender", GetGender(target)));
     }
 
+    public bool Check(Entity<InteractionPanelComponent> user,
+        Entity<InteractionPanelComponent> target, InteractionPrototype prototype,[NotNullWhen(false)] out IInteractionCheck? check)
+    {
+        check = null;
+        foreach (var checkout in prototype.Checks.Where(check => !check.IsAvailable(user!, target!, EntityManager)))
+        {
+            check = checkout;
+            return false;
+        }
+
+        return true;
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -221,6 +252,7 @@ public sealed class InteractionPanelSystem : EntitySystem
             }
 
             var user = new Entity<InteractionPanelComponent>(uid, component);
+            var target = component.CurrentPartner.Value;
 
             if (_prototypeManager.TryIndex(component.CurrentAction, out var prototype))
             {
@@ -242,11 +274,14 @@ public sealed class InteractionPanelSystem : EntitySystem
                 }
             }
 
-
             component.IsActive = false;
+
+            _actionBlockerSystem.UpdateCanMove(user);
+            _actionBlockerSystem.UpdateCanMove(target);
+
             RaiseLocalEvent(uid, new InteractionEndingEvent(component.CurrentAction,
                 user,
-                component.CurrentPartner.Value));
+                target));
         }
     }
 }

@@ -14,7 +14,7 @@ public sealed class ArousalSystem : EntitySystem
 
     private void OnComponentInit(EntityUid uid, ArousalComponent component, ComponentInit args)
     {
-        UpdateAlarm(new Entity<ArousalComponent?>(uid,component));
+        //UpdateAlarm(new Entity<ArousalComponent?>(uid,component));
     }
 
     private void UpdateAlarm(Entity<ArousalComponent?> entity)

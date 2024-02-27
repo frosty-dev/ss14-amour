@@ -26,14 +26,20 @@ public sealed class InteractionState: EuiStateBase
     public NetEntity Performer { get; }
     public NetEntity Target { get; }
     public HashSet<InteractionEntry> AvailableInteractions;
+
+    public HashSet<string> DescUser;
+    public HashSet<string> DescTarget;
+
     public byte? Arousal;
 
-    public InteractionState(NetEntity performer, NetEntity target, HashSet<InteractionEntry> availableInteractions, byte? arousal)
+    public InteractionState(NetEntity performer, NetEntity target, HashSet<InteractionEntry> availableInteractions, byte? arousal, HashSet<string> descUser, HashSet<string> descTarget)
     {
         Performer = performer;
         Target = target;
         AvailableInteractions = availableInteractions;
         Arousal = arousal;
+        DescUser = descUser;
+        DescTarget = descTarget;
     }
 }
 

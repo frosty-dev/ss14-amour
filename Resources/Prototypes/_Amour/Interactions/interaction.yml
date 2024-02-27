@@ -50,6 +50,7 @@
   - interaction-butt-fuck2
   - interaction-butt-fuck3
   group: Danger
+  endTime: 6
 
 - type: interaction
   id: DickInVagina
@@ -60,17 +61,28 @@
   - !type:TargetHasVagina
   beginningSound:
     path: /Audio/Effects/Emotes/clap1.ogg
+  beginningActions:
+  - !type:RequireAnimation
+    k0: 0
+    k1: 0.1
+    k3: 0.25
+    repeat: 12
   beginningMessages:
-  - interaction-butt-fuck1
-  - interaction-butt-fuck2
-  - interaction-butt-fuck3
+  - interaction-vagina-fuck1
+  - interaction-vagina-fuck2
+  - interaction-vagina-fuck3
   group: Danger
+  endTime: 6
 
 - type: interaction
   id: ItemOnButt
   checks:
   - !type:HasSmallDistance
   - !type:TargetHasButt
+  - !type:HasItemInUserHand
+  beginningTimeout: 10
+  preBeginMessages:
+  - interaction-butt-put-before1
   beginningMessages:
   - interaction-butt-put1
   - interaction-butt-put2
@@ -82,6 +94,10 @@
   checks:
   - !type:HasSmallDistance
   - !type:TargetHasVagina
+  - !type:HasItemInUserHand
+  beginningTimeout: 10
+  preBeginMessages:
+  - interaction-vagina-put-before1
   beginningMessages:
   - interaction-vagina-put1
   - interaction-vagina-put2
@@ -90,15 +106,35 @@
 
 
 - type: interaction
-  id: ItemOnPenis
+  id: ItemFromButt
   checks:
   - !type:HasSmallDistance
-  - !type:TargetHasPenis
+  - !type:TargetHasButt
+  - !type:UserHasHand
+  beginningTimeout: 10
+  preBeginMessages:
+  - interaction-butt-take-before1
   beginningMessages:
-  - interaction-penis-put1
-  - interaction-penis-put2
-  - interaction-penis-put3
-  group: Extreme
+  - interaction-butt-take1
+  - interaction-butt-take2
+  - interaction-butt-take3
+  group: Danger
+
+- type: interaction
+  id: ItemFromVagina
+  checks:
+  - !type:HasSmallDistance
+  - !type:TargetHasVagina
+  - !type:UserHasHand
+  beginningTimeout: 10
+  preBeginMessages:
+  - interaction-vagina-take-before1
+  beginningMessages:
+  - interaction-vagina-take1
+  - interaction-vagina-take2
+  - interaction-vagina-take3
+  group: Danger
+
 
 
 - type: interaction
@@ -106,6 +142,7 @@
   checks:
   - !type:HasSmallDistance
   - !type:TargetHasPenis
+  - !type:CantInteractSelf
   #- !type:UserHasButt
   - !type:IsTargetCrawl
   beginningSound:
@@ -117,6 +154,7 @@
   - interaction-sit-butt2
   - interaction-sit-butt3
   group: Danger
+  endTime: 6
 
 
 - type: interaction
@@ -124,6 +162,7 @@
   checks:
   - !type:HasSmallDistance
   - !type:TargetHasPenis
+  - !type:CantInteractSelf
   - !type:UserHasVagina
   - !type:IsTargetCrawl
   beginningSound:
@@ -135,11 +174,13 @@
   - interaction-sit-vagina2
   - interaction-sit-vagina3
   group: Danger
+  endTime: 6
 
 - type: interaction
   id: LickDick
   checks:
   - !type:HasSmallDistance
+  - !type:CantInteractSelf
   - !type:TargetHasPenis
   beginningSound:
     path: /Audio/White/Felinid/lick.ogg
@@ -150,14 +191,18 @@
   - interaction-dick-lick2
   - interaction-dick-lick3
   group: Danger
+  endTime: 6
 
 - type: interaction
   id: LickVagina
   checks:
   - !type:HasSmallDistance
+  - !type:CantInteractSelf
   - !type:TargetHasVagina
   beginningSound:
     path: /Audio/White/Felinid/lick.ogg
+  beginningActions:
+  - !type:RequireHorizontalAnimation
   beginningAction:
   - !type:RequireHorizontalAnimation
   beginningMessages:
@@ -165,6 +210,7 @@
   - interaction-vagina-lick2
   - interaction-vagina-lick3
   group: Danger
+  endTime: 6
 
 - type: interaction
   id: LickFace
@@ -181,7 +227,25 @@
   - interaction-face-lick1
   - interaction-face-lick2
   - interaction-face-lick3
+  group: Moderate
+
+- type: interaction
+  id: DrochDick
+  checks:
+  - !type:HasSmallDistance
+  - !type:TargetHasPenis
+  beginningSound:
+    path: /Audio/Effects/Emotes/clap1.ogg
+  beginningActions:
+  - !type:RequireAnimation
+    k0: 0
+    k1: 0.1
+    k2: 3.4
+    k3: 0.25
+  beginningMessages:
+  - interaction-droch-dick1
   group: Danger
+  endTime: 6
 
 - type: interaction
   id: KissMouth
@@ -282,6 +346,7 @@
 - type: interaction
   id: CombButt
   checks:
+  - !type:CantInteractSelf
   - !type:HasSmallDistance
   beginningSound:
     path: /Audio/White/Interactions/ches.ogg

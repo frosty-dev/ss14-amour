@@ -1,9 +1,12 @@
 using System.Numerics;
 using Content.Server._Amour.Animation;
 using Content.Server._Amour.Crawl;
+using Content.Server._Amour.Hole;
+using Content.Server.Hands.Systems;
 using Content.Server.Pulling;
 using Content.Shared._Amour.Animation;
 using Content.Shared._Amour.InteractionPanel;
+using Content.Shared.Hands.Components;
 using Robust.Shared.Animations;
 
 namespace Content.Server._Amour.InteractionPanel;
@@ -13,6 +16,9 @@ public sealed class Interactions : EntitySystem
     [Dependency] private readonly CrawlSystem _crawlSystem = default!;
     [Dependency] private readonly SharebleAnimationSystem _animationSystem = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
+    [Dependency] private readonly HoleSystem _holeSystem = default!;
+    [Dependency] private readonly HandsSystem _handsSystem = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<InteractionPanelComponent,InteractionBeginningEvent>(OnBegin);
@@ -43,6 +49,41 @@ public sealed class Interactions : EntitySystem
             case "CrawlTarget" :
                 _crawlSystem.EnableCrawl(args.Target);
                 break;
+            case "ItemOnButt":
+                PutHole(uid,"Anus");
+                break;
+            case "ItemOnVagina":
+                PutHole(uid,"Vagina");
+                break;
+            case "ItemFromButt":
+                TakeHole(uid,"Anus");
+                break;
+            case "ItemFromVagina":
+                TakeHole(uid,"Vagina");
+                break;
+        }
+    }
+
+    private void PutHole(EntityUid uid,string holeType)
+    {
+        if (!TryComp<HandsComponent>(uid, out var handsComponent)
+            || handsComponent.ActiveHand?.HeldEntity is null
+            || !_holeSystem.TryFind(uid,holeType,out var hole))
+            return;
+
+        var ent = handsComponent.ActiveHand.HeldEntity.Value;
+
+        _holeSystem.PutItem(ent,hole.Owner);
+    }
+
+    private void TakeHole(EntityUid uid,string holeType)
+    {
+        if (!_holeSystem.TryFind(uid,holeType,out var hole))
+            return;
+
+        foreach (var entity in _holeSystem.TakeItem(hole.Owner))
+        {
+            _handsSystem.TryPickup(uid, entity);
         }
     }
 }

@@ -5,6 +5,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Client._Amour.InteractionPanel.UI;
 
@@ -24,6 +25,7 @@ public sealed partial class InteractionPanelWindow : DefaultWindow
         IoCManager.InjectDependencies(this);
 
         DisCheckbox.OnPressed += _ => OnUpdateRequired?.Invoke();
+        UpdateButton.OnPressed += _ => OnUpdateRequired?.Invoke();
     }
 
     public void AddButton(InteractionEntry entry)
@@ -59,6 +61,31 @@ public sealed partial class InteractionPanelWindow : DefaultWindow
             box.Orientation = BoxContainer.LayoutOrientation.Vertical;
             Groups.Add(prototype.ID,Interactions.ChildCount - 1);
         }
+
+        var messageUser = new FormattedMessage();
+        if (state.DescUser.Count == 0)
+        {
+            messageUser.AddMarkup($"- {Loc.GetString("interaction-empty")}\n");
+        }
+
+        foreach (var desc in state.DescUser)
+        {
+            messageUser.AddMarkup($"- {Loc.GetString(desc)}\n");
+        }
+        PerformerDesc.SetMessage(messageUser);
+
+        var messageTarget = new FormattedMessage();
+        if (state.DescTarget.Count == 0)
+        {
+            messageTarget.AddMarkup($"- {Loc.GetString("interaction-empty")}\n");
+        }
+
+        foreach (var desc in state.DescTarget)
+        {
+            messageTarget.AddMarkup($"- {Loc.GetString(desc)}\n");
+        }
+        TargerDesc.SetMessage(messageTarget);
+
 
         TargetView.SetEntity(state.Target);
         PerformerView.SetEntity(state.Performer);
