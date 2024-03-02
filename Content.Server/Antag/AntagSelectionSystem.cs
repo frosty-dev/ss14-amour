@@ -10,12 +10,14 @@ using Content.Server.Mind;
 using Robust.Shared.Random;
 using Robust.Shared.Map;
 using System.Numerics;
+using Content.Server._Miracle.Components;
+using Content.Server._Miracle.GulagSystem;
 using Content.Shared.Inventory;
 using Content.Server.Storage.EntitySystems;
 using Robust.Shared.Audio;
-using Robust.Server.GameObjects;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
+using Content.Server.Revolutionary.Components;
 using Content.Server.Roles;
 using Robust.Shared.Containers;
 using Content.Shared.Mobs.Components;
@@ -27,7 +29,6 @@ using Robust.Server.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Server.Shuttles.Components;
-using Content.Server._White.Reputation;
 using Content.Shared.Players;
 
 namespace Content.Server.Antag;
@@ -48,7 +49,7 @@ public sealed class AntagSelectionSystem : GameRuleSystem<GameRuleComponent>
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly RoleSystem _roles = default!; // WD
     [Dependency] private readonly SharedPlayerSystem _sharedPlayerSystem = default!; // WD
-    [Dependency] private readonly ReputationManager _reputationManager = default!; // WD
+    [Dependency] private readonly GulagSystem _gulag = default!; // WD
 
     /// <summary>
     /// Attempts to start the game rule by checking if there are enough players in lobby and readied.
@@ -103,8 +104,17 @@ public sealed class AntagSelectionSystem : GameRuleSystem<GameRuleComponent>
         chosen = new List<EntityUid>();
         foreach (var player in allPlayers)
         {
+            if (_gulag.IsUserGulaged(player.UserId, out _)) // WD
+                continue;
+
             if (includeHeads == false)
             {
+                // WD START
+                if (!_mindSystem.TryGetMind(player, out _, out var mind) ||
+                    mind.OwnedEntity is not { } ownedEntity || HasComp<CommandStaffComponent>(ownedEntity))
+                    continue;
+                // WD END
+
                 if (!_jobs.CanBeAntag(player))
                     continue;
             }
@@ -135,11 +145,7 @@ public sealed class AntagSelectionSystem : GameRuleSystem<GameRuleComponent>
             }
             else
             {
-                //chosenPlayer = _random.PickAndTake(prefList);
-                // WD EDIT START
-                chosenPlayer = _reputationManager.PickPlayerBasedOnReputation(prefList);
-                prefList.Remove(chosenPlayer);
-                // WD EDIT END
+                chosenPlayer = _random.PickAndTake(prefList);
                 playerList.Remove(chosenPlayer);
             }
 
@@ -173,6 +179,9 @@ public sealed class AntagSelectionSystem : GameRuleSystem<GameRuleComponent>
 
         foreach (var player in candidates.Keys)
         {
+            if (_gulag.IsUserGulaged(player.UserId, out _)) // WD
+                continue;
+
             if (_sharedPlayerSystem.ContentData(player) is not {Mind: { } mindId} || _roles.MindIsAntagonist(mindId))
                 continue;
 
@@ -223,12 +232,7 @@ public sealed class AntagSelectionSystem : GameRuleSystem<GameRuleComponent>
 
         for (var i = 0; i < antagCount; i++)
         {
-            //results.Add(_random.PickAndTake(prefList));
-            // WD EDIT START
-            var pref = _reputationManager.PickPlayerBasedOnReputation(prefList);
-            prefList.Remove(pref);
-            results.Add(pref);
-            // WD EDIT END
+            results.Add(_random.PickAndTake(prefList));
             Log.Info("Selected a preferred antag.");
         }
         return results;

@@ -9,6 +9,7 @@
   components:
   - type: HumanoidAppearance
     species: Skeleton
+    bodyType: SkeletonNormal
   - type: Icon
     sprite: Mobs/Species/Skeleton/parts.rsi
     state: full
@@ -109,3 +110,4 @@
   components:
     - type: HumanoidAppearance
       species: Skeleton
+      bodyType: SkeletonNormal

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Server._Miracle.Components;
 using Content.Server.Changeling.Objectives.Components;
 using Content.Server.Forensics;
 using Content.Server.Mind;
@@ -66,7 +67,7 @@ public sealed class ChangelingConditionsSystem : EntitySystem
         if (!TryComp<ChangelingComponent>(mind.CurrentEntity, out var changelingComponent))
             return 0f;
 
-        var absorbed = changelingComponent.AbsorbedEntities.Count - 1; // Because first - it's the owner
+        var absorbed = changelingComponent.AbsorbedCount; // Because first - it's the owner
 
         if (requiredDna == absorbed)
             return 1f;
@@ -90,7 +91,7 @@ public sealed class ChangelingConditionsSystem : EntitySystem
         if (!TryComp<ChangelingComponent>(mind.CurrentEntity, out var changelingComponent))
             return 0f;
 
-        var selfAbsorbed = changelingComponent.AbsorbedEntities.Count - 1; // Because first - it's the owner
+        var selfAbsorbed = changelingComponent.AbsorbedCount; // Because first - it's the owner
 
         var query = EntityQueryEnumerator<ChangelingComponent>();
 
@@ -100,7 +101,7 @@ public sealed class ChangelingConditionsSystem : EntitySystem
             if (uid == mind.CurrentEntity)
                 continue; //don't include self
 
-            var absorbed = comp.AbsorbedEntities.Count - 1;
+            var absorbed = comp.AbsorbedCount;
             otherAbsorbed.Add(absorbed);
         }
 
@@ -184,6 +185,7 @@ public sealed class ChangelingConditionsSystem : EntitySystem
             return;
 
         var allHumans = _mind.GetAliveHumansExcept(args.MindId);
+        allHumans = allHumans.Where(x => !HasComp<GulagBoundComponent>(x)).ToList();
         if (allHumans.Count == 0)
         {
             args.Cancelled = true;

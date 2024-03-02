@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._White.Keyhole.Components;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Damage;
@@ -6,6 +7,7 @@ using Content.Shared.Doors.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Physics;
+using Content.Shared.Popups;
 using Content.Shared.Prying.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
@@ -14,7 +16,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
-using Content.Shared.Prying.Components;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared.Doors.Systems;
@@ -31,6 +32,7 @@ public abstract class SharedDoorSystem : EntitySystem
     [Dependency] protected readonly SharedAppearanceSystem AppearanceSystem = default!;
     [Dependency] private readonly OccluderSystem _occluder = default!;
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!; //WD edit
 
     /// <summary>
     ///     A body must have an intersection percentage larger than this in order to be considered as colliding with a
@@ -176,10 +178,13 @@ public abstract class SharedDoorSystem : EntitySystem
         args.BaseTime = door.PryTime;
     }
 
-    private void OnBeforePry(EntityUid uid, DoorComponent door, ref BeforePryEvent args)
+    private void OnBeforePry(EntityUid uid, DoorComponent door, ref BeforePryEvent args) // WD edit
     {
-        if (door.State == DoorState.Welded || !door.CanPry)
+        if (door.State == DoorState.Welded || !door.CanPry ||
+            TryComp<KeyholeComponent>(uid, out var keyholeComponent) && keyholeComponent.Locked)
+        {
             args.Cancelled = true;
+        }
     }
 
     /// <summary>
@@ -212,9 +217,22 @@ public abstract class SharedDoorSystem : EntitySystem
         if (!Resolve(uid, ref door))
             return false;
 
-        if (door.State == DoorState.Closed)
+        // WD edit start
+        if (TryComp<KeyholeComponent>(uid, out var keyholeComponent))
         {
-            return TryOpen(uid, door, user, predicted);
+            if (keyholeComponent.Locked)
+            {
+                PlaySound(uid, keyholeComponent.DoorLockedSound, AudioParams.Default.WithVolume(-3), uid, true);
+                _popupSystem.PopupEntity(Loc.GetString("door-locked-via-key", ("door", uid)), uid);
+                return false;
+            }
+
+        }
+        // WD edit end
+
+        if (door.State is DoorState.Closed or DoorState.Denying)
+        {
+            return TryOpen(uid, door, user, predicted, quiet: door.State == DoorState.Denying);
         }
         else if (door.State == DoorState.Open)
         {

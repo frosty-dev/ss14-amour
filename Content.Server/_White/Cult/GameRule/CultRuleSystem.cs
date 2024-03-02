@@ -1,4 +1,7 @@
-﻿using System.Linq;
+using System.Linq;
+using Content.Server._Miracle.Components;
+using Content.Server._Miracle.GulagSystem;
+using Content.Server.Actions;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
@@ -20,6 +23,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Content.Shared._White;
+using Content.Shared._White.Chaplain;
 using Content.Shared._White.Cult.Components;
 using Content.Shared.Mind;
 using Robust.Shared.Audio.Systems;
@@ -41,6 +45,8 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly JobSystem _jobSystem = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly GulagSystem _gulag = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -171,6 +177,11 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
 
         cultistsRule.CurrentCultists.Remove(component);
 
+        foreach (var empower in component.SelectedEmpowers)
+        {
+            _actions.RemoveAction(uid, GetEntity(empower));
+        }
+
         RemoveCultistAppearance(uid);
         CheckRoundShouldEnd();
     }
@@ -296,6 +307,9 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
             if (entity == default)
                 continue;
 
+            if (_gulag.IsUserGulaged(actor.PlayerSession.UserId, out _))
+                continue;
+
             if (exclude?.Contains(actor.PlayerSession) is true)
             {
                 continue;
@@ -315,8 +329,17 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
 
         foreach (var player in candidates.Keys)
         {
+            // Gulag
+            if (_gulag.IsUserGulaged(player.UserId, out _))
+                continue;
+
             // Role prevents antag.
             if (!_jobSystem.CanBeAntag(player))
+                continue;
+
+            // Chaplain
+            if (!_mindSystem.TryGetMind(player, out _, out var mind) ||
+                mind.OwnedEntity is not { } ownedEntity || HasComp<HolyComponent>(ownedEntity))
                 continue;
 
             // Latejoin
@@ -342,6 +365,7 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
         {
             _sawmill.Info("Insufficient preferred cultists, picking at random.");
             prefList = list;
+            return prefList;
         }
 
         if (prefList.Count >= _minimalCultists)
@@ -368,16 +392,16 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
     private List<ICommonSession> PickCultists(List<ICommonSession> prefList)
     {
         var result = new List<ICommonSession>();
-        if (prefList.Count == 0)
+
+        var maxCultists = _cfg.GetCVar(WhiteCVars.CultMaxStartingPlayers);
+
+        if (prefList.Count < _minimalCultists)
         {
             _sawmill.Info("Insufficient ready players to fill up with cultists, stopping the selection.");
             return result;
         }
 
-        var minCultists = _cfg.GetCVar(WhiteCVars.CultMinPlayers);
-        var maxCultists = _cfg.GetCVar(WhiteCVars.CultMaxStartingPlayers);
-
-        var actualCultistCount = prefList.Count > maxCultists ? maxCultists : minCultists;
+        var actualCultistCount = prefList.Count > maxCultists ? maxCultists : _minimalCultists;
 
         for (var i = 0; i < actualCultistCount; i++)
         {
@@ -399,7 +423,7 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
 
         if (!_mindSystem.TryGetMind(cultist, out var mindId, out var mind))
         {
-            Log.Info("Failed getting mind for picked thief.");
+            Log.Info("Failed getting mind for picked cultist.");
             return false;
         }
 
@@ -468,5 +492,22 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
 
             _bodySystem.GibBody(uid);
         }
+    }
+
+    public void TransferRole(EntityUid transferFrom, EntityUid transferTo)
+    {
+        if (HasComp<PentagramComponent>(transferFrom))
+            EnsureComp<PentagramComponent>(transferTo);
+
+        if (!HasComp<CultistComponent>(transferFrom))
+            return;
+
+        var query = EntityQuery<CultRuleComponent>();
+        foreach (var cultRule in query)
+        {
+            cultRule.CultistsCache.Remove(Name(transferFrom));
+        }
+        EnsureComp<CultistComponent>(transferTo);
+        RemComp<CultistComponent>(transferFrom);
     }
 }

@@ -17,7 +17,6 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 {
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly HoleSystem _holeSystem = default!;
 
     public override void Initialize()
     {
@@ -30,11 +29,12 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
     private void OnExamined(EntityUid uid, HumanoidAppearanceComponent component, ExaminedEvent args)
     {
-        var identity = Identity.Entity(component.Owner, EntityManager);
+        var identity = Identity.Entity(uid, EntityManager);
         var species = GetSpeciesRepresentation(component.Species).ToLower();
         var age = GetAgeRepresentation(component.Species, component.Age);
 
-        args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("species", species)));
+        args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age),
+            ("species", species)));
     }
 
     /// <summary>
@@ -43,7 +43,10 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <param name="uid">The mob's entity UID.</param>
     /// <param name="profile">The character profile to load.</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void LoadProfile(EntityUid uid, HumanoidCharacterProfile profile, HumanoidAppearanceComponent? humanoid = null)
+    public void LoadProfile(
+        EntityUid uid,
+        HumanoidCharacterProfile profile,
+        HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid))
         {
@@ -58,6 +61,8 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         SetSpecies(uid, profile.Species, false, humanoid);
         SetSex(uid, profile.Sex, false, humanoid);
         humanoid.EyeColor = profile.Appearance.EyeColor;
+
+        SetBodyType(uid, profile.BodyType, false, humanoid);
 
         SetSkinColor(uid, profile.Appearance.SkinColor, false);
 
@@ -83,10 +88,15 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         // Hair/facial hair - this may eventually be deprecated.
         // We need to ensure hair before applying it or coloring can try depend on markings that can be invalid
-        var hairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.Hair, out var hairAlpha, _prototypeManager)
-            ? profile.Appearance.SkinColor.WithAlpha(hairAlpha) : profile.Appearance.HairColor;
-        var facialHairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.FacialHair, out var facialHairAlpha, _prototypeManager)
-            ? profile.Appearance.SkinColor.WithAlpha(facialHairAlpha) : profile.Appearance.FacialHairColor;
+        var hairColor = _markingManager.MustMatchSkin(profile.BodyType, HumanoidVisualLayers.Hair, out var hairAlpha,
+            _prototypeManager)
+            ? profile.Appearance.SkinColor.WithAlpha(hairAlpha)
+            : profile.Appearance.HairColor;
+
+        var facialHairColor = _markingManager.MustMatchSkin(profile.BodyType, HumanoidVisualLayers.FacialHair,
+            out var facialHairAlpha, _prototypeManager)
+            ? profile.Appearance.SkinColor.WithAlpha(facialHairAlpha)
+            : profile.Appearance.FacialHairColor;
 
         if (_markingManager.Markings.TryGetValue(profile.Appearance.HairStyleId, out var hairPrototype) &&
             _markingManager.CanBeApplied(profile.Species, profile.Sex, hairPrototype, _prototypeManager))
@@ -95,12 +105,14 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         }
 
         if (_markingManager.Markings.TryGetValue(profile.Appearance.FacialHairStyleId, out var facialHairPrototype) &&
-            _markingManager.CanBeApplied(profile.Species,profile.Sex, facialHairPrototype, _prototypeManager))
+            _markingManager.CanBeApplied(profile.Species, profile.Sex, facialHairPrototype, _prototypeManager))
         {
             AddMarking(uid, profile.Appearance.FacialHairStyleId, facialHairColor, false);
         }
 
-        humanoid.MarkingSet.EnsureSpecies(profile.Species, profile.Appearance.SkinColor, _markingManager, _prototypeManager);
+        humanoid.MarkingSet.EnsureSpecies(profile.Species, profile.BodyType, profile.Appearance.SkinColor,
+            _markingManager,
+            _prototypeManager);
 
         // Finally adding marking with forced colors
         foreach (var (marking, prototype) in markingFColored)
@@ -111,6 +123,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
                 profile.Appearance.EyeColor,
                 humanoid.MarkingSet
             );
+
             AddMarking(uid, marking.MarkingId, markingColors, false);
         }
 
@@ -142,7 +155,10 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <param name="target">Target entity to apply the source entity's appearance to.</param>
     /// <param name="sourceHumanoid">Source entity's humanoid component.</param>
     /// <param name="targetHumanoid">Target entity's humanoid component.</param>
-    public void CloneAppearance(EntityUid source, EntityUid target, HumanoidAppearanceComponent? sourceHumanoid = null,
+    public void CloneAppearance(
+        EntityUid source,
+        EntityUid target,
+        HumanoidAppearanceComponent? sourceHumanoid = null,
         HumanoidAppearanceComponent? targetHumanoid = null)
     {
         if (!Resolve(source, ref sourceHumanoid) || !Resolve(target, ref targetHumanoid))
@@ -157,6 +173,8 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         SetSex(target, sourceHumanoid.Sex, false, targetHumanoid);
         targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
         targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
+        targetHumanoid.BodyType = sourceHumanoid.BodyType;
+        SetTTSVoice(target, sourceHumanoid.Voice, targetHumanoid);
 
         targetHumanoid.Gender = sourceHumanoid.Gender;
         if (TryComp<GrammarComponent>(target, out var grammar))
@@ -168,6 +186,32 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     }
 
     /// <summary>
+    ///     Set a humanoid mob's body yupe. This will change their base sprites.
+    /// </summary>
+    /// <param name="uid">The humanoid mob's UID.</param>
+    /// <param name="bodyType">The body type to set the mob to. Will return if the body type prototype was invalid.</param>
+    /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not.</param>
+    /// <param name="humanoid">Humanoid component of the entity</param>
+    public void SetBodyType(
+        EntityUid uid,
+        string bodyType,
+        bool sync = true,
+        HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(uid, ref humanoid) || !_prototypeManager.TryIndex<BodyTypePrototype>(bodyType, out _))
+        {
+            return;
+        }
+
+        humanoid.BodyType = bodyType;
+
+        if (sync)
+        {
+            Dirty(uid, humanoid);
+        }
+    }
+
+    /// <summary>
     ///     Adds a marking to this humanoid.
     /// </summary>
     /// <param name="uid">Humanoid mob's UID</param>
@@ -176,7 +220,13 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <param name="sync">Whether to immediately sync this marking or not</param>
     /// <param name="forced">If this marking was forced (ignores marking points)</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void AddMarking(EntityUid uid, string marking, Color? color = null, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null)
+    public void AddMarking(
+        EntityUid uid,
+        string marking,
+        Color? color = null,
+        bool sync = true,
+        bool forced = false,
+        HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid)
             || !_markingManager.Markings.TryGetValue(marking, out var prototype))
@@ -209,7 +259,13 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <param name="sync">Whether to immediately sync this marking or not</param>
     /// <param name="forced">If this marking was forced (ignores marking points)</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void AddMarking(EntityUid uid, string marking, IReadOnlyList<Color> colors, bool sync = true, bool forced = false, HumanoidAppearanceComponent? humanoid = null)
+    public void AddMarking(
+        EntityUid uid,
+        string marking,
+        IReadOnlyList<Color> colors,
+        bool sync = true,
+        bool forced = false,
+        HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid)
             || !_markingManager.Markings.TryGetValue(marking, out var prototype))
@@ -232,7 +288,11 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <param name="marking">The marking to try and remove.</param>
     /// <param name="sync">Whether to immediately sync this to the humanoid</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void RemoveMarking(EntityUid uid, string marking, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
+    public void RemoveMarking(
+        EntityUid uid,
+        string marking,
+        bool sync = true,
+        HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid)
             || !_markingManager.Markings.TryGetValue(marking, out var prototype))
@@ -253,7 +313,11 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <param name="category">Category of the marking</param>
     /// <param name="index">Index of the marking</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void RemoveMarking(EntityUid uid, MarkingCategories category, int index, HumanoidAppearanceComponent? humanoid = null)
+    public void RemoveMarking(
+        EntityUid uid,
+        MarkingCategories category,
+        int index,
+        HumanoidAppearanceComponent? humanoid = null)
     {
         if (index < 0
             || !Resolve(uid, ref humanoid)
@@ -275,7 +339,12 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <param name="index">Index of the marking</param>
     /// <param name="markingId">The marking ID to use</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetMarkingId(EntityUid uid, MarkingCategories category, int index, string markingId, HumanoidAppearanceComponent? humanoid = null)
+    public void SetMarkingId(
+        EntityUid uid,
+        MarkingCategories category,
+        int index,
+        string markingId,
+        HumanoidAppearanceComponent? humanoid = null)
     {
         if (index < 0
             || !_markingManager.MarkingsByCategory(category).TryGetValue(markingId, out var markingPrototype)
@@ -304,7 +373,11 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// <param name="index">Index of the marking</param>
     /// <param name="colors">The marking colors to use</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetMarkingColor(EntityUid uid, MarkingCategories category, int index, List<Color> colors,
+    public void SetMarkingColor(
+        EntityUid uid,
+        MarkingCategories category,
+        int index,
+        List<Color> colors,
         HumanoidAppearanceComponent? humanoid = null)
     {
         if (index < 0
@@ -328,37 +401,24 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
     /// </summary>
     public string GetSpeciesRepresentation(string speciesId)
     {
-        if (_prototypeManager.TryIndex<SpeciesPrototype>(speciesId, out var species))
-        {
-            return Loc.GetString(species.Name);
-        }
-        else
-        {
-            return Loc.GetString("humanoid-appearance-component-unknown-species");
-        }
+        return Loc.GetString(_prototypeManager.TryIndex<SpeciesPrototype>(speciesId, out var species)
+            ? species.Name
+            : "humanoid-appearance-component-unknown-species");
     }
 
     public string GetAgeRepresentation(string species, int age)
     {
         _prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype);
 
-        if (speciesPrototype == null)
+        if (speciesPrototype != null)
         {
-            Logger.Error("Tried to get age representation of species that couldn't be indexed: " + species);
-            return Loc.GetString("identity-age-young");
+            return age < speciesPrototype.YoungAge
+                ? Loc.GetString("identity-age-young")
+                : Loc.GetString(age < speciesPrototype.OldAge ? "identity-age-middle-aged" : "identity-age-old");
         }
 
-        if (age < speciesPrototype.YoungAge)
-        {
-            return Loc.GetString("identity-age-young");
-        }
-
-        if (age < speciesPrototype.OldAge)
-        {
-            return Loc.GetString("identity-age-middle-aged");
-        }
-
-        return Loc.GetString("identity-age-old");
+        Logger.Error("Tried to get age representation of species that couldn't be indexed: " + species);
+        return Loc.GetString("identity-age-young");
     }
 
     private void EnsureDefaultMarkings(EntityUid uid, HumanoidAppearanceComponent? humanoid)
@@ -367,6 +427,7 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         {
             return;
         }
+
         humanoid.MarkingSet.EnsureDefault(humanoid.SkinColor, humanoid.EyeColor, _markingManager);
     }
 }

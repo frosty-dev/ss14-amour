@@ -191,6 +191,11 @@
     Heat: 1.3
 
 - type: damageModifierSet
+  id: Vox
+  coefficients: # To be decided
+    Poison: 1
+
+- type: damageModifierSet
   id: Zombie #Blunt resistant and immune to biological threats, but can be hacked apart and burned
   coefficients:
     Blunt: 0.7
@@ -331,21 +336,3 @@
   flatReductions:
     # can't punch the endoskeleton to death
     Blunt: 5
-
-- type: damageModifierSet
-  id: Harpy
-  coefficients:
-    Blunt: 1.15
-    Slash: 1.15
-    Piercing: 1.15
-
-- type: damageModifierSet
-  id: CultRobe
-  coefficients:
-    Blunt: 1.45
-    Slash: 1.45
-    Piercing: 1.45
-    Shock: 1.45
-    Cold: 1.45
-    Heat: 1.45
-    Laser: 1.45

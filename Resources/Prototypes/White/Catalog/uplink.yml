@@ -84,7 +84,7 @@
   icon: { sprite: /Textures/White/Objects/Weapons/hardlight_spear.rsi, state: spear }
   productEntity: HardlightSpearImplanter
   cost:
-    Telecrystal: 15
+    Telecrystal: 12
   categories:
   - UplinkImplants
 
@@ -99,3 +99,108 @@
     Telecrystal: 3
   categories:
   - UplinkArmor
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkNightGogglesNukie
+  name: ПНВ [Хамелеон]
+  description: Теперь ты видишь во тьме!
+  productEntity: ClothingEyesNightVisionGogglesNukie
+  icon: { sprite: White/Clothing/Head/nightvision.rsi, state: icon }
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkArmor
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+#- type: listing
+#  id: UplinkBattleAxe
+#  name: Энергетической боевой топор
+#  description: Мощный боевой топор, способный повалить с одного удара любую незащищенную цель.
+#  icon: { sprite: /Textures/White/Objects/Weapons/energy_axe.rsi, state: icon }
+#  productEntity: EnergyBattleAxe
+#  cost:
+#    Telecrystal: 20
+#  categories:
+#  - UplinkWeapons
+#  saleLimit: 1
+
+- type: listing
+  id: UplinkBetrayalKnife
+  name: Предательский нож
+  description: Предательский нож позволяет пользователю телепортироваться на короткое расстояние, а также наносит значительные повреждения, пробивая броню противника, при ударе в спину.
+  icon: { sprite: /Textures/White/Objects/Weapons/betrayal_knife.rsi, state: icon }
+  productEntity: BetrayalKnife
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWeapons
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  saleLimit: 1
+
+- type: listing
+  id: UplinkMagazineShotgun
+  name: uplink-magazine-bulldog-name
+  description: uplink-magazine-bulldog-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: pellets }
+  productEntity: MagazineShotgun
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineShotgunSlug
+  name: uplink-magazine-slug-bulldog-name
+  description: uplink-magazine-slug-bulldog-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: slug }
+  productEntity: MagazineShotgunSlug
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineLightRifleBox
+  name: uplink-magazine-l6-name
+  description: uplink-magazine-l6-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi, state: base }
+  productEntity: MagazineLightRifleBox
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkBoxMagazinePistol
+  name: uplink-pistol-box-name
+  description: uplink-pistol-box-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red-icon }
+  productEntity: BoxMagazinePistol
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkBoxMagazinePistolCaselessRifle
+  name: uplink-pistol-box-caseless-name
+  description: uplink-pistol-box-caseless-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
+  productEntity: BoxMagazinePistolCaselessRifle
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkAmmo

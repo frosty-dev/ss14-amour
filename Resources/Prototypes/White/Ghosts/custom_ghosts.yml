@@ -340,3 +340,65 @@
   ghostName: Black Harpy
   ghostDescription: A race of harpies that have charming onyx wings. Although they are a clever race, particularly having the highest intelligence of all harpies, on the other hand, they are exceedingly belligerent and ferocious. This one specifically used to be project lead of this project - but all she saw is world on fire.
 
+- type: customGhost
+  id: aeons_torn-ghost
+  ckey: aeons_torn
+  sprite: White/Ghosts/aeons_torn-ghost.rsi
+  ghostName: Monolith
+  ghostDescription: Blast from the past
+
+#dageff
+- type: customGhost
+  id: dageff-ghost
+  ckey: Dageff
+  sprite: White/Ghosts/dageff-ghost.rsi
+  alpha: 0.9
+  ghostName: Maiden
+  ghostDescription: Наблюдает за вашим поведением в кафе.
+  size: 0.9, 0.9
+
+#joulerk
+- type: customGhost
+  id: joulerk-ghost
+  ckey: Joulerk
+  sprite: White/Ghosts/joulerk-ghost.rsi
+  ghostName: ЛЕРК
+  ghostDescription: Летающее бирюзовое существо, напоминающее кота, с пушистым телом, грациозными движениями и глазами, сверкающими с загадочным блеском.
+
+#waggier
+- type: customGhost
+  id: waggier-ghost
+  ckey: waggier
+  sprite: White/Ghosts/waggier-ghost.rsi
+  alpha: 0.9
+  ghostName: Ветеранка СБ
+  ghostDescription: Вы нарушили правила действующего закона.... "перечисление статей"
+  size: 0.6, 0.6
+
+#krokozyabra
+- type: customGhost
+  id: krokozyabra-ghost
+  ckey: Krokozyabra
+  sprite: White/Ghosts/krokozyabra-ghost.rsi
+  alpha: 0.9
+  ghostName: Зябр
+  ghostDescription: От него веет верностью
+
+#FjorLofgren
+- type: customGhost
+  id: fjorlofgren-ghost
+  ckey: FjorLofgren
+  sprite: White/Ghosts/fjor-ghost.rsi
+  alpha: 0.9
+  ghostName: Bun Witch
+  ghostDescription: Не бойся, маленький кролик
+  size: 0.9, 0.9
+
+#Persikvin
+- type: customGhost
+  id: persikvin-ghost
+  ckey: Persikvin
+  sprite: White/Ghosts/persikvin-ghost.rsi
+  alpha: 0.9
+  ghostName: Gawr
+  ghostDescription: Из океана...

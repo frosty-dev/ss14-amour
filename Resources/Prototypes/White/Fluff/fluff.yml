@@ -107,6 +107,30 @@
     - type: Clothing
       sprite: White/Fluff/DOOMMAX/bishop_schema_hood.rsi
 
+- type: entity
+  parent: ClothingNeckBase
+  id: DoommaxCapCloak
+  name: широкая шинель капитана
+  description: Широкая капитанская шинель. Кажется, она не по размеру вам, но как накидка на плечи сойдёт.
+  suffix: fluff
+  components:
+    - type: Sprite
+      sprite: White/Fluff/DOOMMAX/cap_cloak.rsi
+    - type: Clothing
+      sprite: White/Fluff/DOOMMAX/cap_cloak.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: DoommaxCapCap
+  name: роскошная фуражка капитана
+  description: Комично огромная фуражка капитана. Даже клоун позавидует вашей помпезности.
+  suffix: fluff
+  components:
+    - type: Sprite
+      sprite: White/Fluff/DOOMMAX/cap_cap.rsi
+    - type: Clothing
+      sprite: White/Fluff/DOOMMAX/cap_cap.rsi
+
 # Maury
 #- type: entity
 #  parent: ClothingUniformJumpsuitChemistry
@@ -1132,3 +1156,53 @@
     - id: Stunbaton
     - id: HandcuffsQwertymen
     - id: HandcuffsQwertymen
+
+#Rector6275
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterSuitRector6275
+  name: элитный бирюзовый костюм
+  description: Сшит на заказ, пахнет цветами. На воротнике лишь два символа "КК"
+  suffix: fluff
+  components:
+    - type: Sprite
+      sprite: White/Fluff/Rector6275/suit.rsi
+    - type: Clothing
+      sprite: White/Fluff/Rector6275/suit.rsi
+
+#Pr0fixxx
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltWebbingPr0fixxx
+  name: боевая разгрузка
+  description: Разгрузка, которая когда-то принадлежала безымянному офицеру на 13-ой космической станции. На задней стороне виднеется огнетушитель, сшитый из красного противоударного волокна.
+  suffix: fluff
+  components:
+    - type: Sprite
+      sprite: White/Fluff/Pr0fixxx/webbing.rsi
+    - type: Clothing
+      sprite: White/Fluff/Pr0fixxx/webbing.rsi
+
+
+#Joulerk
+- type: entity
+  parent: BasePlushie
+  id: PlushieLerkFluff
+  name: Плюшевая Лерк
+  description: Глядя на эту игрушку, ты чувствуешь, как леденящий холод пронизывает твои кости. Ее глаза, словно две темные бездны, в которых теряются даже самые смелые души.
+  suffix: fluff
+  components:
+  - type: Sprite
+    sprite: White/Fluff/Joulerk/lerk-plushie.rsi
+    state: icon
+  - type: Item
+    size: Normal
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/White/Fluff/Joulerk/activate.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/White/Fluff/Joulerk/activate.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/White/Fluff/Joulerk/activate.ogg

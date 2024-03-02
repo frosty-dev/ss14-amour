@@ -76,6 +76,12 @@
                                     <Control HorizontalExpand="True"/>
                                     <OptionButton Name="CSpeciesButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                <!-- Body Type -->
+                                <BoxContainer Orientation="Horizontal">
+                                    <Label Text="{Loc 'humanoid-profile-editor-body-type-label'}"/>
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="CBodyTypesButton" HorizontalAlignment="Right" />
+                                </BoxContainer>
                                 <!-- Age -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-age-label'}" />
@@ -99,7 +105,7 @@
                                     <Label Text="{Loc 'humanoid-profile-editor-voice-label'}" />
                                     <Control HorizontalExpand="True"/>
                                     <OptionButton Name="CVoiceButton" HorizontalAlignment="Right" />
-                                    <Button Name="CVoicePlayButton" Text="{Loc 'humanoid-profile-editor-voice-play'}" MaxWidth="80" />
+                                    <Button Name="CVoicePlayButton" Text=">" MaxWidth="80" />
                                 </BoxContainer>
                                 <!-- Show clothing -->
                                 <BoxContainer HorizontalExpand="True">

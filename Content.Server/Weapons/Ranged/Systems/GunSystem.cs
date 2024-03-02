@@ -91,8 +91,6 @@ public sealed partial class GunSystem : SharedGunSystem
                     Audio.PlayPvs(clumsy.ClumsySound, gunUid);
 
                     PopupSystem.PopupEntity(Loc.GetString("gun-clumsy"), user.Value);
-                    _adminLogger.Add(LogType.EntityDelete, LogImpact.Medium, $"Clumsy fire by {ToPrettyString(user.Value)} deleted {ToPrettyString(gunUid)}");
-                    Del(gunUid);
                     userImpulse = false;
                     return;
                 }
@@ -179,10 +177,12 @@ public sealed partial class GunSystem : SharedGunSystem
                     {
                         userImpulse = false;
                         Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
+                        break; // WD EDIT
                     }
 
                     // Something like ballistic might want to leave it in the container still
-                    if (!cartridge.DeleteOnSpawn && !Containers.IsEntityInContainer(ent!.Value))
+                    if (!cartridge.DeleteOnSpawn && !Containers.IsEntityInContainer(ent!.Value) &&
+                        (!TryComp(gunUid, out BallisticAmmoProviderComponent? ballistic) || ballistic.AutoCycle)) // WD EDIT
                         EjectCartridge(ent.Value, angle);
 
                     Dirty(ent!.Value, cartridge);

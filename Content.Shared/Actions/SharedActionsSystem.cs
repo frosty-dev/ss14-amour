@@ -8,7 +8,6 @@ using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mind;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -16,6 +15,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Shared.Rejuvenate;
+using Robust.Shared.Network;
 
 namespace Content.Shared.Actions;
 
@@ -30,15 +30,19 @@ public abstract class SharedActionsSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly INetManager _net = default!; // WD
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<InstantActionComponent, MapInitEvent>(OnInit);
-        SubscribeLocalEvent<EntityTargetActionComponent, MapInitEvent>(OnInit);
-        SubscribeLocalEvent<WorldTargetActionComponent, MapInitEvent>(OnInit);
+        SubscribeLocalEvent<InstantActionComponent, MapInitEvent>(OnActionMapInit);
+        SubscribeLocalEvent<EntityTargetActionComponent, MapInitEvent>(OnActionMapInit);
+        SubscribeLocalEvent<WorldTargetActionComponent, MapInitEvent>(OnActionMapInit);
+
+        SubscribeLocalEvent<InstantActionComponent, ComponentShutdown>(OnActionShutdown);
+        SubscribeLocalEvent<EntityTargetActionComponent, ComponentShutdown>(OnActionShutdown);
+        SubscribeLocalEvent<WorldTargetActionComponent, ComponentShutdown>(OnActionShutdown);
 
         SubscribeLocalEvent<ActionsComponent, DidEquipEvent>(OnDidEquip);
         SubscribeLocalEvent<ActionsComponent, DidEquipHandEvent>(OnHandEquipped);
@@ -61,10 +65,19 @@ public abstract class SharedActionsSystem : EntitySystem
         SubscribeAllEvent<RequestPerformActionEvent>(OnActionRequest);
     }
 
-    private void OnInit(EntityUid uid, BaseActionComponent component, MapInitEvent args)
+    private void OnActionMapInit(EntityUid uid, BaseActionComponent component, MapInitEvent args)
     {
-        if (component.Charges != null)
-            component.MaxCharges = component.Charges.Value;
+        if (component.Charges == null)
+            return;
+
+        component.MaxCharges ??= component.Charges.Value;
+        Dirty(uid, component);
+    }
+
+    private void OnActionShutdown(EntityUid uid, BaseActionComponent component, ComponentShutdown args)
+    {
+        if (component.AttachedEntity != null && !TerminatingOrDeleted(component.AttachedEntity.Value))
+            RemoveAction(component.AttachedEntity.Value, uid, action: component);
     }
 
     private void OnShutdown(EntityUid uid, ActionsComponent component, ComponentShutdown args)
@@ -526,6 +539,13 @@ public abstract class SharedActionsSystem : EntitySystem
             action.Charges--;
             if (action is { Charges: 0, RenewCharges: false })
                 action.Enabled = false;
+            // WD START
+            if (action is {Charges: 0, RemoveOnNoCharges: true})
+            {
+                RaiseLocalEvent(performer, new ActionGettingRemovedEvent {Action = actionId});
+                RemoveAction(performer, actionId, component, action);
+            }
+            // WD END
         }
 
         action.Cooldown = null;
@@ -805,7 +825,7 @@ public abstract class SharedActionsSystem : EntitySystem
         Dirty(actionId.Value, action);
         Dirty(performer, comp);
         ActionRemoved(performer, actionId.Value, comp, action);
-        if (action.Temporary)
+        if (action.Temporary && (!_net.IsClient || action.ClientExclusive)) // WD EDIT
             QueueDel(actionId.Value);
     }
 

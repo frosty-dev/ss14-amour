@@ -155,6 +155,13 @@ public sealed class TemperatureSystem : EntitySystem
         var heat = temperatureDelta * (airHeatCapacity * heatCapacity /
                                        (airHeatCapacity + heatCapacity));
         ChangeHeat(uid, heat * temperature.AtmosTemperatureTransferEfficiency, temperature: temperature);
+
+        // WD START
+        var adjEv = new AdjustTemperatureEvent(temperature.CurrentTemperature);
+        RaiseLocalEvent(uid, adjEv);
+        if (!MathHelper.CloseTo(adjEv.Temperature, temperature.CurrentTemperature))
+            ForceChangeTemperature(uid, adjEv.Temperature, temperature);
+        // WD END
     }
 
     public float GetHeatCapacity(EntityUid uid, TemperatureComponent? comp = null, PhysicsComponent? physics = null)
@@ -293,7 +300,10 @@ public sealed class TemperatureSystem : EntitySystem
     private void OnTemperatureChangeAttempt(EntityUid uid, TemperatureProtectionComponent component,
         InventoryRelayedEvent<ModifyChangedTemperatureEvent> args)
     {
-        args.Args.TemperatureDelta *= component.Coefficient;
+        var ev = new GetTemperatureProtectionEvent(component.Coefficient);
+        RaiseLocalEvent(uid, ref ev);
+
+        args.Args.TemperatureDelta *= ev.Coefficient;
     }
 
     private void OnParentChange(EntityUid uid, TemperatureComponent component,

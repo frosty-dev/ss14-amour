@@ -38,6 +38,9 @@ public sealed partial class ChangelingComponent : Component
     [ViewVariables(VVAccess.ReadOnly), DataField("absorbedEntities")]
     public Dictionary<string, HumanoidData> AbsorbedEntities = new();
 
+    [ViewVariables]
+    public int AbsorbedCount = 0;
+
     [ViewVariables(VVAccess.ReadWrite), DataField("AbsorbDNACost")]
     public int AbsorbDnaCost;
 
@@ -48,7 +51,7 @@ public sealed partial class ChangelingComponent : Component
     public float TransformDelay = 2f;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("RegenerateDelay")]
-    public float RegenerateDelay = 20f;
+    public float RegenerateDelay = 60f;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("LesserFormDelay")]
     public float LesserFormDelay = 5f;

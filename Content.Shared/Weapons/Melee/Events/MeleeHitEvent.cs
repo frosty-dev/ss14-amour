@@ -66,6 +66,8 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
     /// </remarks>
     public bool IsHit = true;
 
+    public bool PenetrateArmor = false;
+
     public MeleeHitEvent(List<EntityUid> hitEntities, EntityUid user, EntityUid weapon, DamageSpecifier baseDamage, Vector2? direction)
     {
         HitEntities = hitEntities;
@@ -93,3 +95,8 @@ public record struct GetMeleeAttackRateEvent(EntityUid Weapon, float Rate, float
 /// </summary>
 [ByRefEvent]
 public record struct GetHeavyDamageModifierEvent(EntityUid Weapon, FixedPoint2 DamageModifier, float Multipliers, EntityUid User);
+
+// WD START
+[ByRefEvent]
+public record struct MeleeBlockAttemptEvent(EntityUid Attacker, bool Blocked = false);
+// WD END

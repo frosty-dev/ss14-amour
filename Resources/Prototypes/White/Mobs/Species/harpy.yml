@@ -31,12 +31,20 @@
       - key: enum.StrippingUiKey.Key
         type: StrippableBoundUserInterface
       # WD-EDIT
+      - key: enum.ListViewSelectorUiKeyChangeling.Key
+        type: ListViewSelectorBui
+      - key: enum.TransformStingSelectorUiKey.Key
+        type: TransformStingSelectorBui
       - key: enum.NameSelectorUIKey.Key
         type: NameSelectorBUI
       - key: enum.RuneTeleporterUiKey.Key
         type: TeleportRunesListWindowBUI
       - key: enum.SummonCultistUiKey.Key
         type: SummonCultistListWindowBUI
+      - key: enum.CultEmpowerUiKey.Key
+        type: SpellSelectorBUI
+      - key: enum.CultEmpowerRemoveUiKey.Key
+        type: SpellRemoverBUI
       # WD-EDIT END
   - type: Sprite
     scale: 0.9, 0.9
@@ -161,14 +169,19 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "underpants" ]
-      - map: [ "undershirt" ]
-      - map: [ "socks" ]
-      - map: [ "jumpsuit" ]
+      - map: [ "underwearb" ] #White
+      - map: [ "underweart" ] #White
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
+      - map: [ "socks" ] #White
+      - map: [ "jumpsuit" ]
       - map: ["enum.HumanoidVisualLayers.LHand"]
       - map: ["enum.HumanoidVisualLayers.RHand"]
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
       - map: [ "id" ]
       - map: [ "gloves" ]
       - map: [ "shoes" ]
@@ -180,7 +193,6 @@
       - map: [ "back" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
@@ -191,6 +203,7 @@
 # Yes, RArm has to be down here
       - map: [ "enum.HumanoidVisualLayers.RArm" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
       - map: [ "head" ]
     # START AMOUR EDIT

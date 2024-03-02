@@ -10,7 +10,7 @@
         prob: 0.3
       - id: ClothingBeltSecurityFilled
       - id: Flash
-      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingEyesGlassesSecurity
       - id: ClothingHeadsetAltSecurity
       - id: ClothingHandsGlovesCombat
       - id: ClothingShoesBootsJack
@@ -20,7 +20,6 @@
       - id: DoorRemoteArmory
       - id: ClothingOuterHardsuitWarden
       - id: HoloprojectorSecurity
-      - id: ClothingEyesHudSecurity
       - id: BoxBodyCamera
 
 - type: entity
@@ -36,7 +35,7 @@
       - id: ClothingHeadHatBeretWarden
       - id: ClothingBeltSecurityFilled
       - id: Flash
-      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingEyesGlassesSecurity
       - id: ClothingHeadsetAltSecurity
       - id: ClothingHandsGlovesCombat
       - id: ClothingShoesBootsJack
@@ -45,7 +44,6 @@
       - id: RubberStampWarden
       - id: DoorRemoteArmory
       - id: HoloprojectorSecurity
-      - id: ClothingEyesHudSecurity
       - id: BoxBodyCamera
 
 - type: entity
@@ -64,16 +62,16 @@
       - id: ClothingBeltSecurityFilled
       - id: Flash
         prob: 0.5
-      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingEyesGlassesSecurity
       - id: ClothingHeadsetSecurity
       - id: ClothingHandsGlovesColorBlack
       - id: ClothingShoesBootsJack
       - id: WeaponMeleeNeedle
         prob: 0.1
-      - id: ClothingEyesHudSecurity
       - id: WeaponDisabler
       - id: HoloprojectorSecurity
         prob: 0.6
+      - id: WeaponTempGun
 
 - type: entity
   id: LockerBrigmedicFilled
@@ -82,7 +80,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesHudSecurity
       - id: WeaponDisabler
       - id: TrackingImplanter
         amount: 2
@@ -118,8 +115,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesHudSecurity
-        prob: 0.3
       - id: ClothingHeadHatFedoraBrown
       - id: ClothingNeckTieDet
       - id: ClothingOuterVestDetective
@@ -131,6 +126,7 @@
       - id: DrinkDetFlask
       - id: ClothingHandsGlovesForensic
       - id: HoloprojectorSecurity
+      - id: BoxEvidenceMarkers
 
 - type: entity
   id: ClosetBombFilled
@@ -240,4 +236,14 @@
   - type: StorageFill
     contents:
     - id: WeaponLaserCarbine
+      amount: 3
+
+- type: entity
+  parent: GunSafe
+  id: GunSafeTempGun
+  name: temperature gun safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponTempGun
       amount: 3

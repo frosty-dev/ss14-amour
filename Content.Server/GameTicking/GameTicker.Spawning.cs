@@ -20,6 +20,7 @@ using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Content.Shared._White;
+using Content.Shared.NameIdentifier;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -101,7 +102,7 @@ namespace Content.Server.GameTicking
             {
                 if (job == null)
                 {
-                    var playerSession = _playerManager.GetSessionByUserId(netUser);
+                    var playerSession = _playerManager.GetSessionById(netUser);
                     _chatManager.DispatchServerMessage(playerSession, Loc.GetString("job-not-available-wait-in-lobby"));
                 }
                 else
@@ -118,13 +119,13 @@ namespace Content.Server.GameTicking
                 if (job == null)
                     continue;
 
-                SpawnPlayer(_playerManager.GetSessionByUserId(player), profiles[player], station, job, false);
+                SpawnPlayer(_playerManager.GetSessionById(player), profiles[player], station, job, false);
             }
 
             RefreshLateJoinAllowed();
 
             // Allow rules to add roles to players who have been spawned in. (For example, on-station traitors)
-            RaiseLocalEvent(new RulePlayerJobsAssignedEvent(assignedJobs.Keys.Select(x => _playerManager.GetSessionByUserId(x)).ToArray(), profiles, force));
+            RaiseLocalEvent(new RulePlayerJobsAssignedEvent(assignedJobs.Keys.Select(x => _playerManager.GetSessionById(x)).ToArray(), profiles, force));
         }
 
         private void SpawnPlayer(ICommonSession player, EntityUid station, string? jobId = null, bool lateJoin = true, bool silent = false)
@@ -300,9 +301,11 @@ namespace Content.Server.GameTicking
             if (jobId.Contains("Mime"))
                 if (newMind.Comp.MimeName != null)
                     _metaData.SetEntityName(mob, newMind.Comp.MimeName);
-            if (jobId.Contains("Cyborg"))
-                if (newMind.Comp.BorgName != null)
-                    _metaData.SetEntityName(mob, newMind.Comp.BorgName);
+            if (jobId.Contains("Borg"))
+                if (newMind.Comp.BorgName != null && TryComp(mob, out NameIdentifierComponent? identifier))
+                {
+                    _metaData.SetEntityName(mob, $"{newMind.Comp.BorgName} {identifier.FullIdentifier}");
+                }
 
             _mind.TransferTo(newMind, mob);
 

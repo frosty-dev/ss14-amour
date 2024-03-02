@@ -18,8 +18,8 @@ health-analyzer-window-damage-type-Piercing = Уколы: {$amount}
 
 health-analyzer-window-damage-group-Burn = Ожоги: {$amount}
 health-analyzer-window-damage-type-Heat = Термические: {$amount}
-health-analyzer-window-damage-type-Shock = Электрические: {$amount}
 health-analyzer-window-damage-type-Laser = Лазерный: {$amount}
+health-analyzer-window-damage-type-Shock = Электрические: {$amount}
 health-analyzer-window-damage-type-Cold = Обморожение: {$amount}
 health-analyzer-window-damage-type-Caustic = Кислотные: {$amount}
 
@@ -33,3 +33,5 @@ health-analyzer-window-damage-type-Radiation = Радиация: {$amount}
 
 health-analyzer-window-damage-group-Genetic = Генетические: {$amount}
 health-analyzer-window-damage-type-Cellular = Клеточные: {$amount}
+
+health-analyzer-window-malnutrition = Тяжёлое недоедание

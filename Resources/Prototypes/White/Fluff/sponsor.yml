@@ -29,6 +29,18 @@
   sponsorOnly: true
   whitelistJobs: [Chaplain]
 
+- type: loadout
+  id: DoommaxCapCloakLoadout
+  entity: DoommaxCapCloak
+  sponsorOnly: true
+  whitelistJobs: [Captain]
+
+- type: loadout
+  id: DoommaxCapCapLoadout
+  entity: DoommaxCapCap
+  sponsorOnly: true
+  whitelistJobs: [Captain]
+
 # Maury
 #- type: loadout
 #  id: ClothingUniformJumpsuitMaury #Should be ClothingUniformMauryLoadout but like i said i`m retard
@@ -437,3 +449,21 @@
   entity: ClothingBeltSecurityFilledQwertymen
   sponsorOnly: true
   whitelistJobs: [ HeadOfSecurity, SecurityCadet, SecurityOfficer, Warden  ]
+
+#Rector6275
+- type: loadout
+  id: Rector6275Suit
+  entity: ClothingOuterSuitRector6275
+  sponsorOnly: true
+
+# Pr0fixxx
+- type: loadout
+  id: Pr0fixxxWebbing
+  entity: ClothingBeltWebbingPr0fixxx
+  sponsorOnly: true
+
+#Joulerk
+- type: loadout
+  id: JoulerkPlushie
+  entity: PlushieLerkFluff
+  sponsorOnly: true

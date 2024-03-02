@@ -1,4 +1,4 @@
-<lobbyUi:LobbyGui xmlns="https://spacestation14.io"
+    <lobbyUi:LobbyGui xmlns="https://spacestation14.io"
                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                   xmlns:maths="clr-namespace:Robust.Shared.Maths;assembly=Robust.Shared.Maths"
                   xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
@@ -10,7 +10,7 @@
                   xmlns:buttons="clr-namespace:Content.Client._Ohio.Buttons">
 
     <!-- Background -->
-    <ui:AnimatedBackgroundControl Name="Background" VerticalExpand="True" HorizontalExpand="True"
+    <ui:AnimatedBackgroundControl Access="Public" Name="Background" VerticalExpand="True" HorizontalExpand="True"
                                   Stretch="KeepAspectCovered" />
 
     <!-- Main Container -->
@@ -58,7 +58,7 @@
                     <Control VerticalExpand="True" />
 
                     <RichTextLabel Name="LabelName" Access="Public" HorizontalAlignment="Left"
-                                          VerticalAlignment="Center" Margin="0 0 0 380" />
+                                          VerticalAlignment="Center" Margin="0 0 0 420" />
 
                     <!-- Ohio Container -->
                     <PanelContainer HorizontalAlignment="Left" Name="Center" VerticalAlignment="Center">
@@ -93,6 +93,12 @@
                                 Margin="0 10 0 10" />
 
                             <buttons:OhioLobbyTextButton
+                                Name="DiscordButton"
+                                Access="Public"
+                                ButtonText="Привязать Discord"
+                                Margin="0 10 0 10" />
+
+                            <buttons:OhioLobbyTextButton
                                 Name="QuitButton"
                                 Access="Public"
                                 ButtonText="Quit"
@@ -114,7 +120,7 @@
 
                     <!-- Changelog -->
                     <PanelContainer Name="Changelog" StyleClasses="LobbyGayBackground" HorizontalAlignment="Right"
-                                    VerticalAlignment="Top">
+                                    VerticalAlignment="Top" Visible="False">
 
                         <BoxContainer Orientation="Vertical">
 

@@ -5,6 +5,7 @@ using Content.Server.Resist;
 using Content.Server.Popups;
 using Content.Server.Contests;
 using Content.Server.Inventory;
+using Content.Shared._White.Crossbow;
 using Content.Shared.Mobs;
 using Content.Shared.DoAfter;
 using Content.Shared.Buckle.Components;
@@ -42,6 +43,7 @@ namespace Content.Server.Carrying
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly ContestsSystem _contests = default!;
         [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+        [Dependency] private readonly PenetratedSystem _penetrated = default!;
 
         public override void Initialize()
         {
@@ -110,7 +112,7 @@ namespace Content.Server.Carrying
         /// Basically using virtual item passthrough to throw the carried person. A new age!
         /// Maybe other things besides throwing should use virt items like this...
         /// </summary>
-        private void OnThrow(EntityUid uid, CarryingComponent component, BeforeThrowEvent args)
+        private void OnThrow(EntityUid uid, CarryingComponent component, ref BeforeThrowEvent args)
         {
             if (!TryComp<VirtualItemComponent>(args.ItemUid, out var virtItem) || !HasComp<CarriableComponent>(virtItem.BlockingEntity))
                 return;
@@ -240,6 +242,8 @@ namespace Content.Server.Carrying
         {
             if (TryComp<SharedPullableComponent>(carried, out var pullable))
                 _pullingSystem.TryStopPull(pullable);
+
+            _penetrated.FreePenetrated(carried);
 
             Transform(carrier).AttachToGridOrMap();
             Transform(carried).AttachToGridOrMap();

@@ -64,6 +64,7 @@
   abstract: true
   components:
   - type: NavMapDoor
+  - type: Keyhole
 
 - type: entity
   id: MetalDoor
