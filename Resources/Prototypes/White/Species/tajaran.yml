@@ -3,28 +3,13 @@
   name: species-name-tajaran
   roundStart: true
   prototype: MobTajaran
-  sprites: MobTajaranSprites
   defaultSkinTone: "#25555a"
   markingLimits: MobTajaranMarkingLimits
   dollPrototype: MobTajaranDummy
   skinColoration: Hues
+  bodyTypes:
+  - TajaranNormal
 
-- type: speciesBaseSprites
-  id: MobTajaranSprites
-  sprites:
-    Hair: MobHumanoidAnyMarking
-    FacialHair: MobHumanoidAnyMarking
-    Head: MobTajaranHead
-    Snout: MobHumanoidAnyMarking
-    Chest: MobTajaranTorso
-    Eyes: MobHumanoidEyes
-    HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
-    Tail: MobHumanoidAnyMarking
-    LArm: MobTajaranLArm
-    RArm: MobTajaranRArm
-    LLeg: MobTajaranLLeg
-    RLeg: MobTajaranRLeg
 
 - type: markingPoints
   id: MobTajaranMarkingLimits

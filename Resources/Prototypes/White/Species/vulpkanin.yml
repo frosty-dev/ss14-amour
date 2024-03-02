@@ -3,32 +3,12 @@
   name: species-name-vulpkanin
   roundStart: true
   prototype: MobVulpkanin
-  sprites: MobVulpkaninSprites
   defaultSkinTone: "#25555a"
   markingLimits: MobVulpkaninMarkingLimits
   dollPrototype: MobVulpkaninDummy
   skinColoration: Hues
-
-- type: speciesBaseSprites
-  id: MobVulpkaninSprites
-  sprites:
-    Hair: MobHumanoidAnyMarking
-    FacialHair: MobHumanoidAnyMarking
-    Head: MobVulpkaninHead
-    Snout: MobHumanoidAnyMarking
-    Chest: MobVulpkaninTorso
-    Eyes: MobHumanoidEyes
-    HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
-    Tail: MobHumanoidAnyMarking
-    LArm: MobVulpkaninLArm
-    RArm: MobVulpkaninRArm
-    LHand: MobVulpkaninLHand
-    RHand: MobVulpkaninRHand
-    LLeg: MobVulpkaninLLeg
-    RLeg: MobVulpkaninRLeg
-    LFoot: MobVulpkaninLFoot
-    RFoot: MobVulpkaninRFoot
+  bodyTypes:
+  - VulpkaninNormal
 
 - type: markingPoints
   id: MobVulpkaninMarkingLimits

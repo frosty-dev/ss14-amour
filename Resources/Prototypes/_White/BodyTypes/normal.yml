@@ -195,3 +195,43 @@
     RLeg: MobMothRLeg
     LFoot: MobMothLFoot
     RFoot: MobMothRFoot
+
+- type: bodyType
+  id: VulpkaninNormal
+  name: body-normal
+  sprites:
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Head: MobVulpkaninHead
+    Snout: MobHumanoidAnyMarking
+    Chest: MobVulpkaninTorso
+    Eyes: MobHumanoidEyes
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobVulpkaninLArm
+    RArm: MobVulpkaninRArm
+    LHand: MobVulpkaninLHand
+    RHand: MobVulpkaninRHand
+    LLeg: MobVulpkaninLLeg
+    RLeg: MobVulpkaninRLeg
+    LFoot: MobVulpkaninLFoot
+    RFoot: MobVulpkaninRFoot
+
+- type: bodyType
+  id: TajaranNormal
+  name: body-normal
+  sprites:
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Head: MobTajaranHead
+    Snout: MobHumanoidAnyMarking
+    Chest: MobTajaranTorso
+    Eyes: MobHumanoidEyes
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    LArm: MobTajaranLArm
+    RArm: MobTajaranRArm
+    LLeg: MobTajaranLLeg
+    RLeg: MobTajaranRLeg
