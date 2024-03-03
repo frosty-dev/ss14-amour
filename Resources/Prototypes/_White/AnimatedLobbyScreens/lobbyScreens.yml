@@ -1,6 +1,14 @@
 - type: animatedLobbyScreen
-  id: FourthLobbyScreen
-  path: Ohio/Lobby/backgrounds/4.rsi
+  id: CyberLobbyScreen
+  path: Ohio/Lobby/backgrounds/cyber.rsi
+
+- type: animatedLobbyScreen
+  id: DoorLobbyScreen
+  path: Ohio/Lobby/backgrounds/door.rsi
+
+#- type: animatedLobbyScreen
+#  id: FourthLobbyScreen
+#  path: Ohio/Lobby/backgrounds/4.rsi
 
 #- type: animatedLobbyScreen
 #  id: NativeLobbyScreen
