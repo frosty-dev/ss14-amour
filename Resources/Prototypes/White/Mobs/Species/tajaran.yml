@@ -38,9 +38,9 @@
     speechSounds: Alto
   - type: Vocal
     sounds:
-      Male: MaleVulpkanin
-      Female: FemaleVulpkanin
-      Unsexed: MaleVulpkanin
+      Male: MaleFelinid
+      Female: FemaleFelinid
+      Unsexed: MaleFelinid
   - type: VulpAccent
   - type: Felinid #since this just adds an action...
   - type: SelfHeal

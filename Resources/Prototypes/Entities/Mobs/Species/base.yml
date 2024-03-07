@@ -51,6 +51,13 @@
     - map: [ "id" ]
     - map: [ "neck" ]
     - map: [ "back" ]
+    # START AMOUR EDIT
+    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+    - map: [ "enum.GenitalVisualLayers.BreastFront" ]
+    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+    - map: [ "enum.GenitalVisualLayers.DickFront" ]
+    # END AMOUR EDIT
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -69,13 +76,6 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
-    # START AMOUR EDIT
-    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
-    - map: [ "enum.GenitalVisualLayers.BreastFront" ]
-    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
-    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
-    - map: [ "enum.GenitalVisualLayers.DickFront" ]
-    # END AMOUR EDIT
   - type: DamageVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     targetLayers:
@@ -415,6 +415,13 @@
     - map: [ "id" ]
     - map: [ "neck" ]
     - map: [ "back" ]
+    # START AMOUR EDIT
+    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+    - map: [ "enum.GenitalVisualLayers.BreastFront" ]
+    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+    - map: [ "enum.GenitalVisualLayers.DickFront" ]
+    # END AMOUR EDIT
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -424,13 +431,6 @@
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
-    # START AMOUR EDIT
-    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
-    - map: [ "enum.GenitalVisualLayers.BreastFront" ]
-    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
-    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
-    - map: [ "enum.GenitalVisualLayers.DickFront" ]
-    # END AMOUR EDIT
   - type: Appearance
   - type: HumanoidAppearance
     species: Human

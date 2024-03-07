@@ -89,6 +89,13 @@
     - map: [ "belt" ]
     - map: [ "neck" ]
     - map: [ "back" ]
+    # START AMOUR EDIT
+    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+    - map: [ "enum.GenitalVisualLayers.BreastFront" ]
+    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+    - map: [ "enum.GenitalVisualLayers.DickFront" ]
+    # END AMOUR EDIT
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       state: shaved
       sprite: Mobs/Customization/human_facial_hair.rsi
@@ -107,13 +114,6 @@
       sprite: Mobs/Customization/masking_helpers.rsi
       state: none
       visible: false
-    # START AMOUR EDIT
-    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
-    - map: [ "enum.GenitalVisualLayers.BreastFront" ]
-    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
-    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
-    - map: [ "enum.GenitalVisualLayers.DickFront" ]
-    # END AMOUR EDIT
   - type: HumanoidAppearance
     species: Felinid
   - type: Body
@@ -232,6 +232,13 @@
       - map: ["belt"]
       - map: ["neck"]
       - map: ["back"]
+      # START AMOUR EDIT
+      - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+      - map: [ "enum.GenitalVisualLayers.BreastFront" ]
+      - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+      - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+      - map: [ "enum.GenitalVisualLayers.DickFront" ]
+    # END AMOUR EDIT
       - map: ["enum.HumanoidVisualLayers.FacialHair"]
         state: shaved
         sprite: Mobs/Customization/human_facial_hair.rsi
@@ -252,12 +259,5 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: none
         visible: false
-    # START AMOUR EDIT
-      - map: [ "enum.GenitalVisualLayers.ButtFront" ]
-      - map: [ "enum.GenitalVisualLayers.BreastFront" ]
-      - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
-      - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
-      - map: [ "enum.GenitalVisualLayers.DickFront" ]
-    # END AMOUR EDIT
 
 #Nya~~
