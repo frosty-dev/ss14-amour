@@ -1,4 +1,5 @@
 using Content.Client.Gameplay;
+using Content.Client.Launcher;
 using Robust.Client.Audio;
 using Robust.Client.ResourceManagement;
 using Robust.Client.State;
@@ -22,7 +23,7 @@ public sealed class FartSystem : EntitySystem
 
     private void StateManagerOnOnStateChanged(StateChangedEventArgs obj)
     {
-        if(obj.OldState is not GameplayState state)
+        if(obj.OldState is not GameplayState || obj.NewState is not LauncherConnecting)
             return;
 
         _audioManager.CreateAudioSource(_audioResource.AudioStream)?.StartPlaying();
