@@ -64,6 +64,8 @@ namespace Content.Server.Database
                 .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.GenitalPrototype })
                 .IsUnique();
 
+            modelBuilder.Entity<RoleplayInfo>().HasIndex(r => new { HumanoidProfileId = r.ProfileId, r.Name });
+
             modelBuilder.Entity<Job>()
                 .HasIndex(j => j.ProfileId);
 
@@ -329,6 +331,15 @@ namespace Content.Server.Database
         public string Color { get; set; } = null!;
 
     }
+
+    public class RoleplayInfo
+    {
+        public int Id { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public int ProfileId { get; set; }
+        public string Name { get; set; } = null!;
+        public int Value { get; set; }
+    }
     // Amour end
 
     public class Preference
@@ -377,7 +388,8 @@ namespace Content.Server.Database
         public List<Job> Jobs { get; } = new();
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
-        public List<Genital> Genitals  { get; } = new();
+        public List<Genital> Genitals  { get; } = new(); //AMOUR
+        public List<RoleplayInfo> RoleplayInfo { get; } = new(); //AMOUR
 
         [Column("pref_unavailable")] public DbPreferenceUnavailableMode PreferenceUnavailable { get; set; }
 

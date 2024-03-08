@@ -272,6 +272,7 @@
   - type: Crawlable
   - type: InteractionPanel
     actionListPrototype: Humanoid
+  - type: RoleplayInfo
 
 - type: entity
   save: false

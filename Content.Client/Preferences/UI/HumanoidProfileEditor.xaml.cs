@@ -8,6 +8,7 @@ using Content.Client.Message;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
+using Content.Shared._Amour.RoleplayInfo;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
@@ -85,6 +86,8 @@ namespace Content.Client.Preferences.UI
         //WD-EDIT
         private OptionButton _voiceButton => CVoiceButton;
         private Button _voicePlayButton => CVoicePlayButton;
+        private BoxContainer _rolePlayThink => CRolePlayThing;
+        private List<RolePlaySelector> _roleplaySelections = new();
         //WD-EDIT
 
         private Slider _skinColor => CSkin;
@@ -544,6 +547,27 @@ namespace Content.Client.Preferences.UI
             }
 
             #endregion FlavorText
+
+            //WD EDIT
+            #region RolePlayThink
+            _tabContainer.SetTabTitle(5, Loc.GetString("roleplay-tab"));
+            _rolePlayThink.DisposeAllChildren();
+            _roleplaySelections.Clear();
+
+            foreach (var proto in prototypeManager.EnumeratePrototypes<RoleplayInfoPrototype>())
+            {
+                var think = new RolePlaySelector(proto.ID);
+                think.PreferenceChanged += selection =>
+                {
+                    Profile = Profile?.WithRoleplaySelection(proto.ID, selection);
+                    IsDirty = true;
+                };
+                _roleplaySelections.Add(think);
+                _rolePlayThink.Children.Add(think);
+            }
+
+            #endregion
+            //WD END EDIT
 
             #region Dummy
 
@@ -1286,6 +1310,7 @@ namespace Content.Client.Preferences.UI
 
             //Amour edit
             UpdateGenitalsControls();
+            UpdateRoleplayThink();
             //Amour edit
 
             _preferenceUnavailableButton.SelectId((int) Profile.PreferenceUnavailable);
@@ -1601,6 +1626,80 @@ namespace Content.Client.Preferences.UI
             private void OnCheckBoxToggled(BaseButton.ButtonToggledEventArgs args)
             {
                 PreferenceChanged?.Invoke(Preference);
+            }
+        }
+
+        private sealed class RolePlaySelector : Control
+        {
+            private readonly RadioOptions<RoleplaySelection> _options;
+
+            public RoleplaySelection Preference
+            {
+                get => _options.SelectedValue;
+                set => _options.SelectByValue(value);
+            }
+
+            public string RolePlayId { get; }
+
+            public event Action<RoleplaySelection>? PreferenceChanged;
+            public RolePlaySelector(string rolePlayId)
+            {
+                RolePlayId = rolePlayId;
+                _options = new RadioOptions<RoleplaySelection>(RadioOptionsLayout.Horizontal)
+                {
+                    FirstButtonStyle = StyleBase.ButtonOpenRight,
+                    ButtonStyle = StyleBase.ButtonOpenBoth,
+                    LastButtonStyle = StyleBase.ButtonOpenLeft
+                };
+
+                _options.GenerateItem = (text, _) => new Button
+                {
+                    Text = text,
+                    MinWidth = 90
+                };
+
+                _options.OnItemSelected += args => _options.Select(args.Id);
+
+                var titleLabel = new Label()
+                {
+                    Margin = new Thickness(5f, 0, 5f, 0),
+                    Text = Loc.GetString("roleplay-name-" + rolePlayId),
+                    MouseFilter = MouseFilterMode.Stop,
+                    ToolTip = Loc.GetString("roleplay-desc-" + rolePlayId)
+                };
+
+                var container = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Horizontal,
+                };
+
+                _options.OnItemSelected += _ => PreferenceChanged?.Invoke(Preference);
+
+                _options.AddItem(Loc.GetString("roleplay-no"), RoleplaySelection.No);
+                _options.AddItem(Loc.GetString("roleplay-maybe"), RoleplaySelection.Maybe);
+                _options.AddItem(Loc.GetString("roleplay-yes"), RoleplaySelection.Yes);
+
+                container.AddChild(titleLabel);
+                container.AddChild(_options);
+
+                AddChild(container);
+            }
+
+        }
+
+        private void UpdateRoleplayThink()
+        {
+            if(Profile is null)
+                return;
+            Logger.Debug("MEOW");
+
+            foreach (var roleplayInfo in Profile.RoleplayInfoData)
+            {
+                Logger.Debug(roleplayInfo.Name + " " + roleplayInfo.RoleplaySelection);
+                foreach (var selection in _roleplaySelections.Where(selection => roleplayInfo.Name == selection.RolePlayId))
+                {
+                    selection.Preference = roleplayInfo.RoleplaySelection;
+                }
             }
         }
     }
