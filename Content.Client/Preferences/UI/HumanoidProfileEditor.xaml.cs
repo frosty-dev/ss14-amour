@@ -1663,14 +1663,9 @@ namespace Content.Client.Preferences.UI
                 var titleLabel = new Label()
                 {
                     Margin = new Thickness(5f, 0, 5f, 0),
-                    Text = Loc.GetString("roleplay-name-" + rolePlayId),
+                    Text = Loc.GetString("roleplay-name-" + rolePlayId.ToLower()),
                     MouseFilter = MouseFilterMode.Stop,
-                    ToolTip = Loc.GetString("roleplay-desc-" + rolePlayId)
-                };
-
-                var container = new BoxContainer
-                {
-                    Orientation = LayoutOrientation.Horizontal,
+                    ToolTip = Loc.GetString("roleplay-desc-" + rolePlayId.ToLower())
                 };
 
                 _options.OnItemSelected += _ => PreferenceChanged?.Invoke(Preference);
@@ -1679,10 +1674,12 @@ namespace Content.Client.Preferences.UI
                 _options.AddItem(Loc.GetString("roleplay-maybe"), RoleplaySelection.Maybe);
                 _options.AddItem(Loc.GetString("roleplay-yes"), RoleplaySelection.Yes);
 
-                container.AddChild(titleLabel);
-                container.AddChild(_options);
+                titleLabel.HorizontalAlignment = HAlignment.Left;
+                _options.HorizontalAlignment = HAlignment.Center;
 
-                AddChild(container);
+                AddChild(titleLabel);
+                AddChild(_options);
+                HorizontalExpand = true;
             }
 
         }
@@ -1691,14 +1688,12 @@ namespace Content.Client.Preferences.UI
         {
             if(Profile is null)
                 return;
-            Logger.Debug("MEOW");
 
-            foreach (var roleplayInfo in Profile.RoleplayInfoData)
+            foreach (var selector in _roleplaySelections)
             {
-                Logger.Debug(roleplayInfo.Name + " " + roleplayInfo.RoleplaySelection);
-                foreach (var selection in _roleplaySelections.Where(selection => roleplayInfo.Name == selection.RolePlayId))
+                if (Profile.RoleplayInfoData.TryGetValue(selector.RolePlayId, out var value))
                 {
-                    selection.Preference = roleplayInfo.RoleplaySelection;
+                    selector.Preference = value.RoleplaySelection;
                 }
             }
         }

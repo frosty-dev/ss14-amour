@@ -64,7 +64,9 @@ namespace Content.Server.Database
                 .HasIndex(p => new {HumanoidProfileId = p.ProfileId, p.GenitalPrototype })
                 .IsUnique();
 
-            modelBuilder.Entity<RoleplayInfo>().HasIndex(r => new { HumanoidProfileId = r.ProfileId, r.Name });
+            modelBuilder.Entity<RoleplayInfo>()
+                .HasIndex(r => new { HumanoidProfileId = r.ProfileId, r.Name })
+                .IsUnique();
 
             modelBuilder.Entity<Job>()
                 .HasIndex(j => j.ProfileId);

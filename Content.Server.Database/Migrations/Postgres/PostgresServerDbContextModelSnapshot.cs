@@ -934,7 +934,8 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.HasKey("Id")
                         .HasName("PK_roleplay_info");
 
-                    b.HasIndex("ProfileId", "Name");
+                    b.HasIndex("ProfileId", "Name")
+                        .IsUnique();
 
                     b.ToTable("roleplay_info", (string)null);
                 });

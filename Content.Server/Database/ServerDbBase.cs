@@ -181,8 +181,10 @@ namespace Content.Server.Database
             var jobs = profile.Jobs.ToDictionary(j => j.JobName, j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => a.AntagName);
             var traits = profile.Traits.Select(t => t.TraitName);
-            var roleplayInfo = profile.RoleplayInfo.Select(r =>
-                new Shared._Amour.RoleplayInfo.RoleplayInfo(r.Name, (RoleplaySelection) r.Value));
+            var roleplayInfo = profile.RoleplayInfo
+                .Select(r =>
+                    new Shared._Amour.RoleplayInfo.RoleplayInfo(r.Name, (RoleplaySelection) r.Value))
+                .ToDictionary(a => a.Name);
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
@@ -256,7 +258,7 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToList(),
                 traits.ToList(),
-                roleplayInfo.ToList()
+                roleplayInfo
             );
         }
 
@@ -322,11 +324,12 @@ namespace Content.Server.Database
                     Color = t.Color?.ToHex() ?? ""
                 }));
 
+            profile.RoleplayInfo.Clear();
             profile.RoleplayInfo.AddRange(
                 humanoid.RoleplayInfoData.Select(r => new RoleplayInfo()
                 {
-                    Name = r.Name,
-                    Value = (int) r.RoleplaySelection
+                    Name = r.Value.Name,
+                    Value = (int) r.Value.RoleplaySelection
                 })
                 );
 

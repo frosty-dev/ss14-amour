@@ -1,7 +1,7 @@
-wanna-erp = ERP
-wanna-erp-desc = Хотите ли вы потрахушек?
-wanna-non-con-erp = Non-Con
-wanna-non-con-erp-desc = Хотите ли вы насильных потрахушек?
+roleplay-name-erp = ERP
+roleplay-desc-erp = Хотите ли вы потрахушек?
+roleplay-name-noncon = Non-Con
+roleplay-desc-noncon = Хотите ли вы насильных потрахушек?
 
 roleplay-no = Нет
 roleplay-maybe = Уточнить
