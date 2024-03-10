@@ -57,7 +57,7 @@ namespace Content.IntegrationTests.Tests.Preferences
                     "Shaved",
                     Color.Aquamarine,
                     Color.Azure,
-                    Color.Beige,
+                    Color.Beige,128,
                     new (), new() //AMOUR
                 ),
                 ClothingPreference.Jumpskirt,

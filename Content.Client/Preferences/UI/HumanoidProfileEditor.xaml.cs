@@ -223,6 +223,10 @@ namespace Content.Client.Preferences.UI
             #region Genitals
             InitializeGenitals();
             #endregion
+
+            #region height
+            InitializeHeight();
+            #endregion
             //AMOUR END
 
             #region Species
@@ -245,6 +249,7 @@ namespace Content.Client.Preferences.UI
                 SetSpecies(_speciesList[args.Id].ID);
                 UpdateHairPickers();
                 OnSkinColorOnValueChanged();
+                UpdateHeightControl(); // AMOUR
             };
 
             #endregion Species
@@ -1311,6 +1316,7 @@ namespace Content.Client.Preferences.UI
             //Amour edit
             UpdateGenitalsControls();
             UpdateRoleplayThink();
+            UpdateHeightControl();
             //Amour edit
 
             _preferenceUnavailableButton.SelectId((int) Profile.PreferenceUnavailable);

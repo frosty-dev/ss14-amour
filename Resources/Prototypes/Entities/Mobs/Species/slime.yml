@@ -69,6 +69,9 @@
       types:
         Asphyxiation: -1.0
     maxSaturation: 15
+  - type: CustomHeight
+    min: 0.8
+    max: 1.2
 
 - type: entity
   parent: MobHumanDummy
@@ -78,3 +81,6 @@
     - type: HumanoidAppearance
       species: SlimePerson
       bodyType: SlimeNormal
+    - type: CustomHeight
+      min: 0.8
+      max: 1.2

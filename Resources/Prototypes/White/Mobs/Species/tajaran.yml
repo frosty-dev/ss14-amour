@@ -57,6 +57,7 @@
     - outerClothing
     healingSound:
       path: "/Audio/White/Felinid/lick.ogg"
+  - type: CustomHeight
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -65,3 +66,4 @@
   components:
   - type: HumanoidAppearance
     species: Tajaran
+  - type: CustomHeight

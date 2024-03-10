@@ -141,6 +141,7 @@
       Male: SoundsHarpy
       Female: SoundsHarpy
       Unsexed: SoundsHarpy
+  - type: CustomHeight
 
 - type: entity
   save: false
@@ -213,6 +214,7 @@
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
       - map: [ "head" ]
+  - type: CustomHeight
 
 
 - type: entity

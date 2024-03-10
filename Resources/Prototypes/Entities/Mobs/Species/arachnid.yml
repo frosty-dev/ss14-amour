@@ -121,6 +121,9 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_arachnid"
         visible: false
+      - type: CustomHeight
+        min: 0.94
+        max: 1.2
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -130,5 +133,8 @@
   - type: HumanoidAppearance
     species: Arachnid
     bodyType: ArachnidNormal
+  - type: CustomHeight
+    min: 0.94
+    max: 1.2
 
 #88w88

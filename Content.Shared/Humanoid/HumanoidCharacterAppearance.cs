@@ -19,6 +19,7 @@ namespace Content.Shared.Humanoid
             Color facialHairColor,
             Color eyeColor,
             Color skinColor,
+            byte height,
             List<Marking> markings, List<Genital> genitals)
         {
             HairStyleId = hairStyleId;
@@ -29,6 +30,7 @@ namespace Content.Shared.Humanoid
             SkinColor = ClampColor(skinColor);
             Markings = markings;
             Genitals = genitals;
+            Height = height;
         }
 
         [DataField("hair")]
@@ -53,47 +55,55 @@ namespace Content.Shared.Humanoid
         public List<Marking> Markings { get; private set; }
 
         [DataField("genitals")]
-        public List<Genital> Genitals { get; private set; }//AMOUR
+        public List<Genital> Genitals { get; private set; } //AMOUR
+
+        [DataField] public byte Height { get; private set; } //AMOUR
 
         public HumanoidCharacterAppearance WithHairStyleName(string newName)
         {
-            return new(newName, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Markings, Genitals);
+            return new(newName, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Height, Markings, Genitals);
         }
 
         public HumanoidCharacterAppearance WithHairColor(Color newColor)
         {
-            return new(HairStyleId, newColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Markings , Genitals);
+            return new(HairStyleId, newColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Height, Markings , Genitals);
         }
 
         public HumanoidCharacterAppearance WithFacialHairStyleName(string newName)
         {
-            return new(HairStyleId, HairColor, newName, FacialHairColor, EyeColor, SkinColor, Markings , Genitals);
+            return new(HairStyleId, HairColor, newName, FacialHairColor, EyeColor, SkinColor, Height, Markings , Genitals);
         }
 
         public HumanoidCharacterAppearance WithFacialHairColor(Color newColor)
         {
-            return new(HairStyleId, HairColor, FacialHairStyleId, newColor, EyeColor, SkinColor, Markings , Genitals);
+            return new(HairStyleId, HairColor, FacialHairStyleId, newColor, EyeColor, SkinColor, Height, Markings , Genitals);
         }
 
         public HumanoidCharacterAppearance WithEyeColor(Color newColor)
         {
-            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, newColor, SkinColor, Markings , Genitals);
+            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, newColor, SkinColor, Height, Markings , Genitals);
         }
 
         public HumanoidCharacterAppearance WithSkinColor(Color newColor)
         {
-            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, newColor, Markings , Genitals);
+            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, newColor, Height, Markings , Genitals);
         }
 
         public HumanoidCharacterAppearance WithMarkings(List<Marking> newMarkings)
         {
-            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, newMarkings , Genitals);
+            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Height, newMarkings , Genitals);
         }
 
         public HumanoidCharacterAppearance WithGenitals(List<Genital> genitals)
         {
-            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Markings,
+            return new(HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, Height, Markings,
                 genitals);
+        }
+
+        public HumanoidCharacterAppearance WithHeight(byte height)
+        {
+            return new (HairStyleId, HairColor, FacialHairStyleId, FacialHairColor, EyeColor, SkinColor, height, Markings,
+                Genitals);
         }
 
         public HumanoidCharacterAppearance(List<Genital> genitals) : this(
@@ -103,6 +113,7 @@ namespace Content.Shared.Humanoid
             Color.Black,
             Color.Black,
             Humanoid.SkinColor.ValidHumanSkinTone,
+            128,
             new List<Marking>(), genitals
         )
         {
@@ -132,7 +143,7 @@ namespace Content.Shared.Humanoid
                 HairStyles.DefaultFacialHairStyle,
                 Color.Black,
                 Color.Black,
-                skinColor,
+                skinColor,128,
                 new (), new()
             );
         }
@@ -195,8 +206,10 @@ namespace Content.Shared.Humanoid
                 newSkinColor = Humanoid.SkinColor.ValidTintedHuesSkinTone(newSkinColor);
             }
 
+            var height = random.NextByte(byte.MaxValue);
+
             return new HumanoidCharacterAppearance(newHairStyle, newHairColor,
-                newFacialHairStyle, newHairColor, newEyeColor, newSkinColor, new (), new());
+                newFacialHairStyle, newHairColor, newEyeColor, newSkinColor,height, new (), new());
 
             float RandomizeColor(float channel)
             {
@@ -272,7 +285,7 @@ namespace Content.Shared.Humanoid
                     facialHairStyleId,
                     facialHairColor,
                     eyeColor,
-                    skinColor,
+                    skinColor, appearance.Height,
                     markingSet.GetForwardEnumerator().ToList(),genitals);
             }
 
@@ -296,7 +309,7 @@ namespace Content.Shared.Humanoid
                 facialHairStyleId,
                 facialHairColor,
                 eyeColor,
-                skinColor,
+                skinColor, appearance.Height,
                 markingSet.GetForwardEnumerator().ToList(), genitals);
         }
 

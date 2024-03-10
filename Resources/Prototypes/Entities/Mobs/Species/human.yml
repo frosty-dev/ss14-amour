@@ -17,6 +17,7 @@
       amount: 5
   - type: HoleContainer
     useHumanGenitalLayers: true
+  - type: CustomHeight
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -25,3 +26,4 @@
   components:
   - type: HoleContainer
     useHumanGenitalLayers: true
+  - type: CustomHeight

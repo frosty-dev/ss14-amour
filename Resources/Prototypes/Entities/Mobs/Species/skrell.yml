@@ -27,6 +27,7 @@
     heatDamage:
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
+  - type: CustomHeight
 
 - type: entity
   save: false
@@ -39,3 +40,4 @@
   - type: HumanoidAppearance
     species: Skrell
     bodyType: SkrellNormal
+  - type: CustomHeight

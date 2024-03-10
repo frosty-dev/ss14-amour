@@ -374,6 +374,7 @@ namespace Content.Server.Database
         //WD-EDIT
         public string BodyType { get; set; } = null!;
         public string Voice { get; set; } = null!;
+        public byte Height { get; set; }
         //WD-EDIT
 
         public string Species { get; set; } = null!;
