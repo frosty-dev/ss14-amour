@@ -5,7 +5,7 @@ public static class SkinColor
     public const float MaxTintedHuesSaturation = 0.1f;
     public const float MinTintedHuesLightness = 0.85f;
 
-    public const float MinHuesLightness = 0.175f;
+    public const float MinHuesLightness = 0.1f; // Я не расист, я хочу видеть негров
 
     public static Color ValidHumanSkinTone => Color.FromHsv(new Vector4(0.07f, 0.2f, 1f, 1f));
 
@@ -144,7 +144,7 @@ public static class SkinColor
     ///     This takes in a color, and returns a color guaranteed to be above MinHuesLightness
     /// </summary>
     /// <param name="color"></param>
-    /// <returns>Either the color as-is if it's above MinHuesLightness, or the color with luminosity increased above MinHuesLightness</returns> 
+    /// <returns>Either the color as-is if it's above MinHuesLightness, or the color with luminosity increased above MinHuesLightness</returns>
     public static Color MakeHueValid(Color color)
     {
         var manipulatedColor = Color.ToHsv(color);
