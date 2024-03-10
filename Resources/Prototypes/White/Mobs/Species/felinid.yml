@@ -141,8 +141,8 @@
     excess: 85
   - type: Perishable
   - type: CustomHeight
-    min: 0.8
-    max: 0.94
+    min: 0.74
+    max: 0.85
     starting: 0.8
 
 - type: entity
@@ -263,9 +263,9 @@
         sprite: Mobs/Customization/masking_helpers.rsi
         state: none
         visible: false
-      - type: CustomHeight
-        min: 0.8
-        max: 0.94
-        starting: 0.8
+  - type: CustomHeight
+    min: 0.74
+    max: 0.85
+    starting: 0.8
 
 #Nya~~

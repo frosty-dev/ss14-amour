@@ -58,7 +58,7 @@ public abstract class SharedCustomHeightSystem : EntitySystem
         return min + (max - min) * percent;
     }
 
-    public byte GetByteFromHeight(Entity<CustomHeightComponent?> entity)
+    public byte GetByteFromHeight(Entity<CustomHeightComponent?> entity,float? varheight = null)
     {
         if (!Resolve(entity, ref entity.Comp))
             entity.Comp = EnsureComp<CustomHeightComponent>(entity);
@@ -66,10 +66,9 @@ public abstract class SharedCustomHeightSystem : EntitySystem
         var min = entity.Comp.Min;
         var max = entity.Comp.Max;
 
-        if (!AppearanceSystem.TryGetData<float>(entity, HeightVisuals.State, out var height))
-            height = min;
+        varheight ??= AppearanceSystem.TryGetData<float>(entity, HeightVisuals.State, out var height) ? height : min;
 
-        return (byte) ((height - min) / (max - min) * byte.MaxValue);
+        return (byte) ((varheight.Value - min) / (max - min) * byte.MaxValue);
     }
 }
 

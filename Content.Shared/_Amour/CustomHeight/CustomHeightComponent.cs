@@ -3,12 +3,12 @@
 [RegisterComponent]
 public sealed partial class CustomHeightComponent : Component
 {
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float Min = 0.94f;
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float Max = 1.06f;
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
+    public float Min = 0.89f;
+    [DataField]
+    public float Max = 1.1f;
+    [DataField]
     public float Starting = 1f;
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public bool Random = true;
 }

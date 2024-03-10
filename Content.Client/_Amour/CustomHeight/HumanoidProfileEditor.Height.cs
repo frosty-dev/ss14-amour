@@ -1,5 +1,6 @@
 ﻿using Content.Client._Amour.CustomHeight;
 using Content.Shared._Amour.CustomHeight;
+using Content.Shared._Amour.LoggerExtension;
 using Robust.Client.UserInterface.Controls;
 using Range = Robust.Client.UserInterface.Controls.Range;
 
@@ -23,7 +24,7 @@ public sealed partial class HumanoidProfileEditor
     {
         if (_entMan.TryGetComponent<CustomHeightComponent>(_previewDummy, out var heightComponent))
         {
-            SetDummyHeight(128);
+            SetDummyHeight(_customHeightSystem.GetByteFromHeight(_previewDummy.Value, heightComponent.Starting));
         }
     }
 
@@ -51,7 +52,7 @@ public sealed partial class HumanoidProfileEditor
 
     public void SetDummyHeight(byte height, bool changeHeightValue = true)
     {
-        if (Profile is null || !_entMan.TryGetComponent<CustomHeightComponent>(_previewDummy, out _))
+        if (Profile is null || !_entMan.TryGetComponent<CustomHeightComponent>(_previewDummy, out var a))
             return;
 
         if(changeHeightValue)
