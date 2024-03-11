@@ -28,12 +28,14 @@ public sealed class SharebleAnimationSystem : SharedAnimationSystem
 
     private void OnProtoStart(AnimationProtoStartMessage ev)
     {
-        Play(GetEntity(ev.Owner),ev.ProtoId);
+        if(ev.Owner.Valid)
+            Play(GetEntity(ev.Owner),ev.ProtoId);
     }
 
     private void OnStart(AnimationStartMessage ev)
     {
-        Play(GetEntity(ev.Owner),ev.Data,ev.Id);
+        if(ev.Owner.Valid)
+            Play(GetEntity(ev.Owner),ev.Data,ev.Id);
     }
 
     public override void Play(EntityUid uid,ProtoId<AnimationPrototype> protoId)

@@ -87,6 +87,7 @@
     - layer: "enum.GenitalVisualLayers.BreastFront"
       prefix: "_0_FRONT"
       excitedPrefix: "_1_FRONT"
+    isVisibleInSkirt: false
   - type: HoleSolution
   - type: HoleInventory
 

@@ -20,10 +20,17 @@
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    # START AMOUR EDIT
+    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+    - map: [ "enum.GenitalVisualLayers.DickFront" ]
+    # END AMOUR EDIT
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.GenitalVisualLayers.BreastFront" ] #Amour
     - shader: StencilClear
       sprite: Mobs/Species/Human/parts.rsi #PJB on stencil clear being on the left leg: "...this is 'fine'" -https://github.com/space-wizards/space-station-14/pull/12217#issuecomment-1291677115
       # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
@@ -51,13 +58,6 @@
     - map: [ "id" ]
     - map: [ "neck" ]
     - map: [ "back" ]
-    # START AMOUR EDIT
-    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
-    - map: [ "enum.GenitalVisualLayers.BreastFront" ]
-    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
-    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
-    - map: [ "enum.GenitalVisualLayers.DickFront" ]
-    # END AMOUR EDIT
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -383,10 +383,17 @@
     - map: [ "enum.HumanoidVisualLayers.Head" ]
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
     - map: [ "enum.HumanoidVisualLayers.RLeg" ]
     - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    # START AMOUR EDIT
+    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+    - map: [ "enum.GenitalVisualLayers.DickFront" ]
+    # END AMOUR EDIT
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.GenitalVisualLayers.BreastFront" ] #Amour
     - shader: StencilClear
       sprite: Mobs/Species/Human/parts.rsi
       state: l_leg
@@ -417,13 +424,6 @@
     - map: [ "id" ]
     - map: [ "neck" ]
     - map: [ "back" ]
-    # START AMOUR EDIT
-    - map: [ "enum.GenitalVisualLayers.ButtFront" ]
-    - map: [ "enum.GenitalVisualLayers.BreastFront" ]
-    - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
-    - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
-    - map: [ "enum.GenitalVisualLayers.DickFront" ]
-    # END AMOUR EDIT
     - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
     - map: [ "enum.HumanoidVisualLayers.Hair" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ]

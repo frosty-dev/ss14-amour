@@ -28,6 +28,7 @@ public sealed partial class HoleComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite)] public bool IsExcited = false;
     [DataField] public bool IsMainHole = false;
+    [DataField] public bool IsVisibleInSkirt = true;
 }
 
 [Serializable, NetSerializable, DataDefinition]

@@ -77,10 +77,17 @@
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    # START AMOUR EDIT
+      - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+      - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+      - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+      - map: [ "enum.GenitalVisualLayers.DickFront" ]
+    # END AMOUR EDIT
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.GenitalVisualLayers.BreastFront" ] # AMOUR
       - map: [ "underwearb" ] #White
       - map: [ "underweart" ] #White
       - shader: StencilClear
@@ -126,13 +133,6 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_moth"
         visible: false
-      # START AMOUR EDIT
-      - map: [ "enum.GenitalVisualLayers.ButtFront" ]
-      - map: [ "enum.GenitalVisualLayers.BreastFront" ]
-      - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
-      - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
-      - map: [ "enum.GenitalVisualLayers.DickFront" ]
-      # END AMOUR EDIT
   - type: CustomHeight
 
 - type: entity

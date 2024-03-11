@@ -22,7 +22,7 @@ public partial class SharedHoleSystem
 
         foreach (var slot in hole.Comp.HoleNotVisibleIn)
         {
-            if (_inventory.TryGetSlotEntity(entity, slot, out _, entity))
+            if (_inventory.TryGetSlotEntity(entity, slot, out var item, entity) && !(HasComp<VisibleHoleComponent>(item) && hole.Comp.IsVisibleInSkirt))
                 return false;
         }
 

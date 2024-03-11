@@ -72,3 +72,4 @@
   - type: Clothing
     slots: [innerclothing]
     femaleMask: UniformTop
+  - type: VisibleHole # AMOUR EDIT
