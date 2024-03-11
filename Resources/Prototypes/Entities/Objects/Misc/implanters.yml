@@ -17,6 +17,7 @@
         - Body # no chair microbomb
       blacklist:
         components:
+        - BorgChassis
         - Guardian # no holoparasite macrobomb wombo combo
         tags:
         - Unimplantable
@@ -72,6 +73,7 @@
     # go wild with sentient chairs with macrobombs
     whitelist: null
     blacklist: null
+    singleUse: false
 
 - type: entity
   id: BaseImplantOnlyImplanter
@@ -119,6 +121,9 @@
           implantOnly:
             True: {state: broken}
             False: {state: implanter1}
+    - type: Implanter
+      implantTime: 2
+      drawTime: 2
 
 #Fun implanters
 

@@ -1,17 +1,4 @@
 - type: entity
-  id: ActionScream
-  name: Scream
-  description: AAAAAAAAAAAAAAAAAAAAAAAAA
-  noSpawn: true
-  components:
-  - type: InstantAction
-    useDelay: 10
-    icon: Interface/Actions/scream.png
-    event: !type:ScreamActionEvent
-    checkCanInteract: false
-  - type: LesserFormRestricted
-
-- type: entity
   id: ActionTurnUndead
   name: Turn Undead
   description: Succumb to your infection and become a zombie.
@@ -31,6 +18,16 @@
   - type: InstantAction
     icon: { sprite: Objects/Tools/flashlight.rsi, state: flashlight }
     iconOn: Objects/Tools/flashlight.rsi/flashlight-on.png
+    event: !type:ToggleActionEvent
+
+- type: entity
+  id: ActionToggleDome
+  name: Toggle energy dome
+  description: Turn the energy barrier on or off.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: { sprite: Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
     event: !type:ToggleActionEvent
 
 - type: entity
