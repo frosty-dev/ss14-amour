@@ -6,7 +6,7 @@ interaction-name-itemonbutt = засунуть вещь в очко
 interaction-name-itemonvagina = засунуть вещь в вагину
 interaction-name-itemfrombutt = засунуть руку в очко
 interaction-name-itemfromvagina = засунуть руку в вагину
-interaction-name-lickdick = отлизать мужсокй половой орган
+interaction-name-lickdick = отлизать мужской половой орган
 interaction-name-lickvagina = отлизать вагину
 interaction-name-lickface = отлизать лицо
 interaction-name-kissmouth = поцеловать в губы
@@ -64,6 +64,7 @@ interaction-sit-butt3 = вставляет в свой анал член и пр
 interaction-sit-vagina1 = медленно садится своей киской прямо на член { $target }
 interaction-sit-vagina2 = вставляя в себя член, аккуратно опускается вагиной на орган { $target }
 interaction-sit-vagina3 = постепенно опустившись вниз, присаживается своей киской на член { $target }
+
 interaction-dick-lick1 = вобрав в свой ротик член, начинает посасывать орган { $target }
 interaction-dick-lick2 = приблизившись к половому органу своим ртом, просовывает тот внутрь себя и начинает массировать язычком член { $target }
 interaction-dick-lick3 = ласково облизав своим язычком член, начинает отсасывать у { $target }
@@ -101,7 +102,7 @@ interaction-ears-comb2 = с лаской чешет за ушком { $target }
 interaction-ears-comb3 = заботливо почёсывает ушко { $target }
 
 interaction-butt-comb1 = спустившись к булочкам, поглаживает { $target }
-interaction-butt-comb2 = мнёт и полаживает ягодицы { $target }
+interaction-butt-comb2 = мнёт и поглаживает ягодицы { $target }
 interaction-butt-comb3 = проводя ладошкой по упругой попке, гладит { $target }
 
 interaction-pull1 = робко схватил за ручки { $target }

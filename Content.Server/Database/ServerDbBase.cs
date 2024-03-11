@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Shared._Amour.Hole;
+using Content.Shared._Amour.RoleplayInfo;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
@@ -43,6 +44,7 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
                 .Include(p => p.Profiles).ThenInclude(h => h.Genitals)
+                .Include(p => p.Profiles).ThenInclude(h => h.RoleplayInfo)
                 .AsSingleQuery()
                 .SingleOrDefaultAsync(p => p.UserId == userId.UserId);
 
@@ -92,6 +94,7 @@ namespace Content.Server.Database
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
                 .Include(p => p.Genitals)
+                .Include(p => p.RoleplayInfo)
                 .AsSplitQuery()
                 .SingleOrDefault(h => h.Slot == slot);
 
@@ -178,6 +181,10 @@ namespace Content.Server.Database
             var jobs = profile.Jobs.ToDictionary(j => j.JobName, j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => a.AntagName);
             var traits = profile.Traits.Select(t => t.TraitName);
+            var roleplayInfo = profile.RoleplayInfo
+                .Select(r =>
+                    new Shared._Amour.RoleplayInfo.RoleplayInfo(r.Name, (RoleplaySelection) r.Value))
+                .ToDictionary(a => a.Name);
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
@@ -242,6 +249,7 @@ namespace Content.Server.Database
                     Color.FromHex(profile.FacialHairColor),
                     Color.FromHex(profile.EyeColor),
                     Color.FromHex(profile.SkinColor),
+                    profile.Height, // AMOUR EDIT
                     markings, genitals.ToList() // Amour edit
                 ),
                 clothing,
@@ -250,7 +258,8 @@ namespace Content.Server.Database
                 jobs,
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToList(),
-                traits.ToList()
+                traits.ToList(),
+                roleplayInfo
             );
         }
 
@@ -288,7 +297,7 @@ namespace Content.Server.Database
             profile.Slot = slot;
             profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;
             profile.Voice = humanoid.Voice;
-
+            profile.Height = appearance.Height; // AMOUR
             profile.Jobs.Clear();
             profile.Jobs.AddRange(
                 humanoid.JobPriorities
@@ -315,6 +324,15 @@ namespace Content.Server.Database
                     GenitalPrototype = t.GenitalId,
                     Color = t.Color?.ToHex() ?? ""
                 }));
+
+            profile.RoleplayInfo.Clear();
+            profile.RoleplayInfo.AddRange(
+                humanoid.RoleplayInfoData.Select(r => new RoleplayInfo()
+                {
+                    Name = r.Value.Name,
+                    Value = (int) r.Value.RoleplaySelection
+                })
+                );
 
             return profile;
         }

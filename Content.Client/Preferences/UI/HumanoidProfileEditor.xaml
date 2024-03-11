@@ -131,6 +131,15 @@
                                     <Control HorizontalExpand="True"/>
                                     <OptionButton Name="CSpawnPriorityButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
+                                <!-- Height -->
+                                <BoxContainer HorizontalExpand="True" Orientation="Vertical" Name="HeightContainer">
+                                    <Label Text="{Loc 'humanoid-profile-editor-height-label'}" />
+                                    <Slider HorizontalExpand="True" Name="CHeight" MinValue="0" MaxValue="255" Value="1"/>
+                                    <BoxContainer Orientation="Horizontal">
+                                        <Label Name="CHeightInformation"/>
+                                        <Button Name="ResetHeightButton" Text="{Loc 'height-reset'}"/>
+                                    </BoxContainer>
+                                </BoxContainer>
                             </BoxContainer>
                             <!-- Skin -->
                             <BoxContainer Margin="10" HorizontalExpand="True" Orientation="Vertical">
@@ -176,6 +185,12 @@
                     <!-- Markings -->
                     <ScrollContainer VerticalExpand="True">
                         <humanoid:MarkingPicker Name="CMarkings" IgnoreCategories="Hair,FacialHair" />
+                    </ScrollContainer>
+                </BoxContainer>
+                <BoxContainer Name="CRolePlayThinkTab" Orientation="Vertical" Margin="10">
+                    <!-- RolePlay sel -->
+                    <ScrollContainer VerticalExpand="True">
+                        <BoxContainer Name="CRolePlayThing" Orientation="Vertical"></BoxContainer>
                     </ScrollContainer>
                 </BoxContainer>
             </TabContainer>

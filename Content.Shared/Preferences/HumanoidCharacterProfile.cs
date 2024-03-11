@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared._Amour.RoleplayInfo;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
@@ -24,11 +25,12 @@ namespace Content.Shared.Preferences
     public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
         public const int MaxNameLength = 32;
-        public const int MaxDescLength = 512;
+        public const int MaxDescLength = 1024;
 
         private readonly Dictionary<string, JobPriority> _jobPriorities;
         private readonly List<string> _antagPreferences;
         private readonly List<string> _traitPreferences;
+        private readonly Dictionary<string,RoleplayInfo> _roleplayInfoData; //AMOUR
 
         private HumanoidCharacterProfile(
             string name,
@@ -49,7 +51,8 @@ namespace Content.Shared.Preferences
             Dictionary<string, JobPriority> jobPriorities,
             PreferenceUnavailableMode preferenceUnavailable,
             List<string> antagPreferences,
-            List<string> traitPreferences)
+            List<string> traitPreferences,
+            Dictionary<string,RoleplayInfo> roleplayInfoData)
         {
             Name = name;
             ClownName = clownName;
@@ -70,6 +73,7 @@ namespace Content.Shared.Preferences
             PreferenceUnavailable = preferenceUnavailable;
             _antagPreferences = antagPreferences;
             _traitPreferences = traitPreferences;
+            _roleplayInfoData = roleplayInfoData;
         }
 
         /// <summary>Copy constructor but with overridable references (to prevent useless copies)</summary>
@@ -77,18 +81,18 @@ namespace Content.Shared.Preferences
             HumanoidCharacterProfile other,
             Dictionary<string, JobPriority> jobPriorities,
             List<string> antagPreferences,
-            List<string> traitPreferences)
+            List<string> traitPreferences, Dictionary<string,RoleplayInfo> roleplayInfoData)
             : this(other.Name, other.ClownName, other.MimeName, other.BorgName, other.FlavorText, other.Species,
                 other.Voice, other.Age, other.Sex, other.Gender, other.BodyType, other.Appearance, other.Clothing,
                 other.Backpack, other.SpawnPriority,
-                jobPriorities, other.PreferenceUnavailable, antagPreferences, traitPreferences)
+                jobPriorities, other.PreferenceUnavailable, antagPreferences, traitPreferences, roleplayInfoData)
         {
         }
 
         /// <summary>Copy constructor</summary>
         private HumanoidCharacterProfile(HumanoidCharacterProfile other)
             : this(other, new Dictionary<string, JobPriority>(other.JobPriorities),
-                new List<string>(other.AntagPreferences), new List<string>(other.TraitPreferences))
+                new List<string>(other.AntagPreferences), new List<string>(other.TraitPreferences), new Dictionary<string,RoleplayInfo>(other.RoleplayInfoData))
         {
         }
 
@@ -111,10 +115,11 @@ namespace Content.Shared.Preferences
             IReadOnlyDictionary<string, JobPriority> jobPriorities,
             PreferenceUnavailableMode preferenceUnavailable,
             IReadOnlyList<string> antagPreferences,
-            IReadOnlyList<string> traitPreferences)
+            IReadOnlyList<string> traitPreferences,
+            IReadOnlyDictionary<string,RoleplayInfo> roleplayInfoData)
             : this(name, clownName, mimeName, borgName, flavortext, species, age, sex, voice, gender, bodyType,
                 appearance, clothing, backpack, spawnPriority, new Dictionary<string, JobPriority>(jobPriorities),
-                preferenceUnavailable, new List<string>(antagPreferences), new List<string>(traitPreferences))
+                preferenceUnavailable, new List<string>(antagPreferences), new List<string>(traitPreferences), new Dictionary<string, RoleplayInfo>(roleplayInfoData))
         {
         }
 
@@ -145,7 +150,8 @@ namespace Content.Shared.Preferences
             },
             PreferenceUnavailableMode.SpawnAsOverflow,
             new List<string>(),
-            new List<string>())
+            new List<string>(),
+            new Dictionary<string, RoleplayInfo>())
         {
         }
 
@@ -179,7 +185,8 @@ namespace Content.Shared.Preferences
                 },
                 PreferenceUnavailableMode.SpawnAsOverflow,
                 new List<string>(),
-                new List<string>());
+                new List<string>(),
+                new Dictionary<string, RoleplayInfo>());
         }
 
         // TODO: This should eventually not be a visual change only.
@@ -243,7 +250,7 @@ namespace Content.Shared.Preferences
                 new Dictionary<string, JobPriority>
                 {
                     { SharedGameTicker.FallbackOverflowJob, JobPriority.High },
-                }, PreferenceUnavailableMode.StayInLobby, new List<string>(), new List<string>());
+                }, PreferenceUnavailableMode.StayInLobby, new List<string>(), new List<string>(), new Dictionary<string, RoleplayInfo>());
         }
 
         public string Name { get; private set; }
@@ -288,6 +295,8 @@ namespace Content.Shared.Preferences
         public IReadOnlyList<string> AntagPreferences => _antagPreferences;
 
         public IReadOnlyList<string> TraitPreferences => _traitPreferences;
+
+        public IReadOnlyDictionary<string,RoleplayInfo> RoleplayInfoData => _roleplayInfoData; //AMOUR
 
         public PreferenceUnavailableMode PreferenceUnavailable { get; private set; }
 
@@ -368,7 +377,7 @@ namespace Content.Shared.Preferences
 
         public HumanoidCharacterProfile WithJobPriorities(IEnumerable<KeyValuePair<string, JobPriority>> jobPriorities)
         {
-            return new(this, new Dictionary<string, JobPriority>(jobPriorities), _antagPreferences, _traitPreferences);
+            return new(this, new Dictionary<string, JobPriority>(jobPriorities), _antagPreferences, _traitPreferences,_roleplayInfoData);
         }
 
         public HumanoidCharacterProfile WithJobPriority(string jobId, JobPriority priority)
@@ -383,7 +392,7 @@ namespace Content.Shared.Preferences
                 dictionary[jobId] = priority;
             }
 
-            return new(this, dictionary, _antagPreferences, _traitPreferences);
+            return new(this, dictionary, _antagPreferences, _traitPreferences, _roleplayInfoData);
         }
 
         public HumanoidCharacterProfile WithPreferenceUnavailable(PreferenceUnavailableMode mode)
@@ -393,7 +402,7 @@ namespace Content.Shared.Preferences
 
         public HumanoidCharacterProfile WithAntagPreferences(IEnumerable<string> antagPreferences)
         {
-            return new(this, _jobPriorities, new List<string>(antagPreferences), _traitPreferences);
+            return new(this, _jobPriorities, new List<string>(antagPreferences), _traitPreferences, _roleplayInfoData);
         }
 
         public HumanoidCharacterProfile WithAntagPreference(string antagId, bool pref)
@@ -414,7 +423,7 @@ namespace Content.Shared.Preferences
                 }
             }
 
-            return new(this, _jobPriorities, list, _traitPreferences);
+            return new(this, _jobPriorities, list, _traitPreferences, _roleplayInfoData);
         }
 
         public HumanoidCharacterProfile WithTraitPreference(string traitId, bool pref)
@@ -437,7 +446,20 @@ namespace Content.Shared.Preferences
                 }
             }
 
-            return new(this, _jobPriorities, _antagPreferences, list);
+            return new(this, _jobPriorities, _antagPreferences, list, _roleplayInfoData);
+        }
+
+
+        public HumanoidCharacterProfile WithRoleplaySelection(string name, RoleplaySelection selection)
+        {
+            var dict = new Dictionary<string,RoleplayInfo>(_roleplayInfoData);
+
+            if (dict.TryGetValue(name, out var a))
+                dict[name].RoleplaySelection = selection;
+            else
+                dict.Add(name, new RoleplayInfo(name,selection));
+
+            return new HumanoidCharacterProfile(this, _jobPriorities, _antagPreferences, _traitPreferences, dict);
         }
 
         public string Summary =>

@@ -1,0 +1,17 @@
+- type: sponsorItem
+  id: 2 #prikolist
+  items:
+  - Tajaran
+  - Vulpkanin
+
+- type: sponsorItem
+  id: 1 #mitior
+  items:
+  - Tajaran
+  - Vulpkanin
+
+- type: sponsorItem
+  id: 5 #DJ EBAN
+  items:
+  - Tajaran
+  - Vulpkanin

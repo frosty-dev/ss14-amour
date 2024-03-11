@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Content.Server.Database;
+using Content.Shared._Amour.RoleplayInfo;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
@@ -12,6 +13,7 @@ using Robust.Shared.Log;
 using Robust.Shared.Maths;
 using Robust.Shared.Network;
 using Robust.UnitTesting;
+using RoleplayInfo = Content.Shared._Amour.RoleplayInfo.RoleplayInfo;
 
 namespace Content.IntegrationTests.Tests.Preferences
 {
@@ -55,7 +57,7 @@ namespace Content.IntegrationTests.Tests.Preferences
                     "Shaved",
                     Color.Aquamarine,
                     Color.Azure,
-                    Color.Beige,
+                    Color.Beige,128,
                     new (), new() //AMOUR
                 ),
                 ClothingPreference.Jumpskirt,
@@ -67,7 +69,8 @@ namespace Content.IntegrationTests.Tests.Preferences
                 },
                 PreferenceUnavailableMode.StayInLobby,
                 new List<string> (),
-                new List<string>()
+                new List<string>(),
+                new Dictionary<string, RoleplayInfo>() //AMOUR
             );
         }
 

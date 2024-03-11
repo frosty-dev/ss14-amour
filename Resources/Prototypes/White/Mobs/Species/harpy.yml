@@ -85,6 +85,13 @@
       - map: [ "belt" ]
       - map: [ "neck" ]
       - map: [ "back" ]
+      # START AMOUR EDIT
+      - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+      - map: [ "enum.GenitalVisualLayers.BreastFront" ]
+      - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+      - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+      - map: [ "enum.GenitalVisualLayers.DickFront" ]
+      # END AMOUR EDIT
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
@@ -100,13 +107,6 @@
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
       - map: [ "head" ]
-    # START AMOUR EDIT
-      - map: [ "enum.GenitalVisualLayers.ButtFront" ]
-      - map: [ "enum.GenitalVisualLayers.BreastFront" ]
-      - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
-      - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
-      - map: [ "enum.GenitalVisualLayers.DickFront" ]
-    # END AMOUR EDIT
 
   - type: HumanoidAppearance
     species: Harpy
@@ -141,6 +141,7 @@
       Male: SoundsHarpy
       Female: SoundsHarpy
       Unsexed: SoundsHarpy
+  - type: CustomHeight
 
 - type: entity
   save: false
@@ -191,6 +192,13 @@
       - map: [ "belt" ]
       - map: [ "neck" ]
       - map: [ "back" ]
+    # START AMOUR EDIT
+      - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+      - map: [ "enum.GenitalVisualLayers.BreastFront" ]
+      - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+      - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+      - map: [ "enum.GenitalVisualLayers.DickFront" ]
+    # END AMOUR EDIT
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
@@ -206,13 +214,8 @@
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
       - map: [ "head" ]
-    # START AMOUR EDIT
-      - map: [ "enum.GenitalVisualLayers.ButtFront" ]
-      - map: [ "enum.GenitalVisualLayers.BreastFront" ]
-      - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
-      - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
-      - map: [ "enum.GenitalVisualLayers.DickFront" ]
-    # END AMOUR EDIT
+  - type: CustomHeight
+
 
 - type: entity
   id: ActionHarpyPlayMidi

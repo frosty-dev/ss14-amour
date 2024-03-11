@@ -9,6 +9,8 @@
   skinColoration: Hues
   bodyTypes:
   - VulpkaninNormal
+  sponsorOnly: true
+  forAmins: true
 
 - type: markingPoints
   id: MobVulpkaninMarkingLimits

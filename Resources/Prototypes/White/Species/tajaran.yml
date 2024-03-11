@@ -9,6 +9,8 @@
   skinColoration: Hues
   bodyTypes:
   - TajaranNormal
+  sponsorOnly: true
+  forAmins: true
 
 
 - type: markingPoints

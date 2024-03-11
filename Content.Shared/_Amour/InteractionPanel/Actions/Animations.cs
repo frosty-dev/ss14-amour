@@ -18,7 +18,19 @@ public sealed partial class RequireAnimation : IInteractionAction
     {
         var animationSystem = entityManager.System<SharedAnimationSystem>();
 
-        var rotation = (entityManager.GetComponent<TransformComponent>(target).LocalPosition - entityManager.GetComponent<TransformComponent>(uid).LocalPosition)*0.5f;
+        var targetTransform = entityManager.GetComponent<TransformComponent>(target);
+        var userTransform = entityManager.GetComponent<TransformComponent>(uid);
+
+        var targetPos = targetTransform.LocalPosition;
+        if (!targetTransform.ParentUid.Equals(targetTransform.GridUid))
+            targetPos = entityManager.GetComponent<TransformComponent>(targetTransform.ParentUid).LocalPosition;
+
+
+        var userPos = userTransform.LocalPosition;
+        if (!userTransform.ParentUid.Equals(userTransform.GridUid))
+            userPos = entityManager.GetComponent<TransformComponent>(userTransform.ParentUid).LocalPosition;
+
+        var rotation = (targetPos - userPos)*0.5f;
 
         if (Length == 0)
         {

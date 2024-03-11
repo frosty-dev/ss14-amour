@@ -133,6 +133,7 @@
       - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
       - map: [ "enum.GenitalVisualLayers.DickFront" ]
       # END AMOUR EDIT
+  - type: CustomHeight
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -142,3 +143,4 @@
   - type: HumanoidAppearance
     species: Moth
     bodyType: MothNormal
+  - type: CustomHeight

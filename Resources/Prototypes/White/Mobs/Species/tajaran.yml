@@ -38,9 +38,9 @@
     speechSounds: Alto
   - type: Vocal
     sounds:
-      Male: MaleVulpkanin
-      Female: FemaleVulpkanin
-      Unsexed: MaleVulpkanin
+      Male: MaleFelinid
+      Female: FemaleFelinid
+      Unsexed: MaleFelinid
   - type: VulpAccent
   - type: Felinid #since this just adds an action...
   - type: SelfHeal
@@ -57,6 +57,7 @@
     - outerClothing
     healingSound:
       path: "/Audio/White/Felinid/lick.ogg"
+  - type: CustomHeight
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -65,3 +66,4 @@
   components:
   - type: HumanoidAppearance
     species: Tajaran
+  - type: CustomHeight

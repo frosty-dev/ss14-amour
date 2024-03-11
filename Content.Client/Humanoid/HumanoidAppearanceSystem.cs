@@ -330,13 +330,14 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             // Okay so if the marking prototype is modified but we load old marking data this may no longer be valid
             // and we need to check the index is correct.
             // So if that happens just default to white?
+            // Alpha WD EDIT
             if (colors != null && j < colors.Count)
             {
-                sprite.LayerSetColor(layerId, colors[j]);
+                sprite.LayerSetColor(layerId, colors[j].WithAlpha(markingPrototype.LayerAlpha));
             }
             else
             {
-                sprite.LayerSetColor(layerId, Color.White);
+                sprite.LayerSetColor(layerId, Color.White.WithAlpha(markingPrototype.LayerAlpha));
             }
         }
     }

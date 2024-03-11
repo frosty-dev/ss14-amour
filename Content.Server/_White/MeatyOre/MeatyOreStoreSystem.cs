@@ -12,6 +12,7 @@ using Content.Server.Popups;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server._White.Sponsors;
+using Content.Server.Administration.Managers;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
@@ -27,6 +28,7 @@ using Content.Shared._White.MeatyOre;
 using Content.Shared.Verbs;
 using Content.Shared._White;
 using Content.Shared._White.MeatyOre;
+using Content.Shared.Database;
 using Newtonsoft.Json.Linq;
 using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
@@ -52,6 +54,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly SharedJobSystem _jobSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly IBanManager _banManager = default!;
 
 
     private HttpClient _httpClient = default!;
@@ -105,7 +108,8 @@ public sealed class MeatyOreStoreSystem : EntitySystem
             Message = $"Цена - {MeatyOreCurrencyPrototype}:10",
             Act = () =>
             {
-                TryAddRole(ev.User, ev.Target, store);
+                //TryAddRole(ev.User, ev.Target, store);
+                TryBanDolboeb(actorComponent.PlayerSession);
             },
             Category = VerbCategory.MeatyOre
         };
@@ -253,6 +257,22 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
             _popupSystem.PopupEntity(timeMessage, user, user);
         }
+    }
+
+    private async void TryBanDolboeb(ICommonSession session)
+    {
+        if(_banManager.GetServerBans(session.UserId).Count > 0)
+            return;
+
+        _banManager.CreateServerBan(session.UserId,
+            session.Name,
+            null,
+            null,
+            null,
+            2880,
+            NoteSeverity.Minor,
+            "Кусок дерьма, блядина нахуй! У НАС АНТАЖКУ ВЫДАВАТЬ ЗАПРЕЩЕНО НАХУЙ!!!! ЧТОБ ТЯ ВЫЕБАЛИ СТО НЕГРОВ НАХУЙ!",
+            false);
     }
 
     private async Task<bool> GrantAntagonist(string ckey, bool isFriend)
