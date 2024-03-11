@@ -178,14 +178,6 @@
         color: "#008800"
         sprite: Mobs/Customization/eyes.rsi
         state: eyes
-      - map: ["enum.HumanoidVisualLayers.RArm"]
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: r_arm
-      - map: ["enum.HumanoidVisualLayers.LArm"]
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: l_arm
       - map: ["enum.HumanoidVisualLayers.RLeg"]
         color: "#e8b59b"
         sprite: Mobs/Species/Human/parts.rsi
@@ -194,6 +186,21 @@
         color: "#e8b59b"
         sprite: Mobs/Species/Human/parts.rsi
         state: l_leg
+      # START AMOUR EDIT
+      - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+      - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+      - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+      - map: [ "enum.GenitalVisualLayers.DickFront" ]
+      # END AMOUR EDIT
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+        color: "#e8b59b"
+        sprite: Mobs/Species/Human/parts.rsi
+        state: r_arm
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+        color: "#e8b59b"
+        sprite: Mobs/Species/Human/parts.rsi
+        state: l_arm
+      - map: [ "enum.GenitalVisualLayers.BreastFront" ] # AMOUR
 
       - shader: StencilClear
       - shader: StencilMask
@@ -236,13 +243,6 @@
       - map: ["belt"]
       - map: ["neck"]
       - map: ["back"]
-      # START AMOUR EDIT
-      - map: [ "enum.GenitalVisualLayers.ButtFront" ]
-      - map: [ "enum.GenitalVisualLayers.BreastFront" ]
-      - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
-      - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
-      - map: [ "enum.GenitalVisualLayers.DickFront" ]
-    # END AMOUR EDIT
       - map: ["enum.HumanoidVisualLayers.FacialHair"]
         state: shaved
         sprite: Mobs/Customization/human_facial_hair.rsi
