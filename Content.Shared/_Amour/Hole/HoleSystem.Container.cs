@@ -13,6 +13,21 @@ public abstract partial class SharedHoleSystem
     {
         SubscribeLocalEvent<HoleContainerComponent,ComponentInit>(OnContainerInit);
         SubscribeLocalEvent<HoleContainerComponent,HumanoidAppearanceLoadedEvent>(OnAppearanceLoaded);
+        SubscribeLocalEvent<HoleContainerComponent, HumanoidAppearanceClonedEvent>(OnClone);
+    }
+
+    private void OnClone(EntityUid uid, HoleContainerComponent component, HumanoidAppearanceClonedEvent args)
+    {
+        var holeContainerComponent = EnsureComp<HoleContainerComponent>(args.Target);
+        foreach (var entity in component.Slot.ContainedEntities)
+        {
+            var meta = MetaData(entity);
+            if(meta.EntityPrototype is null || !TryComp<HoleComponent>(entity, out var holeComponent))
+                continue;
+            AddHole(new Entity<HoleContainerComponent?>(args.Target,holeContainerComponent), meta.EntityPrototype.ID, holeComponent.Layers[0].Color);
+        }
+
+        Dirty(args.Target,holeContainerComponent);
     }
 
     private void OnAppearanceLoaded(EntityUid uid, HoleContainerComponent component, HumanoidAppearanceLoadedEvent args)
@@ -55,6 +70,6 @@ public abstract partial class SharedHoleSystem
             entity.Comp.MainHole = GetNetEntity(spawned);
 
         _containerSystem.Insert(spawned, entity.Comp.Slot);
-        Dirty(entity);
+        Dirty(spawned,component);
     }
 }

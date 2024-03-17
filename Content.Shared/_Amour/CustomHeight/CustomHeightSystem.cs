@@ -15,6 +15,15 @@ public abstract class SharedCustomHeightSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<CustomHeightComponent,ComponentInit>(OnInit);
         SubscribeLocalEvent<CustomHeightComponent,HumanoidAppearanceLoadedEvent>(OnLoaded);
+        SubscribeLocalEvent<CustomHeightComponent,HumanoidAppearanceClonedEvent>(OnCloned);
+    }
+
+    private void OnCloned(EntityUid uid, CustomHeightComponent component, HumanoidAppearanceClonedEvent args)
+    {
+       if(!AppearanceSystem.TryGetData<float>(uid, HeightVisuals.State, out var height))
+           return;
+
+       SetHeight(args.Target.Owner,height);
     }
 
     private void OnLoaded(EntityUid uid, CustomHeightComponent component, HumanoidAppearanceLoadedEvent args)
