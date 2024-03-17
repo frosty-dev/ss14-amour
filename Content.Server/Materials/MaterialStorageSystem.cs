@@ -5,6 +5,7 @@ using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Server.Power.Components;
 using Content.Server.Stack;
+using Content.Shared._White.ShitSilo;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Construction;
 using Content.Shared.Database;
@@ -78,7 +79,18 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
             volume = sheetsToExtract * volumePerSheet;
         }
 
-        if (volume <= 0 || !TryChangeMaterialAmount(uid, msg.Material, -volume))
+        var gridUid = HasComp<BluespaceSiloComponent>(uid) &&
+                      TryComp<TransformComponent>(uid, out var transformComponent)
+            ? transformComponent.GridUid
+            : null;
+
+        var gridStorage = gridUid.HasValue &&
+                          TryComp<MaterialStorageComponent>(gridUid, out var materialStorageComponent)
+            ? materialStorageComponent
+            : null;
+
+
+        if (volume <= 0 || !TryChangeMaterialAmount(uid, msg.Material, -volume, gridUid: gridUid, gridStorage: gridStorage))
             return;
 
         var mats = SpawnMultipleFromMaterial(volume, material, Transform(uid).Coordinates, out _);
