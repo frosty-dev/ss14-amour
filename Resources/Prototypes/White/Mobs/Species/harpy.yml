@@ -60,9 +60,15 @@
       - map: [ "enum.HumanoidVisualLayers.Head" ]
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    # START AMOUR EDIT
+      - map: [ "enum.GenitalVisualLayers.ButtFront" ]
+      - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
+      - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
+      - map: [ "enum.GenitalVisualLayers.DickFront" ]
+    # END AMOUR EDIT
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "underwearb" ] #White
       - map: [ "underweart" ] #White
       - map: ["enum.HumanoidVisualLayers.LFoot"]
@@ -85,13 +91,6 @@
       - map: [ "belt" ]
       - map: [ "neck" ]
       - map: [ "back" ]
-      # START AMOUR EDIT
-      - map: [ "enum.GenitalVisualLayers.ButtFront" ]
-      - map: [ "enum.GenitalVisualLayers.BreastFront" ]
-      - map: [ "enum.GenitalVisualLayers.VaginaFront" ]
-      - map: [ "enum.GenitalVisualLayers.TesticlesFront" ]
-      - map: [ "enum.GenitalVisualLayers.DickFront" ]
-      # END AMOUR EDIT
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.Tail" ]

@@ -182,6 +182,13 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
             grammar.Gender = sourceHumanoid.Gender;
         }
 
+        // AMOUR START
+        var ev = new HumanoidAppearanceClonedEvent(
+            new Entity<HumanoidAppearanceComponent>(source,sourceHumanoid),
+            new Entity<HumanoidAppearanceComponent>(target,targetHumanoid));
+        RaiseLocalEvent(source, ev);
+        // AMOUR END
+
         Dirty(targetHumanoid);
     }
 

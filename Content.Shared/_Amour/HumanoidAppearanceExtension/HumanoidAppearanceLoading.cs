@@ -11,3 +11,7 @@ public record struct HumanoidAppearanceLoadingEvent(
 public record struct HumanoidAppearanceLoadedEvent(
     Entity<HumanoidAppearanceComponent> Entity,
     HumanoidCharacterProfile Profile);
+
+public record struct HumanoidAppearanceClonedEvent(
+    Entity<HumanoidAppearanceComponent> Source,
+    Entity<HumanoidAppearanceComponent> Target);

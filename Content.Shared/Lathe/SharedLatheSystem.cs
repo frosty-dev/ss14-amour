@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._White.ShitSilo;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Materials;
 using Content.Shared.Research.Prototypes;
@@ -44,9 +45,21 @@ public abstract class SharedLatheSystem : EntitySystem
         {
             var adjustedAmount = AdjustMaterial(needed, recipe.ApplyMaterialDiscount, component.MaterialUseMultiplier);
 
-            if (_materialStorage.GetMaterialAmount(uid, material) < adjustedAmount * amount)
+            var gridUid =
+                HasComp<BluespaceSiloComponent>(uid) &&
+                TryComp<TransformComponent>(uid, out var transformComponent)
+                    ? transformComponent.GridUid
+                    : null;
+
+            var gridStorage = gridUid.HasValue &&
+                              TryComp<MaterialStorageComponent>(gridUid, out var materialStorageComponent)
+                ? materialStorageComponent
+                : null;
+
+            if (_materialStorage.GetMaterialAmount(uid, material, gridUid: gridUid, gridStorage: gridStorage) < adjustedAmount * amount)
                 return false;
         }
+
         return true;
     }
 

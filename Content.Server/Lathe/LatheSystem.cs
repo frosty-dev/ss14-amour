@@ -8,6 +8,7 @@ using Content.Server.Materials;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
+using Content.Shared._White.ShitSilo;
 using Content.Shared.UserInterface;
 using Content.Shared.Database;
 using Content.Shared.Emag.Components;
@@ -164,7 +165,15 @@ namespace Content.Server.Lathe
                     ? (int) (-amount * component.MaterialUseMultiplier)
                     : -amount;
 
-                _materialStorage.TryChangeMaterialAmount(uid, mat, adjustedAmount);
+                var gridUid = HasComp<BluespaceSiloComponent>(uid) &&
+                    TryComp<TransformComponent>(uid, out var transformComponent) ? transformComponent.GridUid : null;
+
+                var gridStorage =
+                    gridUid.HasValue &&
+                    TryComp<MaterialStorageComponent>(gridUid.Value, out var materialStorageComponent) ? materialStorageComponent : null;
+
+                _materialStorage.TryChangeMaterialAmount(uid, mat, adjustedAmount, gridUid: gridUid, gridStorage: gridStorage);
+
             }
             component.Queue.Add(recipe);
 
