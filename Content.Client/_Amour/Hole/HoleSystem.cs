@@ -29,7 +29,7 @@ public sealed class HoleSystem : SharedHoleSystem
 
         if (component.Parent is not null)
         {
-            UpdateVisual(GetEntity(component.Parent.Value),uid);
+            UpdateVisual(GetEntity(component.Parent.Value),uid,!HasAccessTo(GetEntity(component.Parent.Value),uid));
         }
     }
 
