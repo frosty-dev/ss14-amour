@@ -18,6 +18,7 @@ using Content.Shared.Fluids;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Verbs;
@@ -44,6 +45,7 @@ public sealed class InteractionPanelSystem : EntitySystem
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
 
     public override void Initialize()
     {
@@ -86,6 +88,8 @@ public sealed class InteractionPanelSystem : EntitySystem
 
     private void OnVerb(EntityUid uid, InteractionPanelComponent component, GetVerbsEvent<Verb> args)
     {
+        if (!_mobStateSystem.IsAlive(args.User) || !_mobStateSystem.IsAlive(uid))
+            return;
         args.Verbs.Add(new Verb()
         {
             Text = Loc.GetString("interaction-open"),
@@ -98,6 +102,9 @@ public sealed class InteractionPanelSystem : EntitySystem
     {
         if(!Resolve(user,ref user.Comp) || !Resolve(target,ref target.Comp)
                                         || !_playerManager.TryGetSessionByEntity(panelOpener, out var session))
+            return;
+
+        if (!_mobStateSystem.IsAlive(user) || !_mobStateSystem.IsAlive(target))
             return;
 
         _eui.OpenEui(new InteractionPanelEui(
@@ -117,6 +124,9 @@ public sealed class InteractionPanelSystem : EntitySystem
            || user.Comp.Timeout > _gameTiming.CurTime
            || target.Comp.Timeout > _gameTiming.CurTime
            || !_prototypeManager.TryIndex(protoId, out var prototype))
+            return;
+
+        if (!_mobStateSystem.IsAlive(user) || !_mobStateSystem.IsAlive(target))
             return;
 
         if(!Check(user!,target!,prototype, out var check))
