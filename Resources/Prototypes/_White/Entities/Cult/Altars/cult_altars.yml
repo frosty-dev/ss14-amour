@@ -30,7 +30,7 @@
   - type: PylonVisuals
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Glass
   - type: Destructible
     thresholds:
@@ -68,6 +68,7 @@
   - type: Construction
     graph: CultPylon
     node: pylon
+  - type: Concealable
 
 - type: entity
   id: AltarTome
@@ -100,8 +101,8 @@
       map: [ "enum.CultCraftStructureVisualsLayers.Activated" ]
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -127,6 +128,7 @@
   - type: Construction
     graph: AltarTome
     node: tome
+  - type: Concealable
 
 - type: entity
   id: CultBloodAltar
@@ -159,8 +161,8 @@
       map: [ "enum.CultCraftStructureVisualsLayers.Activated" ]
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -185,6 +187,7 @@
   - type: Construction
     graph: CultBloodAltar
     node: altar
+  - type: Concealable
 
 - type: entity
   id: CultForge
@@ -217,8 +220,8 @@
       map: [ "enum.CultCraftStructureVisualsLayers.Activated" ]
   - type: InteractionOutline
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -247,6 +250,7 @@
   - type: Construction
     graph: CultForge
     node: forge
+  - type: Concealable
 
 - type: cultStructure
   id: CultStructureAltarTome

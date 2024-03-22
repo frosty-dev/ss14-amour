@@ -36,7 +36,6 @@
   - type: EntityStorage
     isCollidableWhenOpen: true
     showContents: false
-    capacity: 1
     enteringOffset: 0, -1
     closeSound:
       path: /Audio/Items/deconstruct.ogg
@@ -72,8 +71,8 @@
   - type: StaticPrice
     price: 200
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -162,8 +161,8 @@
   - type: Transform
     anchored: true
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
   - type: Destructible
     thresholds:
     - trigger:
