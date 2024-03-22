@@ -269,7 +269,6 @@
   - type: Mood
   - type: HoleContainer
   - type: Arousal
-  - type: Crawlable
   - type: InteractionPanel
     actionListPrototype: Humanoid
   - type: RoleplayInfo
