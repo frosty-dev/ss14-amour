@@ -248,8 +248,6 @@
     Plastic: 15
     Steel: 10
     Glass: 5
-    Plasma: 10
-    Silver: 5
 
 - type: latheRecipe
   id: TargetHuman
@@ -649,3 +647,21 @@
      Plastic: 100
      Glass: 20
 
+- type: latheRecipe
+  id: ClothingHandsGlovesMagnetic
+  result: ClothingHandsGlovesMagnetic
+  completetime: 3
+  materials:
+    Cloth: 200
+    Steel: 100
+    Plastic: 50
+
+- type: latheRecipe
+  id: ClothingHandsGlovesMagneticAdvanced
+  result: ClothingHandsGlovesMagneticAdvanced
+  completetime: 3
+  materials:
+    Cloth: 200
+    Steel: 100
+    Plastic: 50
+    Silver: 50

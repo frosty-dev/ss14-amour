@@ -1,0 +1,68 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGoldenMan
+  name: костюм аристократа
+  description: Идеально подогнанный под величественную фигуру одного из Берриго, указывая на статус и великое прошлое его предков.
+  components:
+  - type: Sprite
+    sprite: Amour/GoldenMan/suit.rsi
+  - type: Clothing
+    sprite: Amour/GoldenMan/suit.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesGoldenMan
+  name: сапоги аристократа
+  description: Хорошие и качественные сапоги, отдающие прошлым дома Берриго, когда такие сапоги делались для избранных, кто должен покорять своими шагами мир.
+  components:
+  - type: Sprite
+    sprite: Amour/GoldenMan/shoes.rsi
+  - type: Clothing
+    sprite: Amour/GoldenMan/shoes.rsi
+
+- type: entity
+  parent: ClothingMaskPullableBase
+  id: ClothingMaskGoldenMan
+  name: маска аристократа
+  description: Выполнена, лучшими дизайнерами Берриго маска, показывая их великую работу с золотом. Линзы, сделанные из лучших изумрудов, скрывая истинный взгляд её владельца.
+  components:
+  - type: Sprite
+    sprite: Amour/GoldenMan/mask.rsi
+  - type: Clothing
+    sprite: Amour/GoldenMan/mask.rsi
+  - type: BreathMask
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ClothingHandsGlovesGoldenMan
+  name: перчатки аристократа
+  description: Великолепно сделанные перчатки, лишая всякой черни, заляпать руки его носителя бедностью.
+  components:
+  - type: Sprite
+    sprite: Amour/GoldenMan/gloves.rsi
+  - type: Clothing
+    sprite: Amour/GoldenMan/gloves.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCapeGoldenMan
+  name: мантия Берриго
+  description: Сделанная из превосходного шелка, красного цвета, словно его окунули в реку крови, раскрывая, истинную причину богатства Берриго.
+  components:
+  - type: Sprite
+    sprite: Amour/GoldenMan/cape.rsi
+  - type: Clothing
+    sprite: Amour/GoldenMan/cape.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatGoldenMan
+  name: шляпа аристократа
+  description: Выполнена, лучшими дизайнерами Берриго шляпа, показывая их великую работу с золотом.
+  components:
+  - type: Sprite
+    sprite: Amour/GoldenMan/helmet.rsi
+  - type: Clothing
+    sprite: Amour/GoldenMan/helmet.rsi

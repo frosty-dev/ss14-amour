@@ -1,0 +1,51 @@
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ClothingOuterHardsuitMillitant
+  name: Броня Боевика
+  description: Данную броню, носят рядовые солдаты Чёрной Длани или личная гвардия Дома Берриго.
+  components:
+  - type: Sprite
+    sprite: Amour/Millitant.rsi
+  - type: Clothing
+    sprite: Amour/Millitant.rsi
+  - type: Tag
+    tags:
+    - SuitEVA
+    - WhitelistChameleon
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Armor
+    modifiers:
+      coefficients:
+       Piercing: 0.7
+       Blunt: 0.6
+       Slash: 0.5
+       Heat: 0.5
+       Shock: 0.7
+       Cold: 0.6
+       Caustic: 0.8
+       Radiation: 0.7
+  - type: GroupExamine
+
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: ClothingHeadHelmetMhemlet
+  name: Шлем Боевика
+  description: Данный шлем, носят рядовые солдаты Чёрной Длани или личная гвардия Дома Берриго.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: Amour/Mhemlet.rsi
+  - type: Clothing
+    sprite: Amour/Mhemlet.rsi
+  - type: Tag
+    tags:
+    - HelmetEVA
+    - WhitelistChameleon

@@ -123,10 +123,10 @@ public abstract class SharedTentacleGun : EntitySystem
         foreach (var activeItem in _handsSystem.EnumerateHeld(args.Embedded))
         {
             if(!TryComp<PhysicsComponent>(activeItem, out var physicsComponent))
-                return;
+                continue;
 
             var coords = Transform(args.Embedded).Coordinates;
-            _handsSystem.TryDrop(args.Embedded, coords);
+            _handsSystem.TryDrop(args.Embedded, activeItem, coords);
 
             var force = physicsComponent.Mass * 2.5f / 2;
 
@@ -137,7 +137,7 @@ public abstract class SharedTentacleGun : EntitySystem
 
     private bool PullMob(ProjectileEmbedEvent args)
     {
-        var stunTime = _random.Next(TimeSpan.FromSeconds(2), TimeSpan.FromSeconds(5));
+        var stunTime = _random.Next(TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(3));
 
         if (!_stunSystem.TryParalyze(args.Embedded, stunTime, true))
             return false;

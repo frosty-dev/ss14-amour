@@ -1,19 +1,16 @@
-using System.Numerics;
 using Content.Server._Amour.Animation;
-using Content.Server._Amour.Crawl;
 using Content.Server._Amour.Hole;
 using Content.Server.Hands.Systems;
 using Content.Server.Pulling;
-using Content.Shared._Amour.Animation;
 using Content.Shared._Amour.InteractionPanel;
 using Content.Shared.Hands.Components;
-using Robust.Shared.Animations;
+using Content.Shared.Standing;
 
 namespace Content.Server._Amour.InteractionPanel;
 
 public sealed class Interactions : EntitySystem
 {
-    [Dependency] private readonly CrawlSystem _crawlSystem = default!;
+    [Dependency] private readonly StandingStateSystem _standingState = default!;
     [Dependency] private readonly SharebleAnimationSystem _animationSystem = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly HoleSystem _holeSystem = default!;
@@ -47,7 +44,7 @@ public sealed class Interactions : EntitySystem
                 _pullingSystem.TryStartPull(uid, args.Target);
                 break;
             case "CrawlTarget" :
-                _crawlSystem.EnableCrawl(args.Target);
+                _standingState.TryLieDown(args.Target);
                 break;
             case "ItemOnButt":
                 PutHole(uid,"Anus");
