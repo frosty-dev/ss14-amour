@@ -1,0 +1,70 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitNurse
+  name: накидка с мини юбкой
+  description: Сделанная из лучших материалов, пародируя медицинский костюм из  NanoTrasen. Узкий костюмчик, с большими вырезами, открывая вид на красивые виды.
+  components:
+  - type: Sprite
+    sprite: Amour/Nurse/suit.rsi
+  - type: Clothing
+    sprite: Amour/Nurse/suit.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesNurse
+  name: сапоги "медсестры"
+  description: Качественные кожаные сапоги, с пурпурной линии, для доминацией над пациентами.
+  components:
+  - type: Sprite
+    sprite: Amour/Nurse/shoes.rsi
+  - type: Clothing
+    sprite: Amour/Nurse/shoes.rsi
+
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ClothingHandsGlovesNurse
+  name: латексные перчатки "медсестры"
+  description: Сделанные из гладкого зелёного  латекста с черно-пурпурными наручами, давая пациенту наслаждение от "медосмотра".
+  components:
+  - type: Sprite
+    sprite: Amour/Nurse/gloves.rsi
+  - type: Clothing
+    sprite: Amour/Nurse/gloves.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatNurse
+  name: шапочка "медсестры"
+  description: Сделанная из лучших материалов, пародируя шапочку медсёстры из NanoTrasen, однако, эта шапочка, для лечения других проблем.
+  components:
+  - type: Sprite
+    sprite: Amour/Nurse/helmet.rsi
+  - type: Clothing
+    sprite: Amour/Nurse/helmet.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopNurse
+  name: бра "медсестры"
+  description: Сделанные из лучших материалов, поддерживающие бюст в них, давая, разглядеть все прелести.
+  components:
+  - type: Sprite
+    sprite: Amour/Nurse/top.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomNurse
+  name: трусики "медсестры"
+  description: Сделанные из лучших материалов, чтобы стимулировать пациентов к "медосмотру".
+  components:
+  - type: Sprite
+    sprite: Amour/Nurse/bottom.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearSocksNurse
+  name: чулочки "медсестры"
+  description: Качественно сделаны чулочки зелного цвета.
+  components:
+  - type: Sprite
+    sprite: Amour/Nurse/socks.rsi

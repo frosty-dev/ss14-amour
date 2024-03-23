@@ -1,0 +1,53 @@
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopNuclear
+  name: ядерное бра
+  description: Сделаны из пропитанной крови павших врагов ткани, храня в себе две боеголовки.
+  components:
+  - type: Sprite
+    sprite: Amour/Nuclear/Woman/Regular/top.rsi
+
+- type: entity
+  parent: ClothingUnderwearTopBase
+  id: ClothingUnderwearTopNuclearCommander
+  name: элитные бра
+  description: Сотворённые лучшими умами Синдиката, чтобы их элита, могла сдержать свои достоинства на месте.
+  components:
+  - type: Sprite
+    sprite: Amour/Nuclear/Woman/Commander/top.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomMaleNuclear
+  name: ядерные боксера
+  description: Сделаны из пропитанной крови павших врагов ткани, устрашая не только на поле боя, но и в постели.
+  components:
+  - type: Sprite
+    sprite: Amour/Nuclear/Men/regular.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomMaleNuclearCommander
+  name: элитные боксера
+  description: Сотворённые лучшими умами Синдиката, чтобы их элита, показывала свою доминацию не только в бою.
+  components:
+  - type: Sprite
+    sprite: Amour/Nuclear/Men/commander.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomFemaleNuclear
+  name: ядерные трусики
+  description: Сделаны из пропитанный крови павших врагов ткани, укрывая "сокровенное" от посягательств.
+  components:
+  - type: Sprite
+    sprite: Amour/Nuclear/Woman/Regular/bottom.rsi
+
+- type: entity
+  parent: ClothingUnderwearBottomBase
+  id: ClothingUnderwearBottomFemaleNuclearCommander
+  name: элитные трусики
+  description: Сотворённые лучшими умами Синдиката, чтобы их элита, закрывая доступ недостойным к сокровенному.
+  components:
+  - type: Sprite
+    sprite: Amour/Nuclear/Woman/Commander/bottom.rsi

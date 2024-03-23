@@ -75,6 +75,9 @@
     back: ClothingBackpackDuffelSyndicateOperative
     shoes: ClothingShoesBootsCombatFilled
     gloves: ClothingHandsGlovesColorBlack
+    underwearb: ClothingUnderwearBottomMaleNuclear # White-Underwear
+  underweart: ClothingUnderwearTopNuclear # White-Underwear
+  underwearb: ClothingUnderwearBottomFemaleNuclear # White-Underwear
   innerClothingSkirt: ClothingUniformJumpsuitOperative
   satchel: ClothingBackpackDuffelSyndicateOperative
   duffelbag: ClothingBackpackDuffelSyndicateOperative
@@ -90,6 +93,9 @@
     shoes: ClothingShoesBootsCombatFilled
     pocket1: BaseUplinkRadio40TC
     id: SyndiPDA
+    underwearb: ClothingUnderwearBottomMaleNuclear # White-Underwear
+  underweart: ClothingUnderwearTopNuclear # White-Underwear
+  underwearb: ClothingUnderwearBottomFemaleNuclear # White-Underwear
   innerClothingSkirt: ClothingUniformJumpsuitOperative
   satchel: ClothingBackpackDuffelSyndicateOperative
   duffelbag: ClothingBackpackDuffelSyndicateOperative
@@ -110,6 +116,9 @@
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: BaseUplinkRadio40TC
     belt: ClothingBeltMilitaryWebbing
+    underwearb: ClothingUnderwearBottomMaleNuclear # White-Underwear
+  underweart: ClothingUnderwearTopNuclear # White-Underwear
+  underwearb: ClothingUnderwearBottomFemaleNuclear # White-Underwear
   innerClothingSkirt: ClothingUniformJumpskirtOperative
   satchel: ClothingBackpackDuffelSyndicateOperative
   duffelbag: ClothingBackpackDuffelSyndicateOperative
@@ -130,6 +139,9 @@
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: BaseUplinkRadio40TC
     belt: ClothingBeltMilitaryWebbing
+    underwearb: ClothingUnderwearBottomMaleNuclearCommander # White-Underwear
+  underweart: ClothingUnderwearTopNuclearCommander # White-Underwear
+  underwearb: ClothingUnderwearBottomFemaleNuclearCommander # White-Underwear
   inhand:
     - NukeOpsDeclarationOfWar
   innerClothingSkirt: ClothingUniformJumpskirtOperative
@@ -152,6 +164,9 @@
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: BaseUplinkRadio40TC
     belt: ClothingBeltMilitaryWebbingMedFilled
+    underwearb: ClothingUnderwearBottomMaleNuclear # White-Underwear
+  underweart: ClothingUnderwearTopNuclear # White-Underwear
+  underwearb: ClothingUnderwearBottomFemaleNuclear # White-Underwear
   innerClothingSkirt: ClothingUniformJumpskirtOperative
   satchel: ClothingBackpackDuffelSyndicateOperativeMedic
   duffelbag: ClothingBackpackDuffelSyndicateOperativeMedic

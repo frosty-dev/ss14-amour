@@ -1,0 +1,53 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitKiller
+  name: костюм теневого клинка
+  description: Костюм печально знаменитых убийц Дома Берриго. Не смотря на всё золото и эротичные вырезы, это никогда им не мешало устранять врагов своих господ.
+  components:
+  - type: Sprite
+    sprite: Amour/Killer/suit.rsi
+  - type: Clothing
+    sprite: Amour/Killer/suit.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesKiller
+  name: ботинки убийцы
+  description: Красивые и до боли эффективные ботинки, за счет конструкции ботинок, нивелируя шум от ходьбы носителя.
+  components:
+  - type: Sprite
+    sprite: Amour/Killer/shoes.rsi
+  - type: Clothing
+    sprite: Amour/Killer/shoes.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCarpet
+      params:
+        volume: -10
+        maxdistance: 5
+        referenceDistance: 0.2
+
+- type: entity
+  parent: ClothingMaskPullableBase
+  id: ClothingMaskKiller
+  name: противогаз убийцы
+  description: Замаскированная под маску противогаз печально известных убийц из Дома Берриго.
+  components:
+  - type: Sprite
+    sprite: Amour/Killer/mask.rsi
+  - type: Clothing
+    sprite: Amour/Killer/mask.rsi
+  - type: BreathMask
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+
+- type: entity
+  parent: ClothingHandsGlovesSyntheticBase
+  id: ClothingHandsGlovesKiller
+  name: перчатки убийцы
+  description: Перчатки печально известных убийц. Выглядят красиво и аккуратно, если не знать их предназначение, то можно и забыть их носителя.
+  components:
+  - type: Sprite
+    sprite: Amour/Killer/gloves.rsi
+  - type: Clothing
+    sprite: Amour/Killer/gloves.rsi

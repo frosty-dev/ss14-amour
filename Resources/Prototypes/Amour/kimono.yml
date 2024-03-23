@@ -1,0 +1,24 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitKimonoSuit
+  name: золотое кимоно
+  description: Словно само золото и кровь, затвердели, создав воистину прекрасное одеяние. Сам вид  которого, отсылает к девизу Дома Берриго.
+  components:
+  - type: Sprite
+    sprite: Amour/Kimono/suit.rsi
+  - type: Clothing
+    sprite: Amour/Kimono/suit.rsi
+
+- type: entity
+  parent: ClothingMaskPullableBase
+  id: ClothingMaskKimono
+  name: золотая маска лисицы
+  description: Искусно выполненная работа, копируя работу мастеров прошлого, однако не идеально.
+  components:
+  - type: Sprite
+    sprite: Amour/Kimono/mask.rsi
+  - type: Clothing
+    sprite: Amour/Kimono/mask.rsi
+  - type: BreathMask
+  - type: IngestionBlocker
+  - type: IdentityBlocker

@@ -1,0 +1,87 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformBunnySuitBlack
+  name: чёрное бони бюстье
+  description: Сделанный из превосходных материалов, костюм девушки кролика чёрного цвета. Классика!
+  components:
+  - type: Sprite
+    sprite: Amour/BunnySuit/black.rsi
+  - type: Clothing
+    sprite: Amour/BunnySuit/black.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformBunnySuitRed
+  name: красное бони бюстье
+  description: Сделанный из превосходных материалов, костюм девушки кролика красного цвета.
+  components:
+  - type: Sprite
+    sprite: Amour/BunnySuit/red.rsi
+  - type: Clothing
+    sprite: Amour/BunnySuit/red.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformBunnySuitWhite
+  name: белое бони бюстье
+  description: Сделанный из превосходных материалов, костюм девушки кролика белого цвета.
+  components:
+  - type: Sprite
+    sprite: Amour/BunnySuit/white.rsi
+  - type: Clothing
+    sprite: Amour/BunnySuit/white.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformBunnySuitViolet
+  name: пурпурное бони бюстье
+  description: Сделанный из превосходных материалов, костюм девушки кролика пурпурного цвета, для бонни мам.
+  components:
+  - type: Sprite
+    sprite: Amour/BunnySuit/violet.rsi
+  - type: Clothing
+    sprite: Amour/BunnySuit/violet.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBunnyEarsBlack
+  name: чёрный ободок с ушками
+  description: Ободок с кроличьими ушками, классически чёрного цвета. Классика!
+  components:
+  - type: Sprite
+    sprite: Amour/BunnySuit/blackEars.rsi
+  - type: Clothing
+    sprite: Amour/BunnySuit/blackEars.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBunnyEarsRed
+  name: красный ободок с ушками
+  description: Ободок с кроличьими ушками, красного цвета.
+  components:
+  - type: Sprite
+    sprite: Amour/BunnySuit/redEars.rsi
+  - type: Clothing
+    sprite: Amour/BunnySuit/redEars.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBunnyEarsWhite
+  name: белыый ободок с ушками
+  description: Ободок с кроличьими ушками, белого цвета.
+  components:
+  - type: Sprite
+    sprite: Amour/BunnySuit/whiteEars.rsi
+  - type: Clothing
+    sprite: Amour/BunnySuit/whiteEars.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBunnyEarsViolet
+  name: пурпурный ободок с ушками
+  description: Ободок с кроличьими ушками, пурпурного цвета, чтобы бонни мама, слышала своих дочерей.
+  components:
+  - type: Sprite
+    sprite: Amour/BunnySuit/violetEars.rsi
+  - type: Clothing
+    sprite: Amour/BunnySuit/violetEars.rsi
