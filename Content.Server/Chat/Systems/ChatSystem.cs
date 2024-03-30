@@ -25,7 +25,6 @@ using Content.Shared.Players;
 using Content.Shared.Radio;
 using Content.Shared._White;
 using Content.Shared.Speech;
-using Content.Shared._White.Cult;
 using Content.Shared._White.Cult.Systems;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
@@ -82,7 +81,9 @@ public sealed partial class ChatSystem : SharedChatSystem
     private bool _critLoocEnabled;
     private const bool AdminLoocEnabled = true;
     private const string ChatNamePalette = "ChatNames";
-
+    //Amour Edit
+    private readonly Dictionary<EntityUid, DateTime> _loocCooldowns = new();
+    //Amour Edit
     public override void Initialize()
     {
         base.Initialize();
@@ -732,6 +733,15 @@ public sealed partial class ChatSystem : SharedChatSystem
         // If crit player LOOC is disabled, don't send the message at all.
         if (!_critLoocEnabled && _mobStateSystem.IsCritical(source))
             return;
+
+        //Amour EDIT
+        if (_loocCooldowns.TryGetValue(source, out var lastLoocTime) && DateTime.UtcNow - lastLoocTime < TimeSpan.FromSeconds(60)) //LOOC Cooldowns
+        {
+            return;
+        }
+
+        _loocCooldowns[source] = DateTime.UtcNow;
+        //Amour Edit
 
         var wrappedMessage = Loc.GetString("chat-manager-entity-looc-wrap-message",
             ("entityName", name),
