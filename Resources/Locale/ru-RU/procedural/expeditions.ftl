@@ -5,6 +5,7 @@ salvage-expedition-structure-remaining =
        *[other] { $count } структур осталось.
     }
 salvage-expedition-megafauna-remaining = { $count } мегафауны остаётся.
+salvage-expedition-difficulty-players = Рекомендовано утилизаторов:
 salvage-expedition-window-title = Экспедиции
 salvage-expedition-window-difficulty = Сложность:
 salvage-expedition-window-details = Подробности:
@@ -15,8 +16,9 @@ salvage-expedition-window-modifiers = Модификаторы:
 salvage-expedition-window-rewards = Награды:
 salvage-expedition-window-loot = Добыча:
 salvage-expedition-window-none = Н/А
-salvage-expedition-window-claimed = Получено
-salvage-expedition-window-claim = Получить
+offering-window-claimed = = Получено
+offering-window-claim = Получить
+salvage-expedition-type = Миссии
 salvage-expedition-window-next = Следующее предложение
 # Expedition descriptions
 salvage-expedition-desc-mining = Собирайте ресурсы внутри этого района.

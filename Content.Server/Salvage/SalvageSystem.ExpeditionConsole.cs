@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Procedural;
 using Content.Shared.Salvage.Expeditions;
 
@@ -14,6 +15,11 @@ public sealed partial class SalvageSystem
 
         if (!data.Missions.TryGetValue(args.Index, out var missionparams))
             return;
+
+        if (data.Missions.Values.Any(m => m.Index == args.Index))
+        {
+            return;
+        }
 
         SpawnMission(missionparams, station.Value);
 
