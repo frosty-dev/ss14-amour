@@ -18,10 +18,6 @@
   id: DoorLobbyScreen
   path: Ohio/Lobby/backgrounds/door.rsi
 
-- type: animatedLobbyScreen
-  id: CinkaLobbyScreen
-  path: Ohio/Lobby/backgrounds/cinka.rsi
-
 #- type: animatedLobbyScreen
 #  id: NativeLobbyScreen
 #  path: Ohio/Lobby/backgrounds/native.rsi
