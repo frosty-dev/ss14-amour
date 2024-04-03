@@ -178,14 +178,14 @@ public sealed partial class AnomalyComponent : Component
     /// The minimum amount of research points generated per second
     /// </summary>
     [DataField("minPointsPerSecond")]
-    public int MinPointsPerSecond = 10;
+    public int MinPointsPerSecond = 65;
 
     /// <summary>
     /// The maximum amount of research points generated per second
     /// This doesn't include the point bonus for being unstable.
     /// </summary>
     [DataField("maxPointsPerSecond")]
-    public int MaxPointsPerSecond = 80;
+    public int MaxPointsPerSecond = 150;
 
     /// <summary>
     /// The multiplier applied to the point value for the
