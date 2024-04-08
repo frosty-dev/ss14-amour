@@ -1,0 +1,39 @@
+- type: entity
+  name: капибара
+  parent: MobCat
+  id: MobCapybara
+  description: Дружелюбная капибара.
+  components:
+  - type: Speech
+    speechSounds: CapySqueak
+    speechVerb: SmallMob
+  - type: ReplacementAccent
+    accent: mouse
+  - type: InteractionPopup
+    successChance: 0.7
+    interactSuccessString: petting-success-generic
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/_Amour/squeak.ogg
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Amour/capybara.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: capy
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: capy
+      Dead:
+        Base: capy_dead
+
+- type: speechSounds
+  id: CapySqueak
+  saySound:
+    path: /Audio/_Amour/squeak.ogg
+  askSound:
+    path: /Audio/_Amour/squeak.ogg
+  exclaimSound:
+    path: /Audio/_Amour/squeak.ogg

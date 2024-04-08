@@ -9,6 +9,7 @@ using Content.Server.Mind;
 using Content.Server.NPC.Systems;
 using Content.Server.Objectives;
 using Content.Server.Roles;
+using Content.Shared._White.Mood;
 using Content.Shared.Changeling;
 using Content.Shared.GameTicking;
 using Content.Shared.Objectives.Components;
@@ -191,6 +192,8 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
         _npcFaction.RemoveFaction(entity, "NanoTrasen", false);
         _npcFaction.AddFaction(entity, "Syndicate");
 
+        RaiseLocalEvent(mind.OwnedEntity.Value, new MoodEffectEvent("TraitorFocused"));
+
         EnsureComp<ChangelingComponent>(entity, out var readyChangeling);
 
         readyChangeling.HiveName = _nameGenerator.GetName();
@@ -232,7 +235,7 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
             if (changeling.TotalChangelings >= MaxChangelings)
                 continue;
 
-            if (_gulag.IsUserGulaged(ev.Player.UserId, out _))
+            if (_gulag.IsUserGulagged(ev.Player.UserId, out _))
                 continue;
 
             if (!ev.LateJoin)

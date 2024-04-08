@@ -69,6 +69,11 @@
     graph: CultPylon
     node: pylon
   - type: Concealable
+  - type: AtmosDevice
+  - type: GasMiner
+    maxExternalPressure: 100
+    spawnAmount: 10
+    spawnGas: Oxygen
 
 - type: entity
   id: AltarTome
@@ -102,7 +107,7 @@
   - type: InteractionOutline
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
+    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -162,7 +167,7 @@
   - type: InteractionOutline
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
+    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -221,7 +226,7 @@
   - type: InteractionOutline
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallic
+    damageModifierSet: Metallic
   - type: Destructible
     thresholds:
     - trigger:

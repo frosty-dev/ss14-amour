@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server._Miracle.GulagSystem;
 using Content.Server.Actions;
+using Content.Server.Bible.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
@@ -24,7 +25,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Content.Shared._White;
-using Content.Shared._White.Chaplain;
 using Content.Shared._White.Cult.Components;
 using Content.Shared._White.Cult.Systems;
 using Content.Shared.Mind;
@@ -79,6 +79,7 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
     private void OnGetBriefing(Entity<CultistRoleComponent> ent, ref GetBriefingEvent args)
     {
         args.Append(Loc.GetString("cult-role-briefing-short"));
+        args.Append(Loc.GetString("cult-role-briefing-hint"));
     }
 
     private void OnCultistsStateChanged(EntityUid uid, CultistComponent component, MobStateChangedEvent ev)
@@ -89,7 +90,7 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
         }
     }
 
-    public MindComponent? GetTarget()
+    public Entity<MindComponent>? GetTarget()
     {
         var cultistsRule = EntityQuery<CultRuleComponent>().FirstOrDefault();
 
@@ -98,7 +99,7 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
             return null;
         }
 
-        return mind;
+        return (cultistsRule.CultTarget.Value, mind);
     }
 
     public bool CanSummonNarsie()
@@ -174,7 +175,9 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
 
         if (TryComp<ActorComponent>(uid, out var actor))
         {
-            cultistsRule.CultistsCache.Add(MetaData(uid).EntityName, actor.PlayerSession.Name);
+            var name = MetaData(uid).EntityName;
+            if (!cultistsRule.CultistsCache.ContainsKey(name))
+                cultistsRule.CultistsCache.Add(name, actor.PlayerSession.Name);
         }
 
         UpdateCultistsAppearance(cultistsRule);
@@ -324,7 +327,7 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
             if (entity == default)
                 continue;
 
-            if (_gulag.IsUserGulaged(actor.PlayerSession.UserId, out _))
+            if (_gulag.IsUserGulagged(actor.PlayerSession.UserId, out _))
                 continue;
 
             if (exclude?.Contains(actor.PlayerSession) is true)
@@ -347,7 +350,7 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
         foreach (var player in candidates.Keys)
         {
             // Gulag
-            if (_gulag.IsUserGulaged(player.UserId, out _))
+            if (_gulag.IsUserGulagged(player.UserId, out _))
                 continue;
 
             // Role prevents antag.
@@ -356,7 +359,7 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
 
             // Chaplain
             if (!_mindSystem.TryGetMind(player, out _, out var mind) ||
-                mind.OwnedEntity is not { } ownedEntity || HasComp<HolyComponent>(ownedEntity))
+                mind.OwnedEntity is not { } ownedEntity || HasComp<BibleUserComponent>(ownedEntity))
                 continue;
 
             // Latejoin
@@ -450,12 +453,15 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
             return false;
         }
 
-        var cultistComponent = new CultistRoleComponent
+        if (!_roleSystem.MindHasRole<CultistRoleComponent>(mindId))
         {
-            PrototypeId = cultistRule.CultistRolePrototype
-        };
+            var cultistComponent = new CultistRoleComponent
+            {
+                PrototypeId = cultistRule.CultistRolePrototype
+            };
 
-        _roleSystem.MindAddRole(mindId, cultistComponent, mind);
+            _roleSystem.MindAddRole(mindId, cultistComponent, mind);
+        }
         EnsureComp<CultistComponent>(playerEntity);
 
         _factionSystem.RemoveFaction(playerEntity, "NanoTrasen", false);
