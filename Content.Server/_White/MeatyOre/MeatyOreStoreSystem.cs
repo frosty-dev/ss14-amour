@@ -1,4 +1,4 @@
-﻿using Content.Server.Chat.Managers;
+using Content.Server.Chat.Managers;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -13,6 +13,8 @@ using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server._White.Sponsors;
 using Content.Server.Administration.Managers;
+using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
@@ -51,10 +53,10 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
     [Dependency] private readonly PvsOverrideSystem _pvsOverrideSystem = default!;
     [Dependency] private readonly RoleSystem _roleSystem = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly SharedJobSystem _jobSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IBanManager _banManager = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
 
     private HttpClient _httpClient = default!;
@@ -225,7 +227,11 @@ public sealed class MeatyOreStoreSystem : EntitySystem
             return;
 
 
-        var fake = _roleSystem.MindIsAntagonist(targetMind.Mind.Value) || !_jobSystem.CanBeAntag(mindComponent.Session);
+        var fake = _roleSystem.MindIsAntagonist(targetMind.Mind.Value)
+                   || !_jobSystem.CanBeAntag(mindComponent.Session)
+                   // If nukeops declared war
+                   || _gameTicker.GetActiveGameRules().Any(x =>
+                       TryComp(x, out NukeopsRuleComponent? nukeops) && nukeops.WarDeclaredTime != null);
 
         var ckey = userActorComponent.PlayerSession.Name;
         var grant = user == target;
