@@ -2018,10 +2018,19 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> GatewayGeneratorEnabled =
             CVarDef.Create("gateway.generator_enabled", true);
 
+        //Amour EDIT Успешно спиздил
+        // Clippy!
+        public static readonly CVarDef<string> ClippyEntity =
+            CVarDef.Create("clippy.entity", "Tippy", CVar.SERVER | CVar.REPLICATED);
+        /// <summary>
+        ///     The chance for Tippy to replace a normal tip message.
+        /// </summary>
+        public static readonly CVarDef<float> TipsTippyChance =
+            CVarDef.Create("tips.tippy_chance", 0.01f);
+        //Amour EDIT Успешно спиздил
         /*
          * DEBUG
          */
-
         /// <summary>
         /// A simple toggle to test <c>OptionsVisualizerComponent</c>.
         /// </summary>
