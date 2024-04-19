@@ -155,6 +155,7 @@
       - DoorElectronics
       - AirAlarmElectronics
       - StationMapElectronics
+      - WallmountSubstationElectronics
       - FireAlarmElectronics
       - MailingUnitElectronics
       - SignalTimerElectronics
