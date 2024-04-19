@@ -16,6 +16,7 @@
       - MobMouse
       - MobMouse1
       - MobMouse2
+      - MobMouseUranium
 
 - type: entity
   name: Cockroach Spawner
@@ -778,8 +779,8 @@
   - type: ConditionalSpawner
     prototypes:
     - MobPenguin
-    
-    
+
+
 - type: entity
   name: Hellspawn Spawner
   id: SpawnMobHellspawn
@@ -793,7 +794,7 @@
   - type: ConditionalSpawner
     prototypes:
       - MobHellspawn
-      
+
 - type: entity
   name: ore crab spawner
   id: SpawnMobOreCrab
