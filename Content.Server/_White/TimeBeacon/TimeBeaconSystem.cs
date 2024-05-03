@@ -1,11 +1,12 @@
 using Content.Server.Popups;
-using Content.Server.Pulling;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Pulling.Components;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
 namespace Content.Server._White.TimeBeacon;
@@ -13,6 +14,7 @@ namespace Content.Server._White.TimeBeacon;
 public sealed class TimeBeaconSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
@@ -42,20 +44,21 @@ public sealed class TimeBeaconSystem : EntitySystem
             if (!TryComp(ent, out TransformComponent? xform) || !TryComp(entity, out TransformComponent? entXform))
                 return;
 
-            if (xform.MapID != entXform.MapID)
+            // If entity polymorphed or something
+            if (_mapManager.IsMapPaused(entXform.MapID))
                 return;
 
             // break pulls before portal enter so we dont break shit
-            if (TryComp<SharedPullableComponent>(entity, out var pullable) && pullable.BeingPulled)
+            if (TryComp<PullableComponent>(entity, out var pullable) && pullable.BeingPulled)
             {
-                _pulling.TryStopPull(pullable);
+                _pulling.TryStopPull(entity, pullable);
             }
 
-            if (TryComp<SharedPullerComponent>(entity, out var pulling)
+            if (TryComp<PullerComponent>(entity, out var pulling)
                 && pulling.Pulling != null &&
-                TryComp<SharedPullableComponent>(pulling.Pulling.Value, out var subjectPulling))
+                TryComp<PullableComponent>(pulling.Pulling.Value, out var subjectPulling))
             {
-                _pulling.TryStopPull(subjectPulling);
+                _pulling.TryStopPull(pulling.Pulling.Value, subjectPulling);
             }
 
             _transform.SetCoordinates(entity, entXform, xform.Coordinates);
