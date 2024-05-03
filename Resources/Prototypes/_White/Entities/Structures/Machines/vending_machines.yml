@@ -11,9 +11,11 @@
       offState: off
       brokenState: broken
       normalState: normal-unshaded
-      ejectDelay: 5
+      ejectDelay: 1.9
     - type: Advertise
       pack: KinkMachineAds
+    - type: SpeakOnUIClosed
+      pack: KinkMachineGoodbyes
     - type: Speech
     - type: Sprite
       sprite: White/Structures/Machines/VendingMachines/kink.rsi

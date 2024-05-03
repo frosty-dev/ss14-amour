@@ -251,8 +251,8 @@ namespace Content.Server.Database
                     Color.FromHex(profile.FacialHairColor),
                     Color.FromHex(profile.EyeColor),
                     Color.FromHex(profile.SkinColor),
-                    profile.Height, // AMOUR EDIT
-                    markings, genitals.ToList() // Amour edit
+                    markings, profile.Height, // AMOUR EDIT
+                    genitals.ToList() // Amour edit
                 ),
                 clothing,
                 backpack,

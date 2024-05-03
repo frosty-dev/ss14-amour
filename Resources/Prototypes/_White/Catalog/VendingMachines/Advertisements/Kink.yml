@@ -1,7 +1,5 @@
-- type: advertisementsPack
+- type: messagePack
   id: KinkMachineAds
-  advertisements:
+  messages:
     - advertisement-kink-1
     - advertisement-kink-2
-  thankyous:
-    - kink-machine-thanks
