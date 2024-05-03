@@ -1,10 +1,10 @@
 using Content.Server._Amour.Animation;
 using Content.Server._Amour.Hole;
 using Content.Server.Hands.Systems;
-using Content.Server.Pulling;
+using Content.Server.Standing;
 using Content.Shared._Amour.InteractionPanel;
 using Content.Shared.Hands.Components;
-using Content.Shared.Standing;
+using Content.Shared.Movement.Pulling.Systems;
 
 namespace Content.Server._Amour.InteractionPanel;
 

@@ -1,0 +1,4 @@
+- type: messagePack
+  id: KinkMachineGoodbyes
+  messages:
+    - kink-machine-thanks

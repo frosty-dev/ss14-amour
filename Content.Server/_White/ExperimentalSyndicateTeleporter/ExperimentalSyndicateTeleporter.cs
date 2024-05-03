@@ -3,14 +3,15 @@ using System.Numerics;
 using Content.Server._White.Other;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
-using Content.Server.Pulling;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Pulling.Components;
 using Robust.Server.Audio;
+using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -28,6 +29,7 @@ public sealed class ExperimentalSyndicateTeleporter : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
+    [Dependency] private readonly ContainerSystem _containerSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
@@ -78,16 +80,22 @@ public sealed class ExperimentalSyndicateTeleporter : EntitySystem
         if (!TryComp<TransformComponent>(args.User, out var xform))
             return;
 
-        if (TryComp<SharedPullableComponent>(args.User, out var pullable) && pullable.BeingPulled)
+        if (TryComp<PullableComponent>(args.User, out var pullable) && pullable.BeingPulled)
         {
-            _pullingSystem.TryStopPull(pullable);
+            _pullingSystem.TryStopPull(args.User, pullable);
         }
 
-        if (TryComp<SharedPullerComponent>(args.User, out var pulling)
+        if (TryComp<PullerComponent>(args.User, out var pulling)
             && pulling.Pulling != null &&
-            TryComp<SharedPullableComponent>(pulling.Pulling.Value, out var subjectPulling))
+            TryComp<PullableComponent>(pulling.Pulling.Value, out var subjectPulling))
         {
-            _pullingSystem.TryStopPull(subjectPulling);
+            _pullingSystem.TryStopPull(pulling.Pulling.Value, subjectPulling);
+        }
+
+        if (_containerSystem.IsEntityInContainer(args.User))
+        {
+            if(!_containerSystem.TryRemoveFromContainer(args.User))
+                return;
         }
 
         var oldCoords = xform.Coordinates;

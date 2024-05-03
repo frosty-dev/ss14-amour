@@ -13,6 +13,7 @@ using Content.Shared.Pointing;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Speech;
 using Content.Shared.Standing;
+using Content.Shared.Standing.Systems;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
 
@@ -27,7 +28,7 @@ public partial class MobStateSystem
         SubscribeLocalEvent<MobStateComponent, ChangeDirectionAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, UseAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, AttackAttemptEvent>(CheckAct);
-        SubscribeLocalEvent<MobStateComponent, InteractionAttemptEvent>(CheckAct);
+        SubscribeLocalEvent<MobStateComponent, ConsciousAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, ThrowAttemptEvent>(CheckAct);
         SubscribeLocalEvent<MobStateComponent, SpeakAttemptEvent>(OnSpeakAttempt);
         SubscribeLocalEvent<MobStateComponent, IsEquippingAttemptEvent>(OnEquipAttempt);

@@ -1,34 +1,25 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Server.Access.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.EUI;
-using Content.Shared._Amour.Hole;
 using Content.Shared._Amour.InteractionPanel;
 using Content.Shared._Amour.InteractionPanel.Checks;
-using Content.Shared._White.GhostRecruitment;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Carrying;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
-using Content.Shared.Emoting;
-using Content.Shared.Fluids;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
-using Content.Shared.Random.Helpers;
 using Content.Shared.Verbs;
 using Robust.Server.Audio;
 using Robust.Server.Player;
-using Robust.Shared.Audio;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Amour.InteractionPanel;
@@ -163,8 +154,7 @@ public sealed class InteractionPanelSystem : EntitySystem
             )
         {
             BreakOnDamage = true,
-            BreakOnTargetMove = true,
-            BreakOnUserMove = true,
+            BreakOnMove = true,
             BreakOnHandChange = true
         });
     }
