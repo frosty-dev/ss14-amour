@@ -28,9 +28,9 @@ jobs:
         git fetch --depth=1
 
     - name: Update Directory.Packages.props
-      run:  |
-        cd RobustToolbox
-        git fetch --depth=1
+      run: |
+        dotnet --list-sdks
+        cp -f global.json RobustToolbox/
 
     - name: Install dependencies
       run: dotnet restore
