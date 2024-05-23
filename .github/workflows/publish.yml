@@ -20,10 +20,15 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v3.2.0
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: 8.0.205
 
     - name: Get Engine Tag
       run: |
+        cd RobustToolbox
+        git fetch --depth=1
+
+    - name: Update Directory.Packages.props
+      run:  |
         cd RobustToolbox
         git fetch --depth=1
 
