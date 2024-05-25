@@ -64,9 +64,9 @@
     roundEndDelay: 10
 
 - type: entity
-  id: Nukeops
+  abstract: true
   parent: BaseGameRule
-  noSpawn: true
+  id: BaseNukeopsRule
   components:
   - type: GameRule
     minPlayers: 20 # Honk
@@ -75,6 +75,16 @@
     - operationPrefix
     - operationSuffix
   - type: NukeopsRule
+  - type: AntagSelection
+  - type: AntagLoadProfileRule
+
+- type: entity
+  noSpawn: true
+  parent: BaseNukeopsRule
+  id: Nukeops
+  components:
+  - type: GameRule
+    minPlayers: 20
   - type: LoadMapRule
     gameMap: NukieOutpost
   - type: AntagSelection
