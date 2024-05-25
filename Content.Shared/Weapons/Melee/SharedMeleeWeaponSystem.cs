@@ -1,6 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._White;
+using Content.Shared._White.Implants.NeuroControl;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
@@ -13,6 +15,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared.Movement.Components;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Components;
@@ -20,9 +23,6 @@ using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
-using Content.Shared._White;
-using Content.Shared._White.Implants.NeuroControl;
-using Content.Shared.Movement.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
@@ -205,49 +205,39 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
     private void OnLightAttack(LightAttackEvent msg, EntitySessionEventArgs args)
     {
-        var user = args.SenderSession.AttachedEntity;
-
-        if (user == null)
+        if (args.SenderSession.AttachedEntity is not {} user)
             return;
 
-        if (!TryGetWeapon(user.Value, out var weaponUid, out var weapon) ||
+        if (!TryGetWeapon(user, out var weaponUid, out var weapon) ||
             weaponUid != GetEntity(msg.Weapon))
         {
             return;
         }
 
-        AttemptAttack(args.SenderSession.AttachedEntity!.Value, weaponUid, weapon, msg, args.SenderSession);
+        AttemptAttack(user, weaponUid, weapon, msg, args.SenderSession);
     }
 
     private void OnHeavyAttack(HeavyAttackEvent msg, EntitySessionEventArgs args)
     {
-        if (args.SenderSession.AttachedEntity == null)
-        {
+        if (args.SenderSession.AttachedEntity is not {} user)
             return;
-        }
 
-        if (!TryGetWeapon(args.SenderSession.AttachedEntity.Value, out var weaponUid, out var weapon) ||
+        if (!TryGetWeapon(user, out var weaponUid, out var weapon) ||
             weaponUid != GetEntity(msg.Weapon))
         {
             return;
         }
 
-        AttemptAttack(args.SenderSession.AttachedEntity.Value, weaponUid, weapon, msg, args.SenderSession);
+        AttemptAttack(user, weaponUid, weapon, msg, args.SenderSession);
     }
 
     private void OnDisarmAttack(DisarmAttackEvent msg, EntitySessionEventArgs args)
     {
-        if (args.SenderSession.AttachedEntity == null)
-        {
+        if (args.SenderSession.AttachedEntity is not {} user)
             return;
-        }
 
-        if (!TryGetWeapon(args.SenderSession.AttachedEntity.Value, out var weaponUid, out var weapon))
-        {
-            return;
-        }
-
-        AttemptAttack(args.SenderSession.AttachedEntity.Value, weaponUid, weapon, msg, args.SenderSession);
+        if (TryGetWeapon(user, out var weaponUid, out var weapon))
+            AttemptAttack(user, weaponUid, weapon, msg, args.SenderSession);
     }
 
     /// <summary>
@@ -381,18 +371,22 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
 
         var update = UpdateNextAttack.Both; // WD
+        EntityUid? target = null;
         switch (attack)
         {
             case LightAttackEvent light:
                 var lightTarget = GetEntity(light.Target);
-                update = lightTarget == null ? UpdateNextAttack.Both :
-                    IsMob(lightTarget.Value) ? UpdateNextAttack.Mob : UpdateNextAttack.NonMob; // WD
+                if (light.Target != null && !TryGetEntity(light.Target, out target))
+                {
+                    // Target was lightly attacked & deleted.
+                    return false;
+                }
 
-                if (!Blocker.CanAttack(user, lightTarget, (weaponUid, weapon)))
+                if (!Blocker.CanAttack(user, target, (weaponUid, weapon)))
                     return false;
 
                 // Can't self-attack if you're the weapon
-                if (weaponUid == lightTarget)
+                if (weaponUid == target)
                     return false;
 
                 // WD START
@@ -421,11 +415,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
                 break;
             case DisarmAttackEvent disarm:
-                var disarmTarget = GetEntity(disarm.Target);
-                update = disarmTarget == null ? UpdateNextAttack.Both :
-                    IsMob(disarmTarget.Value) ? UpdateNextAttack.Mob : UpdateNextAttack.NonMob; // WD
+                if (disarm.Target != null && !TryGetEntity(disarm.Target, out target))
+                {
+                    // Target was lightly attacked & deleted.
+                    return false;
+                }
 
-                if (!Blocker.CanAttack(user, disarmTarget, (weaponUid, weapon), true))
+                if (!Blocker.CanAttack(user, target, (weaponUid, weapon), true))
                     return false;
                 break;
             default:
