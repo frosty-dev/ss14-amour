@@ -1,0 +1,9 @@
+﻿# Svaston
+- type: entity
+  parent: PosterBase
+  id: Svaston
+  name: "Svaston"
+  description: "Do you love a fascist political party?"
+  components:
+  - type: Sprite
+    state: svaston
