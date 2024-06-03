@@ -4,6 +4,8 @@
     PlayerCardBag: 20
     CardBag36: 4
     CardBag52: 4
+    UnoCardBag: 1
+    UnoPlayerCardBag: 6
     DiceBag: 6
     Paper: 8
     d6Dice: 8
