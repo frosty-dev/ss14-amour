@@ -420,3 +420,12 @@
   alpha: 0.9
   ghostName: Никотиноед
   ghostDescription: Поедает никотин в любом виде
+
+#Vorge
+- type: customGhost
+  id: vorge-ghost
+  ckey: Vorge
+  sprite: White/Ghosts/vorge-ghost.rsi
+  alpha: 0.9
+  ghostName: vig
+  ghostDescription: Пошёл нахуй!
