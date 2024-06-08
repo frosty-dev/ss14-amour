@@ -429,3 +429,12 @@
   alpha: 0.9
   ghostName: vig
   ghostDescription: Пошёл нахуй!
+
+#Krahankit
+- type: customGhost
+  id: krahankit-ghost
+  ckey: krahankit
+  sprite: White/Ghosts/krahankit-ghost.rsi
+  alpha: 0.9
+  ghostName: skill issue
+  ghostDescription: хлобысь
