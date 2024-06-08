@@ -7,6 +7,8 @@
     - PetsNT
     - Zombie
     - Revolutionary
+    - Cultist
+    - Changeling
 
 - type: npcFaction
   id: NanoTrasen
@@ -16,6 +18,9 @@
   - Xeno
   - Zombie
   - Revolutionary
+  - Cultist
+  - Wizard
+  - Changeling
 
 - type: npcFaction
   id: Mouse
@@ -42,6 +47,8 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Cultist
+  - Changeling
 
 - type: npcFaction
   id: SimpleNeutral
@@ -54,6 +61,9 @@
   - Xeno
   - PetsNT
   - Zombie
+  - Cultist
+  - Wizard
+  - Changeling
 
 - type: npcFaction
   id: Xeno
@@ -64,6 +74,8 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Cultist
+  - Changeling
 
 - type: npcFaction
   id: Zombie
@@ -75,6 +87,9 @@
   - Passive
   - PetsNT
   - Revolutionary
+  - Cultist
+  - Wizard
+  - Changeling
 
 - type: npcFaction
   id: Revolutionary
@@ -83,6 +98,9 @@
   - Zombie
   - SimpleHostile
   - Dragon
+  - Cultist
+  - Wizard
+  - Changeling
 
 # WD EDIT STARt
 - type: npcFaction
@@ -91,6 +109,31 @@
     - NanoTrasen
     - SimpleHostile
     - Xeno
-    - PetsNT
+    - Dragon
     - Syndicate
+    - Wizard
+    - Changeling
+
+- type: npcFaction
+  id: Wizard
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - Cultist
+  - Revolutionary
+  - Zombie
+  - Changeling
+
+- type: npcFaction
+  id: Changeling
+  hostile:
+  - NanoTrasen
+  - SimpleHostile
+  - Xeno
+  - Dragon
+  - Syndicate
+  - Cultist
+  - Revolutionary
+  - Zombie
+  - Wizard
 # WD EDIT END

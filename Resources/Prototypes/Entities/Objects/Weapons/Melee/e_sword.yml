@@ -251,20 +251,18 @@
       size: Small
       sprite: Objects/Weapons/Melee/double_esword.rsi
     - type: Wieldable
-      wieldTime: 0
     - type: IncreaseDamageOnWield
       damage:
         types:
           Slash: 15
           Heat: 15
-    - type: MeleeWeapon
-      attackRate: 1
     - type: Reflect
       reflectProb: 1
       enabled: false
       reflects:
         - Energy
     - type: ToggleableWielded
+    - type: FlipOnHit
     - type: Construction
       deconstructionTarget: null
       graph: EnergyDoubleSwordGraph

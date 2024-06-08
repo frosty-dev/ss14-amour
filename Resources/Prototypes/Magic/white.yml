@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ActionElectricArcSpell
   name: Electric arc
   noSpawn: true
@@ -6,10 +6,12 @@
     - type: Magic
       requiresClothes: true
     - type: WorldTargetAction
-      useDelay: 60
       itemIconStyle: BigAction
+      useDelay: 60
       checkCanAccess: false
+      checkCanInteract: false
       range: 10
+      alwaysPlaySound: false
       sound: !type:SoundPathSpecifier
         path: /Audio/White/Magic/Arc/cast.ogg
       icon:
@@ -26,19 +28,23 @@
         speech: "KUH, ABAH'RAH"
         prototype: ProjectileTeslaBall
         posData: !type:TargetCasterPos
+    - type: VariableUseDelay
+      useDelay: 6
+      altUseDelay: 12
+      chargeUseDelay: 40
 
 - type: entity
   id: ActionForceSpell
   name: Force
   noSpawn: true
   components:
-    - type: Magic
-      requiresClothes: true
     - type: WorldTargetAction
-      useDelay: 60
       itemIconStyle: BigAction
+      useDelay: 60
       checkCanAccess: false
+      checkCanInteract: false
       range: 10
+      alwaysPlaySound: false
       sound: !type:SoundPathSpecifier
         path: /Audio/White/Magic/Force/cast.ogg
       icon:
@@ -53,6 +59,10 @@
       isAltEnabled: true
       event: !type:ForceSpellEvent
         speech: "EL DRITCH!"
+    - type: VariableUseDelay
+      useDelay: 6
+      altUseDelay: 2
+      chargeUseDelay: 20
 
 - type: entity
   id: ActionFireballSpell
@@ -62,13 +72,15 @@
     - type: Magic
       requiresClothes: true
     - type: WorldTargetAction
-      useDelay: 60
       itemIconStyle: BigAction
+      useDelay: 60
       checkCanAccess: false
+      checkCanInteract: false
       range: 45
       isChargeEnabled: true
       chargeProto: MagicFollowerFireEntity
       isAltEnabled: true
+      alwaysPlaySound: false
       sound: !type:SoundPathSpecifier
         path: /Audio/Magic/fireball.ogg
       icon:
@@ -78,18 +90,21 @@
         prototype: ProjectileFireball
         posData: !type:TargetCasterPos
         speech: action-speech-spell-fireball
+    - type: VariableUseDelay
+      useDelay: 5
+      altUseDelay: 10
+      chargeUseDelay: 40
 
 - type: entity
   id: ActionCardSpell
   name: Cards
   noSpawn: true
   components:
-    - type: Magic
-      requiresClothes: true
     - type: WorldTargetAction
-      useDelay: 60
       itemIconStyle: BigAction
+      useDelay: 60
       checkCanAccess: false
+      checkCanInteract: false
       range: 45
       isChargeEnabled: true
       chargingSound:
@@ -98,6 +113,7 @@
       maxChargedSound:
         path: /Audio/White/Magic/Cards/max.ogg
       isAltEnabled: true
+      alwaysPlaySound: false
       sound: !type:SoundPathSpecifier
         path: /Audio/White/Magic/Cards/cast.ogg
       icon:
@@ -107,6 +123,10 @@
         prototype: ThrowingCard
         posData: !type:TargetCasterPos
         speech: "SHIZO NERO!"
+    - type: VariableUseDelay
+      useDelay: 4
+      altUseDelay: 1
+      chargeUseDelay: 40
 
 - type: entity
   id: ActionForcewallSpell
@@ -116,10 +136,12 @@
     - type: Magic
       requiresClothes: true
     - type: WorldTargetAction
-      useDelay: 60
       itemIconStyle: BigAction
+      useDelay: 60
       checkCanAccess: false
+      checkCanInteract: false
       range: 10
+      alwaysPlaySound: false
       sound: !type:SoundPathSpecifier
         path: /Audio/White/Magic/Force/cast.ogg
       icon:
@@ -135,6 +157,10 @@
       event: !type:ForceWallSpellEvent
         speech: "TARCOL MINTI ZHERI!"
         prototype: WallForce
+    - type: VariableUseDelay
+      useDelay: 10
+      altUseDelay: 20
+      chargeUseDelay: 60
 
 - type: entity
   id: ActionBlinkSpell
@@ -142,8 +168,9 @@
   noSpawn: true
   components:
     - type: InstantAction
-      useDelay: 60
+      useDelay: 6
       itemIconStyle: BigAction
+      checkCanInteract: false
       icon:
         sprite: Objects/Magic/magicactions.rsi
         state: blink
@@ -158,8 +185,9 @@
     - type: Magic
       requiresClothes: true
     - type: InstantAction
-      useDelay: 60
+      useDelay: 30
       itemIconStyle: BigAction
+      checkCanInteract: false
       icon:
         sprite: Objects/Magic/magicactions.rsi
         state: jaunt
@@ -174,8 +202,9 @@
     - type: Magic
       requiresClothes: true
     - type: InstantAction
-      useDelay: 60
+      useDelay: 40
       itemIconStyle: BigAction
+      checkCanInteract: false
       icon:
         sprite: Objects/Magic/magicactions.rsi
         state: emp_new
@@ -187,12 +216,10 @@
   name: Cluwne Curse
   noSpawn: true
   components:
-    - type: Magic
-      requiresClothes: true
     - type: EntityTargetAction
       canTargetSelf: false
-      range: 2
-      useDelay: 300
+      range: 3
+      useDelay: 60
       itemIconStyle: BigAction
       icon:
         sprite: Objects/Magic/magicactions.rsi
@@ -205,12 +232,10 @@
   name: Banana Touch
   noSpawn: true
   components:
-    - type: Magic
-      requiresClothes: true
     - type: EntityTargetAction
       canTargetSelf: false
-      range: 2
-      useDelay: 300
+      range: 3
+      useDelay: 30
       itemIconStyle: BigAction
       icon:
         sprite: Objects/Magic/magicactions.rsi
@@ -223,12 +248,10 @@
   name: Mime Touch
   noSpawn: true
   components:
-    - type: Magic
-      requiresClothes: true
     - type: EntityTargetAction
       canTargetSelf: false
-      range: 2
-      useDelay: 300
+      range: 3
+      useDelay: 30
       itemIconStyle: BigAction
       icon:
         sprite: Objects/Magic/magicactions.rsi
@@ -242,8 +265,6 @@
   noSpawn: true
   components:
     - type: InstantRecall
-    - type: Magic
-      requiresClothes: true
     - type: InstantAction
       useDelay: 10
       itemIconStyle: BigAction
