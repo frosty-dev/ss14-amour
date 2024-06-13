@@ -10,7 +10,7 @@ public sealed class WizardTeleportSpellEuiState : EuiStateBase
 }
 
 [Serializable, NetSerializable]
-public sealed class TeleportSpellTargetLocationSelected : EuiMessageBase
+sealed file class TeleportSpellTargetLocationSelected : EuiMessageBase
 {
     public int LocationUid;
 }
