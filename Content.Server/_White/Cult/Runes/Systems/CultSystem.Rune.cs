@@ -37,7 +37,6 @@ using Content.Shared._White.Cult.Components;
 using Content.Shared._White.Cult.Runes;
 using Content.Shared._White.Cult.UI;
 using Content.Shared.Cuffs;
-using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
@@ -597,13 +596,14 @@ public sealed partial class CultSystem : EntitySystem
 
     private bool AddCultistBuff(EntityUid target, EntityUid user)
     {
-        if (HasComp<CultBuffComponent>(target))
+        if (TryComp<CultBuffComponent>(target, out var buff) && buff.BuffTime > buff.BuffLimit)
         {
             _popupSystem.PopupEntity(Loc.GetString("cult-buff-already-buffed"), user, user);
             return false;
         }
 
-        EnsureComp<CultBuffComponent>(target);
+        buff = EnsureComp<CultBuffComponent>(target);
+        buff.BuffTime = buff.StartingBuffTime;
         return true;
     }
 
@@ -632,6 +632,18 @@ public sealed partial class CultSystem : EntitySystem
 
     private bool Teleport(EntityUid rune, EntityUid user, List<EntityUid>? victims = null)
     {
+        if (!OpenTeleportUi(user, rune))
+            return false;
+
+        _entityManager.EnsureComponent<CultTeleportRuneProviderComponent>(user, out var providerComponent);
+        providerComponent.Targets = victims;
+        providerComponent.BaseRune = rune;
+
+        return true;
+    }
+
+    private bool OpenTeleportUi(EntityUid user, EntityUid? exceptRune = null)
+    {
         var runesQuery = EntityQueryEnumerator<CultRuneTeleportComponent>();
         var list = new List<int>();
         var labels = new List<string>();
@@ -641,7 +653,7 @@ public sealed partial class CultSystem : EntitySystem
             if (teleportComponent.Label == null)
                 continue;
 
-            if (runeUid == rune)
+            if (runeUid == exceptRune)
                 continue;
 
             if (!int.TryParse(runeUid.ToString(), out var intValue))
@@ -664,10 +676,6 @@ public sealed partial class CultSystem : EntitySystem
             _popupSystem.PopupEntity(Loc.GetString("cult-teleport-rune-not-found"), user, user);
             return false;
         }
-
-        _entityManager.EnsureComponent<CultTeleportRuneProviderComponent>(user, out var providerComponent);
-        providerComponent.Targets = victims;
-        providerComponent.BaseRune = rune;
 
         _ui.SetUiState(ui, new TeleportRunesListWindowBUIState(list, labels));
 
@@ -868,7 +876,10 @@ public sealed partial class CultSystem : EntitySystem
                 return false;
 
             if (!_mobState.IsDead(target, mobState))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("cult-revive-rune-already-alive"), user, user);
                 return false;
+            }
 
             var airlossGroup = _prototypeManager.Index<DamageGroupPrototype>("Airloss");
 
@@ -878,7 +889,10 @@ public sealed partial class CultSystem : EntitySystem
             {
                 var afterHeal = damageable.TotalDamage - toHeal;
                 if (deadThreshold <= afterHeal)
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("cult-revive-rune-too-damaged"), user, user);
                     return false;
+                }
 
                 var asphyxType = _prototypeManager.Index<DamageTypePrototype>("Asphyxiation");
                 var bloodlossType = _prototypeManager.Index<DamageTypePrototype>("Bloodloss");

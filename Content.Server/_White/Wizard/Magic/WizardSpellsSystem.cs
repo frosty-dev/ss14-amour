@@ -105,7 +105,7 @@ public sealed class WizardSpellsSystem : EntitySystem
         if (!TryComp(msg.Performer, out ActorComponent? actor))
             return;
 
-        var eui = new TeleportSpellEui(msg.Performer);
+        var eui = new WizardTeleportSpellEui(msg.Performer);
         _euiManager.OpenEui(eui, actor.PlayerSession);
         eui.StateDirty();
 
@@ -736,7 +736,7 @@ public sealed class WizardSpellsSystem : EntitySystem
         RaiseLocalEvent(uid, new EnergyDomeClothesTurnOffEvent());
     }
 
-    private bool CanCast(BaseActionEvent msg)
+    public bool CanCast(BaseActionEvent msg)
     {
         return !msg.Handled && CheckRequirements(msg.Action, msg.Performer) &&
                !_statusEffectsSystem.HasStatusEffect(msg.Performer, "Incorporeal");
