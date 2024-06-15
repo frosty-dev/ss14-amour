@@ -2,7 +2,7 @@
   id: WhiteMapPool
   maps:
   - WonderBox
-  - Triumph
+#  - Triumph  #Ебал в рот мапперов
   - WhiteBox
   - Origin
   - Meta     # Temporary
