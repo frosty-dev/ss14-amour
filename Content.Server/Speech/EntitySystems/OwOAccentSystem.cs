@@ -9,7 +9,7 @@ namespace Content.Server.Speech.EntitySystems
 
         private static readonly IReadOnlyList<string> Faces = new List<string>{
             //WD-EDIT
-            " (`ω´)", " ;;w;;", " owo", " UwU", " >w<", " ^w^"
+            " (•`ω´•)", " ;;w;;", " owo", " UwU", " >w<", " ^w^"
             //WD-EDIT
         }.AsReadOnly();
 
