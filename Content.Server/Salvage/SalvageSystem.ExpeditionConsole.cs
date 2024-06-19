@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Shared.Procedural;
 using Content.Shared.Salvage.Expeditions;
 using Content.Shared.Dataset;
@@ -21,10 +20,6 @@ public sealed partial class SalvageSystem
         if (!data.Missions.TryGetValue(args.Index, out var missionparams))
             return;
 
-        if (data.Missions.Values.Any(m => m.Index == args.Index))
-        {
-            return;
-        }
 
         var cdUid = Spawn(CoordinatesDisk, Transform(uid).Coordinates);
         SpawnMission(missionparams, station.Value, cdUid);

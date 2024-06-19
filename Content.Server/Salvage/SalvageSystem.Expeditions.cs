@@ -148,7 +148,7 @@ public sealed partial class SalvageSystem
     private SalvageExpeditionConsoleState GetState(SalvageExpeditionDataComponent component)
     {
 
-        var missions = component.Missions.Values.Distinct().ToList();
+        var missions = component.Missions.Values.ToList();
 
         return new SalvageExpeditionConsoleState(component.NextOffer, component.Claimed, component.Cooldown, component.ActiveMission, missions);
     }
