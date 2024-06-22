@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server.Store.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Store;
+using Content.Shared.Tag;
 using Robust.Shared.Random;
 
 namespace Content.Server.Store.Systems;
@@ -10,6 +11,7 @@ public sealed partial class StoreSystem
 {
     // WD START
     [Dependency] private readonly IRobustRandom _random = default!; // WD
+    [Dependency] private readonly TagSystem _tag = default!; // Amour
 
     private void ApplySales(IEnumerable<ListingData> listings, StorePresetPrototype store)
     {
@@ -129,7 +131,7 @@ public sealed partial class StoreSystem
             if (!ListingHasCategory(listing, categories))
                 continue;
 
-            if (listing.Conditions != null)
+            if (listing.Conditions != null && !( storeEntity != null && _tag.HasTag(storeEntity.Value, "DebugUplink")))
             {
                 var args = new ListingConditionArgs(buyer, storeEntity, listing, EntityManager);
                 var conditionsMet = true;

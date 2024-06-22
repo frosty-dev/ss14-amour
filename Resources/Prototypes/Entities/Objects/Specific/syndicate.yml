@@ -132,3 +132,6 @@
     preset: StorePresetUplink
     balance:
       Telecrystal: 99999
+  - type: Tag
+    tags:
+    - DebugUplink
