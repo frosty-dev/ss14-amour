@@ -1,5 +1,5 @@
-﻿using Content.Client.Gameplay;
-using Content.Client.Mapping;
+﻿using Content.Client._Amour.Mapping;
+using Content.Client.Gameplay;
 using Robust.Client.State;
 
 namespace Content.IntegrationTests.Tests;

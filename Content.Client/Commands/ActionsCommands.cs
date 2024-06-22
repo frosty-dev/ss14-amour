@@ -1,10 +1,7 @@
 using Content.Client.Actions;
-using Content.Client.Mapping;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
-
 namespace Content.Client.Commands;
-
 // Disabled until sandoxing issues are resolved. In the meantime, if you want to create an acttions preset, just disable
 // sandboxing and uncomment this code (and the SaveActionAssignments() function).
 /*
@@ -21,7 +18,6 @@ public sealed class SaveActionsCommand : IConsoleCommand
             shell.WriteLine(Help);
             return;
         }
-
         try
         {
             EntitySystem.Get<ActionsSystem>().SaveActionAssignments(args[0]);
@@ -33,23 +29,22 @@ public sealed class SaveActionsCommand : IConsoleCommand
     }
 }
 */
-
 [AnyCommand]
-public sealed class LoadMappingActionsCommand : LocalizedCommands
+public sealed class LoadActionsCommand : LocalizedCommands
 {
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-
-    public const string CommandName = "loadmapacts";
-
-    public override string Command => CommandName;
-
+    public override string Command => "loadacts";
     public override string Help => LocalizationManager.GetString($"cmd-{Command}-help", ("command", Command));
-
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
+        if (args.Length != 1)
+        {
+            shell.WriteLine(Help);
+            return;
+        }
         try
         {
-            _entitySystemManager.GetEntitySystem<MappingSystem>().LoadMappingActions();
+            _entitySystemManager.GetEntitySystem<ActionsSystem>().LoadActionAssignments(args[0], true);
         }
         catch
         {

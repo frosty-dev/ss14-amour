@@ -1,6 +1,5 @@
 ﻿<mapping1:MappingSpawnButton
     xmlns="https://spacestation14.io"
-    xmlns:mapping="clr-namespace:Content.Client.Mapping"
     xmlns:mapping1="clr-namespace:Content.Client._Amour.Mapping">
     <BoxContainer Orientation="Vertical">
         <Control>

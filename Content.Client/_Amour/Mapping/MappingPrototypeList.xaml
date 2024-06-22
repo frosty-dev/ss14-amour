@@ -1,6 +1,5 @@
-﻿<mapping:MappingPrototypeList
+﻿<mapping1:MappingPrototypeList
     xmlns="https://spacestation14.io"
-    xmlns:mapping="clr-namespace:Content.Client.Mapping"
     xmlns:mapping1="clr-namespace:Content.Client._Amour.Mapping">
     <BoxContainer Orientation="Vertical">
         <BoxContainer Orientation="Horizontal">
@@ -19,4 +18,4 @@
             <mapping1:MappingSpawnButton Name="MeasureButton" Access="Public" />
         </mapping1:MappingDoNotMeasure>
     </BoxContainer>
-</mapping:MappingPrototypeList>
+</mapping1:MappingPrototypeList>

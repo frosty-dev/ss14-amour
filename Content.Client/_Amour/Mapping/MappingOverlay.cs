@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Amour.Mapping;
 
-public sealed class MappingOverlay : Overlay
+public sealed class MappingOverlay: Overlay
 {
     [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly IInputManager _input = default!;
@@ -54,32 +54,6 @@ public sealed class MappingOverlay : Overlay
 
         var handle = args.WorldHandle;
         handle.UseShader(_shader);
-
-        switch (_state.State)
-        {
-            case CursorState.Pick:
-            {
-                if (_state.GetHoveredEntity() is { } entity &&
-                    _entities.TryGetComponent(entity, out SpriteComponent? sprite))
-                {
-                    _oldColors[entity] = sprite.Color;
-                    sprite.Color = PickColor;
-                }
-
-                break;
-            }
-            case CursorState.Delete:
-            {
-                if (_state.GetHoveredEntity() is { } entity &&
-                    _entities.TryGetComponent(entity, out SpriteComponent? sprite))
-                {
-                    _oldColors[entity] = sprite.Color;
-                    sprite.Color = DeleteColor;
-                }
-
-                break;
-            }
-        }
 
         handle.UseShader(null);
     }

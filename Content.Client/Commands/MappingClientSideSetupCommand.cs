@@ -1,3 +1,4 @@
+using Content.Client._Amour.Mapping;
 using Content.Client.Markers;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
@@ -28,4 +29,3 @@ internal sealed class MappingClientSideSetupCommand : LocalizedCommands
         }
     }
 }
-

@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using Content.Shared._Amour.Mapping;
 using Robust.Client.UserInterface;
 using Robust.Shared.Network;
 

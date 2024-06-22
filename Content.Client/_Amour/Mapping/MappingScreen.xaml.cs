@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Numerics;
-using Content.Client._Amour.Mapping;
 using Content.Client.Decals;
 using Content.Client.Decals.UI;
 using Content.Client.UserInterface.Screens;
@@ -14,7 +13,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using static Robust.Client.UserInterface.Controls.BaseButton;
 
-namespace Content.Client.Mapping;
+namespace Content.Client._Amour.Mapping;
 
 [GenerateTypedNameReferences]
 public sealed partial class MappingScreen : InGameScreen

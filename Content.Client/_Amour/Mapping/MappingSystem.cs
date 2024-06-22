@@ -7,7 +7,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Utility;
 using static Robust.Shared.Utility.SpriteSpecifier;
 
-namespace Content.Client.Mapping;
+namespace Content.Client._Amour.Mapping;
 
 public sealed partial class MappingSystem : EntitySystem
 {

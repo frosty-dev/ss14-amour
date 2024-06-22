@@ -1,5 +1,6 @@
 using System.Numerics;
 using System.Threading;
+using Content.Client._Amour.Mapping;
 using Content.Client.CombatMode;
 using Content.Client.Gameplay;
 using Content.Client.UserInterface.Systems.Actions;
@@ -17,7 +18,7 @@ namespace Content.Client.ContextMenu.UI
     /// <remarks>
     ///     This largely involves setting up timers to open and close sub-menus when hovering over other menu elements.
     /// </remarks>
-    public sealed class ContextMenuUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<CombatModeSystem>, IOnSystemChanged<ChargeActionSystem>
+    public sealed class ContextMenuUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>, IOnSystemChanged<CombatModeSystem>, IOnStateEntered<MappingState>, IOnStateExited<MappingState>
     {
         public static readonly TimeSpan HoverDelay = TimeSpan.FromSeconds(0.2);
 
@@ -43,18 +44,52 @@ namespace Content.Client.ContextMenu.UI
         public Action<ContextMenuElement>? OnSubMenuOpened;
         public Action<ContextMenuElement, GUIBoundKeyEventArgs>? OnContextKeyEvent;
 
+        //Amour
+        private bool _setup;
+
         public void OnStateEntered(GameplayState state)
         {
+            Setup();
+        }
+
+        public void OnStateExited(GameplayState state)
+        {
+            Shutdown(null!);
+        }
+
+        public void OnStateEntered(MappingState state)
+        {
+            Setup();
+        }
+
+        public void OnStateExited(MappingState state)
+        {
+            Shutdown(null!);
+        }
+
+        public void Setup()
+        {
+            if (_setup)
+                return;
+
+            _setup = true;
+
             RootMenu = new(this, null);
             RootMenu.OnPopupHide += Close;
             Menus.Push(RootMenu);
         }
 
-        public void OnStateExited(GameplayState state)
+        public void Shutdown(GameplayState state)
         {
+            if (!_setup)
+                return;
+
+            _setup = false;
+
             Close();
             RootMenu.OnPopupHide -= Close;
             RootMenu.Dispose();
+            RootMenu = default!;
         }
 
         /// <summary>
