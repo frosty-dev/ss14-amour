@@ -22,6 +22,7 @@
     <PackageVersion Remove="Microsoft.NET.ILLink.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Content.Client\Content.Client.csproj" />
     <ProjectReference Include="..\Content.Packaging\Content.Packaging.csproj" />
     <ProjectReference Include="..\Content.Server.Database\Content.Server.Database.csproj" />
     <ProjectReference Include="..\Content.Shared.Database\Content.Shared.Database.csproj" />

@@ -35,34 +35,6 @@ public sealed class SaveActionsCommand : IConsoleCommand
 */
 
 [AnyCommand]
-public sealed class LoadActionsCommand : LocalizedCommands
-{
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-
-    public override string Command => "loadacts";
-
-    public override string Help => LocalizationManager.GetString($"cmd-{Command}-help", ("command", Command));
-
-    public override void Execute(IConsoleShell shell, string argStr, string[] args)
-    {
-        if (args.Length != 1)
-        {
-            shell.WriteLine(Help);
-            return;
-        }
-
-        try
-        {
-            _entitySystemManager.GetEntitySystem<ActionsSystem>().LoadActionAssignments(args[0], true);
-        }
-        catch
-        {
-            shell.WriteError(LocalizationManager.GetString($"cmd-{Command}-error"));
-        }
-    }
-}
-
-[AnyCommand]
 public sealed class LoadMappingActionsCommand : LocalizedCommands
 {
     [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;

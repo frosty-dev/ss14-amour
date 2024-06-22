@@ -1,3 +1,4 @@
+using Content.Client._Amour.Mapping;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -85,6 +86,7 @@ namespace Content.Server.IoC
             IoCManager.Register<ReputationManager>();
             IoCManager.Register<PandaStatusHost>();
             IoCManager.Register<PandaWebManager>();
+            IoCManager.Register<MappingManager>();
             // WD-EDIT
         }
     }
