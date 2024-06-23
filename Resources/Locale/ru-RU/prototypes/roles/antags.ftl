@@ -36,3 +36,6 @@ roles-antag-thief-objective = Пополните свою личную колл�
 
 roles-antag-terminator-name = Экстерминатор
 roles-antag-terminator-objective = Убейте цель любой ценой, от этого зависит будущее.
+
+roles-antag-pirate-name = Пират
+roles-antag-pirate-objective = Заберите со станции все ее ценности.

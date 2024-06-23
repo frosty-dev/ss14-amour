@@ -224,3 +224,11 @@ ghost-role-information-syndicate-reinforcement-rules = Действуют обы
 ghost-role-information-syndicate-monkey-reinforcement-name = Агент-обезьяна Синдиката
 ghost-role-information-syndicate-monkey-reinforcement-description = Кому-то нужно подкрепление. Вы, специально обученная обезьяна, поможете им.
 ghost-role-information-syndicate-monkey-reinforcement-rules = Действуют обычные правила антагонистов Синдиката. Работайте с тем, кто вас вызвал, и не причиняйте ему вреда.
+
+ghost-role-information-pirate-name = Пират
+ghost-role-information-pirate-description = Посейте хаос и разграбьте станцию в поисках сокровищ.
+ghost-role-information-pirate-rules = Действуют обычные правила для противников синдиката. Сотрудничайте со своими товарищами по пиратской команде и не причиняйте им вреда.
+ghost-role-information-pirate-captain-name = Капитан пиратов
+ghost-role-information-pirate-captain-description = Посейте хаос и разграбите станцию в поисках сокровищ. Приведите свою пиратскую команду к победе над станцией.
+ghost-role-information-pirate-firstmate-name = Первый помощник
+ghost-role-information-pirate-firstmate-description = Посейте хаос и разграбите станцию в поисках сокровищ. При необходимости помогайте капитану пиратов.
