@@ -1,4 +1,18 @@
-# Random humanoids
+## Random humanoids
+
+- type: randomHumanoidSettings
+  id: EventHumanoid
+  components:
+  - type: RandomHumanoidAppearance
+    randomizeName: false
+  - type: GhostTakeoverAvailable
+
+- type: randomHumanoidSettings
+  id: EventHumanoidMindShielded
+  parent: EventHumanoid
+  components:
+  - type: MindShield
+  - type: AntagImmune
 
 ## Death Squad
 
