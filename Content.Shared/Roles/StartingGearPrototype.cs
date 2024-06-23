@@ -30,12 +30,15 @@ namespace Content.Shared.Roles
 
         [DataField("underwearb")]
         private string _underwearb = string.Empty;
+
+        [DataField]
+        [AlwaysPushInheritance]
+        public Dictionary<string, List<EntProtoId>> Storage = new();
         // White underwear end
 
         [ViewVariables]
         [IdDataField]
         public string ID { get; private set; } = string.Empty;
-
         public string GetGear(string slot, HumanoidCharacterProfile? profile)
         {
             if (profile != null)

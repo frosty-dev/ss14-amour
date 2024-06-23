@@ -6,6 +6,7 @@ using Content.Server.PDA;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Spawners.EntitySystems;
 using Content.Server.Station.Components;
+using Content.Shared._Amour.Role;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
@@ -176,7 +177,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
         if (prototype?.StartingGear != null)
         {
-            var startingGear = _prototypeManager.Index<StartingGearPrototype>(prototype.StartingGear);
+            var startingGear = _prototypeManager.Index<AmourStartingGearPrototype>(prototype.StartingGear);
             EquipStartingGear(entity.Value, startingGear, profile);
             if (profile != null)
             {
@@ -298,6 +299,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
 
     #endregion Player spawning helpers
+
+    public void EquipStartingGear(EntityUid entity, StartingGearPrototype startingGear, HumanoidCharacterProfile raiseEvent)
+    {
+        throw new NotImplementedException();
+    }
 }
 
 /// <summary>

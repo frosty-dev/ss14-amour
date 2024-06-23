@@ -25,7 +25,7 @@ public sealed partial class JobRequirementLoadoutEffect : LoadoutEffect
 
         var manager = collection.Resolve<ISharedPlaytimeManager.ISharedPlaytimeManager>();
         var playtimes = manager.GetPlayTimes(session);
-        return JobRequirements.TryRequirementMet(Requirement, playtimes, out reason,
+        return JobRequirements.TryRequirementMet(Requirement, new Dictionary<string, TimeSpan>(playtimes), out reason,
             collection.Resolve<IEntityManager>(),
             collection.Resolve<IPrototypeManager>());
     }

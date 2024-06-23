@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared._Amour.Preferences.Loadouts;
 using Content.Shared._Amour.RoleplayInfo;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
@@ -30,7 +31,15 @@ namespace Content.Shared.Preferences
         private readonly Dictionary<string, JobPriority> _jobPriorities;
         private readonly List<string> _antagPreferences;
         private readonly List<string> _traitPreferences;
-        private readonly Dictionary<string,RoleplayInfo> _roleplayInfoData; //AMOUR
+
+        //AMOUR Start
+        private readonly Dictionary<string,RoleplayInfo> _roleplayInfoData;
+        public IReadOnlyDictionary<string, RoleLoadout> Loadouts => _loadouts;
+
+        [DataField]
+        private Dictionary<string, RoleLoadout> _loadouts = new();
+
+        //AMOUR End
 
         private HumanoidCharacterProfile(
             string name,
@@ -828,5 +837,11 @@ namespace Content.Shared.Preferences
                 _traitPreferences
             );
         }
+
+        public void SetLoadout(RoleLoadout loadout)
+        {
+            _loadouts[loadout.Role.Id] = loadout;
+        }
+
     }
 }
