@@ -71,3 +71,6 @@
 #WD EDIT
 - type: statusEffect
   id: Incorporeal
+
+- type: statusEffect
+  id: Hallucinations
