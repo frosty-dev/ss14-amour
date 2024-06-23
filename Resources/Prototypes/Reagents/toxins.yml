@@ -346,6 +346,12 @@
         type: Add
         time: 10
         refresh: false
+      - !type:HallucinationsReagentEffect
+        key: Hallucinations
+        proto: MindBreaker
+        type: Add
+        time: 20
+        refresh: true
   # TODO: PROPER hallucinations
 
 - type: reagent
