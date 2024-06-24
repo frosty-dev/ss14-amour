@@ -19,6 +19,10 @@
       groups:
         Burn: 10
   - type: Prayable
+    sentMessage: prayer-popup-notify-centcom-sent
+    notifiactionPrefix: prayer-chat-notify-centcom
+    verb: prayer-verbs-call
+    verbImage: null
     bibleUserOnly: true
   - type: Summonable
     specialItem: SpawnPointGhostRemilia
