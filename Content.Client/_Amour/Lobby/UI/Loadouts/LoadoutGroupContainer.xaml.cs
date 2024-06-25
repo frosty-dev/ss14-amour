@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Client._Amour.Lobby.UI.Loadouts;
+using Content.Client.Lobby.UI.Loadouts;
 using Content.Shared._Amour.Preferences.Loadouts;
 using Content.Shared.Clothing;
 using Content.Shared.Preferences;

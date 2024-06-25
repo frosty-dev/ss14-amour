@@ -1,4 +1,3 @@
-using Content.Client._Amour.Lobby.UI.Loadouts;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._Amour.Preferences.Loadouts;
 using Content.Shared.Preferences;
