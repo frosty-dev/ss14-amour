@@ -19,12 +19,11 @@ public sealed partial class JobRequirementLoadoutEffect : LoadoutEffect
     {
         if (session == null)
         {
-            reason = FormattedMessage.Empty;
-            return true;
+            reason = null;
         }
 
         var manager = collection.Resolve<ISharedPlaytimeManager.ISharedPlaytimeManager>();
-        var playtimes = manager.GetPlayTimes(session);
+        var playtimes = manager.GetPlayTimes(session!);
         return JobRequirements.TryRequirementMet(Requirement, new Dictionary<string, TimeSpan>(playtimes), out reason,
             collection.Resolve<IEntityManager>(),
             collection.Resolve<IPrototypeManager>());

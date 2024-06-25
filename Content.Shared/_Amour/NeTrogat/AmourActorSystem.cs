@@ -13,10 +13,10 @@ public sealed class AmourActorSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ActorComponent, ComponentShutdown>(OnActorShutdown);
+        SubscribeLocalEvent<AmourActorComponent, ComponentShutdown>(OnActorShutdown);
     }
 
-    private void OnActorShutdown(EntityUid entity, ActorComponent component, ComponentShutdown args)
+    private void OnActorShutdown(EntityUid entity, AmourActorComponent component, ComponentShutdown args)
     {
         _playerManager.SetAttachedEntity(component.PlayerSession, null);
     }
@@ -24,7 +24,7 @@ public sealed class AmourActorSystem : EntitySystem
     [PublicAPI]
     public bool TryGetSession(EntityUid? uid, out ICommonSession? session)
     {
-        if (TryComp(uid, out ActorComponent? actorComp))
+        if (TryComp(uid, out AmourActorComponent? actorComp))
         {
             session = actorComp.PlayerSession;
             return true;
@@ -38,7 +38,7 @@ public sealed class AmourActorSystem : EntitySystem
     [Pure]
     public ICommonSession? GetSession(EntityUid? uid)
     {
-        if (TryComp(uid, out ActorComponent? actorComp))
+        if (TryComp(uid, out AmourActorComponent? actorComp))
         {
             return actorComp.PlayerSession;
         }

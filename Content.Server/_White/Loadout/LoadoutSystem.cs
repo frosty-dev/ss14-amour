@@ -3,6 +3,7 @@ using Content.Server._White.Sponsors;
 using Content.Server.GameTicking;
 using Content.Server.Hands.Systems;
 using Content.Server.Storage.EntitySystems;
+using Content.Shared._Amour.Preferences.Loadouts;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory;
 using Robust.Shared.Prototypes;

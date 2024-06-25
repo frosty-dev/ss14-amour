@@ -736,7 +736,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             _humanoid.LoadProfile(mob, profile);
 
         var gear = _prototypeManager.Index(spawnDetails.GearProto);
-        _stationSpawning.EquipStartingGear(mob, gear, profile);
+        _stationSpawning.EquipStartingGear(mob, gear, profile!);
 
         _npcFaction.RemoveFaction(mob, "NanoTrasen", false);
         _npcFaction.AddFaction(mob, "Syndicate");

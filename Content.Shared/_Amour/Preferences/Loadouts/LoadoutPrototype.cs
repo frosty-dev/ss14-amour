@@ -1,6 +1,7 @@
 using Content.Shared._Amour.Preferences.Loadouts.Effects;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._Amour.Preferences.Loadouts;
 
@@ -22,4 +23,7 @@ public sealed partial class LoadoutPrototype : IPrototype
     /// </summary>
     [DataField]
     public List<LoadoutEffect> Effects = new();
+
+    [DataField("entity", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string EntityId { get; set; } = default!;
 }
