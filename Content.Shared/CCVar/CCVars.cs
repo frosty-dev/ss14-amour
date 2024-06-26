@@ -2071,5 +2071,15 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> DebugOptionVisualizerTest =
             CVarDef.Create("debug.option_visualizer_test", false, CVar.CLIENTONLY);
+
+        /*
+         * Loadouts
+         */
+
+        /// <summary>
+        /// If roles should be restricted based on whether or not they are whitelisted.
+        /// </summary>
+        public static readonly CVarDef<bool>
+            GameRoleWhitelist = CVarDef.Create("game.role_whitelist", true, CVar.SERVER | CVar.REPLICATED);
     }
 }
