@@ -1,11 +1,10 @@
-﻿using Content.Shared.FixedPoint;
-using OpenTK.Mathematics;
+﻿using System.Numerics;
+using Content.Shared.FixedPoint;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Box2 = Robust.Shared.Maths.Box2;
 
 namespace Content.Client.Fluids;
 
@@ -29,7 +28,7 @@ public sealed class PuddleOverlay : Overlay
         IoCManager.InjectDependencies(this);
         _debugOverlaySystem = _entitySystemManager.GetEntitySystem<PuddleDebugOverlaySystem>();
         var cache = IoCManager.Resolve<IResourceCache>();
-        _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/IBMPlexMono/IBMPlexMono-Regular.ttf"), 8);
+        _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 8);
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -75,7 +74,7 @@ public sealed class PuddleOverlay : Overlay
             }
         }
 
-        drawHandle.SetTransform(Matrix3.Identity);
+        drawHandle.SetTransform(Matrix3x2.Identity);
     }
 
     private void DrawScreen(in OverlayDrawArgs args)
@@ -101,7 +100,7 @@ public sealed class PuddleOverlay : Overlay
                 if (!gridBounds.Contains(centre))
                     continue;
 
-                var screenCenter = _eyeManager.WorldToScreen(matrix.Transform(centre));
+                var screenCenter = _eyeManager.WorldToScreen(Vector2.Transform(centre, matrix));
 
                 drawHandle.DrawString(_font, screenCenter, debugOverlayData.CurrentVolume.ToString(), Color.White);
             }

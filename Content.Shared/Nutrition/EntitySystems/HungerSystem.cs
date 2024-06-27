@@ -7,6 +7,7 @@ using Content.Shared.Rejuvenate;
 using Content.Shared._White.Mood;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -126,7 +127,7 @@ public sealed class HungerSystem : EntitySystem
         }*/
         //WD end
 
-        if (component.HungerThresholdAlerts.TryGetValue(component.CurrentThreshold, out var alertId))
+        if (component.HungerThresholdAlerts.TryGetValue(component.CurrentThreshold, out AlertType alertId))
         {
             _alerts.ShowAlert(uid, alertId);
         }

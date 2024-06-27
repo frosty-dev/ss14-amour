@@ -5,6 +5,7 @@ using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Mobs.Systems;
 
@@ -212,7 +213,7 @@ public sealed class MobThresholdSystem : EntitySystem
         MobThresholdsComponent? thresholdComponent = null)
     {
         threshold = null;
-        if (!Resolve(target, ref thresholdComponent))
+        if (!Resolve(target, ref thresholdComponent, false))
             return false;
 
         return TryGetThresholdForState(target, MobState.Dead, out threshold, thresholdComponent);
@@ -376,7 +377,7 @@ public sealed class MobThresholdSystem : EntitySystem
         if (!threshold.TriggersAlerts)
             return;
 
-        if (!threshold.StateAlertDict.TryGetValue(currentMobState, out var currentAlert))
+        if (!threshold.StateAlertDict.TryGetValue(currentMobState, out ProtoId<AlertPrototype> currentAlert))
         {
             Log.Error($"No alert alert for mob state {currentMobState} for entity {ToPrettyString(target)}");
             return;
@@ -431,7 +432,7 @@ public sealed class MobThresholdSystem : EntitySystem
     private void MobThresholdShutdown(EntityUid target, MobThresholdsComponent component, ComponentShutdown args)
     {
         if (component.TriggersAlerts)
-            _alerts.ClearAlertCategory(target, AlertCategory.Health);
+            _alerts.ClearAlertCategory(target, component.HealthAlertCategory);
     }
 
     private void OnUpdateMobState(EntityUid target, MobThresholdsComponent component, ref UpdateMobStateEvent args)

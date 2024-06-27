@@ -41,7 +41,7 @@ public abstract class SharedWeatherSystem : EntitySystem
         }
     }
 
-    public bool CanWeatherAffect(
+    public bool CanWeatherAffect(EntityUid gridOwner,
         MapGridComponent grid,
         TileRef tileRef)
     {

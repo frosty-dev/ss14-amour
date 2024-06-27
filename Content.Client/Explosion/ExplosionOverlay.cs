@@ -1,15 +1,12 @@
+using System.Numerics;
 using Content.Shared.Explosion.Components;
 using JetBrains.Annotations;
-using OpenTK.Mathematics;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Box2 = Robust.Shared.Maths.Box2;
-using Vector2 = System.Numerics.Vector2;
-using Vector2i = Robust.Shared.Maths.Vector2i;
 
 namespace Content.Client.Explosion;
 
@@ -51,7 +48,7 @@ public sealed class ExplosionOverlay : Overlay
             DrawExplosion(drawHandle, args.WorldBounds, visuals, index, xforms, textures);
         }
 
-        drawHandle.SetTransform(Matrix3.Identity);
+        drawHandle.SetTransform(Matrix3x2.Identity);
         drawHandle.UseShader(null);
     }
 
@@ -81,7 +78,8 @@ public sealed class ExplosionOverlay : Overlay
         if (visuals.SpaceTiles == null)
             return;
 
-        gridBounds = Matrix3.Invert(visuals.SpaceMatrix).TransformBox(worldBounds).Enlarged(2);
+        Matrix3x2.Invert(visuals.SpaceMatrix, out var invSpace);
+        gridBounds = invSpace.TransformBox(worldBounds).Enlarged(2);
         drawHandle.SetTransform(visuals.SpaceMatrix);
 
         DrawTiles(drawHandle, gridBounds, index, visuals.SpaceTiles, visuals, visuals.SpaceTileSize, textures);

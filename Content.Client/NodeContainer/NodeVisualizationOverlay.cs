@@ -1,6 +1,6 @@
+using System.Numerics;
 using System.Text;
 using Content.Client.Resources;
-using OpenTK.Mathematics;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.ResourceManagement;
@@ -10,9 +10,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using static Content.Shared.NodeContainer.NodeVis;
-using Box2 = Robust.Shared.Maths.Box2;
-using Vector2 = System.Numerics.Vector2;
-using Vector2i = Robust.Shared.Maths.Vector2i;
 
 namespace Content.Client.NodeContainer
 {
@@ -50,7 +47,7 @@ namespace Content.Client.NodeContainer
             _inputManager = inputManager;
             _entityManager = entityManager;
 
-            _font = cache.GetFont("/Fonts/IBMPlexMono/IBMPlexMono-Regular.ttf", 12);
+            _font = cache.GetFont("/Fonts/NotoSans/NotoSans-Regular.ttf", 12);
         }
 
         protected override void Draw(in OverlayDrawArgs args)
@@ -202,7 +199,7 @@ namespace Content.Client.NodeContainer
             }
 
 
-            handle.SetTransform(Matrix3.Identity);
+            handle.SetTransform(Matrix3x2.Identity);
             _gridIndex.Clear();
         }
 

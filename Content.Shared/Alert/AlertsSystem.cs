@@ -1,6 +1,5 @@
 using System.Collections.Frozen;
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared.Buckle.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -132,7 +131,7 @@ public abstract class AlertsSystem : EntitySystem
     /// <summary>
     /// Clear the alert with the given category, if one is currently showing.
     /// </summary>
-    public void ClearAlertCategory(EntityUid euid, ProtoId<AlertCategoryPrototype> category)
+    public void ClearAlertCategory(EntityUid euid, AlertCategory category)
     {
         if(!TryComp(euid, out AlertsComponent? alertsComponent))
             return;
@@ -335,10 +334,5 @@ public abstract class AlertsSystem : EntitySystem
     private void OnPlayerAttached(EntityUid uid, AlertsComponent component, PlayerAttachedEvent args)
     {
         Dirty(uid, component);
-    }
-
-    public void ShowAlert(Entity<BuckleComponent> buckle, AlertType compBuckledAlertType)
-    {
-        throw new NotImplementedException();
     }
 }

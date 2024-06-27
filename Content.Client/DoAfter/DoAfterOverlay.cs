@@ -1,6 +1,6 @@
+using System.Numerics;
 using Content.Shared.DoAfter;
 using Content.Client.UserInterface.Systems;
-using OpenTK.Mathematics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
@@ -8,8 +8,6 @@ using Robust.Client.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Box2 = Robust.Shared.Maths.Box2;
-using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client.DoAfter;
 
@@ -23,6 +21,7 @@ public sealed class DoAfterOverlay : Overlay
     private readonly ProgressColorSystem _progressColor;
 
     private readonly Texture _barTexture;
+    private readonly ShaderInstance _unshadedShader;
 
     /// <summary>
     ///     Flash time for cancelled DoAfters
@@ -35,7 +34,7 @@ public sealed class DoAfterOverlay : Overlay
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
 
-    public DoAfterOverlay(IEntityManager entManager, IGameTiming timing, IPlayerManager player)
+    public DoAfterOverlay(IEntityManager entManager, IPrototypeManager protoManager, IGameTiming timing, IPlayerManager player)
     {
         _entManager = entManager;
         _timing = timing;
@@ -43,8 +42,10 @@ public sealed class DoAfterOverlay : Overlay
         _transform = _entManager.EntitySysManager.GetEntitySystem<SharedTransformSystem>();
         _meta = _entManager.EntitySysManager.GetEntitySystem<MetaDataSystem>();
         _progressColor = _entManager.System<ProgressColorSystem>();
-        var sprite = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/progress_bar.rsi"), "icon");
+        var sprite = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/progress_bar.rsi"), "icon");
         _barTexture = _entManager.EntitySysManager.GetEntitySystem<SpriteSystem>().Frame0(sprite);
+
+        _unshadedShader = protoManager.Index<ShaderPrototype>("unshaded").Instance();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -55,8 +56,8 @@ public sealed class DoAfterOverlay : Overlay
 
         // If you use the display UI scale then need to set max(1f, displayscale) because 0 is valid.
         const float scale = 1f;
-        var scaleMatrix = Matrix3.CreateScale(new Vector2(scale, scale));
-        var rotationMatrix = Matrix3.CreateRotation(-rotation);
+        var scaleMatrix = Matrix3Helpers.CreateScale(new Vector2(scale, scale));
+        var rotationMatrix = Matrix3Helpers.CreateRotation(-rotation);
 
         var curTime = _timing.CurTime;
 
@@ -64,9 +65,7 @@ public sealed class DoAfterOverlay : Overlay
         var localEnt = _player.LocalSession?.AttachedEntity;
 
         var metaQuery = _entManager.GetEntityQuery<MetaDataComponent>();
-        var enumerator = _entManager
-            .AllEntityQueryEnumerator<ActiveDoAfterComponent, DoAfterComponent, SpriteComponent, TransformComponent>();
-
+        var enumerator = _entManager.AllEntityQueryEnumerator<ActiveDoAfterComponent, DoAfterComponent, SpriteComponent, TransformComponent>();
         while (enumerator.MoveNext(out var uid, out _, out var comp, out var sprite, out var xform))
         {
             if (xform.MapID != args.MapId)
@@ -79,15 +78,22 @@ public sealed class DoAfterOverlay : Overlay
             if (!bounds.Contains(worldPosition))
                 continue;
 
+            // shades the do-after bar if the do-after bar belongs to other players
+            // does not shade do-afters belonging to the local player
+            if (uid != localEnt)
+                handle.UseShader(null);
+            else
+                handle.UseShader(_unshadedShader);
+
             // If the entity is paused, we will draw the do-after as it was when the entity got paused.
             var meta = metaQuery.GetComponent(uid);
             var time = meta.EntityPaused
                 ? curTime - _meta.GetPauseTime(uid, meta)
                 : curTime;
 
-            var worldMatrix = Matrix3.CreateTranslation(worldPosition);
-            Matrix3.Multiply(scaleMatrix, worldMatrix, out var scaledWorld);
-            Matrix3.Multiply(rotationMatrix, scaledWorld, out var matty);
+            var worldMatrix = Matrix3Helpers.CreateTranslation(worldPosition);
+            var scaledWorld = Matrix3x2.Multiply(scaleMatrix, worldMatrix);
+            var matty = Matrix3x2.Multiply(rotationMatrix, scaledWorld);
             handle.SetTransform(matty);
 
             var offset = 0f;
@@ -107,7 +113,7 @@ public sealed class DoAfterOverlay : Overlay
 
                 // Use the sprite itself if we know its bounds. This means short or tall sprites don't get overlapped
                 // by the bar.
-                var yOffset = sprite.Bounds.Height / 2f + 0.05f;
+                float yOffset = sprite.Bounds.Height / 2f + 0.05f;
 
                 // Position above the entity (we've already applied the matrix transform to the entity itself)
                 // Offset by the texture size for every do_after we have.
@@ -137,9 +143,7 @@ public sealed class DoAfterOverlay : Overlay
                 }
 
                 var xProgress = (EndX - StartX) * elapsedRatio + StartX;
-                var box = new Box2(new Vector2(StartX, 2f) / EyeManager.PixelsPerMeter,
-                    new Vector2(xProgress, 4f) / EyeManager.PixelsPerMeter);
-
+                var box = new Box2(new Vector2(StartX, 3f) / EyeManager.PixelsPerMeter, new Vector2(xProgress, 4f) / EyeManager.PixelsPerMeter);
                 box = box.Translated(position);
                 handle.DrawRect(box, color);
                 offset += _barTexture.Height / scale;
@@ -147,7 +151,7 @@ public sealed class DoAfterOverlay : Overlay
         }
 
         handle.UseShader(null);
-        handle.SetTransform(Matrix3.Identity);
+        handle.SetTransform(Matrix3x2.Identity);
     }
 
     public Color GetProgressColor(float progress, float alpha = 1f)

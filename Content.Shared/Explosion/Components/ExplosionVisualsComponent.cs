@@ -2,6 +2,7 @@ using OpenTK.Mathematics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
+using Matrix3x2 = System.Numerics.Matrix3x2;
 using Vector2i = Robust.Shared.Maths.Vector2i;
 
 namespace Content.Shared.Explosion.Components;
@@ -17,7 +18,7 @@ public sealed partial class ExplosionVisualsComponent : Component
     public Dictionary<EntityUid, Dictionary<int, List<Vector2i>>> Tiles = new();
     public List<float> Intensity = new();
     public string ExplosionType = string.Empty;
-    public Matrix3 SpaceMatrix;
+    public Matrix3x2 SpaceMatrix;
     public ushort SpaceTileSize;
 }
 
