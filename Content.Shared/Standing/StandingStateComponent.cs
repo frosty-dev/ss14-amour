@@ -5,11 +5,23 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Standing
 {
-    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedStandingStateSystem))]
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+    [Access(typeof(SharedStandingStateSystem))]
     public sealed partial class StandingStateComponent : Component
     {
-        [ViewVariables(VVAccess.ReadWrite), DataField]
-        public SoundSpecifier DownSound { get; private set; } = new SoundCollectionSpecifier("BodyFall");
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
+        public SoundSpecifier? DownSound { get; private set; } = new SoundCollectionSpecifier("BodyFall");
+
+        [DataField, AutoNetworkedField]
+        public bool Standing { get; set; } = true;
+
+        /// <summary>
+        ///     List of fixtures that had their collision mask changed when the entity was downed.
+        ///     Required for re-adding the collision mask.
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        public List<string> ChangedFixtures = new();
 
         [DataField, AutoNetworkedField]
         public StandingState CurrentState { get; set; } = StandingState.Standing; // WD EDIT
@@ -23,14 +35,8 @@ namespace Content.Shared.Standing
         // WD EDIT
         [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
         public bool CanLieDown = false;
-        
-        /// <summary>
-        ///     List of fixtures that had their collision mask changed when the entity was downed.
-        ///     Required for re-adding the collision mask.
-        /// </summary>
-        [DataField, AutoNetworkedField]
-        public List<string> ChangedFixtures = new();
-        
+
+
     }
 }
 
@@ -38,6 +44,7 @@ namespace Content.Shared.Standing
 public sealed class ChangeStandingStateEvent : EntityEventArgs
 {
 }
+
 
 // WD EDIT
 public enum StandingState

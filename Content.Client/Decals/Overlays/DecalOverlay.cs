@@ -1,22 +1,33 @@
+using System.Numerics;
 using Content.Shared.Decals;
-using OpenTK.Mathematics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Enumerators;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Decals.Overlays
 {
-    public sealed class DecalOverlay(
-        SpriteSystem sprites,
-        IEntityManager entManager,
-        IPrototypeManager prototypeManager)
-        : GridOverlay
+    public sealed class DecalOverlay : GridOverlay
     {
+        private readonly SpriteSystem _sprites;
+        private readonly IEntityManager _entManager;
+        private readonly IPrototypeManager _prototypeManager;
+
         private readonly Dictionary<string, (Texture Texture, bool SnapCardinals)> _cachedTextures = new(64);
 
         private readonly List<(uint Id, Decal Decal)> _decals = new();
+
+        public DecalOverlay(
+            SpriteSystem sprites,
+            IEntityManager entManager,
+            IPrototypeManager prototypeManager)
+        {
+            _sprites = sprites;
+            _entManager = entManager;
+            _prototypeManager = prototypeManager;
+        }
 
         protected override void Draw(in OverlayDrawArgs args)
         {
@@ -25,8 +36,8 @@ namespace Content.Client.Decals.Overlays
 
             var owner = Grid.Owner;
 
-            if (!entManager.TryGetComponent(owner, out DecalGridComponent? decalGrid) ||
-                !entManager.TryGetComponent(owner, out TransformComponent? xform))
+            if (!_entManager.TryGetComponent(owner, out DecalGridComponent? decalGrid) ||
+                !_entManager.TryGetComponent(owner, out TransformComponent? xform))
             {
                 return;
             }
@@ -36,7 +47,7 @@ namespace Content.Client.Decals.Overlays
 
             // Shouldn't need to clear cached textures unless the prototypes get reloaded.
             var handle = args.WorldHandle;
-            var xformSystem = entManager.System<TransformSystem>();
+            var xformSystem = _entManager.System<TransformSystem>();
             var eyeAngle = args.Viewport.Eye?.Rotation ?? Angle.Zero;
 
             var gridAABB = xformSystem.GetInvWorldMatrix(xform).TransformBox(args.WorldBounds.Enlarged(1f));
@@ -78,12 +89,12 @@ namespace Content.Client.Decals.Overlays
                 if (!_cachedTextures.TryGetValue(decal.Id, out var cache))
                 {
                     // Nothing to cache someone messed up
-                    if (!prototypeManager.TryIndex<DecalPrototype>(decal.Id, out var decalProto))
+                    if (!_prototypeManager.TryIndex<DecalPrototype>(decal.Id, out var decalProto))
                     {
                         continue;
                     }
 
-                    cache = (sprites.Frame0(decalProto.Sprite), decalProto.SnapCardinals);
+                    cache = (_sprites.Frame0(decalProto.Sprite), decalProto.SnapCardinals);
                     _cachedTextures[decal.Id] = cache;
                 }
 
@@ -103,7 +114,7 @@ namespace Content.Client.Decals.Overlays
                     handle.DrawTexture(cache.Texture, decal.Coordinates, angle, decal.Color);
             }
 
-            handle.SetTransform(Matrix3.Identity);
+            handle.SetTransform(Matrix3x2.Identity);
         }
     }
 }

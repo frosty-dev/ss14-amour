@@ -34,7 +34,7 @@ public abstract class SharedDamageMarkerSystem : EntitySystem
         RemCompDeferred<DamageMarkerComponent>(uid);
         _audio.PlayPredicted(component.Sound, uid, args.User);
 
-        if (TryComp<LeechOnMarkerComponent>(args.Used, out var leech) && !_mobState.IsDead(uid)) // WD EDIT
+        if (TryComp<LeechOnMarkerComponent>(args.Used, out var leech))
         {
             _damageable.TryChangeDamage(args.User, leech.Leech, true, false, origin: args.Used);
         }

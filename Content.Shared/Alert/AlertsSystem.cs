@@ -1,5 +1,6 @@
 using System.Collections.Frozen;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Buckle.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -334,5 +335,10 @@ public abstract class AlertsSystem : EntitySystem
     private void OnPlayerAttached(EntityUid uid, AlertsComponent component, PlayerAttachedEvent args)
     {
         Dirty(uid, component);
+    }
+
+    public void ShowAlert(Entity<BuckleComponent> buckle, AlertType compBuckledAlertType)
+    {
+        throw new NotImplementedException();
     }
 }

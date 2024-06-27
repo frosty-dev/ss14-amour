@@ -1,8 +1,8 @@
 using System.Linq;
+using System.Numerics;
 using Content.Client.Atmos.EntitySystems;
 using Content.Client.Resources;
 using Content.Shared.Atmos;
-using OpenTK.Mathematics;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.ResourceManagement;
@@ -12,9 +12,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using AtmosDebugOverlayData = Content.Shared.Atmos.EntitySystems.SharedAtmosDebugOverlaySystem.AtmosDebugOverlayData;
-using Box2 = Robust.Shared.Maths.Box2;
 using DebugMessage = Content.Shared.Atmos.EntitySystems.SharedAtmosDebugOverlaySystem.AtmosDebugOverlayMessage;
-using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client.Atmos.Overlays;
 
@@ -68,7 +66,7 @@ public sealed class AtmosDebugOverlay : Overlay
             DrawData(msg, handle);
         }
 
-        handle.SetTransform(Matrix3.Identity);
+        handle.SetTransform(Matrix3x2.Identity);
     }
 
     private void DrawData(DebugMessage msg,

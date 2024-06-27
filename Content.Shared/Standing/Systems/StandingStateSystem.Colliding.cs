@@ -1,4 +1,5 @@
-﻿using Content.Shared.Mobs.Systems;
+﻿using Content.Shared._Amour.InteractionPanel;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Systems;

@@ -1,9 +1,9 @@
+using System.Numerics;
 using Content.Client.Atmos.Components;
 using Content.Client.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Prototypes;
-using OpenTK.Mathematics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -14,8 +14,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Box2i = Robust.Shared.Maths.Box2i;
-using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client.Atmos.Overlays
 {
@@ -192,7 +190,7 @@ namespace Content.Client.Atmos.Overlays
 
                     var (_, _, worldMatrix, invMatrix) = gridXform.GetWorldPositionRotationMatrixWithInv();
                     state.drawHandle.SetTransform(worldMatrix);
-                    var floatBounds = invMatrix.TransformBox(in state.WorldBounds).Enlarged(grid.TileSize);
+                    var floatBounds = invMatrix.TransformBox(state.WorldBounds).Enlarged(grid.TileSize);
                     var localBounds = new Box2i(
                         (int) MathF.Floor(floatBounds.Left),
                         (int) MathF.Floor(floatBounds.Bottom),
@@ -251,7 +249,7 @@ namespace Content.Client.Atmos.Overlays
                 });
 
             drawHandle.UseShader(null);
-            drawHandle.SetTransform(Matrix3.Identity);
+            drawHandle.SetTransform(Matrix3x2.Identity);
         }
 
         private void DrawMapOverlay(

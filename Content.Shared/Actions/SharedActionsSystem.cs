@@ -8,6 +8,8 @@ using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mind;
+using Content.Shared.Rejuvenate;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -30,6 +32,7 @@ public abstract class SharedActionsSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly INetManager _net = default!; // WD
 
     public override void Initialize()
@@ -114,7 +117,7 @@ public abstract class SharedActionsSystem : EntitySystem
         bool logError = true)
     {
         result = null;
-        if (!Exists(uid))
+        if (uid == null || TerminatingOrDeleted(uid.Value))
             return false;
 
         var ev = new GetActionDataEvent();
@@ -174,6 +177,27 @@ public abstract class SharedActionsSystem : EntitySystem
             return;
 
         action.Cooldown = (cooldown.Start, GameTiming.CurTime);
+        Dirty(actionId.Value, action);
+    }
+
+    /// <summary>
+    ///     Sets the cooldown for this action only if it is bigger than the one it already has.
+    /// </summary>
+    public void SetIfBiggerCooldown(EntityUid? actionId, TimeSpan? cooldown)
+    {
+        if (cooldown == null ||
+            cooldown.Value <= TimeSpan.Zero ||
+            !TryGetActionData(actionId, out var action))
+        {
+            return;
+        }
+
+        var start = GameTiming.CurTime;
+        var end = start + cooldown;
+        if (action.Cooldown?.End > end)
+            return;
+
+        action.Cooldown = (start, end.Value);
         Dirty(actionId.Value, action);
     }
 
@@ -390,7 +414,7 @@ public abstract class SharedActionsSystem : EntitySystem
                 var targetWorldPos = _transformSystem.GetWorldPosition(entityTarget);
                 _rotateToFaceSystem.TryFaceCoordinates(user, targetWorldPos);
 
-                if (!ValidateEntityTarget(user, entityTarget, entityAction))
+                if (!ValidateEntityTarget(user, entityTarget, (actionEnt, entityAction)))
                     return;
 
                 _adminLogger.Add(LogType.Action,
@@ -414,7 +438,7 @@ public abstract class SharedActionsSystem : EntitySystem
                 var entityCoordinatesTarget = GetCoordinates(netCoordinatesTarget);
                 _rotateToFaceSystem.TryFaceCoordinates(user, entityCoordinatesTarget.ToMapPos(EntityManager, _transformSystem));
 
-                if (!ValidateWorldTarget(user, entityCoordinatesTarget, worldAction))
+                if (!ValidateWorldTarget(user, entityCoordinatesTarget, (actionEnt, worldAction)))
                     return;
 
                 _adminLogger.Add(LogType.Action,
@@ -453,12 +477,22 @@ public abstract class SharedActionsSystem : EntitySystem
         PerformAction(user, component, actionEnt, action, performEvent, curTime);
     }
 
-    public bool ValidateEntityTarget(EntityUid user, EntityUid target, EntityTargetActionComponent action)
+    public bool ValidateEntityTarget(EntityUid user, EntityUid target, Entity<EntityTargetActionComponent> actionEnt)
+    {
+        if (!ValidateEntityTargetBase(user, target, actionEnt))
+            return false;
+
+        var ev = new ValidateActionEntityTargetEvent(user, target);
+        RaiseLocalEvent(actionEnt, ref ev);
+        return !ev.Cancelled;
+    }
+
+    private bool ValidateEntityTargetBase(EntityUid user, EntityUid target, EntityTargetActionComponent action)
     {
         if (!target.IsValid() || Deleted(target))
             return false;
 
-        if (action.Whitelist != null && !action.Whitelist.IsValid(target, EntityManager))
+        if (_whitelistSystem.IsWhitelistFail(action.Whitelist, target))
             return false;
 
         if (action.CheckCanInteract && !_actionBlockerSystem.CanInteract(user, target))
@@ -483,16 +517,20 @@ public abstract class SharedActionsSystem : EntitySystem
             return distance <= action.Range;
         }
 
-        if (_interactionSystem.InRangeUnobstructed(user, target, range: action.Range)
-            && _containerSystem.IsInSameOrParentContainer(user, target))
-        {
-            return true;
-        }
-
-        return _interactionSystem.CanAccessViaStorage(user, target);
+        return _interactionSystem.InRangeAndAccessible(user, target, range: action.Range);
     }
 
-    public bool ValidateWorldTarget(EntityUid user, EntityCoordinates coords, WorldTargetActionComponent action)
+    public bool ValidateWorldTarget(EntityUid user, EntityCoordinates coords, Entity<WorldTargetActionComponent> action)
+    {
+        if (!ValidateWorldTargetBase(user, coords, action))
+            return false;
+
+        var ev = new ValidateActionWorldTargetEvent(user, coords);
+        RaiseLocalEvent(action, ref ev);
+        return !ev.Cancelled;
+    }
+
+    private bool ValidateWorldTargetBase(EntityUid user, EntityCoordinates coords, WorldTargetActionComponent action)
     {
         if (action.CheckCanInteract && !_actionBlockerSystem.CanInteract(user, null))
             return false;
@@ -540,19 +578,12 @@ public abstract class SharedActionsSystem : EntitySystem
             handled = actionEvent.Handled;
         }
 
-        if (action.AlwaysPlaySound) // WD EDIT
-        {
-            _audio.PlayPredicted(action.Sound, performer,predicted ? performer : null);
-            handled |= action.Sound != null;
-        }
-
         if (!handled)
             return; // no interaction occurred.
 
-        if (!action.AlwaysPlaySound) // WD
-            _audio.PlayPvs(action.Sound, performer);
+        // play sound, reduce charges, start cooldown, and mark as dirty (if required).
 
-        // reduce charges, start cooldown, and mark as dirty (if required).
+        _audio.PlayPredicted(action.Sound, performer,predicted ? performer : null);
 
         var dirty = toggledBefore == action.Toggled;
 
@@ -561,17 +592,7 @@ public abstract class SharedActionsSystem : EntitySystem
             dirty = true;
             action.Charges--;
             if (action is { Charges: 0, RenewCharges: false })
-            {
                 action.Enabled = false;
-            }
-
-            // WD START
-            if (action is {Charges: 0, RemoveOnNoCharges: true})
-            {
-                RaiseLocalEvent(performer, new ActionGettingRemovedEvent {Action = actionId});
-                RemoveAction(performer, actionId, component, action);
-            }
-            // WD END
         }
 
         action.Cooldown = null;
@@ -585,13 +606,15 @@ public abstract class SharedActionsSystem : EntitySystem
 
         if (dirty && component != null)
             Dirty(performer, component);
+
+        var ev = new ActionPerformedEvent(performer);
+        RaiseLocalEvent(actionId, ref ev);
     }
     #endregion
 
     #region AddRemoveActions
 
-    public EntityUid? AddAction(
-        EntityUid performer,
+    public EntityUid? AddAction(EntityUid performer,
         string? actionPrototypeId,
         EntityUid container = default,
         ActionsComponent? component = null)
@@ -610,8 +633,7 @@ public abstract class SharedActionsSystem : EntitySystem
     /// <param name="component">The <see cref="performer"/>'s action component of </param>
     /// <param name="actionPrototypeId">The action entity prototype id to use if <see cref="actionId"/> is invalid.</param>
     /// <param name="container">The entity that contains/enables this action (e.g., flashlight).</param>
-    public bool AddAction(
-        EntityUid performer,
+    public bool AddAction(EntityUid performer,
         [NotNullWhen(true)] ref EntityUid? actionId,
         string? actionPrototypeId,
         EntityUid container = default,
@@ -621,8 +643,7 @@ public abstract class SharedActionsSystem : EntitySystem
     }
 
     /// <inheritdoc cref="AddAction(Robust.Shared.GameObjects.EntityUid,ref System.Nullable{Robust.Shared.GameObjects.EntityUid},string?,Robust.Shared.GameObjects.EntityUid,Content.Shared.Actions.ActionsComponent?)"/>
-    public bool AddAction(
-        EntityUid performer,
+    public bool AddAction(EntityUid performer,
         [NotNullWhen(true)] ref EntityUid? actionId,
         [NotNullWhen(true)] out BaseActionComponent? action,
         string? actionPrototypeId,
@@ -641,8 +662,7 @@ public abstract class SharedActionsSystem : EntitySystem
     /// <summary>
     ///     Adds a pre-existing action.
     /// </summary>
-    public bool AddAction(
-        EntityUid performer,
+    public bool AddAction(EntityUid performer,
         EntityUid actionId,
         EntityUid container,
         ActionsComponent? comp = null,
@@ -668,8 +688,7 @@ public abstract class SharedActionsSystem : EntitySystem
     ///     Adds a pre-existing action. This also bypasses the requirement that the given action must be stored in a
     ///     valid action container.
     /// </summary>
-    public bool AddActionDirect(
-        EntityUid performer,
+    public bool AddActionDirect(EntityUid performer,
         EntityUid actionId,
         ActionsComponent? comp = null,
         BaseActionComponent? action = null)
@@ -708,8 +727,6 @@ public abstract class SharedActionsSystem : EntitySystem
     /// <param name="performer">Entity to receive the actions</param>
     /// <param name="actions">The actions to add</param>
     /// <param name="container">The entity that enables these actions (e.g., flashlight). May be null (innate actions).</param>
-    /// <param name="comp">ActionsComponent.</param>
-    /// <param name="containerComp">ActionContainerComponent.</param>
     public void GrantActions(EntityUid performer, IEnumerable<EntityUid> actions, EntityUid container, ActionsComponent? comp = null, ActionsContainerComponent? containerComp = null)
     {
         if (!Resolve(container, ref containerComp))
@@ -858,7 +875,7 @@ public abstract class SharedActionsSystem : EntitySystem
         Dirty(actionId.Value, action);
         Dirty(performer, comp);
         ActionRemoved(performer, actionId.Value, comp, action);
-        if (action.Temporary && (!_net.IsClient || action.ClientExclusive)) // WD EDIT
+        if (action.Temporary)
             QueueDel(actionId.Value);
     }
 

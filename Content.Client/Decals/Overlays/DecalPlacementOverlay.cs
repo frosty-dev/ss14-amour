@@ -1,11 +1,9 @@
-using OpenTK.Mathematics;
+using System.Numerics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
-using Box2 = Robust.Shared.Maths.Box2;
-using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client.Decals.Overlays;
 
@@ -53,7 +51,7 @@ public sealed class DecalPlacementOverlay : Overlay
         var handle = args.WorldHandle;
         handle.SetTransform(worldMatrix);
 
-        var localPos = invMatrix.Transform(mousePos.Position);
+        var localPos = Vector2.Transform(mousePos.Position, invMatrix);
 
         if (snap)
         {
@@ -65,6 +63,6 @@ public sealed class DecalPlacementOverlay : Overlay
         var box = new Box2Rotated(aabb, rotation, localPos);
 
         handle.DrawTextureRect(_sprite.Frame0(decal.Sprite), box, color);
-        handle.SetTransform(Matrix3.Identity);
+        handle.SetTransform(Matrix3x2.Identity);
     }
 }
