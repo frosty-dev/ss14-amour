@@ -3,14 +3,11 @@ using Content.Shared.Actions;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs;
-using Content.Shared.Store;
 using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
-using Robust.Shared.Player;
 
 namespace Content.Shared.Implants;
 
@@ -20,7 +17,6 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!; // WD
 
     public const string BaseStorageId = "storagebase";
 
@@ -76,16 +72,6 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
         if (component.ImplantAction != null)
             _actionsSystem.RemoveProvidedActions(component.ImplantedEntity.Value, uid);
 
-        // WD EDIT START
-        if (_tag.HasTag(uid, "MindShield") &&
-            _container.TryGetContainer(component.ImplantedEntity.Value, ImplanterComponent.ImplantSlotId,
-                out var implantContainer) &&
-            implantContainer.ContainedEntities.All(x => !_tag.HasTag(x, "MindShield")))
-        {
-            RemCompDeferred<MindShieldComponent>(component.ImplantedEntity.Value);
-        }
-        // WD EDIT END
-
         if (!_container.TryGetContainer(uid, BaseStorageId, out var storageImplant))
             return;
 
@@ -131,15 +117,13 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
     /// <param name="target">The entity to be implanted</param>
     /// <param name="implant"> The implant</param>
     /// <param name="component">The implant component</param>
-    /// <param name="containerForce">Should we force inserting in container</param>
-    public void ForceImplant(EntityUid target, EntityUid implant, SubdermalImplantComponent component, bool containerForce = false)
+    public void ForceImplant(EntityUid target, EntityUid implant, SubdermalImplantComponent component)
     {
         //If the target doesn't have the implanted component, add it.
         var implantedComp = EnsureComp<ImplantedComponent>(target);
         var implantContainer = implantedComp.ImplantContainer;
 
         component.ImplantedEntity = target;
-        RaiseLocalEvent(implant, new SubdermalImplantInserted(target, target, component));
         _container.Insert(implant, implantContainer);
     }
 
@@ -190,51 +174,6 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
             RaiseLocalEvent(implant, relayEv);
         }
     }
-
-    //Miracle edit
-
-    /// <summary>
-    /// Transfers all implants from one entity to another.
-    /// </summary>
-    /// <remarks>
-    /// This method transfers all implants from a donor entity to a recipient entity.
-    /// Implants are moved from the donor's implant container to the recipient's implant container.
-    /// </remarks>
-    /// <param name="donor">The entity from which implants will be transferred.</param>
-    /// <param name="recipient">The entity to which implants will be transferred.</param>
-    public void TransferImplants(EntityUid donor, EntityUid recipient)
-    {
-        // Check if the donor has an ImplantedComponent, indicating the presence of implants
-        if (!TryComp<ImplantedComponent>(donor, out var donorImplanted))
-            return;
-
-        // Get the implant containers for both the donor and recipient entities
-        var donorImplantContainer = donorImplanted.ImplantContainer;
-
-        // Get all implants from the donor's implant container
-        var donorImplants = donorImplantContainer.ContainedEntities.ToArray();
-
-        // Transfer each implant from the donor to the recipient
-        foreach (var donorImplant in donorImplants)
-        {
-            // Check for any conditions or filters before transferring (if needed)
-            // For instance, verifying if the recipient can receive specific implants, etc.
-
-            // Remove the implant from the donor's implant container
-            _container.Remove(donorImplant, donorImplantContainer, force: true);
-
-            if(!TryComp<SubdermalImplantComponent>(donorImplant, out var subdermal))
-                return;
-
-            // Insert the implant into the recipient's implant container
-            ForceImplant(recipient, donorImplant, subdermal, true);
-
-            if (TryComp(recipient, out ActorComponent? actor))
-                _ui.TryClose(donorImplant, StoreUiKey.Key, actor.PlayerSession);
-        }
-    }
-
-    //Miracle edit end
 }
 
 public sealed class ImplantRelayEvent<T> where T : notnull
