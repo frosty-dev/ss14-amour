@@ -1,9 +1,9 @@
-using System.Numerics;
 using Content.Client.Atmos.Components;
 using Content.Client.Atmos.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Atmos.Prototypes;
+using OpenTK.Mathematics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
@@ -14,6 +14,8 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Box2i = Robust.Shared.Maths.Box2i;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client.Atmos.Overlays
 {

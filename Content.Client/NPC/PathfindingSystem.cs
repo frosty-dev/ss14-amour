@@ -1,7 +1,7 @@
 using System.Linq;
-using System.Numerics;
 using System.Text;
 using Content.Shared.NPC;
+using OpenTK.Mathematics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -11,6 +11,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Box2 = Robust.Shared.Maths.Box2;
+using Vector2 = System.Numerics.Vector2;
+using Vector2i = Robust.Shared.Maths.Vector2i;
 
 namespace Content.Client.NPC
 {

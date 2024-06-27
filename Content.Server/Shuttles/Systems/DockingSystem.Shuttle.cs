@@ -1,11 +1,13 @@
 using System.Linq;
-using System.Numerics;
 using Content.Server.Shuttles.Components;
+using OpenTK.Mathematics;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Components;
+using Box2 = Robust.Shared.Maths.Box2;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Server.Shuttles.Systems;
 

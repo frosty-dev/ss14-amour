@@ -3,12 +3,14 @@ using Content.Server.Singularity.Components;
 using Content.Server.Stunnable;
 using Content.Shared.Ghost;
 using Content.Shared.Singularity.EntitySystems;
+using OpenTK.Mathematics;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
+using MathHelper = Robust.Shared.Maths.MathHelper;
 
 namespace Content.Server.Singularity.EntitySystems;
 

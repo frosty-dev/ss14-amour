@@ -1,15 +1,16 @@
 using System.Diagnostics.CodeAnalysis;
-using System.Numerics;
 using Content.Shared.Access.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Roles;
+using OpenTK.Mathematics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client._White.EntityJobInfo;
 

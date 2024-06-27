@@ -3,9 +3,10 @@ using Content.Shared.StatusIcon.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
-using System.Numerics;
+using OpenTK.Mathematics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client.StatusIcon;
 

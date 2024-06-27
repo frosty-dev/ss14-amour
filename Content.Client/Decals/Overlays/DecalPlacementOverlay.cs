@@ -1,9 +1,11 @@
-using System.Numerics;
+using OpenTK.Mathematics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
+using Box2 = Robust.Shared.Maths.Box2;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client.Decals.Overlays;
 

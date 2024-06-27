@@ -1,7 +1,9 @@
 using Content.Shared.Shuttles.Events;
 using Content.Shared.Shuttles.Systems;
+using OpenTK.Mathematics;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
+using Box2 = Robust.Shared.Maths.Box2;
 
 namespace Content.Client.Shuttles.Systems;
 

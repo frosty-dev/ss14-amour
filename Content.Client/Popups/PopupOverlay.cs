@@ -1,4 +1,5 @@
 using Content.Shared.Examine;
+using OpenTK.Mathematics;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared;

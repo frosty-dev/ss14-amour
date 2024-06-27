@@ -1,7 +1,8 @@
-using System.Numerics;
 using Content.Shared.Salvage;
+using OpenTK.Mathematics;
 using Robust.Client.Graphics;
 using Robust.Shared.Utility;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client.Overlays;
 

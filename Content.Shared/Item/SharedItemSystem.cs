@@ -5,10 +5,14 @@ using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Storage;
 using JetBrains.Annotations;
+using OpenTK.Mathematics;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Box2 = Robust.Shared.Maths.Box2;
+using Box2i = Robust.Shared.Maths.Box2i;
+using Vector2i = Robust.Shared.Maths.Vector2i;
 
 namespace Content.Shared.Item;
 

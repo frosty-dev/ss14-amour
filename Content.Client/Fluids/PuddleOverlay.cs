@@ -1,9 +1,11 @@
 ﻿using Content.Shared.FixedPoint;
+using OpenTK.Mathematics;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Box2 = Robust.Shared.Maths.Box2;
 
 namespace Content.Client.Fluids;
 

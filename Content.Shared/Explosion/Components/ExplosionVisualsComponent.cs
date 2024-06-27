@@ -1,6 +1,8 @@
+using OpenTK.Mathematics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
+using Vector2i = Robust.Shared.Maths.Vector2i;
 
 namespace Content.Shared.Explosion.Components;
 

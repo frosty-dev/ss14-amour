@@ -1,12 +1,15 @@
-using System.Numerics;
 using System.Threading.Tasks;
 using Content.Shared.Decals;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonGenerators;
+using OpenTK.Mathematics;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Box2i = Robust.Shared.Maths.Box2i;
+using Vector2 = System.Numerics.Vector2;
+using Vector2i = Robust.Shared.Maths.Vector2i;
 
 namespace Content.Server.Procedural;
 

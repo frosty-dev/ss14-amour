@@ -1,8 +1,10 @@
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
+using OpenTK.Mathematics;
 using Robust.Server.GameObjects;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Vector2i = Robust.Shared.Maths.Vector2i;
 
 namespace Content.Server.Explosion.EntitySystems;
 

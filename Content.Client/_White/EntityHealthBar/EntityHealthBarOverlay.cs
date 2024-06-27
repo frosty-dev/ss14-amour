@@ -1,14 +1,16 @@
-using System.Numerics;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using OpenTK.Mathematics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Box2 = Robust.Shared.Maths.Box2;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client._White.EntityHealthBar;
 

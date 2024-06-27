@@ -1,6 +1,6 @@
-using System.Numerics;
 using System.Text;
 using Content.Client.Resources;
+using OpenTK.Mathematics;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.ResourceManagement;
@@ -10,6 +10,9 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using static Content.Shared.NodeContainer.NodeVis;
+using Box2 = Robust.Shared.Maths.Box2;
+using Vector2 = System.Numerics.Vector2;
+using Vector2i = Robust.Shared.Maths.Vector2i;
 
 namespace Content.Client.NodeContainer
 {

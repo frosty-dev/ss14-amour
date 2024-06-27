@@ -1,7 +1,8 @@
-using System.Numerics;
+using OpenTK.Mathematics;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 using Direction = Robust.Shared.Maths.Direction;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client.UserInterface.Controls;
 

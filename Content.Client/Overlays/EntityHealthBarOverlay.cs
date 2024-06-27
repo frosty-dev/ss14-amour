@@ -6,12 +6,14 @@ using Content.Shared.Mobs.Systems;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
-using System.Numerics;
 using Content.Client.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Content.Client.UserInterface.Systems;
+using OpenTK.Mathematics;
 using Robust.Shared.Prototypes;
 using static Robust.Shared.Maths.Color;
+using Box2 = Robust.Shared.Maths.Box2;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client.Overlays;
 

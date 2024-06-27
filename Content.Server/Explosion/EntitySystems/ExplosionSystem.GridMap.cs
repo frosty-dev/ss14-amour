@@ -1,9 +1,12 @@
-using System.Numerics;
 using Content.Shared.Atmos;
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
+using OpenTK.Mathematics;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Box2 = Robust.Shared.Maths.Box2;
+using Vector2 = System.Numerics.Vector2;
+using Vector2i = Robust.Shared.Maths.Vector2i;
 
 namespace Content.Server.Explosion.EntitySystems;
 

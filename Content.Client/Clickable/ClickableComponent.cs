@@ -1,10 +1,13 @@
-using System.Numerics;
+using OpenTK.Mathematics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Utility;
 using Robust.Shared.Graphics;
 using static Robust.Client.GameObjects.SpriteComponent;
+using Box2 = Robust.Shared.Maths.Box2;
 using Direction = Robust.Shared.Maths.Direction;
+using Vector2 = System.Numerics.Vector2;
+using Vector2i = Robust.Shared.Maths.Vector2i;
 
 namespace Content.Client.Clickable
 {

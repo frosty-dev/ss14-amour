@@ -1,4 +1,5 @@
 using Content.Shared.Decals;
+using OpenTK.Mathematics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Map;

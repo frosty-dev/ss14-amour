@@ -1,8 +1,11 @@
-using System.Numerics;
 using Content.Shared.Weather;
+using OpenTK.Mathematics;
 using Robust.Client.Graphics;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
+using Box2 = Robust.Shared.Maths.Box2;
+using Vector2 = System.Numerics.Vector2;
+using Vector2i = Robust.Shared.Maths.Vector2i;
 
 namespace Content.Client.Overlays;
 

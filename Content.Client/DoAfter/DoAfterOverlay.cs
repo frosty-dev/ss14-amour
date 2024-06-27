@@ -1,6 +1,6 @@
-using System.Numerics;
 using Content.Shared.DoAfter;
 using Content.Client.UserInterface.Systems;
+using OpenTK.Mathematics;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
@@ -8,6 +8,8 @@ using Robust.Client.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Box2 = Robust.Shared.Maths.Box2;
+using Vector2 = System.Numerics.Vector2;
 
 namespace Content.Client.DoAfter;
 
