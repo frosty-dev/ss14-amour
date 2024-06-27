@@ -31,7 +31,7 @@ public sealed partial class HallucinationsComponent : Component
     /// Max spawn chance per humanoid
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MaxChance = 0.8f;
+    public float MaxChance = 100f;
 
     /// <summary>
     /// How much chance increased per spawn
