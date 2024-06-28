@@ -43,10 +43,10 @@
       visible: false
     - map: [ "underwearb" ] #White
     - map: [ "underweart" ] #White
-    - map: ["jumpsuit"]
     - map: [ "enum.HumanoidVisualLayers.LFoot" ]
     - map: [ "enum.HumanoidVisualLayers.RFoot" ]
     - map: [ "socks" ] #White
+    - map: ["jumpsuit"]
     - map: ["enum.HumanoidVisualLayers.LHand"]
     - map: ["enum.HumanoidVisualLayers.RHand"]
     - map: [ "gloves" ]
@@ -146,6 +146,7 @@
     - KnockedDown
     - SlowedDown
     - Stutter
+    - BloodLoss
     - SeeingRainbows
     - Electrocution
     - Drunk
@@ -309,6 +310,7 @@
     - KnockedDown
     - SlowedDown
     - Stutter
+    - BloodLoss
     - SeeingRainbows
     - Electrocution
     - ForcedSleep
