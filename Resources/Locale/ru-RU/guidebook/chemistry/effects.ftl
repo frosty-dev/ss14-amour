@@ -321,3 +321,15 @@ reagent-effect-guidebook-missing =
         [1] Causes
        *[other] cause
     } an unknown effect as nobody has written this effect yet
+
+#Amour
+reagent-effect-guidebook-sex-change =
+    { $chance ->
+    [1] Делает
+    *[other] делает
+        } метаболизатор меняет пол
+reagent-effect-guidebook-gender-change =
+    { $chance ->
+    [1] Делает
+    *[other] делает
+        } метаболизатор меняет пол

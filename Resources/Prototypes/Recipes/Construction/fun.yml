@@ -8,3 +8,26 @@
   description: An air horn made from bananium.
   icon: { sprite: Objects/Fun/bananiumhorn.rsi, state: icon }
   objectType: Item
+
+- type: reaction
+  id: EstrogenPlus
+  reactants:
+    Testosterone:
+      amount: 1
+    Estrogen:
+      amount: 1
+  products:
+    EstrogenPlus: 1
+
+# Terraria gender swap potion reference? teheh
+- type: reaction
+  id: EstrogenPlusFlower
+  reactants:
+    Bicaridine:
+      amount: 1
+    Siderlac:
+      amount: 1
+    PolypyryliumOligomers:
+      amount: 1
+  products:
+    EstrogenPlus: 1
