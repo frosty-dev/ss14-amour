@@ -158,6 +158,8 @@
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
+    - RadiationProtection
+    - Drowsiness
   - type: Reflect
     enabled: false
     reflectProb: 0
