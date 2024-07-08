@@ -37,3 +37,6 @@ health-analyzer-window-damage-group-Genetic = Генетические:
 health-analyzer-window-damage-type-Cellular = Клеточные:
 
 health-analyzer-window-malnutrition = Тяжёлое недоедание
+
+#Amour
+health-analyzer-popup-scan-target = {CAPITALIZE(THE($user))} пытается вас просканировать!
