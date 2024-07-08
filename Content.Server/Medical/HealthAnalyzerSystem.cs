@@ -90,7 +90,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         });
 
         //Amour
-        var msg = Loc.GetString("health-analyzer-popup-scan-target", ("user", Identity.Entity(args.User, EntityManager)));sa
+        var msg = Loc.GetString("health-analyzer-popup-scan-target", ("user", Identity.Entity(args.User, EntityManager)));
         _popupSystem.PopupEntity(msg, args.Target.Value, args.Target.Value, PopupType.Medium);
     }
 
