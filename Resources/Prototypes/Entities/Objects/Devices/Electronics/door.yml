@@ -13,13 +13,13 @@
         - DroneUsable
     - type: DoorElectronics
     - type: StaticPrice
-      price: 55
+      price: 50
     - type: AccessReader
     - type: ActivatableUI
       key: enum.DoorElectronicsConfigurationUiKey.Key
       allowedItems:
         tags:
-        - Multitool
+        - DoorElectronicsConfigurator
     - type: UserInterface
       interfaces:
       - key: enum.DoorElectronicsConfigurationUiKey.Key
