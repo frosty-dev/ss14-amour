@@ -4,6 +4,7 @@ using Content.Server.Database;
 using Content.Shared._Amour.RoleplayInfo;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Preferences.Loadouts.Effects;
@@ -59,8 +60,10 @@ namespace Content.IntegrationTests.Tests.Preferences
                     "Shaved",
                     Color.Aquamarine,
                     Color.Azure,
-                    Color.Beige,128,
-                    new (), new() //AMOUR
+                    Color.Beige,
+                    128,
+                    new (),
+                    new() //AMOUR
                 ),
                 SpawnPriorityPreference.None,
                 new Dictionary<string, JobPriority>
@@ -70,8 +73,8 @@ namespace Content.IntegrationTests.Tests.Preferences
                 PreferenceUnavailableMode.StayInLobby,
                 new List<string> (),
                 new List<string>(),
-                new Dictionary<string, RoleLoadout>(),
-                new Dictionary<string, RoleplayInfo>() //AMOUR
+                new Dictionary<string, RoleplayInfo>(), //AMOUR
+                new Dictionary<string, RoleLoadout>()
             );
         }
 

@@ -282,8 +282,8 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToList(),
                 traits.ToList(),
-                loadouts,
-                roleplayInfo
+                roleplayInfo,
+                loadouts
             );
         }
 

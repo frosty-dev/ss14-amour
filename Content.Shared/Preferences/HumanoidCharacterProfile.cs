@@ -139,7 +139,8 @@ namespace Content.Shared.Preferences
             PreferenceUnavailableMode preferenceUnavailable,
             IReadOnlyList<string> antagPreferences,
             IReadOnlyList<string> traitPreferences,
-            Dictionary<string, RoleLoadout> loadouts, IReadOnlyDictionary<string, RoleplayInfo> roleplayInfoData)
+            IReadOnlyDictionary<string, RoleplayInfo> roleplayInfoData,
+            Dictionary<string, RoleLoadout> loadouts)
             : this(name,
                 clownName,
                 mimeName,
@@ -157,8 +158,8 @@ namespace Content.Shared.Preferences
                 preferenceUnavailable,
                 new List<string>(antagPreferences),
                 new List<string>(traitPreferences),
-                new Dictionary<string, RoleLoadout>(loadouts),
-                new Dictionary<string, RoleplayInfo>(roleplayInfoData))
+                new Dictionary<string, RoleplayInfo>(roleplayInfoData),
+                new Dictionary<string, RoleLoadout>(loadouts))
         {
         }
 
