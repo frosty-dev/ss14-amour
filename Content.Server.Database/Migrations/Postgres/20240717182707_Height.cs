@@ -5,7 +5,7 @@
 namespace Content.Server.Database.Migrations.Postgres
 {
     /// <inheritdoc />
-    public partial class HeightPrikoli : Migration
+    public partial class Height : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
