@@ -5,6 +5,8 @@ using Content.Shared._Amour.RoleplayInfo;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
+using Content.Shared.Preferences.Loadouts;
+using Content.Shared.Preferences.Loadouts.Effects;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Robust.Shared.Configuration;
@@ -60,8 +62,6 @@ namespace Content.IntegrationTests.Tests.Preferences
                     Color.Beige,128,
                     new (), new() //AMOUR
                 ),
-                ClothingPreference.Jumpskirt,
-                BackpackPreference.Backpack,
                 SpawnPriorityPreference.None,
                 new Dictionary<string, JobPriority>
                 {
@@ -70,7 +70,8 @@ namespace Content.IntegrationTests.Tests.Preferences
                 PreferenceUnavailableMode.StayInLobby,
                 new List<string> (),
                 new List<string>(),
-                new Dictionary<string, RoleplayInfo>() //AMOUR
+                new Dictionary<string, RoleplayInfo>(), //AMOUR
+                new Dictionary<string, RoleLoadout>()
             );
         }
 
