@@ -162,14 +162,14 @@
                                     </prefUi:HighlightedContainer>
                                 </BoxContainer>
                                 <!-- Height -->
-                                <BoxContainer HorizontalExpand="True" Orientation="Vertical" Name="HeightContainer">
+                                <!--BoxContainer HorizontalExpand="True" Orientation="Vertical" Name="HeightContainer">
                                     <Label Text="{Loc 'humanoid-profile-editor-height-label'}" />
                                     <Slider HorizontalExpand="True" Name="CHeight" MinValue="0" MaxValue="255" Value="1"/>
                                     <BoxContainer Orientation="Horizontal">
                                         <Label Name="CHeightInformation"/>
                                         <Button Name="ResetHeightButton" Text="{Loc 'height-reset'}"/>
                                     </BoxContainer>
-                                </BoxContainer>
+                                </-->
                                 <!-- Skin -->
                                 <prefUi:HighlightedContainer>
                                     <BoxContainer HorizontalExpand="True" Orientation="Vertical">
@@ -193,7 +193,7 @@
                                     </BoxContainer>
                                 </prefUi:HighlightedContainer>
                                 <!-- AMOUR -->
-                                <humanoidProfileEditorExt:GenitalBoxView Name="GenitalBoxView"/>
+                                <!--humanoidProfileEditorExt:GenitalBoxView Name="GenitalBoxView"/-->
                             </BoxContainer>
                         </ScrollContainer>
                     </BoxContainer>
