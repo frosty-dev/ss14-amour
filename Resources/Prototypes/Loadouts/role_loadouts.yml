@@ -10,6 +10,7 @@
   - CaptainJumpsuit
   - CaptainBackpack
   - CaptainOuterClothing
+  - CaptainGloves # WD
   - CaptainShoes
   - CaptainPDA # WD
   - Trinkets
@@ -172,6 +173,7 @@
   - MimeJumpsuit
   - MimeBackpack
   - MimeOuterClothing
+  - MimeGloves # WD
   - CommonShoes # WD
   - MimePDA
   - Trinkets
@@ -204,13 +206,14 @@
   - CommonGloves # WD
   - QuartermasterShoes
   - QuartermasterPDA # WD
+  - CommonCargoJobTrinkets
   - Trinkets
 
 - type: roleLoadout
   id: JobCargoTechnician
   groups:
   - CargoTechnicianHead
-  - CommonCargoEars # WD
+  - CommonCargoHeadset # WD
   - CommonGlasses # WD
   - CargoTechnicianJumpsuit
   - CargoTechnicianBackpack
@@ -218,6 +221,7 @@
   - CommonGloves # WD
   - CargoTechnicianShoes
   - CargoTechnicianPDA
+  - CommonCargoJobTrinkets
   - Trinkets
 
 - type: roleLoadout
@@ -434,6 +438,7 @@
   - DetectiveOuterClothing
   - DetectiveGloves
   - DetectiveShoes
+  - DetectivePDA # WD
   - Trinkets
 
 - type: roleLoadout
@@ -584,6 +589,7 @@
   - CommonGlasses # WD
   - ZookeeperJumpsuit # WD
   - CommonBackpack
+  - CommonShoes # WD
   - ZookeeperPDA # WD
   - Trinkets
 
@@ -597,6 +603,7 @@
   - ReporterJumpsuit
   - CommonGloves # WD
   - CommonBackpack
+  - CommonShoes # WD
   - ReporterPDA # WD
   - Trinkets
 
