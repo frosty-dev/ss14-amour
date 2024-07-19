@@ -159,7 +159,8 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out _, out var wizardRule, out _))
         {
-            AddRole(mindId, mind, wizardRule);
+            if (!AddRole(mindId, mind, wizardRule))
+                return;
 
             if (mind.Session is not { } playerSession)
                 return;
@@ -171,10 +172,10 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         }
     }
 
-    private void AddRole(EntityUid mindId, MindComponent mind, WizardRuleComponent wizardRule)
+    private bool AddRole(EntityUid mindId, MindComponent mind, WizardRuleComponent wizardRule)
     {
         if (_roles.MindHasRole<WizardRoleComponent>(mindId))
-            return;
+            return false;
 
         wizardRule.WizardMinds.Add(mindId);
 
@@ -182,6 +183,8 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         _roles.MindAddRole(mindId, new WizardRoleComponent {PrototypeId = role});
 
         GiveObjectives(mindId, mind, wizardRule);
+
+        return true;
     }
 
     private void GiveObjectives(EntityUid mindId, MindComponent mind, WizardRuleComponent wizardRule)
@@ -280,30 +283,35 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
     private HumanoidCharacterProfile SetupWizardEntity(
         EntityUid mob,
         StartingGearPrototype gear,
-        bool endRoundOnDeath)
+        bool endRoundOnDeath,
+        bool randomPtofile = true)
     {
         EnsureComp<WizardComponent>(mob, out var component);
         component.EndRoundOnDeath = endRoundOnDeath;
         EnsureComp<GlobalAntagonistComponent>(mob).AntagonistPrototype = "globalAntagonistWizard";
 
-        var random = IoCManager.Resolve<IRobustRandom>();
-        var profile = HumanoidCharacterProfile.RandomWithSpecies().WithAge(random.Next(component.MinAge, component.MaxAge));
+        if (randomPtofile)
+        {
+            var random = IoCManager.Resolve<IRobustRandom>();
+            var profile = HumanoidCharacterProfile.RandomWithSpecies()
+                .WithAge(random.Next(component.MinAge, component.MaxAge));
 
-        var color = Color.FromHex(GetRandom(component.Color, "#B5B8B1"));
-        var hair = GetRandom(component.Hair, "HumanHairAfricanPigtails");
-        var facialHair = GetRandom(component.FacialHair, "HumanFacialHairAbe");
-        profile = profile.WithCharacterAppearance(
-            profile.WithCharacterAppearance(
+            var color = Color.FromHex(GetRandom(component.Color, "#B5B8B1"));
+            var hair = GetRandom(component.Hair, "HumanHairAfricanPigtails");
+            var facialHair = GetRandom(component.FacialHair, "HumanFacialHairAbe");
+            profile = profile.WithCharacterAppearance(
                 profile.WithCharacterAppearance(
-                    profile.WithCharacterAppearance(
-                        profile.Appearance.WithHairStyleName(hair))
-                        .Appearance.WithFacialHairStyleName(facialHair))
-                    .Appearance.WithHairColor(color))
-                .Appearance.WithFacialHairColor(color));
+                        profile.WithCharacterAppearance(
+                                profile.WithCharacterAppearance(
+                                        profile.Appearance.WithHairStyleName(hair))
+                                    .Appearance.WithFacialHairStyleName(facialHair))
+                            .Appearance.WithHairColor(color))
+                    .Appearance.WithFacialHairColor(color));
 
-        _humanoid.LoadProfile(mob, profile);
+            _humanoid.LoadProfile(mob, profile);
 
-        _metaData.SetEntityName(mob, GetRandom(component.Name, ""));
+            _metaData.SetEntityName(mob, GetRandom(component.Name, ""));
+        }
 
         _stationSpawning.EquipStartingGear(mob, gear);
 

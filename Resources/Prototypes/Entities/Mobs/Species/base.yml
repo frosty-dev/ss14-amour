@@ -279,6 +279,7 @@
   - type: InteractionPanel
     actionListPrototype: Humanoid
   - type: RoleplayInfo
+  - type: OfferItem # WD-EDIT
 
 - type: entity
   save: false
