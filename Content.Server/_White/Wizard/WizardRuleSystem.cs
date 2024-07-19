@@ -21,6 +21,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Server.Administration.Commands;
 using Content.Server.Objectives;
 using Content.Server.Station.Components;
 using Content.Server.StationEvents.Components;
@@ -280,7 +281,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         return true;
     }
 
-    private HumanoidCharacterProfile SetupWizardEntity(
+    private void SetupWizardEntity(
         EntityUid mob,
         StartingGearPrototype gear,
         bool endRoundOnDeath,
@@ -318,7 +319,6 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         _npcFaction.RemoveFaction(mob, "NanoTrasen", false);
         _npcFaction.AddFaction(mob, "Wizard");
 
-        return profile;
     }
 
     private EntityCoordinates WizardSpawnPoint(WizardRuleComponent component)
@@ -375,7 +375,8 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
                 return;
             }
 
-            var name = SetupWizardEntity(mob, gear, true).Name;
+            SetupWizardEntity(mob, gear, true);
+            var name = !TryComp<MetaDataComponent>(mob, out var meta) || meta.EntityName == "" ? "" : meta.EntityName;
 
             var newMind = _mind.CreateMind(session.UserId, name);
             _mind.SetUserId(newMind, session.UserId);
@@ -468,7 +469,14 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
             return false;
         }
 
-        SetupWizardEntity(wizard, gear, false);
+        if (!SpawnMap((wizard, rule)))
+        {
+            _sawmill.Info("Failed to load shuttle for wizard");
+            return false;
+        }
+
+        SetupWizardEntity(wizard, gear, false, false);
+        SetOutfitCommand.SetOutfit(wizard, gear.ID, EntityManager);
 
         var spawnpoint = WizardSpawnPoint(rule);
         var transform = EnsureComp<TransformComponent>(wizard);
