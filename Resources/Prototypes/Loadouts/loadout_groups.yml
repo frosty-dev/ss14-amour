@@ -56,6 +56,7 @@
   loadouts:
   - CaptainCloak
   - CaptainCloakFormal
+  - CaptainCloakLuxurious # WD
   - CaptainMantle
 
 - type: loadoutGroup
@@ -161,7 +162,6 @@
   id: CommonCommandHeadset
   name: loadout-group-ears
   loadouts:
-  - CommandHeadset
   - CommandHeadsetAlt
 
 # Civilian
@@ -767,7 +767,6 @@
   id: QuartermasterHeadset
   name: loadout-group-ears
   loadouts:
-  - QuartermasterHeadset
   - QuartermasterHeadsetAlt
 
 - type: loadoutGroup
@@ -985,8 +984,16 @@
   id: ChiefEngineerHeadset
   name: loadout-group-ears
   loadouts:
-  - ChiefEngineerHeadset
   - ChiefEngineerHeadsetAlt
+
+- type: loadoutGroup
+  id: ChiefEngineerNeck
+  name: loadout-group-neck
+  minLimit: 0
+  loadouts:
+  - ChiefEngineerCloak
+  - ChiefEngineerCloakLuxurious # WD
+  - ChiefEngineerMantle
 
 - type: loadoutGroup
   id: ChiefEngineerJumpsuit
@@ -1005,14 +1012,6 @@
   - ChiefEngineerSatchel
   - ChiefEngineerDuffel
   - CommonSatchelLeather # WD
-
-- type: loadoutGroup
-  id: ChiefEngineerNeck
-  name: loadout-group-neck
-  minLimit: 0
-  loadouts:
-  - ChiefEngineerCloak
-  - ChiefEngineerMantle
 
 - type: loadoutGroup
   id: ChiefEngineerOuterClothing
@@ -1180,6 +1179,7 @@
   loadouts:
   - ResearchDirectorMantle
   - ResearchDirectorCloak
+  - ResearchDirectorCloakLuxurious # WD
 
 - type: loadoutGroup
   id: ResearchDirectorJumpsuit
@@ -1224,7 +1224,6 @@
   id: ResearchDirectorHeadset
   name: loadout-group-ears
   loadouts:
-  - ResearchDirectorHeadset
   - ResearchDirectorHeadsetAlt
 
 - type: loadoutGroup
@@ -1604,6 +1603,12 @@
   loadouts:
   - SecurityCommandHeadset
 
+- type: loadoutGroup # WD
+  id: CommonSecurityHeadsetFull
+  name: loadout-group-ears
+  loadouts:
+  - SecurityHeadsetFull
+
 - type: loadoutGroup
   id: CommonSecurityBackpack
   name: loadout-group-backpack
@@ -1636,10 +1641,9 @@
   - CowboyWhite
 
 - type: loadoutGroup # WD
-  id: ChiefMedicalOfficerEars
+  id: ChiefMedicalOfficerHeadset
   name: loadout-group-ears
   loadouts:
-  - CMOHeadset
   - CMOHeadsetAlt
 
 - type: loadoutGroup
@@ -2029,9 +2033,7 @@
   id: InspectorBackpack
   name: loadout-group-backpack
   loadouts:
-  - InspectorBackpack
   - InspectorSatchel
-  - InspectorDuffel
   - CommonSatchelLeather
 
 - type: loadoutGroup # WD
