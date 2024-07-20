@@ -312,13 +312,12 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
             _humanoid.LoadProfile(mob, profile);
 
             _metaData.SetEntityName(mob, GetRandom(component.Name, ""));
-        }
 
-        _stationSpawning.EquipStartingGear(mob, gear);
+            _stationSpawning.EquipStartingGear(mob, gear);
+        }
 
         _npcFaction.RemoveFaction(mob, "NanoTrasen", false);
         _npcFaction.AddFaction(mob, "Wizard");
-
     }
 
     private EntityCoordinates WizardSpawnPoint(WizardRuleComponent component)
