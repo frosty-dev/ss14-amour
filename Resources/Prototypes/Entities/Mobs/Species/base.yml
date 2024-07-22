@@ -273,7 +273,6 @@
   - type: ExaminableClothes
   - type: CharacterInformation
   - type: Penetrated
-  - type: Mood
   - type: HoleContainer
   - type: Arousal
   - type: InteractionPanel
