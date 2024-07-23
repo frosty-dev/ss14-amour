@@ -1,0 +1,84 @@
+- type: entity
+  id: BaseBulletShinanoGranade
+  name: base shinano granade
+  abstract: true
+  components:
+  - type: MovedByPressure
+  - type: FlyBySound
+  - type: Clickable
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3  # fite me
+        friction: 0.2
+  - type: DeleteOnTrigger
+  - type: Physics
+    bodyType: Dynamic
+  - type: TimedDespawn
+    lifetime: 10
+  - type: TriggerOnLand
+
+- type: entity
+  id: ShinanoBulletGrenadeFlash
+  name: flash shinano grenade
+  parent: BaseBulletShinanoGranade
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: FlashOnTrigger
+    range: 3
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+
+- type: entity
+  id: ShinanoBulletGrenadeSmoke
+  name: smoke shinano grenade
+  parent: BaseBulletShinanoGranade
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: SmokeOnTrigger
+    duration: 10
+    spreadAmount: 30
+    smokePrototype: SmokeTear
+    solution:
+      reagents:
+      - ReagentId: TearGas
+        Quantity: 50
+  - type: SoundOnTrigger
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+
+- type: entity
+  id: ShinanoBulletGrenadeBeanbag
+  name: beanbag shinano grenade
+  noSpawn: true
+  parent: [BaseBullet, BaseBulletTrail]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 15
+  - type: StaminaDamageOnCollide
+    ignoreResistances: true
+    damage: 80
