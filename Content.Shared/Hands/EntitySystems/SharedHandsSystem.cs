@@ -227,9 +227,17 @@ public abstract partial class SharedHandsSystem
         return true;
     }
 
-    public bool IsHolding(EntityUid uid, EntityUid? entity, [NotNullWhen(true)] out Hand? inHand, HandsComponent? handsComp = null)
+    public bool IsHolding(Entity<HandsComponent?> entity, [NotNullWhen(true)] EntityUid? item)
+    {
+        return IsHolding(entity, item, out _, entity);
+    }
+
+    public bool IsHolding(EntityUid uid, [NotNullWhen(true)] EntityUid? entity, [NotNullWhen(true)] out Hand? inHand, HandsComponent? handsComp = null)
     {
         inHand = null;
+        if (entity == null)
+            return false;
+
         if (!Resolve(uid, ref handsComp, false))
             return false;
 
@@ -241,7 +249,6 @@ public abstract partial class SharedHandsSystem
                 return true;
             }
         }
-
         return false;
     }
 

@@ -67,7 +67,6 @@
   - CaptainBackpack
   - CaptainSatchel
   - CaptainDuffel
-  - CaptainDuffel
   - CommonSatchelLeather # WD
 
 - type: loadoutGroup
@@ -374,8 +373,11 @@
 - type: loadoutGroup # WD edit
   id: ChaplainJobTrinkets
   name: loadout-group-job-trinkets
+  minLimit: 2
+  maxLimit: 2
   loadouts:
   - ArmamentsBeacon
+  - Bible
 
 - type: loadoutGroup
   id: ChaplainPDA
@@ -1589,12 +1591,6 @@
   loadouts:
   - BlackTie
   - RedTie
-
-- type: loadoutGroup # WD
-  id: CommonSecurityHeadset
-  name: loadout-group-ears
-  loadouts:
-  - SecurityHeadset
 
 - type: loadoutGroup # WD
   id: CommonSecurityCommandHeadset

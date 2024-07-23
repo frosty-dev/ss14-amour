@@ -267,3 +267,5 @@ ComfyChairEngineering: OrangeComfyChair
 ComfyChairScience: PurpleComfyChair
 ComfyChairCargo: BrownComfyChair
 ComfyChairService: GreenComfyChair
+
+BoxTrashbag: TrashBag

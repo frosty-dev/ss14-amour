@@ -201,16 +201,31 @@ namespace Content.Shared.Preferences
         }
 
         // TODO: This should eventually not be a visual change only.
-        public static HumanoidCharacterProfile Random(HashSet<string>? ignoredSpecies = null)
+        public static HumanoidCharacterProfile Random(HashSet<string>? ignoredSpecies = null, bool includeSponsor = false)
         {
             var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
             var random = IoCManager.Resolve<IRobustRandom>();
 
+            // WD edit - fix free sponsor species
+            var speciesToIgnore = ignoredSpecies != null
+                ? new HashSet<string>(ignoredSpecies)
+                : new HashSet<string>();
+
+            if (!includeSponsor)
+            {
+                var sponsorSpecies = prototypeManager.EnumeratePrototypes<SpeciesPrototype>()
+                    .Where(x => x.SponsorOnly)
+                    .Select(x => x.ID);
+
+                speciesToIgnore.UnionWith(sponsorSpecies);
+            }
+
             var species = random.Pick(prototypeManager
                 .EnumeratePrototypes<SpeciesPrototype>()
-                .Where(x => ignoredSpecies == null ? x.RoundStart : x.RoundStart && !ignoredSpecies.Contains(x.ID))
+                .Where(x => !x.SponsorOnly && x.RoundStart && !speciesToIgnore.Contains(x.ID))
                 .ToArray()
             ).ID;
+            // WD edit end
 
             return RandomWithSpecies(species);
         }

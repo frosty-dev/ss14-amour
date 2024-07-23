@@ -195,6 +195,15 @@
     back:
     - ArmamentsBeacon
 
+- type: itemLoadout # WD
+  id: Bible
+  equipment: Bible
+- type: startingGear
+  id: Bible
+  storage:
+    back:
+    - Bible
+
 # PDA
 
 - type: itemLoadout # WD
