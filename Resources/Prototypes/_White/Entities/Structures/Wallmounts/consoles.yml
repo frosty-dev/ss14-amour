@@ -1,7 +1,7 @@
 # Base structure
 - type: entity
-  id: BaseStructureWallMountConsole
   parent: BaseStructure
+  id: BaseStructureWallMountConsole
   abstract: true
   components:
   - type: Physics
@@ -139,8 +139,8 @@
 
 # Frame
 - type: entity
-  id: ComputerWallFrame
   parent: BaseStructureWallMountConsole
+  id: ComputerWallFrame
   name: рамка настенной консоли
   description: Рамка для сборки настенной консоли.
   components:
@@ -162,8 +162,8 @@
 
 # Salvage console
 - type: entity
-  id: SalvageConsoleWallMount
   parent: BaseWallConsole
+  id: SalvageConsoleWallMount
   name: настенная консоль экспедиций
   description: Настенная версия консоли экспедиций.
   components:
@@ -203,8 +203,8 @@
 
 # Order console
 - type: entity
-  id: OrdersConsoleWallMount
   parent: BaseWallConsole
+  id: OrdersConsoleWallMount
   name: настенная консоль заказа грузов
   description: Настенная консоли заказа грузов.
   components:
@@ -255,8 +255,8 @@
 
 # MassMedia console
 - type: entity
-  id: MassMediaConsoleWallMount
   parent: BaseWallConsole
+  id: MassMediaConsoleWallMount
   name: настенная консоль СМИ
   description: Настенная версия новостной консоли.
   components:
@@ -295,8 +295,8 @@
 
 # Radar console
 - type: entity
-  id: RadarConsoleWallMount
   parent: BaseWallConsole
+  id: RadarConsoleWallMount
   name: настенный сканер масс
   description: Настенная версия консоли сканера массы.
   components:
@@ -333,8 +333,8 @@
 
 # Power console
 - type: entity
-  id: PowerConsoleWallMount
   parent: BaseWallConsole
+  id: PowerConsoleWallMount
   name: настенная консоль контроля питания
   description: Настенная версия консоли контроля питания.
   components:

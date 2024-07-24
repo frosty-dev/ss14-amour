@@ -1,7 +1,7 @@
 - type: entity
-  name: арбалет
   parent: BaseItem
   id: WeaponPoweredCrossbow
+  name: арбалет
   description: Опасная штука, страшная вещь.
   components:
   - type: Sprite
@@ -66,9 +66,9 @@
     node: crossbow
 
 - type: entity
-  name: часть арбалета
   parent: BaseItem
   id: WeaponPoweredCrossbowUnfinished
+  name: часть арбалета
   description: Недоделанный арбалет.
   components:
   - type: Sprite

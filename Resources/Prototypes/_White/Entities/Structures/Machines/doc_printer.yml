@@ -1,7 +1,7 @@
 # Base Document Printer
 - type: entity
-  id: BaseDocPrinter
   parent: BaseMachinePowered
+  id: BaseDocPrinter
   abstract: true
   name: принтер
   components:

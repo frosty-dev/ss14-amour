@@ -1,0 +1,67 @@
+# BASE CARDS
+
+- type: entity
+  parent: BaseItem
+  id: BaseCard
+  abstract: true
+  name: карта
+  description: Игральная карта.
+  components:
+    - type: Item
+      size: Small
+    - type: SpawnItemsOnUse
+      sound:
+        path: /Audio/Effects/unwrap.ogg
+    - type: Tag
+      tags:
+        - Card
+
+- type: entity
+  parent: BaseCard
+  id: BaseCardDiamonds
+  abstract: true
+  components:
+    - type: Sprite
+      sprite: Objects/Fun/Cards/diamonds.rsi
+
+- type: entity
+  parent: BaseCard
+  id: BaseCardSpades
+  abstract: true
+  components:
+    - type: Sprite
+      sprite: Objects/Fun/Cards/spades.rsi
+
+- type: entity
+  parent: BaseCard
+  id: BaseCardHearts
+  abstract: true
+  components:
+    - type: Sprite
+      sprite: Objects/Fun/Cards/hearts.rsi
+
+- type: entity
+  parent: BaseCard
+  id: BaseCardClubs
+  abstract: true
+  components:
+    - type: Sprite
+      sprite: Objects/Fun/Cards/clubs.rsi
+
+- type: entity
+  parent: BaseItem
+  id: BaseCardUnknown
+  abstract: true
+  name: неизвестная карта
+  description: Скрывает неизвестную карту.
+  components:
+    - type: Sprite
+      sprite: Objects/Fun/Cards/Other.rsi
+      state: Unknown
+      sound:
+        path: /Audio/Effects/unwrap.ogg
+    - type: Item
+      size: Small
+    - type: Tag
+      tags:
+        - Card

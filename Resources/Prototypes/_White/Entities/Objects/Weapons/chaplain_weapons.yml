@@ -1,7 +1,7 @@
 - type: entity
-  name: жезл нулификации
   parent: BaseItem
   id: NullRod
+  name: жезл нулификации
   description: Жезл из чистого обсидиана. Само его присутствие разрушает и ослабляет "магические силы". Во всяком случае так написано в путеводителе.
   components:
   - type: Sprite
@@ -46,9 +46,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: божья длань
   parent: BaseItem
   id: GodHand
+  name: божья длань
   description: Эта рука сияет с потрясающей силой!
   components:
   - type: Sprite
@@ -72,9 +72,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: священный клеймор
   parent: Claymore
   id: HolyClaymore
+  name: священный клеймор
   description: Оружие, подходящее для крестового похода!
   components:
   - type: Sprite
@@ -94,9 +94,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: цепной меч
   parent: HolyClaymore
   id: Chainsword
+  name: цепной меч
   description: Не позволь еретику жить.
   components:
   - type: Sprite
@@ -115,9 +115,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: силовой меч
   parent: HolyClaymore
   id: SwordGlowing
+  name: силовой меч
   description: Клинок светится силой веры. Или, возможно, благодаря аккумулятору.
   components:
   - type: Sprite
@@ -133,9 +133,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: лезвие ханзо
   parent: Katana
   id: HolyKatana
+  name: лезвие ханзо
   description: Способен прорезать святой клеймор.
   components:
   - type: Sprite
@@ -151,9 +151,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: внепространственный клинок
   parent: HolyKatana
   id: MultiverseBlade
+  name: внепространственный клинок
   description: Будучи когда-то предвестником межпространственной войны, его острота сильно колеблется. Наносит от 1 до 50 урона.
   components:
   - type: Sprite
@@ -173,9 +173,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: коса жнеца
   parent: HolyClaymore
   id: VorpalScythe
+  name: коса жнеца
   description: И жрец, и жнец, и на дуде игрец! Коса способна пробить броню противника.
   components:
   - type: Sprite
@@ -195,9 +195,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: одержимый клинок
   parent: HolyKatana
   id: PossessedBlade
+  name: одержимый клинок
   description: Когда на станции царит хаос, приятно иметь рядом друга.
   components:
   - type: Sprite
@@ -221,9 +221,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: рука-бензопила
   parent: BaseItem
   id: ChainsawHand
+  name: рука-бензопила
   description: Добро? Зло? Ты парень с бензопилой в руке.
   components:
   - type: Sharp
@@ -254,9 +254,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: священная плеть
   parent: BaseItem
   id: HolyWhip
+  name: священная плеть
   description: Какая ужасная ночь на космической станции 14.
   components:
   - type: Sprite
@@ -280,9 +280,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: посох монаха
   parent: BaseItem
   id: HolyStaff
+  name: посох монаха
   description: Длинный высокий посох из полированного дерева. Традиционно используемый в боевых искусствах древней Земли, теперь он используется для преследования клоуна.
   components:
   - type: Sprite
@@ -312,9 +312,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: нечестивые вилы
   parent: BaseItem
   id: UnholyPitchfork
+  name: нечестивые вилы
   description: Держа это, ты выглядишь абсолютно по дьявольски.
   components:
   - type: EmbeddableProjectile
@@ -371,9 +371,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: реликтовый боевой молот
   parent: BaseItem
   id: WarHammer
+  name: реликтовый боевой молот
   description: Этот боевой молот обошелся священнику в сорок тысяч кредитов.
   components:
   - type: Sprite
@@ -403,9 +403,9 @@
   - type: HolyWeapon
 
 - type: entity
-  name: гиперинструмент
   parent: BaseItem
   id: HyperTool
+  name: гиперинструмент
   description: Инструмент настолько мощный, что даже вы не можете им идеально пользоваться.
   components:
   - type: Sprite

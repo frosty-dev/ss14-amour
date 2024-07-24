@@ -1,0 +1,12 @@
+- type: entity
+  id: ActionReleaseBees
+  name: changeling-ability-bees
+  description: changeling-ability-bees-desc
+  noSpawn: true
+  components:
+    - type: InstantAction
+      itemIconStyle: NoItem
+      icon: { sprite: White/Clothing/Head/hive.rsi, state: icon }
+      event: !type:ReleaseBeesEvent
+      checkCanInteract: false
+      useDelay: 30

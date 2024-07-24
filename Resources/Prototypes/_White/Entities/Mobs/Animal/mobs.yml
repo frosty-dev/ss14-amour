@@ -1,0 +1,9 @@
+- type: entity
+  parent: MobAngryBee
+  id: MobTemporaryAngryBee
+  components:
+    - type: TimedDespawn
+      lifetime: 25.0
+    - type: NpcFactionMember
+      factions:
+      - Changeling

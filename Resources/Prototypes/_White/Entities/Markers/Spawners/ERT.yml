@@ -1,6 +1,6 @@
 - type: entity
-  id: SpawnPointEventBase
   parent: MarkerBase
+  id: SpawnPointEventBase
   abstract: true
   suffix: Event Spawn
   components:
@@ -9,8 +9,8 @@
       sprite: Markers/jobs.rsi
 
 - type: entity
-  id: SpawnPointERTEventERTLeader
   parent: SpawnPointEventBase
+  id: SpawnPointERTEventERTLeader
   name: ERTLeader
   components:
     - type: GhostRecruitmentSpawnPoint
@@ -23,8 +23,8 @@
         - state: ertleader
 
 - type: entity
-  id: SpawnPointERTEventERTLeaderEVA
   parent: SpawnPointEventBase
+  id: SpawnPointERTEventERTLeaderEVA
   name: ERTLeaderEVA
   components:
     - type: GhostRecruitmentSpawnPoint
@@ -37,8 +37,8 @@
         - state: ertleadereva
 
 - type: entity
-  id: SpawnPointERTEventERTJanitor
   parent: SpawnPointEventBase
+  id: SpawnPointERTEventERTJanitor
   name: ERTJanitor
   components:
     - type: GhostRecruitmentSpawnPoint
@@ -50,8 +50,8 @@
         - state: ertjanitor
 
 - type: entity
-  id: SpawnPointERTEventERTJanitorEVA
   parent: SpawnPointEventBase
+  id: SpawnPointERTEventERTJanitorEVA
   name: ERTJanitorEVA
   components:
     - type: GhostRecruitmentSpawnPoint
@@ -63,8 +63,8 @@
         - state: ertjanitoreva
 
 - type: entity
-  id: SpawnPointERTEventERTEngineer
   parent: SpawnPointEventBase
+  id: SpawnPointERTEventERTEngineer
   name: ERTEngineer
   components:
     - type: GhostRecruitmentSpawnPoint
@@ -77,8 +77,8 @@
         - state: ertengineer
 
 - type: entity
-  id: SpawnPointERTEventERTEngineerEVA
   parent: SpawnPointEventBase
+  id: SpawnPointERTEventERTEngineerEVA
   name: ERTEngineerEVA
   components:
     - type: GhostRecruitmentSpawnPoint
@@ -91,8 +91,8 @@
         - state: ertengineereva
 
 - type: entity
-  id: SpawnPointERTEventERTSecurity
   parent: SpawnPointEventBase
+  id: SpawnPointERTEventERTSecurity
   name: ERTSecurity
   components:
     - type: GhostRecruitmentSpawnPoint
@@ -105,8 +105,8 @@
         - state: ertsecurity
 
 - type: entity
-  id: SpawnPointERTEventERTSecurityEVA
   parent: SpawnPointEventBase
+  id: SpawnPointERTEventERTSecurityEVA
   name: ERTSecurityEVA
   components:
     - type: GhostRecruitmentSpawnPoint
@@ -119,8 +119,8 @@
         - state: ertsecurityeva
 
 - type: entity
-  id: SpawnPointERTEventERTMedical
   parent: SpawnPointEventBase
+  id: SpawnPointERTEventERTMedical
   name: ERTMedical
   components:
     - type: GhostRecruitmentSpawnPoint
@@ -133,8 +133,8 @@
         - state: ertmedical
 
 - type: entity
-  id: SpawnPointERTEventERTMedicalEVA
   parent: SpawnPointEventBase
+  id: SpawnPointERTEventERTMedicalEVA
   name: ERTMedicalEVA
   components:
     - type: GhostRecruitmentSpawnPoint

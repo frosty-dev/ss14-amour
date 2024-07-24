@@ -1,38 +1,6 @@
 - type: entity
-  id: SmokeImplanter
-  parent: BaseImplantOnlyImplanterSyndi
-  suffix: smoke
-  components:
-  - type: Implanter
-    implant: SmokeImplant
-
-- type: entity
-  id: HardlightSpearImplanter
-  parent: BaseImplantOnlyImplanterSyndi
-  suffix: hardlight spear
-  components:
-  - type: Implanter
-    implant: HardlightSpearImplant
-
-- type: entity
-  id: MindSlaveImplanter
-  parent: BaseImplantOnlyImplanterSyndi
-  suffix: mindslave
-  components:
-  - type: Implanter
-    implant: MindslaveImplant
-
-- type: entity
-  id: NeuroStabilizationImplanter
-  parent: BaseImplantOnlyImplanterSyndi
-  suffix: neuro stabilization
-  components:
-  - type: Implanter
-    implant: NeuroStabilizationImplant
-
-- type: entity
-  id: ImplanterSyndi
   parent: Implanter
+  id: ImplanterSyndi
   description: A compact disposable syringe exclusively designed for the injection and extraction of subdermal implants.
   components:
     - type: Item
@@ -42,3 +10,35 @@
     - type: Implanter
       drawTime: 2
       implantTime: 2
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: SmokeImplanter
+  suffix: smoke
+  components:
+  - type: Implanter
+    implant: SmokeImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: HardlightSpearImplanter
+  suffix: hardlight spear
+  components:
+  - type: Implanter
+    implant: HardlightSpearImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: MindSlaveImplanter
+  suffix: mindslave
+  components:
+  - type: Implanter
+    implant: MindslaveImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: NeuroStabilizationImplanter
+  suffix: neuro stabilization
+  components:
+  - type: Implanter
+    implant: NeuroStabilizationImplant
