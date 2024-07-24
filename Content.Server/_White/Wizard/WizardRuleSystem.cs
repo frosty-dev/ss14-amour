@@ -439,7 +439,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         if (HasComp<WizardComponent>(uid))
             return;
 
-        MakeWizard(uid, rule, true);
+        MakeWizard(uid, rule);
     }
 
     private bool MakeWizard(EntityUid wizard, WizardRuleComponent rule,
@@ -468,7 +468,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
             return false;
         }
 
-        if (!SpawnMap((wizard, rule)))
+        if (!SpawnMap((rule.Owner, rule)))
         {
             _sawmill.Info("Failed to load shuttle for wizard");
             return false;

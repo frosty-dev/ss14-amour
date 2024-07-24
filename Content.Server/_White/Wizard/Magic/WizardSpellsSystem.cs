@@ -20,6 +20,7 @@ using Content.Server.Mind;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Standing;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._White.Antag;
 using Content.Shared._White.BetrayalDagger;
 using Content.Shared._White.Cult.Components;
 using Content.Shared._White.Events;
@@ -184,6 +185,7 @@ public sealed class WizardSpellsSystem : EntitySystem
         SwapComponent<HeadRevolutionaryComponent>(uid, target);
         SwapComponent<PentagramComponent>(uid, target);
         SwapComponent<CultistComponent>(uid, target);
+        SwapComponent<GlobalAntagonistComponent>(uid, target);
 
         _mindSystem.TransferTo(mindId, target, mind: mind);
 
@@ -194,6 +196,10 @@ public sealed class WizardSpellsSystem : EntitySystem
         }
 
         TransferAllMagicActions(uid, target);
+
+        // This is bad, but EnsureComp cant copy variables
+        if (TryComp<GlobalAntagonistComponent>(target, out var globalAntagonistComponent))
+            globalAntagonistComponent.AntagonistPrototype = "globalAntagonistWizard";
 
         _standing.TryLieDown(uid);
         _standing.TryLieDown(target);
@@ -947,24 +953,26 @@ public sealed class WizardSpellsSystem : EntitySystem
         }
     }
 
-    private void SwapComponent<T>(EntityUid uid1, EntityUid uid2) where T : Component, new()
+    private void SwapComponent<T>(EntityUid uidFrom, EntityUid uidTo) where T : Component, new()
     {
-        var hasComp = HasComp<T>(uid1);
-        var targetHasComp = HasComp<T>(uid2);
+        var hasComp = HasComp<T>(uidFrom);
+        var targetHasComp = HasComp<T>(uidTo);
 
         if (hasComp == targetHasComp)
             return;
 
         if (hasComp)
         {
-            EnsureComp<T>(uid2);
-            RemComp<T>(uid1);
+            EnsureComp<T>(uidTo);
+            RemComp<T>(uidFrom);
+
+            return;
         }
 
-        if (targetHasComp)
+        if (!targetHasComp)
         {
-            EnsureComp<T>(uid1);
-            RemComp<T>(uid2);
+            EnsureComp<T>(uidFrom);
+            RemComp<T>(uidTo);
         }
     }
 

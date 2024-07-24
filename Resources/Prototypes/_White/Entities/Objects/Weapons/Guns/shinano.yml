@@ -1,0 +1,37 @@
+- type: entity
+  name: Shinano
+  parent: BaseItem
+  id: WeaponLauncherShinano
+  description: A single-shot grenade launcher, which is equipped with colonial police, security units and mercenaries wherever there is a Nanotrain influence. He is notorious among picketers and revolutionaries, as BLUP is the first thing they hear before violence begins.
+  components:
+  - type: Sprite
+    sprite: White/Objects/Weapons/Guns/Launchers/shinano-icons.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    sprite: White/Objects/Weapons/Guns/Launchers/shinano-inhands.rsi
+  - type: Clothing
+    sprite: White/Objects/Weapons/Guns/Launchers/shinano-inhands.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    projectileSpeed: 15
+    projectileSpeedModified: 15
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - ShinanoGrenade
+    capacity: 1
+    proto: ShinanoGrenadeFlash
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+    autoCycle: false
