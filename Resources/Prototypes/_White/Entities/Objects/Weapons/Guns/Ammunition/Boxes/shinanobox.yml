@@ -1,0 +1,50 @@
+- type: entity
+  parent: BaseAmmoProvider
+  id: BaseShinanoGrenadeAmmoProvider
+  abstract: true
+  components:
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      whitelist:
+        tags:
+        - ShinanoGrenade
+      capacity: 4
+
+- type: entity
+  name: shinano grenade flash dispenser
+  parent: BaseShinanoGrenadeAmmoProvider
+  id: BoxShinanoGrenadeFlash
+  description: A dispenser box full of flash grenade, designed for Shinano.
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShinanoGrenadeFlash
+    - type: Sprite
+      layers:
+        - state: boxwide
+        - state: shellflash
+
+- type: entity
+  name: shinano grenade smoke dispenser
+  parent: BaseShinanoGrenadeAmmoProvider
+  id: BoxShinanoGrenadeSmoke
+  description: A dispenser box full of smoke grenade, designed for Shinano.
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShinanoGrenadeSmoke
+    - type: Sprite
+      layers:
+        - state: boxwide
+        - state: shellflare
+
+- type: entity
+  name: shinano grenade beanbag dispenser
+  parent: BaseShinanoGrenadeAmmoProvider
+  id: BoxShinanoGrenadeBeanbag
+  description: A dispenser box full of beanbag grenade, designed for Shinano.
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShinanoGrenadeBeanbag
+    - type: Sprite
+      layers:
+        - state: boxwide
+        - state: shellbeanbag

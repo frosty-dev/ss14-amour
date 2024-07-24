@@ -522,7 +522,7 @@
   desc: reagent-desc-tear-gas
   physicalDesc: reagent-physical-desc-milky
   flavor: salty
-  color: "#96a8b5"
+  color: "#B54B3BBA"
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:

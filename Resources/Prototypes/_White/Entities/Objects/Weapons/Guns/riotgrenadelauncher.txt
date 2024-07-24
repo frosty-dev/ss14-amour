@@ -1,5 +1,0 @@
-- type: entity
-  name: BaseWeaponLauncher
-  parent: BaseItem
-  id: BaseWeaponLauncher
-  description: A rooty tooty point and shooty.

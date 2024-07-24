@@ -462,6 +462,9 @@ namespace Content.Server.Ghost
                 if (HasComp<GlobalAntagonistComponent>(entity))
                     continue;
 
+                if (TryComp<InvisibilityComponent>(entity, out var invisibilityComponent) && invisibilityComponent.Invisible)
+                    continue;
+
                 var playerDepartmentId = _prototypeManager.Index<DepartmentPrototype>("Specific").ID;
                 var playerJobName = "Неизвестно";
 
