@@ -83,6 +83,9 @@
   id: DoorjackUsable
 
 - type: Tag
+  id: ShinanoGrenade
+
+- type: Tag
   id: Card
 
 - type: Tag
