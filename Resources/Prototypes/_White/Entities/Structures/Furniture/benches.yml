@@ -1,11 +1,11 @@
 # Base benches
 - type: entity
-  name: bench
-  id: BenchBaseMiddle
-  suffix: Middle
-  abstract: true
   parent: SeatBase
+  id: BenchBaseMiddle
+  abstract: true
+  name: bench
   description: Multiple seats spanning a single object. Truly a marvel of science.
+  suffix: Middle
   components:
   - type: Physics
     bodyType: Static
@@ -17,207 +17,207 @@
 
 # Park benches
 - type: entity
-  name: park bench
-  id: BenchParkMiddle
   parent: BenchBaseMiddle
+  id: BenchParkMiddle
+  name: park bench
   components:
   - type: Sprite
     sprite: White/Structures/Furniture/Benches/parkbench_wooden.rsi
 
 - type: entity
+  parent: BenchParkMiddle
   id: BenchParkLeft
   suffix: Left
-  parent: BenchParkMiddle
   components:
   - type: Sprite
     state: left
 
 - type: entity
+  parent: BenchParkMiddle
   id: BenchParkRight
   suffix: Right
-  parent: BenchParkMiddle
   components:
   - type: Sprite
     state: right
 
 # Bamboo benches
 - type: entity
-  name: park bench
-  id: BenchParkBambooMiddle
   parent: BenchBaseMiddle
+  id: BenchParkBambooMiddle
+  name: park bench
   components:
   - type: Sprite
     sprite: White/Structures/Furniture/Benches/parkbench_bamboo.rsi
 
 - type: entity
+  parent: BenchParkBambooMiddle
   id: BenchParkBambooLeft
   suffix: Left
-  parent: BenchParkBambooMiddle
   components:
   - type: Sprite
     state: left
 
 - type: entity
+  parent: BenchParkBambooMiddle
   id: BenchParkBambooRight
   suffix: Right
-  parent: BenchParkBambooMiddle
   components:
   - type: Sprite
     state: right
 
 # Pews
 - type: entity
-  name: pew
-  id: BenchPewMiddle
   parent: BenchBaseMiddle
+  id: BenchPewMiddle
+  name: pew
   components:
   - type: Sprite
     sprite: White/Structures/Furniture/Benches/pews.rsi
 
 - type: entity
+  parent: BenchPewMiddle
   id: BenchPewLeft
   suffix: Left
-  parent: BenchPewMiddle
   components:
   - type: Sprite
     state: left
 
 - type: entity
+  parent: BenchPewMiddle
   id: BenchPewRight
   suffix: Right
-  parent: BenchPewMiddle
   components:
   - type: Sprite
     state: right
 
 # Steel benches
 - type: entity
-  name: steel bench
-  id: BenchSteelMiddle
   parent: BenchBaseMiddle
+  id: BenchSteelMiddle
+  name: steel bench
   components:
   - type: Sprite
     sprite: White/Structures/Furniture/Benches/steel_bench.rsi
 
 - type: entity
+  parent: BenchSteelMiddle
   id: BenchSteelLeft
   suffix: Left
-  parent: BenchSteelMiddle
   components:
   - type: Sprite
     state: left
 
 - type: entity
+  parent: BenchSteelMiddle
   id: BenchSteelRight
   suffix: Right
-  parent: BenchSteelMiddle
   components:
   - type: Sprite
     state: right
 
 # White steel benches
 - type: entity
-  name: white steel bench
-  id: BenchSteelWhiteMiddle
   parent: BenchBaseMiddle
+  id: BenchSteelWhiteMiddle
+  name: white steel bench
   components:
   - type: Sprite
     sprite: White/Structures/Furniture/Benches/steel_bench_white.rsi
 
 - type: entity
+  parent: BenchSteelWhiteMiddle
   id: BenchSteelWhiteLeft
   suffix: Left
-  parent: BenchSteelWhiteMiddle
   components:
   - type: Sprite
     state: left
 
 - type: entity
+  parent: BenchSteelWhiteMiddle
   id: BenchSteelWhiteRight
   suffix: Right
-  parent: BenchSteelWhiteMiddle
   components:
   - type: Sprite
     state: right
 
 # Standard sofa
 - type: entity
-  name: sofa
-  id: BenchSofaMiddle
   parent: BenchBaseMiddle
+  id: BenchSofaMiddle
+  name: sofa
   components:
   - type: Sprite
     sprite: White/Structures/Furniture/Benches/sofa.rsi
 
 - type: entity
+  parent: BenchSofaMiddle
   id: BenchSofaLeft
   suffix: Left
-  parent: BenchSofaMiddle
   components:
   - type: Sprite
     state: left
 
 - type: entity
+  parent: BenchSofaMiddle
   id: BenchSofaRight
   suffix: Right
-  parent: BenchSofaMiddle
   components:
   - type: Sprite
     state: right
 
 - type: entity
+  parent: BenchSofaMiddle
   id: BenchSofaCorner
   suffix: Corner
-  parent: BenchSofaMiddle
   components:
   - type: Sprite
     state: corner
 
 - type: entity
+  parent: BenchSofaMiddle
   id: BenchSofaCornerOut
   suffix: Corner-Out
-  parent: BenchSofaMiddle
   components:
   - type: Sprite
     state: corner_out
 
 # Corp sofa
 - type: entity
-  name: grey sofa
-  id: BenchSofaCorpMiddle
   parent: BenchBaseMiddle
+  id: BenchSofaCorpMiddle
+  name: grey sofa
   components:
   - type: Sprite
     sprite: White/Structures/Furniture/Benches/sofa_corp.rsi
 
 - type: entity
+  parent: BenchSofaCorpMiddle
   id: BenchSofaCorpLeft
   suffix: Left
-  parent: BenchSofaCorpMiddle
   components:
   - type: Sprite
     state: left
 
 - type: entity
+  parent: BenchSofaCorpMiddle
   id: BenchSofaCorpRight
   suffix: Right
-  parent: BenchSofaCorpMiddle
   components:
   - type: Sprite
     state: right
 
 - type: entity
+  parent: BenchSofaCorpMiddle
   id: BenchSofaCorpCorner
   suffix: Corner
-  parent: BenchSofaCorpMiddle
   components:
   - type: Sprite
     state: corner
 
 - type: entity
+  parent: BenchSofaCorpMiddle
   id: BenchSofaCorpCornerOut
   suffix: Corner-Out
-  parent: BenchSofaCorpMiddle
   components:
   - type: Sprite
     state: corner_out

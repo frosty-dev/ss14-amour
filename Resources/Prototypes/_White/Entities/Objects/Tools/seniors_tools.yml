@@ -1,6 +1,6 @@
 - type: entity
-  id: ImprovedCrowbar # OK
   parent: Crowbar
+  id: ImprovedCrowbar # OK
   name: improved crowbar
   components:
     - type: StaticPrice
@@ -18,8 +18,8 @@
       sprite: White/Objects/Tools/impcrowbar.rsi
 
 - type: entity
-  id: ImprovedWrench # OK
   parent: Wrench
+  id: ImprovedWrench # OK
   name: improved wrench
   components:
     - type: StaticPrice
@@ -37,9 +37,9 @@
           Blunt: 9
 
 - type: entity
-  name: improved screwdriver
   parent: BaseItem
   id: ImprovedScrewdriver
+  name: improved screwdriver
   description: "Industrial grade torque in a small screwdriving package."
   components:
     - type: StaticPrice
@@ -74,8 +74,8 @@
         Steel: 100
 
 - type: entity
-  id: ImprovedWirecutter
   parent: BaseItem
+  id: ImprovedWirecutter
   name: improved wirecutter
   description: This kills the wire.
   components:
@@ -112,10 +112,9 @@
         Steel: 100
 
 - type: entity
-  id: ImprovedWelder
   parent: BaseWelder
+  id: ImprovedWelder
   name: improved welder
-  description: ""
   components:
     - type: SolutionContainerManager
       solutions:

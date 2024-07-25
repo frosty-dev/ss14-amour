@@ -81,3 +81,9 @@
 
 - type: Tag
   id: DoorjackUsable
+
+- type: Tag
+  id: Card
+
+- type: Tag
+  id: UnoCard

@@ -1,8 +1,8 @@
 - type: entity
   id: ProjectileFlamethrower
+  noSpawn: true
   name: ProjectileFlamethrower
   description: ProjectileFlamethrower
-  noSpawn: true
   components:
   - type: GasProjectile
     gasUsagePerTile: 0.9375

@@ -1,193 +1,167 @@
+# YELLOW CARDS
 
-# Yellow Cards
 - type: entity
-  parent: BaseUnoCard
+  parent: BaseUnoCardYellow
   id: UnoCardYellow0
-  name: Жёлтая карта UNO 0
-  description: Игральная карта UNO
+  name: жёлтая карта UNO 0
+  description: Игральная карта UNO.
   components:
   - type: Sprite
-    sprite: Objects/Fun/UnoCards/uno_yellow.rsi
     state: unoyellow0
-    scale: 0.5, 0.5
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardUnknownYellow0
 
 - type: entity
-  parent: BaseUnoCard
+  parent: BaseUnoCardYellow
   id: UnoCardYellow1
-  name: Жёлтая карта UNO 1
-  description: Игральная карта UNO
+  name: жёлтая карта UNO 1
+  description: Игральная карта UNO.
   components:
   - type: Sprite
-    sprite: Objects/Fun/UnoCards/uno_yellow.rsi
     state: unoyellow1
-    scale: 0.5, 0.5
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardUnknownYellow1
 
 - type: entity
-  parent: BaseUnoCard
+  parent: BaseUnoCardYellow
   id: UnoCardYellow2
-  name: Жёлтая карта UNO 2
-  description: Игральная карта UNO
+  name: жёлтая карта UNO 2
+  description: Игральная карта UNO.
   components:
   - type: Sprite
-    sprite: Objects/Fun/UnoCards/uno_yellow.rsi
     state: unoyellow2
-    scale: 0.5, 0.5
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardUnknownYellow2
 
 - type: entity
-  parent: BaseUnoCard
+  parent: BaseUnoCardYellow
   id: UnoCardYellow3
-  name: Жёлтая карта UNO 3
-  description: Игральная карта UNO
+  name: жёлтая карта UNO 3
+  description: Игральная карта UNO.
   components:
   - type: Sprite
-    sprite: Objects/Fun/UnoCards/uno_yellow.rsi
     state: unoyellow3
-    scale: 0.5, 0.5
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardUnknownYellow3
 
 - type: entity
-  parent: BaseUnoCard
+  parent: BaseUnoCardYellow
   id: UnoCardYellow4
-  name: Жёлтая карта UNO 4
-  description: Игральная карта UNO
+  name: жёлтая карта UNO 4
+  description: Игральная карта UNO.
   components:
   - type: Sprite
-    sprite: Objects/Fun/UnoCards/uno_yellow.rsi
     state: unoyellow4
-    scale: 0.5, 0.5
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardUnknownYellow4
 
 - type: entity
-  parent: BaseUnoCard
+  parent: BaseUnoCardYellow
   id: UnoCardYellow5
-  name: Жёлтая карта UNO 5
-  description: Игральная карта UNO
+  name: жёлтая карта UNO 5
+  description: Игральная карта UNO.
   components:
   - type: Sprite
-    sprite: Objects/Fun/UnoCards/uno_yellow.rsi
     state: unoyellow5
-    scale: 0.5, 0.5
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardUnknownYellow5
 
 - type: entity
-  parent: BaseUnoCard
+  parent: BaseUnoCardYellow
   id: UnoCardYellow6
-  name: Жёлтая карта UNO 6
-  description: Игральная карта UNO
+  name: жёлтая карта UNO 6
+  description: Игральная карта UNO.
   components:
   - type: Sprite
-    sprite: Objects/Fun/UnoCards/uno_yellow.rsi
     state: unoyellow6
-    scale: 0.5, 0.5
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardUnknownYellow6
 
 - type: entity
-  parent: BaseUnoCard
+  parent: BaseUnoCardYellow
   id: UnoCardYellow7
-  name: Жёлтая карта UNO 7
-  description: Игральная карта UNO
+  name: жёлтая карта UNO 7
+  description: Игральная карта UNO.
   components:
   - type: Sprite
-    sprite: Objects/Fun/UnoCards/uno_yellow.rsi
     state: unoyellow7
-    scale: 0.5, 0.5
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardUnknownYellow7
 
 - type: entity
-  parent: BaseUnoCard
+  parent: BaseUnoCardYellow
   id: UnoCardYellow8
-  name: Жёлтая карта UNO 8
-  description: Игральная карта UNO
+  name: жёлтая карта UNO 8
+  description: Игральная карта UNO.
   components:
   - type: Sprite
-    sprite: Objects/Fun/UnoCards/uno_yellow.rsi
     state: unoyellow8
-    scale: 0.5, 0.5
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardUnknownYellow8
 
 - type: entity
-  parent: BaseUnoCard
+  parent: BaseUnoCardYellow
   id: UnoCardYellow9
-  name: Жёлтая карта UNO 9
-  description: Игральная карта UNO
+  name: жёлтая карта UNO 9
+  description: Игральная карта UNO.
   components:
   - type: Sprite
-    sprite: Objects/Fun/UnoCards/uno_yellow.rsi
     state: unoyellow9
-    scale: 0.5, 0.5
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardUnknownYellow9
 
 - type: entity
-  parent: BaseUnoCard
+  parent: BaseUnoCardYellow
   id: UnoCardYellowPlus
-  name: Жёлтая карта UNO плюс 2
-  description: Игральная карта UNO
+  name: жёлтая карта UNO плюс 2
+  description: Игральная карта UNO.
   components:
   - type: Sprite
-    sprite: Objects/Fun/UnoCards/uno_yellow.rsi
     state: unoyellowplus
-    scale: 0.5, 0.5
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardUnknownYellowPlus
 
 - type: entity
-  parent: BaseUnoCard
+  parent: BaseUnoCardYellow
   id: UnoCardYellowReverse
-  name: Жёлтая карта UNO реверс
-  description: Игральная карта UNO
+  name: жёлтая карта UNO реверс
+  description: Игральная карта UNO.
   components:
   - type: Sprite
-    sprite: Objects/Fun/UnoCards/uno_yellow.rsi
     state: unoyellowreverse
-    scale: 0.5, 0.5
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardUnknownYellowReverse
 
 - type: entity
-  parent: BaseUnoCard
+  parent: BaseUnoCardYellow
   id: UnoCardYellowStop
-  name: Жёлтая карта UNO стоп
-  description: Игральная карта UNO
+  name: жёлтая карта UNO стоп
+  description: Игральная карта UNO.
   components:
   - type: Sprite
-    sprite: Objects/Fun/UnoCards/uno_yellow.rsi
     state: unoyellowstop
-    scale: 0.5, 0.5
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardUnknownYellowStop
 
-# Yellow Cards Uknown
+# UNKNOWN YELLOW CARDS
+
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownYellow0
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
@@ -196,8 +170,7 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownYellow1
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
@@ -206,8 +179,7 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownYellow2
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
@@ -216,8 +188,7 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownYellow3
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
@@ -226,8 +197,7 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownYellow4
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
@@ -236,8 +206,7 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownYellow5
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
@@ -246,8 +215,7 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownYellow6
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
@@ -256,8 +224,7 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownYellow7
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
@@ -266,8 +233,7 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownYellow8
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
@@ -276,8 +242,7 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownYellow9
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
@@ -286,8 +251,7 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownYellowPlus
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
@@ -296,8 +260,7 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownYellowReverse
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
@@ -306,8 +269,7 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownYellowStop
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:

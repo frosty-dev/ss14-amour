@@ -1,0 +1,293 @@
+# CARDS 36
+
+- type: entity
+  parent: BaseStorageItem
+  id: CardBag36
+  name: средняя колода игральных карт
+  suffix: 36
+  description: Новейшая колода игральных карт.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Cards/Other.rsi
+    state: deck
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Small
+    grid:
+      - 0,0,8,7
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      tags:
+        - Card
+  - type: Tag
+    tags:
+    - TrashBag
+  - type: Appearance
+  - type: Dumpable
+  - type: StorageFill
+    contents:
+      - id: CardUnknown47
+      - id: CardUnknown50
+      - id: CardUnknown51
+      - id: CardUnknown20
+      - id: CardUnknown26
+      - id: CardUnknown30
+      - id: CardUnknown52
+      - id: CardUnknown36
+      - id: CardUnknown41
+      - id: CardUnknown23
+      - id: CardUnknown48
+      - id: CardUnknown27
+      - id: CardUnknown33
+      - id: CardUnknown17
+      - id: CardUnknown28
+      - id: CardUnknown22
+      - id: CardUnknown29
+      - id: CardUnknown32
+      - id: CardUnknown21
+      - id: CardUnknown43
+      - id: CardUnknown42
+      - id: CardUnknown24
+      - id: CardUnknown45
+      - id: CardUnknown34
+      - id: CardUnknown18
+      - id: CardUnknown49
+      - id: CardUnknown25
+      - id: CardUnknown46
+      - id: CardUnknown35
+      - id: CardUnknown19
+      - id: CardUnknown38
+      - id: CardUnknown40
+      - id: CardUnknown31
+      - id: CardUnknown39
+      - id: CardUnknown37
+      - id: CardUnknown44
+
+# CARDS 52
+
+- type: entity
+  parent: BaseStorageItem
+  id: CardBag52
+  name: большая колода игральных карт
+  suffix: 52
+  description: Новейшая колода игральных карт.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Cards/Other.rsi
+    state: deck
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Small
+    grid:
+      - 0,0,10,9
+    quickInsert: true
+    areaInsert: true
+    whitelist:
+      tags:
+        - Card
+  - type: Tag
+    tags:
+    - TrashBag
+  - type: Appearance
+  - type: Dumpable
+  - type: StorageFill
+    contents:
+      - id: CardUnknown25
+      - id: CardUnknown52
+      - id: CardUnknown3
+      - id: CardUnknown4
+      - id: CardUnknown37
+      - id: CardUnknown49
+      - id: CardUnknown27
+      - id: CardUnknown29
+      - id: CardUnknown17
+      - id: CardUnknown8
+      - id: CardUnknown11
+      - id: CardUnknown39
+      - id: CardUnknown42
+      - id: CardUnknown9
+      - id: CardUnknown26
+      - id: CardUnknown38
+      - id: CardUnknown44
+      - id: CardUnknown32
+      - id: CardUnknown36
+      - id: CardUnknown45
+      - id: CardUnknown30
+      - id: CardUnknown50
+      - id: CardUnknown2
+      - id: CardUnknown43
+      - id: CardUnknown20
+      - id: CardUnknown47
+      - id: CardUnknown22
+      - id: CardUnknown51
+      - id: CardUnknown31
+      - id: CardUnknown18
+      - id: CardUnknown34
+      - id: CardUnknown19
+      - id: CardUnknown28
+      - id: CardUnknown33
+      - id: CardUnknown41
+      - id: CardUnknown24
+      - id: CardUnknown1
+      - id: CardUnknown48
+      - id: CardUnknown15
+      - id: CardUnknown5
+      - id: CardUnknown13
+      - id: CardUnknown7
+      - id: CardUnknown16
+      - id: CardUnknown40
+      - id: CardUnknown14
+      - id: CardUnknown46
+      - id: CardUnknown6
+      - id: CardUnknown21
+      - id: CardUnknown23
+      - id: CardUnknown35
+      - id: CardUnknown10
+      - id: CardUnknown12
+
+# CARDS CRATE
+
+#- type: entity
+#  parent: CrateBaseWeldable
+#  id: CardCrate1
+#  name: сундук с картами
+#  suffix: 36
+#  components:
+#  - type: Icon
+#    sprite: Structures/Storage/Crates/generic.rsi
+#  - type: Sprite
+#    sprite: Structures/Storage/Crates/generic.rsi
+#  - type: StorageFill
+#    contents:
+#      - id: CardUnknown47
+#      - id: CardUnknown50
+#      - id: CardUnknown51
+#      - id: CardUnknown20
+#      - id: CardUnknown26
+#      - id: CardUnknown30
+#      - id: CardUnknown52
+#      - id: CardUnknown36
+#      - id: CardUnknown41
+#      - id: CardUnknown23
+#      - id: CardUnknown48
+#      - id: CardUnknown27
+#      - id: CardUnknown33
+#      - id: CardUnknown17
+#      - id: CardUnknown28
+#      - id: CardUnknown22
+#      - id: CardUnknown29
+#      - id: CardUnknown32
+#      - id: CardUnknown21
+#      - id: CardUnknown43
+#      - id: CardUnknown42
+#      - id: CardUnknown24
+#      - id: CardUnknown45
+#      - id: CardUnknown34
+#      - id: CardUnknown18
+#      - id: CardUnknown49
+#      - id: CardUnknown25
+#      - id: CardUnknown46
+#      - id: CardUnknown35
+#      - id: CardUnknown19
+#      - id: CardUnknown38
+#      - id: CardUnknown40
+#      - id: CardUnknown31
+#      - id: CardUnknown39
+#      - id: CardUnknown37
+#      - id: CardUnknown44
+#
+#- type: entity
+#  parent: CrateBaseWeldable
+#  id: CardCrate2
+#  name: сундук с картами
+#  suffix: 52
+#  components:
+#  - type: Icon
+#    sprite: Structures/Storage/Crates/generic.rsi
+#  - type: Sprite
+#    sprite: Structures/Storage/Crates/generic.rsi
+#  - type: StorageFill
+#    contents:
+#      - id: CardUnknown25
+#      - id: CardUnknown52
+#      - id: CardUnknown3
+#      - id: CardUnknown4
+#      - id: CardUnknown37
+#      - id: CardUnknown49
+#      - id: CardUnknown27
+#      - id: CardUnknown29
+#      - id: CardUnknown17
+#      - id: CardUnknown8
+#      - id: CardUnknown11
+#      - id: CardUnknown39
+#      - id: CardUnknown42
+#      - id: CardUnknown9
+#      - id: CardUnknown26
+#      - id: CardUnknown38
+#      - id: CardUnknown44
+#      - id: CardUnknown32
+#      - id: CardUnknown36
+#      - id: CardUnknown45
+#      - id: CardUnknown30
+#      - id: CardUnknown50
+#      - id: CardUnknown2
+#      - id: CardUnknown43
+#      - id: CardUnknown20
+#      - id: CardUnknown47
+#      - id: CardUnknown22
+#      - id: CardUnknown51
+#      - id: CardUnknown31
+#      - id: CardUnknown18
+#      - id: CardUnknown34
+#      - id: CardUnknown19
+#      - id: CardUnknown28
+#      - id: CardUnknown33
+#      - id: CardUnknown41
+#      - id: CardUnknown24
+#      - id: CardUnknown1
+#      - id: CardUnknown48
+#      - id: CardUnknown15
+#      - id: CardUnknown5
+#      - id: CardUnknown13
+#      - id: CardUnknown7
+#      - id: CardUnknown16
+#      - id: CardUnknown40
+#      - id: CardUnknown14
+#      - id: CardUnknown46
+#      - id: CardUnknown6
+#      - id: CardUnknown21
+#      - id: CardUnknown23
+#      - id: CardUnknown35
+#      - id: CardUnknown10
+#      - id: CardUnknown12
+
+
+# PLAYERS CARDS
+
+- type: entity
+  parent: BaseStorageItem
+  id: PlayerCardBag
+  name: колода карт игрока
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/Cards/Other.rsi
+    state: fan
+  - type: Item
+    size: Normal
+  - type: Storage
+    maxItemSize: Small
+    grid:
+      - 0,0,5,5
+    quickInsert: true
+    areaInsert: false
+    whitelist:
+      tags:
+        - Card
+  - type: Tag
+    tags:
+      - TrashBag
+  - type: Appearance
+  - type: Dumpable

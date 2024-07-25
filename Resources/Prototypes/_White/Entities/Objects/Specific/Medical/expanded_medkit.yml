@@ -1,7 +1,7 @@
 - type: entity
-  name: expanded medkit
   parent: Medkit
   id: ExpandedMedkit
+  name: expanded medkit
   components:
     - type: Sprite
       sprite: White/Specific/expmedkit.rsi

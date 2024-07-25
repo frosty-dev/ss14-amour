@@ -1,8 +1,8 @@
 ﻿- type: entity
+  parent: BaseMachinePowered
   id: GulagOreProcessor
   name: gulagMachine
   description: Shit
-  parent: BaseMachinePowered
   suffix: NoSpawn
   components:
     - type: Sprite

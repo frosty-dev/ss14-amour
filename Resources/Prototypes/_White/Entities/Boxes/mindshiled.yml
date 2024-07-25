@@ -1,7 +1,7 @@
 ﻿- type: entity
-  name: mindshield implanters box
   parent: BoxCardboard
   id: BoxMindshield
+  name: mindshield implanters box
   description: A box full of implants.
   components:
   - type: StorageFill

@@ -1,6 +1,6 @@
 - type: entity
-  id: ZipBase
   parent: BaseStorageItem
+  id: ZipBase
   abstract: true
   components:
   - type: Item
@@ -11,9 +11,9 @@
     - 0,0,2,2
 
 - type: entity
-  name: zip lock
   parent: ZipBase
   id: ZipLock
+  name: zip lock
   description: Designed for storing evidence.
   components:
   - type: Item

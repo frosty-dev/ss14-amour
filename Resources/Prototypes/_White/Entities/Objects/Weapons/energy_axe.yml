@@ -1,7 +1,7 @@
 - type: entity
-  name: энергетический боевой топор
   parent: BaseItem
   id: EnergyBattleAxe
+  name: энергетический боевой топор
   description: Гарантирует быструю смерть.
   components:
   - type: Wieldable
