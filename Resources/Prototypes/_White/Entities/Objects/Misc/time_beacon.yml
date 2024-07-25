@@ -18,8 +18,8 @@
 
 - type: entity
   id: TimeBeaconAnchor
+  noSpawn: true
   name: time beacon anchor
   description: Fuck!
-  noSpawn: true
   components:
   - type: TimeBeaconAnchor

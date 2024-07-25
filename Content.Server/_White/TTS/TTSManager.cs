@@ -63,9 +63,10 @@ public sealed class TTSManager
     {
         var url = _cfg.GetCVar(WhiteCVars.TtsApiUrl);
         var maxCacheSize = _cfg.GetCVar(WhiteCVars.TtsMaxCacheSize);
-        if (string.IsNullOrWhiteSpace(url))
+        if (string.IsNullOrWhiteSpace(url)) // zaebal padat
         {
-            throw new Exception("TTS Api url not specified");
+            _sawmill.Log(LogLevel.Error, nameof(TTSManager), "TTS Api url not specified");
+            return null;
         }
 
         WantedCount.Inc();

@@ -1,7 +1,7 @@
 - type: entity
-  name: experimental stun baton
   parent: Stunbaton
   id: ExperimentalStunbaton
+  name: experimental stun baton
   description: Meowk!
   components:
   - type: Clothing

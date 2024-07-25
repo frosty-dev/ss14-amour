@@ -1,7 +1,7 @@
 - type: entity
-  name: temperature gun
   parent: WeaponEgun
   id: WeaponTempGun
+  name: temperature gun
   description: A gun that changes temperatures.
   components:
     - type: Sprite

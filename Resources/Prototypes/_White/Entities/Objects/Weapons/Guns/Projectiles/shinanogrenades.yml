@@ -1,7 +1,7 @@
 - type: entity
   id: BaseBulletShinanoGranade
-  name: base shinano granade
   abstract: true
+  name: base shinano granade
   components:
   - type: MovedByPressure
   - type: FlyBySound
@@ -30,10 +30,10 @@
   - type: TriggerOnLand
 
 - type: entity
-  id: ShinanoBulletGrenadeFlash
-  name: flash shinano grenade
   parent: BaseBulletShinanoGranade
+  id: ShinanoBulletGrenadeFlash
   noSpawn: true
+  name: flash shinano grenade
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -45,10 +45,10 @@
     proto: GrenadeFlashEffect
 
 - type: entity
-  id: ShinanoBulletGrenadeSmoke
-  name: smoke shinano grenade
   parent: BaseBulletShinanoGranade
+  id: ShinanoBulletGrenadeSmoke
   noSpawn: true
+  name: smoke shinano grenade
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -66,10 +66,10 @@
     sound: /Audio/Items/smoke_grenade_smoke.ogg
 
 - type: entity
-  id: ShinanoBulletGrenadeBeanbag
-  name: beanbag shinano grenade
-  noSpawn: true
   parent: [BaseBullet, BaseBulletTrail]
+  id: ShinanoBulletGrenadeBeanbag
+  noSpawn: true
+  name: beanbag shinano grenade
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi

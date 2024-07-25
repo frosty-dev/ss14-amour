@@ -1,7 +1,7 @@
 - type: entity
-  name: хваталка
   parent: BaseItem
   id: Snatcherprod
+  name: хваталка
   description: Искрится жаждой воровства и коварства.
   components:
   - type: Sprite
@@ -77,9 +77,9 @@
     node: snatcherprod
 
 - type: entity
-  name: обмотанный стержень
   parent: BaseItem
   id: ProdUnfinished
+  name: обмотанный стержень
   description: Стержень с проводами.
   components:
   - type: Sprite

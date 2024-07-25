@@ -1,7 +1,7 @@
 - type: entity
-  name: body scanner printout
   parent: Paper
   id: PaperBodyScannerReport
+  name: body scanner printout
   description: 'The readout of a body scanner'
   components:
   - type: Sprite

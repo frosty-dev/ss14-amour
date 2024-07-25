@@ -1,10 +1,10 @@
+# SPECIAL
 
-# Special
 - type: entity
   parent: BaseUnoCard
   id: UnoCardSpecial
-  name: Карта смены цвета
-  description: Игральная карта UNO
+  name: карта смены цвета
+  description: Игральная карта UNO.
   components:
   - type: Sprite
     sprite: Objects/Fun/UnoCards/uno_special.rsi
@@ -17,19 +17,19 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownSpecial
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
     - id: UnoCardSpecial
 
-# Special Four
+# SPECIAL FOUR
+
 - type: entity
   parent: BaseUnoCard
   id: UnoCardSpecialFour
-  name: Карта возьми 4
-  description: Игральная карта UNO
+  name: карта возьми 4
+  description: Игральная карта UNO.
   components:
   - type: Sprite
     sprite: Objects/Fun/UnoCards/uno_special.rsi
@@ -42,8 +42,7 @@
 - type: entity
   parent: BaseUnoUnknownCard
   id: UnoCardUnknownSpecialFour
-  name: Неизвестная карта
-  description: Игральная карта UNO
+  noSpawn: true
   components:
   - type: SpawnItemsOnUse
     items:
@@ -53,8 +52,8 @@
 #- type: entity
 #  parent: BaseUnoCard
 #  id: UnoCardSpecialBlueFour
-#  name: Карта смены цвета
-#  description: Игральная карта UNO
+#  name: карта смены цвета
+#  description: Игральная карта UNO.
 #  components:
 #  - type: Sprite
 #    sprite: Objects/Fun/UnoCards/uno_special.rsi
@@ -67,8 +66,7 @@
 #- type: entity
 #  parent: BaseUnoUnknownCard
 #  id: UnoCardUnknownSpecialBlueFour
-#  name: Неизвестная карта
-#  description: Игральная карта UNO
+#  noSpawn: true
 #  components:
 #  - type: SpawnItemsOnUse
 #    items:
@@ -78,8 +76,8 @@
 #- type: entity
 #  parent: BaseUnoCard
 #  id: UnoCardSpecialGreenFour
-#  name: Карта смены цвета
-#  description: Игральная карта UNO
+#  name: карта смены цвета
+#  description: Игральная карта UNO.
 #  components:
 #  - type: Sprite
 #    sprite: Objects/Fun/UnoCards/uno_special.rsi
@@ -92,8 +90,7 @@
 #- type: entity
 #  parent: BaseUnoUnknownCard
 #  id: UnoCardUnknownSpecialGreenFour
-#  name: Неизвестная карта
-#  description: Игральная карта UNO
+#  noSpawn: true
 #  components:
 #  - type: SpawnItemsOnUse
 #    items:
@@ -103,8 +100,8 @@
 #- type: entity
 #  parent: BaseUnoCard
 #  id: UnoCardSpecialRedFour
-#  name: Карта смены цвета
-#  description: Игральная карта UNO
+#  name: карта смены цвета
+#  description: Игральная карта UNO.
 #  components:
 #  - type: Sprite
 #    sprite: Objects/Fun/UnoCards/uno_special.rsi
@@ -117,8 +114,7 @@
 #- type: entity
 #  parent: BaseUnoUnknownCard
 #  id: UnoCardUnknownSpecialRedFour
-#  name: Неизвестная карта
-#  description: Игральная карта UNO
+#  noSpawn: true
 #  components:
 #  - type: SpawnItemsOnUse
 #    items:
@@ -128,8 +124,8 @@
 #- type: entity
 #  parent: BaseUnoCard
 #  id: UnoCardSpecialYellowFour
-#  name: Карта смены цвета
-#  description: Игральная карта UNO
+#  name: карта смены цвета
+#  description: Игральная карта UNO.
 #  components:
 #  - type: Sprite
 #    sprite: Objects/Fun/UnoCards/uno_special.rsi
@@ -142,8 +138,7 @@
 #- type: entity
 #  parent: BaseUnoUnknownCard
 #  id: UnoCardUnknownSpecialYellowFour
-#  name: Неизвестная карта
-#  description: Игральная карта UNO
+#  noSpawn: true
 #  components:
 #  - type: SpawnItemsOnUse
 #    items:

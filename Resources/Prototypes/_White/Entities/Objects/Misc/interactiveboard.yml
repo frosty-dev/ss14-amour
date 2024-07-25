@@ -1,7 +1,7 @@
 - type: entity
-  name: interactive board
   parent: BaseItem
   id: InteractiveBoard
+  name: interactive board
   description: 'Have field for edit. Created special for burocracy!'
   components:
   - type: Sprite
@@ -34,9 +34,9 @@
         damage: 150
 
 - type: entity
-  name: interactive pen
   parent: BaseItem
   id: InteractivePen
+  name: interactive pen
   description: 'Edit interactive board!'
   components:
   - type: Sprite

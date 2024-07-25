@@ -1,7 +1,7 @@
 - type: entity
-  name: hardlight spear
   parent: Spear
   id: SpearHardlight
+  name: hardlight spear
   description: A spear made out of hardened light.
   components:
   - type: Sprite
