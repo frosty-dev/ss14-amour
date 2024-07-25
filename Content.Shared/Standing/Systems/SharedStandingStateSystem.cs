@@ -186,7 +186,7 @@ public abstract partial class SharedStandingStateSystem : EntitySystem
             return false;
         }
 
-        Down(uid, true, behavior != DropHeldItemsBehavior.NoDrop, standingState);
+        Down(uid, true, behavior != DropHeldItemsBehavior.NoDrop, true, standingState);
         return true;
     }
     // WD EDIT END
@@ -203,6 +203,7 @@ public abstract partial class SharedStandingStateSystem : EntitySystem
         EntityUid uid,
         bool playSound = true,
         bool dropHeldItems = true,
+        bool unbuckle = true, // WD EDIT
         StandingStateComponent? standingState = null,
         AppearanceComponent? appearance = null,
         HandsComponent? hands = null)
@@ -292,7 +293,8 @@ public abstract partial class SharedStandingStateSystem : EntitySystem
         EntityUid uid,
         StandingStateComponent? standingState = null,
         AppearanceComponent? appearance = null,
-        bool force = false)
+        bool force = false,
+        bool unbuckle = true) // WD EDIT
     {
         if (!Resolve(uid, ref standingState, false))
             return false;
@@ -300,7 +302,7 @@ public abstract partial class SharedStandingStateSystem : EntitySystem
         // Optional component.
         Resolve(uid, ref appearance, false);
 
-        if (TryComp(uid, out BuckleComponent? buckle) && buckle.Buckled && !_buckle.TryUnbuckle(uid, uid, buckleComp: buckle)) // WD EDIT
+        if (unbuckle && TryComp(uid, out BuckleComponent? buckle) && buckle.Buckled && !_buckle.TryUnbuckle(uid, uid, buckleComp: buckle)) // WD EDIT
             return false;
 
         if (standingState.CurrentState is StandingState.Standing)

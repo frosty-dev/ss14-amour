@@ -361,7 +361,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
             return false;
         }
 
-        if (_container.IsEntityInContainer(target))
+        if (_container.IsEntityInContainer(target) && !_container.ContainsEntity(target, user)) // WD EDIT
         {
             if (_container.TryGetOuterContainer(target,Transform(target) ,out var container) &&
                 !HasComp<HandsComponent>(container.Owner))

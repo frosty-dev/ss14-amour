@@ -39,4 +39,4 @@ latejoin-arrivals-direction = A shuttle transferring you to your station will ar
 latejoin-arrivals-direction-time = A shuttle transferring you to your station will arrive in {$time}.
 
 preset-not-enough-ready-players = Can't start {$presetName}. Requires {$minimumPlayers} players but we have {$readyPlayersCount}.
-preset-no-one-ready = Can't start {$presetName}. No players are ready.
+preset-no-one-ready = Can't start. No players are ready.

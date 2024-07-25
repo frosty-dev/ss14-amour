@@ -14,7 +14,7 @@ namespace Content.Server.Holosign
         /// How much charge a single use expends.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite), DataField]
-        public int Uses = 10;
+        public int Uses = 6;
 
         [ViewVariables(VVAccess.ReadWrite), DataField]
         public List<EntityUid?> Signs = new();
