@@ -9,6 +9,152 @@
       role: JobPassenger
       time: 180000 # 50 hours
 
+# Bottom
+
+- type: itemLoadout
+  id: BottomPantiesWhite
+  equipment: BottomPantiesWhite
+- type: startingGear
+  id: BottomPantiesWhite
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesWhite
+
+- type: itemLoadout
+  id: BottomBoxersWhite
+  equipment: BottomBoxersWhite
+- type: startingGear
+  id: BottomBoxersWhite
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersWhite
+    
+- type: itemLoadout
+  id: BottomBeeShorts
+  equipment: BottomBeeShorts
+- type: startingGear
+  id: BottomBeeShorts
+  equipment:
+    underwearb: ClothingUnderwearBottomBeeShorts
+
+- type: itemLoadout
+  id: BottomBoxersHeart
+  equipment: BottomBoxersHeart
+- type: startingGear
+  id: BottomBoxersHeart
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersHeart
+
+- type: itemLoadout
+  id: BottomBoxersStriped
+  equipment: BottomBoxersStriped
+- type: startingGear
+  id: BottomBoxersStriped
+  equipment:
+    underwearb: ClothingUnderwearBottomBoxersStriped
+
+- type: itemLoadout
+  id: BottomBriefs
+  equipment: BottomBriefs
+- type: startingGear
+  id: BottomBriefs
+  equipment:
+    underwearb: ClothingUnderwearBottomBriefs
+
+- type: itemLoadout
+  id: BottomFishnetLower
+  equipment: BottomFishnetLower
+- type: startingGear
+  id: BottomFishnetLower
+  equipment:
+    underwearb: ClothingUnderwearBottomFishnetLower
+
+- type: itemLoadout
+  id: BottomJockstrap
+  equipment: BottomJockstrap
+- type: startingGear
+  id: BottomJockstrap
+  equipment:
+    underwearb: ClothingUnderwearBottomJockstrap
+
+- type: itemLoadout
+  id: BottomMankini
+  equipment: BottomMankini
+- type: startingGear
+  id: BottomMankini
+  equipment:
+    underwearb: ClothingUnderwearBottomMankini
+
+- type: itemLoadout
+  id: BottomPantiesBeeKini
+  equipment: BottomPantiesBeeKini
+- type: startingGear
+  id: BottomPantiesBeeKini
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesBeeKini
+
+- type: itemLoadout
+  id: BottomPantiesKinky
+  equipment: BottomPantiesKinky
+- type: startingGear
+  id: BottomPantiesKinky
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesKinky
+
+- type: itemLoadout
+  id: BottomPantiesNeko
+  equipment: BottomPantiesNeko
+- type: startingGear
+  id: BottomPantiesNeko
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesNeko
+
+- type: itemLoadout
+  id: BottomPantiesSlim
+  equipment: BottomPantiesSlim
+- type: startingGear
+  id: BottomPantiesSlim
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesSlim
+
+- type: itemLoadout
+  id: BottomPantiesSwimming
+  equipment: BottomPantiesSwimming
+- type: startingGear
+  id: BottomPantiesSwimming
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesSwimming
+
+- type: itemLoadout
+  id: BottomPantiesThin
+  equipment: BottomPantiesThin
+- type: startingGear
+  id: BottomPantiesThin
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesThin
+
+- type: itemLoadout
+  id: BottomPantiesStripped
+  equipment: BottomPantiesStripped
+- type: startingGear
+  id: BottomPantiesStripped
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesStripped
+
+- type: itemLoadout
+  id: BottomPantiesThong
+  equipment: BottomPantiesThong
+- type: startingGear
+  id: BottomPantiesThong
+  equipment:
+    underwearb: ClothingUnderwearBottomPantiesThong
+
+- type: itemLoadout
+  id: BottomWebLower
+  equipment: BottomWebLower
+- type: startingGear
+  id: BottomWebLower
+  equipment:
+    underwearb: ClothingUnderwearBottomWebLower
+
 # Eyes
 
 - type: itemLoadout

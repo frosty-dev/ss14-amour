@@ -1,3 +1,27 @@
+#Bottom
+- type: loadoutGroup # WD!?
+  id: CommonBottom
+  name: loadout-group-bottom
+  loadouts:
+  - BottomPantiesWhite
+  - BottomBoxersWhite
+  - BottomBeeShorts
+  - BottomBoxersHeart
+  - BottomBoxersStriped
+  - BottomBriefs
+  - BottomFishnetLower
+  - BottomJockstrap
+  - BottomMankini
+  - BottomPantiesBeeKini
+  - BottomPantiesKinky
+  - BottomPantiesNeko
+  - BottomPantiesSlim
+  - BottomPantiesSwimming
+  - BottomPantiesThin
+  - BottomPantiesStripped
+  - BottomPantiesThong
+  - BottomWebLower
+
 # Miscellaneous
 - type: loadoutGroup
   id: Trinkets

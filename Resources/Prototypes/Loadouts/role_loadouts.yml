@@ -24,6 +24,7 @@
   - CommonMaskCigar
   - HoPNeck
   - HoPJumpsuit
+  - CommonBottom # WD
   - HoPGloves # WD
   - HoPBackpack
   - HoPOuterClothing
@@ -40,6 +41,7 @@
   - CommonGlasses # WD
   - CommonMaskCigarette # WD
   - AssistantJumpsuit
+  - CommonBottom # WD
   - CommonBackpack
   - CommonGloves # WD
   - AssistantOuterClothing
@@ -55,6 +57,7 @@
   - CommonGlasses # WD
   - CommonMaskCigarette # WD
   - BartenderJumpsuit
+  - CommonBottom # WD
   - CommonBackpack
   - BartenderOuterClothing
   - CommonShoes # WD
@@ -68,6 +71,7 @@
   - CommonGlasses # WD
   - CommonMaskCigarette # WD
   - BartenderJumpsuit
+  - CommonBottom # WD
   - CommonBackpack
   - CommonShoes # WD
   - ServiceWorkerPDA # WD
@@ -81,6 +85,7 @@
   - CommonGlasses # WD
   - ChefMask
   - ChefJumpsuit
+  - CommonBottom # WD
   - CommonBackpack
   - ChefOuterClothing
   - CommonShoes # WD
@@ -94,6 +99,7 @@
   - CommonGlasses # WD
   - CommonMaskCigarette # WD
   - LibrarianJumpsuit
+  - CommonBottom # WD
   - CommonBackpack
   - CommonShoes # WD
   - LibrarianPDA
@@ -109,6 +115,7 @@
   - ChaplainMask
   - ChaplainNeck
   - ChaplainJumpsuit
+  - CommonBottom # WD
   - CommonGloves # WD
   - ChaplainBackpack
   - ChaplainOuterClothing
@@ -126,6 +133,7 @@
   - CommonGlasses # WD
   - CommonMaskCigarette # WD
   - JanitorJumpsuit
+  - CommonBottom # WD
   - CommonGloves # WD
   - CommonBackpack
   - JanitorOuterClothing
@@ -141,6 +149,7 @@
   - CommonGlasses # WD
   - BotanistMask # WD
   - BotanistJumpsuit
+  - CommonBottom # WD
   - BotanistBackpack
   - BotanistOuterClothing
   - BotanistGloves # WD
@@ -157,6 +166,7 @@
   - ClownMask # WD
   - ClownNeck # WD
   - ClownJumpsuit
+  - CommonBottom # WD
   - ClownBackpack
   - ClownOuterClothing
   - ClownShoes
@@ -171,6 +181,7 @@
   - CommonServiceHeadset # WD
   - MimeMask
   - MimeJumpsuit
+  - CommonBottom # WD
   - MimeBackpack
   - MimeOuterClothing
   - MimeGloves # WD
@@ -185,6 +196,7 @@
   - CommonGlasses # WD
   - CommonServiceHeadset # WD
   - MusicianJumpsuit # WD
+  - CommonBottom # WD
   - MusicianOuterClothing
   - MusicianBackpack
   - MusicianPDA # WD
@@ -201,6 +213,7 @@
   - CommonGlasses # WD
   - QuartermasterNeck
   - QuartermasterJumpsuit
+  - CommonBottom # WD
   - QuartermasterBackpack
   - QuartermasterOuterClothing
   - CommonGloves # WD
@@ -216,6 +229,7 @@
   - CommonCargoHeadset # WD
   - CommonGlasses # WD
   - CargoTechnicianJumpsuit
+  - CommonBottom # WD
   - CargoTechnicianBackpack
   - CargoTechnicianOuterClothing
   - CommonGloves # WD
@@ -232,6 +246,7 @@
   - SalvageSpecialistEyes # WD
   - SalvageSpecialistMask # WD
   - SalvageSpecialistJumpsuit # WD
+  - CommonBottom # WD
   - SalvageSpecialistOuterClothing
   - SalvageSpecialistBelt # WD
   - SalvageSpecialistBackpack
@@ -247,6 +262,7 @@
   - ChiefEngineerHead
   - ChiefEngineerHeadset # WD
   - ChiefEngineerJumpsuit
+  - CommonBottom # WD
   - ChiefEngineerBackpack
   - ChiefEngineerNeck
   - ChiefEngineerOuterClothing
@@ -261,6 +277,7 @@
   - SeniorEngineerHead
   - CommonEngineeringHeadset
   - SeniorEngineerJumpsuit
+  - CommonBottom # WD
   - StationEngineerBackpack
   - StationEngineerOuterClothing
   - CommonGloves # WD
@@ -274,6 +291,7 @@
   - StationEngineerHead
   - CommonEngineeringHeadset
   - TechnicalAssistantJumpsuit
+  - CommonBottom # WD
   - StationEngineerBackpack
   - StationEngineerOuterClothing
   - CommonGloves # WD
@@ -287,6 +305,7 @@
   - StationEngineerHead
   - CommonEngineeringHeadset
   - StationEngineerJumpsuit
+  - CommonBottom # WD
   - StationEngineerBackpack
   - StationEngineerOuterClothing
   - CommonGloves # WD
@@ -300,6 +319,7 @@
   - StationEngineerHead
   - CommonEngineeringHeadset
   - AtmosphericTechnicianJumpsuit
+  - CommonBottom # WD
   - AtmosphericTechnicianBackpack
   - AtmosphericTechnicianOuterClothing
   - CommonGloves # WD
@@ -315,6 +335,7 @@
   - ResearchDirectorHeadset # WD
   - ResearchDirectorNeck
   - ResearchDirectorJumpsuit
+  - CommonBottom # WD
   - ResearchDirectorBackpack
   - ResearchDirectorOuterClothing
   - ResearchDirectorShoes
@@ -329,6 +350,7 @@
   - CommonScienceHeadset
   - CommonScientistNeck
   - SeniorResearcherJumpsuit
+  - CommonBottom # WD
   - ScientistBackpack
   - SeniorResearcherOuterclothing
   - CommonScienceGloves
@@ -343,6 +365,7 @@
   - CommonScienceHeadset
   - CommonScientistNeck
   - ScientistJumpsuit
+  - CommonBottom # WD
   - ScientistBackpack
   - ScientistOuterClothing
   - CommonScienceGloves
@@ -357,6 +380,7 @@
   - CommonScienceHeadset
   - CommonScientistNeck
   - ResearchAssistantJumpsuit
+  - CommonBottom # WD
   - ScientistOuterClothing
   - ScientistBackpack
   - CommonScienceGloves
@@ -374,6 +398,7 @@
   - CommonSecurityCommandMask # WD
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
+  - CommonBottom # WD
   - CommonGloves # WD
   - CommonSecurityBelt # WD
   - CommonSecurityBackpack
@@ -390,6 +415,7 @@
   - CommonSecurityCommandMask # WD
   - CommonSecurityNeck
   - WardenJumpsuit
+  - CommonBottom # WD
   - CommonSecurityBackpack
   - CommonGloves # WD
   - CommonSecurityBelt # WD
@@ -406,6 +432,7 @@
   - CommonSecurityCommandMask # WD
   - CommonSecurityNeck
   - SeniorOfficerJumpsuit
+  - CommonBottom # WD
   - CommonSecurityBackpack
   - SecurityOuterClothing
   - CommonSecurityBelt # WD
@@ -423,6 +450,7 @@
   - CommonSecurityMask # WD
   - CommonSecurityNeck # WD
   - SecurityJumpsuit
+  - CommonBottom # WD
   - CommonSecurityBackpack
   - SecurityOuterClothing
   - CommonSecurityBelt # WD
@@ -440,6 +468,7 @@
   - CommonMaskCigarette # WD
   - CommonSecurityNeck
   - DetectiveJumpsuit
+  - CommonBottom # WD
   - DetectiveBackpack
   - DetectiveOuterClothing
   - DetectiveGloves
@@ -455,6 +484,7 @@
   - CommonSecurityHeadsetFull # WD
   - CommonSecurityNeck
   - SecurityCadetJumpsuit
+  - CommonBottom # WD
   - CommonSecurityBackpack
   - CommonGloves # WD
   - CommonSecurityShoes
@@ -471,6 +501,7 @@
   - CommonMedicalMask # WD
   - ChiefMedicalOfficerNeck
   - ChiefMedicalOfficerJumpsuit
+  - CommonBottom # WD
   - ChiefMedicalOfficerBackpack
   - ChiefMedicalOfficerOuterClothing
   - CommonMedicalGloves
@@ -485,6 +516,7 @@
   - CommonMedicalHeadset # WD
   - CommonMedicalMask
   - SeniorPhysicianJumpsuit
+  - CommonBottom # WD
   - MedicalBackpack
   - SeniorPhysicianOuterClothing
   - CommonMedicalShoes
@@ -499,6 +531,7 @@
   - CommonMedicalHeadset # WD
   - CommonMedicalMask # WD
   - MedicalDoctorJumpsuit
+  - CommonBottom # WD
   - MedicalBackpack
   - MedicalDoctorOuterClothing
   - CommonMedicalShoes # WD
@@ -513,6 +546,7 @@
   - CommonMedicalHeadset # WD
   - CommonMedicalMask # WD
   - MedicalInternJumpsuit
+  - CommonBottom # WD
   - MedicalBackpack
   - CommonMedicalOuterClothing
   - CommonMedicalGloves
@@ -528,6 +562,7 @@
   - ChemistEyes
   - CommonMedicalMask # WD
   - ChemistJumpsuit
+  - CommonBottom # WD
   - ChemistBackpack
   - ChemistOuterClothing
   - CommonMedicalGloves # WD
@@ -542,6 +577,7 @@
   - CommonMedicalHeadset # WD
   - CommonMedicalMask # WD
   - ParamedicJumpsuit
+  - CommonBottom # WD
   - ParamedicBackpack
   - ParamedicOuterClothing
   - ParamedicBelt # WD
@@ -561,6 +597,7 @@
   - InspectorMask
   - InspectorNeck
   - InspectorJumpsuit
+  - CommonBottom # WD
   - InspectorOuterclothing
   - InspectorBackpack
   - InspectorGloves
@@ -579,6 +616,7 @@
   - CommonMaskCigarette # WD
   - LawyerNeck
   - LawyerJumpsuit
+  - CommonBottom # WD
   - CommonBackpack
   - CommonShoes # WD
   - LawyerPDA
@@ -594,6 +632,7 @@
   - CommonServiceHeadset # WD
   - CommonGlasses # WD
   - ZookeeperJumpsuit # WD
+  - CommonBottom # WD
   - CommonBackpack
   - CommonShoes # WD
   - ZookeeperPDA # WD
@@ -607,6 +646,7 @@
   - CommonServiceHeadset # WD
   - CommonMaskCigarette # WD
   - ReporterJumpsuit
+  - CommonBottom # WD
   - CommonGloves # WD
   - CommonBackpack
   - CommonShoes # WD
@@ -621,6 +661,7 @@
   - CommonMedicalHeadset # WD
   - CommonMedicalMask # WD
   - PsychologistJumpsuit # WD
+  - CommonBottom # WD
   - CommonMedicalGloves # WD
   - MedicalBackpack
   - MedicalDoctorOuterClothing
@@ -634,6 +675,7 @@
   - CommonServiceHeadset # WD
   - CommonGlasses # WD
   - BoxerJumpsuit
+  - CommonBottom # WD
   - BoxerGloves
   - CommonBackpack
   - BoxerBelt # WD

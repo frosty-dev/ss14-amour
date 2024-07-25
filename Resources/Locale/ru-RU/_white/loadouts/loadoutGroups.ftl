@@ -7,6 +7,7 @@ loadout-group-jumpsuit = Униформа
 loadout-group-outerclothing = Верхняя одежда
 loadout-group-backpack = Рюкзак
 loadout-group-belt = Пояс
+loadout-group-bottom = Трусы
 loadout-group-gloves = Перчатки
 loadout-group-shoes = Ботинки
 loadout-group-pda = ПДА
