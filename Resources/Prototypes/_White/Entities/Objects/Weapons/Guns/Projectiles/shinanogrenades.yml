@@ -22,7 +22,6 @@
         - ItemMask
         restitution: 0.3  # fite me
         friction: 0.2
-  - type: DeleteOnTrigger
   - type: Physics
     bodyType: Dynamic
   - type: TimedDespawn
@@ -40,9 +39,11 @@
     layers:
       - state: grenade
   - type: FlashOnTrigger
-    range: 3
+    range: 5
+    forceStun: true
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
+  - type: DeleteOnTrigger
 
 - type: entity
   parent: BaseBulletShinanoGranade
@@ -64,6 +65,25 @@
         Quantity: 50
   - type: SoundOnTrigger
     sound: /Audio/Items/smoke_grenade_smoke.ogg
+  - type: DeleteOnTrigger
+
+- type: entity
+  id: ShinanoBulletGrenadeStinger
+  name: stinger shinano grenade
+  parent: BaseBulletShinanoGranade
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: ClusterGrenade
+    fillPrototype: PelletClusterRubber
+    maxGrenadesCount: 30
+    grenadeType: enum.GrenadeType.Shoot
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
 
 - type: entity
   parent: [BaseBullet, BaseBulletTrail]

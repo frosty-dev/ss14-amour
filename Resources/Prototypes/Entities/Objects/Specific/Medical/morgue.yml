@@ -86,6 +86,7 @@
       paper_label: !type:ContainerSlot
   - type: StaticPrice
     price: 50
+  - type: ShootBlockerContainer
 
 - type: entity
   id: BodyBagFolded

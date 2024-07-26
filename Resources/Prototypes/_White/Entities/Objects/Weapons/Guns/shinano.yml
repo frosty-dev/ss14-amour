@@ -11,6 +11,9 @@
         map: ["enum.GunVisualLayers.Base"]
   - type: Item
     sprite: White/Objects/Weapons/Guns/Launchers/shinano-inhands.rsi
+    size: Large
+    shape:
+    - 0,0,2,1
   - type: Clothing
     sprite: White/Objects/Weapons/Guns/Launchers/shinano-inhands.rsi
     slots:
@@ -35,3 +38,18 @@
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
     autoCycle: false
+  - type: WeaponModules
+  - type: ItemSlots
+    slots:
+      shutter_module:
+        name: Shutter Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 1
+        whitelist:
+          tags:
+          - BaseShutterModule
+  - type: ContainerContainer
+    containers:
+      shutter_module: !type:ContainerSlot
+  - type: Appearance

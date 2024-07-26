@@ -5,6 +5,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
+using Content.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Holosign;
@@ -13,6 +14,7 @@ public sealed class HolosignSystem : EntitySystem
 {
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
     public override void Initialize()
     {
@@ -61,7 +63,10 @@ public sealed class HolosignSystem : EntitySystem
             return;
         }
 
-        if (args.Handled || !args.CanReach || HasComp<StorageComponent>(args.Target))
+        if (args.Handled || !args.CanReach || args.Target != null)
+            return;
+
+        if (TryComp(uid, out UseDelayComponent? useDelay) && !_useDelay.TryResetDelay((uid, useDelay), true))
             return;
 
         if (component.Signs.Count >= component.Uses) // wd edit

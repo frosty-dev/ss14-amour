@@ -1,6 +1,7 @@
 using Content.Shared.Coordinates;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Polymorph.Components;
 using Content.Shared.Stealth.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Timing;
@@ -52,6 +53,9 @@ public sealed class WhistleSystem : EntitySystem
         {
             //Avoid pinging invisible entities
             if (TryComp(iterator, out stealth) && stealth.Enabled)
+                continue;
+
+            if (HasComp<ChameleonDisguisedComponent>(iterator)) // WD
                 continue;
 
             //We don't want to ping user of whistle

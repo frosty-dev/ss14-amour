@@ -21,7 +21,8 @@ public enum ModuleVisualState : byte
 {
     BarrelModule,
     HandGuardModule,
-    AimModule
+    AimModule,
+    ShutterModule
 }
 
 [Serializable, NetSerializable]

@@ -65,6 +65,9 @@
   - MagazineBoxMagnumRubber
   - MagazineBoxLightRifleRubber
   - MagazineBoxRifleRubber
+  - ShinanoGrenadeFlashRecipe
+  - ShinanoGrenadeSmokeRecipe
+  - ShinanoGrenadeStingerRecipe
 
 - type: technology
   id: UraniumMunitions

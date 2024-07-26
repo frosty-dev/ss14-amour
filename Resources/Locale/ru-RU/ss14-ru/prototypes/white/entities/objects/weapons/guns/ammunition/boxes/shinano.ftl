@@ -1,8 +1,10 @@
 ent-BaseShinanoGrenadeAmmoProvider = { ent-BaseAmmoProvider }
     .desc = { ent-BaseAmmoProvider.desc }
-ent-BoxShinanoGrenadeFlash = коробка гранат (светошумовые)
+ent-BoxShinanoGrenadeFlash = коробка светошумовых гранат SHN
     .desc = Заставь их плакать.
-ent-BoxShinanoGrenadeSmoke = коробка гранат (слезоточивые)
+ent-BoxShinanoGrenadeSmoke = коробка слезоточивых гранат SHN
     .desc = Заставь их плакать.
-ent-BoxShinanoGrenadeBeanbag = коробка гранат (травматические)
+ent-BoxShinanoGrenadeStinger = коробка травматических гранат SHN
+    .desc = Это точно никого не убьет?
+ent-BoxShinanoGrenadeBeanbag = коробка травматических пуль SHN
     .desc = Это точно никого не убьет?

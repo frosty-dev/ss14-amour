@@ -12,7 +12,7 @@ public sealed class WeaponModulesSystem : EntitySystem
 {
     protected static readonly Dictionary<string, Enum> Slots = new()
     {
-        { "handguard_module", ModuleVisualState.HandGuardModule }, { "barrel_module", ModuleVisualState.BarrelModule }, { "aim_module", ModuleVisualState.AimModule }
+        { "handguard_module", ModuleVisualState.HandGuardModule }, { "barrel_module", ModuleVisualState.BarrelModule }, { "aim_module", ModuleVisualState.AimModule }, { "shutter_module", ModuleVisualState.ShutterModule }
     };
 
     [Dependency] private readonly PointLightSystem _lightSystem = default!;
@@ -40,6 +40,9 @@ public sealed class WeaponModulesSystem : EntitySystem
 
         SubscribeLocalEvent<AimModuleComponent, EntGotInsertedIntoContainerMessage>(EightAimModuleOnInsert);
         SubscribeLocalEvent<AimModuleComponent, EntGotRemovedFromContainerMessage>(EightAimModuleOnEject);
+
+        SubscribeLocalEvent<ShutterModuleComponent, EntGotInsertedIntoContainerMessage>(ShutterModuleOnInsert);
+        SubscribeLocalEvent<ShutterModuleComponent, EntGotRemovedFromContainerMessage>(ShutterModuleOnEject);
     }
 
     private bool TryInsertModule(EntityUid module, EntityUid weapon, BaseModuleComponent component,
@@ -170,6 +173,22 @@ public sealed class WeaponModulesSystem : EntitySystem
 
         EnsureComp<TelescopeComponent>(weapon).Divisor = component.Divisor;
     }
+
+    private void ShutterModuleOnInsert(EntityUid module, ShutterModuleComponent component, EntGotInsertedIntoContainerMessage args)
+    {
+        EntityUid weapon = args.Container.Owner;
+
+        if (!TryComp<GunComponent>(weapon, out var gunComp)) return;
+
+        if(!TryInsertModule(module, weapon, component, args.Container.ID, out var weaponModulesComponent))
+            return;
+
+        if (!TryComp<BallisticAmmoProviderComponent>(weapon, out var ballisticAmmo))
+            return;
+
+        ballisticAmmo.Whitelist?.Tags?.Add(component.Tag);
+        Dirty(weapon, ballisticAmmo);
+    }
     #endregion
 
     #region EjectModules
@@ -238,6 +257,20 @@ public sealed class WeaponModulesSystem : EntitySystem
             return;
 
         RemComp<TelescopeComponent>(weapon);
+    }
+
+    private void ShutterModuleOnEject(EntityUid module, ShutterModuleComponent component, EntGotRemovedFromContainerMessage args)
+    {
+        EntityUid weapon = args.Container.Owner;
+
+        if(!TryEjectModule(module, weapon, args.Container.ID, out var weaponModulesComponent))
+            return;
+
+        if (!TryComp<BallisticAmmoProviderComponent>(weapon, out var ballisticAmmo))
+            return;
+
+        ballisticAmmo.Whitelist?.Tags?.Remove(component.Tag);
+        Dirty(weapon, ballisticAmmo);
     }
     #endregion
 }

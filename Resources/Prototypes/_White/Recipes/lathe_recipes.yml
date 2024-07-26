@@ -133,3 +133,37 @@
   completetime: 5
   materials:
     Steel: 1500
+
+- type: latheRecipe
+  id: ShinanoGrenadeFlashRecipe
+  result: ShinanoGrenadeFlash
+  completetime: 3
+  materials:
+     Steel: 800
+     Plastic: 200
+     Glass: 100
+     Plasma: 100
+
+- type: latheRecipe
+  id: ShinanoGrenadeSmokeRecipe
+  result: ShinanoGrenadeSmoke
+  completetime: 3
+  materials:
+     Steel: 800
+     Plastic: 200
+     Uranium: 200
+
+- type: latheRecipe
+  id: ShinanoGrenadeStingerRecipe
+  result: ShinanoGrenadeStinger
+  completetime: 3
+  materials:
+     Steel: 800
+     Plastic: 800
+
+- type: latheRecipe
+  id: ShinanoGrenadeBeanbagRecipe
+  result: ShinanoGrenadeBeanbag
+  completetime: 3
+  materials:
+     Steel: 800

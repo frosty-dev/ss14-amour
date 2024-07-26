@@ -448,6 +448,57 @@
     },
     {
       "name": "wood-large"
+    },
+    {
+      "name": "steel-yellow"
+    },
+    {
+      "name": "steel-red"
+    },
+    {
+      "name": "steel-green"
+    },
+    {
+      "name": "steel-blue"
+    },
+    {
+      "name": "plastic-yellow"
+    },
+    {
+      "name": "plastic-red"
+    },
+    {
+      "name": "plastic-green"
+    },
+    {
+      "name": "plastic-blue"
+    },
+    {
+      "name": "plastic-dark"
+    },
+    {
+      "name": "plastic-grey"
+    },
+    {
+      "name": "plastic-white"
+    },
+    {
+      "name": "shielding"
+    },
+    {
+      "name": "shuttlesyndie"
+    },
+    {
+      "name": "sterile"
+    },
+    {
+      "name": "freezer"
+    },
+    {
+      "name": "rglass-frame"
+    },
+    {
+      "name": "glass-frame"
     }
   ]
 }

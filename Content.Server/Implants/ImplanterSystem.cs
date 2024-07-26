@@ -102,6 +102,8 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
             BreakOnDamage = true,
             BreakOnMove = true,
             NeedHand = true,
+            BreakOnHandChange = true, // WD EDIT
+            MovementThreshold = 0.01f,
         };
 
         if (!_doAfter.TryStartDoAfter(args))
