@@ -116,12 +116,6 @@
   id: FloorSteelOffset
   name: tiles-steel-floor-offset
   sprite: /Textures/Tiles/steel_offset.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -248,7 +242,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemPlasticGrey
+  itemDrop: FloorTileItemSteel
   heatCapacity: 10000
   tileRipResistance: 80
 
@@ -354,12 +348,6 @@
   name: tiles-white-floor-offset
   sprite: /Textures/Tiles/white_offset.png
   baseTurf: Plating
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -459,7 +447,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemPlasticWhite
+  itemDrop: FloorTileItemWhite
   heatCapacity: 10000
   tileRipResistance: 80
 
@@ -544,12 +532,6 @@
   name: tiles-dark-floor-offset
   sprite: /Textures/Tiles/dark_offset.png
   baseTurf: Plating
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -649,7 +631,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemPlasticDark
+  itemDrop: FloorTileItemDark
   heatCapacity: 10000
   tileRipResistance: 50
 
@@ -762,12 +744,6 @@
   name: tiles-blue-tile
   sprite: /Textures/Tiles/blue.png
   baseTurf: Plating
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -834,216 +810,12 @@
   heatCapacity: 10000
   tileRipResistance: 250
 
-- type: tile
-  id: FloorSteelYellow
-  name: tiles-steel-yellow-floor
-  sprite: /Textures/Tiles/steel_yellow.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteelYellow
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorSteelRed
-  name: tiles-steel-red-floor
-  sprite: /Textures/Tiles/steel_red.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteelRed
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorSteelGreen
-  name: tiles-steel-green-floor
-  sprite: /Textures/Tiles/steel_green.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteelGreen
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorSteelBlue
-  name: tiles-steel-blue-floor
-  sprite: /Textures/Tiles/steel_Blue.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteelBlue
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorPlasticYellow
-  name: tiles-plastic-yellow-floor
-  sprite: /Textures/Tiles/plastic_yellow.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemPlasticYellow
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorPlasticRed
-  name: tiles-plastic-red-floor
-  sprite: /Textures/Tiles/plastic_red.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemPlasticRed
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorPlasticGreen
-  name: tiles-plastic-green-floor
-  sprite: /Textures/Tiles/plastic_green.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemPlasticGreen
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorPlasticBlue
-  name: tiles-plastic-blue-floor
-  sprite: /Textures/Tiles/plastic_Blue.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemPlasticBlue
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorShielding
-  name: tiles-shielding-floor
-  sprite: /Textures/Tiles/shielding.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemShielding
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorReinforcedGlassFrame
-  name: tiles-reinforced-glass-frame-floor
-  sprite: /Textures/Tiles/rglass_frame.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemReinforcedGlassFrame
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorGlassFrame
-  name: tiles-glass-frame-floor
-  sprite: /Textures/Tiles/glass_frame.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemGlassFrame
-  heatCapacity: 10000
-
 # Departamental
 - type: tile
   id: FloorFreezer
   name: tiles-freezer
   sprite: /Textures/Tiles/freezer.png
   baseTurf: Plating
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -1053,9 +825,9 @@
   tileRipResistance: 100
 
 - type: tile
-  id: FloorSterile
-  name: tiles-sterile
-  sprite: /Textures/Tiles/sterile.png
+  id: FloorShowroom
+  name: tiles-showroom-floor
+  sprite: /Textures/Tiles/showroom.png
   baseTurf: Plating
   variants: 4
   placementVariants:
@@ -1063,32 +835,6 @@
   - 1.0
   - 1.0
   - 1.0
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepHull
-  itemDrop: FloorTileItemSterile
-  heatCapacity: 10000
-
-- type: tile
-  id: FloorShowroom
-  name: tiles-showroom-floor
-  sprite: /Textures/Tiles/showroom.png
-  baseTurf: Plating
-  variants: 12
-  placementVariants:
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
-    - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -1102,12 +848,6 @@
   name: tiles-hydro-floor
   sprite: /Textures/Tiles/hydro.png
   baseTurf: Plating
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -1140,16 +880,6 @@
   name: tiles-clown-floor
   sprite: /Textures/Tiles/clown.png
   baseTurf: Plating
-  variants: 8
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -1163,12 +893,6 @@
   name: tiles-mime-floor
   sprite: /Textures/Tiles/mime.png
   baseTurf: Plating
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -1182,12 +906,6 @@
   name: tiles-kitchen-floor
   sprite: /Textures/Tiles/kitchen.png
   baseTurf: Plating
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -1201,12 +919,6 @@
   name: tiles-laundry-floor
   sprite: /Textures/Tiles/laundry.png
   baseTurf: Plating
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
   isSubfloor: false
   deconstructTools: [ Prying ]
   footstepSounds:
@@ -1219,11 +931,8 @@
   id: FloorSteelDamaged
   name: tiles-steel-floor
   sprite: /Textures/Tiles/steel_damaged.png
-  variants: 8
+  variants: 5
   placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
   - 1.0
   - 1.0
   - 1.0
@@ -1242,14 +951,8 @@
   id: FloorSteelBurnt
   name: tiles-steel-floor
   sprite: /Textures/Tiles/steel_burnt.png
-  variants: 8
+  variants: 2
   placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
   - 1.0
   - 1.0
   baseTurf: Plating
@@ -1585,6 +1288,11 @@
   id: FloorShuttleWhite
   name: tiles-white-shuttle-floor
   sprite: /Textures/Tiles/shuttlewhite.png
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1598,6 +1306,12 @@
   id: FloorShuttleGrey
   name: tiles-grey-shuttle-floor
   sprite: /Textures/Tiles/shuttlegrey.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1611,6 +1325,12 @@
   id: FloorShuttleBlack
   name: tiles-black-shuttle-floor
   sprite: /Textures/Tiles/shuttleblack.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1624,6 +1344,11 @@
   id: FloorShuttleBlue
   name: tiles-blue-shuttle-floor
   sprite: /Textures/Tiles/shuttleblue.png
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1637,6 +1362,11 @@
   id: FloorShuttleOrange
   name: tiles-orange-shuttle-floor
   sprite: /Textures/Tiles/shuttleorange.png
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1650,6 +1380,11 @@
   id: FloorShuttlePurple
   name: tiles-purple-shuttle-floor
   sprite: /Textures/Tiles/shuttlepurple.png
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1663,6 +1398,11 @@
   id: FloorShuttleRed
   name: tiles-red-shuttle-floor
   sprite: /Textures/Tiles/shuttlered.png
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1671,18 +1411,6 @@
   itemDrop: FloorTileItemShuttleRed
   heatCapacity: 10000
   tileRipResistance: 4500
-
-- type: tile
-  id: FloorShuttleSyndie
-  name: tiles-syndie-shuttle-floor
-  sprite: /Textures/Tiles/shuttlesyndie.png
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemShuttleSyndie
-  heatCapacity: 10000
 
 
 # Materials
@@ -1716,12 +1444,6 @@
   id: FloorGlass
   name: tiles-glass-floor
   sprite: /Textures/Tiles/glass.png
-  variants: 4
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1906,7 +1628,7 @@
 
 - type: tile
   id: FloorAsteroidSandDug
-  name: tiles-asteroid-sand-dug
+  name: tiles-asteroid-sand
   sprite: /Textures/Tiles/Asteroid/asteroid_dug.png
   baseTurf: Space
   isSubfloor: true
@@ -1996,60 +1718,6 @@
   id: FloorAsteroidIronsandUnvariantized
   name: tiles-asteroid-ironsand
   sprite: /Textures/Tiles/Asteroid/ironsand0.png
-  baseTurf: Space
-  isSubfloor: true
-  footstepSounds:
-    collection: FootstepAsteroid
-  heatCapacity: 10000
-  weather: true
-
-- type: tile
-  id: FloorAsteroidCoarse
-  name: tiles-asteroid-coarse
-  sprite: /Textures/Tiles/Asteroid/asteroid_coarse.png
-  variants: 6
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Space
-  isSubfloor: true
-  footstepSounds:
-    collection: FootstepAsteroid
-  heatCapacity: 10000
-  weather: true
-
-- type: tile
-  id: FloorAsteroidCoarseDug
-  name: tiles-asteroid-coarse-dug
-  sprite: /Textures/Tiles/Asteroid/asteroid_coarse_dug.png
-  variants: 6
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  - 1.0
-  baseTurf: Space
-  isSubfloor: true
-  footstepSounds:
-    collection: FootstepAsteroid
-  heatCapacity: 10000
-  weather: true
-
-- type: tile
-  id: FloorAsteroidGravel
-  name: tiles-asteroid-gravel
-  sprite: /Textures/Tiles/Asteroid/asteroid_gravel.png
-  variants: 3
-  placementVariants:
-  - 1.0
-  - 1.0
-  - 1.0
   baseTurf: Space
   isSubfloor: true
   footstepSounds:
