@@ -200,6 +200,7 @@
        - FlameHiderModuleRecipe
        - SilencerModuleRecipe
        - AcceleratorModuleRecipe
+       - ShinanoGrenadeBeanbagRecipe
     emagDynamicRecipes:
       - CartridgePistolRubber
       - CartridgeMagnumRubber
@@ -372,6 +373,7 @@
       - MagazineGrenadeEmpty
       - GrenadeEMP
       - GrenadeFlash
+      - ShinanoGrenadeBeanbagRecipe
   - type: BluespaceStorage
 
 - type: entity
@@ -734,6 +736,7 @@
       - FlameHiderModuleRecipe
       - SilencerModuleRecipe
       - AcceleratorModuleRecipe
+      - ShinanoGrenadeBeanbagRecipe
     dynamicRecipes:
       - CartridgeLightRifleIncendiary
       - CartridgeMagnumIncendiary
@@ -790,6 +793,9 @@
       - ShuttleGunDusterCircuitboard
       - ClothingHandsGlovesMagnetic
       - ClothingHandsGlovesMagneticAdvanced
+      - ShinanoGrenadeFlashRecipe
+      - ShinanoGrenadeSmokeRecipe
+      - ShinanoGrenadeStingerRecipe
   - type: EmagLatheRecipes
     emagStaticRecipes:
      - MagazineLightRifleBox

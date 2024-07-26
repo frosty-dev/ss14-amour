@@ -80,6 +80,9 @@
   id: BaseAimModule
 
 - type: Tag
+  id: BaseShutterModule
+
+- type: Tag
   id: DoorjackUsable
 
 - type: Tag
