@@ -49,6 +49,23 @@
     - 0,0,0,0
   - type: Appearance
 
+- type: entity
+  parent: BaseItem
+  id: BaseShutterModule
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: White/Objects/Weapons/modules.rsi
+  - type: Tag
+    tags:
+      - BaseShutterModule
+  - type: Item
+    sprite: White/Objects/Weapons/modules.rsi
+    size: Small
+    shape:
+    - 0,0,0,0
+  - type: Appearance
+
 # modules
 - type: entity
   parent: BaseHandGuardModule
@@ -127,3 +144,14 @@
   - type: Sprite
     state: eightaim
   - type: Appearance
+
+- type: entity
+  parent: BaseShutterModule
+  id: ShinanoShutterModule
+  name: "modified Shinano shutter"
+  description: An illegal modification for the TS430 Shinano made by one of the Syndicate's contractors. It allows the use of a wide range of grenade ammunition that are in service with the Syndicate.
+  components:
+  - type: ShutterModule
+    value: "shinano"
+    module_type: "shutter_module"
+    tag: Grenade

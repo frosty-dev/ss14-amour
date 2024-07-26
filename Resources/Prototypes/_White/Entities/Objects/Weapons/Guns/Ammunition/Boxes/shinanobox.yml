@@ -37,6 +37,19 @@
         - state: shellflare
 
 - type: entity
+  name: shinano grenade stinger dispenser
+  parent: BaseShinanoGrenadeAmmoProvider
+  id: BoxShinanoGrenadeStinger
+  description: A dispenser box full of stinger grenade, designed for Shinano.
+  components:
+    - type: BallisticAmmoProvider
+      proto: ShinanoGrenadeStinger
+    - type: Sprite
+      layers:
+        - state: boxwide
+        - state: shellflare
+
+- type: entity
   name: shinano grenade beanbag dispenser
   parent: BaseShinanoGrenadeAmmoProvider
   id: BoxShinanoGrenadeBeanbag

@@ -402,9 +402,9 @@
   id: FloorTileItemFreezer
   components:
   - type: Sprite
-    state: showroom
+    state: freezer
   - type: Item
-    heldPrefix: showroom
+    heldPrefix: freezer
   - type: FloorTile
     outputs:
       - Plating
@@ -1137,3 +1137,233 @@
   - type: Construction
     graph: TileWoodLarge
     node: woodtilelarge
+
+- type: entity
+  name: steel yellow tile
+  parent: FloorTileItemSteel
+  id: FloorTileItemSteelYellow
+  components:
+  - type: Sprite
+    state: steel-yellow
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorSteelYellow
+
+- type: entity
+  name: steel red tile
+  parent: FloorTileItemSteel
+  id: FloorTileItemSteelRed
+  components:
+  - type: Sprite
+    state: steel-red
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorSteelRed
+
+- type: entity
+  name: steel green tile
+  parent: FloorTileItemSteel
+  id: FloorTileItemSteelGreen
+  components:
+  - type: Sprite
+    state: steel-green
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorSteelGreen
+
+- type: entity
+  name: steel blue tile
+  parent: FloorTileItemSteel
+  id: FloorTileItemSteelBlue
+  components:
+  - type: Sprite
+    state: steel-blue
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorSteelBlue
+
+- type: entity
+  name: plastic yellow tile
+  parent: FloorTileItemSteel
+  id: FloorTileItemPlasticYellow
+  components:
+  - type: Sprite
+    state: plastic-yellow
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorPlasticYellow
+
+- type: entity
+  name: plastic red tile
+  parent: FloorTileItemSteel
+  id: FloorTileItemPlasticRed
+  components:
+  - type: Sprite
+    state: plastic-red
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorPlasticRed
+
+- type: entity
+  name: plastic green tile
+  parent: FloorTileItemSteel
+  id: FloorTileItemPlasticGreen
+  components:
+  - type: Sprite
+    state: plastic-green
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorPlasticGreen
+
+- type: entity
+  name: plastic blue tile
+  parent: FloorTileItemSteel
+  id: FloorTileItemPlasticBlue
+  components:
+  - type: Sprite
+    state: plastic-blue
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorPlasticBlue
+
+- type: entity
+  name: plastic dark tile
+  parent: FloorTileItemSteel
+  id: FloorTileItemPlasticDark
+  components:
+  - type: Sprite
+    state: plastic-dark
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorDarkPlastic
+
+- type: entity
+  name: plastic grey tile
+  parent: FloorTileItemSteel
+  id: FloorTileItemPlasticGrey
+  components:
+  - type: Sprite
+    state: plastic-grey
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorPlastic
+
+- type: entity
+  name: plastic white tile
+  parent: FloorTileItemSteel
+  id: FloorTileItemPlasticWhite
+  components:
+  - type: Sprite
+    state: plastic-white
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorWhitePlastic
+
+- type: entity
+  name: shielding floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemShielding
+  components:
+  - type: Sprite
+    state: shielding
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorShielding
+
+- type: entity
+  name: shuttle syndie floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemShuttleSyndie
+  components:
+  - type: Sprite
+    state: shuttlesyndie
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorShuttleSyndie
+
+- type: entity
+  name: sterile floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemSterile
+  components:
+  - type: Sprite
+    state: sterile
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorSterile
+
+- type: entity
+  name: reinforced glass frame floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemReinforcedGlassFrame
+  components:
+  - type: Sprite
+    state: rglass-frame
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorReinforcedGlassFrame
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  name: glass frame floor
+  parent: FloorTileItemSteel
+  id: FloorTileItemGlassFrame
+  components:
+  - type: Sprite
+    state: glass-frame
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorGlassFrame
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

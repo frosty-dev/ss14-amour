@@ -86,10 +86,10 @@ public abstract partial class SharedBuckleSystem : EntitySystem
             case StrapPosition.None:
                 break;
             case StrapPosition.Stand:
-                _standing.Stand(buckleUid);
+                _standing.Stand(buckleUid, unbuckle: false);
                 break;
             case StrapPosition.Down:
-                _standing.Down(buckleUid, false, false);
+                _standing.Down(buckleUid, false, false, false);
                 break;
         }
     }

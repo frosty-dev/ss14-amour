@@ -6,5 +6,5 @@ namespace Content.Shared._White.BuffedFlashGrenade;
 public sealed partial class FlashSoundSuppressionComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MaxRange = 3f;
+    public float MaxRange = 2f;
 }

@@ -78,6 +78,8 @@ public sealed partial class DragonSystem : EntitySystem
                 }
             }
 
+            continue; // WD EDIT, Don't despawn dragon
+
             // At max rifts
             if (comp.Rifts.Count >= RiftsAllowed)
                 continue;

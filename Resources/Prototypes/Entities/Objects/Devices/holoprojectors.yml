@@ -8,6 +8,7 @@
     storedRotation: -90
   - type: HolosignProjector
   - type: UseDelay
+    delay: 0.5
   - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot

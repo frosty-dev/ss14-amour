@@ -9,7 +9,7 @@
   weights:
     CaptainIDStealObjectiveWiz: 1
     CMOHyposprayStealObjectiveWiz: 1
-    RDHardsuitStealObjectiveWiz: 1
+    #RDHardsuitStealObjectiveWiz: 1
     NukeDiskStealObjectiveWiz: 1
     MagbootsStealObjectiveWiz: 1
     CorgiMeatStealObjectiveWiz: 1

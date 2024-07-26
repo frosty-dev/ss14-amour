@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._White.Containers;
 using Content.Shared._White.Events;
 using Content.Shared._White.WeaponModules;
 using Content.Shared.ActionBlocker;
@@ -230,7 +231,12 @@ public abstract partial class SharedGunSystem : EntitySystem
     private void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun)
     {
         if (gun.FireRateModified <= 0f ||
-            !_actionBlockerSystem.CanAttack(user))
+            !_actionBlockerSystem.CanAttack(user) || TryComp(gunUid, out UseDelayComponent? useDelay) &&
+            _useDelay.IsDelayed((gunUid, useDelay))) // WD EDIT
+            return;
+
+        if (Containers.TryGetOuterContainer(user, Transform(user), out var container) &&
+            HasComp<ShootBlockerContainerComponent>(container.Owner)) // WD
             return;
 
         var toCoordinates = gun.ShootCoordinates;

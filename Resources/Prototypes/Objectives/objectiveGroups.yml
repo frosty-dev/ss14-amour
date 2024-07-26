@@ -13,7 +13,7 @@
     CaptainIDStealObjective: 1
     CMOHyposprayStealObjective: 1
     #CMOCrewMonitorStealObjective: 1
-    RDHardsuitStealObjective: 1
+    #RDHardsuitStealObjective: 1
     NukeDiskStealObjective: 1
     MagbootsStealObjective: 1
     CorgiMeatStealObjective: 1
@@ -137,7 +137,7 @@
   weights:
     CaptainIDStealObjectiveCh: 1
     CMOHyposprayStealObjectiveCh: 1
-    RDHardsuitStealObjectiveCh: 1
+    #RDHardsuitStealObjectiveCh: 1
     NukeDiskStealObjectiveCh: 1
     MagbootsStealObjectiveCh: 1
     CorgiMeatStealObjectiveCh: 1

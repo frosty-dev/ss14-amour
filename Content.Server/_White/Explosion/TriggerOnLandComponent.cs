@@ -4,5 +4,5 @@
 public sealed partial class TriggerOnLandComponent : Component
 {
     [DataField]
-    public float Delay = 0.3f;
+    public float Delay = 1f;
 }

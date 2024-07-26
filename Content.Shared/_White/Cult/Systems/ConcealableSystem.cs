@@ -11,10 +11,10 @@ public sealed class ConcealableSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ConcealableComponent, ExamineAttemptEvent>(OnExamine);
-        SubscribeLocalEvent<ConcealableComponent, InteractionAttemptEvent>(OnInteract);
+        SubscribeLocalEvent<ConcealableComponent, GettingInteractedWithAttemptEvent>(OnInteract);
     }
 
-    private void OnInteract(Entity<ConcealableComponent> ent, ref InteractionAttemptEvent args)
+    private void OnInteract(Entity<ConcealableComponent> ent, ref GettingInteractedWithAttemptEvent args)
     {
         if (ent.Comp is {Concealed: true, ExaminableWhileConcealed: false})
             args.Cancel();

@@ -17,7 +17,9 @@ using Content.Shared.Traits.Assorted;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.StatusEffect;
 using Content.Shared.Examine;
+using Content.Shared.Hands.Components;
 using Robust.Server.Audio;
+using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
@@ -40,6 +42,7 @@ namespace Content.Server.Flash
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
         [Dependency] private readonly FlashSoundSuppressionSystem _flashSoundSuppressionSystem = default!;
+        [Dependency] private readonly ContainerSystem _container = default!;
 
         public override void Initialize()
         {
@@ -162,6 +165,14 @@ namespace Content.Server.Flash
             var statusEffectsQuery = GetEntityQuery<StatusEffectsComponent>();
             var damagedByFlashingQuery = GetEntityQuery<DamagedByFlashingComponent>();
 
+            // WD START
+            var flashInContainer =
+                _container.TryGetOuterContainer(source.Owner, transform, out var flashContainer);
+
+            if (flashInContainer && HasComp<HandsComponent>(flashContainer!.Owner))
+                flashInContainer = false;
+            // WD END
+
             foreach (var entity in _entityLookup.GetEntitiesInRange(transform.Coordinates, range))
             {
                 if (!_random.Prob(probability))
@@ -170,6 +181,16 @@ namespace Content.Server.Flash
                 // Is the entity affected by the flash either through status effects or by taking damage?
                 if (!statusEffectsQuery.HasComponent(entity) && !damagedByFlashingQuery.HasComponent(entity))
                     continue;
+
+                // WD START
+                var entityInContainer = _container.TryGetContainingContainer(entity, out var entityContainer);
+
+                if (flashInContainer != entityInContainer)
+                    continue;
+
+                if (flashInContainer && flashContainer != entityContainer)
+                    continue;
+                // WD END
 
                 // Check for entites in view
                 // put damagedByFlashingComponent in the predicate because shadow anomalies block vision.
