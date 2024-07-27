@@ -38,6 +38,7 @@
         - SurveillanceCameraGeneral
         - SurveillanceCameraMedical
         - SurveillanceCameraCommand
+      subnetColor: "#088743"
 
 - type: entity
   parent: SurveillanceCameraRouterBase
@@ -46,6 +47,7 @@
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraEngineering
+      subnetColor: "#EFB341"
 
 - type: entity
   parent: SurveillanceCameraRouterBase
@@ -54,6 +56,7 @@
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraSecurity
+      subnetColor: "#DE3A3A"
 
 - type: entity
   parent: SurveillanceCameraRouterBase
@@ -62,6 +65,7 @@
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraScience
+      subnetColor: "#D381C9"
 
 - type: entity
   parent: SurveillanceCameraRouterBase
@@ -70,6 +74,7 @@
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraSupply
+      subnetColor: "#A46106"
 
 - type: entity
   parent: SurveillanceCameraRouterBase
@@ -78,6 +83,7 @@
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraCommand
+      subnetColor: "#052EED"
 
 - type: entity
   parent: SurveillanceCameraRouterBase
@@ -86,6 +92,7 @@
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraService
+      subnetColor: "#9FED58"
 
 - type: entity
   parent: SurveillanceCameraRouterBase
@@ -94,6 +101,7 @@
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraMedical
+      subnetColor: "#52B4E9"
 
 - type: entity
   parent: SurveillanceCameraRouterBase
@@ -102,6 +110,7 @@
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraGeneral
+      subnetColor: "#088743"
 
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]
@@ -136,6 +145,7 @@
       setupAvailableNetworks:
         - SurveillanceCameraEntertainment
         - SurveillanceCameraSecurity
+      subnetColor: "#088743"
 
 - type: entity
   parent: SurveillanceCameraWirelessRouterBase
@@ -144,6 +154,7 @@
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraEntertainment
+      subnetColor: "#088743"
 
 # Body Camera Separate Router
 - type: entity

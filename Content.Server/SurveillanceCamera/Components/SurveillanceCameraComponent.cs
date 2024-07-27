@@ -1,8 +1,9 @@
 using Content.Server._White.SurveillanceCamera;
+using Content.Server.SurveillanceCamera.Systems;
 using Content.Shared.DeviceNetwork;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
-namespace Content.Server.SurveillanceCamera;
+namespace Content.Server.SurveillanceCamera.Components;
 
 [RegisterComponent]
 [Access(typeof(SurveillanceCameraSystem), typeof(SurveillanceBodyCameraSystem))]

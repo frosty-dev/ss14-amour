@@ -4,6 +4,7 @@ using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Emp;
 using Content.Server.Power.Components;
+using Content.Server.SurveillanceCamera.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.SurveillanceCamera;
@@ -12,7 +13,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.SurveillanceCamera;
+namespace Content.Server.SurveillanceCamera.Systems;
 
 public sealed class SurveillanceCameraSystem : EntitySystem
 {
@@ -47,8 +48,10 @@ public sealed class SurveillanceCameraSystem : EntitySystem
     public const string CameraSubnetDisconnectMessage = "surveillance_camera_subnet_disconnect";
 
     public const string CameraAddressData = "surveillance_camera_data_origin";
+    public const string CameraUid = "surveillance_camera_data_uid";
     public const string CameraNameData = "surveillance_camera_data_name";
     public const string CameraSubnetData = "surveillance_camera_data_subnet";
+    public const string CameraSubnetColor = "surveillance_camera_color_subnet";
 
     public const int CameraNameLimit = 32;
 
@@ -84,7 +87,9 @@ public sealed class SurveillanceCameraSystem : EntitySystem
                 { DeviceNetworkConstants.Command, string.Empty },
                 { CameraAddressData, deviceNet.Address },
                 { CameraNameData, component.CameraId },
-                { CameraSubnetData, string.Empty }
+                { CameraSubnetData, string.Empty },
+                { CameraSubnetColor, new Color() },
+                { CameraUid, uid }
             };
 
             var dest = string.Empty;
@@ -92,60 +97,50 @@ public sealed class SurveillanceCameraSystem : EntitySystem
             switch (command)
             {
                 case CameraConnectMessage:
-                    if (!args.Data.TryGetValue(CameraAddressData, out dest)
-                        || string.IsNullOrEmpty(args.Address))
-                    {
+                    if (!args.Data.TryGetValue(CameraAddressData, out dest) || string.IsNullOrEmpty(args.Address))
                         return;
-                    }
 
                     payload[DeviceNetworkConstants.Command] = CameraConnectMessage;
                     break;
+
                 case CameraHeartbeatMessage:
-                    if (!args.Data.TryGetValue(CameraAddressData, out dest)
-                        || string.IsNullOrEmpty(args.Address))
-                    {
+                    if (!args.Data.TryGetValue(CameraAddressData, out dest) || string.IsNullOrEmpty(args.Address))
                         return;
-                    }
 
                     payload[DeviceNetworkConstants.Command] = CameraHeartbeatMessage;
                     break;
+
                 case CameraPingMessage:
                     if (!args.Data.TryGetValue(CameraSubnetData, out string? subnet))
-                    {
                         return;
-                    }
+
+                    if (!args.Data.TryGetValue(CameraSubnetColor, out Color color))
+                        return;
 
                     dest = args.SenderAddress;
                     payload[CameraSubnetData] = subnet;
+                    payload[CameraSubnetColor] = color;
+                    payload[CameraUid] = uid;
                     payload[DeviceNetworkConstants.Command] = CameraDataMessage;
                     break;
             }
 
-            _deviceNetworkSystem.QueuePacket(
-                uid,
-                dest,
-                payload);
+            _deviceNetworkSystem.QueuePacket(uid, dest, payload);
         }
     }
 
     private void AddVerbs(EntityUid uid, SurveillanceCameraComponent component, GetVerbsEvent<AlternativeVerb> verbs)
     {
         if (!_actionBlocker.CanInteract(verbs.User, uid))
-        {
             return;
-        }
 
-        if (TryComp<SurveillanceBodyCameraComponent>(uid, out _)) // WD EDIT
-        {
+        if (HasComp<SurveillanceBodyCameraComponent>(uid)) // WD EDIT
             return;
-        }
 
         if (component.NameSet && component.NetworkSet)
-        {
             return;
-        }
 
-        AlternativeVerb verb = new();
+        var verb = new AlternativeVerb();
         verb.Text = Loc.GetString("surveillance-camera-setup");
         verb.Act = () => OpenSetupInterface(uid, verbs.User, component);
         verbs.Verbs.Add(verb);
@@ -181,21 +176,14 @@ public sealed class SurveillanceCameraSystem : EntitySystem
     private void OnSetNetwork(EntityUid uid, SurveillanceCameraComponent component,
         SurveillanceCameraSetupSetNetwork args)
     {
-        if (args.UiKey is not SurveillanceCameraSetupUiKey key
-            || key != SurveillanceCameraSetupUiKey.Camera)
-        {
+        if (args.UiKey is not SurveillanceCameraSetupUiKey key || key != SurveillanceCameraSetupUiKey.Camera)
             return;
-        }
-        if (args.Network < 0 || args.Network >= component.AvailableNetworks.Count)
-        {
-            return;
-        }
 
-        if (!_prototypeManager.TryIndex<DeviceFrequencyPrototype>(component.AvailableNetworks[args.Network],
-                out var frequency))
-        {
+        if (args.Network < 0 || args.Network >= component.AvailableNetworks.Count)
             return;
-        }
+
+        if (!_prototypeManager.TryIndex<DeviceFrequencyPrototype>(component.AvailableNetworks[args.Network], out var frequency))
+            return;
 
         _deviceNetworkSystem.SetReceiveFrequency(uid, frequency.Frequency);
         component.NetworkSet = true;
@@ -206,6 +194,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
     {
         if (!Resolve(uid, ref camera) || !Resolve(player, ref actor))
             return;
+
         if (!_userInterface.TryGetUi(uid, SurveillanceCameraSetupUiKey.Camera, out var bui))
             return;
 
@@ -216,9 +205,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
     public void UpdateSetupInterface(EntityUid uid, SurveillanceCameraComponent? camera = null, DeviceNetworkComponent? deviceNet = null)
     {
         if (!Resolve(uid, ref camera, ref deviceNet))
-        {
             return;
-        }
 
         if (camera.NameSet && camera.NetworkSet && !TryComp<SurveillanceBodyCameraComponent>(uid, out _)) // WD EDIT
         {
@@ -249,9 +236,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
     private void Deactivate(EntityUid camera, SurveillanceCameraComponent? component = null)
     {
         if (!Resolve(camera, ref component))
-        {
             return;
-        }
 
         var ev = new SurveillanceCameraDeactivateEvent(camera);
 

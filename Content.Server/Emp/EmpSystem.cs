@@ -2,6 +2,7 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Radio;
 using Content.Server.SurveillanceCamera;
+using Content.Server.SurveillanceCamera.Systems;
 using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Robust.Shared.Map;
