@@ -1321,6 +1321,12 @@
   id: Wrench
 
 - type: Tag
+  id: DrinkGlass
+
+- type: Tag
+  id: Ingredient
+
+- type: Tag
   id: Wringer
 
 - type: Tag
