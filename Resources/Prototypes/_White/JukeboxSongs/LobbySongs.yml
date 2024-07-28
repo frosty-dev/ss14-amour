@@ -83,3 +83,9 @@
   name: Music - Comet Haley
   path:
     path: /Audio/Lobby/White/comet_haley.ogg
+
+- type: jukebox
+  id: CosmicTemperance
+  name: Music - Cosmic Temperance
+  path:
+    path: /Audio/Lobby/White/cosmictemperance.ogg
