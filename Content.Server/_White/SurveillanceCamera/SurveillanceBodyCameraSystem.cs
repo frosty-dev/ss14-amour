@@ -2,6 +2,8 @@
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
 using Content.Server.SurveillanceCamera;
+using Content.Server.SurveillanceCamera.Components;
+using Content.Server.SurveillanceCamera.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Item;

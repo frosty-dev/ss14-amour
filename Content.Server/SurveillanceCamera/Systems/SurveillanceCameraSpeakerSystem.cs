@@ -4,7 +4,7 @@ using Content.Shared.Speech;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Server.SurveillanceCamera;
+namespace Content.Server.SurveillanceCamera.Systems;
 
 /// <summary>
 ///     This handles speech for surveillance camera monitors.

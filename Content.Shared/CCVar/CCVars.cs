@@ -1047,21 +1047,21 @@ namespace Content.Shared.CCVar
         ///     Divisor from maxForce (pressureDifference * 2.25f) to force applied on objects.
         /// </summary>
         public static readonly CVarDef<float> SpaceWindPressureForceDivisorPush =
-            CVarDef.Create("atmos.space_wind_pressure_force_divisor_push", 2500f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.space_wind_pressure_force_divisor_push", 1700f, CVar.SERVERONLY);
 
         /// <summary>
         ///     The maximum velocity (not force) that may be applied to an object by atmospheric pressure differences.
         ///     Useful to prevent clipping through objects.
         /// </summary>
         public static readonly CVarDef<float> SpaceWindMaxVelocity =
-            CVarDef.Create("atmos.space_wind_max_velocity", 15f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.space_wind_max_velocity", 7f, CVar.SERVERONLY);
 
         /// <summary>
         ///     The maximum force that may be applied to an object by pushing (i.e. not throwing) atmospheric pressure differences.
         ///     A "throwing" atmospheric pressure difference ignores this limit, but not the max. velocity limit.
         /// </summary>
         public static readonly CVarDef<float> SpaceWindMaxPushForce =
-            CVarDef.Create("atmos.space_wind_max_push_force", 20f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.space_wind_max_push_force", 17f, CVar.SERVERONLY);
 
         /// <summary>
         ///     If an object's mass is below this number, then this number is used in place of mass to determine whether air pressure can throw an object.
@@ -1079,7 +1079,7 @@ namespace Content.Shared.CCVar
         /// 	If an object's inverse mass is lower than this, it is capped at this. Basically, an upper limit to how heavy an object can be before it stops resisting space wind more.
         /// </summary>
         public static readonly CVarDef<float> SpaceWindMaximumCalculatedInverseMass =
-            CVarDef.Create("atmos.space_wind_maximum_calculated_inverse_mass", 0.04f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.space_wind_maximum_calculated_inverse_mass", 0.08f, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether monstermos tile equalization is enabled.
