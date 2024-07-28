@@ -189,6 +189,16 @@
 
 - type: entity
   parent: CultRunicMetal
+  id: CultRunicMetal4
+  suffix: 4
+  components:
+    - type: Sprite
+      state: runic
+    - type: Stack
+      count: 4
+
+- type: entity
+  parent: CultRunicMetal
   id: CultRunicMetal20
   suffix: 20
   components:

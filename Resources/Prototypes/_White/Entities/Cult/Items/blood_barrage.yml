@@ -24,6 +24,8 @@
     proto: BloodBolt
     capacity: 25
   - type: BoltBarrage
+  - type: DeleteOnDropAttempt
+    message: bolt-barrage-component-extra-message
   - type: GiftIgnore
   - type: CultItem
     canPickUp: false

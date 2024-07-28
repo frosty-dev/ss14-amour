@@ -365,6 +365,30 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 if (weaponUid == lightTarget)
                     return false;
 
+                // WD START
+                if (user == lightTarget && !weapon.CanAttackSelf)
+                    return false;
+
+                if (lightTarget == null)
+                {
+                    if (weapon.CanMiss)
+                        break;
+                    return false;
+                }
+
+                if (weapon.AttackWhitelist != null)
+                {
+                    if (!weapon.AttackWhitelist.IsValid(lightTarget.Value, EntityManager))
+                        return false;
+                }
+
+                if (weapon.AttackBlacklist != null)
+                {
+                    if (weapon.AttackBlacklist.IsValid(lightTarget.Value, EntityManager))
+                        return false;
+                }
+                // WD END
+
                 break;
             case DisarmAttackEvent disarm:
                 var disarmTarget = GetEntity(disarm.Target);

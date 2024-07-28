@@ -1442,7 +1442,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 25
+        Piercing: 20
 
 - type: entity
   name: arcane bolt

@@ -1,3 +1,5 @@
+using Content.Server.Chat.Systems;
+
 namespace Content.Server._White.Cult.Runes.Comps;
 
 [RegisterComponent]
@@ -14,4 +16,7 @@ public sealed partial class CultRuneBaseComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField("invokePhrase")]
     public string InvokePhrase = "";
+
+    [DataField]
+    public InGameICChatType InvokeChatType = InGameICChatType.Whisper;
 }

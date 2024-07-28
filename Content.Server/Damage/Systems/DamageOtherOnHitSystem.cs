@@ -3,6 +3,7 @@ using Content.Server.Damage.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Camera;
 using Content.Server._White.Crossbow;
+using Content.Shared._White.Cult.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
@@ -30,7 +31,8 @@ namespace Content.Server.Damage.Systems
         public override void Initialize()
         {
             SubscribeLocalEvent<DamageOtherOnHitComponent, ThrowDoHitEvent>(OnDoHit,
-                before: new[] {typeof(MeleeThrowOnHitSystem)}); // WD EDIT
+                before: new[] {typeof(MeleeThrowOnHitSystem)},
+                after: new[] {typeof(BloodSpearSystem)}); // WD EDIT
             SubscribeLocalEvent<DamageOtherOnHitComponent, DamageExamineEvent>(OnDamageExamine);
         }
 

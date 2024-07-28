@@ -1,3 +1,5 @@
+using Content.Shared._White.Cult.Components;
+
 namespace Content.Shared._White.Cult.Systems;
 
 /// <summary>
@@ -9,16 +11,18 @@ public sealed class CultistSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<Components.CultistComponent, ComponentStartup>(OnInit);
-        SubscribeLocalEvent<Components.CultistComponent, ComponentShutdown>(OnRemove);
+        SubscribeLocalEvent<ConstructComponent, ComponentStartup>(OnInit);
+        SubscribeLocalEvent<ConstructComponent, ComponentShutdown>(OnRemove);
+        SubscribeLocalEvent<CultistComponent, ComponentStartup>(OnInit);
+        SubscribeLocalEvent<CultistComponent, ComponentShutdown>(OnRemove);
     }
 
-    private void OnInit(EntityUid uid, Components.CultistComponent component, ComponentStartup args)
+    private void OnInit<T>(EntityUid uid, T component, ComponentStartup args)
     {
         RaiseLocalEvent(new EventCultistComponentState(true));
     }
 
-    private void OnRemove(EntityUid uid, Components.CultistComponent component, ComponentShutdown args)
+    private void OnRemove<T>(EntityUid uid, T component, ComponentShutdown args)
     {
         RaiseLocalEvent(new EventCultistComponentState(false));
     }

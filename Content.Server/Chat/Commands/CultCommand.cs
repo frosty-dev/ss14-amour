@@ -1,6 +1,7 @@
 using Content.Server.Chat.Systems;
 using Content.Shared.Administration;
 using Content.Shared._White.Cult;
+using Content.Shared._White.Cult.Components;
 using Robust.Shared.Console;
 using Robust.Shared.Enums;
 using CultistComponent = Content.Shared._White.Cult.Components.CultistComponent;
@@ -35,7 +36,8 @@ namespace Content.Server.Chat.Commands
 
             var entityManager = IoCManager.Resolve<EntityManager>();
 
-            if (!entityManager.HasComponent<CultistComponent>(entity))
+            if (!entityManager.HasComponent<CultistComponent>(entity) &&
+                !entityManager.HasComponent<ConstructComponent>(entity))
             {
                 return;
             }

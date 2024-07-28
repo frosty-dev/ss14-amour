@@ -133,5 +133,7 @@
   - type: BasicEntityAmmoProvider
     proto: ArcaneBolt
     capacity: 30
+  - type: DeleteOnDropAttempt
+    message: bolt-barrage-component-extra-message
   - type: BoltBarrage
   - type: GiftIgnore

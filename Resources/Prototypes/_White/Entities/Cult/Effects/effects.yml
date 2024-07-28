@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: CultTileSpawnEffect
   name: Sparkle
   placement:
@@ -103,3 +103,18 @@
       drawdepth: Effects
     - type: PointLight
       color: "#FF0000"
+
+- type: entity
+  id: CultStunFlashEffect
+  noSpawn: true
+  components:
+    - type: PointLight
+      enabled: true
+      radius: 5
+      energy: 8
+      netsync: false
+      color: Red
+    - type: LightFade
+      duration: 0.5
+    - type: TimedDespawn
+      lifetime: 0.5

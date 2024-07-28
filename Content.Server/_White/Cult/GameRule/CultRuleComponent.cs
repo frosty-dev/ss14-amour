@@ -50,6 +50,8 @@ public sealed partial class CultRuleComponent : Component
     public List<ConstructComponent> Constructs = new();
 
     public CultWinCondition WinCondition = CultWinCondition.Draw;
+
+    public CultStage Stage = CultStage.Normal;
 }
 
 public enum CultWinCondition : byte
@@ -57,6 +59,13 @@ public enum CultWinCondition : byte
     Draw,
     Win,
     Failure,
+}
+
+public enum CultStage : byte
+{
+    Normal,
+    RedEyes,
+    Pentagram,
 }
 
 public sealed class CultNarsieSummoned : EntityEventArgs;

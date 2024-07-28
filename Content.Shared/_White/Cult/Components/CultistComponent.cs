@@ -11,7 +11,7 @@ namespace Content.Shared._White.Cult.Components;
 /// This is used for tagging a mob as a cultist.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class CultistComponent : ShowCultHudComponent
+public sealed partial class CultistComponent : Component
 {
     [DataField("greetSound", customTypeSerializer: typeof(SoundSpecifierTypeSerializer))]
     public SoundSpecifier? CultistGreetSound = new SoundPathSpecifier("/Audio/CultSounds/fart.ogg");
@@ -41,7 +41,7 @@ public sealed partial class CultistComponent : ShowCultHudComponent
 
     public static string CultSummonCombatEquipmentAction = "ActionCultSummonCombatEquipment";
 
-    public static string CultStunAction = "ActionCultStun";
+    public static string CultStunAction = "InstantActionCultStun";
 
     public static string CultShadowShacklesAction = "ActionCultShadowShackles";
 
