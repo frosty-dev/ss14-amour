@@ -70,6 +70,8 @@
           Quantity: 9
         - ReagentId: Carbon
           Quantity: 1
+  - type: RCDAmmo # WD
+    canBeExamined: false
 
 - type: entity
   parent: SheetSteel
@@ -206,6 +208,9 @@
         - ReagentId: Carbon
           Quantity: 1
         canReact: false
+  - type: RCDAmmo # WD
+    canBeExamined: false
+    chargeCountModifier: 2
 
 - type: entity
   parent: SheetPlasteel

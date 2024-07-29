@@ -1,7 +1,9 @@
+using Content.Shared._White.Chaplain;
 using Content.Shared._White.Cult.Components;
 using Content.Shared.Actions;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
+using Content.Shared.Projectiles;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -15,6 +17,7 @@ public sealed class BloodSpearSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly HolyWeaponSystem _holy = default!;
     [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
@@ -23,7 +26,8 @@ public sealed class BloodSpearSystem : EntitySystem
 
         SubscribeLocalEvent<BloodSpearComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<BloodSpearComponent, GotEquippedHandEvent>(OnEquip);
-        SubscribeLocalEvent<BloodSpearComponent, ThrowDoHitEvent>(OnThrowDoHit);
+        SubscribeLocalEvent<BloodSpearComponent, ThrowDoHitEvent>(OnThrowDoHit,
+            before: new[] {typeof(SharedProjectileSystem)});
         SubscribeLocalEvent<BloodSpearComponent, ExaminedEvent>(OnExamine);
     }
 
@@ -34,11 +38,20 @@ public sealed class BloodSpearSystem : EntitySystem
 
     private void OnThrowDoHit(Entity<BloodSpearComponent> ent, ref ThrowDoHitEvent args)
     {
+        if (HasComp<CultistComponent>(args.Target) || HasComp<ConstructComponent>(args.Target))
+        {
+            args.Handled = true;
+            return;
+        }
+
         if (!TryComp(args.Target, out StatusEffectsComponent? status))
             return;
 
-        if(!_stunSystem.TryParalyze(args.Target, TimeSpan.FromSeconds(6), true, status))
-            return;
+        if (!_holy.IsHoldingHolyWeapon(args.Target))
+        {
+            if(!_stunSystem.TryParalyze(args.Target, TimeSpan.FromSeconds(4), true, status))
+                return;
+        }
 
         if (_net.IsClient)
             return;

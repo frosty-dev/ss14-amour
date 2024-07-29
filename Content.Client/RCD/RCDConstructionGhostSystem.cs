@@ -56,7 +56,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         }
 
         // If the placer has not changed, exit
-        _rcdSystem.UpdateCachedPrototype(heldEntity.Value, rcd);
+        _rcdSystem.UpdateCachedPrototype(rcd);
 
         if (heldEntity == placerEntity && rcd.CachedPrototype.Prototype == placerProto)
             return;

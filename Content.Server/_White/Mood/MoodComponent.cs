@@ -8,13 +8,13 @@ namespace Content.Server._White.Mood;
 [RegisterComponent]
 public sealed partial class MoodComponent : Component
 {
-    [DataField("currentMoodLevel"), ViewVariables(VVAccess.ReadOnly)]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public float CurrentMoodLevel;
 
-    [DataField("currentMoodThreshold"), ViewVariables(VVAccess.ReadOnly)]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public MoodThreshold CurrentMoodThreshold;
 
-    [DataField("lastThreshold"), ViewVariables(VVAccess.ReadOnly)]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public MoodThreshold LastThreshold;
 
     [ViewVariables(VVAccess.ReadOnly)]
@@ -23,22 +23,22 @@ public sealed partial class MoodComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public readonly Dictionary<string, float> UncategorisedEffects = new();
 
-    [DataField("slowdownSpeedModifier"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float SlowdownSpeedModifier = 0.75f;
 
-    [DataField("increaseSpeedModifier"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float IncreaseSpeedModifier = 1.15f;
 
-    [DataField("increaseCritThreshold"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float IncreaseCritThreshold = 1.2f;
 
-    [DataField("decreaseCritThreshold"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float DecreaseCritThreshold = 0.9f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public FixedPoint2 CritThresholdBeforeModify;
 
-    [DataField("moodThresholds", customTypeSerializer: typeof(DictionarySerializer<MoodThreshold, float>))]
+    [DataField(customTypeSerializer: typeof(DictionarySerializer<MoodThreshold, float>))]
     public Dictionary<MoodThreshold, float> MoodThresholds = new()
     {
         { MoodThreshold.VeryVeryGood, 10.0f },
@@ -53,7 +53,7 @@ public sealed partial class MoodComponent : Component
         { MoodThreshold.Dead, 0.0f }
     };
 
-    [DataField("moodThresholdsAlerts", customTypeSerializer: typeof(DictionarySerializer<MoodThreshold, AlertType>))]
+    [DataField(customTypeSerializer: typeof(DictionarySerializer<MoodThreshold, AlertType>))]
     public Dictionary<MoodThreshold, AlertType> MoodThresholdsAlerts = new()
     {
         { MoodThreshold.Dead, AlertType.MoodDead },
@@ -69,7 +69,7 @@ public sealed partial class MoodComponent : Component
         { MoodThreshold.Insane, AlertType.Insane }
     };
 
-    [DataField("moodChangeValues", customTypeSerializer: typeof(DictionarySerializer<Enum, float>))]
+    [DataField(customTypeSerializer: typeof(DictionarySerializer<Enum, float>))]
     public Dictionary<Enum, float> MoodChangeValues = new()
     {
         { MoodChangeLevel.None , 0.0f },
@@ -80,7 +80,7 @@ public sealed partial class MoodComponent : Component
         { MoodChangeLevel.Large , 2f }
     };
 
-    [DataField("healthMoodEffectsThresholds", customTypeSerializer: typeof(DictionarySerializer<string, float>))]
+    [DataField(customTypeSerializer: typeof(DictionarySerializer<string, float>))]
     public Dictionary<string, float> HealthMoodEffectsThresholds = new()
     {
         { "HealthHeavyDamage", 80f },

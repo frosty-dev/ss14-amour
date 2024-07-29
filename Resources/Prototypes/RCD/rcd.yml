@@ -2,7 +2,7 @@
 - type: rcd
   id: Invalid   # Hidden prototype - do not add to RCDs
   mode: Invalid
-  
+
 - type: rcd
   id: Deconstruct
   name: rcd-component-deconstruct
@@ -13,14 +13,14 @@
   rotation: Camera
 
 - type: rcd
-  id: DeconstructLattice   # Hidden prototype - do not add to RCDs  
+  id: DeconstructLattice   # Hidden prototype - do not add to RCDs
   name: rcd-component-deconstruct
   mode: Deconstruct
   cost: 2
   delay: 0
   rotation: Camera
   fx: EffectRCDConstruct0
-    
+
 - type: rcd
   id: DeconstructTile      # Hidden prototype - do not add to RCDs
   name: rcd-component-deconstruct
@@ -30,7 +30,7 @@
   rotation: Camera
   fx: EffectRCDDeconstruct4
 
-# Flooring 
+# Flooring
 - type: rcd
   id: Plating
   name: rcd-component-plating
@@ -39,12 +39,12 @@
   mode: ConstructTile
   prototype: Plating
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
-  fx: EffectRCDConstruct1
-  
+  fx: EffectRCDConstruct0
+
 - type: rcd
   id: FloorSteel
   name: rcd-component-floor-steel
@@ -53,11 +53,11 @@
   mode: ConstructTile
   prototype: FloorSteel
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - CanBuildOnEmptyTile
-  fx: EffectRCDConstruct1
+  fx: EffectRCDConstruct0
 
 - type: rcd
   id: Catwalk
@@ -66,13 +66,13 @@
   mode: ConstructObject
   prototype: Catwalk
   cost: 1
-  delay: 1
+  delay: 0
   collisionMask: InteractImpassable
   rules:
     - MustBuildOnSubfloor
     - IsCatwalk
   rotation: Fixed
-  fx: EffectRCDConstruct1
+  fx: EffectRCDConstruct0
 
 # Walls
 - type: rcd
@@ -80,7 +80,7 @@
   category: WallsAndFlooring
   sprite: /Textures/Interface/Radial/RCD/solid_wall.png
   mode: ConstructObject
-  prototype: WallSolid 
+  prototype: WallSolid
   cost: 4
   delay: 2
   collisionMask: FullTileMask
@@ -93,11 +93,11 @@
   sprite: /Textures/Interface/Radial/RCD/grille.png
   mode: ConstructObject
   prototype: Grille
-  cost: 4
-  delay: 2
+  cost: 1
+  delay: 1
   collisionMask: FullTileMask
   rotation: Fixed
-  fx: EffectRCDConstruct2
+  fx: EffectRCDConstruct1
 
 # Windows
 - type: rcd
@@ -106,20 +106,49 @@
   sprite: /Textures/Interface/Radial/RCD/window.png
   mode: ConstructObject
   prototype: Window
-  cost: 3
-  delay: 2
+  cost: 2
+  delay: 1
   collisionMask: FullTileMask
   rules:
     - IsWindow
   rotation: Fixed
-  fx: EffectRCDConstruct2
-  
+  fx: EffectRCDConstruct1
+
 - type: rcd
   id: WindowDirectional
   category: WindowsAndGrilles
   sprite: /Textures/Interface/Radial/RCD/directional.png
   mode: ConstructObject
   prototype: WindowDirectional
+  cost: 1
+  delay: 1
+  collisionMask: FullTileMask
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: ReinforcedWindow
+  category: WindowsAndGrilles
+  sprite: /Textures/Interface/Radial/RCD/window_reinforced.png
+  mode: ConstructObject
+  prototype: ReinforcedWindow
+  cost: 4
+  delay: 2
+  collisionMask: FullTileMask
+  rules:
+    - IsWindow
+  rotation: User
+  fx: EffectRCDConstruct2
+
+- type: rcd
+  id: WindowReinforcedDirectional
+  category: WindowsAndGrilles
+  sprite: /Textures/Interface/Radial/RCD/directional_reinforced.png
+  mode: ConstructObject
+  prototype: WindowReinforcedDirectional
   cost: 2
   delay: 1
   collisionMask: FullTileMask
@@ -128,35 +157,6 @@
     - IsWindow
   rotation: User
   fx: EffectRCDConstruct1
-  
-- type: rcd
-  id: ReinforcedWindow
-  category: WindowsAndGrilles
-  sprite: /Textures/Interface/Radial/RCD/window_reinforced.png
-  mode: ConstructObject
-  prototype: ReinforcedWindow
-  cost: 4
-  delay: 3
-  collisionMask: FullTileMask
-  rules:
-    - IsWindow
-  rotation: User
-  fx: EffectRCDConstruct3
-    
-- type: rcd
-  id: WindowReinforcedDirectional
-  category: WindowsAndGrilles
-  sprite: /Textures/Interface/Radial/RCD/directional_reinforced.png
-  mode: ConstructObject
-  prototype: WindowReinforcedDirectional
-  cost: 3
-  delay: 2
-  collisionMask: FullTileMask
-  collisionBounds: "-0.23,-0.49,0.23,-0.36"
-  rules:
-    - IsWindow
-  rotation: User
-  fx: EffectRCDConstruct2
 
 # Airlocks
 - type: rcd
@@ -166,11 +166,11 @@
   mode: ConstructObject
   prototype: Airlock
   cost: 4
-  delay: 4
+  delay: 3
   collisionMask: FullTileMask
   rotation: Camera
-  fx: EffectRCDConstruct4
-  
+  fx: EffectRCDConstruct3
+
 - type: rcd
   id: AirlockGlass
   category: Airlocks
@@ -178,22 +178,22 @@
   mode: ConstructObject
   prototype: AirlockGlass
   cost: 4
-  delay: 4
+  delay: 3
   collisionMask: FullTileMask
   rotation: Camera
-  fx: EffectRCDConstruct4
-  
+  fx: EffectRCDConstruct3
+
 - type: rcd
   id: Firelock
   category: Airlocks
   sprite: /Textures/Interface/Radial/RCD/firelock.png
   mode: ConstructObject
   prototype: Firelock
-  cost: 4
-  delay: 3
+  cost: 2
+  delay: 2
   collisionMask: FullTileMask
   rotation: Camera
-  fx: EffectRCDConstruct3
+  fx: EffectRCDConstruct2
 
 # Lighting
 - type: rcd
@@ -202,25 +202,25 @@
   sprite: /Textures/Interface/Radial/RCD/tube_light.png
   mode: ConstructObject
   prototype: Poweredlight
-  cost: 2
-  delay: 1
+  cost: 1
+  delay: 0
   collisionMask: TabletopMachineMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct1
-  
+  fx: EffectRCDConstruct0
+
 - type: rcd
   id: BulbLight
   category: Lighting
   sprite: /Textures/Interface/Radial/RCD/bulb_light.png
   mode: ConstructObject
   prototype: PoweredSmallLight
-  cost: 2
-  delay: 1
+  cost: 1
+  delay: 0
   collisionMask: TabletopMachineMask
   collisionBounds: "-0.23,-0.49,0.23,-0.36"
   rotation: User
-  fx: EffectRCDConstruct1
+  fx: EffectRCDConstruct0
 
 # Electrical
 - type: rcd
@@ -236,7 +236,7 @@
   - MustBuildOnSubfloor
   rotation: Fixed
   fx: EffectRCDConstruct0
-    
+
 - type: rcd
   id: MVCable
   category: Electrical
@@ -250,7 +250,7 @@
   - MustBuildOnSubfloor
   rotation: Fixed
   fx: EffectRCDConstruct0
-    
+
 - type: rcd
   id: HVCable
   category: Electrical
@@ -264,7 +264,7 @@
   - MustBuildOnSubfloor
   rotation: Fixed
   fx: EffectRCDConstruct0
-    
+
 - type: rcd
   id: CableTerminal
   category: Electrical
@@ -278,3 +278,28 @@
   - MustBuildOnSubfloor
   rotation: User
   fx: EffectRCDConstruct0
+
+- type: rcd # WD
+  id: APC
+  category: Electrical
+  sprite: /Textures/Structures/Power/apc.rsi/static.png
+  mode: ConstructObject
+  prototype: APCConstructed
+  cost: 4
+  delay: 1
+  collisionMask: None
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd # WD
+  id: Camera
+  category: Electrical
+  sprite: /Textures/Structures/Wallmounts/camera.rsi/cameracase.png
+  mode: ConstructObject
+  prototype: SurveillanceCameraConstructed
+  cost: 1
+  delay: 1
+  collisionMask: TabletopMachineMask
+  collisionBounds: "-0.23,-0.49,0.23,-0.36"
+  rotation: User
+  fx: EffectRCDConstruct1

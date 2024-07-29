@@ -1,3 +1,4 @@
+using Content.Shared._White.RCD;
 using Content.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Prototypes;
@@ -23,14 +24,14 @@ public sealed class RCDPrototype : IPrototype
     /// <summary>
     /// The name associated with the prototype
     /// </summary>
-    [DataField("name"), ViewVariables(VVAccess.ReadOnly)]
-    public string SetName { get; private set; } = "Unknown";
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public string Name { get; private set; } = "Unknown";
 
     /// <summary>
     /// The name of the radial container that this prototype will be listed under on the RCD menu
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public string Category { get; private set; } = "Undefined";
+    public ProtoId<RCDCategoryPrototype> Category { get; private set; } = "WallsAndFlooring"; // WD
 
     /// <summary>
     /// Texture path for this prototypes menu icon
@@ -42,7 +43,7 @@ public sealed class RCDPrototype : IPrototype
     /// The entity prototype that will be constructed (mode dependent)
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public string? Prototype { get; private set; } = string.Empty;
+    public ProtoId<EntityPrototype>? Prototype { get; private set; } = null;
 
     /// <summary>
     /// Number of charges consumed when the operation is completed
@@ -51,7 +52,7 @@ public sealed class RCDPrototype : IPrototype
     public int Cost { get; private set; } = 1;
 
     /// <summary>
-    /// The length of the operation 
+    /// The length of the operation
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public float Delay { get; private set; } = 1f;
@@ -75,7 +76,7 @@ public sealed class RCDPrototype : IPrototype
     public CollisionGroup CollisionMask { get; private set; } = CollisionGroup.None;
 
     /// <summary>
-    /// Specifies a set of custom collision bounds for determining whether the entity prototype will fit into a target tile 
+    /// Specifies a set of custom collision bounds for determining whether the entity prototype will fit into a target tile
     /// </summary>
     /// <remarks>
     /// Should be set assuming that the entity faces south.
@@ -106,7 +107,7 @@ public sealed class RCDPrototype : IPrototype
     private Box2? _collisionBounds = null;
 
     /// <summary>
-    /// The polygon shape associated with the prototype CollisionBounds (if set) 
+    /// The polygon shape associated with the prototype CollisionBounds (if set)
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public PolygonShape? CollisionPolygon { get; private set; } = null;

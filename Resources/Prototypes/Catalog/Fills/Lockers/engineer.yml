@@ -92,6 +92,7 @@
       - id: ClothingEyesGlassesMeson
       - id: ClothingShoesBootsMag
       - id: ClothingHandsGlovesColorYellow
+      - id: RapidPipeDispenser # WD
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -111,6 +112,7 @@
       - id: ClothingEyesGlassesMeson
       - id: ClothingShoesBootsMag
       - id: ClothingHandsGlovesColorYellow
+      - id: RapidPipeDispenser # WD
 
 - type: entity
   id: LockerEngineerFilledHardsuit

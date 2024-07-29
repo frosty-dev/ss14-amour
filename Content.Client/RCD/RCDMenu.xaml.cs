@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.Popups;
 using Content.Shared.RCD;
@@ -10,6 +11,10 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using System.Numerics;
+using Robust.Client.Graphics;
+using Robust.Shared.Graphics.RSI;
+using Robust.Shared.Serialization.Manager.Exceptions;
+using Robust.Shared.Utility;
 
 namespace Content.Client.RCD;
 
@@ -40,12 +45,11 @@ public sealed partial class RCDMenu : RadialMenu
         // Find the main radial container
         var main = FindControl<RadialContainer>("Main");
 
-        if (main == null)
-            return;
-
         // Populate secondary radial containers
         if (!_entManager.TryGetComponent<RCDComponent>(owner, out var rcd))
             return;
+
+        SetupCategories(main, rcd); // WD
 
         foreach (var protoId in rcd.AvailablePrototypes)
         {
@@ -55,12 +59,9 @@ public sealed partial class RCDMenu : RadialMenu
             if (proto.Mode == RcdMode.Invalid)
                 continue;
 
-            var parent = FindControl<RadialContainer>(proto.Category);
+            var parent = Children.First(c => c.Name == proto.Category.Id);
 
-            if (parent == null)
-                continue;
-
-            var tooltip = Loc.GetString(proto.SetName);
+            var tooltip = Loc.GetString(proto.Name);
 
             if ((proto.Mode == RcdMode.ConstructTile || proto.Mode == RcdMode.ConstructObject) &&
                 proto.Prototype != null && _protoManager.TryIndex(proto.Prototype, out var entProto))
@@ -80,17 +81,16 @@ public sealed partial class RCDMenu : RadialMenu
 
             if (proto.Sprite != null)
             {
-                var tex = new TextureRect()
+                var tex = new TextureRect
                 {
                     VerticalAlignment = VAlignment.Center,
                     HorizontalAlignment = HAlignment.Center,
-                    Texture = _spriteSystem.Frame0(proto.Sprite),
+                    Texture = GetSprite(proto.Sprite),
                     TextureScale = new Vector2(2f, 2f),
                 };
 
                 button.AddChild(tex);
             }
-
             parent.AddChild(button);
 
             // Ensure that the button that transitions the menu to the associated category layer
@@ -119,6 +119,50 @@ public sealed partial class RCDMenu : RadialMenu
         SendRCDSystemMessageAction += bui.SendRCDSystemMessage;
     }
 
+    private void SetupCategories(RadialContainer main, RCDComponent rcd)
+    {
+        foreach (var categoryId in rcd.CategoryPrototypes)
+        {
+            if (!_protoManager.TryIndex(categoryId, out var category))
+                continue;
+
+            var button = new RadialMenuTextureButton
+            {
+                StyleClasses = { "RadialMenuButton" },
+                SetSize = new Vector2(64f, 64f),
+                ToolTip = Loc.GetString(category.TooltipBase + categoryId), // rcd-component- + WindowsAndGrilles = rcd-component-WindowsAndGrilles
+                TargetLayer = categoryId,
+                Visible = false,
+            };
+
+            var texture = new TextureRect
+            {
+                VerticalAlignment = VAlignment.Center,
+                HorizontalAlignment = HAlignment.Center,
+                TextureScale = new Vector2(2, 2),
+                Texture = GetSprite(category.SpritePath)
+            };
+
+            button.AddChild(texture);
+            main.AddChild(button);
+
+            var container = new RadialContainer
+            {
+                Name = categoryId,
+                VerticalExpand = true,
+                HorizontalExpand = true,
+                Radius = 64
+            };
+
+            AddChild(container);
+        }
+    }
+
+    private Texture GetSprite(SpriteSpecifier specifier)
+    {
+        return _spriteSystem.Frame0(specifier);
+    }
+
     private void AddRCDMenuButtonOnClickActions(Control control)
     {
         var radialContainer = control as RadialContainer;
@@ -140,11 +184,11 @@ public sealed partial class RCDMenu : RadialMenu
                 if (_playerManager.LocalSession?.AttachedEntity != null &&
                     _protoManager.TryIndex(castChild.ProtoId, out var proto))
                 {
-                    var msg = Loc.GetString("rcd-component-change-mode", ("mode", Loc.GetString(proto.SetName)));
+                    var msg = Loc.GetString("rcd-component-change-mode", ("mode", Loc.GetString(proto.Name)));
 
                     if (proto.Mode == RcdMode.ConstructTile || proto.Mode == RcdMode.ConstructObject)
                     {
-                        var name = Loc.GetString(proto.SetName);
+                        var name = Loc.GetString(proto.Name);
 
                         if (proto.Prototype != null &&
                             _protoManager.TryIndex(proto.Prototype, out var entProto))

@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client.Construction;
+using Content.Shared._White.Cult.Pylon;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Popups;
 using Robust.Client.Placement;
@@ -8,58 +9,31 @@ using Robust.Shared.Map;
 
 namespace Content.Client._White.Cult.UI.StructureRadial;
 
-public sealed class CultPylonPlacementHijack : PlacementHijack
+public sealed class CultPylonPlacementHijack(ConstructionPrototype? prototype, IEntityManager entMan, EntityUid player)
+    : PlacementHijack
 {
-    private readonly ConstructionSystem _constructionSystem;
-    private readonly IEntityManager _entMan;
-    private readonly ConstructionPrototype? _prototype;
-    private readonly EntityUid _player;
+    private readonly ConstructionSystem _constructionSystem = entMan.System<ConstructionSystem>();
 
-    public override bool CanRotate { get; }
-
-    public CultPylonPlacementHijack(ConstructionPrototype? prototype, IEntityManager entMan, EntityUid player)
-    {
-        _prototype = prototype;
-        _entMan = entMan;
-        _player = player;
-        _constructionSystem = entMan.System<ConstructionSystem>();
-        CanRotate = prototype?.CanRotate ?? true;
-    }
+    public override bool CanRotate { get; } = prototype?.CanRotate ?? true;
 
     /// <inheritdoc />
     public override bool HijackPlacementRequest(EntityCoordinates coordinates)
     {
-        if (_prototype == null)
+        if (prototype == null)
             return true;
 
-        if (CheckForStructure(coordinates))
+        if (SharedPylonComponent.CheckForStructure(coordinates, entMan, 10f))
         {
-            var popup = _entMan.System<SharedPopupSystem>();
-            popup.PopupClient(Loc.GetString("cult-structure-craft-another-structure-nearby"), _player, _player);
+            var popup = entMan.System<SharedPopupSystem>();
+            popup.PopupClient(Loc.GetString("cult-structure-craft-another-structure-nearby"), player, player);
             return true;
         }
 
         _constructionSystem.ClearAllGhosts();
         var dir = Manager.Direction;
-        _constructionSystem.SpawnGhost(_prototype, coordinates, dir);
+        _constructionSystem.SpawnGhost(prototype, coordinates, dir);
 
         return true;
-    }
-
-    private bool CheckForStructure(EntityCoordinates coordinates)
-    {
-        var lookupSystem = _entMan.System<EntityLookupSystem>();
-        var entities = lookupSystem.GetEntitiesInRange(coordinates, 10f);
-        foreach (var ent in entities)
-        {
-            if (!_entMan.TryGetComponent<MetaDataComponent>(ent, out var metadata))
-                continue;
-
-            if (metadata.EntityPrototype?.ID is "CultPylon")
-                return true;
-        }
-
-        return false;
     }
 
     /// <inheritdoc />
@@ -77,6 +51,6 @@ public sealed class CultPylonPlacementHijack : PlacementHijack
     public override void StartHijack(PlacementManager manager)
     {
         base.StartHijack(manager);
-        manager.CurrentTextures = _prototype?.Layers.Select(sprite => sprite.DirFrame0()).ToList();
+        manager.CurrentTextures = prototype?.Layers.Select(sprite => sprite.DirFrame0()).ToList();
     }
 }

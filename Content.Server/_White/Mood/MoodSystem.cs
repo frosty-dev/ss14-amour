@@ -108,8 +108,8 @@ public sealed class MoodSystem : EntitySystem
                     if (!component.MoodChangeValues.TryGetValue(oldPrototype.MoodChange, out var oldValue))
                         return;
 
-                    amount += (oldPrototype.PositiveEffect ? -oldValue : oldValue) +
-                        (prototype.PositiveEffect ? value : -value);
+                    amount += (oldPrototype.Positive ? -oldValue : oldValue) +
+                        (prototype.Positive ? value : -value);
 
                     component.CategorisedEffects[prototype.Category] = prototype.ID;
                 }
@@ -117,7 +117,7 @@ public sealed class MoodSystem : EntitySystem
             else
             {
                 component.CategorisedEffects.Add(prototype.Category, prototype.ID);
-                amount += prototype.PositiveEffect ? value : -value;
+                amount += prototype.Positive ? value : -value;
             }
 
             if (prototype.Timeout != 0)
@@ -132,7 +132,7 @@ public sealed class MoodSystem : EntitySystem
             if (component.UncategorisedEffects.TryGetValue(prototype.ID, out _))
                 return;
 
-            var effectValue = prototype.PositiveEffect ? value : -value;
+            var effectValue = prototype.Positive ? value : -value;
 
             component.UncategorisedEffects.Add(prototype.ID, effectValue);
             amount += effectValue;
@@ -173,7 +173,7 @@ public sealed class MoodSystem : EntitySystem
             if (!comp.MoodChangeValues.TryGetValue(currentProto.MoodChange, out var value))
                 return;
 
-            amount += currentProto.PositiveEffect ? -value : value;
+            amount += currentProto.Positive ? -value : value;
             comp.CategorisedEffects.Remove(category);
         }
 
@@ -205,7 +205,7 @@ public sealed class MoodSystem : EntitySystem
             if (!component.MoodChangeValues.TryGetValue(prototype.MoodChange, out var value))
                 return;
 
-            amount += prototype.PositiveEffect ? value : -value;
+            amount += prototype.Positive ? value : -value;
         }
 
         foreach (var (_, value) in component.UncategorisedEffects)
@@ -438,7 +438,7 @@ public sealed partial class ShowMoodEffects : IAlertClick
     {
         var chatManager = IoCManager.Resolve<IChatManager>();
 
-        var color = proto.PositiveEffect ? "#008000" : "#BA0000";
+        var color = proto.Positive ? "#008000" : "#BA0000";
         var msg = $"[font size=10][color={color}]{proto.Description}[/color][/font]";
 
         chatManager.ChatMessageToOne(ChatChannel.Emotes, msg, msg, EntityUid.Invalid, false,

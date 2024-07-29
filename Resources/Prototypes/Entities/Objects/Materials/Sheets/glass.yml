@@ -86,6 +86,8 @@
         reagents:
         - ReagentId: Silicon
           Quantity: 10
+  - type: RCDAmmo # WD
+    canBeExamined: false
 
 - type: entity
   parent: SheetGlass
@@ -172,6 +174,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: RCDAmmo # WD
+    canBeExamined: false
+    chargeCountModifier: 2
 
 - type: entity
   parent: SheetRGlass
@@ -249,6 +254,9 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: RCDAmmo # WD
+    canBeExamined: false
+    chargeCountModifier: 2
 
 - type: entity
   parent: SheetPGlass
@@ -315,6 +323,9 @@
         - ReagentId: Carbon
           Quantity: 0.5
         canReact: false
+  - type: RCDAmmo # WD
+    canBeExamined: false
+    chargeCountModifier: 3
 
 - type: entity
   parent: SheetRPGlass

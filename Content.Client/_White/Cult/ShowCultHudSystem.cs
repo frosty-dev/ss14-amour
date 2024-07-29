@@ -1,5 +1,4 @@
-﻿using Content.Shared._White.Cult;
-using Content.Shared._White.Cult.Components;
+﻿using Content.Shared._White.Cult.Components;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Player;
@@ -29,7 +28,7 @@ public sealed class ShowCultHudSystem : EntitySystem
         _overlay = new CultHudOverlay(EntityManager);
     }
 
-    private void OnComponentInit(EntityUid uid, ShowCultHudComponent component, ComponentInit args)
+    private void OnComponentInit<T>(EntityUid uid, T component, ComponentInit args)
     {
         if (_player.LocalSession?.AttachedEntity != uid)
             return;
@@ -38,7 +37,7 @@ public sealed class ShowCultHudSystem : EntitySystem
 
     }
 
-    private void OnComponentRemoved(EntityUid uid, ShowCultHudComponent component, ComponentRemove args)
+    private void OnComponentRemoved<T>(EntityUid uid, T component, ComponentRemove args)
     {
         if (_player.LocalSession?.AttachedEntity != uid)
             return;
@@ -47,7 +46,7 @@ public sealed class ShowCultHudSystem : EntitySystem
 
     }
 
-    private void OnPlayerAttached(EntityUid uid, ShowCultHudComponent component, PlayerAttachedEvent args)
+    private void OnPlayerAttached<T>(EntityUid uid, T component, PlayerAttachedEvent args)
     {
         if (_player.LocalSession != args.Player)
             return;
@@ -55,7 +54,7 @@ public sealed class ShowCultHudSystem : EntitySystem
         _overlayManager.AddOverlay(_overlay);
     }
 
-    private void OnPlayerDetached(EntityUid uid, ShowCultHudComponent component, PlayerDetachedEvent args)
+    private void OnPlayerDetached<T>(EntityUid uid, T component, PlayerDetachedEvent args)
     {
         if (_player.LocalSession != args.Player)
             return;

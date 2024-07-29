@@ -25,6 +25,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._White.ClothingGrant.Systems;
 
 namespace Content.Shared.RCD.Systems;
 
@@ -75,7 +76,7 @@ public class RCDSystem : EntitySystem
         if (component.AvailablePrototypes.Any())
         {
             component.ProtoId = component.AvailablePrototypes.First();
-            UpdateCachedPrototype(uid, component);
+            UpdateCachedPrototype(component);
             Dirty(uid, component);
 
             return;
@@ -96,7 +97,7 @@ public class RCDSystem : EntitySystem
 
         // Set the current RCD prototype to the one supplied
         component.ProtoId = args.ProtoId;
-        UpdateCachedPrototype(uid, component);
+        UpdateCachedPrototype(component);
         Dirty(uid, component);
     }
 
@@ -106,13 +107,14 @@ public class RCDSystem : EntitySystem
             return;
 
         // Update cached prototype if required
-        UpdateCachedPrototype(uid, component);
+        UpdateCachedPrototype(component);
 
-        var msg = Loc.GetString("rcd-component-examine-mode-details", ("mode", Loc.GetString(component.CachedPrototype.SetName)));
+        var msg = Loc.GetString("rcd-component-examine-mode-details", ("mode", Loc.GetString(component.CachedPrototype.Name)));
 
-        if (component.CachedPrototype.Mode == RcdMode.ConstructTile || component.CachedPrototype.Mode == RcdMode.ConstructObject)
+        var mode = component.CachedPrototype.Mode;
+        if (mode == RcdMode.ConstructTile || mode == RcdMode.ConstructObject)
         {
-            var name = Loc.GetString(component.CachedPrototype.SetName);
+            var name = Loc.GetString(component.CachedPrototype.Name);
 
             if (component.CachedPrototype.Prototype != null &&
                 _protoManager.TryIndex(component.CachedPrototype.Prototype, out var proto))
@@ -225,7 +227,7 @@ public class RCDSystem : EntitySystem
 
     private void OnDoAfterAttempt(EntityUid uid, RCDComponent component, DoAfterAttemptEvent<RCDDoAfterEvent> args)
     {
-        if (args.Event?.DoAfter?.Args == null)
+        if (args.Event?.DoAfter?.Args == null) // wtf if this
             return;
 
         // Exit if the RCD prototype has changed
@@ -302,7 +304,7 @@ public class RCDSystem : EntitySystem
     public bool IsRCDOperationStillValid(EntityUid uid, RCDComponent component, MapGridData mapGridData, EntityUid? target, EntityUid user, bool popMsgs = true)
     {
         // Update cached prototype if required
-        UpdateCachedPrototype(uid, component);
+        UpdateCachedPrototype(component);
 
         // Check that the RCD has enough ammo to get the job done
         TryComp<LimitedChargesComponent>(uid, out var charges);
@@ -589,7 +591,7 @@ public class RCDSystem : EntitySystem
         return boundingPolygon.ComputeAABB(boundingTransform, 0).Intersects(fixture.Shape.ComputeAABB(entXform, 0));
     }
 
-    public void UpdateCachedPrototype(EntityUid uid, RCDComponent component)
+    public void UpdateCachedPrototype(RCDComponent component)
     {
         if (component.ProtoId.Id != component.CachedPrototype?.Prototype)
             component.CachedPrototype = _protoManager.Index(component.ProtoId);

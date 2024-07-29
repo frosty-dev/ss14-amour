@@ -20,6 +20,7 @@ using Content.Shared.Damage.ForceSay;
 using Content.Shared.Input;
 using Content.Shared.Radio;
 using Content.Shared._White;
+using Content.Shared._White.Cult.Components;
 using Content.Shared._White.Utils;
 using Content.Shared._White.Cult.Systems;
 using Robust.Client.Graphics;
@@ -235,8 +236,8 @@ public sealed class ChatUIController : UIController
         _input.SetInputCommand(ContentKeyFunctions.CycleChatChannelBackward,
             InputCmdHandler.FromDelegate(_ => CycleChatChannel(false)));
 
-        SubscribeLocalEvent<ChangelingUserStart>(OnUpdateChangelingChat);
         // WD EDIT
+        SubscribeLocalEvent<ChangelingUserStart>(OnUpdateChangelingChat);
         SubscribeLocalEvent<EventCultistComponentState>(OnUpdateCultState);
         // WD EDIT END
 
@@ -563,7 +564,7 @@ public sealed class ChatUIController : UIController
 
         // WD EDIT
         var localEnt = _player.LocalEntity;
-        if (_entities.HasComponent<CultistComponent>(localEnt))
+        if (_entities.HasComponent<CultistComponent>(localEnt) || _entities.HasComponent<ConstructComponent>(localEnt))
         {
             FilterableChannels |= ChatChannel.Cult;
             CanSendChannels |= ChatSelectChannel.Cult;

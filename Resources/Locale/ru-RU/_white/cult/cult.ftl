@@ -32,7 +32,7 @@ cult-blood-boil-rune-need-minimum = Необходимо минимум 3 кул
 cult-blood-boil-rune-no-blood = Кому-то из культистов не хватает крови.
 cult-blood-boil-rune-no-targets = Нет целей.
 cult-teleport-rune-default-label = безымянная метка
-cult-narsie-summon-drawn-position = Культ закончил рисовать руну ритуала разрыва измерений! Координаты: { $posText }
+cult-narsie-summon-drawn-position = Культ закончил рисовать руну ритуала разрыва измерений! Локация: { $location }
 cult-cant-draw-rune = Нельзя рисовать руну в космосе.
 
 runes-window-title = Руны
