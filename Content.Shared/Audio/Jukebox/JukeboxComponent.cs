@@ -14,6 +14,9 @@ public sealed partial class JukeboxComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? AudioStream;
 
+    [DataField, AutoNetworkedField]
+    public Queue<ProtoId<JukeboxPrototype>> SongIdQueue = new();
+
     /// <summary>
     /// RSI state for the jukebox being on.
     /// </summary>
@@ -39,6 +42,9 @@ public sealed partial class JukeboxComponent : Component
     public float SelectAccumulator;
 }
 
+[RegisterComponent]
+public sealed partial class JukeboxMusicComponent : Component;
+
 [Serializable, NetSerializable]
 public sealed class JukeboxPlayingMessage : BoundUserInterfaceMessage;
 
@@ -58,6 +64,18 @@ public sealed class JukeboxSelectedMessage(ProtoId<JukeboxPrototype> songId) : B
 public sealed class JukeboxSetTimeMessage(float songTime) : BoundUserInterfaceMessage
 {
     public float SongTime { get; } = songTime;
+}
+
+[Serializable, NetSerializable]
+public sealed class JukeboxAddQueueMessage(ProtoId<JukeboxPrototype> songId) : BoundUserInterfaceMessage
+{
+    public ProtoId<JukeboxPrototype> SongId { get; } = songId;
+}
+
+[Serializable, NetSerializable]
+public sealed class JukeboxRemoveQueueMessage(int index) : BoundUserInterfaceMessage
+{
+    public int Index { get; } = index;
 }
 
 [Serializable, NetSerializable]
