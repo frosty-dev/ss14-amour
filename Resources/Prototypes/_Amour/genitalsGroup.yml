@@ -5,48 +5,48 @@
   - PenisBarbknot1
   - PenisBarbknot2
   - PenisBarbknot3
-  - PenisBarbknot4
-  - PenisBarbknot5
+  #- PenisBarbknot4
+  #- PenisBarbknot5
   - PenisFlared1
   - PenisFlared2
   - PenisFlared3
-  - PenisFlared4
-  - PenisFlared5
+  #- PenisFlared4
+  #- PenisFlared5
   - PenisHemiknot1
   - PenisHemiknot2
-  - PenisHemiknot3
-  - PenisHemiknot4
-  - PenisHemiknot5
-  - PenisHemi1
-  - PenisHemi2
-  - PenisHemi3
-  - PenisHemi4
+  #- PenisHemiknot3
+  #- PenisHemiknot4
+  #- PenisHemiknot5
+  #- PenisHemi1
+  #- PenisHemi2
+  #- PenisHemi3
+  #- PenisHemi4
   - PenisHuman1
   - PenisHuman2
-  - PenisHuman3
-  - PenisHuman4
-  - PenisHuman5
-  - PenisKnotted1
-  - PenisKnotted2
-  - PenisKnotted3
-  - PenisKnotted4
-  - PenisKnotted5
-  - PenisTapered1
-  - PenisTapered2
-  - PenisTapered3
-  - PenisTapered4
-  - PenisTentacle1
-  - PenisTentacle2
-  - PenisTentacle3
-  - PenisTentacle4
+  #- PenisHuman3
+  #- PenisHuman4
+  #- PenisHuman5
+  #- PenisKnotted1
+  #- PenisKnotted2
+  #- PenisKnotted3
+  #- PenisKnotted4
+  #- PenisKnotted5
+  #- PenisTapered1
+  #- PenisTapered2
+  #- PenisTapered3
+  #- PenisTapered4
+  #- PenisTentacle1
+  #- PenisTentacle2
+  #- PenisTentacle3
+  #- PenisTentacle4
   #- PenisThick1
   #- PenisThick2
   #- PenisThick3
   #- PenisThick4
   #- PenisThick5
   #- VaginaCloaca1
-  - VaginaDentata1
-  - VaginaFurred1
+  #- VaginaDentata1
+  #-  VaginaFurred1
   - VaginaGaping1
   - VaginaHairy1
   - VaginaHuman1
@@ -60,8 +60,8 @@
   - ButtPair1
   - ButtPair2
   - ButtPair3
-  - ButtPair4
-  - ButtPair5
+  #- ButtPair4
+  #- ButtPair5
 
 - type: genitalsGroup
   id: Breast
@@ -77,52 +77,52 @@
   #- BreastsPairHuge
   - BreastsPairH
   #- BreastsPairImpossible
-  - BreastsPairI
-  - BreastsPairJ
-  - BreastsPairK
-  - BreastsPairL
+  #- BreastsPairI
+  #- BreastsPairJ
+  #- BreastsPairK
+  #- BreastsPairL
   #- BreastsPairMassive
-  - BreastsPairM
-  - BreastsPairN
-  - BreastsPairO
-  - BreastsQuadA
-  - BreastsQuadB
-  - BreastsQuadC
-  - BreastsQuadD
-  - BreastsQuadE
-  - BreastsQuadF
+  #- BreastsPairM
+  #- BreastsPairN
+  #- BreastsPairO
+  #- BreastsQuadA
+  #- BreastsQuadB
+  #- BreastsQuadC
+  #- BreastsQuadD
+  #- BreastsQuadE
+  #- BreastsQuadF
   #- BreastsQuadGiga
-  - BreastsQuadG
+  #- BreastsQuadG
   #- BreastsQuadHuge
-  - BreastsQuadH
+  #- BreastsQuadH
   #- BreastsQuadImpossible
-  - BreastsQuadI
-  - BreastsQuadJ
-  - BreastsQuadK
-  - BreastsQuadL
+  #- BreastsQuadI
+  #- BreastsQuadJ
+  #- BreastsQuadK
+  #- BreastsQuadL
   #- BreastsQuadMassive
-  - BreastsQuadM
-  - BreastsQuadN
-  - BreastsQuadO
+  #- BreastsQuadM
+  #- BreastsQuadN
+  #- BreastsQuadO
   - BreastsSextupleA
   - BreastsSextupleB
   - BreastsSextupleC
   - BreastsSextupleD
   - BreastsSextupleE
-  - BreastsSextupleF
+  #- BreastsSextupleF
   #- BreastsSextupleGiga
-  - BreastsSextupleG
+  # BreastsSextupleG
   #- BreastsSextupleHuge
-  - BreastsSextupleH
+  #- BreastsSextupleH
   #- BreastsSextupleImpossible
-  - BreastsSextupleI
-  - BreastsSextupleJ
-  - BreastsSextupleK
-  - BreastsSextupleL
+  #- BreastsSextupleI
+  #- BreastsSextupleJ
+  #- BreastsSextupleK
+  #- BreastsSextupleL
   #- BreastsSextupleMassive
-  - BreastsSextupleM
-  - BreastsSextupleN
-  - BreastsSextupleO
+  #- BreastsSextupleM
+  #- BreastsSextupleN
+  #- BreastsSextupleO
 
 - type: genitalsGroup
   id: Testicles
@@ -130,7 +130,7 @@
   - TesticlesSheath1
   - TesticlesSheath2
   - TesticlesSheath3
-  - TesticlesSheath4
+  #- TesticlesSheath4
   #- TesticlesSheath5
   #- TesticlesSingle1
   #- TesticlesSingle2
