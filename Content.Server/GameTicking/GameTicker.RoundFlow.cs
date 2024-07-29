@@ -217,7 +217,6 @@ namespace Content.Server.GameTicking
 
             var readyPlayers = new List<ICommonSession>();
             var readyPlayerProfiles = new Dictionary<NetUserId, HumanoidCharacterProfile>();
-            var autoDeAdmin = _cfg.GetCVar(CCVars.AdminDeadminOnJoin);
             var stalinBunkerEnabled = _configurationManager.GetCVar(WhiteCVars.StalinEnabled);
 
             foreach (var (userId, status) in _playerGameStatuses)
@@ -225,10 +224,16 @@ namespace Content.Server.GameTicking
                 if (LobbyEnabled && status != PlayerGameStatus.ReadyToPlay) continue;
                 if (!_playerManager.TryGetSessionById(userId, out var session)) continue;
 
+                #if FULL_RELEASE // dont deadmin me in debug
+
+                var autoDeAdmin = _cfg.GetCVar(CCVars.AdminDeadminOnJoin);
+
                 if (autoDeAdmin && _adminManager.IsAdmin(session))
                 {
                     _adminManager.DeAdmin(session);
                 }
+
+                #endif
 
                 if (stalinBunkerEnabled)
                 {

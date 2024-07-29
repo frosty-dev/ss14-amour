@@ -838,7 +838,7 @@ namespace Content.Shared.CCVar
         /// de-admin them.
         /// </summary>
         public static readonly CVarDef<bool> AdminDeadminOnJoin =
-            CVarDef.Create("admin.deadmin_on_join", false, CVar.SERVERONLY);
+            CVarDef.Create("admin.deadmin_on_join", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     Overrides the name the client sees in ahelps. Set empty to disable.
@@ -851,7 +851,7 @@ namespace Content.Shared.CCVar
         ///     If 0, appearing as a new player is disabled.
         /// </summary>
         public static readonly CVarDef<int> NewPlayerThreshold =
-            CVarDef.Create("admin.new_player_threshold", 0, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
+            CVarDef.Create("admin.new_player_threshold", 4320, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
         /// <summary>
         /// How long an admin client can go without any input before being considered AFK.
@@ -1346,7 +1346,7 @@ namespace Content.Shared.CCVar
 
         /// <summary>
         ///     Config for when the restart vote should be allowed to be called based on percentage of ghosts.
-        ///
+        /// </summary>
         public static readonly CVarDef<int> VoteRestartGhostPercentage =
             CVarDef.Create("vote.restart_ghost_percentage", 75, CVar.SERVERONLY);
 
@@ -1441,7 +1441,7 @@ namespace Content.Shared.CCVar
         /// Whether the arrivals terminal should be on a planet map.
         /// </summary>
         public static readonly CVarDef<bool> ArrivalsPlanet =
-            CVarDef.Create("shuttle.arrivals_planet", true, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.arrivals_planet", false, CVar.SERVERONLY);
 
         /// <summary>
         /// Whether the arrivals shuttle is enabled.
@@ -1459,7 +1459,7 @@ namespace Content.Shared.CCVar
         /// Cooldown between arrivals departures. This should be longer than the FTL time or it will double cycle.
         /// </summary>
         public static readonly CVarDef<float> ArrivalsCooldown =
-            CVarDef.Create("shuttle.arrivals_cooldown", 50f, CVar.SERVERONLY);
+            CVarDef.Create("shuttle.arrivals_cooldown", 10f, CVar.SERVERONLY);
 
         /// <summary>
         /// Are players allowed to return on the arrivals shuttle.

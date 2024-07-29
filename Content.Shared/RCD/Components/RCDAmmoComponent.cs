@@ -13,4 +13,8 @@ public sealed partial class RCDAmmoComponent : Component
     /// </summary>
     [DataField("charges"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public int Charges = 30;
+
+    [DataField] public bool CanBeExamined = true; // WD
+
+    [DataField] public float ChargeCountModifier = 1; // WD
 }

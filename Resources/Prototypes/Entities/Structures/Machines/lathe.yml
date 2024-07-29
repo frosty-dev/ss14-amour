@@ -348,6 +348,8 @@
       - KitchenKnife # WD EDIT
       - ButchCleaver # WD EDIT
       - WeaponTempGun # WD EDIT
+      - RapidPipeDispenserRecipe # WD edit
+      - RCDRecipe # WD edit
       - DeviceQuantumSpinInverter
   - type: EmagLatheRecipes
     emagDynamicRecipes:

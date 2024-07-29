@@ -1,3 +1,4 @@
+using Content.Shared._White.RCD;
 using Content.Shared.RCD.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -32,6 +33,12 @@ public sealed partial class RCDComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public ProtoId<RCDPrototype> ProtoId { get; set; } = "Invalid";
+
+    /// <summary>
+    /// The ProtoId of the currently selected RCD prototype
+    /// </summary>
+    [DataField(required: true), AutoNetworkedField]
+    public HashSet<ProtoId<RCDCategoryPrototype>> CategoryPrototypes = default!;
 
     /// <summary>
     /// A cached copy of currently selected RCD prototype

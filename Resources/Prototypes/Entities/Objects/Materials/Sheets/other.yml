@@ -164,6 +164,9 @@
         - ReagentId: Phosphorus
           Quantity: 5
         canReact: false
+  - type: RCDAmmo # WD
+    canBeExamined: false
+    chargeCountModifier: 0.5
 
 - type: entity
   parent: SheetPlastic

@@ -112,10 +112,13 @@ public sealed class ThirstSystem : EntitySystem
             _alerts.ClearAlertCategory(uid, AlertCategory.Thirst);
         }
 
-        //WD start
-        var ev = new MoodEffectEvent("Thirst" + component.CurrentThirstThreshold);
-        RaiseLocalEvent(uid, ev);
-        //WD end
+        // WD start
+        if (component.CurrentThirstThreshold != ThirstThreshold.OverHydrated)
+        {
+            var ev = new MoodEffectEvent("Thirst" + component.CurrentThirstThreshold);
+            RaiseLocalEvent(uid, ev);
+        }
+        // WD end
 
         switch (component.CurrentThirstThreshold)
         {

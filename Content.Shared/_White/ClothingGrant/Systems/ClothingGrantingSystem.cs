@@ -3,6 +3,7 @@ using Content.Shared.Inventory.Events;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Tag;
 using Content.Shared._White.ClothingGrant.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._White.ClothingGrant.Systems;
@@ -40,22 +41,27 @@ public sealed class ClothingGrantingSystem : EntitySystem
             return;
         }
 
-        foreach (var (name, data) in component.Components)
-        {
-            var newComp = (Component) _componentFactory.GetComponent(name);
-
-            if (HasComp(args.Equipee, newComp.GetType()))
-                continue;
-
-            newComp.Owner = args.Equipee;
-
-            var temp = (object) newComp;
-            _serializationManager.CopyTo(data.Component, ref temp);
-            EntityManager.AddComponent(args.Equipee, (Component)temp!);
-        }
+        AddComponents(args.Equipee, component.Components);
 
         component.IsActive = true;
         Dirty(uid, component);
+    }
+
+    public void AddComponents(EntityUid uid, ComponentRegistry components)
+    {
+        foreach (var (name, data) in components)
+        {
+            var newComp = (Component) _componentFactory.GetComponent(name);
+
+            if (HasComp(uid, newComp.GetType()))
+                continue;
+
+            newComp.Owner = uid;
+
+            var temp = (object) newComp;
+            _serializationManager.CopyTo(data.Component, ref temp);
+            EntityManager.AddComponent(uid, (Component)temp!);
+        }
     }
 
     private void OnCompUnequip(EntityUid uid, ClothingGrantComponentComponent component, GotUnequippedEvent args)
