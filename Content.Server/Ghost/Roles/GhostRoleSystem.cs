@@ -1,6 +1,7 @@
 using Content.Server._Miracle.GulagSystem;
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.Administration.Managers;
 using Content.Server.EUI;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
@@ -10,6 +11,7 @@ using Content.Server.Ghost.Roles.UI;
 using Content.Server.Mind.Commands;
 using Content.Server.Popups;
 using Content.Shared.Administration;
+using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Follower;
 using Content.Shared.GameTicking;
@@ -23,6 +25,7 @@ using Content.Shared.Roles;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
@@ -48,6 +51,8 @@ namespace Content.Server.Ghost.Roles
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly IPrototypeManager _prototype = default!;
+        [Dependency] private readonly IAdminManager _adminManager = default!;
+        [Dependency] private readonly IConfigurationManager _cfg = default!;
 
         private uint _nextRoleIdentifier;
         private bool _needsUpdateGhostRoleCount = true;
@@ -595,6 +600,14 @@ namespace Content.Server.Ghost.Roles
             // forced into a ghost role.
             LeaveAllRaffles(message.Player);
             CloseEui(message.Player);
+
+            // The player is no longer a ghost, so they should not be adminned anymore. Deadmin them.
+            // Ensures that admins do not forget to deadmin themselves upon entering a ghost role.
+            var autoDeAdmin = _cfg.GetCVar(CCVars.AdminDeadminOnJoin);
+            if (autoDeAdmin && _adminManager.IsAdmin(message.Entity))
+            {
+                _adminManager.DeAdmin(message.Player);
+            }
         }
 
         private void OnMindAdded(EntityUid uid, GhostTakeoverAvailableComponent component, MindAddedMessage args)
