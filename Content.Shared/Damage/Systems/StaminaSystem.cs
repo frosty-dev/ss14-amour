@@ -38,7 +38,6 @@ public sealed partial class StaminaSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!; // WD EDIT
 
     /// <summary>
     /// How much of a buffer is there between the stun duration and when stuns can be re-applied.
@@ -365,7 +364,7 @@ public sealed partial class StaminaSystem : EntitySystem
                 continue;
 
             // We were in crit so come out of it and continue.
-            if (!_statusEffectsSystem.HasStatusEffect(uid, "Stun") && comp.Critical) // WD EIT
+            if (comp.Critical)
             {
                 ExitStamCrit(uid, comp);
                 continue;

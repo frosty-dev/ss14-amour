@@ -54,6 +54,7 @@
   - AutolatheHyperConvectionMachineCircuitboard
   - ProtolatheHyperConvectionMachineCircuitboard
   - SheetifierMachineCircuitboard
+  - RCDRecipe # WD
 
 - type: technology
   id: PowerGeneration
@@ -85,6 +86,7 @@
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
+  - RapidPipeDispenserRecipe # WD
 
 - type: technology
   id: RipleyAPLU

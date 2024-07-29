@@ -1,5 +1,6 @@
-﻿using Content.Shared.Damage;
+using Content.Shared.Damage;
 using Robust.Shared.Audio;
+using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Cult.Pylon;
@@ -64,6 +65,25 @@ public sealed partial class SharedPylonComponent : Component
 
     [DataField("wallConvertEffect")]
     public string WallConvertEffect = "CultWallGlow";
+
+    public static bool CheckForStructure(EntityCoordinates coordinates, IEntityManager entMan, float range, EntityUid? pylon = null)
+    {
+        var lookupSystem = entMan.System<EntityLookupSystem>();
+        var entities = lookupSystem.GetEntitiesInRange(coordinates, range);
+        foreach (var ent in entities)
+        {
+            if (ent == pylon)
+                continue;
+
+            if (!entMan.TryGetComponent<MetaDataComponent>(ent, out var metadata))
+                continue;
+
+            if (metadata.EntityPrototype?.ID is "CultPylon")
+                return true;
+        }
+
+        return false;
+    }
 }
 
 [Serializable, NetSerializable]

@@ -65,7 +65,7 @@
       types:
         Heat: 18
   - type: Item
-    size: Normal
+    size: Ginormous
     sprite: White/Objects/Weapons/Chaplain/godhand.rsi
   - type: Unremoveable
     deleteOnDrop: true

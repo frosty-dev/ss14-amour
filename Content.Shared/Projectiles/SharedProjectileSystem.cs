@@ -116,6 +116,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             return;
 
         // WD START
+        if (args.Handled)
+            return;
+
         if (component is {Penetrate: true, PenetratedUid: null} &&
             TryComp(args.Target, out PenetratedComponent? penetrated) &&
             penetrated is {ProjectileUid: null, IsPinned: false} &&

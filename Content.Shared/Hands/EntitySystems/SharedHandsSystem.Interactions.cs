@@ -101,7 +101,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (TryComp(session?.AttachedEntity, out HandsComponent? hands) && hands.ActiveHand != null)
         // WD EDIT START
         {
-            if (HasComp<BoltBarrageComponent>(hands.ActiveHandEntity))
+            if (HasComp<DeleteOnDropAttemptComponent>(hands.ActiveHandEntity))
             {
                 if (_net.IsServer)
                     QueueDel(hands.ActiveHandEntity.Value);

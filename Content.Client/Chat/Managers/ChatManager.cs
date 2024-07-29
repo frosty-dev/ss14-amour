@@ -1,5 +1,6 @@
 using Content.Client.Administration.Managers;
 using Content.Client.Ghost;
+using Content.Shared._White.Cult.Components;
 using Content.Shared.Administration;
 using Content.Shared.Changeling;
 using Content.Shared.Chat;
@@ -54,7 +55,8 @@ namespace Content.Client.Chat.Managers
 
                 case ChatSelectChannel.Cult:
                     var localEnt = _player.LocalPlayer != null ? _player.LocalPlayer.ControlledEntity : null;
-                    if (_entityManager.TryGetComponent(localEnt, out CultistComponent? comp))
+                    if (_entityManager.HasComponent<CultistComponent>(localEnt) ||
+                        _entityManager.HasComponent<ConstructComponent>(localEnt))
                         _consoleHost.ExecuteCommand($"csay \"{CommandParsing.Escape(text)}\"");
                     break;
 

@@ -3,29 +3,25 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
 namespace Content.Shared._White.Mood;
 
-[Prototype("moodEffect")]
+[Prototype]
 public sealed class MoodEffectPrototype : IPrototype
 {
     [ViewVariables]
     [IdDataField]
     public string ID { get; } = default!;
 
-    [DataField("desc", required: true)]
+    [DataField(required: true)]
     public string Description = string.Empty;
 
-    [DataField("moodChange", customTypeSerializer: typeof(EnumSerializer), required: true)]
+    [DataField(customTypeSerializer: typeof(EnumSerializer), required: true)]
     public Enum MoodChange = default!;
 
-    [DataField("positiveEffect", required: true)]
-    public bool PositiveEffect;
+    [DataField] public bool Positive;
 
-    [DataField("timeout")]
-    public int Timeout;
+    [DataField] public int Timeout;
 
-    [DataField("hidden")]
-    public bool Hidden;
+    [DataField] public bool Hidden;
 
-    //If mob already has effect of the same category, the new one will replace the old one.
-    [DataField("category")]
-    public string? Category;
+    // If mob already has effect of the same category, the new one will replace the old one.
+    [DataField] public string? Category;
 }

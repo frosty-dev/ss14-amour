@@ -1,0 +1,43 @@
+﻿- type: rcdCategory
+  id: WallsAndFlooring
+  spritePath: /Textures/Interface/Radial/RCD/walls_and_flooring.png
+
+- type: rcdCategory
+  id: WindowsAndGrilles
+  spritePath: /Textures/Interface/Radial/RCD/windows_and_grilles.png
+
+- type: rcdCategory
+  id: Airlocks
+  spritePath: /Textures/Interface/Radial/RCD/airlocks.png
+
+- type: rcdCategory
+  id: Electrical
+  spritePath: /Textures/Interface/Radial/RCD/multicoil.png
+
+- type: rcdCategory
+  id: Lighting
+  spritePath: /Textures/Interface/Radial/RCD/lighting.png
+
+- type: rcdCategory
+  id: Pipes
+  spritePath:
+    sprite: /Textures/Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeFourway
+
+- type: rcdCategory
+  id: GasDevices
+  spritePath:
+    sprite: /Textures/Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
+
+- type: rcdCategory
+  id: DisposalPipes
+  spritePath:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: conpipe-t
+
+- type: rcdCategory
+  id: DisposalUnits
+  spritePath:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: disposal

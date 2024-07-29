@@ -165,4 +165,5 @@
   - type: CultRuneBase
     invokePhrase: "TOK-LYR RQA-NAP G'OLT-ULOFT!"
     cultistGatheringRange: 1.5
+    invokeChatType: Speak
   - type: CultRuneApocalypse

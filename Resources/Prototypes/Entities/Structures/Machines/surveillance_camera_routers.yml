@@ -164,3 +164,4 @@
   components:
     - type: SurveillanceCameraRouter
       subnetFrequency: SurveillanceCameraSecurity
+      subnetColor: "#DE3A3AFF"

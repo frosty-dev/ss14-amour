@@ -1,29 +1,40 @@
 using Content.Shared.Actions;
+using Content.Shared.Magic;
 
 namespace Content.Shared._White.Cult.Actions;
 
-public sealed partial class CultTwistedConstructionActionEvent : EntityTargetActionEvent
+public sealed partial class CultTwistedConstructionActionEvent : EntityTargetActionEvent, ISpeakSpell
+{
+    [DataField("speech")]
+    public string? Speech { get; private set; }
+}
+
+public sealed partial class CultSummonDaggerActionEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField("speech")]
+    public string? Speech { get; private set; }
+}
+
+public sealed partial class CultStunActionEvent : InstantActionEvent
 {
 }
 
-public sealed partial class CultSummonDaggerActionEvent : InstantActionEvent
+public sealed partial class CultTeleportTargetActionEvent : EntityTargetActionEvent, ISpeakSpell
 {
+    [DataField("speech")]
+    public string? Speech { get; private set; }
 }
 
-public sealed partial class CultStunTargetActionEvent : EntityTargetActionEvent
+public sealed partial class CultElectromagneticPulseInstantActionEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField("speech")]
+    public string? Speech { get; private set; }
 }
 
-public sealed partial class CultTeleportTargetActionEvent : EntityTargetActionEvent
+public sealed partial class CultShadowShacklesTargetActionEvent : EntityTargetActionEvent, ISpeakSpell
 {
-}
-
-public sealed partial class CultElectromagneticPulseInstantActionEvent : InstantActionEvent
-{
-}
-
-public sealed partial class CultShadowShacklesTargetActionEvent : EntityTargetActionEvent
-{
+    [DataField("speech")]
+    public string? Speech { get; private set; }
 }
 
 public sealed partial class CultSummonCombatEquipmentTargetActionEvent : EntityTargetActionEvent
@@ -31,8 +42,10 @@ public sealed partial class CultSummonCombatEquipmentTargetActionEvent : EntityT
 }
 
 [Virtual]
-public partial class CultConcealPresenceInstantActionEvent : InstantActionEvent
+public partial class CultConcealPresenceInstantActionEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField("speech")]
+    public string? Speech { get; private set; }
 }
 
 public sealed partial class CultConcealInstantActionEvent : CultConcealPresenceInstantActionEvent
@@ -43,8 +56,10 @@ public sealed partial class CultRevealInstantActionEvent : CultConcealPresenceIn
 {
 }
 
-public sealed partial class CultBloodRitesInstantActionEvent : InstantActionEvent
+public sealed partial class CultBloodRitesInstantActionEvent : InstantActionEvent, ISpeakSpell
 {
+    [DataField("speech")]
+    public string? Speech { get; private set; }
 }
 
 public sealed partial class CultBloodSpearRecallInstantActionEvent : InstantActionEvent

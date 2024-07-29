@@ -212,6 +212,7 @@ public sealed partial class BlockingSystem : EntitySystem
                 hard: true,
                 collisionLayer: (int) CollisionGroup.WallLayer,
                 body: physicsComponent);
+            _physics.SetBodyType(user, BodyType.Static, body: physicsComponent);
         }
 
         component.IsBlocking = true;

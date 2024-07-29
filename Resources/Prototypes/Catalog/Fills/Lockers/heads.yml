@@ -152,6 +152,7 @@
       - id: ClothingOuterHardsuitEngineeringWhite
       - id: ClothingMaskBreath
       - id: OxygenTankFilled
+      - id: RapidPipeDispenser # WD
 
 - type: entity
   id: LockerChiefEngineerFilled
@@ -169,6 +170,7 @@
     - id: RCDAmmo
       amount: 2
     - id: HolofanProjector
+    - id: RapidPipeDispenser # WD
 
 - type: entity
   id: LockerChiefMedicalOfficerFilledHardsuit

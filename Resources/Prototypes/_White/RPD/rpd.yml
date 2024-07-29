@@ -1,0 +1,482 @@
+﻿# Pipes
+
+- type: rcd
+  id: PipeStraight
+  category: Pipes
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeStraight
+  mode: ConstructObject
+  prototype: GasPipeStraight
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PipeBend
+  category: Pipes
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeBend
+  mode: ConstructObject
+  prototype: GasPipeBend
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PipeTJunction
+  category: Pipes
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTJunction
+  mode: ConstructObject
+  prototype: GasPipeTJunction
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PipeFourway
+  category: Pipes
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeFourway
+  mode: ConstructObject
+  prototype: GasPipeFourway
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+# Gas devices
+
+- type: rcd
+  id: GasCanisterPort
+  category: GasDevices
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/gascanisterport.rsi
+    state: gasCanisterPort
+  mode: ConstructObject
+  prototype: GasPort
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: GasFilter
+  category: GasDevices
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/gasfilter.rsi
+    state: gasFilter
+  mode: ConstructObject
+  prototype: GasFilter
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: GasMixer
+  category: GasDevices
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/gasmixer.rsi
+    state: gasMixer
+  mode: ConstructObject
+  prototype: GasMixer
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: GasOutletInjector
+  category: GasDevices
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/outletinjector.rsi
+    state: injector
+  mode: ConstructObject
+  prototype: GasOutletInjector
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: GasPressurePump
+  category: GasDevices
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/pump.rsi
+    state: pumpPressure
+  mode: ConstructObject
+  prototype: GasPressurePump
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: GasVolumePump
+  category: GasDevices
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/pump.rsi
+    state: pumpVolume
+  mode: ConstructObject
+  prototype: GasVolumePump
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: GasValve
+  category: GasDevices
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/pump.rsi
+    state: pumpManualValve
+  mode: ConstructObject
+  prototype: GasValve
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: SignalControlledValve
+  category: GasDevices
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/pump.rsi
+    state: pumpDigitalValve
+  mode: ConstructObject
+  prototype: SignalControlledValve
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: PressureControlledValve
+  category: GasDevices
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/pneumaticvalve.rsi
+    state: off
+  mode: ConstructObject
+  prototype: PressureControlledValve
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: GasVentScrubber
+  category: GasDevices
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/scrubber.rsi
+    state: scrub_off
+  mode: ConstructObject
+  prototype: GasVentScrubber
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: GasVentPump
+  category: GasDevices
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
+  mode: ConstructObject
+  prototype: GasVentPump
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: GasPassiveVent
+  category: GasDevices
+  sprite:
+    sprite: /Textures/Structures/Piping/Atmospherics/vent.rsi
+    state: vent_off
+  mode: ConstructObject
+  prototype: GasPassiveVent
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+# Disposal pipes
+
+- type: rcd
+  id: DisposalPipe
+  category: DisposalPipes
+  sprite:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: pipe-s
+  mode: ConstructObject
+  prototype: DisposalPipe
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: DisposalBend
+  category: DisposalPipes
+  sprite:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: pipe-c
+  mode: ConstructObject
+  prototype: DisposalBend
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: DisposalJunction
+  category: DisposalPipes
+  sprite:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: pipe-j1
+  mode: ConstructObject
+  prototype: DisposalJunction
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: DisposalJunctionFlipped
+  category: DisposalPipes
+  sprite:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: pipe-j1
+  mode: ConstructObject
+  prototype: DisposalJunctionFlipped
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: DisposalYJunction
+  category: DisposalPipes
+  sprite:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: pipe-y
+  mode: ConstructObject
+  prototype: DisposalYJunction
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: DisposalRouter
+  category: DisposalPipes
+  sprite:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: pipe-j1s
+  mode: ConstructObject
+  prototype: DisposalRouter
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: DisposalRouterFlipped
+  category: DisposalPipes
+  sprite:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: pipe-j2s
+  mode: ConstructObject
+  prototype: DisposalRouterFlipped
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: DisposalTagger
+  category: DisposalPipes
+  sprite:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: pipe-tagger
+  mode: ConstructObject
+  prototype: DisposalTagger
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: DisposalSignalRouter
+  category: DisposalPipes
+  sprite:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: signal-router
+  mode: ConstructObject
+  prototype: DisposalSignalRouter
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: DisposalSignalRouterFlipped
+  category: DisposalPipes
+  sprite:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: signal-router-flipped
+  mode: ConstructObject
+  prototype: DisposalSignalRouterFlipped
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: DisposalTrunk
+  category: DisposalPipes
+  sprite:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: conpipe-t
+  mode: ConstructObject
+  prototype: DisposalTrunk
+  cost: 1
+  delay: 0
+  collisionMask: InteractImpassable
+  rules:
+  - MustBuildOnSubfloor
+  rotation: User
+  fx: EffectRCDConstruct0
+
+# Disposal units
+
+- type: rcd
+  id: DisposalUnit
+  category: DisposalUnits
+  sprite:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: disposal
+  mode: ConstructObject
+  prototype: DisposalUnit
+  cost: 2
+  delay: 1
+  collisionMask: InteractImpassable
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: MailingUnit
+  category: DisposalUnits
+  sprite:
+    sprite: /Textures/Structures/Piping/disposal.rsi
+    state: mailing
+  mode: ConstructObject
+  prototype: MailingUnit
+  cost: 2
+  delay: 1
+  collisionMask: InteractImpassable
+  rotation: User
+  fx: EffectRCDConstruct1
+
+- type: rcd
+  id: ToiletEmpty
+  category: DisposalUnits
+  sprite:
+    sprite: /Textures/Structures/Furniture/toilet.rsi
+    state: condisposal
+  mode: ConstructObject
+  prototype: ToiletEmpty
+  cost: 2
+  delay: 1
+  collisionMask: InteractImpassable
+  rotation: User
+  fx: EffectRCDConstruct1
+
