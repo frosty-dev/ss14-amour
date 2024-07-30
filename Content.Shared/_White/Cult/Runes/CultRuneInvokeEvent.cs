@@ -7,6 +7,8 @@ public sealed class CultRuneInvokeEvent : EntityEventArgs
     public HashSet<EntityUid> Cultists { get; }
     public bool Result { get; set; }
 
+    public string? InvokePhraseOverride { get; set; } = null;
+
     public CultRuneInvokeEvent(EntityUid rune, EntityUid user, HashSet<EntityUid> cultists)
     {
         Rune = rune;

@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._White.OfferItem;
 using Content.Shared.Body.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Implants.Components;
@@ -30,6 +31,7 @@ public sealed class HardlightSpearSystem : EntitySystem
 
         SubscribeLocalEvent<HardlightSpearComponent, LandEvent>(OnLand);
         SubscribeLocalEvent<HardlightSpearComponent, DroppedEvent>(OnDrop);
+        SubscribeLocalEvent<HardlightSpearComponent, HandedEvent>(OnHanded);
         SubscribeLocalEvent<HardlightSpearComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
         SubscribeLocalEvent<HardlightSpearComponent, GettingPickedUpAttemptEvent>(OnPickupAttempt);
         SubscribeLocalEvent<HardlightSpearComponent, PreventCollideEvent>(OnPreventCollision);
@@ -95,5 +97,10 @@ public sealed class HardlightSpearSystem : EntitySystem
     {
         if (!HasComp<BodyComponent>(args.Container.Owner))
             EnsureComp<TimedDespawnComponent>(uid);
+    }
+
+    private void OnHanded(EntityUid uid, HardlightSpearComponent component, ref HandedEvent args)
+    {
+        EnsureComp<TimedDespawnComponent>(uid);
     }
 }

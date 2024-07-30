@@ -30,6 +30,7 @@
   - type: Appearance
   - type: CultRuneBase
     invokePhrase: "Qu'laris ver'don, thal'sorin mik'thar!"
+    gatherInvokers: false
   - type: CultRuneBuff
   - type: CultRune
   - type: Concealable
@@ -47,6 +48,8 @@
       color: '#F80000'
   - type: Appearance
   - type: CultRuneBase
+    invokePhrase: "H'drak v'loso, mir'kanas verbot!"
+    gatherInvokers: false
   - type: CultEmpower
     isRune: true
   - type: UserInterface
@@ -55,7 +58,6 @@
       type: SpellSelectorBUI
   - type: CultRune
   - type: Concealable
-    examinableWhileConcealed: true
 
 - type: entity
   parent: CollideRune
@@ -91,7 +93,6 @@
   - type: Appearance
   - type: CultRuneBase
     invokePhrase: "N'ath reth sh'yro eth d'rekkathnor!"
-    gatherInvokers: true
   - type: CultRuneSummoning
   - type: CultRune
   - type: Concealable

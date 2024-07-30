@@ -524,6 +524,14 @@
     - MailingUnit
     - ToiletEmpty
 
+- type: entity # WD
+  id: RapidPipeDispenserEmpty
+  parent: RapidPipeDispenser
+  suffix: Empty
+  components:
+  - type: LimitedCharges
+    charges: 0
+
 - type: entity
   id: RCDRecharging
   parent: RCD

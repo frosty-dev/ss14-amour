@@ -156,3 +156,11 @@ public abstract partial class SharedOfferItemSystem : EntitySystem
         return entity != null && Resolve(entity.Value, ref component, false) && component.IsInOfferMode;
     }
 }
+
+[Serializable]
+public sealed class HandedEvent(EntityUid user, EntityUid target) : EntityEventArgs
+{
+    public EntityUid User = user;
+    public EntityUid Target = target;
+}
+

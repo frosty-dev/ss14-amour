@@ -10,7 +10,7 @@
   prototype: GasPipeStraight
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -26,7 +26,7 @@
   prototype: GasPipeBend
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -42,7 +42,7 @@
   prototype: GasPipeTJunction
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -58,7 +58,7 @@
   prototype: GasPipeFourway
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -270,7 +270,7 @@
   prototype: DisposalPipe
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -286,7 +286,7 @@
   prototype: DisposalBend
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -302,7 +302,7 @@
   prototype: DisposalJunction
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -318,7 +318,7 @@
   prototype: DisposalJunctionFlipped
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -334,7 +334,7 @@
   prototype: DisposalYJunction
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -350,7 +350,7 @@
   prototype: DisposalRouter
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -366,7 +366,7 @@
   prototype: DisposalRouterFlipped
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -382,7 +382,7 @@
   prototype: DisposalTagger
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -398,7 +398,7 @@
   prototype: DisposalSignalRouter
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -414,7 +414,7 @@
   prototype: DisposalSignalRouterFlipped
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -430,7 +430,7 @@
   prototype: DisposalTrunk
   cost: 1
   delay: 0
-  collisionMask: InteractImpassable
+  collisionMask: None
   rules:
   - MustBuildOnSubfloor
   rotation: User
@@ -447,10 +447,10 @@
   mode: ConstructObject
   prototype: DisposalUnit
   cost: 2
-  delay: 1
+  delay: 2
   collisionMask: InteractImpassable
   rotation: User
-  fx: EffectRCDConstruct1
+  fx: EffectRCDConstruct2
 
 - type: rcd
   id: MailingUnit
@@ -461,10 +461,10 @@
   mode: ConstructObject
   prototype: MailingUnit
   cost: 2
-  delay: 1
+  delay: 2
   collisionMask: InteractImpassable
   rotation: User
-  fx: EffectRCDConstruct1
+  fx: EffectRCDConstruct2
 
 - type: rcd
   id: ToiletEmpty
@@ -475,8 +475,8 @@
   mode: ConstructObject
   prototype: ToiletEmpty
   cost: 2
-  delay: 1
+  delay: 2
   collisionMask: InteractImpassable
   rotation: User
-  fx: EffectRCDConstruct1
+  fx: EffectRCDConstruct2
 

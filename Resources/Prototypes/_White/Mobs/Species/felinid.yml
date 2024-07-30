@@ -143,6 +143,9 @@
     min: 0.74
     max: 0.85
     starting: 0.8
+  - type: Carriable
+    doAfterLength: 2
+  - type: PseudoItem
 
 - type: entity
   save: false

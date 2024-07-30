@@ -1,4 +1,5 @@
-﻿using Content.Server.GameTicking;
+﻿using System.Linq;
+using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Popups;
 using Content.Server._White.Cult.GameRule;
@@ -46,9 +47,10 @@ public partial class CultSystem
 
     private void OnMapInit(EntityUid uid, ConstructComponent component, MapInitEvent args)
     {
-        foreach (var id in component.Actions)
+        foreach (var action in component.Actions.Select(id => _actionsSystem.AddAction(uid, id)))
         {
-            component.ActionEntities.Add(_actionsSystem.AddAction(uid, id));
+            _actionsSystem.StartUseDelay(action);
+            component.ActionEntities.Add(action);
         }
     }
 
