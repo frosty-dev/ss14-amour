@@ -1,5 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Magic;
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.Cult.Actions;
 
@@ -7,6 +9,21 @@ public sealed partial class CultTwistedConstructionActionEvent : EntityTargetAct
 {
     [DataField("speech")]
     public string? Speech { get; private set; }
+
+    [DataField]
+    public EntProtoId RunicDoor = "AirlockGlassCult";
+
+    [DataField]
+    public EntProtoId Effect = "EffectConstructRed";
+
+    [DataField]
+    public TimeSpan Delay = TimeSpan.FromSeconds(4);
+
+    [DataField]
+    public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/Machines/airlock_creaking.ogg")
+    {
+        Params = AudioParams.Default.WithVolume(-3f),
+    };
 }
 
 public sealed partial class CultSummonDaggerActionEvent : InstantActionEvent, ISpeakSpell

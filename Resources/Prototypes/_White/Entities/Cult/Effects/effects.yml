@@ -118,3 +118,13 @@
       duration: 0.5
     - type: TimedDespawn
       lifetime: 0.5
+
+- type: entity
+  parent: EffectRCDBase
+  id: EffectConstructRed
+  noSpawn: true
+  components:
+  - type: Sprite
+    state: construct_red
+  - type: TimedDespawn
+    lifetime: 5.2
