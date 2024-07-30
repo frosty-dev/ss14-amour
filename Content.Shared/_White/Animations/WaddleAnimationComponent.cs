@@ -1,30 +1,20 @@
 ﻿using System.Numerics;
+using Robust.Shared.Serialization;
 
-namespace Content.Shared.Movement.Components;
+namespace Content.Shared._White.Animations;
 
-/// <summary>
-/// Declares that an entity has started to waddle like a duck/clown.
-/// </summary>
-/// <param name="Entity">The newly be-waddled.</param>
-[ByRefEvent]
-public record struct StartedWaddlingEvent(EntityUid Entity)
+[Serializable, NetSerializable]
+public sealed class StartedWaddlingEvent(NetEntity user) : EntityEventArgs
 {
-    public EntityUid Entity = Entity;
+    public NetEntity User = user;
 }
 
-/// <summary>
-/// Declares that an entity has stopped waddling like a duck/clown.
-/// </summary>
-/// <param name="Entity">The former waddle-er.</param>
-[ByRefEvent]
-public record struct StoppedWaddlingEvent(EntityUid Entity)
+[Serializable, NetSerializable]
+public sealed class StoppedWaddlingEvent(NetEntity user) : EntityEventArgs
 {
-    public EntityUid Entity = Entity;
+    public NetEntity User = user;
 }
 
-/// <summary>
-/// Defines something as having a waddle animation when it moves.
-/// </summary>
 [RegisterComponent]
 public sealed partial class WaddleAnimationComponent : Component
 {

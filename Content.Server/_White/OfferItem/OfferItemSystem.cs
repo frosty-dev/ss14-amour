@@ -69,12 +69,18 @@ public sealed class OfferItemSystem : SharedOfferItemSystem
 
             _popup.PopupEntity(Loc.GetString("offer-item-give",
                 ("item", Identity.Entity(offerItem.Item.Value, EntityManager)),
-                ("target", Identity.Entity(uid, EntityManager))), component.Target.Value, component.Target.Value);
+                ("target", Identity.Entity(uid, EntityManager))),
+                component.Target.Value,
+                component.Target.Value);
             _popup.PopupEntity(Loc.GetString("offer-item-give-other",
                     ("user", Identity.Entity(component.Target.Value, EntityManager)),
                     ("item", Identity.Entity(offerItem.Item.Value, EntityManager)),
-                    ("target", Identity.Entity(uid, EntityManager)))
-                , component.Target.Value, Filter.PvsExcept(component.Target.Value, entityManager: EntityManager), true);
+                    ("target", Identity.Entity(uid, EntityManager))),
+                component.Target.Value,
+                Filter.PvsExcept(component.Target.Value, entityManager: EntityManager),
+                true);
+
+            RaiseLocalEvent(offerItem.Item.Value, new HandedEvent(component.Target.Value, uid));
         }
 
         offerItem.Item = null;
