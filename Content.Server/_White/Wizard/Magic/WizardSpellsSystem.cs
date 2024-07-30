@@ -24,6 +24,7 @@ using Content.Shared._White.Antag;
 using Content.Shared._White.BetrayalDagger;
 using Content.Shared._White.Cult.Components;
 using Content.Shared._White.Events;
+using Content.Shared._White.Item.PseudoItem;
 using Content.Shared._White.Wizard;
 using Content.Shared._White.Wizard.Magic;
 using Content.Shared.Actions;
@@ -854,6 +855,9 @@ public sealed class WizardSpellsSystem : EntitySystem
 
     public bool CanCast(BaseActionEvent msg)
     {
+        if (TryComp(msg.Performer, out PseudoItemComponent? pseudoItem) && pseudoItem.Active)
+            return false;
+
         return !msg.Handled && CheckRequirements(msg.Action, msg.Performer) &&
                !_statusEffectsSystem.HasStatusEffect(msg.Performer, "Incorporeal");
     }

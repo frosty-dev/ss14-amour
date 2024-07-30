@@ -99,7 +99,7 @@ public sealed partial class CultSystem : EntitySystem
 
         SubscribeLocalEvent<CultEmpowerComponent, CultEmpowerSelectedBuiMessage>(OnEmpowerSelected);
         SubscribeLocalEvent<CultEmpowerComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<CultEmpowerComponent, ActivateInWorldEvent>(OnActiveInWorld);
+        SubscribeLocalEvent<CultEmpowerComponent, CultRuneInvokeEvent>(OnActiveInWorld);
 
         // UI
         SubscribeLocalEvent<RuneDrawerProviderComponent, ActivatableUIOpenAttemptEvent>(OnRuneDrawAttempt);
@@ -396,19 +396,19 @@ public sealed partial class CultSystem : EntitySystem
 
         if (ev.Result)
         {
-            OnAfterInvoke(uid, cultists);
+            OnAfterInvoke(uid, cultists, ev.InvokePhraseOverride);
         }
     }
 
-    private void OnAfterInvoke(EntityUid rune, HashSet<EntityUid> cultists)
+    private void OnAfterInvoke(EntityUid rune, HashSet<EntityUid> cultists, string? invokePhraseOverride = null)
     {
         if (!_entityManager.TryGetComponent<CultRuneBaseComponent>(rune, out var component))
             return;
 
         foreach (var cultist in cultists)
         {
-            _chat.TrySendInGameICMessage(cultist, component.InvokePhrase, component.InvokeChatType, false, false, null,
-                null, null, false);
+            _chat.TrySendInGameICMessage(cultist, invokePhraseOverride ?? component.InvokePhrase,
+                component.InvokeChatType, false, false, null, null, null, false);
         }
     }
 
@@ -455,16 +455,19 @@ public sealed partial class CultSystem : EntitySystem
                 !HasComp<MindShieldComponent>(victim.Value))
             {
                 result = Convert(uid, victim.Value, args.User, args.Cultists);
+                args.InvokePhraseOverride = "Mah'weyh pleggh at e'ntrath!";
             }
             else
             {
                 result = Sacrifice(uid, victim.Value, args.User, args.Cultists);
+                args.InvokePhraseOverride = "Barhah hra zar'garis!";
             }
         }
         else
         {
             // Жертва мертва, выполняется альтернативное действие
             result = SacrificeNonObjectiveDead(uid, victim.Value, args.User, args.Cultists);
+            args.InvokePhraseOverride = "Barhah hra zar'garis!";
         }
 
         args.Result = result;
@@ -1217,13 +1220,14 @@ public sealed partial class CultSystem : EntitySystem
      * Empower rune start ----
      */
 
-    private void OnActiveInWorld(EntityUid uid, CultEmpowerComponent component, ActivateInWorldEvent args)
+    private void OnActiveInWorld(EntityUid uid, CultEmpowerComponent component, CultRuneInvokeEvent args)
     {
         if (!component.IsRune || !TryComp<CultistComponent>(args.User, out _) ||
             !TryComp<ActorComponent>(args.User, out var actor))
             return;
 
-        _ui.TryOpen(uid, CultEmpowerUiKey.Key, actor.PlayerSession);
+        args.Result = !_ui.SessionHasOpenUi(uid, CultEmpowerUiKey.Key, actor.PlayerSession) &&
+                      _ui.TryOpen(uid, CultEmpowerUiKey.Key, actor.PlayerSession);
     }
 
     private void OnUseInHand(EntityUid uid, CultEmpowerComponent component, UseInHandEvent args)
@@ -1377,6 +1381,7 @@ public sealed partial class CultSystem : EntitySystem
         var shard = _entityManager.SpawnEntity("SoulShard", transform.Value);
 
         _mindSystem.TransferTo(mindComponent.Mind.Value, shard);
+        _mindSystem.UnVisit(mindComponent.Mind.Value);
 
         _bodySystem.GibBody(target);
 
