@@ -1,6 +1,6 @@
 ﻿using Content.Client._Amour.CustomHeight;
+using Content.Client.Lobby;
 using Content.Shared._Amour.CustomHeight;
-using Content.Shared._Amour.LoggerExtension;
 using Robust.Client.UserInterface.Controls;
 using Range = Robust.Client.UserInterface.Controls.Range;
 
@@ -38,7 +38,13 @@ public sealed partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        if (!_entMan.TryGetComponent<CustomHeightComponent>(_previewDummy, out _))
+        var controller = UserInterfaceManager.GetUIController<LobbyUIController>();
+        var dummy = controller.GetPreviewDummy();
+
+        if (!dummy.HasValue)
+            return;
+
+        if (!_entMan.TryGetComponent<CustomHeightComponent>(dummy, out _))
         {
             HeightContainer.Visible = false;
             return;
@@ -48,11 +54,19 @@ public sealed partial class HumanoidProfileEditor
         _height.Value = Profile.Appearance.Height;
 
         UpdateHeightText();
+
+        SetDirty();
     }
 
     public void SetDummyHeight(byte height, bool changeHeightValue = true)
     {
-        if (Profile is null || !_entMan.TryGetComponent<CustomHeightComponent>(_previewDummy, out var a))
+        var controller = UserInterfaceManager.GetUIController<LobbyUIController>();
+        var dummy = controller.GetPreviewDummy();
+
+        if (!dummy.HasValue)
+            return;
+
+        if (Profile is null || !_entMan.TryGetComponent<CustomHeightComponent>(dummy, out var a))
             return;
 
         if(changeHeightValue)
@@ -62,7 +76,7 @@ public sealed partial class HumanoidProfileEditor
 
         UpdateHeightText();
 
-        IsDirty = true;
+        SetDirty();
     }
 
     public void UpdateHeightText()
