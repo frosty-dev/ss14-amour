@@ -125,6 +125,9 @@
       path: /Audio/Effects/hit_kick.ogg
   - type: Stamina
   - type: Perishable
+  - type: Carriable
+    doAfterLength: 2
+  - type: PseudoItem
 
 - type: entity
   save: false

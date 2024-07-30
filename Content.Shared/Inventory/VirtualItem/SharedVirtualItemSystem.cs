@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._White.Item.PseudoItem;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -67,7 +68,8 @@ public abstract class SharedVirtualItemSystem : EntitySystem
     private void OnBeforeRangedInteract(Entity<VirtualItemComponent> ent, ref BeforeRangedInteractEvent args)
     {
         // No interactions with a virtual item, please.
-        args.Handled = true;
+        if (!HasComp<PseudoItemComponent>(ent.Comp.BlockingEntity))
+            args.Handled = true;
     }
 
     #region Hands
