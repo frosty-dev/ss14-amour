@@ -1,13 +1,11 @@
 - type: entity
-  id: CultTileSpawnEffect
-  name: Sparkle
+  id: CultTileEffect
+  name: cult tile effect
   placement:
     mode: SnapgridCenter
   components:
-    # Animation is like 3 something seconds so we just need to despawn it before then.
     - type: TimedDespawn
       lifetime: 0.5
-    - type: EvaporationSparkle
     - type: Transform
       noRot: true
       anchored: true
@@ -19,6 +17,14 @@
       netsync: false
       drawdepth: FloorObjects
       color: "#FF0000"
+
+- type: entity
+  parent: CultTileEffect
+  id: CultTileSpawnEffect
+  name: cult tile glow
+  placement:
+    mode: SnapgridCenter
+  components:
     - type: PointLight
       color: "#FF0000"
 
@@ -26,10 +32,8 @@
   id: CultTeleportInEffect
   name: Teleport in
   components:
-    # Animation is like 3 something seconds so we just need to despawn it before then.
     - type: TimedDespawn
       lifetime: 0.8
-    - type: EvaporationSparkle
     - type: Transform
       noRot: true
       anchored: true
@@ -47,10 +51,8 @@
   id: CultTeleportOutEffect
   name: Teleport out
   components:
-    # Animation is like 3 something seconds so we just need to despawn it before then.
     - type: TimedDespawn
       lifetime: 0.8
-    - type: EvaporationSparkle
     - type: Transform
       noRot: true
       anchored: true
@@ -70,7 +72,6 @@
   components:
     - type: TimedDespawn
       lifetime: 1
-    - type: EvaporationSparkle
     - type: Transform
       noRot: true
       anchored: true
@@ -90,7 +91,6 @@
   components:
     - type: TimedDespawn
       lifetime: 1
-    - type: EvaporationSparkle
     - type: Transform
       noRot: true
       anchored: true

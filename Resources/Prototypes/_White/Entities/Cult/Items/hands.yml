@@ -1,0 +1,74 @@
+- type: entity
+  parent: BaseItem
+  id: BaseCultHand
+  abstract: true
+  noSpawn: true
+  name: magical aura
+  description: A sinister looking aura that distorts the flow of reality around it.
+  components:
+  - type: Item
+    size: Ginormous
+  - type: MeleeWeapon
+    canHeavyAttack: false
+    canMiss: false
+    attackRate: 2
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Heat: 0
+  - type: DeleteOnDropAttempt
+    message: cult-hand-component-extra-message
+  - type: Unremoveable
+    deleteOnDrop: true
+  - type: CultItem
+    canPickUp: false
+
+- type: entity
+  parent: BaseCultHand
+  id: StunHand
+  name: stunning aura
+  description: Will stun and mute a weak-minded victim on hit.
+  components:
+  - type: Sprite
+    sprite: White/Cult/Entities/stun.rsi
+    state: icon
+  - type: Item
+    sprite: White/Cult/Entities/stun.rsi
+  - type: MeleeWeapon
+    canAttackSelf: false
+    attackWhitelist:
+      components:
+      - StatusEffects
+    attackBlacklist:
+      components:
+      - Cultist
+      - Construct
+  - type: CultStunHand
+    speech: "Fuu ma'jin!"
+
+- type: entity
+  parent: BaseCultHand
+  id: RitesHand
+  name: blood rite aura
+  description: Absorbs blood from anything you touch. Touching cultists and constructs can heal them. Use in-hand to cast an advanced rite.
+  components:
+  - type: Sprite
+    sprite: White/Cult/Entities/rites.rsi
+    state: icon
+  - type: Item
+    sprite: White/Cult/Entities/rites.rsi
+  - type: MeleeWeapon
+    attackWhitelist:
+      components:
+      - Cultist
+      - Construct
+  - type: CultRitesHand
+    speech: "Fel'th Dol Ab'orod!"
+  - type: ActivatableUI
+    key: enum.BloodRitesUi.Key
+    inHandsOnly: true
+    closeOnHandDeselect: true
+  - type: UserInterface
+    interfaces:
+    - key: enum.BloodRitesUi.Key
+      type: CultistFactoryBUI

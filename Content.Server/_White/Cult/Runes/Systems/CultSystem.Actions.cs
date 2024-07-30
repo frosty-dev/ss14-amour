@@ -106,15 +106,7 @@ public partial class CultSystem
 
     private void OnStun(EntityUid uid, CultistComponent component, CultStunActionEvent args)
     {
-        var entity = Spawn("StunHand", Transform(uid).Coordinates);
-        if (!_handsSystem.TryPickupAnyHand(uid, entity))
-        {
-            _popupSystem.PopupEntity(Loc.GetString("cult-magic-no-empty-hand"), uid, uid);
-            QueueDel(entity);
-            _actionsSystem.SetCooldown(args.Action, TimeSpan.FromSeconds(1));
-            return;
-        }
-        args.Handled = true;
+        GrantItem(uid, "StunHand", args);
     }
 
     private void OnTeleport(EntityUid uid, CultistComponent component, CultTeleportTargetActionEvent args)
@@ -150,61 +142,7 @@ public partial class CultSystem
 
     private void OnBloodRites(EntityUid uid, CultistComponent component, CultBloodRitesInstantActionEvent args)
     {
-        if (!TryComp<BloodstreamComponent>(args.Performer, out var bloodstreamComponent))
-            return;
-
-        var bruteDamageGroup = _prototypeManager.Index<DamageGroupPrototype>("Brute");
-        var burnDamageGroup = _prototypeManager.Index<DamageGroupPrototype>("Burn");
-
-        var xform = Transform(uid);
-
-        var entitiesInRange = _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(xform), 1.5f);
-
-        FixedPoint2 totalBloodAmount = 0f;
-
-        var breakLoop = false;
-        foreach (var solutionEntity in entitiesInRange.ToList())
-        {
-            if (breakLoop)
-                break;
-
-            if (!TryComp<PuddleComponent>(solutionEntity, out var puddleComponent))
-                continue;
-
-            if (!_solutionSystem.TryGetSolution(solutionEntity, puddleComponent.SolutionName, out var solution))
-                continue;
-
-            foreach (var solutionContent in solution.Value.Comp.Solution.Contents.ToList())
-            {
-                if (solutionContent.Reagent.Prototype != "Blood")
-                    continue;
-
-                totalBloodAmount += solutionContent.Quantity;
-
-                _bloodstreamSystem.TryModifyBloodLevel(uid, solutionContent.Quantity / 6f, bloodstreamComponent);
-                _solutionSystem.RemoveReagent((Entity<SolutionComponent>) solution, "Blood", FixedPoint2.MaxValue);
-
-                /*if (GetMissingBloodValue(bloodstreamComponent) == 0)
-                {
-                    breakLoop = true;
-                }*/
-            }
-        }
-
-        if (totalBloodAmount == 0f)
-            return;
-
-        component.RitesBloodAmount += totalBloodAmount;
-
-        _audio.PlayPvs("/Audio/White/Cult/enter_blood.ogg", uid, AudioParams.Default);
-        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(bruteDamageGroup, -20));
-        _damageableSystem.TryChangeDamage(uid, new DamageSpecifier(burnDamageGroup, -20));
-
-        _popupSystem.PopupEntity(Loc.GetString("verb-blood-rites-message", ("blood", component.RitesBloodAmount)), uid,
-            uid);
-
-        Speak(args);
-        args.Handled = true;
+        GrantItem(uid, "RitesHand", args);
     }
 
     private static FixedPoint2 GetMissingBloodValue(BloodstreamComponent bloodstreamComponent)
@@ -496,5 +434,18 @@ public partial class CultSystem
     private void Speak(BaseActionEvent args)
     {
         _spells.Speak(args, InGameICChatType.Whisper);
+    }
+
+    public void GrantItem(EntityUid uid, string proto, InstantActionEvent args)
+    {
+        var entity = Spawn(proto, Transform(uid).Coordinates);
+        if (!_handsSystem.TryPickupAnyHand(uid, entity))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cult-magic-no-empty-hand"), uid, uid);
+            QueueDel(entity);
+            _actionsSystem.SetCooldown(args.Action, TimeSpan.FromSeconds(1));
+            return;
+        }
+        args.Handled = true;
     }
 }

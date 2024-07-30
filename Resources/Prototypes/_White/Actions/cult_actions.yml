@@ -123,7 +123,6 @@
         sprite: /Textures/White/Cult/actions_cult.rsi
         state: blood_rites
       event: !type:CultBloodRitesInstantActionEvent
-        speech: "Fel'th Dol Ab'orod!"
       charges: 5
       temporary: true
       removeOnNoCharges: true
