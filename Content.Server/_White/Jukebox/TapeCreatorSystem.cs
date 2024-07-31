@@ -22,8 +22,6 @@ public sealed class TapeCreatorSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly TagSystem _tag = default!;
 
-    private const int RecordTime = 25;
-
     private const string TapeCreatorContainerName = "tape_creator_container";
 
     public override void Initialize()
@@ -156,35 +154,10 @@ public sealed class TapeCreatorSystem : EntitySystem
         };
 
         tapeComponent.Songs.Add(song);
-        _popup.PopupEntity($"Запись началась, примерное время ожидания: {RecordTime} секунд", tapeCreator);
 
         DirtyEntity(GetEntity(ev.TapeCreatorUid));
         Dirty(insertedTape, tapeComponent);
-        StartRecordDelayAsync(tapeCreator, tapeCreatorComponent, _popup, _container);
-    }
 
-    private async void StartRecordDelayAsync(
-        EntityUid uid,
-        TapeCreatorComponent component,
-        SharedPopupSystem popupSystem,
-        SharedContainerSystem containerSystem)
-    {
-        const int recordTimeDelay = RecordTime * 1000 / 10;
-
-        await Task.Delay(1000);
-
-        for (var i = 0; i < 10; i++)
-        {
-            popupSystem.PopupEntity($"Запись мозговой активности выполнена на {i * 10}%", uid);
-            await Task.Delay(recordTimeDelay);
-        }
-
-        containerSystem.EmptyContainer(component.TapeContainer, force: true);
-
-        component.Recording = false;
-        component.InsertedTape = null;
-
-        popupSystem.PopupEntity("Запись мозговой активности завершена", uid);
-        Dirty(uid, component);
+        _popup.PopupEntity("Запись мозговой активности завершена", tapeCreator);
     }
 }
