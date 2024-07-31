@@ -358,3 +358,18 @@
       itemIconStyle: NoItem
       useDelay: 1 # emote spam
       event: !type:ToggleActionEvent
+
+#Amour
+- type: entity
+  id: ActionActivateGenderSwapImplant
+  name: Swap Gender
+  description:  Swaps your gender between male/female.
+  components:
+  - type: InstantAction
+    charges: 1
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Clothing/OuterClothing/Hardsuits/lingspacesuit.rsi
+      state: icon
+    event: !type:UseGenderSwapImplantEvent

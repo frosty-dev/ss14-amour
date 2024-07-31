@@ -19,9 +19,13 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using System.Numerics;
 using Content.Server.IdentityManagement;
+using Content.Shared._Amour.GrammarSystem;
+using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Collections;
+using Robust.Shared.Enums;
+using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Map.Components;
 
 namespace Content.Server.Implants;
@@ -41,6 +45,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!; // WD
+    [Dependency] private readonly GrammarSystem _grammar = default!; //Amour
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private HashSet<Entity<MapGridComponent>> _targetGrids = [];
@@ -56,6 +61,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         SubscribeLocalEvent<SubdermalImplantComponent, ActivateImplantEvent>(OnActivateImplantEvent);
         SubscribeLocalEvent<SubdermalImplantComponent, UseScramImplantEvent>(OnScramImplant);
         SubscribeLocalEvent<SubdermalImplantComponent, UseDnaScramblerImplantEvent>(OnDnaScramblerImplant);
+        SubscribeLocalEvent<SubdermalImplantComponent, UseGenderSwapImplantEvent>(OnGenderSwapImplant); //Amour
 
     }
 
@@ -225,4 +231,42 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         args.Handled = true;
         QueueDel(uid);
     }
+
+    //Amour Start
+    private void OnGenderSwapImplant(EntityUid uid, SubdermalImplantComponent component, UseGenderSwapImplantEvent args)
+    {
+        if (component.ImplantedEntity is not { } ent)
+            return;
+
+        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid) && humanoid.Sex != Sex.Unsexed)
+        {
+            var newSex = humanoid.Sex;
+
+            if (humanoid.Sex == Sex.Male)
+                newSex = Sex.Female;
+            else
+                newSex = Sex.Male;
+
+            _humanoidAppearance.SetSex(ent, newSex);
+        }
+
+        if (TryComp<GrammarComponent>(ent, out var grammar) &&
+            (grammar.Gender != Gender.Neuter || grammar.Gender != Gender.Epicene))
+        {
+            var newGender = grammar.Gender;
+
+            if (grammar.Gender == Gender.Male)
+                newGender = Gender.Female;
+            else
+                newGender = Gender.Male;
+
+            _grammar.SetGender((ent, grammar), newGender);
+            if (HasComp<IdentityComponent>(ent))
+                _identity.QueueIdentityUpdate(ent);
+        }
+
+        args.Handled = true;
+        QueueDel(uid);
+    }
+    //Amour End
 }

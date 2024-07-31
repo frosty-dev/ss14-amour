@@ -918,6 +918,7 @@
       - Saw
       - Hemostat
       - ClothingEyesGlassesChemical
+      - GenderSwapImplanter #Amour
     dynamicRecipes:
       - HandheldCrewMonitor
       - ChemicalPayload
