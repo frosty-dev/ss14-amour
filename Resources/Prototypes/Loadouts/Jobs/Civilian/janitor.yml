@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobJanitor
-      time: 36000 # 10 hours
+      time: 9999999999 # 10 hours 36000
 
 # Head
 - type: itemLoadout

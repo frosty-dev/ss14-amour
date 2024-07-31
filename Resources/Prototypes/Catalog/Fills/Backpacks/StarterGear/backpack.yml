@@ -207,7 +207,6 @@
   - type: StorageFill
     contents:
       - id: BoxSurvival
-      - id: Bible
       - id: RubberStampChaplain
 
 - type: entity

@@ -165,7 +165,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         _profile = profile;
     }
 
-    private EntityUid EnsurePreviewDummy(HumanoidCharacterProfile profile)
+    public EntityUid EnsurePreviewDummy(HumanoidCharacterProfile profile)
     {
         if (_previewDummy != null)
             return _previewDummy.Value;

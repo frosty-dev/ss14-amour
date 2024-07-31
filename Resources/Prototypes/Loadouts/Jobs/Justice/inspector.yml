@@ -130,7 +130,7 @@
 - type: startingGear
   id: InspectorSatchel
   equipment:
-    back: ClothingBackpackSatchelInspector
+    back: ClothingBackpackSatchelInspectorFilled
 
 # Gloves
 

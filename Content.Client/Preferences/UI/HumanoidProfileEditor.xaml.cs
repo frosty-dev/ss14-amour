@@ -108,6 +108,7 @@ namespace Content.Client.Preferences.UI
         public int CharacterSlot;
         public HumanoidCharacterProfile? Profile;
         private MarkingSet _markingSet = new(); // storing this here feels iffy but a few things need it this high up
+        private static LobbyUIController? _controller;
 
         public event Action<HumanoidCharacterProfile, int>? OnProfileChanged;
 
@@ -124,10 +125,12 @@ namespace Content.Client.Preferences.UI
             _preferencesManager = preferencesManager;
             _markingManager = IoCManager.Resolve<MarkingManager>();
             _entMan = IoCManager.Resolve<IEntityManager>(); // WD
-            var controller = UserInterfaceManager.GetUIController<LobbyUIController>();
-            controller.PreviewDummyUpdated += OnDummyUpdate;
 
-            _previewSpriteView.SetEntity(controller.GetPreviewDummy());
+            _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
+
+            _controller.PreviewDummyUpdated += OnDummyUpdate;
+
+            _previewSpriteView.SetEntity(_controller.GetPreviewDummy());
 
             #region Left
 
@@ -513,15 +516,16 @@ namespace Content.Client.Preferences.UI
 
             UpdateSpeciesGuidebookIcon();
 
-            IsDirty = false;
-            controller.UpdateProfile();
+            SetDirty();
         }
 
         private void SetDirty()
         {
-            var controller = UserInterfaceManager.GetUIController<LobbyUIController>();
-            controller.UpdateProfile(Profile);
-            controller.ReloadCharacterUI();
+            if (_controller == null)
+                return;
+
+            _controller.UpdateProfile(Profile);
+            _controller.ReloadCharacterUI();
             IsDirty = true;
         }
 
@@ -711,66 +715,45 @@ namespace Content.Client.Preferences.UI
                 return;
 
             Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithMarkings(markings.GetForwardEnumerator().ToList()));
-            IsDirty = true;
-            var controller = UserInterfaceManager.GetUIController<LobbyUIController>();
-            controller.UpdateProfile(Profile);
-            controller.ReloadProfile();
+
+            SetDirty();
         }
 
         private void OnSkinColorOnValueChanged()
         {
-            if (Profile is null) return;
+            if (Profile is null)
+                return;
 
             var skin = _prototypeManager.Index<SpeciesPrototype>(Profile.Species).SkinColoration;
 
             switch (skin)
             {
                 case HumanoidSkinColor.HumanToned:
-                {
-                    if (!_skinColor.Visible)
-                    {
-                        _skinColor.Visible = true;
-                        _rgbSkinColorContainer.Visible = false;
-                    }
-
-                    var color = SkinColor.HumanSkinTone((int) _skinColor.Value);
-
-                    CMarkings.CurrentSkinColor = color;
-                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));//
+                    _skinColor.Visible = true;
+                    _rgbSkinColorContainer.Visible = false;
+                    ApplySkinColor(Profile, SkinColor.HumanSkinTone((int)_skinColor.Value));
                     break;
-                }
+
                 case HumanoidSkinColor.Hues:
-                {
-                    if (!_rgbSkinColorContainer.Visible)
-                    {
-                        _skinColor.Visible = false;
-                        _rgbSkinColorContainer.Visible = true;
-                    }
-
-                    CMarkings.CurrentSkinColor = _rgbSkinColorSelector.Color;
-                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(_rgbSkinColorSelector.Color));
-                    break;
-                }
                 case HumanoidSkinColor.TintedHues:
-                {
-                    if (!_rgbSkinColorContainer.Visible)
-                    {
-                        _skinColor.Visible = false;
-                        _rgbSkinColorContainer.Visible = true;
-                    }
+                    _skinColor.Visible = false;
+                    _rgbSkinColorContainer.Visible = true;
 
-                    var color = SkinColor.TintedHues(_rgbSkinColorSelector.Color);
+                    var color = skin == HumanoidSkinColor.Hues
+                        ? _rgbSkinColorSelector.Color
+                        : SkinColor.TintedHues(_rgbSkinColorSelector.Color);
 
-                    CMarkings.CurrentSkinColor = color;
-                    Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+                    ApplySkinColor(Profile, color);
                     break;
-                }
             }
 
-            IsDirty = true;
-            var controller = UserInterfaceManager.GetUIController<LobbyUIController>();
-            controller.UpdateProfile(Profile);
-            controller.ReloadProfile();
+            SetDirty();
+        }
+
+        private void ApplySkinColor(HumanoidCharacterProfile profile, Color color)
+        {
+            CMarkings.CurrentSkinColor = color;
+            Profile = profile.WithCharacterAppearance(profile.Appearance.WithSkinColor(color));
         }
 
         protected override void Dispose(bool disposing)
@@ -779,8 +762,10 @@ namespace Content.Client.Preferences.UI
             if (!disposing)
                 return;
 
-            var controller = UserInterfaceManager.GetUIController<LobbyUIController>();
-            controller.PreviewDummyUpdated -= OnDummyUpdate;
+            if (_controller == null)
+                return;
+
+            _controller.PreviewDummyUpdated -= OnDummyUpdate;
             _requirements.Updated -= UpdateAntagRequirements;
             _requirements.Updated -= UpdateRoleRequirements;
             _preferencesManager.OnServerDataLoaded -= LoadServerData;
