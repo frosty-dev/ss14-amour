@@ -29,7 +29,7 @@
     Sigh:
       collection: MaleSigh
     Crying:
-      collection: MaleCry
+      collection: MaleCrying
     Whistle:
       collection: Whistles
     Weh:
@@ -61,7 +61,15 @@
     Snore:
       collection: Snores
     Honk:
-      collection: CluwneHorn
+      collection: BikeHorn
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCrying
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
 
 - type: emoteSounds
   id: MaleFelinid
@@ -85,9 +93,11 @@
     Sigh:
       collection: MaleSigh
     Crying:
-      collection: MaleCry
+      collection: MaleCrying
     Whistle:
       collection: Whistles
+    Weh:
+      collection: Weh
     Hiss:
       collection: FelinidHisses
     Meow:
@@ -119,7 +129,7 @@
     Sigh:
       collection: FemaleSigh
     Crying:
-      collection: FemaleCry
+      collection: FemaleCrying
     Whistle:
       collection: Whistles
     Weh:
@@ -154,6 +164,8 @@
       collection: HarpyCry
     Whistle:
       collection: Whistles
+    Weh:
+      collection: Weh
     Hiss:
       collection: HarpyHisses
     Meow:
@@ -204,7 +216,7 @@
     Whistle:
       collection: Whistles
     Crying:
-      collection: MaleCry
+      collection: MaleCrying
     Weh:
       collection: Weh
 
@@ -238,7 +250,7 @@
     Sigh:
       collection: MaleSigh
     Crying:
-      collection: MaleCry
+      collection: MaleCrying
     Whistle:
       collection: Whistles
     Weh:
@@ -276,7 +288,7 @@
     Sigh:
       collection: FemaleSigh
     Crying:
-      collection: FemaleCry
+      collection: FemaleCrying
     Whistle:
       collection: Whistles
     Weh:
@@ -302,6 +314,8 @@
       path: /Audio/Voice/Diona/diona_scream.ogg
     Laugh:
       collection: DionaLaugh
+    Whistle:
+      collection: Whistles
     Honk:
       collection: BikeHorn
     Weh:
@@ -353,7 +367,7 @@
     Honk:
       collection: BikeHorn
     Crying:
-      collection: MaleCry
+      collection: MaleCrying
     Whistle:
       collection: Whistles
     Weh:
@@ -390,7 +404,7 @@
     Honk:
       collection: BikeHorn
     Crying:
-      collection: FemaleCry
+      collection: FemaleCrying
     Whistle:
       collection: Whistles
     Weh:
