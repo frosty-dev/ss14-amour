@@ -254,3 +254,11 @@
     Steel: 600
     Plastic: 300
 
+#Amour
+- type: latheRecipe
+  id: GenderSwapImplanter
+  result: GenderSwapImplanter
+  completetime: 1
+  materials:
+    Glass: 600
+    Steel: 600

@@ -89,3 +89,10 @@ public sealed partial class UseDnaScramblerImplantEvent : InstantActionEvent
 {
 
 }
+
+//Amour
+public sealed partial class UseGenderSwapImplantEvent : InstantActionEvent
+{
+
+}
+//Amour
