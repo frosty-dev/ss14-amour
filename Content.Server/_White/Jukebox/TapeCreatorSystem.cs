@@ -158,6 +158,21 @@ public sealed class TapeCreatorSystem : EntitySystem
         DirtyEntity(GetEntity(ev.TapeCreatorUid));
         Dirty(insertedTape, tapeComponent);
 
-        _popup.PopupEntity("Запись мозговой активности завершена", tapeCreator);
+        Record(tapeCreator, tapeCreatorComponent, _popup, _container);
+    }
+
+    private void Record(
+        EntityUid uid,
+        TapeCreatorComponent component,
+        SharedPopupSystem popupSystem,
+        SharedContainerSystem containerSystem)
+    {
+        containerSystem.EmptyContainer(component.TapeContainer, force: true);
+
+        component.Recording = false;
+        component.InsertedTape = null;
+
+        popupSystem.PopupEntity("Запись мозговой активности завершена", uid);
+        Dirty(uid, component);
     }
 }
