@@ -1,3 +1,4 @@
+using Content.Server._White.Holo;
 using Content.Shared.Examine;
 using Content.Server.Popups;
 using Content.Shared.Coordinates.Helpers;
@@ -83,7 +84,11 @@ public sealed class HolosignSystem : EntitySystem
         }
 
         args.Handled = true;
-        component.Signs.Add(holoUid); // WD EDIT
+        // WD EDIT
+        EnsureComp<HoloComponent>(holoUid, out var holo);
+        component.Signs.Add(holoUid);
+        holo.Sign = uid;
+        // WD EDIT
     }
 
     private void OnComponentRemove(EntityUid uid, HolosignProjectorComponent comp, ComponentRemove args) // wd edit
