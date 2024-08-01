@@ -239,8 +239,9 @@ uplink-c20r-bundle-desc = Старый добрый: классический п
 uplink-buldog-bundle-name = Набор Бульдога
 uplink-buldog-bundle-desc = Простое и эффективное: Содержит популярное ружье дробовик Бульдог, барабан дроби 12g и 3 барабана с картечью 12g.
 
-uplink-grenade-launcher-bundle-name = Набор China Lake
-uplink-grenade-launcher-bundle-desc = Старый гранатомет China Lake в комплекте с 11 снарядами различной разрушительной силы.
+# WD EDIT
+uplink-grenade-launcher-bundle-name = Набор Крайта
+uplink-grenade-launcher-bundle-desc = Старый гранатомет Крайт в комплекте с 11 снарядами различной разрушительной силы.
 
 uplink-l6-saw-bundle-name = Набор L6 Saw
 uplink-l6-saw-bundle-desc = Еще имба: культовый ручной пулемет L6 в комплекте с 2 коробчатыми магазинами.

@@ -172,7 +172,7 @@
   id: UplinkGrenadeLauncherBundle
   name: uplink-grenade-launcher-bundle-name
   description: uplink-grenade-launcher-bundle-desc
-  icon: { sprite: /Textures/White/Objects/Weapons/Guns/Launchers/china_lake-icons.rsi, state: icon }
+  icon: { sprite: /Textures/White/Objects/Weapons/Guns/Launchers/krait-icons.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
   cost:
     Telecrystal: 25
