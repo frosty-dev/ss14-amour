@@ -7287,3 +7287,12 @@
   id: 440
   time: '2024-08-01T03:57:26.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/526
+- author: ThereDrD
+  changes:
+  - message: "\u041A\u0430\u0441\u0435\u0442\u0430 \u0431\u043E\u043B\u044C\u0448\u0435\
+      \ \u043D\u0435 \u0437\u0430\u0441\u0442\u0440\u0435\u0432\u0430\u0435\u0442\
+      \ \u0432 \u0431\u0443\u043C\u0431\u043E\u043A\u0441\u0435"
+    type: Fix
+  id: 441
+  time: '2024-08-01T04:08:30.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/527
