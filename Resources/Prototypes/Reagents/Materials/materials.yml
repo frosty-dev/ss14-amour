@@ -80,7 +80,7 @@
   stackEntity: MaterialBananium1
   name: materials-bananium
   unit: materials-unit-bunch
-  icon: { sprite: Objects/Materials/materials.rsi, state: bananium }
+  icon: { sprite: White/Objects/Materials/materials.rsi, state: bananium }
   color: "#32a852"
   price: 0.2
 

@@ -189,9 +189,9 @@
   description: A true prankster's facial attire. A clown is incomplete without his wig and mask.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown.rsi
+    sprite: White/Clothing/Mask/clown.rsi
   - type: Clothing
-    sprite: Clothing/Mask/clown.rsi
+    sprite: White/Clothing/Mask/clown.rsi
   - type: BreathMask
   - type: IdentityBlocker
   - type: Tag
@@ -217,9 +217,9 @@
   name: banana clown wig and mask
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_banana.rsi
+    sprite: White/Clothing/Mask/clown_banana.rsi
   - type: Clothing
-    sprite: Clothing/Mask/clown_banana.rsi
+    sprite: White/Clothing/Mask/clown_banana.rsi
   - type: Construction
     graph: BananaClownMask
     node: mask
@@ -319,9 +319,9 @@
   description: Cursed cluwne face and hair.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/cluwne.rsi
+    sprite: White/Clothing/Mask/cluwne.rsi
   - type: Clothing
-    sprite: Clothing/Mask/cluwne.rsi
+    sprite: White/Clothing/Mask/cluwne.rsi
   - type: Unremoveable
   - type: AddAccentClothing
     accent: StutteringAccent
@@ -528,9 +528,9 @@
   description: Some naughty clowns think this is what the Honkmother looks like.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/sexyclown.rsi
+    sprite: White/Clothing/Mask/sexyclown.rsi
   - type: Clothing
-    sprite: Clothing/Mask/sexyclown.rsi
+    sprite: White/Clothing/Mask/sexyclown.rsi
 
 - type: entity
   parent: ClothingMaskMime

@@ -612,7 +612,7 @@
   groups:
   - LawyerHead # WD
   - CommonGlasses # WD
-  - CommonSecurityHeadset
+  - BasicSecurityHeadset # WD
   - CommonMaskCigarette # WD
   - LawyerNeck
   - LawyerJumpsuit

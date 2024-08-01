@@ -418,10 +418,10 @@
   id: TrashBananiumPeel
   components:
   - type: Sprite
-    sprite: Objects/Materials/materials.rsi
+    sprite: White/Objects/Materials/materials.rsi
     state: peel
   - type: Item
-    sprite: Objects/Materials/materials.rsi
+    sprite: White/Objects/Materials/materials.rsi
     heldPrefix: peel
   - type: Slippery
     paralyzeTime: 4

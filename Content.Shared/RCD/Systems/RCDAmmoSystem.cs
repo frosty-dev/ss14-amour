@@ -5,6 +5,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.RCD.Components;
 using Content.Shared.Stacks;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.RCD.Systems;
@@ -15,6 +16,7 @@ public sealed class RCDAmmoSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly INetManager _netMan = default!;
 
     public override void Initialize()
     {
@@ -83,7 +85,7 @@ public sealed class RCDAmmoSystem : EntitySystem
         Dirty(uid, comp);
 
         // prevent having useless ammo with 0 charges
-        if (comp.Charges <= 0)
+        if (comp.Charges <= 0 && stackComponent == null && _netMan.IsServer)
             QueueDel(uid);
     }
 }

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "ГООООООООООЛ",
+  "copyright": "тебя ебать не должно",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "Barrel"
+    },
+    {
+      "name": "Barrel-top"
+    }
+  ]
+}

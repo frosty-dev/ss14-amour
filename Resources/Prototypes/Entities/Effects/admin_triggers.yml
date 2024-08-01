@@ -4,7 +4,7 @@
   name: instant effect
   components:
   - type: Sprite
-    sprite: /Textures/Objects/Fun/goldbikehorn.rsi
+    sprite: /Textures/White/Objects/Fun/goldbikehorn.rsi
     visible: false
     state: icon
   - type: TriggerOnSpawn

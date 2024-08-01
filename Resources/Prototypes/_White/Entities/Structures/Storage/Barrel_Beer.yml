@@ -1,0 +1,30 @@
+﻿- type: entity
+  id: Barrel_Beer_Empty
+  parent: [StorageTank, StructureWheeled]
+  name: бочка пива
+  description: Изготовлено древними дворфами
+  suffix: Empty
+  components:
+  - type: StaticPrice
+    price: 750
+  - type: Sprite
+    sprite: /Textures/White/Objects/Storage/Barrel_Beer.rsi
+    layers:
+    - state: Barrel_Beer
+  - type: Appearance
+  - type: ExaminableSolution
+    solution: tank
+  - type: ReagentTank
+    tankType: Fuel
+
+- type: entity
+  id: Barrel_Beer_Full
+  parent: Barrel_Beer_Empty
+  suffix: Full
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Beer
+          Quantity: 1500

@@ -64,7 +64,7 @@
 - type: stack
   id: Bananium
   name: bananium
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: bananium }
+  icon: { sprite: /Textures/White/Objects/Materials/materials.rsi, state: bananium }
   spawn: MaterialBananium1
   maxCount: 10
   itemSize: 2

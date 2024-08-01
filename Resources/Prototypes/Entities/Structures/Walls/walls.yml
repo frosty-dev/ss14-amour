@@ -127,9 +127,9 @@
     tags:
       - Wall
   - type: Sprite
-    sprite: Structures/Walls/clown.rsi
+    sprite: White/Structures/Walls/clown.rsi
   - type: Icon
-    sprite: Structures/Walls/clown.rsi
+    sprite: White/Structures/Walls/clown.rsi
   - type: Construction
     graph: Girder
     node: bananiumWall

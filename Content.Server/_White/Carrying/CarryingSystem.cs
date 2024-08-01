@@ -11,6 +11,7 @@ using Content.Shared.Climbing.Events;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Mobs;
@@ -226,14 +227,15 @@ public sealed class CarryingSystem : EntitySystem
         var ev = new CarryDoAfterEvent();
         var args = new DoAfterArgs(EntityManager, carrier, length, ev, carried, target: carried)
         {
+            BreakOnDamage = true,
             BreakOnMove = true,
             NeedHand = true
         };
 
-        if(_doAfterSystem.TryStartDoAfter(args))
+        if (_doAfterSystem.TryStartDoAfter(args))
         {
-            _popupSystem.PopupEntity(Loc.GetString("carry-start", ("carrier", carrier)), carried, carried,
-                Shared.Popups.PopupType.SmallCaution);
+            _popupSystem.PopupEntity(Loc.GetString("carry-start", ("carrier", Identity.Entity(carrier, EntityManager))),
+                carried, carried, Shared.Popups.PopupType.SmallCaution);
         }
     }
 

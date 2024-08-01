@@ -13,13 +13,13 @@ public sealed partial class AlertLevelPrototype : IPrototype
     /// part here. Visualizers will use this in order to dictate what alert level to show on
     /// client side sprites, and localization uses each key to dictate the alert level name.
     /// </summary>
-    [DataField("levels")] public Dictionary<string, AlertLevelDetail> Levels = new();
+    [DataField] public Dictionary<string, AlertLevelDetail> Levels = new();
 
     /// <summary>
     /// Default level that the station is on upon initialization.
     /// If this isn't in the dictionary, this will default to whatever .First() gives.
     /// </summary>
-    [DataField("defaultLevel")] public string DefaultLevel { get; private set; } = default!;
+    [DataField] public string DefaultLevel { get; private set; } = default!;
 }
 
 /// <summary>

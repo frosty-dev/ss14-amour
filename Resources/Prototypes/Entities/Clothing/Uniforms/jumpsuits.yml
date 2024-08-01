@@ -207,9 +207,9 @@
   description: HONK!
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
+    sprite: White/Clothing/Uniforms/Jumpsuit/clown.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
+    sprite: White/Clothing/Uniforms/Jumpsuit/clown.rsi
     femaleMask: UniformTop
   - type: Tag
     tags:
@@ -221,9 +221,9 @@
   name: banana clown suit
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi
+    sprite: White/Clothing/Uniforms/Jumpsuit/clown_banana.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi
+    sprite: White/Clothing/Uniforms/Jumpsuit/clown_banana.rsi
     femaleMask: UniformTop
   - type: Construction
     graph: BananaClownJumpsuit
@@ -240,18 +240,18 @@
   description: A jolly dress, well suited to entertain your master, nuncle.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/jester.rsi
+    sprite: White/Clothing/Uniforms/Jumpsuit/jester.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/jester.rsi
+    sprite: White/Clothing/Uniforms/Jumpsuit/jester.rsi
 
 - type: entity
   parent: ClothingUniformJumpsuitJester
   id: ClothingUniformJumpsuitJesterAlt
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/jester2.rsi
+    sprite: White/Clothing/Uniforms/Jumpsuit/jester2.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/jester2.rsi
+    sprite: White/Clothing/Uniforms/Jumpsuit/jester2.rsi
 
 - type: entity
   parent: ClothingUniformBase
@@ -997,9 +997,9 @@
   description: Cursed cluwne suit.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/cluwne.rsi
+    sprite: White/Clothing/Uniforms/Jumpsuit/cluwne.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/cluwne.rsi
+    sprite: White/Clothing/Uniforms/Jumpsuit/cluwne.rsi
   - type: Unremoveable
 
 - type: entity

@@ -23744,13 +23744,6 @@ entities:
     - type: Transform
       pos: 44.508774,-42.393085
       parent: 2
-- proto: BoxTrashbag
-  entities:
-  - uid: 24871
-    components:
-    - type: Transform
-      pos: 4.309841,-17.377108
-      parent: 2
 - proto: BoxZiptie
   entities:
   - uid: 1272
@@ -43231,66 +43224,92 @@ entities:
     - type: Transform
       pos: -23.45476,-30.413868
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 4787
     components:
     - type: Transform
       pos: -23.45476,-30.413868
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 4788
     components:
     - type: Transform
       pos: -32.612907,26.690397
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 4789
     components:
     - type: Transform
       pos: -32.612907,26.690397
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 4790
     components:
     - type: Transform
       pos: -41.60765,22.614788
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 4791
     components:
     - type: Transform
       pos: -11.497985,-54.34528
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 4792
     components:
     - type: Transform
       pos: -11.497985,-54.34528
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 4793
     components:
     - type: Transform
       pos: -8.146646,26.586098
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 4794
     components:
     - type: Transform
       pos: -8.146646,26.586098
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 4795
     components:
     - type: Transform
       pos: 64.549324,-4.321031
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 11143
     components:
     - type: Transform
       pos: -19.140457,-37.139294
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 18151
     components:
     - type: Transform
       pos: -19.718582,-37.139294
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 24219
     components:
     - type: Transform
       pos: -19.531082,-37.31117
       parent: 2
+    - type: RCDAmmo
+      charges: 6
 - proto: CableApcStack1
   entities:
   - uid: 4797
@@ -43298,41 +43317,57 @@ entities:
     - type: Transform
       pos: -36.46098,29.528368
       parent: 2
+    - type: RCDAmmo
+      charges: 0
   - uid: 4798
     components:
     - type: Transform
       pos: -44.477386,29.524277
       parent: 2
+    - type: RCDAmmo
+      charges: 0
   - uid: 4799
     components:
     - type: Transform
       pos: -42.471394,32.512993
       parent: 2
+    - type: RCDAmmo
+      charges: 0
   - uid: 4800
     components:
     - type: Transform
       pos: -39.54431,30.508358
       parent: 2
+    - type: RCDAmmo
+      charges: 0
   - uid: 4801
     components:
     - type: Transform
       pos: -34.43331,32.52622
       parent: 2
+    - type: RCDAmmo
+      charges: 0
   - uid: 4802
     components:
     - type: Transform
       pos: -45.477386,28.513159
       parent: 2
+    - type: RCDAmmo
+      charges: 0
   - uid: 4803
     components:
     - type: Transform
       pos: -34.52348,29.55964
       parent: 2
+    - type: RCDAmmo
+      charges: 0
   - uid: 4804
     components:
     - type: Transform
       pos: -39.58598,29.479635
       parent: 2
+    - type: RCDAmmo
+      charges: 0
 - proto: CableApcStack10
   entities:
   - uid: 25209
@@ -43340,11 +43375,15 @@ entities:
     - type: Transform
       pos: -47.362648,-40.65262
       parent: 2
+    - type: RCDAmmo
+      charges: 2
   - uid: 26785
     components:
     - type: Transform
       pos: -45.45449,-44.375954
       parent: 2
+    - type: RCDAmmo
+      charges: 2
 - proto: Cablecuffs
   entities:
   - uid: 26020
@@ -48813,46 +48852,64 @@ entities:
     - type: Transform
       pos: -23.382761,-30.70207
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 5837
     components:
     - type: Transform
       pos: -23.382761,-30.70207
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 5839
     components:
     - type: Transform
       pos: -32.492905,26.600334
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 5840
     components:
     - type: Transform
       pos: -32.507904,26.600334
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 5841
     components:
     - type: Transform
       pos: -11.518818,-54.053413
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 5842
     components:
     - type: Transform
       pos: -11.518818,-54.053413
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 5843
     components:
     - type: Transform
       pos: -8.032062,26.40889
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 5844
     components:
     - type: Transform
       pos: -8.032062,26.40889
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 25768
     components:
     - type: Transform
       pos: -22.495686,-46.629963
       parent: 2
+    - type: RCDAmmo
+      charges: 6
 - proto: CableMV
   entities:
   - uid: 59
@@ -58087,41 +58144,57 @@ entities:
     - type: Transform
       pos: -23.47276,-30.55797
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 7546
     components:
     - type: Transform
       pos: -23.47276,-30.55797
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 7547
     components:
     - type: Transform
       pos: -32.417908,26.525282
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 7548
     components:
     - type: Transform
       pos: -32.417908,26.525282
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 7549
     components:
     - type: Transform
       pos: -11.508402,-54.188923
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 7550
     components:
     - type: Transform
       pos: -11.508402,-54.188923
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 7551
     components:
     - type: Transform
       pos: -8.084146,26.492283
       parent: 2
+    - type: RCDAmmo
+      charges: 6
   - uid: 7552
     components:
     - type: Transform
       pos: -8.084146,26.492283
       parent: 2
+    - type: RCDAmmo
+      charges: 6
 - proto: CableMVStack1
   entities:
   - uid: 7553
@@ -58129,31 +58202,43 @@ entities:
     - type: Transform
       pos: -39.51306,30.48751
       parent: 2
+    - type: RCDAmmo
+      charges: 0
   - uid: 7554
     components:
     - type: Transform
       pos: -35.48181,32.499325
       parent: 2
+    - type: RCDAmmo
+      charges: 0
   - uid: 7555
     components:
     - type: Transform
       pos: -39.51306,29.458786
       parent: 2
+    - type: RCDAmmo
+      charges: 0
   - uid: 7556
     components:
     - type: Transform
       pos: -39.627644,27.433306
       parent: 2
+    - type: RCDAmmo
+      charges: 0
   - uid: 7557
     components:
     - type: Transform
       pos: -34.51306,32.499325
       parent: 2
+    - type: RCDAmmo
+      charges: 0
   - uid: 7558
     components:
     - type: Transform
       pos: -38.49581,32.442825
       parent: 2
+    - type: RCDAmmo
+      charges: 0
 - proto: CableTerminal
   entities:
   - uid: 4937
@@ -72313,6 +72398,19 @@ entities:
     - type: Transform
       pos: 1.5,59.5
       parent: 2
+- proto: ComputerSurveillanceWirelessCameraMonitor
+  entities:
+  - uid: 18569
+    components:
+    - type: Transform
+      pos: -10.5,51.5
+      parent: 2
+  - uid: 19030
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -8.5,36.5
+      parent: 2
 - proto: ComputerTechnologyDiskTerminal
   entities:
   - uid: 9366
@@ -73908,6 +74006,13 @@ entities:
     components:
     - type: Transform
       pos: -7.5,63.5
+      parent: 2
+- proto: CrateTrainingBombs
+  entities:
+  - uid: 15235
+    components:
+    - type: Transform
+      pos: -14.5,64.5
       parent: 2
 - proto: CrayonBlue
   entities:
@@ -82210,6 +82315,11 @@ entities:
     components:
     - type: Transform
       pos: -20.5,-49.5
+      parent: 2
+  - uid: 7644
+    components:
+    - type: Transform
+      pos: -8.5,49.5
       parent: 2
   - uid: 10751
     components:
@@ -111418,6 +111528,9 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 25948
     components:
     - type: Transform
@@ -111425,6 +111538,9 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: Grille
   entities:
   - uid: 170
@@ -114826,11 +114942,6 @@ entities:
     components:
     - type: Transform
       pos: -8.5,51.5
-      parent: 2
-  - uid: 15235
-    components:
-    - type: Transform
-      pos: -8.5,49.5
       parent: 2
   - uid: 15236
     components:
@@ -125302,84 +125413,116 @@ entities:
     - type: Transform
       pos: -26.524834,-32.336983
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 16367
     components:
     - type: Transform
       pos: -26.362833,-32.51711
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 16369
     components:
     - type: Transform
       pos: -7.6000032,26.698835
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 16370
     components:
     - type: Transform
       pos: -7.6000032,26.698835
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 16371
     components:
     - type: Transform
       pos: -14.495562,-55.259865
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 16372
     components:
     - type: Transform
       pos: -14.485145,-55.384953
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 16374
     components:
     - type: Transform
       pos: -31.953539,26.663208
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 16375
     components:
     - type: Transform
       pos: -26.543829,-32.413506
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 18167
     components:
     - type: Transform
       pos: -12.306134,-46.341732
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 18894
     components:
     - type: Transform
       pos: -12.441551,-46.31046
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 23803
     components:
     - type: Transform
       pos: -28.574581,-16.433601
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 23892
     components:
     - type: Transform
       pos: -28.355831,-16.542976
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 24226
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -7.638424,-36.322918
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 24227
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -7.575924,-36.635418
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 26781
     components:
     - type: Transform
       pos: 11.520925,41.531525
       parent: 2
+    - type: RCDAmmo
+      charges: 15
 - proto: PartRodMetal1
   entities:
   - uid: 9910
     components:
     - type: Transform
       parent: 25276
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -125387,6 +125530,8 @@ entities:
     components:
     - type: Transform
       parent: 25279
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -125394,6 +125539,8 @@ entities:
     components:
     - type: Transform
       parent: 25281
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -125401,6 +125548,8 @@ entities:
     components:
     - type: Transform
       parent: 25284
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -125408,6 +125557,8 @@ entities:
     components:
     - type: Transform
       parent: 25285
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -125415,6 +125566,8 @@ entities:
     components:
     - type: Transform
       parent: 25286
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -125422,6 +125575,8 @@ entities:
     components:
     - type: Transform
       parent: 25288
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -125429,6 +125584,8 @@ entities:
     components:
     - type: Transform
       parent: 25289
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -125436,6 +125593,8 @@ entities:
     components:
     - type: Transform
       parent: 25290
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -126135,6 +126294,9 @@ entities:
     - type: Transform
       pos: 31.533596,-10.5197315
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieDiona
   entities:
   - uid: 16457
@@ -126142,6 +126304,9 @@ entities:
     - type: Transform
       pos: 55.44615,-12.029556
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieGhost
   entities:
   - uid: 23467
@@ -126149,16 +126314,25 @@ entities:
     - type: Transform
       pos: 33.52988,15.435259
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 23477
     components:
     - type: Transform
       pos: 34.52988,12.513384
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 23478
     components:
     - type: Transform
       pos: 33.531456,12.466509
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieHampter
   entities:
   - uid: 5321
@@ -126166,11 +126340,17 @@ entities:
     - type: Transform
       pos: 40.50724,29.819302
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 16458
     components:
     - type: Transform
       pos: 10.911664,-3.5065148
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 21303
     components:
     - type: Transform
@@ -126178,42 +126358,66 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 25442
     components:
     - type: Transform
       pos: -28.806377,-28.015583
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 25443
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -30.432589,-27.810354
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 25445
     components:
     - type: Transform
       pos: -28.514494,-29.335028
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 25447
     components:
     - type: Transform
       pos: -29.716778,-27.83813
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 25448
     components:
     - type: Transform
       pos: -30.460386,-28.689194
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 25504
     components:
     - type: Transform
       pos: -42.53424,-34.51976
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 25505
     components:
     - type: Transform
       pos: -43.488655,-33.61698
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieLamp
   entities:
   - uid: 16459
@@ -126221,6 +126425,9 @@ entities:
     - type: Transform
       pos: -2.5895042,56.62824
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieLizard
   entities:
   - uid: 16460
@@ -126228,6 +126435,9 @@ entities:
     - type: Transform
       pos: 55.511005,-23.358524
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 17836
     components:
     - type: Transform
@@ -126235,6 +126445,9 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieNar
   entities:
   - uid: 17829
@@ -126244,6 +126457,9 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieRGBee
   entities:
   - uid: 5316
@@ -126251,6 +126467,9 @@ entities:
     - type: Transform
       pos: 45.500095,29.523752
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieRouny
   entities:
   - uid: 17835
@@ -126260,6 +126479,9 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieSharkBlue
   entities:
   - uid: 16461
@@ -126267,11 +126489,17 @@ entities:
     - type: Transform
       pos: -28.520807,45.55991
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 25993
     components:
     - type: Transform
       pos: -54.445473,29.562351
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieSharkGrey
   entities:
   - uid: 25411
@@ -126279,11 +126507,17 @@ entities:
     - type: Transform
       pos: -31.554213,-44.650063
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 25995
     components:
     - type: Transform
       pos: -55.414223,30.421726
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieSharkPink
   entities:
   - uid: 25994
@@ -126291,6 +126525,9 @@ entities:
     - type: Transform
       pos: -53.461098,30.452976
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieSlime
   entities:
   - uid: 20401
@@ -126300,6 +126537,9 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieSnake
   entities:
   - uid: 21160
@@ -126309,6 +126549,9 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PlushieSpaceLizard
   entities:
   - uid: 16462
@@ -126316,11 +126559,17 @@ entities:
     - type: Transform
       pos: 14.191115,10.546078
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 16463
     components:
     - type: Transform
       pos: -2.5962336,25.944868
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: PoppySeeds
   entities:
   - uid: 16464
@@ -130432,11 +130681,6 @@ entities:
     - type: Transform
       pos: -14.5,65.5
       parent: 2
-  - uid: 17036
-    components:
-    - type: Transform
-      pos: -14.5,64.5
-      parent: 2
   - uid: 17037
     components:
     - type: Transform
@@ -132685,36 +132929,50 @@ entities:
     - type: Transform
       pos: 6.7808495,-46.50002
       parent: 2
+    - type: RCDAmmo
+      charges: 45
   - uid: 24069
     components:
     - type: Transform
       pos: 6.7808495,-46.030556
       parent: 2
+    - type: RCDAmmo
+      charges: 45
   - uid: 24070
     components:
     - type: Transform
       pos: 6.7808495,-45.564182
       parent: 2
+    - type: RCDAmmo
+      charges: 45
   - uid: 24071
     components:
     - type: Transform
       pos: 6.4999847,-46.441338
       parent: 2
+    - type: RCDAmmo
+      charges: 45
   - uid: 24072
     components:
     - type: Transform
       pos: 6.4999847,-45.968784
       parent: 2
+    - type: RCDAmmo
+      charges: 45
   - uid: 24073
     components:
     - type: Transform
       pos: 6.4999847,-45.502415
       parent: 2
+    - type: RCDAmmo
+      charges: 45
   - uid: 24203
     components:
     - type: Transform
       pos: 4.636591,-46.013115
       parent: 2
+    - type: RCDAmmo
+      charges: 45
 - proto: ReagentContainerFlour
   entities:
   - uid: 17280
@@ -135700,12 +135958,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -8.5,51.5
       parent: 2
-  - uid: 17898
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -8.5,49.5
-      parent: 2
   - uid: 17899
     components:
     - type: Transform
@@ -137160,6 +137412,8 @@ entities:
     components:
     - type: Transform
       parent: 25276
+    - type: RCDAmmo
+      charges: 1
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137167,6 +137421,8 @@ entities:
     components:
     - type: Transform
       parent: 25280
+    - type: RCDAmmo
+      charges: 1
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137174,6 +137430,8 @@ entities:
     components:
     - type: Transform
       parent: 25284
+    - type: RCDAmmo
+      charges: 1
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137181,6 +137439,8 @@ entities:
     components:
     - type: Transform
       parent: 25287
+    - type: RCDAmmo
+      charges: 1
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137188,6 +137448,8 @@ entities:
     components:
     - type: Transform
       parent: 25291
+    - type: RCDAmmo
+      charges: 1
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137200,6 +137462,8 @@ entities:
       count: 10
     - type: Item
       size: 2
+    - type: RCDAmmo
+      charges: 10
 - proto: SheetPaper
   entities:
   - uid: 18144
@@ -137267,25 +137531,35 @@ entities:
     - type: Transform
       pos: -14.615829,-54.35161
       parent: 2
+    - type: RCDAmmo
+      charges: 60
   - uid: 18148
     components:
     - type: Transform
       pos: -14.2561865,-54.44536
       parent: 2
+    - type: RCDAmmo
+      charges: 60
   - uid: 18149
     components:
     - type: Transform
       pos: -14.459463,-54.523483
       parent: 2
+    - type: RCDAmmo
+      charges: 60
   - uid: 18150
     components:
     - type: Transform
       pos: -4.15946,23.501095
       parent: 2
+    - type: RCDAmmo
+      charges: 60
   - uid: 25949
     components:
     - type: Transform
       parent: 25936
+    - type: RCDAmmo
+      charges: 60
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137295,6 +137569,8 @@ entities:
     components:
     - type: Transform
       parent: 25220
+    - type: RCDAmmo
+      charges: 2
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137302,6 +137578,8 @@ entities:
     components:
     - type: Transform
       parent: 25288
+    - type: RCDAmmo
+      charges: 2
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137312,30 +137590,42 @@ entities:
     - type: Transform
       pos: -17.369734,55.532578
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 18152
     components:
     - type: Transform
       pos: -14.615829,-53.35161
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 18153
     components:
     - type: Transform
       pos: -14.303097,-53.44536
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 24967
     components:
     - type: Transform
       pos: -31.549242,-14.56542
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 24968
     components:
     - type: Transform
       pos: -31.314867,-14.62792
       parent: 2
+    - type: RCDAmmo
+      charges: 15
   - uid: 25943
     components:
     - type: Transform
       parent: 25936
+    - type: RCDAmmo
+      charges: 15
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137343,6 +137633,8 @@ entities:
     components:
     - type: Transform
       parent: 25936
+    - type: RCDAmmo
+      charges: 15
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137352,6 +137644,8 @@ entities:
     components:
     - type: Transform
       parent: 25220
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137359,6 +137653,8 @@ entities:
     components:
     - type: Transform
       parent: 25276
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137366,6 +137662,8 @@ entities:
     components:
     - type: Transform
       parent: 25280
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137373,6 +137671,8 @@ entities:
     components:
     - type: Transform
       parent: 25286
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137380,6 +137680,8 @@ entities:
     components:
     - type: Transform
       parent: 25290
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137387,6 +137689,8 @@ entities:
     components:
     - type: Transform
       parent: 25291
+    - type: RCDAmmo
+      charges: 0
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137397,46 +137701,64 @@ entities:
     - type: Transform
       pos: -24.266565,-32.263584
       parent: 2
+    - type: RCDAmmo
+      charges: 60
   - uid: 18155
     components:
     - type: Transform
       pos: -24.500566,-32.44371
       parent: 2
+    - type: RCDAmmo
+      charges: 60
   - uid: 18156
     components:
     - type: Transform
       pos: 11.646844,-28.423244
       parent: 2
+    - type: RCDAmmo
+      charges: 60
   - uid: 18157
     components:
     - type: Transform
       pos: -24.314663,-32.496895
       parent: 2
+    - type: RCDAmmo
+      charges: 60
   - uid: 18158
     components:
     - type: Transform
       pos: -12.500465,59.918625
       parent: 2
+    - type: RCDAmmo
+      charges: 60
   - uid: 18159
     components:
     - type: Transform
       pos: -7.7113285,-47.273014
       parent: 2
+    - type: RCDAmmo
+      charges: 60
   - uid: 18160
     components:
     - type: Transform
       pos: -7.4613285,-47.21047
       parent: 2
+    - type: RCDAmmo
+      charges: 60
   - uid: 18161
     components:
     - type: Transform
       pos: -7.4925785,-47.34598
       parent: 2
+    - type: RCDAmmo
+      charges: 60
   - uid: 18162
     components:
     - type: Transform
       pos: -3.5,23.5
       parent: 2
+    - type: RCDAmmo
+      charges: 60
 - proto: SheetSteel
   entities:
   - uid: 10707
@@ -137578,6 +137900,8 @@ entities:
     components:
     - type: Transform
       parent: 25279
+    - type: RCDAmmo
+      charges: 1
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137585,6 +137909,8 @@ entities:
     components:
     - type: Transform
       parent: 25281
+    - type: RCDAmmo
+      charges: 1
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137593,10 +137919,14 @@ entities:
     - type: Transform
       pos: 74.50538,-36.447853
       parent: 2
+    - type: RCDAmmo
+      charges: 1
   - uid: 20254
     components:
     - type: Transform
       parent: 25286
+    - type: RCDAmmo
+      charges: 1
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137604,6 +137934,8 @@ entities:
     components:
     - type: Transform
       parent: 25290
+    - type: RCDAmmo
+      charges: 1
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -137616,11 +137948,15 @@ entities:
       count: 15
     - type: Item
       size: 3
+    - type: RCDAmmo
+      charges: 15
   - uid: 25970
     components:
     - type: Transform
       pos: -56.431587,28.465414
       parent: 2
+    - type: RCDAmmo
+      charges: 1
 - proto: ShellShotgunImprovised
   entities:
   - uid: 18032
@@ -145461,56 +145797,56 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -29.688778,-44.4572
+      pos: -29.5,-44.5
       parent: 2
   - uid: 25681
     components:
     - type: Transform
-      pos: -29.345028,-44.347824
+      pos: -29.5,-44.5
       parent: 2
   - uid: 25682
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -29.501278,-43.941574
+      pos: -29.5,-43.5
       parent: 2
   - uid: 25683
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -29.595028,-43.566574
+      pos: -29.5,-43.5
       parent: 2
   - uid: 25684
     components:
     - type: Transform
-      pos: -29.282528,-43.2072
+      pos: -29.5,-43.5
       parent: 2
   - uid: 25685
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -28.298153,-45.379074
+      pos: -28.5,-45.5
       parent: 2
   - uid: 25686
     components:
     - type: Transform
-      pos: -27.063778,-44.5197
+      pos: -27.5,-44.5
       parent: 2
   - uid: 25687
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: -24.501278,-46.097824
+      pos: -24.5,-46.5
       parent: 2
   - uid: 25688
     components:
     - type: Transform
-      pos: -25.360653,-42.910324
+      pos: -25.5,-42.5
       parent: 2
   - uid: 25689
     components:
     - type: Transform
-      pos: -27.735653,-42.48845
+      pos: -27.5,-42.5
       parent: 2
 - proto: StoolBar
   entities:
@@ -146870,10 +147206,17 @@ entities:
       id: Пункт выдачи
 - proto: SurveillanceCameraWirelessRouterEntertainment
   entities:
-  - uid: 7644
+  - uid: 19029
     components:
     - type: Transform
-      pos: -60.5,5.5
+      pos: 4.5,2.5
+      parent: 2
+- proto: SurveillanceCameraWirelessRouterSecurity
+  entities:
+  - uid: 18993
+    components:
+    - type: Transform
+      pos: -3.5,2.5
       parent: 2
 - proto: SurveillanceWirelessCameraAnchoredCircuitboard
   entities:
@@ -146884,6 +147227,12 @@ entities:
       parent: 2
 - proto: SurveillanceWirelessCameraMovableConstructed
   entities:
+  - uid: 17898
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -60.5,5.5
+      parent: 2
   - uid: 23735
     components:
     - type: Transform
@@ -147061,6 +147410,11 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 3.5,-46.5
+      parent: 2
+  - uid: 17036
+    components:
+    - type: Transform
+      pos: -8.5,49.5
       parent: 2
   - uid: 17199
     components:
@@ -148089,11 +148443,6 @@ entities:
     components:
     - type: Transform
       pos: 3.5,52.5
-      parent: 2
-  - uid: 19436
-    components:
-    - type: Transform
-      pos: -10.5,51.5
       parent: 2
   - uid: 19437
     components:
@@ -151048,6 +151397,9 @@ entities:
     - type: Transform
       pos: 41.299892,20.264061
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: ToyDeathRipley
   entities:
   - uid: 19894
@@ -151372,6 +151724,9 @@ entities:
     - type: Transform
       pos: 26.372215,29.46209
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: ToyMarauder
   entities:
   - uid: 19899
@@ -151388,6 +151743,9 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: ToyPhazon
   entities:
   - uid: 19901
@@ -151409,11 +151767,17 @@ entities:
     - type: Transform
       pos: 17.197153,22.281088
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
   - uid: 23956
     components:
     - type: Transform
       pos: 19.744028,23.827963
       parent: 2
+    - type: ContainerContainer
+      containers:
+        item: !type:ContainerSlot {}
 - proto: ToySeraph
   entities:
   - uid: 19903
@@ -151459,6 +151823,13 @@ entities:
     components:
     - type: Transform
       pos: 52.5,-55.5
+      parent: 2
+- proto: TrashBag
+  entities:
+  - uid: 24871
+    components:
+    - type: Transform
+      pos: 4.309841,-17.377108
       parent: 2
 - proto: TrashBagBlue
   entities:
@@ -173232,6 +173603,11 @@ entities:
       parent: 2
 - proto: WeaponCapacitorRecharger
   entities:
+  - uid: 18932
+    components:
+    - type: Transform
+      pos: -8.5,49.5
+      parent: 2
   - uid: 23253
     components:
     - type: Transform
@@ -173264,11 +173640,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -12.5,61.5
-      parent: 2
-  - uid: 23259
-    components:
-    - type: Transform
-      pos: -10.5,51.5
       parent: 2
   - uid: 23260
     components:
@@ -174103,12 +174474,6 @@ entities:
     - type: DeviceLinkSink
       links:
       - 1279
-  - uid: 23343
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -8.5,50.5
-      parent: 2
   - uid: 23344
     components:
     - type: Transform
@@ -174129,10 +174494,10 @@ entities:
       parent: 2
 - proto: WindoorSecureArmoryLocked
   entities:
-  - uid: 18569
+  - uid: 18921
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
+      rot: 1.5707963267948966 rad
       pos: -8.5,50.5
       parent: 2
   - uid: 23349
@@ -175961,6 +176326,12 @@ entities:
     components:
     - type: Transform
       pos: 6.5,-44.5
+      parent: 2
+  - uid: 19031
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -8.5,49.5
       parent: 2
   - uid: 23458
     components:
