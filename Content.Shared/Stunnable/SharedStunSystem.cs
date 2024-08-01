@@ -52,7 +52,7 @@ public abstract class SharedStunSystem : EntitySystem
         SubscribeLocalEvent<KnockedDownComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<SlowedDownComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
 
-        SubscribeLocalEvent<KnockedDownComponent, TileFrictionEvent>(OnKnockedTileFriction);
+        //SubscribeLocalEvent<KnockedDownComponent, TileFrictionEvent>(OnKnockedTileFriction);
 
         // Attempt event subscriptions.
         SubscribeLocalEvent<StunnedComponent, ChangeDirectionAttemptEvent>(OnAttempt);
@@ -260,10 +260,10 @@ public abstract class SharedStunSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnKnockedTileFriction(EntityUid uid, KnockedDownComponent component, ref TileFrictionEvent args)
+    /*private void OnKnockedTileFriction(EntityUid uid, KnockedDownComponent component, ref TileFrictionEvent args)
     {
         args.Modifier *= KnockDownModifier;
-    }
+    }*/
 
     //WD EDIT START
     public bool IsParalyzed(EntityUid uid)

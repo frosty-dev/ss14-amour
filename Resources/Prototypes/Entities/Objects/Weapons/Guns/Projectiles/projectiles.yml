@@ -756,7 +756,8 @@
       - state: grenade
   - type: FlashOnTrigger
     range: 7
-    forceStun: true # WD EDIT
+    stunTime: 2 # WD
+    knockdownTime: 20 # WD
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
   - type: ActiveTimerTrigger
