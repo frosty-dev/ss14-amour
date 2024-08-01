@@ -24,9 +24,7 @@
     storageInsertSound:
       path: /Audio/Items/belt_equip.ogg
     # WD edit sounds end
-    # TODO: Fill this out more.
     maxItemSize: Normal
-    # TODO: Fill this out more.
     whitelist:
       tags:
         - Powerdrill

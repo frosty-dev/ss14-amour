@@ -67,6 +67,7 @@
   buttonText: Свистнуть
   chatMessages: [ свистит ]
   chatTriggers:
+  - свистит
   - свистнул
   - свистнула
   - свистнуло

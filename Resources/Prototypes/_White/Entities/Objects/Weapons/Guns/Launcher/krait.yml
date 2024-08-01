@@ -1,0 +1,35 @@
+- type: entity
+  name: Krait
+  parent: BaseWeaponLauncher
+  id: WeaponLauncherKrait
+  description: A light assault three-shot grenade launcher, which in the past was in service with many mercenary units. In an unknown way, large quantities of these weapons ended up in the hands of the Syndicate.
+  components:
+  - type: Sprite
+    sprite: White/Objects/Weapons/Guns/Launchers/krait-icons.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    sprite: White/Objects/Weapons/Guns/Launchers/krait-inhands.rsi
+  - type: Clothing
+    sprite: White/Objects/Weapons/Guns/Launchers/krait-inhands.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - Grenade
+    capacity: 3
+    proto: GrenadeFrag
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+    autoCycle: false

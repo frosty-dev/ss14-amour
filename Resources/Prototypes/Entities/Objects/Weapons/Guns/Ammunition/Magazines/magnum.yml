@@ -112,7 +112,7 @@
     proto: CartridgeMagnumAP
   - type: Sprite
     layers:
-    - state: piercing
+    - state: red-icon
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]

@@ -1343,7 +1343,7 @@
   description: When you just can't get those laughs coming the natural way!
   components:
   - type: Sprite
-    sprite: Objects/Fun/clownrecorder.rsi
+    sprite: White/Objects/Fun/clownrecorder.rsi
     state: icon
   - type: EmitSoundOnUse
     sound:

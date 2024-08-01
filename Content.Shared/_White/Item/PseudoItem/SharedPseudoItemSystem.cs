@@ -1,5 +1,7 @@
+using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Item.PseudoItem;
 
@@ -28,9 +30,15 @@ public abstract class SharedPseudoItemSystem : EntitySystem
     protected virtual void OnGettingPickedUp(Entity<PseudoItemComponent> ent, GettingPickedUpAttemptEvent args) {}
 }
 
-public sealed class PseudoItemInteractEvent(EntityUid used, EntityUid user)
+public sealed class PseudoItemInteractEvent(EntityUid used, EntityUid user, EntityUid virtualItem)
     : EntityEventArgs
 {
     public EntityUid Used { get; } = used;
     public EntityUid User { get; } = user;
+    public EntityUid VirtualItem { get; } = virtualItem;
+}
+
+[Serializable, NetSerializable]
+public sealed partial class PseudoItemInsertEvent : SimpleDoAfterEvent
+{
 }

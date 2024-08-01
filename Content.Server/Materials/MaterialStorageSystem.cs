@@ -54,10 +54,10 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
 
         var uid = GetEntity(msg.Entity);
 
-        if (!TryComp<MaterialStorageComponent>(uid, out var component))
+        if (!Exists(uid))
             return;
 
-        if (!Exists(uid))
+        if (!TryComp<MaterialStorageComponent>(uid, out var component))
             return;
 
         if (!_actionBlocker.CanInteract(player, uid))
@@ -79,18 +79,16 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
             volume = sheetsToExtract * volumePerSheet;
         }
 
-        var gridUid = HasComp<BluespaceStorageComponent>(uid) &&
-                      TryComp<TransformComponent>(uid, out var transformComponent)
+        var gridUid = HasComp<BluespaceStorageComponent>(uid) && TryComp<TransformComponent>(uid, out var transformComponent)
             ? transformComponent.GridUid
             : null;
 
-        var gridStorage = gridUid.HasValue &&
-                          TryComp<MaterialStorageComponent>(gridUid, out var materialStorageComponent)
+        var gridStorage = gridUid.HasValue && TryComp<MaterialStorageComponent>(gridUid, out var materialStorageComponent)
             ? materialStorageComponent
             : null;
 
 
-        if (volume <= 0 || !TryChangeMaterialAmount(uid, msg.Material, -volume, gridUid: gridUid, gridStorage: gridStorage))
+        if (volume <= 0 || !TryChangeMaterialAmount(uid, msg.Material, -volume, gridUid: gridUid, gridStorage: gridStorage, checkWhitelist:false))
             return;
 
         var mats = SpawnMultipleFromMaterial(volume, material, Transform(uid).Coordinates, out _);

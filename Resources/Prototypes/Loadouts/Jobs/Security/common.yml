@@ -62,6 +62,16 @@
   equipment:
     belt: ClothingBeltSecurityWebbing
 
+# Backpack
+
+- type: itemLoadout
+  id: CommonSatchelLeatherSecurity
+  equipment: CommonSatchelLeatherSecurity
+- type: startingGear
+  id: CommonSatchelLeatherSecurity
+  equipment:
+    back: ClothingBackpackSatchelLeatherFilledSecurity
+
 # Job trinkets
 
 - type: itemLoadout # WD

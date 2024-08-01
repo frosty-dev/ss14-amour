@@ -16,6 +16,7 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Pulling.Events;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
+using Content.Shared.Standing.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
@@ -43,6 +44,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedStandingStateSystem _standing = default!;
 
     public override void Initialize()
     {
@@ -142,6 +144,12 @@ public sealed class PullingSystem : EntitySystem
 
     private void OnRefreshMovespeed(EntityUid uid, PullerComponent component, RefreshMovementSpeedModifiersEvent args)
     {
+        if (_standing.IsDown(uid))
+        {
+            args.ModifySpeed(component.WalkSpeedModifier * 0.5f, component.SprintSpeedModifier * 0.5f);
+            return;
+        }
+
         args.ModifySpeed(component.WalkSpeedModifier, component.SprintSpeedModifier);
     }
 

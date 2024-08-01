@@ -61,7 +61,7 @@
 - type: cargoProduct
   id: FunArtSupplies
   icon:
-    sprite: Objects/Fun/crayons.rsi
+    sprite: White/Objects/Fun/crayons.rsi
     state: box
   product: CrateFunArtSupplies
   cost: 500

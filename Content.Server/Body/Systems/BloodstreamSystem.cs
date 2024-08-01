@@ -413,7 +413,13 @@ public sealed class BloodstreamSystem : EntitySystem
             _alertsSystem.ClearAlert(uid, AlertType.Bleed);
         else
         {
-            var severity = (short) Math.Clamp(Math.Round(component.BleedAmount, MidpointRounding.ToZero), 0, 10);
+            if (!_prototypeManager.TryIndex<AlertPrototype>(component.BloodAlertPrototypeID, out var alertPrototype))
+                return false;
+
+            var severity = (short) Math.Clamp(Math.Round(component.BleedAmount, MidpointRounding.ToZero),
+                alertPrototype.MinSeverity,
+                alertPrototype.MaxSeverity);
+
             _alertsSystem.ShowAlert(uid, AlertType.Bleed, severity);
         }
 

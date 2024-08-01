@@ -16,7 +16,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
+    sprite: White/Objects/Weapons/Guns/Revolvers/deckard.rsi
     quickEquip: false
     slots:
     - suitStorage
@@ -69,7 +69,7 @@
   description: A rare, custom-built revolver. Use when there is no time for Voight-Kampff test. Uses .45 magnum ammo.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
+    sprite: White/Objects/Weapons/Guns/Revolvers/deckard.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -97,9 +97,11 @@
   description: A detective's best friend. Uses .45 magnum ammo.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
+    sprite: White/Objects/Weapons/Guns/Revolvers/inspector-icons.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
+    sprite: White/Objects/Weapons/Guns/Revolvers/inspector-inhands.rsi
+  - type: Item
+    sprite: White/Objects/Weapons/Guns/Revolvers/inspector-inhand.rsi
   - type: RevolverAmmoProvider
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
@@ -112,9 +114,9 @@
   description: The iconic sidearm of the dreaded death squads. Uses .45 magnum ammo.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
+    sprite: White/Objects/Weapons/Guns/Revolvers/mateba.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
+    sprite: White/Objects/Weapons/Guns/Revolvers/mateba.rsi
   - type: Gun
     fireRate: 3
     soundGunshot:
@@ -127,9 +129,9 @@
   description: A robust revolver favoured by Syndicate agents. Uses .45 magnum ammo.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Revolvers/python.rsi
+    sprite: White/Objects/Weapons/Guns/Revolvers/python.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Revolvers/python.rsi
+    sprite: White/Objects/Weapons/Guns/Revolvers/python.rsi
   - type: Gun
     selectedMode: SemiAuto
     fireRate: 2

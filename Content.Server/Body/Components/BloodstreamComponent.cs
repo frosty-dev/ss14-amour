@@ -18,6 +18,7 @@ namespace Content.Server.Body.Components
         public static string DefaultChemicalsSolutionName = "chemicals";
         public static string DefaultBloodSolutionName = "bloodstream";
         public static string DefaultBloodTemporarySolutionName = "bloodstreamTemporary";
+        public readonly string BloodAlertPrototypeID = "Bleed";
 
         /// <summary>
         /// The next time that blood level will be updated and bloodloss damage dealt.

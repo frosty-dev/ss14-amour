@@ -6,7 +6,7 @@
   components:
   - type: Clickable
   - type: Sprite
-    sprite: Tiles/Misc/bananium.rsi
+    sprite: White/Tiles/Misc/bananium.rsi
     drawdepth: FloorTiles
     layers:
       - state: bananium

@@ -150,7 +150,7 @@
   id: Ensnared
   onClick: !type:RemoveEnsnare  { }
   icons:
-  - sprite: /Textures/Interface/Alerts/ensnared.rsi
+  - sprite: /Textures/White/Interface/Alerts/ensnared.rsi
     state: ensnared
   name: alerts-ensnared-name
   description: alerts-ensnared-desc
@@ -346,7 +346,7 @@
   id: Thirsty
   category: Thirst
   icons:
-  - sprite: /Textures/Interface/Alerts/thirst.rsi
+  - sprite: /Textures/White/Interface/Alerts/thirst.rsi
     state: thirsty
   name: alerts-thirsty-name
   description: alerts-thirsty-desc
@@ -355,7 +355,7 @@
   id: Parched
   category: Thirst
   icons:
-  - sprite: /Textures/Interface/Alerts/thirst.rsi
+  - sprite: /Textures/White/Interface/Alerts/thirst.rsi
     state: parched
   name: alerts-parched-name
   description: alerts-parched-desc
@@ -397,27 +397,27 @@
 - type: alert
   id: Bleed
   icons:
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/White/Interface/Alerts/bleed.rsi
     state: bleed0
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/White/Interface/Alerts/bleed.rsi
     state: bleed1
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/White/Interface/Alerts/bleed.rsi
     state: bleed2
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/White/Interface/Alerts/bleed.rsi
     state: bleed3
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/White/Interface/Alerts/bleed.rsi
     state: bleed4
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/White/Interface/Alerts/bleed.rsi
     state: bleed5
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/White/Interface/Alerts/bleed.rsi
     state: bleed6
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/White/Interface/Alerts/bleed.rsi
     state: bleed7
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/White/Interface/Alerts/bleed.rsi
     state: bleed8
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/White/Interface/Alerts/bleed.rsi
     state: bleed9
-  - sprite: /Textures/Interface/Alerts/bleed.rsi
+  - sprite: /Textures/White/Interface/Alerts/bleed.rsi
     state: bleed10
   name: alerts-bleed-name
   description: alerts-bleed-desc

@@ -30,7 +30,7 @@
             - tag: ClownSuit
               name: A Clown Suit
               icon:
-                sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
+                sprite: White/Clothing/Uniforms/Jumpsuit/clown.rsi
                 state: icon
               doAfter: 1
     - node: jumpsuit
@@ -68,7 +68,7 @@
             - tag: ClownShoes
               name: Clown Shoes
               icon:
-                sprite: Clothing/Shoes/Specific/clown.rsi
+                sprite: White/Clothing/Shoes/Specific/clown.rsi
                 state: icon
               doAfter: 1
     - node: shoes
@@ -106,7 +106,7 @@
             - tag: ClownMask
               name: A Clown Mask
               icon:
-                sprite: Clothing/Mask/clown.rsi
+                sprite: White/Clothing/Mask/clown.rsi
                 state: icon
               doAfter: 1
     - node: mask

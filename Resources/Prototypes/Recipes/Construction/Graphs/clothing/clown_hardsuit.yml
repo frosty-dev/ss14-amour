@@ -24,25 +24,25 @@
             - tag: CrayonPurple
               name: фиолетовый мелок
               icon:
-                sprite: Objects/Fun/crayons.rsi
+                sprite: White/Objects/Fun/crayons.rsi
                 state: purple
               doAfter: 1
             - tag: CrayonRed
               name: красный мелок
               icon:
-                sprite: Objects/Fun/crayons.rsi
+                sprite: White/Objects/Fun/crayons.rsi
                 state: red
               doAfter: 1
             - tag: CrayonYellow
               name: жёлтый мелок
               icon:
-                sprite: Objects/Fun/crayons.rsi
+                sprite: White/Objects/Fun/crayons.rsi
                 state: yellow
               doAfter: 1
             - tag: ClownRecorder
               name: диктофон клоуна
               icon:
-                sprite: Objects/Fun/clownrecorder.rsi
+                sprite: White/Objects/Fun/clownrecorder.rsi
                 state: icon
               doAfter: 1
     - node: clownHardsuit

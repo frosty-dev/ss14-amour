@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Content.Client._White.Sponsors;
 using Content.Client._White.TTS;
+using Content.Client.Lobby;
 using Content.Shared.Preferences;
 using Content.Shared._White.TTS;
 using Robust.Shared.Random;
@@ -84,10 +85,15 @@ public sealed partial class HumanoidProfileEditor
 
     private void PlayTTS()
     {
-        if (_previewDummy is null || Profile is null)
+        var dummy = _controller?.GetPreviewDummy();
+
+        if (!dummy.HasValue)
             return;
 
-        _ttsSys.StopCurrentTTS(_previewDummy.Value);
-        _ttsMgr.RequestTTS(_previewDummy.Value, IoCManager.Resolve<IRobustRandom>().Pick(_sampleText), Profile.Voice);
+        if (Profile == null)
+            return;
+
+        _ttsSys.StopCurrentTTS(dummy.Value);
+        _ttsMgr.RequestTTS(dummy.Value, IoCManager.Resolve<IRobustRandom>().Pick(_sampleText), Profile.Voice);
     }
 }
