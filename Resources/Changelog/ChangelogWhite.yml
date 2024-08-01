@@ -7324,3 +7324,11 @@
   id: 443
   time: '2024-08-01T05:42:28.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/529
+- author: PointPNG
+  changes:
+  - message: "\u041E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435 \u0412\u0430\
+      \u0439\u0442\u0411\u043E\u043A\u0441\u0430 1.05."
+    type: Add
+  id: 444
+  time: '2024-08-01T17:48:42.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/534
