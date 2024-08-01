@@ -20,7 +20,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: White/Objects/Weapons/Guns/Pistols/viper.rsi
     quickEquip: false
     slots:
     - suitStorage
@@ -83,7 +83,7 @@
   description: A small, easily concealable, but somewhat underpowered gun. Retrofitted with a fully automatic receiver. Uses .35 auto ammo.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+    sprite: White/Objects/Weapons/Guns/Pistols/viper.rsi
     availableModes:
     - FullAuto
     - SemiAuto
@@ -118,14 +118,16 @@
   description: A rugged, robust operator handgun with inbuilt silencer. Uses .25 caseless ammo.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+    sprite: White/Objects/Weapons/Guns/Pistols/cobra-icons.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
+    sprite: White/Objects/Weapons/Guns/Pistols/cobra-inhands.rsi
+  - type: Item
+    sprite: White/Objects/Weapons/Guns/Pistols/cobra-inhands.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
@@ -166,14 +168,14 @@
   description: A cheap, ubiquitous sidearm, produced by a NanoTrasen subsidiary. Uses .35 auto ammo.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    sprite: White/Objects/Weapons/Guns/Pistols/mk58.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+    sprite: White/Objects/Weapons/Guns/Pistols/mk58.rsi
   - type: Gun
     fireRate: 5
     availableModes:
