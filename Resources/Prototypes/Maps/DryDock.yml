@@ -2,7 +2,7 @@
   id: DryDock
   mapName: 'DryDock Station'
   mapPath: /Maps/White/DryDock.yml
-  minPlayers: 20
+  minPlayers: 10
   stations:
     DryDockStation:
       stationProto: StandardNanotrasenStation
@@ -18,44 +18,52 @@
           overflowJobs:
             - Passenger
           availableJobs:
-            CargoTechnician: [ 3, 3 ]
-            Passenger: [ -1, -1 ]
-            Bartender: [ 1, 1 ]
-            Botanist: [ 2, 2 ]
-            Chef: [ 2, 2 ]
-            Clown: [ 1, 1 ]
-            Janitor: [ 2, 2 ]
-            Mime: [ 1, 1 ]
+            #Heads
             Captain: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
-            StationEngineer: [ 5, 5 ]
             ChiefMedicalOfficer: [ 1, 1 ]
-            MedicalDoctor: [ 2, 2 ]
-            Paramedic: [ 1, 1 ]
-            Musician: [ 3, 3 ]
-            Chemist: [ 2, 2 ]
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 3, 3 ]
-            HeadOfSecurity: [ 1, 1 ]
-            SecurityOfficer: [ 5, 5 ]
-            Chaplain: [ 2, 2 ]
-            Warden: [ 1, 1 ]
-            Librarian: [ 1, 1 ]
-            Lawyer: [ 0, 0 ]
-            Boxer: [ 2, 2 ]
-            Reporter: [ 3, 3 ]
-            Zookeeper: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            SalvageSpecialist: [ 4, 4 ]
-            AtmosphericTechnician: [ 3, 3 ]
-            TechnicalAssistant: [ 2, 2 ]
-            MedicalIntern: [ 2, 2 ]
-            ServiceWorker: [ 2, 2 ]
-            SecurityCadet: [ 3, 3 ]
-            Detective: [ 1, 1 ]
-            ResearchAssistant: [ 2, 2 ]
-            SeniorResearcher: [ 1, 1 ]
+            #Security
+            Warden: [ 1, 1 ]
             SeniorOfficer: [ 1, 1 ]
+            SecurityOfficer: [ 4, 4 ]
+            SecurityCadet: [ 4, 4 ]
+            Detective: [ 1, 1 ]
+            Lawyer: [ 2, 2 ]
+            #Medical
             SeniorPhysician: [ 1, 1 ]
+            Chemist: [ 1, 1 ]
+            Paramedic: [ 1, 1 ]
+            MedicalDoctor: [ 2, 3 ]
+            MedicalIntern: [ 2, 3 ]
+            Psychologist: [ 0, 0 ]
+            #Cargo
+            SalvageSpecialist: [ 3, 3 ]
+            CargoTechnician: [ 3, 5 ]
+            #Engineering
             SeniorEngineer: [ 1, 1 ]
+            AtmosphericTechnician: [ 3, 3 ]
+            StationEngineer: [ 4, 5 ]
+            TechnicalAssistant: [ 3, 4 ]
+            #Science
+            SeniorResearcher: [ 1, 1 ]
+            Scientist: [ 3, 4 ]
+            ResearchAssistant: [ 2, 3 ]
+            #Other
+            Bartender: [ 2, 2 ]
+            Chef: [ 2, 2 ]
+            Botanist: [ 3, 3 ]
+            ServiceWorker: [ 2, 3 ]
+            Librarian: [ 1, 1 ]
+            Janitor: [ 2, 3 ]
+            Chaplain: [ 2, 2 ]
+            Mime: [ 1, 1 ]
+            Clown: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            Reporter: [ 0, 0 ]
+            Boxer: [ 0, 0 ]
+            Borg: [ 1, 2 ]
+            Passenger: [ -1, -1 ]
