@@ -277,7 +277,7 @@
   category: construction-category-structures
   description: Keeps the air in and the greytide out.
   icon:
-    sprite: Structures/Walls/clown.rsi
+    sprite: White/Structures/Walls/clown.rsi
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
@@ -909,7 +909,7 @@
       targets:
         - Plating
   icon:
-    sprite: Tiles/Misc/bananium.rsi
+    sprite: White/Tiles/Misc/bananium.rsi
     state: bananium
   objectType: Structure
   placementMode: SnapgridCenter
@@ -1688,7 +1688,7 @@
   objectType: Structure
   canBuildInImpassable: false
   icon:
-    sprite: Structures/Decoration/statues.rsi
+    sprite: White/Structures/Decoration/statues.rsi
     state: bananium_clown
   conditions:
     - !type:TileNotBlocked
@@ -1705,7 +1705,7 @@
   placementMode: SnapgridCenter
   canBuildInImpassable: false
   icon:
-    sprite: Structures/Doors/MineralDoors/bananium_door.rsi
+    sprite: White/Structures/Doors/MineralDoors/bananium_door.rsi
     state: closed
   conditions:
     - !type:TileNotBlocked
@@ -1719,7 +1719,7 @@
   category: construction-category-structures
   description: An altar to worship the honkmother with.
   icon:
-    sprite: Structures/Furniture/Altars/Cults/bananium.rsi
+    sprite: White/Structures/Furniture/Altars/Cults/bananium.rsi
     state: full
   objectType: Structure
   placementMode: SnapgridCenter

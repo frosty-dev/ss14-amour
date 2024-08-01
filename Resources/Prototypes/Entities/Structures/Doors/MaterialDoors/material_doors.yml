@@ -199,7 +199,7 @@
   description: A door, where will it lead?
   components:
   - type: Sprite
-    sprite: Structures/Doors/MineralDoors/bananium_door.rsi
+    sprite: White/Structures/Doors/MineralDoors/bananium_door.rsi
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]

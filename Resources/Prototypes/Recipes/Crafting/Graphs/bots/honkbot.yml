@@ -19,7 +19,7 @@
         doAfter: 2
       - tag: BikeHorn
         icon:
-            sprite: Objects/Fun/bikehorn.rsi
+            sprite: White/Objects/Fun/bikehorn.rsi
             state: icon
         name: велосипедный гудок
         doAfter: 2
@@ -58,7 +58,7 @@
         doAfter: 2
       - tag: CluwneHorn
         icon:
-            sprite: Objects/Fun/cluwnehorn.rsi
+            sprite: White/Objects/Fun/cluwnehorn.rsi
             state: icon
         name: сломанный гудок
         doAfter: 2

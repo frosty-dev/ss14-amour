@@ -35,9 +35,9 @@
   description: "The prankster's standard-issue clowning shoes. Damn they're huge!"
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Specific/clown.rsi
+    sprite: White/Clothing/Shoes/Specific/clown.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Specific/clown.rsi
+    sprite: White/Clothing/Shoes/Specific/clown.rsi
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepClown
@@ -54,9 +54,9 @@
   description: "When humor and footwear combine into new levels of absurdity."
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Specific/clown_banana.rsi
+    sprite: White/Clothing/Shoes/Specific/clown_banana.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Specific/clown_banana.rsi
+    sprite: White/Clothing/Shoes/Specific/clown_banana.rsi
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepSlip
@@ -74,9 +74,9 @@
   description: Made of refined bananium and shined with the pulp of a fresh banana peel. These make a flashy statement.
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Specific/bling.rsi
+    sprite: White/Clothing/Shoes/Specific/bling.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Specific/bling.rsi
+    sprite: White/Clothing/Shoes/Specific/bling.rsi
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepClown
@@ -207,9 +207,9 @@
   description: A court jester's shoes, updated with modern squeaking technology.
   components:
     - type: Sprite
-      sprite: Clothing/Shoes/Specific/jester.rsi
+      sprite: White/Clothing/Shoes/Specific/jester.rsi
     - type: Clothing
-      sprite: Clothing/Shoes/Specific/jester.rsi
+      sprite: White/Clothing/Shoes/Specific/jester.rsi
     - type: FootstepModifier
       footstepSoundCollection:
         collection: FootstepJester
@@ -222,9 +222,9 @@
   description: "Cursed pair of cluwne shoes."
   components:
   - type: Sprite
-    sprite: Clothing/Shoes/Specific/cluwne.rsi
+    sprite: White/Clothing/Shoes/Specific/cluwne.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Specific/cluwne.rsi
+    sprite: White/Clothing/Shoes/Specific/cluwne.rsi
   - type: Unremoveable
 
 - type: entity
@@ -235,16 +235,16 @@
   components:
   - type: Sprite
     state: "icon"
-    sprite: Clothing/Shoes/Specific/large_clown.rsi
+    sprite: White/Clothing/Shoes/Specific/large_clown.rsi
   - type: Clothing
-    sprite: Clothing/Shoes/Specific/large_clown.rsi
+    sprite: White/Clothing/Shoes/Specific/large_clown.rsi
     clothingVisuals:
       shoes:
       - state: equipped-FEET
         offset: "0, -0.02"
   - type: Item
     size: Small
-    sprite: Clothing/Shoes/Specific/large_clown.rsi
+    sprite: White/Clothing/Shoes/Specific/large_clown.rsi
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.8

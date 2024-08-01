@@ -18,7 +18,7 @@
             - tag: BikeHorn
               name: гудок
               icon:
-                sprite: Objects/Fun/bikehorn.rsi
+                sprite: White/Objects/Fun/bikehorn.rsi
                 state: icon
               doAfter: 1
     - node: bananiumHorn

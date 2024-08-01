@@ -6,7 +6,7 @@
   targetNode: clownHardsuit
   category: construction-category-clothing
   description: A modified hardsuit fit for a clown.
-  icon: { sprite: Clothing/OuterClothing/Hardsuits/clown.rsi, state: icon }
+  icon: { sprite: White/Clothing/OuterClothing/Hardsuits/clown.rsi, state: icon }
   objectType: Item
 
 - type: construction
@@ -50,7 +50,7 @@
   targetNode: mask
   category: construction-category-clothing
   description: A clown mask upgraded with banana peels.
-  icon: { sprite: Clothing/Mask/clown_banana.rsi, state: icon }
+  icon: { sprite: White/Clothing/Mask/clown_banana.rsi, state: icon }
   objectType: Item
 
 - type: construction
@@ -61,7 +61,7 @@
   targetNode: jumpsuit
   category: construction-category-clothing
   description: A clown suit upgraded with banana peels.
-  icon: { sprite: Clothing/Uniforms/Jumpsuit/clown_banana.rsi, state: icon }
+  icon: { sprite: White/Clothing/Uniforms/Jumpsuit/clown_banana.rsi, state: icon }
   objectType: Item
 
 - type: construction
@@ -72,7 +72,7 @@
   targetNode: shoes
   category: construction-category-clothing
   description: A pair of clown shoes upgraded with banana peels.
-  icon: { sprite: Clothing/Shoes/Specific/clown_banana.rsi, state: icon }
+  icon: { sprite: White/Clothing/Shoes/Specific/clown_banana.rsi, state: icon }
   objectType: Item
 
 - type: construction

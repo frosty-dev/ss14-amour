@@ -66,7 +66,7 @@
   name: tool-quality-honking-name
   toolName: tool-quality-honking-tool-name
   spawn: BikeHorn
-  icon: { sprite: Objects/Fun/bikehorn.rsi, state: icon }
+  icon: { sprite: White/Objects/Fun/bikehorn.rsi, state: icon }
 
 - type: tool
   id: Rolling

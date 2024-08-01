@@ -34,7 +34,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: Structures/Decoration/statues.rsi
+    sprite: White/Structures/Decoration/statues.rsi
     state: bananium_clown
     drawdepth: Mobs
     offset: "0.0,0.5"

@@ -970,9 +970,9 @@
   description: A custom-made clown hardsuit.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
+    sprite: White/Clothing/OuterClothing/Hardsuits/clown.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/clown.rsi
+    sprite: White/Clothing/OuterClothing/Hardsuits/clown.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000

@@ -5,13 +5,13 @@
   description: A horn off of a bicycle.
   components:
   - type: Sprite
-    sprite: Objects/Fun/bikehorn.rsi
+    sprite: White/Objects/Fun/bikehorn.rsi
     state: icon
   - type: Item
-    sprite: Objects/Fun/bikehorn.rsi
+    sprite: White/Objects/Fun/bikehorn.rsi
     size: Tiny
   - type: Clothing
-    sprite: Objects/Fun/bikehorn.rsi
+    sprite: White/Objects/Fun/bikehorn.rsi
     slots: [Belt]
     quickEquip: false
   - type: EmitSoundOnUse
@@ -53,13 +53,13 @@
   components:
   - type: UseDelay
   - type: Sprite
-    sprite: Objects/Fun/cluwnehorn.rsi
+    sprite: White/Objects/Fun/cluwnehorn.rsi
     state: icon
   - type: Item
-    sprite: Objects/Fun/cluwnehorn.rsi
+    sprite: White/Objects/Fun/cluwnehorn.rsi
     size: Tiny
   - type: Clothing
-    sprite: Objects/Fun/cluwnehorn.rsi
+    sprite: White/Objects/Fun/cluwnehorn.rsi
     slots: [Belt]
     quickEquip: false
   - type: Tag
@@ -95,13 +95,13 @@
   description: A happy honk prize, pray to the gods for your reward.
   components:
   - type: Sprite
-    sprite: Objects/Fun/goldbikehorn.rsi
+    sprite: White/Objects/Fun/goldbikehorn.rsi
     state: icon
   - type: Item
-    sprite: Objects/Fun/goldbikehorn.rsi
+    sprite: White/Objects/Fun/goldbikehorn.rsi
     size: Tiny
   - type: Clothing
-    sprite: Objects/Fun/goldbikehorn.rsi
+    sprite: White/Objects/Fun/goldbikehorn.rsi
     slots: [Belt]
   - type: Prayable
   - type: StaticPrice
@@ -119,13 +119,13 @@
   description: An air horn made from bananium.
   components:
   - type: Sprite
-    sprite: Objects/Fun/bananiumhorn.rsi
+    sprite: White/Objects/Fun/bananiumhorn.rsi
     state: icon
   - type: Item
-    sprite: Objects/Fun/bananiumhorn.rsi
+    sprite: White/Objects/Fun/bananiumhorn.rsi
     size: Small
   - type: Clothing
-    sprite: Objects/Fun/bananiumhorn.rsi
+    sprite: White/Objects/Fun/bananiumhorn.rsi
     slots: [Belt]
     quickEquip: false
   - type: EmitSoundOnUse
