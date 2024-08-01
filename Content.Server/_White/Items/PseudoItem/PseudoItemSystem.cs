@@ -1,12 +1,17 @@
 using Content.Server._White.Carrying;
+using Content.Server.DoAfter;
 using Content.Shared.Verbs;
 using Content.Shared.Item;
-using Content.Shared.Hands;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Item;
 using Content.Server.Popups;
 using Content.Server.Resist;
+using Content.Shared._White.Carrying;
 using Content.Shared._White.Item.PseudoItem;
+using Content.Shared.DoAfter;
+using Content.Shared.Hands.Components;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Resist;
 using Content.Shared.Storage;
 using Robust.Server.GameObjects;
@@ -21,16 +26,44 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
     [Dependency] private readonly ItemSystem _itemSystem = default!;
     [Dependency] private readonly CarryingSystem _carrying = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<PseudoItemComponent, EntGotRemovedFromContainerMessage>(OnEntRemoved);
-        SubscribeLocalEvent<PseudoItemComponent, DropAttemptEvent>(OnDropAttempt);
-        SubscribeLocalEvent<PseudoItemComponent, EscapeInventoryEvent>(OnEscape);
+        SubscribeLocalEvent<PseudoItemComponent, PseudoItemInsertEvent>(OnInsert);
+        SubscribeLocalEvent<PseudoItemComponent, CarryDoAfterEvent>(OnCarryEvent,
+            after: new[] {typeof(CarryingSystem)});
         SubscribeLocalEvent<StorageComponent, GetVerbsEvent<AlternativeVerb>>(AddAltVerb);
         SubscribeLocalEvent<StorageComponent, GetVerbsEvent<Verb>>(AddVerb);
         SubscribeLocalEvent<StorageComponent, PseudoItemInteractEvent>(OnInteract);
+    }
+
+    private void OnCarryEvent(Entity<PseudoItemComponent> ent, ref CarryDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled)
+            return;
+
+        args.Handled = true;
+        _transform.AttachToGridOrMap(ent);
+    }
+
+    private void OnInsert(Entity<PseudoItemComponent> ent, ref PseudoItemInsertEvent args)
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+
+        args.Handled = true;
+
+        if (!TryComp(args.Target, out StorageComponent? storage))
+            return;
+
+        if (!TryInsert(args.Target.Value, ent.Owner, args.User, ent.Comp, storage))
+            return;
+
+        if (args.User != ent.Owner)
+            _carrying.DropCarried(args.User, ent.Owner, false, false);
     }
 
     private void OnInteract(Entity<StorageComponent> ent, ref PseudoItemInteractEvent args)
@@ -38,15 +71,7 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
         if (!TryComp(args.Used, out PseudoItemComponent? pseudoItem))
             return;
 
-        if (!TryInsert(ent.Owner, args.Used, args.User, pseudoItem, ent.Comp))
-            return;
-
-        _carrying.DropCarried(args.User, args.Used, false, false);
-    }
-
-    private void OnEscape(Entity<PseudoItemComponent> ent, ref EscapeInventoryEvent args)
-    {
-        NoLongerInContainer(ent.Owner, ent.Comp);
+        TryStartInsertDoAfter(ent.Owner, args.Used, args.User, pseudoItem, ent.Comp, args.VirtualItem);
     }
 
     private void AddAltVerb(Entity<StorageComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -68,7 +93,7 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
         {
             Act = () =>
             {
-                TryInsert(uid, user, user, pseudoItem, comp);
+                TryStartInsertDoAfter(uid, user, user, pseudoItem, comp);
             },
             Text = Loc.GetString("action-name-insert-self"),
         };
@@ -87,6 +112,9 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
         if (!TryComp(user, out CarryingComponent? carrying))
             return;
 
+        if (!TryComp(user, out HandsComponent? hands) || !HasComp<VirtualItemComponent>(hands.ActiveHandEntity))
+            return;
+
         var carried = carrying.Carried;
 
         if (!TryComp(carried, out PseudoItemComponent? pseudoItem))
@@ -96,8 +124,7 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
         {
             Act = () =>
             {
-                if (TryInsert(uid, carried, user, pseudoItem, comp))
-                    _carrying.DropCarried(user, carried, false, false);
+                TryStartInsertDoAfter(uid, carried, user, pseudoItem, comp, hands.ActiveHandEntity.Value);
             },
             Text = Loc.GetString("action-name-insert-other"),
         };
@@ -106,7 +133,45 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
 
     private void OnEntRemoved(EntityUid uid, PseudoItemComponent component, EntGotRemovedFromContainerMessage args)
     {
-        NoLongerInContainer(uid, component);
+        if (!component.Active)
+            return;
+
+        RemComp<CanEscapeInventoryComponent>(uid);
+        RemComp<ItemComponent>(uid);
+        component.Active = false;
+        Dirty(uid, component);
+    }
+
+    private void TryStartInsertDoAfter(EntityUid storageUid,
+        EntityUid toInsert,
+        EntityUid user,
+        PseudoItemComponent component,
+        StorageComponent storage,
+        EntityUid? used = null)
+    {
+        if (!FitsInContainer(storageUid, storage, component))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("comp-storage-too-big"), user, user);
+            return;
+        }
+
+        var args = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(1), new PseudoItemInsertEvent(),
+            toInsert, storageUid, used)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            NeedHand = user != toInsert
+        };
+
+        if (!_doAfter.TryStartDoAfter(args))
+            return;
+
+        var message = toInsert == user
+            ? Loc.GetString("action-start-insert-self", ("storage", storageUid))
+            : Loc.GetString("action-start-insert-other",
+                ("storage", storageUid), ("user", Identity.Entity(user, EntityManager)));
+
+        _popupSystem.PopupEntity(message, toInsert, toInsert);
     }
 
     protected override void OnGettingPickedUp(Entity<PseudoItemComponent> ent, GettingPickedUpAttemptEvent args)
@@ -118,24 +183,18 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
 
         if (!TryComp(ent, out CarriableComponent? carriable))
             _transform.AttachToGridOrMap(ent);
-        else if (_carrying.CanCarry(args.User, ent))
+        else
             _carrying.StartCarryDoAfter(args.User, ent, carriable);
-    }
-
-    private void OnDropAttempt(EntityUid uid, PseudoItemComponent component, DropAttemptEvent args)
-    {
-        if (component.Active)
-            args.Cancel();
     }
 
     public bool TryInsert(EntityUid storageUid,
         EntityUid toInsert,
         EntityUid user,
         PseudoItemComponent component,
-        StorageComponent? storage = null)
+        StorageComponent storage)
     {
-        if (!Resolve(storageUid, ref storage))
-            return false;
+        if (TryComp(toInsert, out CanEscapeInventoryComponent? canEscape) && canEscape.DoAfter != null)
+            _doAfter.Cancel(canEscape.DoAfter);
 
         var item = EnsureComp<ItemComponent>(toInsert);
         _itemSystem.SetSize(toInsert, component.Size, item);
@@ -151,18 +210,12 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
         }
 
         component.Active = true;
-        EnsureComp<CanEscapeInventoryComponent>(toInsert);
+        EnsureComp<CanEscapeInventoryComponent>(toInsert).BaseResistTime = 3f;
         return true;
     }
 
-    private void NoLongerInContainer(EntityUid uid, PseudoItemComponent component)
+    private bool FitsInContainer(EntityUid storageUid, StorageComponent storage, PseudoItemComponent pseudoItem)
     {
-        if (!component.Active)
-            return;
-
-        RemCompDeferred<CanEscapeInventoryComponent>(uid);
-        RemCompDeferred<ItemComponent>(uid);
-        component.Active = false;
-        Dirty(uid, component);
+        return _storageSystem.GetMaxItemSize((storageUid, storage)) >= _itemSystem.GetSizePrototype(pseudoItem.Size);
     }
 }

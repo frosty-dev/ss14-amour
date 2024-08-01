@@ -16,6 +16,7 @@ using Content.Shared.Standing.Systems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 
 namespace Content.Shared.Stunnable;
 
@@ -27,6 +28,7 @@ public abstract class SharedStunSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedStandingStateSystem _standingState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     /// <summary>
     /// Friction modifier for knocked down players.
@@ -115,7 +117,7 @@ public abstract class SharedStunSystem : EntitySystem
         if (!TryComp(uid, out StandingStateComponent? standing) || !(!standing.CanLieDown || standing.AutoGetUp)) // WD EDIT
             return;
 
-        if (standing.AutoGetUp) // WD EDIT
+        if (standing.AutoGetUp && !_container.IsEntityInContainer(uid)) // WD EDIT
         {
             _standingState.TryStandUp(uid, standing);
             return;
