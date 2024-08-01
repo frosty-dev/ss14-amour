@@ -1,3 +1,4 @@
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -6,7 +7,7 @@ namespace Content.Shared.Alert
     /// <summary>
     /// An alert popup with associated icon, tooltip, and other data.
     /// </summary>
-    [Prototype("alert")]
+    [Prototype]
     public sealed partial class AlertPrototype : IPrototype
     {
         [ViewVariables]
@@ -22,7 +23,7 @@ namespace Content.Shared.Alert
         /// List of icons to use for this alert. Each entry corresponds to a different severity level, starting from the
         /// minimum and incrementing upwards. If severities are not supported, the first entry is used.
         /// </summary>
-        [DataField("icons", required: true)]
+        [DataField(required: true)]
         public List<SpriteSpecifier> Icons = new();
 
         /// <summary>
@@ -34,13 +35,13 @@ namespace Content.Shared.Alert
         /// <summary>
         /// Name to show in tooltip window. Accepts formatting.
         /// </summary>
-        [DataField("name")]
+        [DataField]
         public string Name { get; private set; } = "";
 
         /// <summary>
         /// Description to show in tooltip window. Accepts formatting.
         /// </summary>
-        [DataField("description")]
+        [DataField]
         public string Description { get; private set; } = "";
 
         /// <summary>
@@ -50,7 +51,7 @@ namespace Content.Shared.Alert
         /// replace each other and are mutually exclusive, for example lowpressure / highpressure,
         /// hot / cold. If left unspecified, the alert will not replace or be replaced by any other alerts.
         /// </summary>
-        [DataField("category")]
+        [DataField]
         public AlertCategory? Category { get; private set; }
 
         /// <summary>
@@ -70,7 +71,7 @@ namespace Content.Shared.Alert
         /// Maximum severity level supported by this state. -1 (default) indicates
         /// no severity levels are supported by the state.
         /// </summary>
-        [DataField("maxSeverity")]
+        [DataField]
         public short MaxSeverity = -1;
 
         /// <summary>
@@ -82,7 +83,7 @@ namespace Content.Shared.Alert
         /// Defines what to do when the alert is clicked.
         /// This will always be null on clientside.
         /// </summary>
-        [DataField("onClick", serverOnly: true)]
+        [DataField(serverOnly: true)]
         public IAlertClick? OnClick { get; private set; }
 
         /// <param name="severity">severity level, if supported by this alert</param>
