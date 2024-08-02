@@ -101,7 +101,7 @@ public sealed partial class NPCCombatSystem
             return;
         }
 
-        if (weapon.NextAttack > curTime || !Enabled)
+        if (weapon.NextAttack > curTime || weapon.NextMobAttack > curTime || !Enabled) // WD EDIT
             return;
 
         if (_random.Prob(component.MissChance) &&

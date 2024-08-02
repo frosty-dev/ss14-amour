@@ -84,6 +84,12 @@
       - Energy
   - type: IgnitionSource
     temperature: 700
+  - type: MeleeBlock
+    delay: 6.1
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
 
 - type: entity
   name: energy sword
@@ -199,6 +205,8 @@
     - id: EnergyDagger
     sound:
       path: /Audio/Effects/unwrap.ogg
+  - type: MeleeBlock
+    delay: 12.1
 
 - type: entity
   name: energy cutlass
@@ -267,6 +275,8 @@
       deconstructionTarget: null
       graph: EnergyDoubleSwordGraph
       node: desword
+    - type: MeleeBlock
+      delay: 3.1
 
 - type: entity
   parent: EnergySwordBase

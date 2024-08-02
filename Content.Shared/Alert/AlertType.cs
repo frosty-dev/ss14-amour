@@ -39,8 +39,10 @@ namespace Content.Shared.Alert
         VeryVeryGood,
         MoodDead,
         Arousal, //AMOUR
-        //WD end
         CultBuffed,
+        Knockdown,
+        RecentlyBlocked,
+        //WD end
         PilotingShuttle,
         Peckish,
         Starving,

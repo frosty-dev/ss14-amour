@@ -265,7 +265,7 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/White/Items/hit/chainhit.ogg
-    range: 2.5
+    range: 2.2
     damage:
       types:
         Blunt: 18
@@ -309,6 +309,7 @@
   - type: UseDelay
   - type: DisarmMalus
   - type: MeleeBlock
+    delay: 6.1
   - type: HolyWeapon
 
 - type: entity
@@ -348,7 +349,6 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-    range: 2
   - type: DamageOtherOnHit
     damage:
       types:

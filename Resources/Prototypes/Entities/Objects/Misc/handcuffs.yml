@@ -17,6 +17,7 @@
     tags:
     - Handcuffs
   - type: MeleeWeapon
+    canBeBlocked: false
     wideAnimationRotation: 90
     resetOnHandSelected: false
     animation: WeaponArcDisarm

@@ -21,7 +21,7 @@ public sealed class FlashSoundSuppressionSystem : EntitySystem
         args.Args.MaxRange = MathF.Min(args.Args.MaxRange, ent.Comp.MaxRange);
     }
 
-    public void Stun(EntityUid target, float duration, float distance, float range)
+    public void Stun(EntityUid target, float stunDuration, float knockdownDuration, float distance, float range)
     {
         if (TryComp<FlashSoundSuppressionComponent>(target, out var suppression))
             range = MathF.Min(range, suppression.MaxRange);
@@ -38,11 +38,13 @@ public sealed class FlashSoundSuppressionSystem : EntitySystem
         if (distance > range)
             return;
 
-        var stunTime = float.Lerp(duration, 0f, distance / range);
-        if (stunTime <= 0f)
-            return;
+        var knockdownTime = float.Lerp(knockdownDuration, 0f, distance / range);
+        if (knockdownTime > 0f)
+            _stunSystem.TryKnockdown(target, TimeSpan.FromSeconds(knockdownTime), true);
 
-        _stunSystem.TryParalyze(target, TimeSpan.FromSeconds(stunTime / 1000f), true);
+        var stunTime = float.Lerp(stunDuration, 0f, distance / range);
+        if (stunTime > 0f)
+            _stunSystem.TryStun(target, TimeSpan.FromSeconds(stunTime), true);
     }
 }
 

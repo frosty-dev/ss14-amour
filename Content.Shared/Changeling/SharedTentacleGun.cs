@@ -4,6 +4,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
+using Content.Shared.Standing;
 using Content.Shared.Standing.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -30,6 +31,7 @@ public abstract class SharedTentacleGun : EntitySystem
     [Dependency] private readonly ITimerManager _timerManager = default!;
     [Dependency] private readonly SharedStandingStateSystem _standing = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     public override void Initialize()
     {
@@ -111,7 +113,7 @@ public abstract class SharedTentacleGun : EntitySystem
             return;
         }
 
-        if (!HasComp<HumanoidAppearanceComponent>(args.Embedded))
+        if (!TryComp<StandingStateComponent>(args.Embedded, out var standing) || !standing.CanLieDown)
         {
             DeleteProjectile(uid);
             return;
@@ -156,6 +158,7 @@ public abstract class SharedTentacleGun : EntitySystem
     private bool PullMob(ProjectileEmbedEvent args)
     {
         _standing.TryLieDown(args.Embedded);
+        _stun.TryKnockdown(args.Embedded, TimeSpan.FromSeconds(4), true);
 
         _throwingSystem.TryThrow(args.Embedded, Transform(args.Shooter!.Value).Coordinates, 5f);
 

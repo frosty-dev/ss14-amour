@@ -395,6 +395,7 @@
     - type: UseDelay
       delay: 2
     - type: MeleeWeapon
+      canBeBlocked: false
       soundHit:
         path: /Audio/White/Fluff/Omntns/gavel.ogg
       damage:
@@ -726,6 +727,7 @@
               Quantity: 1
           maxVol: 1
     - type: MeleeWeapon
+      canBeBlocked: false
       damage:
         types:
           Blunt: 0 #this feels hacky, but is needed for burn damage while active (i think)

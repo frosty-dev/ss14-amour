@@ -103,6 +103,7 @@
     contents:
       - id: BoxSurvival
       - id: Flash
+      - id: Telebaton
       #- name: StationCharter
       #- name: TelescopicBaton
 - type: entity
@@ -114,6 +115,7 @@
     contents:
       - id: BoxSurvivalEngineering
       - id: Flash
+      - id: Telebaton
       #- id: TelescopicBaton
 
 - type: entity
@@ -125,6 +127,7 @@
     contents:
       - id: BoxSurvival
       - id: Flash
+      - id: Telebaton
       #- id: TelescopicBaton
 
 - type: entity
@@ -136,6 +139,7 @@
     contents:
       - id: BoxSurvival
       - id: Flash
+      - id: Telebaton
       #- id: TelescopicBaton
 
 - type: entity
@@ -147,6 +151,7 @@
     contents:
       - id: BoxSurvivalMedical
       - id: Flash
+      - id: Telebaton
       #- id: TelescopicBaton
 
 - type: entity
@@ -158,6 +163,7 @@
     contents:
       - id: BoxSurvival
       - id: Flash
+      - id: Telebaton
       #- id: TelescopicBaton
 
 - type: entity
@@ -180,6 +186,7 @@
     contents:
     - id: BoxSurvivalSecurity
     - id: Flash
+    - id: Telebaton
 
 - type: entity
   noSpawn: true

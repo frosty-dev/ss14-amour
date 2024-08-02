@@ -31,7 +31,7 @@ public sealed class ReturnItemOnThrowSystem : EntitySystem
         if (!HasComp<MobStateComponent>(args.Target))
             return;
 
-        if (!_stun.IsParalyzed(args.Target) && !isCultist && !_holyWeapon.IsHoldingHolyWeapon(args.Target))
+        if (!isCultist && !_holyWeapon.IsHoldingHolyWeapon(args.Target))
         {
             _stun.TryParalyze(args.Target, TimeSpan.FromSeconds(component.StunTime), true);
         }

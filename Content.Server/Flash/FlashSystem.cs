@@ -158,7 +158,7 @@ namespace Content.Server.Flash
         }
 
         // WD edit
-        public void FlashArea(Entity<FlashComponent?> source, EntityUid? user, float range, float duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null, bool forceStun = false)
+        public void FlashArea(Entity<FlashComponent?> source, EntityUid? user, float range, float duration, float slowTo = 0.8f, bool displayPopup = false, float probability = 1f, SoundSpecifier? sound = null, float stunTime = 0f, float knockdownTime = 0f)
         {
             var transform = Transform(source);
             var mapPosition = _transform.GetMapCoordinates(transform);
@@ -202,8 +202,8 @@ namespace Content.Server.Flash
 
                 var distance = (mapPosition.Position - _transform.GetMapCoordinates(entity).Position).Length();
 
-                if (forceStun) // WD
-                    _flashSoundSuppressionSystem.Stun(entity, duration, distance, range);
+                if (stunTime > 0f || knockdownTime > 0f) // WD
+                    _flashSoundSuppressionSystem.Stun(entity, stunTime, knockdownTime, distance, range);
             }
 
             _audio.PlayPvs(sound, source, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));

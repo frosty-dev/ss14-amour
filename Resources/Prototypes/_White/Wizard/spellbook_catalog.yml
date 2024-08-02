@@ -289,7 +289,7 @@
   description: spellbook-hfrequency-desc
   productEntity: HighFrequencyBlade
   cost:
-    SpellPoint: 1
+    SpellPoint: 2
   categories:
   - MagicItems
   conditions:
@@ -302,7 +302,7 @@
   description: spellbook-spellblade-desc
   productEntity: SpellBlade
   cost:
-    SpellPoint: 1
+    SpellPoint: 2
   categories:
   - MagicItems
   conditions:

@@ -35,14 +35,17 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-    range: 2
+    range: 1.8
   - type: DamageOtherOnHit
     damage:
       types:
         Piercing: 40
   - type: Item
     sprite: White/Cult/Entities/blood_spear.rsi
-    size: Ginormous
+    storedRotation: 44
+    size: Huge
+    shape:
+    - 0,0,5,0
   - type: Clothing
     slots:
     - back

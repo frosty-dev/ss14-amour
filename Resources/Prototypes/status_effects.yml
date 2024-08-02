@@ -7,7 +7,7 @@
 
 - type: statusEffect
   id: KnockedDown
-  alert: Stun
+  alert: Knockdown
 
 - type: statusEffect
   id: SlowedDown
@@ -81,6 +81,11 @@
 - type: statusEffect
   id: Incorporeal
   alwaysAllowed: true
+
+- type: statusEffect
+  id: RecentlyBlocked
+  alwaysAllowed: true
+  alert: RecentlyBlocked
 
 - type: statusEffect
   id: BloodLoss

@@ -20,6 +20,8 @@
     - category: Piloting
     - alertType: Corporeal
     - alertType: Stun
+    - alertType: Knockdown
+    - alertType: RecentlyBlocked
     - category: Breathing # Vox gang not calling this oxygen
     - category: Pressure
     - alertType: Bleed
@@ -480,11 +482,26 @@
   name: Debug6
   description: Debug
 
+# WD-EDIT
 - type: alert
   id: CultBuffed
   icons: [ /Textures/Interface/Alerts/buff.png ]
   name: alerts-cult-buff-name
   description: alerts-cult-buff-desc
+
+# WD-EDIT
+- type: alert
+  id: Knockdown
+  icons: [ /Textures/White/Interface/Alerts/knockdown.png ]
+  name: alerts-knockdown-name
+  description: alerts-knockdown-desc
+
+# WD-EDIT
+- type: alert
+  id: RecentlyBlocked
+  icons: [ /Textures/Objects/Weapons/Melee/shields.rsi/buckler-icon.png ]
+  name: alerts-blocked-name
+  description: alerts-blocked-desc
 
 # WD-EDIT
 - type: alert

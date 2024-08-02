@@ -40,7 +40,8 @@
       - state: grenade
   - type: FlashOnTrigger
     range: 5
-    forceStun: true
+    stunTime: 2 # WD
+    knockdownTime: 20 # WD
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
   - type: DeleteOnTrigger

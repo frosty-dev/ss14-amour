@@ -70,13 +70,24 @@ public sealed partial class MeleeWeaponComponent : Component
     public bool CanAttackSelf = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
-    public bool CanMiss = true;
+    public bool CanBeBlocked = true;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public bool CanMiss;
 
     [DataField]
     public EntityWhitelist? AttackWhitelist;
 
     [DataField]
     public EntityWhitelist? AttackBlacklist;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [AutoPausedField]
+    public TimeSpan NextMobAttack;
+
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    public float? EquipCooldown;
 
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public bool IgnoreResistances;
@@ -114,12 +125,11 @@ public sealed partial class MeleeWeaponComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField]
     public FixedPoint2 ClickDamageModifier = FixedPoint2.New(1);
 
-    // TODO: Temporarily 1.5 until interactionoutline is adjusted to use melee, then probably drop to 1.2
     /// <summary>
     /// Nearest edge range to hit an entity.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
-    public float Range = 1.5f;
+    public float Range = 1.2f;
 
     /// <summary>
     /// Total width of the angle for wide attacks.

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Shared._White.Blocking;
 using Content.Shared._White.Cult.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Mind.Components;
@@ -22,7 +23,7 @@ public partial class CultSystem
         SubscribeLocalEvent<ConstructShellComponent, ComponentInit>(OnShellInit);
         SubscribeLocalEvent<ConstructShellComponent, ComponentRemove>(OnShellRemove);
         SubscribeLocalEvent<ConstructShellComponent, ConstructFormSelectedEvent>(OnShellSelected);
-        SubscribeLocalEvent<ConstructComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<ConstructComponent, MeleeHitEvent>(OnMeleeHit, before: new []{typeof(MeleeBlockSystem)});
     }
 
     private void OnMeleeHit(Entity<ConstructComponent> ent, ref MeleeHitEvent args)

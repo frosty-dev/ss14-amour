@@ -31,6 +31,8 @@
     tags:
     - CaptainSabre
   - type: DisarmMalus
+  - type: MeleeBlock
+    delay: 6.1
 
 - type: entity
   name: katana
@@ -94,6 +96,8 @@
     - Belt
     - SuitStorage
   - type: Reflect
+  - type: MeleeBlock
+    delay: 6.1
 
 - type: entity
   name: machete

@@ -76,7 +76,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             }
         }
 
-        if (weapon.Attacking || weapon.NextAttack > Timing.CurTime)
+        if (weapon.Attacking) // WD EDIT
         {
             return;
         }
@@ -124,9 +124,30 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                     target = screen.GetDamageableClickedEntity(mousePos); // WD EDIT
                 }
 
+                // WD START
+                if (target == null)
+                {
+                    if (weapon.NextAttack > Timing.CurTime || weapon.NextMobAttack > Timing.CurTime)
+                        return;
+                }
+                else if (IsMob(target.Value))
+                {
+                    if (weapon.NextMobAttack > Timing.CurTime)
+                        return;
+                }
+                else
+                {
+                    if (weapon.NextAttack > Timing.CurTime)
+                        return;
+                }
+                // WD END
+
                 EntityManager.RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
                 return;
             }
+
+            if (weapon.NextAttack > Timing.CurTime || weapon.NextMobAttack > Timing.CurTime)
+                return;
 
             // WD START
             if (HasComp<BlinkComponent>(weaponUid))
@@ -175,6 +196,24 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             // Don't light-attack if interaction will be handling this instead
             if (Interaction.CombatModeCanHandInteract(entity, target))
                 return;
+
+            // WD START
+            if (target == null)
+            {
+                if (weapon.NextAttack > Timing.CurTime || weapon.NextMobAttack > Timing.CurTime)
+                    return;
+            }
+            else if (IsMob(target.Value))
+            {
+                if (weapon.NextMobAttack > Timing.CurTime)
+                    return;
+            }
+            else
+            {
+                if (weapon.NextAttack > Timing.CurTime)
+                    return;
+            }
+            // WD END
 
             RaisePredictiveEvent(new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
         }
