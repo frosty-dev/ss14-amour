@@ -22,6 +22,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared._White;
 using Content.Shared._White.Implants.NeuroControl;
+using Content.Shared.Movement.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
@@ -94,14 +95,14 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, MeleeWeaponComponent component, MapInitEvent args)
     {
-        if (component.NextAttack > Timing.CurTime)
+        if (component.NextAttack > Timing.CurTime || component.NextMobAttack > Timing.CurTime) // WD EDIT
             Log.Warning($"Initializing a map that contains an entity that is on cooldown. Entity: {ToPrettyString(uid)}");
 #endif
     }
 
     private void OnMeleeShotAttempted(EntityUid uid, MeleeWeaponComponent comp, ref ShotAttemptedEvent args)
     {
-        if (comp.NextAttack > Timing.CurTime)
+        if (comp.NextAttack > Timing.CurTime || comp.NextMobAttack > Timing.CurTime) // WD EDIT
             args.Cancel();
     }
 
@@ -110,16 +111,28 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (!TryComp<GunComponent>(uid, out var gun))
             return;
 
+        // WD EDIT START
+        var dirty = false;
         if (gun.NextFire > component.NextAttack)
         {
             component.NextAttack = gun.NextFire;
-            Dirty(uid, component);
+            dirty = true;
         }
+
+        if (gun.NextFire > component.NextMobAttack)
+        {
+            component.NextMobAttack = gun.NextFire;
+            dirty = true;
+        }
+
+        if (dirty)
+            Dirty(uid, component);
+        // WD EDIT END
     }
 
     private void OnMeleeSelected(EntityUid uid, MeleeWeaponComponent component, HandSelectedEvent args)
     {
-        var attackRate = GetAttackRate(uid, args.User, component);
+        var attackRate = component.EquipCooldown ?? GetAttackRate(uid, args.User, component); // WD EDIT
         if (attackRate.Equals(0f))
             return;
 
@@ -133,11 +146,21 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var curTime = Timing.CurTime;
         var minimum = curTime + TimeSpan.FromSeconds(1 / attackRate);
 
-        if (minimum < component.NextAttack)
-            return;
-
-        component.NextAttack = minimum;
-        Dirty(uid, component);
+        // WD EDIT START
+        var dirty = false;
+        if (minimum > component.NextAttack)
+        {
+            component.NextAttack = minimum;
+            dirty = true;
+        }
+        if (minimum > component.NextMobAttack)
+        {
+            component.NextMobAttack = minimum;
+            dirty = true;
+        }
+        if (dirty)
+            Dirty(uid, component);
+        // WD EDIT END
     }
 
     private void OnGetBonusMeleeDamage(EntityUid uid, BonusMeleeDamageComponent component, ref GetMeleeDamageEvent args)
@@ -339,6 +362,13 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         return AttemptAttack(user, weaponUid, weapon, new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(targetXform.Coordinates)), null);
     }
 
+    private enum UpdateNextAttack : byte // WD
+    {
+        Mob,
+        NonMob,
+        Both
+    }
+
     /// <summary>
     /// Called when a windup is finished and an attack is tried.
     /// </summary>
@@ -347,16 +377,16 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     {
         var curTime = Timing.CurTime;
 
-        if (weapon.NextAttack > curTime)
-            return false;
-
         if (!CombatMode.IsInCombatMode(user))
             return false;
 
+        var update = UpdateNextAttack.Both; // WD
         switch (attack)
         {
             case LightAttackEvent light:
                 var lightTarget = GetEntity(light.Target);
+                update = lightTarget == null ? UpdateNextAttack.Both :
+                    IsMob(lightTarget.Value) ? UpdateNextAttack.Mob : UpdateNextAttack.NonMob; // WD
 
                 if (!Blocker.CanAttack(user, lightTarget, (weaponUid, weapon)))
                     return false;
@@ -392,6 +422,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                 break;
             case DisarmAttackEvent disarm:
                 var disarmTarget = GetEntity(disarm.Target);
+                update = disarmTarget == null ? UpdateNextAttack.Both :
+                    IsMob(disarmTarget.Value) ? UpdateNextAttack.Mob : UpdateNextAttack.NonMob; // WD
 
                 if (!Blocker.CanAttack(user, disarmTarget, (weaponUid, weapon), true))
                     return false;
@@ -405,22 +437,51 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // Windup time checked elsewhere.
         var fireRate = TimeSpan.FromSeconds(1f / GetAttackRate(weaponUid, user, weapon));
 
-        if (attack is LightAttackEvent _)
-        {
-            fireRate *= 0.8f;
-        }
-
         var swings = 0;
 
-        // TODO: If we get autoattacks then probably need a shotcounter like guns so we can do timing properly.
-        if (weapon.NextAttack < curTime)
-            weapon.NextAttack = curTime;
-
-        while (weapon.NextAttack <= curTime)
+        // WD EDIT START
+        switch(update)
         {
-            weapon.NextAttack += fireRate;
-            swings++;
+            case UpdateNextAttack.Mob:
+                if (weapon.NextMobAttack > curTime)
+                    return false;
+                break;
+            case UpdateNextAttack.NonMob:
+                if (weapon.NextAttack > curTime)
+                    return false;
+                break;
+            default:
+                if (weapon.NextAttack > curTime || weapon.NextMobAttack > curTime)
+                    return false;
+                break;
         }
+
+        if (update != UpdateNextAttack.Mob)
+        {
+            // TODO: If we get autoattacks then probably need a shotcounter like guns so we can do timing properly.
+            if (weapon.NextAttack < curTime)
+                weapon.NextAttack = curTime;
+
+            while (weapon.NextAttack <= curTime)
+            {
+                weapon.NextAttack += fireRate;
+                swings++;
+            }
+        }
+
+        if (update != UpdateNextAttack.NonMob)
+        {
+            if (weapon.NextMobAttack < curTime)
+                weapon.NextMobAttack = curTime;
+
+            while (weapon.NextMobAttack <= curTime)
+            {
+                weapon.NextMobAttack += fireRate;
+                if (update == UpdateNextAttack.Mob)
+                    swings++;
+            }
+        }
+        // WD EDIT END
 
         Dirty(weaponUid, weapon);
 
@@ -452,7 +513,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                         ? weapon.MissAnimation
                         : weapon.Animation;
                     if (miss)
+                    {
                         weapon.NextAttack -= fireRate / 2f;
+                        weapon.NextMobAttack -= fireRate / 2f;
+                    }
                     // WD EDIT END
                     break;
                 case DisarmAttackEvent disarm:
@@ -519,13 +583,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         // Sawmill.Debug($"Melee damage is {damage.Total} out of {component.Damage.Total}");
-
-        // WD START
-        var blockEvent = new MeleeBlockAttemptEvent(user);
-        RaiseLocalEvent(target.Value, ref blockEvent);
-        if (blockEvent.Blocked)
-            return;
-        // WD END
 
         // Raise event before doing damage so we can cancel damage if the event is handled
         var hitEvent = new MeleeHitEvent(new List<EntityUid> { target.Value }, user, meleeUid, damage, null);
@@ -662,19 +719,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         // Sawmill.Debug($"Melee damage is {damage.Total} out of {component.Damage.Total}");
-
-        // WD START
-        foreach (var target in new List<EntityUid>(targets))
-        {
-            var blockEvent = new MeleeBlockAttemptEvent(user);
-            RaiseLocalEvent(target, ref blockEvent);
-            if (blockEvent.Blocked)
-                targets.Remove(target);
-        }
-
-        if (targets.Count == 0)
-            return true;
-        // WD END
 
         // Raise event before doing damage so we can cancel damage if the event is handled
         var hitEvent = new MeleeHitEvent(targets, user, meleeUid, damage, direction);
@@ -898,5 +942,10 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         }
 
         Dirty(uid, meleeWeapon);
+    }
+
+    protected bool IsMob(EntityUid uid)
+    {
+        return HasComp<InputMoverComponent>(uid) || HasComp<MobMoverComponent>(uid) || HasComp<CombatModeComponent>(uid);
     }
 }

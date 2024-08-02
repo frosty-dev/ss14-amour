@@ -1,3 +1,4 @@
+using Content.Shared._White.Blocking;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Weapons.Melee.Events;
@@ -15,7 +16,7 @@ public sealed class RandomDamageSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RandomDamageComponent, MeleeHitEvent>(HandleHit);
+        SubscribeLocalEvent<RandomDamageComponent, MeleeHitEvent>(HandleHit, before: new [] {typeof(MeleeBlockSystem)});
     }
 
     private void HandleHit(Entity<RandomDamageComponent> ent, ref MeleeHitEvent args)

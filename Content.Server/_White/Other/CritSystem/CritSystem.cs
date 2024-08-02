@@ -1,6 +1,7 @@
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
+using Content.Shared._White.Blocking;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Examine;
@@ -25,7 +26,7 @@ public sealed class CritSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<CritComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<CritComponent, MeleeHitEvent>(HandleHit);
+        SubscribeLocalEvent<CritComponent, MeleeHitEvent>(HandleHit, before: new [] {typeof(MeleeBlockSystem)});
         SubscribeLocalEvent<CritComponent, GetMeleeAttackRateEvent>(GetMeleeAttackRate);
         SubscribeLocalEvent<BloodLustComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
     }

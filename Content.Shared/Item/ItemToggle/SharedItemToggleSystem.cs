@@ -7,6 +7,7 @@ using Content.Shared.Wieldable;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Item.ItemToggle;
 /// <summary>
@@ -22,6 +23,7 @@ public abstract class SharedItemToggleSystem : EntitySystem
     [Dependency] private readonly SharedPointLightSystem _light = default!;
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {
@@ -240,6 +242,9 @@ public abstract class SharedItemToggleSystem : EntitySystem
     /// </summary>
     private void UpdateActiveSound(EntityUid uid, ItemToggleActiveSoundComponent activeSound, ref ItemToggledEvent args)
     {
+        if (!_timing.IsFirstTimePredicted) // WD
+            return;
+
         if (args.Activated)
         {
             if (activeSound.ActiveSound != null && activeSound.PlayingStream == null)

@@ -20,5 +20,6 @@
       sound:
         path: /Textures/White/Fluff/Forg/ryan.ogg
     - type: MeleeWeapon
+      canBeBlocked: false
       soundHit:
         path: /Audio/Items/Toys/weh.ogg

@@ -27,6 +27,8 @@
       critChance: 50
       critMultiplier: 2
       isBloodDagger: true
+    - type: MeleeBlock
+      delay: 12.1
 
 - type: entity
   name: предательский нож
@@ -61,3 +63,5 @@
     - type: Backstab
     - type: Blink
       blinkRate: 0.33
+    - type: MeleeBlock
+      delay: 12.1

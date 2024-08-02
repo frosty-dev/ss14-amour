@@ -78,7 +78,7 @@ public abstract partial class SharedStandingStateSystem : EntitySystem
 
         RaiseNetworkEvent(new CheckAutoGetUpEvent()); // WD EDIT
 
-        if (_stun.IsParalyzed(uid))
+        if (HasComp<KnockedDownComponent>(uid))
         {
             return;
         }

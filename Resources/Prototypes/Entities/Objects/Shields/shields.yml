@@ -30,6 +30,7 @@
           Slash: 1
           Piercing: 1
           Heat: 1
+    - type: MeleeBlock
     - type: Damageable
       damageContainer: Shield
     - type: Destructible
@@ -412,6 +413,7 @@
   description: Exotic energy shield, when folded, can even fit in your pocket.
   components:
     - type: ItemToggle
+      predictable: false # WD EDIT
       soundActivate:
         path: /Audio/Weapons/ebladeon.ogg
       soundDeactivate:
@@ -420,10 +422,9 @@
         path: /Audio/Machines/button.ogg
         params:
           variation: 0.250
-   # Causes sound issues in combination with Rechargeable
-   #- type: ItemToggleActiveSound
-   #  activeSound:
-   #    path: /Audio/Weapons/ebladehum.ogg
+    - type: ItemToggleActiveSound
+      activeSound:
+        path: /Audio/Weapons/ebladehum.ogg
     - type: ItemToggleSize
       activatedSize: Huge
     - type: ItemToggleDisarmMalus
@@ -480,6 +481,7 @@
         flatReductions:
           Heat: 1
           Piercing: 1
+    - type: MeleeBlock
     - type: Appearance
     - type: Damageable
       damageContainer: Shield

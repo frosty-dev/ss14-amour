@@ -20,6 +20,7 @@
     - alertType: Corporeal
     - alertType: Stun
     - alertType: Knockdown
+    - alertType: RecentlyBlocked
     - category: Breathing # Vox gang not calling this oxygen
     - category: Pressure
     - alertType: Bleed
@@ -493,6 +494,13 @@
   icons: [ /Textures/White/Interface/Alerts/knockdown.png ]
   name: alerts-knockdown-name
   description: alerts-knockdown-desc
+
+# WD-EDIT
+- type: alert
+  id: RecentlyBlocked
+  icons: [ /Textures/Objects/Weapons/Melee/shields.rsi/buckler-icon.png ]
+  name: alerts-blocked-name
+  description: alerts-blocked-desc
 
 # WD-EDIT
 - type: alert

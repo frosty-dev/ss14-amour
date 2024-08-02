@@ -10,7 +10,7 @@
     - state: stunbaton_off
       map: [ "enum.ToggleVisuals.Layer" ]
   - type: Stunbaton
-    energyPerUse: 50
+    energyPerUse: 100
   - type: ItemToggle
     predictable: false
     soundActivate:
@@ -30,19 +30,20 @@
       types:
         Blunt: 0
   - type: MeleeWeapon
-    attackRate: 1.25
+    attackRate: 0.4
     canHeavyAttack: false
+    equipCooldown: 1
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 7
+        Blunt: 12
     bluntStaminaDamageFactor: 2.0
     angle: 60
   - type: StaminaDamageOnHit
-    damage: 40
+    damage: 60
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide
-    damage: 40
+    damage: 30
     sound: /Audio/Weapons/egloves.ogg
   - type: ExaminableBattery
   - type: Battery
@@ -87,7 +88,8 @@
   - type: GuideHelp
     guides:
     - Security
-  - type: StunLock # Wd EDIT
+  - type: StunLock # WD EDIT
+  - type: DelayedKnockdownOnHit # WD EDIT
 
 - type: entity
   name: truncheon
@@ -142,6 +144,7 @@
       maxCharges: 7
       charges: 7
     - type: MeleeWeapon
+      canBeBlocked: false
       canHeavyAttack: false
       wideAnimationRotation: 180
       damage:

@@ -83,4 +83,9 @@
   alwaysAllowed: true
 
 - type: statusEffect
+  id: RecentlyBlocked
+  alwaysAllowed: true
+  alert: RecentlyBlocked
+
+- type: statusEffect
   id: BloodLoss

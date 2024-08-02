@@ -40,6 +40,7 @@ namespace Content.Shared.Alert
         MoodDead,
         CultBuffed,
         Knockdown,
+        RecentlyBlocked,
         //WD end
         PilotingShuttle,
         Peckish,

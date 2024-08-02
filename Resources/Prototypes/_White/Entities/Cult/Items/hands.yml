@@ -9,6 +9,7 @@
   - type: Item
     size: Ginormous
   - type: MeleeWeapon
+    canBeBlocked: false
     canHeavyAttack: false
     canMiss: false
     attackRate: 2

@@ -78,6 +78,7 @@
     - type: Label
       originalName: jug
     - type: MeleeWeapon
+      canBeBlocked: false
       soundNoDamage:
         path: "/Audio/Effects/Fluids/splat.ogg"
       damage:
