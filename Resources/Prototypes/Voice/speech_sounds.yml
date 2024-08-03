@@ -53,6 +53,41 @@
     path: /Audio/Machines/vending_jingle.ogg
 
 - type: speechSounds
+  id: Borg
+  saySound:
+    path: /Audio/Voice/Talk/pai.ogg
+  askSound:
+    path: /Audio/Voice/Talk/pai_ask.ogg
+  exclaimSound:
+    path: /Audio/Voice/Talk/pai_exclaim.ogg
+
+# WD edit - эти звуки слишком машинные и хладнокровные. Милые звуки пИИ намного лучше
+#  saySound:
+#    path: /Audio/Voice/Talk/Silicon/borg.ogg
+#  askSound:
+#    path: /Audio/Voice/Talk/Silicon/borg_ask.ogg
+#  exclaimSound:
+#    path: /Audio/Voice/Talk/Silicon/borg_exclaim.ogg
+
+- type: speechSounds
+  id: BorgUpgraded
+  saySound:
+    path: /Audio/Voice/Talk/Silicon/borg.ogg
+  askSound:
+    path: /Audio/Voice/Talk/Silicon/borg_ask.ogg
+  exclaimSound:
+    path: /Audio/Voice/Talk/Silicon/borg_exclaim.ogg
+
+- type: speechSounds
+  id: SyndieBorg
+  saySound:
+    path: /Audio/Voice/Talk/Silicon/syndieborg.ogg
+  askSound:
+    path: /Audio/Voice/Talk/Silicon/syndieborg_ask.ogg
+  exclaimSound:
+    path: /Audio/Voice/Talk/Silicon/syndieborg_exclaim.ogg
+
+- type: speechSounds
   id: Pai
   saySound:
     path: /Audio/Voice/Talk/pai.ogg
