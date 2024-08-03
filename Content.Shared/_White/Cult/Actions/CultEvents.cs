@@ -6,8 +6,16 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._White.Cult.Actions;
 
 [Serializable, NetSerializable]
-public sealed partial class ShacklesEvent : SimpleDoAfterEvent
+public sealed partial class ShacklesEvent : DoAfterEvent
 {
+    public string? Speech;
+
+    public ShacklesEvent(string? speech)
+    {
+        Speech = speech;
+    }
+
+    public override DoAfterEvent Clone() => this;
 }
 
 [Serializable, NetSerializable]

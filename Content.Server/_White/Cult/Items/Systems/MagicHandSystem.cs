@@ -17,11 +17,11 @@ using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.UserInterface;
-using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
@@ -50,9 +50,8 @@ public sealed class MagicHandSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CultStunHandComponent, MeleeHitEvent>(OnStunHit);
-        SubscribeLocalEvent<CultRitesHandComponent, MeleeHitEvent>(OnRitesHit);
-        SubscribeLocalEvent<CultRitesHandComponent, AfterInteractEvent>(OnInteract);
+        SubscribeLocalEvent<CultStunHandComponent, AfterInteractEvent>(OnStunInteract);
+        SubscribeLocalEvent<CultRitesHandComponent, AfterInteractEvent>(OnRitesInteract);
         SubscribeLocalEvent<CultRitesHandComponent, CultistFactoryItemSelectedMessage>(OnBloodRitesSelected);
         SubscribeLocalEvent<CultRitesHandComponent, ActivatableUIOpenAttemptEvent>(OnRitesSelectAttempt);
         SubscribeLocalEvent<CultRitesHandComponent, BeforeActivatableUIOpenEvent>(BeforeRitesSelect);
@@ -122,17 +121,26 @@ public sealed class MagicHandSystem : EntitySystem
         cultist.RitesBloodAmount -= prototype.BloodCost;
     }
 
-    private void OnInteract(Entity<CultRitesHandComponent> ent, ref AfterInteractEvent args)
+    private void OnRitesInteract(Entity<CultRitesHandComponent> ent, ref AfterInteractEvent args)
     {
         if (!args.CanReach || args.Target is not { } target)
             return;
+
+        if (!TryComp(args.User, out CultistComponent? cultist))
+            return;
+
+        if (HasComp<CultistComponent>(target) || HasComp<ConstructComponent>(target))
+        {
+            RitesHeal(ent, target, args.User, cultist);
+            return;
+        }
+
 
         var puddleQuery = GetEntityQuery<PuddleComponent>();
         if (!puddleQuery.HasComp(target))
             return;
 
-        if (!TryComp(args.User, out BloodstreamComponent? bloodstreamComponent) ||
-            !TryComp(args.User, out CultistComponent? cultist))
+        if (!TryComp(args.User, out BloodstreamComponent? bloodstreamComponent))
             return;
 
         var xform = Transform(target);
@@ -176,28 +184,22 @@ public sealed class MagicHandSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnRitesHit(Entity<CultRitesHandComponent> ent, ref MeleeHitEvent args)
+    private void RitesHeal(Entity<CultRitesHandComponent> ent, EntityUid target, EntityUid user, CultistComponent cultist)
     {
-        if (args.HitEntities.Count == 0)
-            return;
-
-        var target = args.HitEntities[0];
         var (uid, comp) = ent;
 
-        QueueDel(uid);
-
-        if (!TryComp(args.User, out CultistComponent? cultist) || !TryComp(target, out DamageableComponent? damageable))
+        if (!TryComp(target, out DamageableComponent? damageable) || !TryComp(target, out MobStateComponent? mobState))
             return;
 
-        if (_mobState.IsDead(target))
+        if (_mobState.IsDead(target, mobState))
         {
-            Popup(Loc.GetString("cult-rites-dead"), args.User);
+            Popup(Loc.GetString("cult-rites-dead"), user);
             return;
         }
 
         if (cultist.RitesBloodAmount <= FixedPoint2.Zero)
         {
-            Popup(Loc.GetString("cult-rites-heal-no-blood"), args.User);
+            Popup(Loc.GetString("cult-rites-heal-no-blood"), user);
             return;
         }
 
@@ -205,26 +207,31 @@ public sealed class MagicHandSystem : EntitySystem
         var totalDamage = damage.GetTotal();
         if (totalDamage <= FixedPoint2.Zero)
         {
-            Popup(Loc.GetString("cult-rites-already-healed"), args.User);
+            Popup(Loc.GetString("cult-rites-already-healed"), user);
             return;
         }
+
+        QueueDel(uid);
 
         var coef = FixedPoint2.Min(cultist.RitesBloodAmount * comp.HealModifier, totalDamage) / totalDamage;
         cultist.RitesBloodAmount =
             FixedPoint2.Max(FixedPoint2.Zero, cultist.RitesBloodAmount - totalDamage / comp.HealModifier);
-        _damageable.TryChangeDamage(target, -damage * coef, true, false, damageable, args.User);
-        Popup(Loc.GetString("cult-rites-after-heal", ("blood", cultist.RitesBloodAmount)), args.User);
+        _damageable.TryChangeDamage(target, -damage * coef, true, false, damageable, user);
+        Popup(Loc.GetString("cult-rites-after-heal", ("blood", cultist.RitesBloodAmount)), user);
         _audio.PlayPvs(comp.HealSound, target);
-        Speak(args.User, comp);
+        Speak(user, comp);
     }
 
-    private void OnStunHit(Entity<CultStunHandComponent> ent, ref MeleeHitEvent args)
+    private void OnStunInteract(Entity<CultStunHandComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.HitEntities.Count == 0)
+        if (!args.CanReach || args.Target is not { } target)
             return;
 
-        var target = args.HitEntities[0];
         var (uid, comp) = ent;
+
+        if (uid == target || !TryComp(target, out StatusEffectsComponent? status) ||
+            HasComp<CultistComponent>(target) || HasComp<ConstructComponent>(target))
+            return;
 
         QueueDel(uid);
         Spawn("CultStunFlashEffect", Transform(target).Coordinates);
@@ -241,8 +248,8 @@ public sealed class MagicHandSystem : EntitySystem
         var halo = HasComp<PentagramComponent>(args.User);
 
         _statusEffects.TryAddStatusEffect(target, "Muted", halo ? comp.HaloMuteDuration : comp.MuteDuration, true,
-            "Muted");
-        _stun.TryParalyze(target, halo ? comp.HaloDuration : comp.Duration, true);
+            "Muted", status);
+        _stun.TryParalyze(target, halo ? comp.HaloDuration : comp.Duration, true, status);
     }
 
     private void Popup(string msg, EntityUid user, PopupType type = PopupType.Small)

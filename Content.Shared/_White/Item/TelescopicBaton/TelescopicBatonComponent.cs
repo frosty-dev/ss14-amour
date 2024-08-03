@@ -1,7 +1,7 @@
-namespace Content.Shared._White.Item.Telebaton;
+namespace Content.Shared._White.Item.TelescopicBaton;
 
 [RegisterComponent]
-public sealed partial class TelebatonComponent : Component
+public sealed partial class TelescopicBatonComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan KnockdownTime = TimeSpan.FromSeconds(1.5f);

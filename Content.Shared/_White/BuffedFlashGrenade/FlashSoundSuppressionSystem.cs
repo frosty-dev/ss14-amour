@@ -1,4 +1,5 @@
 using Content.Shared.Inventory;
+using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 
 namespace Content.Shared._White.BuffedFlashGrenade;
@@ -38,9 +39,12 @@ public sealed class FlashSoundSuppressionSystem : EntitySystem
         if (distance > range)
             return;
 
-        var knockdownTime = float.Lerp(knockdownDuration, 0f, distance / range);
-        if (knockdownTime > 0f)
-            _stunSystem.TryKnockdown(target, TimeSpan.FromSeconds(knockdownTime), true);
+        if (TryComp<StandingStateComponent>(target, out var standingState) && standingState.CanLieDown)
+        {
+            var knockdownTime = float.Lerp(knockdownDuration, 0f, distance / range);
+            if (knockdownTime > 0f)
+                _stunSystem.TryKnockdown(target, TimeSpan.FromSeconds(knockdownTime), true);
+        }
 
         var stunTime = float.Lerp(stunDuration, 0f, distance / range);
         if (stunTime > 0f)

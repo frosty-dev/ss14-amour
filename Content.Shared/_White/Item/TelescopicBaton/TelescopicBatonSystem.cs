@@ -5,9 +5,9 @@ using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Stunnable;
 
-namespace Content.Shared._White.Item.Telebaton;
+namespace Content.Shared._White.Item.TelescopicBaton;
 
-public sealed class TelebatonSystem : EntitySystem
+public sealed class TelescopicBatonSystem : EntitySystem
 {
     [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -17,13 +17,13 @@ public sealed class TelebatonSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<TelebatonComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<TelebatonComponent, StaminaDamageOnHitAttemptEvent>(OnStaminaHitAttempt);
-        SubscribeLocalEvent<TelebatonComponent, ItemToggledEvent>(ToggleDone);
-        SubscribeLocalEvent<TelebatonComponent, StaminaMeleeHitEvent>(OnHit);
+        SubscribeLocalEvent<TelescopicBatonComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<TelescopicBatonComponent, StaminaDamageOnHitAttemptEvent>(OnStaminaHitAttempt);
+        SubscribeLocalEvent<TelescopicBatonComponent, ItemToggledEvent>(ToggleDone);
+        SubscribeLocalEvent<TelescopicBatonComponent, StaminaMeleeHitEvent>(OnHit);
     }
 
-    private void OnHit(Entity<TelebatonComponent> ent, ref StaminaMeleeHitEvent args)
+    private void OnHit(Entity<TelescopicBatonComponent> ent, ref StaminaMeleeHitEvent args)
     {
         var time = ent.Comp.KnockdownTime;
         if (time <= TimeSpan.Zero)
@@ -35,13 +35,13 @@ public sealed class TelebatonSystem : EntitySystem
         }
     }
 
-    private void OnStaminaHitAttempt(Entity<TelebatonComponent> entity, ref StaminaDamageOnHitAttemptEvent args)
+    private void OnStaminaHitAttempt(Entity<TelescopicBatonComponent> entity, ref StaminaDamageOnHitAttemptEvent args)
     {
         if (!_itemToggle.IsActivated(entity.Owner))
             args.Cancelled = true;
     }
 
-    private void OnExamined(Entity<TelebatonComponent> entity, ref ExaminedEvent args)
+    private void OnExamined(Entity<TelescopicBatonComponent> entity, ref ExaminedEvent args)
     {
         var onMsg = _itemToggle.IsActivated(entity.Owner)
             ? Loc.GetString("comp-telebaton-examined-on")
@@ -49,7 +49,7 @@ public sealed class TelebatonSystem : EntitySystem
         args.PushMarkup(onMsg);
     }
 
-    private void ToggleDone(Entity<TelebatonComponent> entity, ref ItemToggledEvent args)
+    private void ToggleDone(Entity<TelescopicBatonComponent> entity, ref ItemToggledEvent args)
     {
         _item.SetHeldPrefix(entity.Owner, args.Activated ? "on" : "off");
     }

@@ -11,7 +11,6 @@ using Content.Shared._White.Wizard.Timestop;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Mobs;
-using Content.Shared.Movement.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Physics;
@@ -29,10 +28,8 @@ public abstract partial class SharedStandingStateSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!; // WD EDIT
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!; // WD EDIT
-    [Dependency] private readonly SharedStunSystem _stun = default!; // WD EDIT
     [Dependency] private readonly MobStateSystem _mobState = default!; // WD EDIT
     [Dependency] private readonly SharedBuckleSystem _buckle = default!; // WD EDIT
-    [Dependency] private readonly SharedTransformSystem _transform = default!; // WD EDIT
     [Dependency] private readonly SharedRotationVisualsSystem _rotation = default!; // WD EDIT
 
     // If StandingCollisionLayer value is ever changed to more than one layer, the logic needs to be edited.
@@ -53,7 +50,6 @@ public abstract partial class SharedStandingStateSystem : EntitySystem
 
         SubscribeLocalEvent<StandingStateComponent, StandingUpDoAfterEvent>(OnStandingUpDoAfter);
         SubscribeLocalEvent<StandingStateComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeed);
-        SubscribeLocalEvent<StandingStateComponent, TileFrictionEvent>(OnTileFriction);
         SubscribeLocalEvent<StandingStateComponent, SlipAttemptEvent>(OnSlipAttempt);
 
         InitializeColliding();
@@ -114,12 +110,6 @@ public abstract partial class SharedStandingStateSystem : EntitySystem
             args.ModifySpeed(1f, 1f);
     }
 
-    private void OnTileFriction(Entity<StandingStateComponent> ent, ref TileFrictionEvent args)
-    {
-        if (IsDown(ent))
-            args.Modifier *= SharedStunSystem.KnockDownModifier;
-    }
-
     private void OnSlipAttempt(EntityUid uid, StandingStateComponent component, SlipAttemptEvent args)
     {
         if (IsDown(uid))
@@ -171,7 +161,7 @@ public abstract partial class SharedStandingStateSystem : EntitySystem
         return true;
     }
 
-    public enum DropHeldItemsBehavior
+    public enum DropHeldItemsBehavior : byte
     {
         NoDrop,
         DropIfStanding,
@@ -222,9 +212,6 @@ public abstract partial class SharedStandingStateSystem : EntitySystem
         if (TryComp(uid, out BuckleComponent? buckle) && buckle.Buckled && !_buckle.TryUnbuckle(uid, uid, buckleComp: buckle)) // WD EDIT
             return false;
 
-        if (standingState.CurrentState is StandingState.Lying or StandingState.GettingUp)
-            return true;
-
         // This is just to avoid most callers doing this manually saving boilerplate
         // 99% of the time you'll want to drop items but in some scenarios (e.g. buckling) you don't want to.
         // We do this BEFORE downing because something like buckle may be blocking downing but we want to drop hand items anyway
@@ -233,6 +220,9 @@ public abstract partial class SharedStandingStateSystem : EntitySystem
         {
             RaiseLocalEvent(uid, new DropHandItemsEvent());
         }
+
+        if (standingState.CurrentState is StandingState.Lying or StandingState.GettingUp)
+            return true;
 
         var msg = new DownAttemptEvent();
         RaiseLocalEvent(uid, msg);
