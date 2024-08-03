@@ -21,6 +21,15 @@
   - NTFlag # WD
 
 # Command
+- type: loadoutGroup # WD
+  id: SelfDefenceDevices
+  name: loadout-group-self-defence-devices
+  minLimit: 1
+  maxLimit: 2
+  loadouts:
+  - TelescopicBaton
+  - Flash
+
 - type: loadoutGroup
   id: CaptainHead
   name: loadout-group-head

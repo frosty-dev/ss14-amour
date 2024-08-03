@@ -1,9 +1,19 @@
 - type: entity
-  id: Telebaton
-  name: telescopic baton
   parent: BaseItem
+  id: TelescopicBaton
+  name: telescopic baton
   description: A compact yet robust personal defense weapon. Can be concealed when folded.
   components:
+  - type: TelescopicBaton
+  - type: Sprite
+    sprite: White/Objects/Weapons/telebaton.rsi
+    layers:
+    - state: telebaton_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: ItemToggleSize
+    activatedSize: Large
+    activatedShape:
+    - 0, 0, 3, 0
   - type: ItemToggle
     soundActivate:
       path: /Audio/Weapons/telescopicon.ogg
@@ -13,42 +23,6 @@
       path: /Audio/Weapons/telescopicoff.ogg
       params:
         volume: -5
-  - type: ItemToggleSize
-    activatedSize: Large
-    activatedShape:
-    - 0, 0, 3, 0
-  - type: DisarmMalus
-    malus: 0.225
-  - type: Sprite
-    sprite: White/Objects/Weapons/telebaton.rsi
-    layers:
-    - state: telebaton_off
-      map: [ "enum.ToggleVisuals.Layer" ]
-  - type: ItemToggleMeleeWeapon
-    activatedDamage:
-      types:
-        Blunt: 12
-    deactivatedSecret: true
-  - type: MeleeWeapon
-    canHeavyAttack: false
-    equipCooldown: 1
-    attackRate: 0.25
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Blunt: 0
-    bluntStaminaDamageFactor: 0.0 # so blunt doesn't deal stamina damage at all
-  - type: StaminaDamageOnHit
-    damage: 55
-    sound: /Audio/White/Weapons/woodhit.ogg
-  - type: UseDelay
-  - type: Item
-    heldPrefix: off
-    sprite: White/Objects/Weapons/telebaton.rsi
-    size: Small
-    storedRotation: 44
-    shape:
-    - 0, 0, 1, 0
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -56,6 +30,37 @@
         enum.ToggleVisuals.Layer:
           True: {state: telebaton_on}
           False: {state: telebaton_off}
+  - type: DisarmMalus
+    malus: 0.225
+  - type: MeleeWeapon
+    canHeavyAttack: false
+    equipCooldown: 1
+    attackRate: 1.2
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 0
+    bluntStaminaDamageFactor: 0.0 # so blunt doesn't deal stamina damage at all
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 2
+    deactivatedSecret: true
+  - type: StaminaDamageOnHit
+    damage: 16
+    sound: /Audio/White/Weapons/woodhit.ogg
+  - type: UseDelay
+    delay: 0.4
+  - type: Item
+    heldPrefix: off
+    sprite: White/Objects/Weapons/telebaton.rsi
+    size: Small
+    storedRotation: 44
+    shape:
+    - 0, 0, 1, 0
+  - type: Clothing
+    quickEquip: false
+    slots:
+      - Belt
   - type: StaticPrice
     price: 150
-  - type: Telebaton

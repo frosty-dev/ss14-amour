@@ -1,0 +1,21 @@
+#///////
+# White Dream
+#///////
+
+- type: itemLoadout
+  id: TelescopicBaton
+  equipment: TelescopicBaton
+- type: startingGear
+  id: TelescopicBaton
+  storage:
+    back:
+    - TelescopicBaton
+
+- type: itemLoadout
+  id: Flash
+  equipment: Flash
+- type: startingGear
+  id: Flash
+  storage:
+    back:
+    - Flash

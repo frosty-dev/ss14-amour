@@ -14,3 +14,4 @@ loadout-group-job-trinkets = Рабочий инвентарь
 loadout-group-inhand = В руках
 loadout-group-trinkets = Побрякушки
 loadout-group-instruments = Муз. инструменты
+loadout-group-self-defence-devices = Средства самообороны
