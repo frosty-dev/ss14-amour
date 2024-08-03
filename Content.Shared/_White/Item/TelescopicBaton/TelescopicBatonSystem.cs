@@ -1,8 +1,6 @@
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
 using Content.Shared.Item;
-using Content.Shared.Standing.Systems;
-using Content.Shared.Standing;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Stunnable;
@@ -14,7 +12,6 @@ public sealed class TelescopicBatonSystem : EntitySystem
     [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedItemToggleSystem _itemToggle = default!;
-    [Dependency] private readonly SharedStandingStateSystem _standing = default!;
 
     public override void Initialize()
     {
@@ -28,12 +25,13 @@ public sealed class TelescopicBatonSystem : EntitySystem
 
     private void OnHit(Entity<TelescopicBatonComponent> ent, ref StaminaMeleeHitEvent args)
     {
+        var time = ent.Comp.KnockdownTime;
+        if (time <= TimeSpan.Zero)
+            return;
+
         foreach (var (uid, _) in args.HitList)
         {
-            if (HasComp<StandingStateComponent>(uid))
-            {
-                _standing.TryLieDown(uid, null, SharedStandingStateSystem.DropHeldItemsBehavior.NoDrop);
-            }
+            _stun.TryKnockdown(uid, time, true);
         }
     }
 

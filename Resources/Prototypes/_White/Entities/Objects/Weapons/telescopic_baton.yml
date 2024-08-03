@@ -35,7 +35,7 @@
   - type: MeleeWeapon
     canHeavyAttack: false
     equipCooldown: 1
-    attackRate: 1.2
+    attackRate: 0.3
     wideAnimationRotation: -135
     damage:
       types:
@@ -44,7 +44,7 @@
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
-        Blunt: 2
+        Blunt: 9
     deactivatedSecret: true
   - type: StaminaDamageOnHit
     damage: 16
