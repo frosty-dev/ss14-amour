@@ -41,7 +41,7 @@
   - type: FlashOnTrigger
     range: 5
     stunTime: 2 # WD
-    knockdownTime: 20 # WD
+    knockdownTime: 10 # WD
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
   - type: DeleteOnTrigger

@@ -1,7 +1,9 @@
 using System.Linq;
 using System.Numerics;
+using Content.Client.Stealth;
 using Content.Shared._White.Overlays;
 using Content.Shared.Body.Components;
+using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -19,6 +21,7 @@ public sealed class ThermalVisionOverlay : Overlay
     private readonly TransformSystem _transform;
     private readonly OccluderSystem _occluder;
     private readonly PointLightSystem _pointLight;
+    private readonly StealthSystem _stealth;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
@@ -33,6 +36,7 @@ public sealed class ThermalVisionOverlay : Overlay
         _transform = _entity.System<TransformSystem>();
         _occluder = _entity.System<OccluderSystem>();
         _pointLight = _entity.System<PointLightSystem>();
+        _stealth = _entity.System<StealthSystem>();
         ZIndex = -1;
     }
 
@@ -125,7 +129,9 @@ public sealed class ThermalVisionOverlay : Overlay
 
     private bool CanSee(EntityUid ent, SpriteComponent sprite)
     {
-        return sprite.Visible && !_entity.HasComponent<ThermalBlockerComponent>(ent);
+        return sprite.Visible && !_entity.HasComponent<ThermalBlockerComponent>(ent) &&
+               (!_entity.TryGetComponent(ent, out StealthComponent? stealth) ||
+                _stealth.GetVisibility(ent, stealth) > 0.5f);
     }
 
     private bool HasOccluders(EntityUid ent)

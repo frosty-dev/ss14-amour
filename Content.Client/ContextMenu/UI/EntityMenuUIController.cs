@@ -3,12 +3,15 @@ using System.Numerics;
 using Content.Client.CombatMode;
 using Content.Client.Examine;
 using Content.Client.Gameplay;
+using Content.Client.Popups;
 using Content.Client.Verbs;
 using Content.Client.Verbs.UI;
 using Content.Shared.CCVar;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Popups;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -50,6 +53,7 @@ namespace Content.Client.ContextMenu.UI
         [UISystemDependency] private readonly ExamineSystem _examineSystem = default!;
         [UISystemDependency] private readonly TransformSystem _xform = default!;
         [UISystemDependency] private readonly CombatModeSystem _combatMode = default!;
+        [UISystemDependency] private readonly PopupSystem _popup = default!; // WD EDIT
 
         private bool _updating;
 
@@ -123,6 +127,19 @@ namespace Content.Client.ContextMenu.UI
                 args.Handle();
                 return;
             }
+
+            // WD START
+            var localEntity = _playerManager.LocalEntity;
+            if (args.Function == EngineKeyFunctions.Use &&
+                EntityManager.HasComponent<MobStateComponent>(entity.Value) && entity.Value != localEntity)
+            {
+                _popup.PopupClient(Loc.GetString("context-menu-cant-interact"),
+                    entity.Value, localEntity, PopupType.MediumCaution);
+                _context.Close();
+                args.Handle();
+                return;
+            }
+            // WD END
 
             // do some other server-side interaction?
             if (args.Function == EngineKeyFunctions.Use ||

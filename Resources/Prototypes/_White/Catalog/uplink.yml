@@ -101,6 +101,7 @@
     blacklist:
       tags:
       - NukeOpsUplink
+  saleLimit: 1
 
 # Night Vision
 - type: listing

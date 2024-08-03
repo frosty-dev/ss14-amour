@@ -13,6 +13,7 @@
   - CaptainGloves # WD
   - CaptainShoes
   - CaptainPDA # WD
+  - SelfDefenceDevices # WD
   - Trinkets
 
 - type: roleLoadout
@@ -30,6 +31,7 @@
   - HoPOuterClothing
   - HoPShoes
   - HoPPDA # WD
+  - SelfDefenceDevices # WD
   - Trinkets
 
 # Civilian
@@ -219,6 +221,7 @@
   - CommonGloves # WD
   - QuartermasterShoes
   - QuartermasterPDA # WD
+  - SelfDefenceDevices # WD
   - CommonCargoJobTrinkets
   - Trinkets
 
@@ -269,6 +272,7 @@
   - CommonGloves # WD
   - ChiefEngineerShoes
   - ChiefEngineerPDA # WD
+  - SelfDefenceDevices # WD
   - Trinkets
 
 - type: roleLoadout
@@ -341,6 +345,7 @@
   - ResearchDirectorShoes
   - CommonScienceGloves
   - ResearchDirectorPDA
+  - SelfDefenceDevices # WD
   - Trinkets
 
 - type: roleLoadout
@@ -404,6 +409,7 @@
   - CommonSecurityBackpack
   - CommonSecurityShoes
   - HeadofSecurityPDA
+  - SelfDefenceDevices # WD
   - CommonSecurityJobTrinkets # WD
   - Trinkets
 
@@ -507,6 +513,7 @@
   - CommonMedicalGloves
   - ChiefMedicalOfficerShoes
   - ChiefMedicalOfficerPDA
+  - SelfDefenceDevices # WD
   - Trinkets
 
 - type: roleLoadout
@@ -604,6 +611,7 @@
   - InspectorShoes
   - InspectorPDA
   - BriefcaseInhand
+  - SelfDefenceDevices # WD
   - InspectorJobTrinkets
   - Trinkets
 

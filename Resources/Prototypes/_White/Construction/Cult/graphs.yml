@@ -87,6 +87,7 @@
           completed:
             - !type:SnapToGrid
               southRotation: true
+            - !type:CheckForStructure
           steps:
             - material: RunicMetalSheets
               amount: 4

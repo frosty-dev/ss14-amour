@@ -107,7 +107,7 @@ public abstract class SharedStunSystem : EntitySystem
     private void OnKnockInit(EntityUid uid, KnockedDownComponent component, ComponentInit args)
     {
         RaiseNetworkEvent(new CheckAutoGetUpEvent()); // WD EDIT
-        _standingState.Down(uid);
+        _standingState.TryLieDown(uid, null, SharedStandingStateSystem.DropHeldItemsBehavior.DropIfStanding);
     }
 
     private void OnKnockShutdown(EntityUid uid, KnockedDownComponent component, ComponentShutdown args)
@@ -206,6 +206,9 @@ public abstract class SharedStunSystem : EntitySystem
 
         if (_statusEffect.HasStatusEffect(uid, "Stun"))
             time = TimeSpan.FromSeconds(6);
+
+        if (_standingState.IsDown(uid)) // WD
+            RaiseLocalEvent(uid, new DropHandItemsEvent());
 
         return TryKnockdown(uid, time, refresh, status) && TryStun(uid, time, refresh, status);
     }
