@@ -24,6 +24,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Players;
 using Content.Shared.Radio;
 using Content.Shared._White;
+using Content.Shared._White.Cult.Components;
 using Content.Shared.Speech;
 using Content.Shared._White.Cult.Systems;
 using Robust.Server.Player;
@@ -795,6 +796,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         return Filter.Empty()
             .AddWhereAttachedEntity(HasComp<GhostComponent>)
             .AddWhereAttachedEntity(HasComp<CultistComponent>)
+            .AddWhereAttachedEntity(HasComp<ConstructComponent>)
             .Recipients
             .Union(_adminManager.ActiveAdmins)
             .Select(p => p.Channel);

@@ -401,7 +401,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
                 if (lightTarget == null)
                 {
-                    if (weapon.CanMiss)
+                    if (weapon.CanMiss || session == null) // NPCs can miss
                         break;
                     return false;
                 }
@@ -512,11 +512,6 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
                     animation = miss && weapon.Animation == "WeaponArcThrust"
                         ? weapon.MissAnimation
                         : weapon.Animation;
-                    if (miss)
-                    {
-                        weapon.NextAttack -= fireRate / 2f;
-                        weapon.NextMobAttack -= fireRate / 2f;
-                    }
                     // WD EDIT END
                     break;
                 case DisarmAttackEvent disarm:

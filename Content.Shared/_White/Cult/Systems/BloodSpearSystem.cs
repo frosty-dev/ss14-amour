@@ -49,7 +49,7 @@ public sealed class BloodSpearSystem : EntitySystem
 
         if (!_holy.IsHoldingHolyWeapon(args.Target))
         {
-            if(!_stunSystem.TryParalyze(args.Target, TimeSpan.FromSeconds(4), true, status))
+            if(!_stunSystem.TryParalyze(args.Target, TimeSpan.FromSeconds(5), true, status))
                 return;
         }
 

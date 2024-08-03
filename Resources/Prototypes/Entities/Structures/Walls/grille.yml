@@ -12,7 +12,7 @@
     - type: RCDDeconstructable
       cost: 6
       delay: 4
-      fx: EffectRCDDeconstruct4  
+      fx: EffectRCDDeconstruct4
     - type: Tag
       tags:
         - DeleteWithWindows
@@ -200,7 +200,7 @@
           mask:
           - FullTileMask
           layer:
-          - WallLayer
+          - GlassLayer
     - type: Construction
       graph: GrilleDiagonal
       node: grilleDiagonal
@@ -235,8 +235,8 @@
           mask:
           - FullTileMask
           layer:
-          - WallLayer
+          - GlassLayer
     - type: Construction
       graph: GrilleDiagonal
       node: clockworkGrilleDiagonal
-      
+

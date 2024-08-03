@@ -35,7 +35,7 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-    range: 1.8
+    range: 2
   - type: DamageOtherOnHit
     damage:
       types:

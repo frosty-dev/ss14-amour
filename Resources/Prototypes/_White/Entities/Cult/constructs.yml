@@ -84,6 +84,7 @@
       group: Construct
     - type: GlobalAntagonist
       antagonistPrototype: globalAntagonistCult
+    - type: ThermalBlocker
 
 - type: entity
   id: JuggernautConstruct

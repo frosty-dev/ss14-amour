@@ -102,6 +102,8 @@ public partial class CultSystem
             {
                 _popupSystem.PopupEntity("Цель обезмолвлена.", args.User, args.User);
             }
+            if (args.Speech != null)
+                _chat.TrySendInGameICMessage(args.User, args.Speech, InGameICChatType.Whisper, false);
             return;
         }
 
@@ -369,8 +371,8 @@ public partial class CultSystem
         if (!TryComp(args.Target, out CuffableComponent? cuffs) || cuffs.Container.ContainedEntities.Count > 0)
             return;
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.Performer, TimeSpan.FromSeconds(2), new ShacklesEvent(),
-            args.Performer, args.Target)
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.Performer, TimeSpan.FromSeconds(2),
+            new ShacklesEvent(args.Speech), args.Performer, args.Target)
         {
             BreakOnMove = true,
             BreakOnDamage = true
@@ -379,7 +381,6 @@ public partial class CultSystem
         if (!_doAfterSystem.TryStartDoAfter(doAfterArgs))
             return;
 
-        Speak(args);
         args.Handled = true;
     }
 

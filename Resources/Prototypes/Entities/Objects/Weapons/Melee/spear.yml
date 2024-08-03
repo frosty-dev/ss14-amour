@@ -42,7 +42,7 @@
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-    range: 1.8 # Spears are long
+    range: 2 # Spears are long
   - type: DamageOtherOnHit
     damage:
       types:

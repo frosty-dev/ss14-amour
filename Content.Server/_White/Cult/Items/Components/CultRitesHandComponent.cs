@@ -14,7 +14,7 @@ public sealed partial class CultRitesHandComponent : BaseMagicHandComponent
     public SoundSpecifier SuckSound = new SoundPathSpecifier("/Audio/White/Cult/enter_blood.ogg");
 
     [DataField]
-    public float HealModifier = 0.5f;
+    public float HealModifier = 1f;
 
     [DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<CultistFactoryProductionPrototype>))]
     public List<string> BloodRites = new ()

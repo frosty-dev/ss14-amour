@@ -8,15 +8,6 @@
   components:
   - type: Item
     size: Ginormous
-  - type: MeleeWeapon
-    canBeBlocked: false
-    canHeavyAttack: false
-    canMiss: false
-    attackRate: 2
-    wideAnimationRotation: 180
-    damage:
-      types:
-        Heat: 0
   - type: DeleteOnDropAttempt
     message: cult-hand-component-extra-message
   - type: Unremoveable
@@ -35,15 +26,6 @@
     state: icon
   - type: Item
     sprite: White/Cult/Entities/stun.rsi
-  - type: MeleeWeapon
-    canAttackSelf: false
-    attackWhitelist:
-      components:
-      - StatusEffects
-    attackBlacklist:
-      components:
-      - Cultist
-      - Construct
   - type: CultStunHand
     speech: "Fuu ma'jin!"
 
@@ -58,11 +40,6 @@
     state: icon
   - type: Item
     sprite: White/Cult/Entities/rites.rsi
-  - type: MeleeWeapon
-    attackWhitelist:
-      components:
-      - Cultist
-      - Construct
   - type: CultRitesHand
     speech: "Fel'th Dol Ab'orod!"
   - type: ActivatableUI
