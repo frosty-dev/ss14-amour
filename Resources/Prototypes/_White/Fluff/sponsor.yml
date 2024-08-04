@@ -153,13 +153,6 @@
   sponsorOnly: true
   whitelistJobs: [ AtmosphericTechnician, StationEngineer ]
 
-
-#Omntns
-- type: sponsorLoadout
-  id: OmntnsHammerLoadout
-  entity: OmntnsHammer
-  sponsorOnly: true
-
 # Pets summon book
 - type: sponsorLoadout
   id: PetsSummonBookLoadout
@@ -258,13 +251,6 @@
   entity: DeusJumpskirt
   sponsorOnly: true
 
-# GusMopsik
-
-- type: sponsorLoadout
-  id: GusMopsikJumpsuitLoadout
-  entity: GusMopsikJumpsuit
-  sponsorOnly: true
-
 # JUKEBOX LOADOUT
 
 - type: sponsorLoadout
@@ -341,22 +327,6 @@
 - type: sponsorLoadout
   id: MedicgamingDealGlasses
   entity: ClothingEyesDealGlassesMedic
-  sponsorOnly: true
-
-# Oleg_Tinkoff
-- type: sponsorLoadout
-  id: TinkoffGopHelmet
-  entity: ClothingHeadHelmetGopTinkoff
-  sponsorOnly: true
-
-- type: sponsorLoadout
-  id: TinkoffShoesGop
-  entity: ClothingShoesGopTinkoff
-  sponsorOnly: true
-
-- type: sponsorLoadout
-  id: TinkoffSuitGop
-  entity: ClothingUniformGopTinkoff
   sponsorOnly: true
 
 # Zilendorie
