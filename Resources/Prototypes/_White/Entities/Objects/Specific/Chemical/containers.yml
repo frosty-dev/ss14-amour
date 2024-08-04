@@ -1,0 +1,370 @@
+﻿- type: entity
+  id: ChemicalCartridge
+  name: chemical cartridge
+  parent: [DrinkBottleVisualsOpenable, BaseItem]
+  description: Used to contain a very large amount of chemicals or solutions. Used in chemical dispensers
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          maxVol: 500
+          canMix: true
+    - type: Openable
+      sound:
+        collection: bottleCloseSounds
+      closeable: true
+      closeSound:
+        collection: bottleCloseSounds
+    - type: Sprite
+      sprite: White/Objects/Specific/Chemical/chemical_cartridge.rsi
+      state: icon
+      scale: 0.8, 0.8
+    - type: Item
+      size: Huge
+    - type: RefillableSolution
+      solution: beaker
+    - type: DrainableSolution
+      solution: beaker
+    - type: ExaminableSolution
+      solution: beaker
+    - type: SolutionTransfer
+      canChangeTransferAmount: false
+    - type: Spillable
+      solution: beaker
+    - type: StaticPrice
+      price: 150
+    - type: Label
+      originalName: химический картридж
+    - type: Tag
+      tags:
+        - ChemDispensable
+          
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (carbon)
+  id: ChemicalCartridgeCarbon
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-carbon
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Carbon
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (iodine)
+  id: ChemicalCartridgeIodine
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-iodine
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Iodine
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (fluorine)
+  id: ChemicalCartridgeFluorine
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-fluorine
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Fluorine
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (chlorine)
+  id: ChemicalCartridgeChlorine
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-chlorine
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Chlorine
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (aluminium)
+  id: ChemicalCartridgeAluminium
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-aluminium
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Aluminium
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (phosphorus)
+  id: ChemicalCartridgePhosphorus
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-phosphorus
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Phosphorus
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (sulfur)
+  id: ChemicalCartridgeSulfur
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-sulfur
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Sulfur
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (silicon)
+  id: ChemicalCartridgeSilicon
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-silicon
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Silicon
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (hydrogen)
+  id: ChemicalCartridgeHydrogen
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-hydrogen
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Hydrogen
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (lithium)
+  id: ChemicalCartridgeLithium
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-lithium
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Lithium
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (sodium)
+  id: ChemicalCartridgeSodium
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-sodium
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Sodium
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (potassium)
+  id: ChemicalCartridgePotassium
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-potassium
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Potassium
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (radium)
+  id: ChemicalCartridgeRadium
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-radium
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Radium
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (iron)
+  id: ChemicalCartridgeIron
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-iron
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Iron
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (copper)
+  id: ChemicalCartridgeCopper
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-copper
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Copper
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (gold)
+  id: ChemicalCartridgeGold
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-gold
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Gold
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (mercury)
+  id: ChemicalCartridgeMercury
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-mercury
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Mercury
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (silver)
+  id: ChemicalCartridgeSilver
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-silver
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Silver
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (ethanol)
+  id: ChemicalCartridgeEthanol
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-ethanol
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Ethanol
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (Sugar)
+  id: ChemicalCartridgeSugar
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-sugar
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Sugar
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (nitrogen)
+  id: ChemicalCartridgeNitrogen
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-nitrogen
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Nitrogen
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (oxygen)
+  id: ChemicalCartridgeOxygen
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-oxygen
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Oxygen
+              Quantity: 500

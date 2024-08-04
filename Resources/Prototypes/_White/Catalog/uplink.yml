@@ -253,6 +253,26 @@
   - UplinkAmmo
 
 - type: listing
+  id: UplinkGrendeBlast
+  name: uplink-grenade-blast-name
+  description: uplink-grenade-blast-desc
+  productEntity: GrenadeBlast
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkGrendeFrag
+  name: uplink-grenade-frag-name
+  description: uplink-grenade-frag-desc
+  productEntity: GrenadeFrag
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+- type: listing
   id: UplinkMindSlaveImplanter
   name: uplink-mind-slave
   description: uplink-mind-slave-desc
