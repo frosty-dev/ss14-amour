@@ -19,3 +19,11 @@ reagent-desc-weh = Чистая эссенция игрушки ящера. За
 
 reagent-name-razorium = разориум
 reagent-desc-razorium = Странное неньютоновское химическое вещество. Образуется при объединении двух лекарств от физических повреждений. При попадании в организм образует миллионы крошечных острых лезвий. Очень острых.
+
+#Amour
+reagent-name-estrogen-plus = Эстроген Плюс
+reagent-desc-estrogen-plus = Эстроген... плюс тестостерон... как это работает?..
+reagent-name-estrogen = Эстроген
+reagent-desc-estrogen = Средство для выражения вашей женской натуры.
+reagent-name-testosterone = Тестостерон
+reagent-desc-testosterone = Химическое вещество, выражающее вашу мужскую сторону.

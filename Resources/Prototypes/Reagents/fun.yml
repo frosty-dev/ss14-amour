@@ -347,7 +347,7 @@
         amount: -20
         conditions:
         - !type:ReagentThreshold
-          min: 50
+          min: 505
 
 - type: reagent
   id: EstrogenPlus

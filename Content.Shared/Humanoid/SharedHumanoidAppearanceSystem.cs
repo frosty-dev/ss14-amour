@@ -370,8 +370,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             SetSex(uid,Sex.Female);
             return;
         }
-        SetSex(uid,Sex.Male);
 
+        SetSex(uid,Sex.Male);
     }
 
     public List<BodyTypePrototype> GetValidBodyTypes(SpeciesPrototype species, Sex sex)
