@@ -23,4 +23,4 @@ alerts-blocked-name = Атака заблокирована
 alerts-blocked-desc = Невозможно блокировать некоторое время.
 melee-block-component-delay = Может блокировать атаку ближнего боя каждые {$delay} секунд.
 
-context-menu-cant-interact = Невозможно взаимодействовать через контекстное меню!
+context-menu-cant-interact = Невозможно взаимодействовать этим через контекстное меню!
