@@ -14,6 +14,10 @@ reagent-name-ketchup = кетчуп
 reagent-desc-ketchup = Приготовлен из томатного пюре с добавлением специяй.
 reagent-name-ketchunaise = кетчюнез
 reagent-desc-ketchunaise = Так называемый русский соус, популярный среди космонавтов.
+
+reagent-name-laughin-syrup = Ржачный сироп
+reagent-desc-laughin-syrup = Сок Ржачных Бобов. Шипучий, и меняет вкус в зависимости от того, с чем его едят!
+
 reagent-name-mayo = майонез
 reagent-desc-mayo = Соус, сделанный из масла, яйца и немного (съедобной) кислоты.
 reagent-name-vinaigrette = винегрет
@@ -22,3 +26,9 @@ reagent-name-soysauce = соевый соус
 reagent-desc-soysauce = Соленая приправа на основе сои.
 reagent-name-table-salt = столовая соль
 reagent-desc-table-salt = Хлорид натрия, широко известный как соль, часто используется в качестве пищевой приправы или для мгновенного уничтожения мозговых червей.
+
+reagent-name-mustard = горчица
+reagent-desc-mustard = Желтая горчица, изготовленная из семян горчичного растения.
+
+reagent-name-syrup = сироп
+reagent-desc-syrup =  Вкусный сироп из древесного сока, более липкий, чем клей.

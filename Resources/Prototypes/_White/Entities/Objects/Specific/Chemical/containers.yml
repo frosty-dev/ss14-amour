@@ -1,64 +1,48 @@
-- type: entity
-  name: jug
-  parent: BaseItem
-  id: Jug
-  description: Used to contain a very large amount of chemicals or solutions. Chugging is extremely ill-advised.
+﻿- type: entity
+  id: ChemicalCartridge
+  name: chemical cartridge
+  parent: [DrinkBottleVisualsOpenable, BaseItem]
+  description: Used to contain a very large amount of chemicals or solutions. Used in chemical dispensers
   components:
     - type: SolutionContainerManager
       solutions:
         beaker:
-          maxVol: 200
+          maxVol: 500
           canMix: true
+    - type: Openable
+      sound:
+        collection: bottleCloseSounds
+      closeable: true
+      closeSound:
+        collection: bottleCloseSounds
     - type: Sprite
-      sprite: Objects/Specific/Chemistry/jug.rsi
-      layers:
-        - state: jug
-        - state: jug1
-          map: [ "enum.SolutionContainerLayers.Fill" ]
-          visible: false
+      sprite: White/Objects/Specific/Chemical/chemical_cartridge.rsi
+      state: icon
+      scale: 0.8, 0.8
     - type: Item
-      size: Normal
-      sprite: Objects/Specific/Chemistry/jug.rsi
+      size: Huge
     - type: RefillableSolution
       solution: beaker
     - type: DrainableSolution
       solution: beaker
     - type: ExaminableSolution
       solution: beaker
-    - type: DrawableSolution
-      solution: beaker
-    - type: InjectableSolution
-      solution: beaker
     - type: SolutionTransfer
-      canChangeTransferAmount: true
-    - type: UserInterface
-      interfaces:
-        - key: enum.TransferAmountUiKey.Key
-          type: TransferAmountBoundUserInterface
-    - type: Drink
-      solution: beaker
+      canChangeTransferAmount: false
     - type: Spillable
       solution: beaker
-    - type: Appearance
-    - type: SolutionContainerVisuals
-      maxFillLevels: 6
-      fillBaseName: jug
     - type: StaticPrice
-      price: 60
+      price: 150
     - type: Label
-      originalName: кувшин
-    - type: MeleeWeapon
-      canBeBlocked: false
-      soundNoDamage:
-        path: "/Audio/Effects/Fluids/splat.ogg"
-      damage:
-        types:
-          Blunt: 0
-
+      originalName: химический картридж
+    - type: Tag
+      tags:
+        - ChemDispensable
+          
 - type: entity
-  parent: Jug
-  name: jug (carbon)
-  id: JugCarbon
+  parent: ChemicalCartridge
+  name: chemical cartridge (carbon)
+  id: ChemicalCartridgeCarbon
   noSpawn: true
   components:
     - type: Label
@@ -68,12 +52,12 @@
         beaker:
           reagents:
             - ReagentId: Carbon
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (iodine)
-  id: JugIodine
+  parent: ChemicalCartridge
+  name: chemical cartridge (iodine)
+  id: ChemicalCartridgeIodine
   noSpawn: true
   components:
     - type: Label
@@ -83,12 +67,12 @@
         beaker:
           reagents:
             - ReagentId: Iodine
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (fluorine)
-  id: JugFluorine
+  parent: ChemicalCartridge
+  name: chemical cartridge (fluorine)
+  id: ChemicalCartridgeFluorine
   noSpawn: true
   components:
     - type: Label
@@ -98,12 +82,12 @@
         beaker:
           reagents:
             - ReagentId: Fluorine
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (chlorine)
-  id: JugChlorine
+  parent: ChemicalCartridge
+  name: chemical cartridge (chlorine)
+  id: ChemicalCartridgeChlorine
   noSpawn: true
   components:
     - type: Label
@@ -113,12 +97,12 @@
         beaker:
           reagents:
             - ReagentId: Chlorine
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (aluminium)
-  id: JugAluminium
+  parent: ChemicalCartridge
+  name: chemical cartridge (aluminium)
+  id: ChemicalCartridgeAluminium
   noSpawn: true
   components:
     - type: Label
@@ -128,12 +112,12 @@
         beaker:
           reagents:
             - ReagentId: Aluminium
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (phosphorus)
-  id: JugPhosphorus
+  parent: ChemicalCartridge
+  name: chemical cartridge (phosphorus)
+  id: ChemicalCartridgePhosphorus
   noSpawn: true
   components:
     - type: Label
@@ -143,12 +127,12 @@
         beaker:
           reagents:
             - ReagentId: Phosphorus
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (sulfur)
-  id: JugSulfur
+  parent: ChemicalCartridge
+  name: chemical cartridge (sulfur)
+  id: ChemicalCartridgeSulfur
   noSpawn: true
   components:
     - type: Label
@@ -158,12 +142,12 @@
         beaker:
           reagents:
             - ReagentId: Sulfur
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (silicon)
-  id: JugSilicon
+  parent: ChemicalCartridge
+  name: chemical cartridge (silicon)
+  id: ChemicalCartridgeSilicon
   noSpawn: true
   components:
     - type: Label
@@ -173,12 +157,12 @@
         beaker:
           reagents:
             - ReagentId: Silicon
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (hydrogen)
-  id: JugHydrogen
+  parent: ChemicalCartridge
+  name: chemical cartridge (hydrogen)
+  id: ChemicalCartridgeHydrogen
   noSpawn: true
   components:
     - type: Label
@@ -188,12 +172,12 @@
         beaker:
           reagents:
             - ReagentId: Hydrogen
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (lithium)
-  id: JugLithium
+  parent: ChemicalCartridge
+  name: chemical cartridge (lithium)
+  id: ChemicalCartridgeLithium
   noSpawn: true
   components:
     - type: Label
@@ -203,12 +187,12 @@
         beaker:
           reagents:
             - ReagentId: Lithium
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (sodium)
-  id: JugSodium
+  parent: ChemicalCartridge
+  name: chemical cartridge (sodium)
+  id: ChemicalCartridgeSodium
   noSpawn: true
   components:
     - type: Label
@@ -218,12 +202,12 @@
         beaker:
           reagents:
             - ReagentId: Sodium
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (potassium)
-  id: JugPotassium
+  parent: ChemicalCartridge
+  name: chemical cartridge (potassium)
+  id: ChemicalCartridgePotassium
   noSpawn: true
   components:
     - type: Label
@@ -233,12 +217,12 @@
         beaker:
           reagents:
             - ReagentId: Potassium
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (radium)
-  id: JugRadium
+  parent: ChemicalCartridge
+  name: chemical cartridge (radium)
+  id: ChemicalCartridgeRadium
   noSpawn: true
   components:
     - type: Label
@@ -248,12 +232,12 @@
         beaker:
           reagents:
             - ReagentId: Radium
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (iron)
-  id: JugIron
+  parent: ChemicalCartridge
+  name: chemical cartridge (iron)
+  id: ChemicalCartridgeIron
   noSpawn: true
   components:
     - type: Label
@@ -263,12 +247,12 @@
         beaker:
           reagents:
             - ReagentId: Iron
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (copper)
-  id: JugCopper
+  parent: ChemicalCartridge
+  name: chemical cartridge (copper)
+  id: ChemicalCartridgeCopper
   noSpawn: true
   components:
     - type: Label
@@ -278,12 +262,12 @@
         beaker:
           reagents:
             - ReagentId: Copper
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (gold)
-  id: JugGold
+  parent: ChemicalCartridge
+  name: chemical cartridge (gold)
+  id: ChemicalCartridgeGold
   noSpawn: true
   components:
     - type: Label
@@ -293,12 +277,12 @@
         beaker:
           reagents:
             - ReagentId: Gold
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (mercury)
-  id: JugMercury
+  parent: ChemicalCartridge
+  name: chemical cartridge (mercury)
+  id: ChemicalCartridgeMercury
   noSpawn: true
   components:
     - type: Label
@@ -308,12 +292,12 @@
         beaker:
           reagents:
             - ReagentId: Mercury
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (silver)
-  id: JugSilver
+  parent: ChemicalCartridge
+  name: chemical cartridge (silver)
+  id: ChemicalCartridgeSilver
   noSpawn: true
   components:
     - type: Label
@@ -323,12 +307,12 @@
         beaker:
           reagents:
             - ReagentId: Silver
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (ethanol)
-  id: JugEthanol
+  parent: ChemicalCartridge
+  name: chemical cartridge (ethanol)
+  id: ChemicalCartridgeEthanol
   noSpawn: true
   components:
     - type: Label
@@ -338,12 +322,12 @@
         beaker:
           reagents:
             - ReagentId: Ethanol
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (sugar)
-  id: JugSugar
+  parent: ChemicalCartridge
+  name: chemical cartridge (Sugar)
+  id: ChemicalCartridgeSugar
   noSpawn: true
   components:
     - type: Label
@@ -353,12 +337,12 @@
         beaker:
           reagents:
             - ReagentId: Sugar
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (nitrogen)
-  id: JugNitrogen
+  parent: ChemicalCartridge
+  name: chemical cartridge (nitrogen)
+  id: ChemicalCartridgeNitrogen
   noSpawn: true
   components:
     - type: Label
@@ -368,12 +352,12 @@
         beaker:
           reagents:
             - ReagentId: Nitrogen
-              Quantity: 200
+              Quantity: 500
 
 - type: entity
-  parent: Jug
-  name: jug (oxygen)
-  id: JugOxygen
+  parent: ChemicalCartridge
+  name: chemical cartridge (oxygen)
+  id: ChemicalCartridgeOxygen
   noSpawn: true
   components:
     - type: Label
@@ -383,34 +367,4 @@
         beaker:
           reagents:
             - ReagentId: Oxygen
-              Quantity: 200
-
-- type: entity
-  parent: Jug
-  name: jug (Plant-B-Gone)
-  id: JugPlantBGone
-  noSpawn: true
-  components:
-    - type: Label
-      currentLabel: reagent-name-plant-b-gone
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: PlantBGone
-              Quantity: 200
-
-- type: entity
-  parent: Jug
-  name: jug (welding fuel)
-  id: JugWeldingFuel
-  noSpawn: true
-  components:
-    - type: Label
-      currentLabel: reagent-name-welding-fuel
-    - type: SolutionContainerManager
-      solutions:
-        beaker:
-          reagents:
-            - ReagentId: WeldingFuel
-              Quantity: 200
+              Quantity: 500
