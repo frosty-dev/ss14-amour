@@ -26,6 +26,7 @@ arrivals = false
 
 [admin]
 see_own_notes = true
+deadmin_on_join = false
 
 [worldgen]
 enabled = false
