@@ -124303,7 +124303,7 @@ entities:
     - type: Transform
       pos: 23.41431,32.61994
       parent: 2
-- proto: OmntnsHammer
+- proto: JudgeHammer
   entities:
   - uid: 16255
     components:

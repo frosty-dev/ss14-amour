@@ -375,33 +375,6 @@
     - type: Clothing
       sprite: White/Fluff/HSKveez/contactor_batton.rsi
 
-#Omntns
-- type: entity
-  parent: BaseItem
-  id: OmntnsHammer
-  name: Молоток судьи.
-  suffix: fluff
-  description: Порядок, порядок! Никаких бомб в здании моего суда.
-  components:
-    - type: Sprite
-      sprite: White/Fluff/Omntns/gavel_hammer.rsi
-      state: icon
-    - type: Item
-      sprite: White/Fluff/Omntns/gavel_hammer.rsi
-      size: Small
-    - type: EmitSoundOnUse
-      sound:
-        path: /Audio/White/Fluff/Omntns/gavel.ogg
-    - type: UseDelay
-      delay: 2
-    - type: MeleeWeapon
-      canBeBlocked: false
-      soundHit:
-        path: /Audio/White/Fluff/Omntns/gavel.ogg
-      damage:
-        types:
-          Blunt: 0
-
 # Pets book
 - type: entity
   parent: BookBase
@@ -777,19 +750,6 @@
     - type: Clothing
       sprite: White/Fluff/deus/deus_jumpsuit.rsi
 
-# GusMopsik
-- type: entity
-  parent: ClothingUniformBase
-  id: GusMopsikJumpsuit
-  name: Форма 404
-  suffix: fluff
-  description: Обычная форма обычного сотрудника "СБ"
-  components:
-  - type: Sprite
-    sprite: White/Fluff/GusMopsik/ss_uniform.rsi
-  - type: Clothing
-    sprite: White/Fluff/GusMopsik/ss_uniform.rsi
-
 # Vtergot
 - type: entity
   parent: ClothingUniformBase
@@ -942,43 +902,6 @@
       sprite: White/Fluff/Medicgaming/deal_glasses.rsi
     - type: Clothing
       sprite: White/Fluff/Medicgaming/deal_glasses.rsi
-
-# Oleg_Tinkoff
-- type: entity
-  parent: ClothingHeadBase
-  id: ClothingHeadHelmetGopTinkoff
-  name: шлем с забралом "Маска-1"
-  description: Защитный шлем «Маска-1» появился на вооружении в давних временах, как замена шлему «Сфера».
-  suffix: fluff
-  components:
-    - type: Sprite
-      sprite: White/Fluff/Oleg_Tinkoff/helmet_gop.rsi
-    - type: Clothing
-      sprite: White/Fluff/Oleg_Tinkoff/helmet_gop.rsi
-
-- type: entity
-  parent: ClothingShoesBaseButcherable
-  id: ClothingShoesGopTinkoff
-  name: cпортивные кроссовки "ГОП ПАК"
-  description: Предназначены для спорта и гоп стопа.
-  suffix: fluff
-  components:
-    - type: Sprite
-      sprite: White/Fluff/Oleg_Tinkoff/shoes_gop.rsi
-    - type: Clothing
-      sprite: White/Fluff/Oleg_Tinkoff/shoes_gop.rsi
-
-- type: entity
-  parent: ClothingUniformBase
-  id: ClothingUniformGopTinkoff
-  name: cпортивный костюм "ГОП ПАК"
-  description: От костюма пахнет семечками, порохом и криминалом.
-  suffix: fluff
-  components:
-    - type: Sprite
-      sprite: White/Fluff/Oleg_Tinkoff/uniform_gop.rsi
-    - type: Clothing
-      sprite: White/Fluff/Oleg_Tinkoff/uniform_gop.rsi
 
 # Zilendorie
 - type: entity

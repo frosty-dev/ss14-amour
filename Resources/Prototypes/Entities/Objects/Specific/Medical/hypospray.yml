@@ -28,6 +28,7 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: Hypospray
+  - type: ContextMenuInteractionBlocker
 
 - type: entity
   name: gorlex hypospray
@@ -52,6 +53,7 @@
     onlyAffectsMobs: false
   - type: UseDelay
     delay: 0.5
+  - type: ContextMenuInteractionBlocker
 
 - type: entity
   name: borghypo
@@ -76,6 +78,7 @@
     onlyAffectsMobs: false
   - type: UseDelay
     delay: 0.5
+  - type: ContextMenuInteractionBlocker
 
 - type: entity
   name: experimental hypospray
@@ -132,6 +135,7 @@
     price: 75 # These are limited supply items.
   - type: TrashOnSolutionEmpty
     solution: pen
+  - type: ContextMenuInteractionBlocker
 
 - type: entity
   name: emergency medipen
@@ -465,6 +469,7 @@
     delay: 0.5
   - type: StaticPrice # A new shitcurity meta
     price: 75
+  - type: ContextMenuInteractionBlocker
 
 - type: entity
   parent: BaseItem

@@ -1,6 +1,5 @@
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.Containers.EntitySystems;
-using Content.Server.DeviceLinking.Systems;
 using Content.Server.Labels;
 using Content.Server.Popups;
 using Content.Server.Storage.EntitySystems;
@@ -11,7 +10,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
-using Content.Shared.DeviceLinking.Events;
 using Content.Shared.FixedPoint;
 using Content.Shared.Storage;
 using JetBrains.Annotations;
@@ -25,7 +23,6 @@ using System.Linq;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
-
     /// <summary>
     /// Contains all the server-side logic for ChemMasters.
     /// <seealso cref="ChemMasterComponent"/>
@@ -41,8 +38,6 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly StorageSystem _storageSystem = default!;
         [Dependency] private readonly LabelSystem _labelSystem = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-        [Dependency] private readonly ReagentDispenserSystem _dispenserSystem = default!; // WD
-        [Dependency] private readonly DeviceLinkSystem _signalSystem = default!; // WD
 
         [ValidatePrototypeId<EntityPrototype>]
         private const string PillPrototypeId = "Pill";
@@ -56,44 +51,13 @@ namespace Content.Server.Chemistry.EntitySystems
             SubscribeLocalEvent<ChemMasterComponent, EntInsertedIntoContainerMessage>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ChemMasterComponent, EntRemovedFromContainerMessage>(SubscribeUpdateUiState);
             SubscribeLocalEvent<ChemMasterComponent, BoundUIOpenedEvent>(SubscribeUpdateUiState);
-
-            // WD START
-            SubscribeLocalEvent<ChemMasterComponent, ComponentInit>(OnComponentInit);
-            SubscribeLocalEvent<ChemMasterComponent, PortDisconnectedEvent>(OnPortDisconnected);
-            SubscribeLocalEvent<ChemMasterComponent, AnchorStateChangedEvent>(OnAnchor);
-            // WD END
-
-
+            
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSetModeMessage>(OnSetModeMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterSetPillTypeMessage>(OnSetPillTypeMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterReagentAmountButtonMessage>(OnReagentButtonMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterCreatePillsMessage>(OnCreatePillsMessage);
             SubscribeLocalEvent<ChemMasterComponent, ChemMasterOutputToBottleMessage>(OnOutputToBottleMessage);
         }
-
-        // WD START
-        private void OnComponentInit(EntityUid uid, ChemMasterComponent clonePod, ComponentInit args)
-        {
-            _signalSystem.EnsureSinkPorts(uid, ChemMasterComponent.ChemMasterPort);
-        }
-
-        private void OnPortDisconnected(EntityUid uid, ChemMasterComponent component, PortDisconnectedEvent args)
-        {
-            component.ConnectedDispenser = null;
-        }
-
-        private void OnAnchor(EntityUid uid, ChemMasterComponent component, ref AnchorStateChangedEvent args)
-        {
-            if (component.ConnectedDispenser == null ||
-                !TryComp<ReagentDispenserComponent>(component.ConnectedDispenser, out var dispenserComp))
-                return;
-
-            if (!args.Anchored)
-                return;
-
-            _dispenserSystem.UpdateConnection(component.ConnectedDispenser.Value, uid, dispenserComp, component);
-        }
-        // WD END
 
         private void SubscribeUpdateUiState<T>(Entity<ChemMasterComponent> ent, ref T ev)
         {

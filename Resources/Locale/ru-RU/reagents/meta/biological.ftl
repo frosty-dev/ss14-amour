@@ -7,8 +7,14 @@ reagent-desc-insect-blood = Окей, это уже реально мерзко.
 reagent-name-slime = слизь
 reagent-desc-slime = Сначала вам показалось, что это градиент крови, но вы ошиблись.
 
+reagent-name-sap = живица
+reagent-desc-sap = Липкая, сладкая кровь деревьев.
+
 reagent-name-hemocyanin-blood = синяя кровь
 reagent-desc-hemocyanin-blood = Содержит медь, а не железо, что придаёт ей ярко выраженный голубой цвет.
+
+reagent-name-ammonia-blood = анаэробная кровь
+reagent-desc-ammonia-blood = Ничто во всей вселенной не пахнет так ужасно.
 
 reagent-name-zombie-blood = кровь зомби
 reagent-desc-zombie-blood = Не рекомендуется употреблять в пищу. Может быть использована для создания вакцины от инфекции.
@@ -21,3 +27,6 @@ reagent-desc-fat = Независимо от того, как он был пол
 
 reagent-name-vomit = рвота
 reagent-desc-vomit = Вы можете увидеть в ней несколько кусков чьей-то последней еды.
+
+reagent-name-grey-matter = серое вещество
+reagent-desc-grey-matter = Сок мыслей, вытекающий из ваших ушей.

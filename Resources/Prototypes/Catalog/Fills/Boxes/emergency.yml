@@ -11,8 +11,6 @@
       - id: SpaceMedipen
       - id: EmergencyMedipen
       - id: Flare
-      - id: FoodSnackNutribrick
-      - id: DrinkWaterBottleFull
   - type: Sprite
     layers:
       - state: internals
@@ -31,8 +29,6 @@
       - id: SpaceMedipen
       - id: EmergencyMedipen
       - id: Flare
-      - id: FoodSnackNutribrick
-      - id: DrinkWaterBottleFull
   - type: Sprite
     layers:
       - state: internals
@@ -52,8 +48,6 @@
       - id: SpaceMedipen
       - id: EmergencyMedipen
       - id: Flare
-      - id: FoodSnackNutribrick
-      - id: DrinkWaterBottleFull
   - type: Sprite
     layers:
       - state: internals
@@ -73,8 +67,6 @@
       - id: SpaceMedipen
       - id: EmergencyMedipen
       - id: Flare
-      - id: FoodSnackNutribrick
-      - id: DrinkWaterBottleFull
   - type: Sprite
     layers:
       - state: internals
@@ -100,8 +92,6 @@
       - id: SpaceMedipen
       - id: EmergencyMedipen
       - id: Flare
-      - id: FoodSnackNutribrick
-      - id: DrinkWaterBottleFull
   - type: Tag
     tags:
       - BoxHug
@@ -119,7 +109,6 @@
       - id: SpaceMedipen
       - id: EmergencyMedipen
       - id: Flare
-      - id: FoodSnackNutribrick
   - type: Sprite
     layers:
       - state: internals

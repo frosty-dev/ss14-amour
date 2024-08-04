@@ -76898,7 +76898,7 @@ entities:
     - type: Transform
       pos: -30.5,14.5
       parent: 2
-- proto: OmntnsHammer
+- proto: JudgeHammer
   entities:
   - uid: 8283
     components:

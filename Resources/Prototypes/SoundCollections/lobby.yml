@@ -33,6 +33,21 @@
     - /Audio/Lobby/White/comet_haley.ogg
 
 - type: soundCollection
+  id: LobbyMusicWhitePack
+  files:
+  - /Audio/Lobby/White/thunderdome.ogg
+  - /Audio/Lobby/White/singuloose.ogg
+  - /Audio/Lobby/White/lasers_rip_apart_the_bulkhead.ogg
+  - /Audio/Lobby/White/every_light_is_blinking_at_once.ogg
+  - /Audio/Lobby/White/atomicamnesiammx.ogg
+  - /Audio/Lobby/White/Spac_Stac.ogg
+  - /Audio/Lobby/White/comet_haley.ogg
+  - /Audio/Lobby/Songs/CirclesAroundTheSun.ogg
+  - /Audio/Lobby/Songs/SpaceOddity.ogg
+  - /Audio/Lobby/Songs/SpaceAsshole.ogg
+  - /Audio/Lobby/Songs/SpaceShuttle.ogg
+
+- type: soundCollection
   id: LobbyMusicSS13
   files:
     - /Audio/Lobby/SS13/title2.ogg

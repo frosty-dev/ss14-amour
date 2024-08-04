@@ -12,14 +12,16 @@ namespace Content.Shared.Containers.ItemSlots
     ///     Used for entities that can hold items in different slots. Needed by ItemSlotSystem to support basic
     ///     insert/eject interactions.
     /// </summary>
-    [RegisterComponent, Access(typeof(ItemSlotsSystem)), NetworkedComponent]
+    [RegisterComponent]
+    [Access(typeof(ItemSlotsSystem))]
+    [NetworkedComponent]
     public sealed partial class ItemSlotsComponent : Component
     {
         /// <summary>
         ///     The dictionary that stores all of the item slots whose interactions will be managed by the <see
         ///     cref="ItemSlotsSystem"/>.
         /// </summary>
-        [DataField(readOnly: true)]
+        [DataField("slots", readOnly:true)]
         public Dictionary<string, ItemSlot> Slots = new();
 
         // There are two ways to use item slots:
@@ -39,21 +41,26 @@ namespace Content.Shared.Containers.ItemSlots
     }
 
     [Serializable, NetSerializable]
-    public sealed class ItemSlotsComponentState(Dictionary<string, ItemSlot> slots) : ComponentState
+    public sealed class ItemSlotsComponentState : ComponentState
     {
-        public readonly Dictionary<string, ItemSlot> Slots = slots;
+        public readonly Dictionary<string, ItemSlot> Slots;
+
+        public ItemSlotsComponentState(Dictionary<string, ItemSlot> slots)
+        {
+            Slots = slots;
+        }
     }
 
     /// <summary>
     ///     This is effectively a wrapper for a ContainerSlot that adds content functionality like entity whitelists and
     ///     insert/eject sounds.
     /// </summary>
-    [DataDefinition, Access(typeof(ItemSlotsSystem)), Serializable, NetSerializable]
+    [DataDefinition]
+    [Access(typeof(ItemSlotsSystem))]
+    [Serializable, NetSerializable]
     public sealed partial class ItemSlot
     {
-        public ItemSlot()
-        {
-        }
+        public ItemSlot() { }
 
         public ItemSlot(ItemSlot other)
         {
@@ -61,6 +68,7 @@ namespace Content.Shared.Containers.ItemSlots
         }
 
         [DataField]
+        [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)]
         public EntityWhitelist? Whitelist;
 
         [DataField]
@@ -79,8 +87,8 @@ namespace Content.Shared.Containers.ItemSlots
         ///     This will be passed through Loc.GetString. If the name is an empty string, then verbs will use the name
         ///     of the currently held or currently inserted entity instead.
         /// </remarks>
-        [DataField(readOnly: true), Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)]
-        // FIXME Friends
+        [DataField(readOnly: true)]
+        [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)] // FIXME Friends
         public string Name = string.Empty;
 
         /// <summary>
@@ -91,9 +99,9 @@ namespace Content.Shared.Containers.ItemSlots
         ///     property of that component (e.g., cell slot size category), and this can lead to unnecessary changes
         ///     when mapping.
         /// </remarks>
-        [DataField(readOnly: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>)),
-         Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute), NonSerialized]
-        // FIXME Friends
+        [DataField(readOnly: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+        [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)] // FIXME Friends
+        [NonSerialized]
         public string? StartingItem;
 
         /// <summary>
@@ -103,8 +111,9 @@ namespace Content.Shared.Containers.ItemSlots
         ///     This doesn't have to mean the slot is somehow physically locked. In the case of the item cabinet, the
         ///     cabinet may simply be closed at the moment and needs to be opened first.
         /// </remarks>
-        [DataField(readOnly: true), ViewVariables(VVAccess.ReadWrite)]
-        public bool Locked;
+        [DataField(readOnly: true)]
+        [ViewVariables(VVAccess.ReadWrite)]
+        public bool Locked = false;
 
         /// <summary>
         /// Prevents adding the eject alt-verb, but still lets you swap items.
@@ -113,7 +122,7 @@ namespace Content.Shared.Containers.ItemSlots
         ///     This does not affect EjectOnInteract, since if you do that you probably want ejecting to work.
         /// </remarks>
         [DataField, ViewVariables(VVAccess.ReadWrite)]
-        public bool DisableEject;
+        public bool DisableEject = false;
 
         /// <summary>
         ///     Whether the item slots system will attempt to insert item from the user's hands into this slot when interacted with.
@@ -131,7 +140,7 @@ namespace Content.Shared.Containers.ItemSlots
         ///     contents when clicked on normally.
         /// </remarks>
         [DataField]
-        public bool EjectOnInteract;
+        public bool EjectOnInteract = false;
 
         /// <summary>
         ///     If true, and if this slot is attached to an item, then it will attempt to eject slot when to the slot is
@@ -143,7 +152,7 @@ namespace Content.Shared.Containers.ItemSlots
         ///     menu, nor will it disable alt-click interactions.
         /// </remarks>
         [DataField]
-        public bool EjectOnUse;
+        public bool EjectOnUse = false;
 
         /// <summary>
         ///     Override the insert verb text. Defaults to using the slot's name (if specified) or the name of the
@@ -160,7 +169,7 @@ namespace Content.Shared.Containers.ItemSlots
         public string? EjectVerbText;
 
         [ViewVariables, NonSerialized]
-        public ContainerSlot? ContainerSlot;
+        public ContainerSlot? ContainerSlot = default!;
 
         /// <summary>
         ///     If this slot belongs to some de-constructible component, should the item inside the slot be ejected upon
@@ -169,15 +178,19 @@ namespace Content.Shared.Containers.ItemSlots
         /// <remarks>
         ///     The actual deconstruction logic is handled by the server-side EmptyOnMachineDeconstructSystem.
         /// </remarks>
-        [DataField, NonSerialized]
+        [DataField]
+        [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)]
+        [NonSerialized]
         public bool EjectOnDeconstruct = true;
 
         /// <summary>
         ///     If this slot belongs to some breakable or destructible entity, should the item inside the slot be
         ///     ejected when it is broken or destroyed?
         /// </summary>
-        [DataField, NonSerialized]
-        public bool EjectOnBreak;
+        [DataField]
+        [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)]
+        [NonSerialized]
+        public bool EjectOnBreak = false;
 
         /// <summary>
         ///     When specified, a popup will be generated whenever someone attempts to insert a bad item into this slot.
@@ -207,23 +220,20 @@ namespace Content.Shared.Containers.ItemSlots
         ///     want to insert more than one item that matches the same whitelist.
         /// </remarks>
         [DataField]
+        [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)]
         public bool Swap = true;
 
         public string? ID => ContainerSlot?.ID;
 
         // Convenience properties
         public bool HasItem => ContainerSlot?.ContainedEntity != null;
-
         public EntityUid? Item => ContainerSlot?.ContainedEntity;
 
         /// <summary>
         ///     Priority for use with the eject & insert verbs for this slot.
         /// </summary>
         [DataField]
-        public int Priority;
-
-        [DataField("maxStackAmount")] // WD
-        public int MaxStackAmount;
+        public int Priority = 0;
 
         /// <summary>
         ///     If false, errors when adding an item slot with a duplicate key are suppressed. Local==true implies that
@@ -231,6 +241,9 @@ namespace Content.Shared.Containers.ItemSlots
         /// </summary>
         [NonSerialized]
         public bool Local = true;
+
+        [DataField] // WD
+        public int MaxStackAmount;
 
         public void CopyFrom(ItemSlot other)
         {
@@ -247,10 +260,10 @@ namespace Content.Shared.Containers.ItemSlots
             InsertVerbText = other.InsertVerbText;
             EjectVerbText = other.EjectVerbText;
             WhitelistFailPopup = other.WhitelistFailPopup;
-            LockedFailPopup = other.LockedFailPopup;
-            InsertSuccessPopup = other.InsertSuccessPopup;
             Swap = other.Swap;
             Priority = other.Priority;
+
+            MaxStackAmount = other.MaxStackAmount;
         }
     }
 
@@ -258,21 +271,11 @@ namespace Content.Shared.Containers.ItemSlots
     /// Event raised on the slot entity and the item being inserted to determine if an item can be inserted into an item slot.
     /// </summary>
     [ByRefEvent]
-    public record struct ItemSlotInsertAttemptEvent(
-        EntityUid SlotEntity,
-        EntityUid Item,
-        EntityUid? User,
-        ItemSlot Slot,
-        bool Cancelled = false);
+    public record struct ItemSlotInsertAttemptEvent(EntityUid SlotEntity, EntityUid Item, EntityUid? User, ItemSlot Slot, bool Cancelled = false);
 
     /// <summary>
     /// Event raised on the slot entity and the item being inserted to determine if an item can be ejected from an item slot.
     /// </summary>
     [ByRefEvent]
-    public record struct ItemSlotEjectAttemptEvent(
-        EntityUid SlotEntity,
-        EntityUid Item,
-        EntityUid? User,
-        ItemSlot Slot,
-        bool Cancelled = false);
+    public record struct ItemSlotEjectAttemptEvent(EntityUid SlotEntity, EntityUid Item, EntityUid? User, ItemSlot Slot, bool Cancelled = false);
 }
