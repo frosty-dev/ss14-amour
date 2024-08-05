@@ -29,7 +29,7 @@
         prototype: ProjectileTeslaBall
         posData: !type:TargetCasterPos
     - type: VariableUseDelay
-      useDelay: 5
+      useDelay: 10
       altUseDelay: 5
       chargeUseDelay: 30
 
@@ -63,7 +63,7 @@
         speech: "EL DRITCH!"
     - type: VariableUseDelay
       useDelay: 6
-      altUseDelay: 2
+      altUseDelay: 3
       chargeUseDelay: 30
 
 - type: entity
@@ -72,7 +72,7 @@
   noSpawn: true
   components:
     - type: Magic
-      requiresClothes: true
+      requiresClothes: false
     - type: WorldTargetAction
       itemIconStyle: BigAction
       useDelay: 60
@@ -128,7 +128,7 @@
         posData: !type:TargetCasterPos
         speech: "SHIZO NERO!"
     - type: VariableUseDelay
-      useDelay: 4
+      useDelay: 5
       altUseDelay: 1
       chargeUseDelay: 30
 
