@@ -5,6 +5,9 @@
   components:
     - type: Magic
       requiresClothes: true
+      clothingWhitelist:
+        tags:
+        - BlueMagusArmor
     - type: WorldTargetAction
       itemIconStyle: BigAction
       useDelay: 60
@@ -72,7 +75,10 @@
   noSpawn: true
   components:
     - type: Magic
-      requiresClothes: false
+      requiresClothes: true
+      clothingWhitelist:
+        tags:
+        - RedMagusArmor
     - type: WorldTargetAction
       itemIconStyle: BigAction
       useDelay: 60

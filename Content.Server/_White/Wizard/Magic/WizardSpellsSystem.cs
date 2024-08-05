@@ -939,6 +939,10 @@ public sealed class WizardSpellsSystem : EntitySystem
         if (hasReqs)
             return;
 
+        if (_inventory.TryGetSlotEntity(args.Performer, "outerClothing", out var entity) &&
+            comp.ClothingWhitelist?.IsValid(entity.Value) is true)
+            return;
+
         args.Cancelled = true;
         _popupSystem.PopupEntity(Loc.GetString("magic-component-missing-req"), args.Performer, args.Performer);
     }

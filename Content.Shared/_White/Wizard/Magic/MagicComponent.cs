@@ -1,4 +1,5 @@
-﻿using Robust.Shared.GameStates;
+﻿using Content.Shared.Whitelist;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._White.Wizard.Magic;
 
@@ -10,4 +11,7 @@ public sealed partial class MagicComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool RequiresClothes;
+
+    [DataField]
+    public EntityWhitelist? ClothingWhitelist;
 }
