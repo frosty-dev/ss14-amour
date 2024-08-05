@@ -64,6 +64,8 @@
     - Belt
     - SuitStorage
   - type: DisarmMalus
+  - type: MeleeBlock
+    delay: 12.1
 
 - type: entity
   name: energy katana
@@ -164,6 +166,8 @@
     deconstructionTarget: null
     graph: SwordGraph
     node: sword
+  - type: MeleeBlock
+    delay: 12.1
 
 - type: entity
   name: cutlass
@@ -189,6 +193,8 @@
     size: Large
     sprite: Objects/Weapons/Melee/cutlass.rsi
   - type: DisarmMalus
+  - type: MeleeBlock
+    delay: 12.1
 
 - type: entity
   name: The Throngler
