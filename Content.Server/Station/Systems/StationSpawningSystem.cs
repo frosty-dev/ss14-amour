@@ -12,6 +12,7 @@ using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
 using Content.Shared.Humanoid;
+using Content.Server.Roles.Jobs;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.PDA;
 using Content.Shared.Preferences;
@@ -49,6 +50,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
+    [Dependency] private readonly JobSystem _jobs = default!; // WD EDIT
 
     [Dependency] private readonly ArrivalsSystem _arrivalsSystem = default!;
     [Dependency] private readonly ContainerSpawnPointSystem _containerSpawnPointSystem = default!;
@@ -337,7 +339,14 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         _accessSystem.SetAccessToJob(cardId, jobPrototype, extendedAccess);
 
         if (pdaComponent != null)
-            _pdaSystem.SetOwner(idUid.Value, pdaComponent, characterName);
+        {
+            _pdaSystem.SetOwnerName(idUid.Value, pdaComponent, characterName);
+            //WD EDIT START
+            _pdaSystem.SetOwnerJob(idUid.Value, pdaComponent, jobPrototype.LocalizedName);
+            _jobs.TryGetDepartment(jobPrototype.ID, out var department);
+            _pdaSystem.SetOwnerDepartment(idUid.Value, pdaComponent, department?.ID ?? "Specific");
+            //WD EDIT END
+        }
     }
 
 
