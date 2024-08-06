@@ -6,7 +6,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Science
-      time: 9999999999 #60 hrs 216000
+      time: 216000 #60 hrs
 
 # Head
 
