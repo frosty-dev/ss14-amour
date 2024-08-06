@@ -26,6 +26,8 @@ public sealed class DelayedKnockdownOnHitSystem : EntitySystem
     {
         var jitterTime = ent.Comp.JitterTime;
         var stutterTime = ent.Comp.StutterTime;
+        var delay = ent.Comp.Delay;
+        var knockdownTime = ent.Comp.KnockdownTime;
         foreach (var (uid, _) in args.HitList)
         {
             if (!TryComp(uid, out StatusEffectsComponent? statusEffects))
@@ -38,12 +40,17 @@ public sealed class DelayedKnockdownOnHitSystem : EntitySystem
                 _jitter.DoJitter(uid, jitterTime, true, status: statusEffects);
             if (stutterTime > TimeSpan.Zero)
                 _stutter.DoStutter(uid, stutterTime, true, statusEffects);
+            if (delay <= TimeSpan.Zero)
+            {
+                _stun.TryKnockdown(uid, knockdownTime, true, statusEffects);
+                continue;
+            }
             if (HasComp<KnockedDownComponent>(uid))
                 continue;
             var delayedKnockdown = EnsureComp<DelayedKnockdownComponent>(uid);
-            delayedKnockdown.KnockdownTime = TimeSpan.FromSeconds(Math.Max(ent.Comp.KnockdownTime.TotalSeconds,
+            delayedKnockdown.KnockdownTime = TimeSpan.FromSeconds(Math.Max(knockdownTime.TotalSeconds,
                 delayedKnockdown.KnockdownTime.TotalSeconds));
-            var knockdownMoment = _timing.CurTime + ent.Comp.Delay;
+            var knockdownMoment = _timing.CurTime + delay;
             if (knockdownMoment < delayedKnockdown.KnockdownMoment)
                 delayedKnockdown.KnockdownMoment = knockdownMoment;
         }

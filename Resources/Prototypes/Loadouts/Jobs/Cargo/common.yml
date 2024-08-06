@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobSalvageSpecialist
-      time: 9999999999 # 15 hours 54000
+      time: 54000 # 15 hours
 
 # Head
 
