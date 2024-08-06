@@ -6,12 +6,12 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobWarden
-      time: 9999999999 #6 hrs 21600
+      time: 21600 #6 hrs
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 9999999999 # 60 hrs 216000
+      time: 216000 # 60 hrs
 
 # Head
 - type: itemLoadout

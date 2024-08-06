@@ -34,6 +34,9 @@
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
     useKey: false
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.5
     rechargeSound:
@@ -95,8 +98,6 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/crusher_glaive.rsi
-  - type: UseDelay
-    delay: 1.9
   - type: LeechOnMarker
     leech:
       groups:

@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobPassenger
-      time: 9999999999 #10 hrs, silly reward for people who play passenger a lot 36000
+      time: 36000 #10 hrs, silly reward for people who play passenger a lot
 
 # Face
 - type: itemLoadout

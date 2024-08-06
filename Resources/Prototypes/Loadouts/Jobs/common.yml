@@ -7,7 +7,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobPassenger
-      time: 9999999999 # 50 hours 180000
+      time: 180000 # 50 hours
 
 # Bottom
 

@@ -45,6 +45,7 @@ namespace Content.Shared.PDA
     public struct PdaIdInfoText
     {
         public string? ActualOwnerName;
+        public string? ActualOwnerJob; // WD EDIT
         public string? IdOwner;
         public string? JobTitle;
         public string? StationAlertLevel;
