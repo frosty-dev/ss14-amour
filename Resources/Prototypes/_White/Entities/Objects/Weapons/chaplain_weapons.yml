@@ -341,6 +341,7 @@
     sprite: White/Objects/Weapons/Chaplain/pitchfork.rsi
     state: icon
   - type: MeleeWeapon
+    range: 2
     wideAnimationRotation: -135
     damage:
       types:

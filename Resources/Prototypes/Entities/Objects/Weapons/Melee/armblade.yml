@@ -28,3 +28,5 @@
     deleteOnDrop: true
   - type: ToolForcePowered
   - type: DeleteOnChangelingRefund
+  - type: MeleeBlock
+    delay: 12.1

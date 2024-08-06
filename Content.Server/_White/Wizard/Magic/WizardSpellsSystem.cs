@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Numerics;
-using Content.Server._White.Cult;
 using Content.Server._White.IncorporealSystem;
+using Content.Server._White.Other.FastAndFuriousSystem;
 using Content.Server._White.Wizard.Charging;
 using Content.Server._White.Wizard.Magic.Amaterasu;
 using Content.Server._White.Wizard.Magic.Other;
@@ -48,6 +48,7 @@ using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -88,6 +89,7 @@ public sealed class WizardSpellsSystem : EntitySystem
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly ChargingSystem _charging = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     #endregion
 
@@ -191,6 +193,7 @@ public sealed class WizardSpellsSystem : EntitySystem
         SwapComponent<RevolutionaryComponent>(uid, target);
         SwapComponent<HeadRevolutionaryComponent>(uid, target);
         SwapComponent<GlobalAntagonistComponent>(uid, target);
+        SwapComponent<FastAndFuriousComponent>(uid, target);
 
         _mindSystem.TransferTo(mindId, target, mind: mind);
 
@@ -738,8 +741,8 @@ public sealed class WizardSpellsSystem : EntitySystem
             return false;
         }
 
+        _stun.TryKnockdown(msg.TargetUid, TimeSpan.FromSeconds(4), true);
         _throwingSystem.TryThrow(msg.TargetUid, Transform(msg.Performer).Coordinates, 5f);
-        _standing.TryLieDown(msg.TargetUid);
 
         return true;
     }
@@ -934,6 +937,10 @@ public sealed class WizardSpellsSystem : EntitySystem
         }
 
         if (hasReqs)
+            return;
+
+        if (_inventory.TryGetSlotEntity(args.Performer, "outerClothing", out var entity) &&
+            comp.ClothingWhitelist?.IsValid(entity.Value) is true)
             return;
 
         args.Cancelled = true;

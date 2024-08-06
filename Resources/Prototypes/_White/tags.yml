@@ -93,3 +93,9 @@
 
 - type: Tag
   id: UnoCard
+
+- type: Tag
+  id: RedMagusArmor
+
+- type: Tag
+  id: BlueMagusArmor
