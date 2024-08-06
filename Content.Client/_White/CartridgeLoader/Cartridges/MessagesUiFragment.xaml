@@ -1,0 +1,17 @@
+﻿<cartridges1:MessagesUiFragment
+    xmlns="https://spacestation14.io"
+    xmlns:cartridges1="clr-namespace:Content.Client._White.CartridgeLoader.Cartridges"
+    Margin="1 0 2 0" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+    <PanelContainer StyleClasses="BackgroundDark"/>
+    <BoxContainer Name="OverContainer" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer Name="HeaderBox">
+            <Button Name="BackButton" Text="{Loc 'messages-pda-ui-back'}" HorizontalExpand="False"/>
+            <Label Name="HeaderLabel"/>
+        </BoxContainer>
+        <LineEdit Name="SearchBar" PlaceHolder="Search" HorizontalExpand="True" Margin="0 4" />
+        <ScrollContainer Name="MessagesScroll" HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="True">
+            <BoxContainer Orientation="Vertical" Name="MessageContainer" HorizontalExpand="True" VerticalExpand="True"/>
+        </ScrollContainer>
+        <LineEdit Name="Input" HorizontalExpand="True" SetHeight="32"/>
+    </BoxContainer>
+</cartridges1:MessagesUiFragment>

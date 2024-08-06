@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobLibrarian
-      time: 9999999999 # 1 hour of being the biggest nerd on the station 3600
+      time: 3600 # 1 hour of being the biggest nerd on the station
 
 - type: loadoutEffectGroup
   id: JensenTimer
@@ -15,7 +15,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Cargo
-      time: 9999999999 #5 hours of being a space trucker 18000
+      time: 18000 #5 hours of being a space trucker
 
 # Basic options
 # Glasses

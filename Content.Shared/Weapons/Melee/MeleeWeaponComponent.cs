@@ -27,6 +27,7 @@ public sealed partial class MeleeWeaponComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
+    [AutoNetworkedField] // WD EDIT
     public bool Hidden;
 
     /// <summary>
@@ -75,10 +76,10 @@ public sealed partial class MeleeWeaponComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public bool CanMiss;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityWhitelist? AttackWhitelist;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityWhitelist? AttackBlacklist;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]

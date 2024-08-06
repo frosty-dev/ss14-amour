@@ -5,6 +5,9 @@
   components:
     - type: Magic
       requiresClothes: true
+      clothingWhitelist:
+        tags:
+        - BlueMagusArmor
     - type: WorldTargetAction
       itemIconStyle: BigAction
       useDelay: 60
@@ -29,7 +32,7 @@
         prototype: ProjectileTeslaBall
         posData: !type:TargetCasterPos
     - type: VariableUseDelay
-      useDelay: 5
+      useDelay: 10
       altUseDelay: 5
       chargeUseDelay: 30
 
@@ -63,7 +66,7 @@
         speech: "EL DRITCH!"
     - type: VariableUseDelay
       useDelay: 6
-      altUseDelay: 2
+      altUseDelay: 3
       chargeUseDelay: 30
 
 - type: entity
@@ -73,6 +76,9 @@
   components:
     - type: Magic
       requiresClothes: true
+      clothingWhitelist:
+        tags:
+        - RedMagusArmor
     - type: WorldTargetAction
       itemIconStyle: BigAction
       useDelay: 60
@@ -128,7 +134,7 @@
         posData: !type:TargetCasterPos
         speech: "SHIZO NERO!"
     - type: VariableUseDelay
-      useDelay: 4
+      useDelay: 5
       altUseDelay: 1
       chargeUseDelay: 30
 

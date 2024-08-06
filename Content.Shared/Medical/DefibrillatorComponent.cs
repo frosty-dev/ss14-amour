@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -86,6 +87,10 @@ public sealed partial class DefibrillatorComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField("readySound")]
     public SoundSpecifier? ReadySound = new SoundPathSpecifier("/Audio/Items/Defib/defib_ready.ogg");
+
+    // WD EDIT
+    [DataField]
+    public EntityWhitelist? EmaggedAttackWhitelist;
 }
 
 [Serializable, NetSerializable]

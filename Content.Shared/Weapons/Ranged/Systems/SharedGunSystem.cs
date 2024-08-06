@@ -554,6 +554,12 @@ public abstract partial class SharedGunSystem : EntitySystem
         Dirty(gun);
     }
     // WD EDIT
+    public void SetFireMode(GunComponent gun, SelectiveFire available, SelectiveFire selected)
+    {
+        gun.AvailableModes = available;
+        gun.SelectedMode = selected;
+    }
+
     public void SetUseKey(GunComponent gun, bool useKey)
     {
         gun.UseKey = useKey;

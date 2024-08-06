@@ -35,6 +35,9 @@
       zapHeal:
         types:
           Asphyxiation: -40
+      emaggedAttackWhitelist:
+        components:
+        - Stamina
     - type: DoAfter
     - type: UseDelay
     - type: StaticPrice
