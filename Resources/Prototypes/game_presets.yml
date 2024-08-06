@@ -126,6 +126,7 @@
   name: nukeops-title
   description: nukeops-description
   showInVote: true
+  minPlayers: 15
   rules:
     - Nukeops
     - SubGamemodesRule
@@ -142,6 +143,7 @@
   name: rev-title
   description: rev-description
   showInVote: true
+  minPlayers: 15
   rules:
     - Revolutionary
     - SubGamemodesRule
@@ -160,6 +162,7 @@
   name: zombie-title
   description: zombie-description
   showInVote: true
+  minPlayers: 15
   rules:
   - Zombie
   - BasicStationEventScheduler
@@ -187,7 +190,7 @@
   name: cult-title
   description: cult-description
   showInVote: true
-  minPlayers: 20
+  minPlayers: 15
   rules:
     - Cult
     - SubGamemodesRule
@@ -218,7 +221,7 @@
   name: wizard-title
   description: wizard-description
   showInVote: true
-  minPlayers: 20
+  minPlayers: 15
   rules:
     - Wizard
     - SubGamemodesRule

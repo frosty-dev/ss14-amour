@@ -478,7 +478,7 @@ namespace Content.Shared.CCVar
          */
 
         public static readonly CVarDef<int> ZombieMinPlayers =
-            CVarDef.Create("zombie.min_players", 20);
+            CVarDef.Create("zombie.min_players", 15);
 
         /*
          * Pirates

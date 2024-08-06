@@ -18,7 +18,7 @@ public sealed partial class WizardRuleComponent : Component
     public EntityUid? TargetStation;
 
     [DataField("minPlayers")]
-    public int MinPlayers = 20;
+    public int MinPlayers = 15;
 
     [DataField("announcementOnWizardDeath")]
     public bool AnnouncementOnWizardDeath = true;
