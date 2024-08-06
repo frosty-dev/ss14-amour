@@ -101,6 +101,7 @@
     - Biological
     - Inorganic
   - type: Invisibility
+  - type: ThermalBlocker
 
 - type: entity
   id: ActionAGhostShowSolar
