@@ -82,6 +82,8 @@
     - suitStorage
   - type: DisarmMalus
   - type: CultItem
+  - type: MeleeBlock
+    delay: 12.1
 
 - type: entity
   name: unholy halberd
@@ -123,3 +125,5 @@
   - type: UseDelay
     delay: 1
   - type: CultItem
+  - type: MeleeBlock
+    delay: 12.1

@@ -1,0 +1,9 @@
+messages-pda-error-header = ERROR
+messages-pda-error-message = An error has occured in the messages system, have you tried turning it off and on again?
+messages-pda-notification-header = A new message from {$name} has arrived on your PDA
+messages-pda-connection-error = CONNECTION ERROR
+messages-pda-unknown-name = Unknown
+messages-pda-unknown-job = Unassigned
+messages-pda-user-missing = NAME ENTRY MISSING
+messages-pda-ui-back = Back
+messages-pda-chat-choice = Select chat

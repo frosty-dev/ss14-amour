@@ -103,6 +103,7 @@ public abstract class SharedSpellBladeSystem : EntitySystem
         var gun = EnsureComp<GunComponent>(uid);
         _gun.SetUseKey(gun, false);
         _gun.SetClumsyProof(gun, true);
+        _gun.SetFireMode(gun, SelectiveFire.FullAuto, SelectiveFire.FullAuto);
         _gun.SetSound(uid, new SoundPathSpecifier("/Audio/Weapons/Guns/Gunshots/Magic/staff_healing.ogg"));
         _gun.SetFireRate(uid, 1.2f);
         var ammoProvider = EnsureComp<BasicEntityAmmoProviderComponent>(uid);

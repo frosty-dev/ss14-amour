@@ -1,0 +1,13 @@
+- type: entity
+  id: HyposprayRefillingDebug
+  name: debug refilling hypospray
+  parent: Hypospray
+  suffix: DEBUG
+  components:
+  - type: AutoRegenReagent
+    reagents:
+      - Ichor
+      - Stimulants
+      - Nocturine
+    interval: 1
+    solution: hypospray

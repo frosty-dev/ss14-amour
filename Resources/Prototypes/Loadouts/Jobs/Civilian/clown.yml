@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 9999999999 # 30 hours as clown required to ascend 108000
+      time: 108000 # 30 hours as clown required to ascend
 
 - type: loadoutEffectGroup # WD
   id: MedalClownTimer
@@ -15,7 +15,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 9999999999 # 10 hours 36000
+      time: 36000 # 10 hours
 
 # Head
 - type: itemLoadout
