@@ -12,6 +12,8 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 36000 #10 hrs
+    - !type:AgeRequirement
+      requiredAge: 20
   icon: "JobIconInspector"
   arrivalNotificationPrototype: InspectorArrivalNotification
   supervisors: job-supervisors-captain

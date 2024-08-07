@@ -345,8 +345,8 @@ public sealed partial class StationJobsSystem
         foreach (var (player, profile) in profiles)
         {
             var roleBans = _banManager.GetJobBans(player);
-            var profileJobs = profile.JobPriorities.Keys.ToList();
-            _playTime.RemoveDisallowedJobs(player, ref profileJobs);
+            var profileJobs = profile.JobPriorities.Keys.Select(k => new ProtoId<JobPrototype>(k)).ToList();
+            _playTime.RemoveDisallowedJobs(player, profileJobs);
 
             List<string>? availableJobs = null;
 
