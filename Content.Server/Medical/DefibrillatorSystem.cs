@@ -7,12 +7,9 @@ using Content.Server.Ghost;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
 using Content.Server.Traits.Assorted;
-using Content.Shared._White.Item.DelayedKnockdown;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.DoAfter;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
@@ -24,8 +21,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.PowerCell;
 using Content.Shared.Timing;
 using Content.Shared.Toggleable;
-using Content.Shared.Weapons.Melee;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
@@ -72,6 +67,8 @@ public sealed class DefibrillatorSystem : EntitySystem
         {
             if (!_powerCell.HasActivatableCharge(uid))
                 TryDisable(uid, comp);
+            comp.NextZapTime = _timing.CurTime + TimeSpan.FromSeconds(3);
+            _appearance.SetData(uid, DefibrillatorVisuals.Ready, false);
             return;
         }
 
@@ -201,6 +198,7 @@ public sealed class DefibrillatorSystem : EntitySystem
             uid, target, uid)
             {
                 BreakOnMove = user == target, // WD EDIT
+                DuplicateCondition = DuplicateConditions.None, // WD EDIT
                 BlockDuplicate = true,
                 BreakOnHandChange = true,
                 NeedHand = true
