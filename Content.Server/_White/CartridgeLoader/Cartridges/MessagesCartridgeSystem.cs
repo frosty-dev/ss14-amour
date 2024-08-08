@@ -1,19 +1,15 @@
-﻿using Content.Server._White.Radio.Components;
+﻿using System.Linq;
+using Content.Server._White.Radio.Components;
 using Content.Server._White.Radio.EntitySystems;
-using Content.Server.Administration.Commands;
 using Content.Server.CartridgeLoader;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.PDA;
-using Robust.Shared.Map;
 using Content.Server.GameTicking;
 using Robust.Shared.Timing;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.DeviceNetwork;
 using Content.Server.Station.Systems;
 using Content.Shared._White.CartridgeLoader.Cartridges;
-using Content.Shared.Access.Components;
-using Content.Shared.Roles;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._White.CartridgeLoader.Cartridges;
 
@@ -26,7 +22,6 @@ public sealed class MessagesCartridgeSystem : EntitySystem
     [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
     [Dependency] private readonly SingletonDeviceNetServerSystem _singletonServerSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
     {
@@ -44,13 +39,13 @@ public sealed class MessagesCartridgeSystem : EntitySystem
     private void OnInit(EntityUid uid, MessagesCartridgeComponent component, ComponentInit args)
     {
         var stationId = _stationSystem.GetOwningStation(uid);
-        if (stationId.HasValue &&
-            _singletonServerSystem.TryGetActiveServerAddress<MessagesServerComponent>(stationId.Value,
-                out var address) && TryComp(uid, out CartridgeComponent? cartComponent))
-        {
-            SendName(uid, component, cartComponent, address);
-            component.UserUid = cartComponent.LoaderUid?.Id;
-        }
+        if (!stationId.HasValue ||
+            !_singletonServerSystem.TryGetActiveServerAddress<MessagesServerComponent>(stationId.Value,
+                out var address) || !TryComp(uid, out CartridgeComponent? cartComponent))
+            return;
+
+        SendName(uid, component, cartComponent, address);
+        component.UserUid = cartComponent.LoaderUid?.Id;
     }
 
     private void OnRemove(EntityUid uid, MessagesCartridgeComponent component, ComponentRemove args)
@@ -58,7 +53,7 @@ public sealed class MessagesCartridgeSystem : EntitySystem
         if (component.LastServer == null || !TryComp<MessagesServerComponent>(component.LastServer, out var messagesServerComponent) || component.UserUid == null)
             return;
 
-        messagesServerComponent.NameDict.Remove(component.UserUid.Value);
+        messagesServerComponent.Dictionary.Remove(component.UserUid.Value);
     }
 
     /// <summary>
@@ -69,6 +64,7 @@ public sealed class MessagesCartridgeSystem : EntitySystem
         var stationId = _stationSystem.GetOwningStation(uid);
         if (stationId.HasValue && _singletonServerSystem.TryGetActiveServerAddress<MessagesServerComponent>(stationId.Value, out var address) && TryComp(uid, out CartridgeComponent? cartComponent))
             SendName(uid, component, cartComponent, address);
+
         UpdateUiState(uid, component);
     }
 
@@ -83,7 +79,7 @@ public sealed class MessagesCartridgeSystem : EntitySystem
         if (args is not MessagesUiMessageEvent messageEvent)
             return;
 
-        if (messageEvent.Action == MessagesUiAction.Send && TryComp(uid, out CartridgeComponent? cartComponent) && component.UserUid is { } userId && component.ChatUid != null && messageEvent.StringInput != null)
+        if (messageEvent.Action == MessagesUiAction.Send && HasComp<CartridgeComponent>(uid) && component.UserUid is { } userId && component.ChatUid != null && messageEvent.StringInput != null)
         {
             var stationId = _stationSystem.GetOwningStation(uid);
             if (!stationId.HasValue)
@@ -171,7 +167,7 @@ public sealed class MessagesCartridgeSystem : EntitySystem
     /// </summary>
     private void SendName(EntityUid uid, MessagesCartridgeComponent component, CartridgeComponent cartComponent, string? address)
     {
-        TryGetMessagesUser(cartComponent, out var messagesUser);
+        TryGetMessagesUser(component, cartComponent, out var messagesUser);
 
         var packet = new NetworkPayload()
         {
@@ -184,38 +180,38 @@ public sealed class MessagesCartridgeSystem : EntitySystem
     /// <summary>
     /// Retrieves the name of the given user from the last contacted server
     /// </summary>
-    private bool TryGetName(int key, MessagesCartridgeComponent component, out string name)
+    private void TryGetName(int key, MessagesCartridgeComponent component, out string name)
     {
         if (component.LastServer != null && _messagesServerSystem.TryGetUserFromDict(component.LastServer, key, out var messagesUser))
         {
             name = messagesUser.Name;
-            return true;
+            return;
         }
 
         name = Loc.GetString("messages-pda-connection-error");
-        return false;
     }
 
     /// <summary>
     /// Returns the user's name, job title and job department
     /// </summary>
-    public bool TryGetMessagesUser(CartridgeComponent component, out MessagesUser messagesUser)
+    public bool TryGetMessagesUser(MessagesCartridgeComponent component, CartridgeComponent cartridgeComponent, out MessagesUserData messagesUserData)
     {
-        var pda = component.LoaderUid;
+        messagesUserData = new MessagesUserData();
+
+        if (component.LastServer != null &&
+            TryComp<MessagesServerComponent>(component.LastServer, out var messagesServerComponent) &&
+            component.UserUid != null)
+            messagesUserData = messagesServerComponent.Dictionary[component.UserUid.Value];
+
+        var pda = cartridgeComponent.LoaderUid;
         if (pda == null)
-        {
-            messagesUser = new MessagesUser(Loc.GetString("messages-pda-unknown-name"), Loc.GetString("messages-pda-unknown-job"), "Specific");
             return false;
-        }
 
         var pdaComponent = CompOrNull<PdaComponent>(pda);
         if (pdaComponent?.OwnerName == null)
-        {
-            messagesUser = new MessagesUser(Loc.GetString("messages-pda-unknown-name"), Loc.GetString("messages-pda-unknown-job"), "Specific");
             return false;
-        }
 
-        messagesUser = new MessagesUser(pdaComponent.OwnerName, pdaComponent.OwnerJob ?? Loc.GetString("messages-pda-unknown-job"), pdaComponent.OwnerDepartment ?? "Specific");
+        messagesUserData.SetMessagesUser(pdaComponent.OwnerName, pdaComponent.OwnerJob, pdaComponent.OwnerDepartment);
         return true;
     }
 
@@ -223,34 +219,39 @@ public sealed class MessagesCartridgeSystem : EntitySystem
     {
         if (!Resolve(uid, ref component))
             return;
+
         if (!TryComp(uid, out CartridgeComponent? cartComponent))
             return;
+
         if (cartComponent.LoaderUid == null)
             return;
+
         var loaderUid = cartComponent.LoaderUid.Value;
         MessagesUiState state;
-        MapId mapId = Transform(uid).MapID;
-        int? currentUserId = component.UserUid;
+        var currentUserId = component.UserUid;
         if (currentUserId == null || component.LastServer == null)
         {
-            state = new MessagesUiState(MessagesUiStateMode.Error, [], null);
+            state = new MessagesUiState(MessagesUiStateMode.Error);
             _cartridgeLoaderSystem.UpdateCartridgeUiState(loaderUid, state);
             return;
         }
+
         if (component.ChatUid == null) //if no chat is loaded, list users
         {
-            List<(MessagesUser, int?)> userList = [];
+            List<(MessagesUserData, int?)> userList = [];
 
-            var nameDict = _messagesServerSystem.GetNameDict(component.LastServer);
+            var dictionary = _messagesServerSystem.GetNameDict(component.LastServer);
 
-            foreach (var nameEntry in nameDict.Keys)
+            foreach (var nameEntry in dictionary.Keys)
             {
                 if (nameEntry == currentUserId)
                     continue;
-                userList.Add((nameDict[nameEntry], nameEntry));
+                userList.Add((dictionary[nameEntry], nameEntry));
             }
 
-            state = new MessagesUiState(MessagesUiStateMode.UserList, userList, null);
+            userList.Sort((a, b) => TimeSpan.Compare(b.Item1.Messages.LastOrDefault().Time, a.Item1.Messages.LastOrDefault().Time));
+
+            state = new MessagesUiState(MessagesUiStateMode.UserList, userList);
         }
         else
         {
@@ -259,31 +260,23 @@ public sealed class MessagesCartridgeSystem : EntitySystem
             foreach (var message in _messagesServerSystem.GetMessages(component.LastServer, component.ChatUid.Value, currentUserId.Value))
             {
                 if (message.SenderId == component.ChatUid && message.ReceiverId == currentUserId || message.ReceiverId == component.ChatUid && message.SenderId == currentUserId)
-                {
                     messageList.Add(message);
-                }
             }
 
-            messageList.Sort
-            (
-                delegate (MessagesMessageData a, MessagesMessageData b)
-                {
-                    return TimeSpan.Compare(a.Time, b.Time);
-                }
-            );
+            messageList.Sort((a, b) => TimeSpan.Compare(a.Time, b.Time));
 
-            List<(MessagesUser, int?)> formattedMessageList = [];
+            List<(string, int?)> formattedMessageList = [];
 
             foreach (var message in messageList)
             {
                 TryGetName(message.SenderId, component, out var name);
                 var stationTime = message.Time.Subtract(_gameTicker.RoundStartTimeSpan);
-                var content = $"{stationTime.ToString("\\[hh\\:mm\\:ss\\]")} {name}: {message.Content}";
-                formattedMessageList.Add((new MessagesUser(content, Loc.GetString("messages-pda-unknown-job"), "Specific"), null));
+                var content = $"{stationTime:\\[hh\\:mm\\:ss\\]} {name}: {message.Content}";
+                formattedMessageList.Add((content, null));
             }
 
             TryGetName(component.ChatUid.Value, component, out var user);
-            state = new MessagesUiState(MessagesUiStateMode.Chat, formattedMessageList, user);
+            state = new MessagesUiState(MessagesUiStateMode.Chat, null, formattedMessageList, user);
         }
         _cartridgeLoaderSystem.UpdateCartridgeUiState(loaderUid, state);
     }

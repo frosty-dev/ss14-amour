@@ -8,9 +8,10 @@ namespace Content.Shared._White.CartridgeLoader.Cartridges;
 /// Contents contains either the names of users and their ids in the messages system or simply a list of message strings.
 ///</summary>
 [Serializable, NetSerializable]
-public sealed class MessagesUiState(MessagesUiStateMode mode, List<(MessagesUser, int?)> contents, string? name = null) : BoundUserInterfaceState
+public sealed class MessagesUiState(MessagesUiStateMode mode, List<(MessagesUserData, int?)>? users = null, List<(string, int?)>? messages = null, string? name = null) : BoundUserInterfaceState
 {
-    public List<(MessagesUser, int?)>? Contents = contents;
+    public List<(MessagesUserData, int?)>? Users = users;
+    public List<(string, int?)>? Messages = messages;
     public MessagesUiStateMode Mode = mode;
     public string? Name = name;
 }
@@ -24,24 +25,4 @@ public enum MessagesUiStateMode : byte
     UserList,
     Chat,
     Error
-}
-
-///<summary>
-/// Data of a single message in the system, containing the ids of the sender and recipient, the text content and the time it was sent.
-///</summary>
-[Serializable, NetSerializable]
-public struct MessagesMessageData
-{
-    public int SenderId;
-    public int ReceiverId;
-    public string Content;
-    public TimeSpan Time;
-}
-
-[Serializable]
-public sealed class MessagesUser(string name, string job, string department)
-{
-    public string Name = name;
-    public string Job = job;
-    public string Department = department;
 }
