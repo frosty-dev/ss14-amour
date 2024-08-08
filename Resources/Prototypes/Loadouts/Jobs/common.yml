@@ -537,14 +537,6 @@
     underwearb: ClothingUnderwearBottomPantiesCMO
 
 - type: itemLoadout # WD
-  id: CMOPanties
-  equipment: CMOPanties
-- type: startingGear
-  id: CMOPanties
-  equipment:
-    underwearb: ClothingUnderwearBottomPantiesCMO
-
-- type: itemLoadout # WD
   id: HOPBoxers
   equipment: HOPBoxers
 - type: startingGear
