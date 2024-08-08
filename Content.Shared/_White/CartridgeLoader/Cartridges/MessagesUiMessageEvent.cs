@@ -4,18 +4,13 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._White.CartridgeLoader.Cartridges;
 
 [Serializable, NetSerializable]
-public sealed class MessagesUiMessageEvent : CartridgeMessageEvent
+public sealed class MessagesUiMessageEvent(MessagesUiAction action, string? stringInput, int? targetChatUid) : CartridgeMessageEvent
 {
-    public readonly MessagesUiAction Action;
-    public readonly int? TargetChatUid;
-    public readonly string? StringInput;
+    public readonly MessagesUiAction Action = action;
 
-    public MessagesUiMessageEvent(MessagesUiAction action, string? stringInput, int? targetChatUid)
-    {
-        Action = action;
-        TargetChatUid = targetChatUid;
-        StringInput = stringInput;
-    }
+    public readonly int? TargetChatUid = targetChatUid;
+
+    public readonly string? StringInput = stringInput;
 }
 
 [Serializable, NetSerializable]

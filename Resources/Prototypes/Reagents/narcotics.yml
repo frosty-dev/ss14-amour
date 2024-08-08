@@ -25,21 +25,13 @@
             Asphyxiation: 2
     Narcotic:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
-        time: 4
-        refresh: false
       - !type:MovespeedModifier
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
-      - !type:GenericStatusEffect
-        key: NarcoticEffect
-        component: NarcoticEffect
+      - !type:NarcoticMoodEffect
       - !type:Jitter
       - !type:GenericStatusEffect
         key: Stun
@@ -77,12 +69,6 @@
   metabolisms:
     Narcotic:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
-        time: 4
-        refresh: false
       - !type:MovespeedModifier
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
@@ -95,9 +81,7 @@
             Poison: 2 # this is added to the base damage of the meth.
             Asphyxiation: 2
       - !type:Jitter
-      - !type:GenericStatusEffect
-        key: NarcoticEffect
-        component: NarcoticEffect
+      - !type:NarcoticMoodEffect
       - !type:GenericStatusEffect
         key: Stun
         time: 1
@@ -328,6 +312,7 @@
   metabolisms:
     Narcotic:
       effects:
+      - !type:NarcoticMoodEffect
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
@@ -347,6 +332,7 @@
   metabolisms:
     Narcotic:
       effects:
+      - !type:NarcoticMoodEffect
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
@@ -407,6 +393,7 @@
   metabolisms:
     Narcotic:
       effects:
+      - !type:NarcoticMoodEffect
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
@@ -425,6 +412,7 @@
   metabolisms:
     Narcotic:
       effects:
+      - !type:NarcoticMoodEffect
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows

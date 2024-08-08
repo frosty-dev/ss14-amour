@@ -683,7 +683,6 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
-      - MessagesCartridge
       - NewsReaderCartridge
       - LogProbeCartridge
 

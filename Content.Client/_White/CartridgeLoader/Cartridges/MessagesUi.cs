@@ -26,7 +26,7 @@ public sealed partial class MessagesUi : UIFragment
         if (state is not MessagesUiState messagesState)
             return;
 
-        _fragment.UpdateState(messagesState.Mode, messagesState.Contents, messagesState.Name);
+        _fragment.UpdateState(messagesState.Mode, messagesState.Users, messagesState.Messages, messagesState.Name);
     }
 
     private void SendMessagesMessage(MessagesUiAction action, string? stringInput, int? uidInput, BoundUserInterface userInterface)
