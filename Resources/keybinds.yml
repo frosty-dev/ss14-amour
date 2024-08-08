@@ -543,3 +543,7 @@ binds:
 - function: LieDown
   type: State
   key: U
+- function: LookUp
+  type: State
+  key: MouseRight
+  mod1: Space

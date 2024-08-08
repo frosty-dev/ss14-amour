@@ -338,6 +338,19 @@
         path: /Audio/White/Aspects/accent.ogg
     - type: RandomItemAspect
 
+- type: entity
+  id: ImmersiveAspect
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: Aspect
+    name: "Immersive"
+    description: "В связи с недавними трагичными событиями экипаж станции погрузился в себя"
+    weight: 3
+    startAudio:
+      path: /Audio/White/Aspects/accent.ogg
+  - type: ImmersiveAspect
+
 # Disabled this cause polymorph breaks stuff
 #- type: entity
 #  id: SkeletonAspect
