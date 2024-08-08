@@ -85,8 +85,10 @@ public abstract partial class SharedToolSystem
         if (!InteractionSystem.InRangeUnobstructed(user, coordinates, popup: false))
             return false;
 
+        var delay = tileDef.IsSubFloor ? TimeSpan.FromSeconds(4) : comp.Delay; // WD
+
         var args = new TileToolDoAfterEvent(GetNetCoordinates(coordinates));
-        UseTool(ent, user, ent, comp.Delay, tool.Qualities, args, out _, toolComponent: tool);
+        UseTool(ent, user, ent, delay, tool.Qualities, args, out _, toolComponent: tool); // WD EDIT
         return true;
     }
 

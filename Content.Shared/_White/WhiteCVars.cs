@@ -164,7 +164,7 @@ public sealed class WhiteCVars
      */
 
     public static readonly CVarDef<bool> FanaticXenophobiaEnabled =
-        CVarDef.Create("white.fanatic_xenophobia", true, CVar.SERVERONLY | CVar.ARCHIVE);
+        CVarDef.Create("white.fanatic_xenophobia", false, CVar.SERVERONLY | CVar.ARCHIVE);
 
     /*
    * MeatyOre

@@ -1,4 +1,4 @@
-﻿using Content.Server.Beam;
+﻿using Content.Server.Lightning;
 using Content.Shared.Revenant.Components;
 using Content.Shared.Revenant.EntitySystems;
 
@@ -9,7 +9,7 @@ namespace Content.Server.Revenant.EntitySystems;
 /// </summary>
 public sealed class RevenantOverloadedLightsSystem : SharedRevenantOverloadedLightsSystem
 {
-    [Dependency] private readonly BeamSystem _beam = default!;
+    [Dependency] private readonly LightningSystem _lightning = default!; // WD EDIT
 
     protected override void OnZap(Entity<RevenantOverloadedLightsComponent> lights)
     {
@@ -25,6 +25,6 @@ public sealed class RevenantOverloadedLightsSystem : SharedRevenantOverloadedLig
         if (distance > component.ZapRange)
             return;
 
-        _beam.TryCreateBeam(lights, component.Target.Value, component.ZapBeamEntityId);
+        _lightning.ShootLightning(lights, component.Target.Value, component.ZapBeamEntityId, false); // WD EDIT
     }
 }

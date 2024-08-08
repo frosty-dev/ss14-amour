@@ -40,9 +40,9 @@
   - type: AmbientSound
     enabled: false
     range: 3
-    volume: -8
+    volume: -12
     sound:
-      path: /Audio/Ambience/anomaly_drone.ogg
+      collection: AnomalySounds
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:

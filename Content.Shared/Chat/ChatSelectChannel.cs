@@ -46,14 +46,18 @@
         /// </summary>
         Dead = ChatChannel.Dead,
 
+        // WD EDIT START
         Cult = ChatChannel.Cult,
+
+        Changeling = ChatChannel.Changeling,
+
+        Network = ChatChannel.Network,
+        // WD EDIT END
 
         /// <summary>
         ///     Admin chat
         /// </summary>
         Admin = ChatChannel.AdminChat,
-
-        Changeling = ChatChannel.Changeling,
 
         Console = ChatChannel.Unspecified
     }

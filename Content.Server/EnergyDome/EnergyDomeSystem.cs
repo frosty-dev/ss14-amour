@@ -149,8 +149,10 @@ public sealed partial class EnergyDomeSystem : EntitySystem
 
     private void OnGetActions(Entity<EnergyDomeGeneratorComponent> generator, ref GetItemActionsEvent args)
     {
-        if (generator.Comp.CanInteractUse)
-            args.AddAction(ref generator.Comp.ToggleActionEntity, generator.Comp.ToggleAction);
+        if (args.SlotFlags != SlotFlags.OUTERCLOTHING)
+            return;
+
+        args.AddAction(ref generator.Comp.ToggleActionEntity, generator.Comp.ToggleAction);
     }
 
     private void OnToggleAction(Entity<EnergyDomeGeneratorComponent> generator, ref ToggleActionEvent args)

@@ -24,8 +24,11 @@ public sealed partial class ChannelFilterPopup : Popup
         ChatChannel.AdminAlert,
         ChatChannel.AdminChat,
         ChatChannel.Server,
+        // WD EDIT START
         ChatChannel.Changeling,
-        ChatChannel.Cult // WD EDIT
+        ChatChannel.Cult,
+        ChatChannel.Network
+        // WD EDIT END
     };
 
     private readonly Dictionary<ChatChannel, ChannelFilterCheckbox> _filterStates = new();

@@ -23,6 +23,7 @@ using Content.Shared._White;
 using Content.Shared._White.Cult.Components;
 using Content.Shared._White.Utils;
 using Content.Shared._White.Cult.Systems;
+using Content.Shared._White.Radio;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
@@ -574,6 +575,12 @@ public sealed class ChatUIController : UIController
         {
             FilterableChannels |= ChatChannel.Changeling;
             CanSendChannels |= ChatSelectChannel.Changeling;
+        }
+
+        if (_entities.HasComponent<NetworkChatComponent>(localEnt))
+        {
+            FilterableChannels |= ChatChannel.Network;
+            CanSendChannels |= ChatSelectChannel.Network;
         }
         // WD EDIT END
 

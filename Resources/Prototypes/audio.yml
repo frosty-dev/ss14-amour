@@ -1,20 +1,24 @@
-- type: ambientMusic
-  id: Morgue
-  sound:
-    params:
-      volume: -12
-    collection: AmbienceSpooky
-  rules: NearMorgue
-  priority: 4
+# WD edit - убрал говноамбиенты, у нас лучше. Пусть они играются
 
-- type: ambientMusic
-  id: SpookyFog
-  sound:
-    params:
-      volume: -12
-    collection: AmbienceSpookyFog
-  rules: NearSpookyFog
-  priority: 5
+
+
+#- type: ambientMusic
+#  id: Morgue
+#  sound:
+#    params:
+#      volume: -12
+#    collection: AmbienceSpooky
+#  rules: NearMorgue
+#  priority: 4
+
+#- type: ambientMusic
+#  id: SpookyFog
+#  sound:
+#    params:
+#      volume: -12
+#    collection: AmbienceSpookyFog
+#  rules: NearSpookyFog
+# priority: 5
 
 - type: ambientMusic
   id: Holy
@@ -35,33 +39,33 @@
   priority: 4
 
 # Departments
-- type: ambientMusic
-  id: Medical
-  sound:
-    params:
-      volume: -12
-    collection: AmbienceMedical
-  rules: NearMedical
-  priority: 3
+#- type: ambientMusic
+#  id: Medical
+#  sound:
+#    params:
+#      volume: -12
+#    collection: AmbienceMedical
+#  rules: NearMedical
+#  priority: 3
 
-- type: ambientMusic
-  id: Engineering
-  sound:
-    params:
-      volume: -12
-    collection: AmbienceEngineering
-  rules: NearEngineering
-  priority: 3
+#- type: ambientMusic
+#  id: Engineering
+#  sound:
+#    params:
+#      volume: -12
+#    collection: AmbienceEngineering
+#  rules: NearEngineering
+#  priority: 3
 
 # General areas
-- type: ambientMusic
-  id: Maintenance
-  sound:
-    params:
-      volume: -12
-    collection: AmbienceMaintenance
-  rules: NearMaintenance
-  priority: 2
+#- type: ambientMusic
+#  id: Maintenance
+#  sound:
+#    params:
+#      volume: -12
+#    collection: AmbienceMaintenance
+#  rules: NearMaintenance
+#  priority: 2
 
 - type: ambientMusic
   id: Space
@@ -69,7 +73,6 @@
     params:
       volume: -10
     collection: AmbienceSpace
-  fadeIn: true
   interruptable: true
   rules: InSpace
   priority: 1
@@ -79,7 +82,7 @@
   sound:
     params:
       volume: -12
-    collection: AmbienceMining
+    collection: AmbienceSpace # AmbienceMining говно
   rules: OnMapGrid
   fadeIn: true
   interruptable: true
@@ -92,6 +95,7 @@
     params:
       volume: -12
     collection: AmbienceGeneral
+  interruptable: true
   rules: AlwaysTrue
 
 # Sound collections
@@ -110,20 +114,34 @@
 
 - type: soundCollection
   id: AmbienceGeneral
-  files:
-    - /Audio/Ambience/ambigen1.ogg
-    - /Audio/Ambience/ambigen3.ogg
-    - /Audio/Ambience/ambigen4.ogg
-    - /Audio/Ambience/ambigen5.ogg
-    - /Audio/Ambience/ambigen6.ogg
-    - /Audio/Ambience/ambigen7.ogg
-    - /Audio/Ambience/ambigen8.ogg
-    - /Audio/Ambience/ambigen9.ogg
-    - /Audio/Ambience/ambigen10.ogg
-    - /Audio/Ambience/ambigen11.ogg
-    - /Audio/Ambience/ambigen12.ogg
-    - /Audio/Ambience/ambigen14.ogg
-    - /Audio/Ambience/ambigen15.ogg
+  files: # WD
+    - /Audio/White/Ambience/Station/station_1.ogg
+    - /Audio/White/Ambience/Station/station_2.ogg
+    - /Audio/White/Ambience/Station/station_3.ogg
+    - /Audio/White/Ambience/Station/station_4.ogg
+    - /Audio/White/Ambience/Station/station_5.ogg
+    - /Audio/White/Ambience/Station/station_6.ogg
+    - /Audio/White/Ambience/Station/station_7.ogg
+    - /Audio/White/Ambience/Station/station_8.ogg
+    - /Audio/White/Ambience/Station/station_9.ogg
+    - /Audio/White/Ambience/Station/station_10.ogg
+    - /Audio/White/Ambience/Station/station_11.ogg
+    - /Audio/White/Ambience/Station/station_12.ogg
+    - /Audio/White/Ambience/Station/station_13.ogg
+    - /Audio/White/Ambience/Station/station_14.ogg
+    - /Audio/White/Ambience/Station/station_15.ogg
+    - /Audio/White/Ambience/Station/station_16.ogg
+    - /Audio/White/Ambience/Station/station_17.ogg
+    - /Audio/White/Ambience/Station/station_18.ogg
+    - /Audio/White/Ambience/Station/station_19.ogg
+    - /Audio/White/Ambience/Station/station_20.ogg
+    - /Audio/White/Ambience/Station/station_21.ogg
+    - /Audio/White/Ambience/Station/station_22.ogg
+    - /Audio/White/Ambience/Station/station_23.ogg
+    - /Audio/White/Ambience/Station/station_24.ogg
+    - /Audio/White/Ambience/Station/station_25.ogg
+    - /Audio/White/Ambience/Station/station_26.ogg
+    - /Audio/White/Ambience/Station/station_27.ogg
 
 - type: soundCollection
   id: AmbienceHoly
@@ -196,14 +214,22 @@
 
 - type: soundCollection
   id: AmbienceSpace
-  files:
-    - /Audio/Ambience/constellations.ogg
-    - /Audio/Ambience/starlight.ogg
-    - /Audio/Ambience/drifting.ogg
-    - /Audio/Ambience/spookyspace1.ogg
-    - /Audio/Ambience/spookyspace2.ogg
-    - /Audio/Ambience/ambispace2.ogg
-    - /Audio/Lobby/title2.ogg
+  files: # WD
+    - /Audio/White/Ambience/Space/space_1.ogg
+    - /Audio/White/Ambience/Space/space_2.ogg
+    - /Audio/White/Ambience/Space/space_3.ogg
+    - /Audio/White/Ambience/Space/space_4.ogg
+    - /Audio/White/Ambience/Space/space_5.ogg
+    - /Audio/White/Ambience/Space/space_6.ogg
+    - /Audio/White/Ambience/Space/space_7.ogg
+    - /Audio/White/Ambience/Space/space_8.ogg
+    - /Audio/White/Ambience/Space/space_9.ogg
+    - /Audio/White/Ambience/Space/space_10.ogg
+    - /Audio/White/Ambience/Space/space_11.ogg
+    - /Audio/White/Ambience/Space/space_12.ogg
+    - /Audio/White/Ambience/Space/space_13.ogg
+    - /Audio/White/Ambience/Space/space_14.ogg
+    - /Audio/White/Ambience/Space/space_15.ogg
 
 - type: soundCollection
   id: AmbienceSpooky
@@ -243,6 +269,14 @@
     - /Audio/Ambience/ambidanger2.ogg
     - /Audio/Ambience/ambimine.ogg
 
+- type: soundCollection # WD
+  id: AnomalySounds
+  files:
+  - /Audio/White/Ambience/Anomalies/anomaly1.ogg
+  - /Audio/White/Ambience/Anomalies/anomaly2.ogg
+  - /Audio/White/Ambience/Anomalies/anomaly3.ogg
+  - /Audio/White/Ambience/Anomalies/anomaly4.ogg
+
 ## Background noise on station, separate to ambient music.
 - type: soundCollection
   id: AmbienceStation
@@ -259,9 +293,9 @@
   id: InSpace
   rules:
     - !type:InSpaceRule
-    - !type:GridInRangeRule
-      inverted: true
-      range: 3
+#    - !type:GridInRangeRule
+#      inverted: true
+#      range: 3
 
 # TODO
 - type: rules
@@ -320,7 +354,7 @@
       components:
         - type: Morgue
       range: 3
-      
+
 - type: rules
   id: NearSpookyFog
   rules:
