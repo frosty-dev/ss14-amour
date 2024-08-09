@@ -24,6 +24,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly IClientAdminManager _adminManager = default!;
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private readonly List<string> _roleBans = new();
@@ -114,8 +115,12 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             return true;
 
         var reasons = new List<string>();
+        var isAdmin = _adminManager.IsAdmin(true); // WD
         foreach (var requirement in requirements)
         {
+            if (requirement.IgnoreIfAdmin && isAdmin) // WD
+                continue;
+
             if (requirement.Check(_entManager, _prototypes, profile, _roles, out var jobReason))
                 continue;
 
