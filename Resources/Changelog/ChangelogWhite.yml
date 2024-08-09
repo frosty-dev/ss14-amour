@@ -7837,3 +7837,11 @@
   id: 466
   time: '2024-08-05T13:39:31.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/567
+- author: MJ Sailor
+  changes:
+  - message: "\u0412\u0440\u0435\u043C\u0435\u043D\u043D\u044B\u0439 \u0440\u0435\u0432\
+      \u0435\u0440\u0442 \u0433\u043E\u0432\u043D\u0430"
+    type: Remove
+  id: 467
+  time: '2024-08-09T16:09:22.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/600
