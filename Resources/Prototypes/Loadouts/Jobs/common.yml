@@ -811,6 +811,14 @@
     underweart: ClothingUnderwearTopBraBinderStrapless
 
 - type: itemLoadout # WD
+  id: StraplessBra
+  equipment: StraplessBra
+- type: startingGear
+  id: StraplessBra
+  equipment:
+    underweart: ClothingUnderwearTopBraStrapless
+
+- type: itemLoadout # WD
   id: StraplessBraAlt
   equipment: StraplessBraAlt
 - type: startingGear
