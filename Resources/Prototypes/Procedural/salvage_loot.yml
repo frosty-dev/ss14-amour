@@ -200,7 +200,7 @@
           cost: 3
         - proto: LaserModule
           cost: 8
-        - proto: HolograpicSightModule
+        - proto: HolographicSightModule
           cost: 8
         - proto: FlameHiderModule
           cost: 3
