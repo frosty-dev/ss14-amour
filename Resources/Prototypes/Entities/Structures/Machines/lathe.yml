@@ -18,6 +18,7 @@
         layer:
           - MachineLayer
   - type: Lathe
+    producingSound: /Audio/Machines/circuitprinter.ogg
   - type: MaterialStorage
     materialWhiteList:
     - Steel
@@ -195,11 +196,8 @@
        - MagazineBoxRifle
        - MagazineBoxLightRifle
        - GrenadeBlast
-       - LightModuleRecipe
-       - LaserModuleRecipe
-       - FlameHiderModuleRecipe
-       - SilencerModuleRecipe
-       - AcceleratorModuleRecipe
+       - LightModule
+       - FlameHiderModule
        - ShinanoGrenadeBeanbagRecipe
     emagDynamicRecipes:
       - CartridgePistolRubber
@@ -234,6 +232,11 @@
       - MagazineGrenadeEmpty
       - GrenadeEMP
       - GrenadeFlash
+      - SilencerModule
+      - LaserModule
+      - AcceleratorModule
+      - HolographicSightModule
+      - TelescopicSightModule
   - type: BluespaceStorage
 
 - type: entity
@@ -733,11 +736,8 @@
       - ShellShotgunPractice
       - WeaponLaserCarbinePractice
       - WeaponDisablerPractice
-      - LightModuleRecipe
-      - LaserModuleRecipe
-      - FlameHiderModuleRecipe
-      - SilencerModuleRecipe
-      - AcceleratorModuleRecipe
+      - LightModule
+      - FlameHiderModule
       - ShinanoGrenadeBeanbagRecipe
     dynamicRecipes:
       - CartridgeLightRifleIncendiary
@@ -798,6 +798,11 @@
       - ShinanoGrenadeFlashRecipe
       - ShinanoGrenadeSmokeRecipe
       - ShinanoGrenadeStingerRecipe
+      - SilencerModule
+      - LaserModule
+      - AcceleratorModule
+      - HolographicSightModule
+      - TelescopicSightModule
   - type: EmagLatheRecipes
     emagStaticRecipes:
      - MagazineLightRifleBox

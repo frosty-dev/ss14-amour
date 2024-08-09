@@ -1,3 +1,5 @@
+using Content.Shared.Maps;
+using Content.Shared.Roles;
 using Robust.Shared;
 using Robust.Shared.Configuration;
 
@@ -234,6 +236,12 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool>
             GameRoleTimers = CVarDef.Create("game.role_timers", true, CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        /// Override default role requirements using a <see cref="JobRequirementOverridePrototype"/>
+        /// </summary>
+        public static readonly CVarDef<string>
+            GameRoleTimerOverride = CVarDef.Create("game.role_timer_override", "", CVar.SERVER | CVar.REPLICATED);
 
         /// <summary>
         /// Whether or not disconnecting inside of a cryopod should remove the character or just store them until they reconnect.
@@ -865,6 +873,52 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> AdminBypassMaxPlayers =
             CVarDef.Create("admin.bypass_max_players", true, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Determine if custom rank names are used.
+        /// If it is false, it'd use the actual rank name regardless of the individual's title.
+        /// </summary>
+        /// <seealso cref="AhelpAdminPrefix"/>
+        /// <seealso cref="AhelpAdminPrefixWebhook"/>
+        public static readonly CVarDef<bool> AdminUseCustomNamesAdminRank =
+            CVarDef.Create("admin.use_custom_names_admin_rank", true, CVar.SERVERONLY);
+
+        /*
+         * AHELP
+         */
+
+        /// <summary>
+        /// Ahelp rate limit values are accounted in periods of this size (seconds).
+        /// After the period has passed, the count resets.
+        /// </summary>
+        /// <seealso cref="AhelpRateLimitCount"/>
+        public static readonly CVarDef<int> AhelpRateLimitPeriod =
+            CVarDef.Create("ahelp.rate_limit_period", 2, CVar.SERVERONLY);
+
+        /// <summary>
+        /// How many ahelp messages are allowed in a single rate limit period.
+        /// </summary>
+        /// <seealso cref="AhelpRateLimitPeriod"/>
+        public static readonly CVarDef<int> AhelpRateLimitCount =
+            CVarDef.Create("ahelp.rate_limit_count", 10, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Should the administrator's position be displayed in ahelp.
+        /// If it is is false, only the admin's ckey will be displayed in the ahelp.
+        /// </summary>
+        /// <seealso cref="AdminUseCustomNamesAdminRank"/>
+        /// <seealso cref="AhelpAdminPrefixWebhook"/>
+        public static readonly CVarDef<bool> AhelpAdminPrefix =
+            CVarDef.Create("ahelp.admin_prefix", true, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Should the administrator's position be displayed in the webhook.
+        /// If it is is false, only the admin's ckey will be displayed in webhook.
+        /// </summary>
+        /// <seealso cref="AdminUseCustomNamesAdminRank"/>
+        /// <seealso cref="AhelpAdminPrefix"/>
+        public static readonly CVarDef<bool> AhelpAdminPrefixWebhook =
+            CVarDef.Create("ahelp.admin_prefix_webhook", true, CVar.SERVERONLY);
 
         /*
          * Explosions

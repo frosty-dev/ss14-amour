@@ -16,6 +16,12 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 18000 # 15 3
+    - !type:AgeRequirement
+      requiredAge: 20
+    - !type:SpeciesRequirement
+      species:
+      - Human
+      - Felinid
   weight: 20
   icon: "JobIconCaptain"
   requireAdminNotify: true

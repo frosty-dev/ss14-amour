@@ -707,7 +707,7 @@ namespace Content.Shared.Preferences
                     continue;
                 }
 
-                loadouts.EnsureValid(session, collection);
+                loadouts.EnsureValid(this, session, collection);
             }
 
             foreach (var value in toRemove)

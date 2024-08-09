@@ -151,7 +151,6 @@
 - type: itemLoadout # WD
   id: CaptainEars
   equipment: CaptainEars
-
 - type: startingGear
   id: CaptainEars
   equipment:

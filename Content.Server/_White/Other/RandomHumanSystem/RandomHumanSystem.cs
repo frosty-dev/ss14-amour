@@ -58,7 +58,7 @@ public sealed class RandomHumanSystem : EntitySystem
         var cardId = pdaComponent.ContainedId.Value;
 
         _card.TryChangeFullName(cardId, newProfile.Name, card);
-        _pda.SetOwner(idUid.Value, pdaComponent, newProfile.Name);
+        _pda.SetOwnerName(idUid.Value, pdaComponent, newProfile.Name);
 
         if (EntityManager.TryGetComponent(cardId, out StationRecordKeyStorageComponent? keyStorage)
             && keyStorage.Key is { } key)

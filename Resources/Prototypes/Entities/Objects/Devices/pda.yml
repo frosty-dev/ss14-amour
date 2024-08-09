@@ -74,6 +74,7 @@
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
+      - MessagesCartridge
       - NewsReaderCartridge
       - BankCartridge
     cartridgeSlot:
@@ -679,6 +680,7 @@
     scanDelay: 0
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
+    notificationsEnabled: false
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
@@ -766,6 +768,7 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
+      - MessagesCartridgeSyndicate
     cartridgeSlot:
       priority: -1
       name: Cartridge
@@ -1067,6 +1070,7 @@
     uiKey: enum.PdaUiKey.Key
     preinstalled:
       - NotekeeperCartridge
+      - MessagesCartridgeSyndicate
     cartridgeSlot:
       priority: -1
       name: Cartridge

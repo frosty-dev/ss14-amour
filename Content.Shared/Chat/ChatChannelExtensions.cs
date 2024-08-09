@@ -15,8 +15,11 @@ public static class ChatChannelExtensions
             ChatChannel.AdminAlert => Color.Red,
             ChatChannel.AdminChat => Color.HotPink,
             ChatChannel.Whisper => Color.DarkGray,
+            // WD EDIT START
+            ChatChannel.Cult => Color.DarkRed,
             ChatChannel.Changeling => Color.Purple,
-            ChatChannel.Cult => Color.DarkRed, // WD EDIT
+            ChatChannel.Network => Color.White,
+            // WD EDIT END
             _ => Color.LightGray
         };
     }

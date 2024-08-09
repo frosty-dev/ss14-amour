@@ -73,55 +73,55 @@
 #  id: LeerBootsLoadout
 #  entity: LeerBoots
 #  sponsorOnly: true
-#  whitelistedJobs: [HeadOfSecurity]
+#  whitelistJobs: [HeadOfSecurity]
 
 - type: sponsorLoadout
   id: LeerCapLoadout
   entity: LeerCap
   sponsorOnly: true
-  whitelistedJobs: [HeadOfSecurity]
+  whitelistJobs: [HeadOfSecurity]
 
 - type: sponsorLoadout
   id: LeerCloakLoadout
   entity: LeerCloak
   sponsorOnly: true
-  whitelistedJobs: [HeadOfSecurity]
+  whitelistJobs: [HeadOfSecurity]
 
 #- type: sponsorLoadout
 #  id: LeerGlovesLoadout
 #  entity: LeerGloves
 #  sponsorOnly: true
-#  whitelistedJobs: [HeadOfSecurity]
+#  whitelistJobs: [HeadOfSecurity]
 
 - type: sponsorLoadout
   id: LeerHardsuitLoadout
   entity: LeerHardsuit
   sponsorOnly: true
-  whitelistedJobs: [HeadOfSecurity]
+  whitelistJobs: [HeadOfSecurity]
 
 - type: sponsorLoadout
   id: LeerHelmetLoadout
   entity: LeerHelmet
   sponsorOnly: true
-  whitelistedJobs: [HeadOfSecurity]
+  whitelistJobs: [HeadOfSecurity]
 
 - type: sponsorLoadout
   id: LeerJumpsuitLoadout
   entity: LeerJumpsuit
   sponsorOnly: true
-  whitelistedJobs: [HeadOfSecurity]
+  whitelistJobs: [HeadOfSecurity]
 
 - type: sponsorLoadout
   id: LeerMaskLoadout
   entity: LeerMask
   sponsorOnly: true
-  whitelistedJobs: [HeadOfSecurity]
+  whitelistJobs: [HeadOfSecurity]
 
 - type: sponsorLoadout
   id: LeerTrenchLoadout
   entity: LeerTrench
   sponsorOnly: true
-  whitelistedJobs: [HeadOfSecurity]
+  whitelistJobs: [HeadOfSecurity]
 
 # мурка
 - type: sponsorLoadout

@@ -39,7 +39,6 @@
   icon: { sprite: "/Textures/Objects/Specific/Medical/medical.rsi", state: tourniquet }
   spawn: Tourniquet
   maxCount: 3 # WD
-  itemSize: 1
 
 - type: stack
   id: MedicatedSuture

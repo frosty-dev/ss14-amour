@@ -7,6 +7,9 @@
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 36000 #10 hrs
+    - !type:SpeciesRequirement
+      species:
+      - Human
   icon: "JobIconWarden"
   supervisors: job-supervisors-hos
   whitelistedSpecies:

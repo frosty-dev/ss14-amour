@@ -557,12 +557,16 @@ namespace Content.Client.Preferences.UI
             _antagPreferences.Clear();
             var btnGroup = new ButtonGroup();
 
+            var character = (HumanoidCharacterProfile?) _preferencesManager.Preferences?.SelectedCharacter;
+            if (character == null)
+                return;
+
             foreach (var antag in _prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => Loc.GetString(a.Name)))
             {
                 if (!antag.SetPreference)
                     continue;
 
-                var selector = new AntagPreferenceSelector(antag, btnGroup)
+                var selector = new AntagPreferenceSelector(antag, btnGroup, character)
                 {
                     Margin = new Thickness(3f, 3f, 3f, 0f),
                 };
@@ -589,6 +593,10 @@ namespace Content.Client.Preferences.UI
             _jobPriorities.Clear();
             _jobCategories.Clear();
             var firstCategory = true;
+
+            var character = (HumanoidCharacterProfile?) _preferencesManager.Preferences?.SelectedCharacter;
+            if (character == null)
+                return;
 
             var departments = _prototypeManager.EnumeratePrototypes<DepartmentPrototype>().ToArray();
             Array.Sort(departments, DepartmentUIComparer.Instance);
@@ -650,12 +658,12 @@ namespace Content.Client.Preferences.UI
                     // Clone so we don't modify the underlying loadout.
                     Profile?.Loadouts.TryGetValue(LoadoutSystem.GetJobPrototype(job.ID), out loadout);
                     loadout = loadout?.Clone();
-                    var selector = new JobPrioritySelector(loadout, job, jobLoadoutGroup, _prototypeManager)
+                    var selector = new JobPrioritySelector(loadout, job, jobLoadoutGroup, _prototypeManager, character)
                     {
                         Margin = new Thickness(3f, 3f, 3f, 0f),
                     };
 
-                    if (!_requirements.IsAllowed(job, out var reason))
+                    if (!_requirements.IsAllowed(job, (HumanoidCharacterProfile?)_preferencesManager.Preferences?.SelectedCharacter, out var reason))
                     {
                         selector.LockRequirements(reason);
                     }

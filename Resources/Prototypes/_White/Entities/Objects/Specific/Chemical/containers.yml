@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ChemicalCartridge
   name: chemical cartridge
   parent: [DrinkBottleVisualsOpenable, BaseItem]
@@ -38,7 +38,7 @@
     - type: Tag
       tags:
         - ChemDispensable
-          
+
 - type: entity
   parent: ChemicalCartridge
   name: chemical cartridge (carbon)
@@ -367,4 +367,19 @@
         beaker:
           reagents:
             - ReagentId: Oxygen
+              Quantity: 500
+
+- type: entity
+  parent: ChemicalCartridge
+  name: chemical cartridge (napalm)
+  id: ChemicalCartridgeNapalm
+  noSpawn: true
+  components:
+    - type: Label
+      currentLabel: reagent-name-napalm
+    - type: SolutionContainerManager
+      solutions:
+        beaker:
+          reagents:
+            - ReagentId: Napalm
               Quantity: 500
