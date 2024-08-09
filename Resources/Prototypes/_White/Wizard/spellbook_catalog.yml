@@ -321,3 +321,51 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellBookRodForm
+  name: spellbook-rod-name
+  description: spellbook-rod-desc
+  productEntity: ScrollRodForm
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: rod_form
+  cost:
+    SpellPoint: 4
+  categories:
+  - UtilitySpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellBookBlind
+  name: spellbook-blind-name
+  description: spellbook-blind-desc
+  productEntity: ScrollBlind
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: blind
+  cost:
+    SpellPoint: 1
+  categories:
+  - UtilitySpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellBookMutate
+  name: spellbook-mutate-name
+  description: spellbook-mutate-desc
+  productEntity: ScrollMutate
+  icon:
+    sprite: Objects/Magic/magicactions.rsi
+    state: mutate
+  cost:
+    SpellPoint: 3
+  categories:
+  - AttackSpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
