@@ -29,7 +29,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         RestockInventoryFromPrototype(uid, component);
     }
 
-    public void RestockInventoryFromPrototype(EntityUid uid, VendingMachineComponent? component = null, bool restockEverything = true) // WD EDIT
+    public void RestockInventoryFromPrototype(EntityUid uid, VendingMachineComponent? component = null)
     {
         if (!Resolve(uid, ref component))
         {
@@ -40,8 +40,6 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
             return;
 
         AddInventoryFromPrototype(uid, packPrototype.StartingInventory, InventoryType.Regular, component);
-        if (!restockEverything) // WD
-            return;
         AddInventoryFromPrototype(uid, packPrototype.EmaggedInventory, InventoryType.Emagged, component);
         AddInventoryFromPrototype(uid, packPrototype.ContrabandInventory, InventoryType.Contraband, component);
     }

@@ -9,16 +9,16 @@ public sealed partial class DepartmentPrototype : IPrototype
     [IdDataField] public string ID { get; } = default!;
 
     /// <summary>
-    /// The name LocId of the department that will be displayed in the various menus.
+    ///     A name string.
     /// </summary>
     [DataField(required: true)]
-    public LocId Name = string.Empty;
+    public string Name = default!;
 
     /// <summary>
-    /// A description LocId to display in the character menu as an explanation of the department's function.
+    ///     A description string to display in the character menu as an explanation of the department's function.
     /// </summary>
-    [DataField(required: true)]
-    public LocId Description = string.Empty;
+    [DataField (required: true)]
+    public string Description = default!;
 
     /// <summary>
     ///     A color representing this department to use for text.
@@ -26,8 +26,8 @@ public sealed partial class DepartmentPrototype : IPrototype
     [DataField(required: true)]
     public Color Color = default!;
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public List<ProtoId<JobPrototype>> Roles = new();
+    [ViewVariables(VVAccess.ReadWrite), DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<JobPrototype>))]
+    public List<string> Roles = new();
 
     /// <summary>
     /// Whether this is a primary department or not.

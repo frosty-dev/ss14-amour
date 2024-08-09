@@ -2,7 +2,6 @@ using System.Numerics;
 using Content.Shared.Camera;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
-using Content.Shared.Item;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Telescope;
@@ -42,28 +41,7 @@ public abstract class SharedTelescopeSystem : EntitySystem
         if (!TryComp(args.User, out EyeComponent? eye))
             return;
 
-        if (!HasComp<ItemComponent>(ent.Owner))
-            return;
-
         SetOffset((args.User, eye), Vector2.Zero, ent);
-    }
-
-    public EntityUid GetRightEntity(EntityUid? ent)
-    {
-        var entity = EntityUid.Invalid;
-
-        if (TryComp<HandsComponent>(ent, out var hands) &&
-            HasComp<TelescopeComponent>(hands.ActiveHandEntity) &&
-            hands.ActiveHandEntity.HasValue)
-        {
-            entity = hands.ActiveHandEntity.Value;
-        }
-        else if (HasComp<TelescopeComponent>(ent))
-        {
-            entity = ent.Value;
-        }
-
-        return entity;
     }
 
     private void OnEyeOffsetChanged(EyeOffsetChangedEvent msg, EntitySessionEventArgs args)
@@ -71,15 +49,10 @@ public abstract class SharedTelescopeSystem : EntitySystem
         if (args.SenderSession.AttachedEntity is not { } ent)
             return;
 
-        if (!TryComp(ent, out EyeComponent? eye))
+        if (!TryComp<HandsComponent>(ent, out var hands) ||
+            !TryComp<TelescopeComponent>(hands.ActiveHandEntity, out var telescope) ||
+            !TryComp(ent, out EyeComponent? eye))
             return;
-
-        var entity = GetRightEntity(ent);
-
-        if (entity == EntityUid.Invalid)
-            return;
-
-        var telescope = Comp<TelescopeComponent>(entity);
 
         var offset = Vector2.Lerp(eye.Offset, msg.Offset, telescope.LerpAmount);
 
@@ -97,19 +70,6 @@ public abstract class SharedTelescopeSystem : EntitySystem
         }
         else
             _eye.SetOffset(ent, offset, ent);
-    }
-
-    public void SetParameters(Entity<TelescopeComponent> ent, float? divisor = null, float? lerpAmount = null)
-    {
-        var telescope = ent.Comp;
-
-        divisor ??= telescope.Divisor;
-        lerpAmount ??= telescope.LerpAmount;
-
-        telescope.Divisor = divisor.Value;
-        telescope.LerpAmount = lerpAmount.Value;
-
-        Dirty(ent.Owner, telescope);
     }
 }
 

@@ -2,16 +2,12 @@
 
 ent-CultBola = магическая { ent-Bola }
     .desc = { ent-Bola.desc }
-    .suffix = культ
+    .suffic = культ
 
 # Energy bola
 
 ent-EnergyBola = энергобола
     .desc = Соверешенное слияние технологии и справедливости для отлова преступников.
-
-ent-DrinkShakerEphedrineInfinite = { ent-DrinkShaker }
-    .desc = { ent-DrinkShaker.desc }
-    .suffix = Эфедрин, Бесконечный
 
 action-name-insert-self = Залезть внутрь.
 action-name-insert-other = Засунуть внутрь.

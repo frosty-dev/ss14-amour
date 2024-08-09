@@ -257,7 +257,7 @@ namespace Content.Server.VendingMachines
 
         private void OnWithdrawMessage(EntityUid uid, VendingMachineComponent component, VendingMachineWithdrawMessage args)
         {
-            _stackSystem.Spawn(component.Credits, PrototypeManager.Index(component.CreditStackPrototype),
+            _stackSystem.Spawn(component.Credits, PrototypeManager.Index(component.CreditStackPrototype), 
                 Transform(uid).Coordinates);
             component.Credits = 0;
             Audio.PlayPvs(component.SoundWithdrawCurrency, uid);
@@ -583,7 +583,7 @@ namespace Content.Server.VendingMachines
             if (!Resolve(uid, ref vendComponent))
                 return;
 
-            RestockInventoryFromPrototype(uid, vendComponent, false);
+            RestockInventoryFromPrototype(uid, vendComponent);
 
             UpdateVendingMachineInterfaceState(uid, vendComponent);
             TryUpdateVisualState(uid, vendComponent);

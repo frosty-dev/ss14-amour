@@ -1,50 +1,70 @@
 - type: entity
   parent: BaseItem
-  id: BaseModule
+  id: BaseHandGuardModule
   abstract: true
   components:
   - type: Sprite
     sprite: White/Objects/Weapons/modules.rsi
-  - type: Item
-    sprite: White/Objects/Weapons/modules.rsi
-    size: Tiny
-  - type: Appearance
-
-- type: entity
-  parent: BaseModule
-  id: BaseHandGuardModule
-  abstract: true
-  components:
   - type: Tag
     tags:
       - BaseHandGuardModule
+  - type: Item
+    sprite: White/Objects/Weapons/modules.rsi
+    size: Small
+    shape:
+    - 0,0,0,0
+  - type: Appearance
 
 - type: entity
-  parent: BaseModule
+  parent: BaseItem
   id: BaseBarrelModule
   abstract: true
   components:
+  - type: Sprite
+    sprite: White/Objects/Weapons/modules.rsi
   - type: Tag
     tags:
       - BaseBarrelModule
+  - type: Item
+    sprite: White/Objects/Weapons/modules.rsi
+    size: Small
+    shape:
+    - 0,0,0,0
+  - type: Appearance
 
 - type: entity
-  parent: BaseModule
+  parent: BaseItem
   id: BaseAimModule
   abstract: true
   components:
+  - type: Sprite
+    sprite: White/Objects/Weapons/modules.rsi
   - type: Tag
     tags:
       - BaseAimModule
+  - type: Item
+    sprite: White/Objects/Weapons/modules.rsi
+    size: Small
+    shape:
+    - 0,0,0,0
+  - type: Appearance
 
 - type: entity
-  parent: BaseModule
+  parent: BaseItem
   id: BaseShutterModule
   abstract: true
   components:
+  - type: Sprite
+    sprite: White/Objects/Weapons/modules.rsi
   - type: Tag
     tags:
       - BaseShutterModule
+  - type: Item
+    sprite: White/Objects/Weapons/modules.rsi
+    size: Small
+    shape:
+    - 0,0,0,0
+  - type: Appearance
 
 # modules
 - type: entity
@@ -58,6 +78,7 @@
     module_type: "handguard_module"
   - type: Sprite
     state: light
+  - type: Appearance
 
 - type: entity
   parent: BaseHandGuardModule
@@ -70,6 +91,7 @@
     module_type: "handguard_module"
   - type: Sprite
     state: laser
+  - type: Appearance
 
 - type: entity
   parent: BaseBarrelModule
@@ -82,6 +104,7 @@
     module_type: "barrel_module"
   - type: Sprite
     state: flamehider
+  - type: Appearance
 
 - type: entity
   parent: BaseBarrelModule
@@ -94,6 +117,7 @@
     module_type: "barrel_module"
   - type: Sprite
     state: silencer
+  - type: Appearance
 
 - type: entity
   parent: BaseHandGuardModule
@@ -106,31 +130,20 @@
     module_type: "handguard_module"
   - type: Sprite
     state: accelerator
+  - type: Appearance
 
 - type: entity
   parent: BaseAimModule
-  id: HolographicSightModule
-  name: "holographic sight"
-  description: Holographic sight for rifles  (lecter, CV, drozd, WT).
+  id: EightAimModule
+  name: "aim module"
+  description: 8X Aim Module for rifles.
   components:
   - type: AimModule
-    value: "holographic"
+    value: "eightaim"
     module_type: "aim_module"
   - type: Sprite
-    state: holographic
-
-- type: entity
-  parent: BaseAimModule
-  id: TelescopicSightModule
-  name: "telescopic sight"
-  description: Telescopic sight for rifles  (lecter, CV, drozd, WT).
-  components:
-  - type: AimModule
-    divisor: 0.15
-    value: "telescopic"
-    module_type: "aim_module"
-  - type: Sprite
-    state: telescopic
+    state: eightaim
+  - type: Appearance
 
 - type: entity
   parent: BaseShutterModule

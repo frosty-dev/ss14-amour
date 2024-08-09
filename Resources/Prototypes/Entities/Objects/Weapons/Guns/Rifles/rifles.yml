@@ -76,9 +76,11 @@
       map: [ "enum.GunVisualLayers.Mag" ]
     - state: barrel_module
       visible: false
+      sprite: White/Objects/Weapons/modulesOnWeapon.rsi
       map: [ "enum.ModuleVisualState.BarrelModule" ]
     - state: handguard_module
       visible: false
+      sprite: White/Objects/Weapons/modulesOnWeapon.rsi
       map: [ "enum.ModuleVisualState.HandGuardModule" ]
     - state: aim_module
       visible: false
@@ -212,9 +214,11 @@
       map: [ "enum.GunVisualLayers.Mag" ]
     - state: barrel_module
       visible: false
+      sprite: White/Objects/Weapons/modulesOnWeapon.rsi
       map: [ "enum.ModuleVisualState.BarrelModule" ]
     - state: handguard_module
       visible: false
+      sprite: White/Objects/Weapons/modulesOnWeapon.rsi
       map: [ "enum.ModuleVisualState.HandGuardModule" ]
     - state: aim_module
       visible: false

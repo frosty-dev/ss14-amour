@@ -651,13 +651,3 @@
       Gunpowder: 100
   - type: Item
     size: Tiny
-
-# WD
-- type: entity
-  parent: MaterialGunpowder
-  id: MaterialGunpowder60
-  suffix: 60
-  components:
-  - type: Stack
-    stackType: Gunpowder
-    count: 60

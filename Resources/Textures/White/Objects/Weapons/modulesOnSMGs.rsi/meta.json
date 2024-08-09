@@ -1,17 +1,35 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "made by Aviu",
+    "copyright": "made by CaypenNow",
     "size": {
-        "x": 48,
+        "x": 32,
         "y": 32
     },
     "states": [
         {
-            "name": "holographic"
+            "name": "flamehider"
         },
         {
-            "name": "telescopic"
+            "name": "silencer"
+        },
+        {
+            "name": "light"
+        },
+        {
+            "name": "laser"
+        },
+        {
+            "name": "accelerator"
+        },
+        {
+            "name": "eightaim"
+        },
+        {
+            "name": "handguard_module"
+        },
+        {
+            "name": "barrel_module"
         },
         {
             "name": "aim_module"

@@ -18,6 +18,7 @@
       - id: BoxMindshield
       - id: ClothingOuterHardsuitWarden
       - id: OxygenTankFilled
+      - id: LightModule
       - id: WeaponLauncherShinano
       - id: BoxShinanoGrenadeFlash
       - id: BoxShinanoGrenadeSmoke
@@ -42,6 +43,7 @@
       - id: WeaponPistolMk58Nonlethal
       - id: MagazinePistol
       - id: BoxMindshield
+      - id: LightModule
       - id: WeaponLauncherShinano
       - id: BoxShinanoGrenadeFlash
       - id: BoxShinanoGrenadeSmoke
@@ -75,6 +77,7 @@
       - id: WeaponPistolMk58Nonlethal
       - id: SurveillanceBodyCamera
       - id: MagazinePistol
+      - id: LightModule
 
 - type: entity
   id: LockerBrigmedicFilled
@@ -138,6 +141,7 @@
       - id: VoiceRecorder
       - id: ClothingEyesGlassesSecurity
       - id: BoxZipLocks
+      - id: LightModule
 
 - type: entity
   id: ClosetBombFilled

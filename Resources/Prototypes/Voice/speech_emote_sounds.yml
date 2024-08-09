@@ -34,10 +34,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Gasp:
-      collection: MaleGasp
-    DefaultDeathgasp:
-      collection: MaleDeathGasp
 
 - type: emoteSounds
   id: FemaleHuman
@@ -74,10 +70,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Gasp:
-      collection: FemaleGasp
-    DefaultDeathgasp:
-      collection: FemaleDeathGasp
 
 - type: emoteSounds
   id: MaleFelinid
@@ -116,10 +108,6 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
-    Gasp:
-      collection: MaleGasp
-    DefaultDeathgasp:
-      collection: DeathGasp
 
 - type: emoteSounds
   id: FemaleFelinid
@@ -156,10 +144,6 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
-    Gasp:
-      collection: FemaleGasp
-    DefaultDeathgasp:
-      collection: DeathGasp
 
 - type: emoteSounds
   id: SoundsHarpy
@@ -216,10 +200,7 @@
       collection: HarpyCaws
     Chirp:
       collection: HarpyChirps
-    Gasp:
-      collection: MaleGasp
-    DefaultDeathgasp:
-      collection: DeathGasp
+
 
 - type: emoteSounds
   id: UnisexReptilian
@@ -274,10 +255,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Gasp:
-      collection: MaleGasp
-    DefaultDeathgasp:
-      collection: MaleDeathGasp
   params:
     variation: 0.125
 
@@ -316,10 +293,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Gasp:
-      collection: FemaleGasp
-    DefaultDeathgasp:
-      collection: FemaleDeathGasp
   params:
     variation: 0.125
 
@@ -347,10 +320,6 @@
       collection: BikeHorn
     Weh:
       collection: Weh
-    Gasp:
-      collection: MaleGasp
-    DefaultDeathgasp:
-      collection: DeathGasp
   params:
     variation: 0.125
 
@@ -369,10 +338,6 @@
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
     Weh:
       collection: Weh
-    Gasp:
-      collection: MaleGasp
-    DefaultDeathgasp:
-      collection: DeathGasp
 
 - type: emoteSounds
   id: UnisexDwarf
@@ -407,10 +372,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Gasp:
-      collection: MaleGasp
-    DefaultDeathgasp:
-      collection: MaleDeathGasp
   params:
     variation: 0.125
     pitch: 0.75
@@ -448,10 +409,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Gasp:
-      collection: FemaleGasp
-    DefaultDeathgasp:
-      collection: FemaleDeathGasp
   params:
     variation: 0.125
     pitch: 0.75
@@ -473,10 +430,6 @@
       path: /Audio/Voice/Moth/moth_squeak.ogg
     Weh:
       collection: Weh
-    Gasp:
-      collection: MaleGasp
-    DefaultDeathgasp:
-      collection: DeathGasp
 
 - type: emoteSounds
   id: UnisexSilicon

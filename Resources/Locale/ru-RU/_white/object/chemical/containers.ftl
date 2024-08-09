@@ -1,4 +1,4 @@
-ent-ChemicalCartridge = химический картридж
+﻿ent-ChemicalCartridge = химический картридж 
     .desc = Используется для хранения огромного количества химикатов. Используется в химических раздатчиках
 ent-ChemicalCartridgeCarbon = химический картридж (углерод)
     .desc = { ent-ChemicalCartridge.desc }
@@ -45,6 +45,4 @@ ent-ChemicalCartridgeSugar = химический картридж (сахар)
 ent-ChemicalCartridgeNitrogen = химический картридж (азот)
     .desc = { ent-ChemicalCartridge.desc }
 ent-ChemicalCartridgeOxygen = химический картридж (кислород)
-    .desc = { ent-ChemicalCartridge.desc }
-ent-ChemicalCartridgeNapalm = химический картридж (напалм)
     .desc = { ent-ChemicalCartridge.desc }

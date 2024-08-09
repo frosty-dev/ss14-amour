@@ -29,7 +29,6 @@ guide-entry-toxins = Toxins
 guide-entry-foods = Foods
 guide-entry-biological = Biological
 guide-entry-others = Others
-guide-entry-cleaning = Cleaning
 guide-entry-botanical = Botanicals
 guide-entry-ss14 = Space Station 14
 guide-entry-janitorial = Janitorial

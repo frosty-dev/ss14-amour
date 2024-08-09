@@ -697,7 +697,6 @@
             - PowerCell
             - PowerCellSmall
   - type: EnergyDomeGenerator
-    canInteractUse: false
     damageEnergyDraw: 15
     domePrototype: EnergyDomeSmallPink
   - type: ClothingSpeedModifier

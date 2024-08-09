@@ -19,10 +19,6 @@
       - id: ClothingMaskGasCaptain
       - id: ClothingUniformJumpskirtCaptain
       - id: ClothingOuterWinterCap
-      - id: ClothingUnderwearBottomBoxersCap # WD
-      - id: ClothingUnderwearBottomPantiesCap # WD
-      - id: ClothingUnderwearTopBraCap # WD
-
 
 - type: entity
   id: DresserChiefEngineerFilled
@@ -40,9 +36,6 @@
       - id: ClothingHeadsetAltEngineering
       - id: ClothingHeadHatHardhatWhite
       - id: ClothingHandsGlovesColorYellow
-      - id: ClothingUnderwearBottomBoxersCE # WD
-      - id: ClothingUnderwearBottomPantiesCE # WD
-      - id: ClothingUnderwearTopBraCE # WD
 
 - type: entity
   id: DresserChiefMedicalOfficerFilled
@@ -63,9 +56,6 @@
       - id: ClothingHeadsetAltMedical
       - id: ClothingMaskSterile
       - id: ClothingEyesEyepatchHudMedical
-      - id: ClothingUnderwearBottomBoxersCMO # WD
-      - id: ClothingUnderwearBottomPantiesCMO # WD
-      - id: ClothingUnderwearTopBraCMO # WD
 
 - type: entity
   id: DresserHeadOfPersonnelFilled
@@ -84,9 +74,6 @@
       - id: ClothingShoesLeather
       - id: ClothingUniformJumpsuitHoP
       - id: ClothingUniformJumpskirtHoP
-      - id: ClothingUnderwearBottomBoxersHOP # WD
-      - id: ClothingUnderwearBottomPantiesHOP # WD
-      - id: ClothingUnderwearTopBraHOP # WD
 
 - type: entity
   id: DresserHeadOfSecurityFilled
@@ -109,9 +96,6 @@
       - id: ClothingHeadsetAltSecurityCommand
       - id: ClothingMaskGasSwat
       - id: ClothingOuterCoatHoSTrench
-      - id: ClothingUnderwearBottomBoxersHOS # WD
-      - id: ClothingUnderwearBottomPantiesHOS # WD
-      - id: ClothingUnderwearTopBraHOS # WD
 
 - type: entity
   id: DresserQuarterMasterFilled
@@ -133,9 +117,6 @@
       - id: ClothingUniformJumpsuitQM
       - id: ClothingUniformJumpskirtQM
       - id: ClothingHeadHatQMsoft
-      - id: ClothingUnderwearBottomBoxersQM # WD
-      - id: ClothingUnderwearBottomPantiesQM # WD
-      - id: ClothingUnderwearTopBraQM # WD
 
 - type: entity
   id: DresserResearchDirectorFilled
@@ -153,9 +134,6 @@
       - id: ClothingUniformJumpsuitResearchDirector
       - id: ClothingOuterWinterRD
       - id: ClothingOuterCoatRD
-      - id: ClothingUnderwearBottomBoxersRD # WD
-      - id: ClothingUnderwearBottomPantiesRD # WD
-      - id: ClothingUnderwearTopBraRD # WD
 
 - type: entity
   id: DresserWardenFilled

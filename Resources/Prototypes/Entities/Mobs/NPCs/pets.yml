@@ -529,7 +529,7 @@
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
-      collection: Fox
+      path: /Audio/Animals/fox_squeak.ogg
   - type: Butcherable
     syndieRoleRequired: true
     spawned:

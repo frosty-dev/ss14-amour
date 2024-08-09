@@ -13,12 +13,9 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Drunk;
 using Content.Shared.FixedPoint;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
@@ -47,7 +44,7 @@ public sealed class BloodstreamSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!; // WD
-    [Dependency] private readonly BloodLossAccent _bloodLossAccent = default!; // WD
+    [Dependency] private readonly BloodLossAccent _bloodLossAccent = default!;
 
     public override void Initialize()
     {
@@ -386,13 +383,6 @@ public sealed class BloodstreamSystem : EntitySystem
             }
 
             tempSolution.RemoveAllSolution();
-
-            // WD edit start
-            if (TryComp<MobStateComponent>(uid, out var mobState) && TryComp<StaminaComponent>(uid, out var stamina))
-                if (mobState.CurrentState != MobState.Critical && !stamina.Critical)
-                    _audio.PlayPvs(component.BloodLossSound, uid, component.DefaultParams);
-
-            // WD edit end
         }
 
         _solutionContainerSystem.UpdateChemicals(component.TemporarySolution.Value);

@@ -88,7 +88,7 @@ public sealed class RenameCommand : IConsoleCommand
             {
                 if (pda.OwnerName == oldName)
                 {
-                    pdaSystem.SetOwnerName(uid, pda, name);
+                    pdaSystem.SetOwner(uid, pda, name);
                 }
             }
         }

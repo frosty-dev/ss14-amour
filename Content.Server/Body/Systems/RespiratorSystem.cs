@@ -2,7 +2,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Atmos;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
-using Content.Server.Chat.Systems;
 using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.DoAfter;
 using Content.Server.Nutrition.Components; // WD
@@ -43,16 +42,14 @@ public sealed class RespiratorSystem : EntitySystem
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSys = default!;
     [Dependency] private readonly LungSystem _lungSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!; // WD
     [Dependency] private readonly ActionBlockerSystem _blocker = default!; // WD
     [Dependency] private readonly AudioSystem _audio = default!; // WD
     [Dependency] private readonly DoAfterSystem _doAfter = default!; // WD
     [Dependency] private readonly DamageableSystem _damageable = default!; // WD
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!; // WD
-
 
     public override void Initialize()
     {
@@ -119,10 +116,10 @@ public sealed class RespiratorSystem : EntitySystem
                     continue;
                 }
 
-                if (_gameTiming.CurTime >= respirator.LastGaspEmoteTime + respirator.GaspEmoteCooldown)
+                if (_gameTiming.CurTime >= respirator.LastGaspPopupTime + respirator.GaspPopupCooldown)
                 {
-                    respirator.LastGaspEmoteTime = _gameTiming.CurTime;
-                    _chat.TryEmoteWithChat(uid, respirator.GaspEmote, ignoreActionBlocker: true);
+                    respirator.LastGaspPopupTime = _gameTiming.CurTime;
+                    _popupSystem.PopupEntity($"{Name(Identity.Entity(uid, EntityManager))} задыхается!", uid);
                 }
 
                 TakeSuffocationDamage((uid, respirator));

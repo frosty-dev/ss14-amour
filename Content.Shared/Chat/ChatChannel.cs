@@ -80,26 +80,23 @@ public enum ChatChannel : uint
     /// </summary>
     AdminChat = 1 << 13,
 
-    //WD EDIT START
     /// <summary>
     /// Changeling
     /// </summary>
     Changeling = 1 << 14,
 
+    //WD EDIT
     Cult = 1 << 15,
-
-    Network = 1 << 16,
-    //WD EDIT END
 
     /// <summary>
     ///     Unspecified.
     /// </summary>
-    Unspecified = 1 << 17,
+    Unspecified = 1 << 16,
 
     /// <summary>
     ///     Channels considered to be IC.
     /// </summary>
-    IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Notifications | Cult | Changeling | Network,
+    IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Notifications | Cult | Changeling,
 
     AdminRelated = Admin | AdminAlert | AdminChat,
 }

@@ -10,9 +10,6 @@
       department: Security
       time: 54000 #15 hrs
       inverted: true # stop playing intern if you're good at security!
-    - !type:SpeciesRequirement
-      species:
-      - Human
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
   whitelistedSpecies:

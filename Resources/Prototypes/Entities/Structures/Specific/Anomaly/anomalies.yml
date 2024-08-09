@@ -14,9 +14,9 @@
         Radiation: 10
   - type: AmbientSound
     range: 5
-    volume: -12
+    volume: -5
     sound:
-      collection: AnomalySounds
+      path: /Audio/Ambience/anomaly_drone.ogg
   - type: Transform
     anchored: false
   - type: Physics

@@ -2,7 +2,6 @@ using System.Numerics;
 using Content.Client.Viewport;
 using Content.Shared._White.Telescope;
 using Content.Shared.Hands.Components;
-using Content.Shared.Input;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -24,7 +23,6 @@ public sealed class TelescopeSystem : SharedTelescopeSystem
 
     private ScalingViewport? _viewport;
 
-
     public override void FrameUpdate(float frameTime)
     {
         base.FrameUpdate(frameTime);
@@ -34,25 +32,19 @@ public sealed class TelescopeSystem : SharedTelescopeSystem
 
         var player = _player.LocalEntity;
 
-        var entity = GetRightEntity(player);
-
-        if (entity == EntityUid.Invalid)
-            return;
-
-        var telescope = Comp<TelescopeComponent>(entity);
-
-        if (!TryComp<EyeComponent>(player, out var eye))
+        if (!TryComp<HandsComponent>(player, out var hands) ||
+            !TryComp<TelescopeComponent>(hands.ActiveHandEntity, out var telescope) ||
+            !TryComp<EyeComponent>(player.Value, out var eye))
             return;
 
         var offset = Vector2.Zero;
 
-        if (_inputSystem.CmdStates.GetState(ContentKeyFunctions.LookUp) != BoundKeyState.Down)
+        if (_inputSystem.CmdStates.GetState(EngineKeyFunctions.UseSecondary) != BoundKeyState.Down)
         {
             RaisePredictiveEvent(new EyeOffsetChangedEvent
             {
                 Offset = offset
             });
-
             return;
         }
 

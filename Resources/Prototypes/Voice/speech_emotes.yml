@@ -1,4 +1,4 @@
-﻿# vocal emotes
+# vocal emotes
 - type: emote
   id: Scream
   category: Vocal
@@ -215,14 +215,6 @@
   buttonText: Облизываться
   chatMessages: [облизывается]
   allowMenu: true
-
-- type: emote
-  id: Gasp
-  name: chat-emote-name-gasp
-  whitelist:
-    components:
-    - Respirator
-  chatMessages: ["chat-emote-msg-gasp"]
 
 - type: emote
   id: DefaultDeathgasp

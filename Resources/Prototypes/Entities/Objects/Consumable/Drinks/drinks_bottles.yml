@@ -896,7 +896,7 @@
           Quantity: 300
   - type: Drink
   - type: Label
-    currentLabel: холодный чай
+  currentLabel: холодный чай
 
 - type: entity
   parent: DrinkBottlePlasticBaseFull

@@ -24,7 +24,6 @@ using Content.Server.Popups;
 using Content.Server.Store.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
-using Content.Shared._White.Item.PseudoItem;
 using Content.Shared._White.Overlays;
 using Content.Shared.Actions;
 using Content.Shared.Borer;
@@ -1012,7 +1011,7 @@ public sealed partial class ChangelingSystem
 
         if (!TryComp(polymorphEntity.Value, out FelinidComponent? felinid))
             return polymorphEntity;
-
+        
         _action.SetCharges(felinid.HairballAction, 0);
         _action.SetEnabled(felinid.HairballAction, false);
 
@@ -1021,9 +1020,6 @@ public sealed partial class ChangelingSystem
 
     private void BeforeTransform(EntityUid target)
     {
-        if (TryComp(target, out PseudoItemComponent? pseudoItem) && pseudoItem.Active)
-            _transform.AttachToGridOrMap(target);
-
         if (TryComp(target, out BorerHostComponent? host) && host.BorerContainer.Count > 0)
             _borer.GetOut(host.BorerContainer.ContainedEntities[0]);
 

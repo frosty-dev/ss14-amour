@@ -24,9 +24,7 @@
     ChemicalCartridgeSugar: 1
     ChemicalCartridgeSulfur: 1
   emaggedInventory:
-    VestineChemistryVial: 1
     ToxinChemistryBottle: 1
-    ChemicalCartridgeNapalm: 1
 
 - type: vendingMachineInventory
   id: ChemVendInventorySyndicate

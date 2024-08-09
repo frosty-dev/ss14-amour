@@ -1,7 +1,7 @@
 - type: reagent
   id: Carpetium
   name: reagent-name-carpetium
-  group: Unknown # WD
+  group: Special
   desc: reagent-desc-carpetium
   physicalDesc: reagent-physical-desc-fibrous
   flavor: carpet
@@ -30,7 +30,6 @@
 - type: reagent
   id: Fiber
   name: reagent-name-fiber
-  group: Unknown # WD
   desc: reagent-desc-fiber
   physicalDesc: reagent-physical-desc-fibrous
   flavor: fiber
@@ -140,7 +139,6 @@
 - type: reagent
   id: GroundBee
   name: reagent-name-ground-bee
-  group: Unknown # WD
   desc: reagent-desc-ground-bee
   physicalDesc: reagent-physical-desc-bee-guts
   flavor: bee
@@ -149,7 +147,6 @@
 - type: reagent
   id: Saxoite
   name: reagent-name-saxoite
-  group: Toxins # WD
   desc: reagent-desc-saxoite
   physicalDesc: reagent-physical-desc-ground-brass
   flavor: sax
@@ -303,7 +300,7 @@
 - type: reagent
   id: Laughter
   name: reagent-name-laughter
-  group: Unknown # WD
+  group: Special
   desc: reagent-desc-laughter
   physicalDesc: reagent-physical-desc-funny
   flavor: funny

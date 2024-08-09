@@ -1217,7 +1217,6 @@
 - type: reagent
   id: Synthflesh
   name: reagent-name-synthflesh
-  group: Medicine # WD
   desc: reagent-desc-synthflesh
   flavor: metallic
   physicalDesc: reagent-physical-desc-gelatinous
@@ -1248,7 +1247,6 @@
 - type: reagent
   id: SilverSulfadiazine
   name: reagent-name-silversulfadiazine
-  group: Medicine # WD
   desc: reagent-desc-silversulfadiazine
   flavor: medicine
   physicalDesc: reagent-physical-desc-creamy
@@ -1275,7 +1273,6 @@
 - type: reagent
   id: StypticPowder
   name: reagent-name-stypticpowder
-  group: Medicine # WD
   desc: reagent-desc-stypticpowder
   flavor: medicine
   physicalDesc: reagent-physical-desc-powdery

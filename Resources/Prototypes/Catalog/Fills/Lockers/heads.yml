@@ -287,6 +287,7 @@
       - id: MagazinePistol
       - id: BoxMindshield
       - id: TagillaHammer
+      - id: EightAimModule
 - type: entity
   id: LockerFreezerVaultFilled
   suffix: Vault, Locked
@@ -327,6 +328,3 @@
         - id: ClothingHandsGlovesInspector
         - id: ClothingHeadsetAltSecurityCommand
         - id: RubberStampInspector
-        - id: ClothingUnderwearBottomBoxersInspector # WD
-        - id: ClothingUnderwearBottomPantiesInspector # WD
-        - id: ClothingUnderwearTopBraInspector # WD

@@ -44,7 +44,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 10
+        damage: 50
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -52,10 +52,6 @@
   - type: Construction
     graph: FireBomb
     node: firebomb
-  - type: TriggerOnSignal
-  - type: DeviceLinkSink
-    ports:
-      - Trigger
 
 # has igniter but no fuel or wires
 - type: entity

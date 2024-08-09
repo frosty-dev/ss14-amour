@@ -11,7 +11,6 @@ public sealed partial class PointsCostLoadoutEffect : LoadoutEffect
     public int Cost = 1;
 
     public override bool Validate(
-        HumanoidCharacterProfile profile,
         RoleLoadout loadout,
         ICommonSession session,
         IDependencyCollection collection,

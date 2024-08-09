@@ -101,7 +101,7 @@
   - type: Clothing
     sprite: White/Objects/Weapons/Guns/Revolvers/inspector-inhands.rsi
   - type: Item
-    sprite: White/Objects/Weapons/Guns/Revolvers/inspector-inhands.rsi
+    sprite: White/Objects/Weapons/Guns/Revolvers/inspector-inhand.rsi
   - type: RevolverAmmoProvider
     capacity: 6
     chambers: [ True, True, True, True, True, True ]

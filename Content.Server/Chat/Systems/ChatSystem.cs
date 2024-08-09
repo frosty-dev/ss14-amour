@@ -27,7 +27,6 @@ using Content.Shared._White;
 using Content.Shared._White.Cult.Components;
 using Content.Shared.Speech;
 using Content.Shared._White.Cult.Systems;
-using Content.Shared._White.Radio;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -774,7 +773,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             .Select(p => p.Channel);
     }
 
-    // WD EDIT START
+    // WD EDIT
     private void SendCultChat(EntityUid source, ICommonSession player, string message, bool hideChat)
     {
         var clients = GetCultChatClients();
@@ -802,28 +801,6 @@ public sealed partial class ChatSystem : SharedChatSystem
             .Union(_adminManager.ActiveAdmins)
             .Select(p => p.Channel);
     }
-
-    public void SendNetworkChat(EntityUid source, string message, bool hideChat)
-    {
-        var clients = GetNetworkChatClients();
-        var wrappedMessage = Loc.GetString("chat-manager-send-message-chat-wrap-message",
-            ("channelName", Loc.GetString("chat-manager-message-channel-name")),
-            ("message", FormattedMessage.EscapeText(message)));
-
-        _chatManager.ChatMessageToMany(ChatChannel.Network, message, wrappedMessage, source, hideChat, false,
-            clients.ToList());
-    }
-
-    private IEnumerable<INetChannel> GetNetworkChatClients()
-    {
-        return Filter.Empty()
-            .AddWhereAttachedEntity(HasComp<GhostComponent>)
-            .AddWhereAttachedEntity(HasComp<NetworkChatComponent>)
-            .Recipients
-            .Union(_adminManager.ActiveAdmins)
-            .Select(p => p.Channel);
-    }
-    // WD EDIT END
 
     private void SendDeadChat(EntityUid source, ICommonSession player, string message, bool hideChat)
     {

@@ -16,9 +16,6 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 216000 # 60 hrs
-    - !type:SpeciesRequirement
-      species:
-      - Human
   icon: "JobIconSeniorOfficer"
   supervisors: job-supervisors-hos
   whitelistedSpecies:

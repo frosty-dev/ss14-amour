@@ -12,13 +12,6 @@
       time: 18000
     - !type:OverallPlaytimeRequirement
       time: 108000
-    - !type:AgeRequirement
-      requiredAge: 20
-    - !type:SpeciesRequirement
-      species:
-      - Human
-      - Dwarf
-      - Felinid
   weight: 10
   icon: "JobIconChiefEngineer"
   requireAdminNotify: true

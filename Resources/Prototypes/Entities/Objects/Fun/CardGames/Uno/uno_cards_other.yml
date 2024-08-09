@@ -24,7 +24,6 @@
     - TrashBag
   - type: Appearance
   - type: Dumpable
-  - type: GiftIgnore
   - type: StorageFill
     contents:
      - id: UnoCardUnknownGreen3
@@ -161,4 +160,3 @@
     - TrashBag
   - type: Appearance
   - type: Dumpable
-  - type: GiftIgnore

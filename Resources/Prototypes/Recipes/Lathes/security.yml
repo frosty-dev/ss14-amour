@@ -659,48 +659,43 @@
     Silver: 50
 
 - type: latheRecipe
-  id: LightModule
+  id: LightModuleRecipe
   result: LightModule
-  completetime: 3
-  category: Modules
+  completetime: 5
   materials:
-     Steel: 200
-     Plastic: 100
-     Glass: 200
+     Steel: 700
+     Plastic: 700
+     Glass: 500
 
 - type: latheRecipe
-  id: LaserModule
+  id: LaserModuleRecipe
   result: LaserModule
-  completetime: 6
-  category: Modules
+  completetime: 10
   materials:
      Steel: 1500
      Plastic: 1000
      Glass: 300
 
 - type: latheRecipe
-  id: FlameHiderModule
+  id: FlameHiderModuleRecipe
   result: FlameHiderModule
-  completetime: 3
-  category: Modules
+  completetime: 15
   materials:
-     Steel: 200
-     Plastic: 200
+     Steel: 1000
+     Plastic: 1000
 
 - type: latheRecipe
-  id: SilencerModule
+  id: SilencerModuleRecipe
   result: SilencerModule
-  completetime: 6
-  category: Modules
+  completetime: 15
   materials:
-     Steel: 400
-     Plastic: 300
+     Steel: 1000
+     Plastic: 1000
 
 - type: latheRecipe
-  id: AcceleratorModule
+  id: AcceleratorModuleRecipe
   result: AcceleratorModule
-  completetime: 12
-  category: Modules
+  completetime: 30
   materials:
      Steel: 3500
      Plastic: 1000
@@ -708,22 +703,10 @@
      Gold: 1000
 
 - type: latheRecipe
-  id: HolographicSightModule
-  result: HolographicSightModule
-  completetime: 6
-  category: Modules
+  id: EightAimRecipe
+  result: EightAimModule
+  completetime: 15
   materials:
      Steel: 500
      Plastic: 700
      Glass: 300
-
-- type: latheRecipe
-  id: TelescopicSightModule
-  result: TelescopicSightModule
-  completetime: 12
-  category: Modules
-  materials:
-     Steel: 1000
-     Plastic: 1400
-     Glass: 600
-     Silver: 800

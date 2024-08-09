@@ -32,7 +32,7 @@
         Heat: 10
   - type: PacifismDangerousAttack
   - type: Explosive
-    explosionType: FireBomb # WD EDIT
+    explosionType: Default
     totalIntensity: 120 # ~ 5 tile radius
     canCreateVacuum: false
 
@@ -75,7 +75,7 @@
           Quantity: 5000
         maxVol: 5000
   - type: Explosive
-    explosionType: FireBomb # WD EDIT
+    explosionType: Default
     totalIntensity: 140
     canCreateVacuum: false
 

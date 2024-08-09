@@ -2,7 +2,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
 using Content.Shared.Access.Components;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Roles;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.PDA
@@ -38,8 +37,6 @@ namespace Content.Shared.PDA
         [ViewVariables] public bool FlashlightOn;
 
         [ViewVariables(VVAccess.ReadWrite)] public string? OwnerName;
-        [ViewVariables(VVAccess.ReadWrite)] public string? OwnerJob; // WD EDIT
-        [ViewVariables(VVAccess.ReadWrite)] public string? OwnerDepartment; // WD EDIT
         [ViewVariables] public string? StationName;
         [ViewVariables] public string? StationAlertLevel;
         [ViewVariables] public Color StationAlertColor = Color.White;

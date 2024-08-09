@@ -392,8 +392,7 @@ namespace Content.Server.Administration.Managers
                 // я ебался в зад, поймите
                 if (!data.HasFlag(AdminFlags.Permissions) && !data.HasFlag(AdminFlags.Host) &&
                     dbData.AdminServer != null && dbData.AdminServer != "unknown" && currentServerName != "unknown"
-                    && currentServerName != dbData.AdminServer
-                    && _cfg.GetCVar(CCVars.AdminUseCustomNamesAdminRank))
+                    && currentServerName != dbData.AdminServer)
                 {
                     return null;
                 }

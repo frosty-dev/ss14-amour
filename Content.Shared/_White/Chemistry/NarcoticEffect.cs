@@ -47,6 +47,7 @@ public sealed class NarcoticEffect : EntitySystem
 
         TryComp<StatusEffectsComponent>(uid, out var statusEffectsComp);
 
+        RaiseLocalEvent(uid, new MoodEffectEvent("Stimulator"));
         CancellationToken token = movespeedModifierComponent.CancelTokenSource.Token;
 
         int timer = component.TimerInterval[_robustRandom.Next(0, component.TimerInterval.Count)];

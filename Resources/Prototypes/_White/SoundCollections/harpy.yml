@@ -63,24 +63,14 @@
 - type: soundCollection
   id: HarpyCry
   files:
-    - /Audio/White/Voice/Human/Male/crying1.ogg
-    - /Audio/White/Voice/Human/Male/crying2.ogg
-    - /Audio/White/Voice/Human/Male/crying3.ogg
-    - /Audio/White/Voice/Human/Male/crying4.ogg
-    - /Audio/White/Voice/Human/Male/crying5.ogg
-    - /Audio/White/Voice/Human/Male/crying6.ogg
-    - /Audio/White/Voice/Human/Female/crying1.ogg
-    - /Audio/White/Voice/Human/Female/crying2.ogg
-    - /Audio/White/Voice/Human/Female/crying3.ogg
-    - /Audio/White/Voice/Human/Female/crying4.ogg
-    - /Audio/White/Voice/Human/Female/crying5.ogg
-    - /Audio/White/Voice/Human/Female/crying6.ogg
-    - /Audio/White/Voice/Human/Female/crying7.ogg
-    - /Audio/White/Voice/Human/Female/crying8.ogg
-    - /Audio/White/Voice/Human/Female/crying9.ogg
-    - /Audio/White/Voice/Human/Female/crying10.ogg
-    - /Audio/White/Voice/Human/Female/crying11.ogg
-    - /Audio/White/Voice/Human/Female/crying12.ogg
+    - /Audio/Voice/Human/cry_male_1.ogg
+    - /Audio/Voice/Human/cry_male_2.ogg
+    - /Audio/Voice/Human/cry_male_3.ogg
+    - /Audio/Voice/Human/cry_male_4.ogg
+    - /Audio/Voice/Human/cry_female_1.ogg
+    - /Audio/Voice/Human/cry_female_2.ogg
+    - /Audio/Voice/Human/cry_female_3.ogg
+    - /Audio/Voice/Human/cry_female_4.ogg
 
 - type: soundCollection
   id: HarpyMeows
