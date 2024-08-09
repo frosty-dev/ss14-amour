@@ -328,3 +328,6 @@
         - id: ClothingHandsGlovesInspector
         - id: ClothingHeadsetAltSecurityCommand
         - id: RubberStampInspector
+        - id: ClothingUnderwearBottomBoxersInspector # WD
+        - id: ClothingUnderwearBottomPantiesInspector # WD
+        - id: ClothingUnderwearTopBraInspector # WD

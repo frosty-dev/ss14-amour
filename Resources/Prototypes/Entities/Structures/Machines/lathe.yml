@@ -18,6 +18,7 @@
         layer:
           - MachineLayer
   - type: Lathe
+    producingSound: /Audio/Machines/circuitprinter.ogg
   - type: MaterialStorage
     materialWhiteList:
     - Steel

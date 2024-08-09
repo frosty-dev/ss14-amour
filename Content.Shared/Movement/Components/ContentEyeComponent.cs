@@ -13,12 +13,12 @@ public sealed partial class ContentEyeComponent : Component
     /// <summary>
     /// Zoom we're lerping to.
     /// </summary>
-    [DataField("targetZoom"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public Vector2 TargetZoom = Vector2.One;
 
     /// <summary>
     /// How far we're allowed to zoom out.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("maxZoom"), AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public Vector2 MaxZoom = Vector2.One;
 }

@@ -84,11 +84,16 @@ public sealed class MessagesCartridgeSystem : EntitySystem
             var stationId = _stationSystem.GetOwningStation(uid);
             if (!stationId.HasValue)
                 return;
+
+            var content = messageEvent.StringInput;
+            if (content.Length > 1000)
+                content = content.Substring(0, 997) + "...";
+
             MessagesMessageData messageData = new()
             {
                 SenderId = userId,
                 ReceiverId = component.ChatUid.Value,
-                Content = messageEvent.StringInput,
+                Content = content,
                 Time = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan)
             };
             var packet = new NetworkPayload()

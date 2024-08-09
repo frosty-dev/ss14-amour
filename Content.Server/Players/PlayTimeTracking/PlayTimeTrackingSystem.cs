@@ -164,16 +164,8 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         _tracking.QueueSendTimers(ev.PlayerSession);
     }
 
-    private bool IsBypassingChecks(ICommonSession player)
-    {
-        return _adminManager.IsAdmin(player, true);
-    }
-
     public bool IsAllowed(ICommonSession player, string role)
     {
-        if (IsBypassingChecks(player))
-            return true;
-
         if (!_prototypes.TryIndex<JobPrototype>(role, out var job) ||
             !_cfg.GetCVar(CCVars.GameRoleTimers))
             return true;
@@ -184,15 +176,14 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes = new Dictionary<string, TimeSpan>();
         }
 
-        return JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(player.UserId).SelectedCharacter);
+        var isAdmin = _adminManager.IsAdmin(player, true); // WD
+
+        return JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(player.UserId).SelectedCharacter, isAdmin); // WD EDIT
     }
 
     public HashSet<string> GetDisallowedJobs(ICommonSession player)
     {
         var roles = new HashSet<string>();
-
-        if (IsBypassingChecks(player))
-            return roles;
 
         if (!_cfg.GetCVar(CCVars.GameRoleTimers))
             return roles;
@@ -203,9 +194,11 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes = new Dictionary<string, TimeSpan>();
         }
 
+        var isAdmin = _adminManager.IsAdmin(player, true); // WD
+
         foreach (var job in _prototypes.EnumeratePrototypes<JobPrototype>())
         {
-            if (JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(player.UserId).SelectedCharacter))
+            if (JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(player.UserId).SelectedCharacter, isAdmin)) // WD EDIT
                 roles.Add(job.ID);
         }
 
@@ -219,9 +212,6 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
         var player = _playerManager.GetSessionById(userId);
 
-        if (IsBypassingChecks(player))
-            return;
-
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
         {
             // Sorry mate but your playtimes haven't loaded.
@@ -229,10 +219,12 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
             playTimes ??= new Dictionary<string, TimeSpan>();
         }
 
+        var isAdmin = _adminManager.IsAdmin(player, true); // WD
+
         for (var i = 0; i < jobs.Count; i++)
         {
             if (_prototypes.TryIndex(jobs[i], out var job)
-                && JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(userId).SelectedCharacter))
+                && JobRequirements.TryRequirementsMet(job, playTimes, out _, EntityManager, _prototypes, (HumanoidCharacterProfile?) _preferencesManager.GetPreferences(userId).SelectedCharacter, isAdmin)) // WD EDIT
             {
                 continue;
             }
