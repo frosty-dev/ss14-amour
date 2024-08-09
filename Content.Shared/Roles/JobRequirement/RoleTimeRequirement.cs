@@ -13,6 +13,8 @@ namespace Content.Shared.Roles;
 [Serializable, NetSerializable]
 public sealed partial class RoleTimeRequirement : JobRequirement
 {
+    public override bool IgnoreIfAdmin => true; // WD
+
     /// <summary>
     /// What particular role they need the time requirement with.
     /// </summary>

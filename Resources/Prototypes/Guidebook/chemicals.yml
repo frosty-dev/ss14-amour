@@ -12,6 +12,7 @@
   - Botanical
   - Biological
   - Others
+  - Cleaning # WD
   filterEnabled: True
 
 - type: guideEntry
@@ -61,3 +62,9 @@
   name: guide-entry-others
   text: "/ServerInfo/Guidebook/ChemicalTabs/Other.xml"
   filterEnabled: True
+
+- type: guideEntry # WD edit start
+  id: Cleaning
+  name: guide-entry-cleaning
+  text: "/ServerInfo/Guidebook/ChemicalTabs/Cleaning.xml"
+  filterEnabled: True # WD edit end

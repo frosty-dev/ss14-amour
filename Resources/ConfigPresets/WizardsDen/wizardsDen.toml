@@ -35,5 +35,9 @@ see_own_notes = true
 deadmin_on_join = true
 new_player_threshold = 600
 
+[ahelp]
+admin_prefix = false
+admin_prefix_webhook = false
+
 [worldgen]
 enabled = true
