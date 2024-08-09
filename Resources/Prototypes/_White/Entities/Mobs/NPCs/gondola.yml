@@ -20,7 +20,7 @@
         map: [ "enum.DamageStateVisualLayers.Base" ]
         color: "#6e4e40"
       - state: gondola_moustache_large_short
-        map: [ "enum.DamageStateVisualLayers.Base" ]
+        map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
   - type: RandomSprite
     available:
         - enum.DamageStateVisualLayers.Base:
