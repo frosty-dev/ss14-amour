@@ -9,3 +9,30 @@
   cost: 7500
   recipeUnlocks:
   - WeaponTempGun
+
+- type: technology
+  id: BasicModules
+  name: research-technology-modules-basic
+  icon:
+    sprite: White/Objects/Weapons/modules.rsi
+    state: laser
+  discipline: Arsenal
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - LaserModule
+  - SilencerModule
+  - HolographicSightModule
+
+- type: technology
+  id: AdvancedModules
+  name: research-technology-modules-advanced
+  icon:
+    sprite: White/Objects/Weapons/modules.rsi
+    state: accelerator
+  discipline: Arsenal
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - AcceleratorModule
+  - TelescopicSightModule

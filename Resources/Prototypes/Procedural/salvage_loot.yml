@@ -200,11 +200,15 @@
           cost: 3
         - proto: LaserModule
           cost: 8
+        - proto: HolograpicSightModule
+          cost: 8
         - proto: FlameHiderModule
           cost: 3
         - proto: SilencerModule
           cost: 5
         - proto: AcceleratorModule
+          cost: 12
+        - proto: TelescopicSightModule
           cost: 12
         - proto: MedkitFilled
           cost: 3
