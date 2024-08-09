@@ -8026,3 +8026,10 @@
   id: 475
   time: '2024-08-09T12:36:35.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/596
+- author: ThereDrD0
+  changes:
+  - message: "\u041E\u0442\u043A\u0430\u0442 \u043E\u0442\u043A\u0430\u0442\u0430"
+    type: Remove
+  id: 476
+  time: '2024-08-09T18:08:34.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/601
