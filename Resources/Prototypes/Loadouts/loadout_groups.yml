@@ -2149,6 +2149,86 @@
   loadouts:
   - InspectorBriefcaseInhand
 
+# Maid
+- type: loadoutGroup # WD
+  id: MaidGlasses
+  name: loadout-group-eyes
+  minLimit: 0
+  loadouts:
+  - MaidGlasses
+
+- type: loadoutGroup # WD
+  id: MaidJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - MaidJumpskirt
+  - MaidJumpskirtMini
+
+- type: loadoutGroup # WD
+  id: MaidBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - MaidSatchel
+
+- type: loadoutGroup # WD
+  id: MaidGloves
+  name: loadout-group-gloves
+  minLimit: 0
+  loadouts:
+  - MaidGloves
+
+- type: loadoutGroup # WD
+  id: MaidShoes
+  name: loadout-group-shoes
+  loadouts:
+  - MaidShoes
+
+- type: loadoutGroup # WD
+  id: MaidPDA
+  name: loadout-group-pda
+  loadouts:
+  - MaidPDA
+
+- type: loadoutGroup # WD
+  id: MaidJobTrinkets
+  name: loadout-group-job-trinkets
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - MaidSpray
+  - MaidSoap
+  - MaidMop
+
+# Bomzh
+- type: loadoutGroup # WD
+  id: BomzhJumpsuit
+  name: loadout-group-jumpsuit
+  loadouts:
+  - BomzhJumpsuit
+
+- type: loadoutGroup # WD
+  id: BomzhPDA
+  name: loadout-group-pda
+  loadouts:
+  - BomzhPDA
+
+- type: loadoutGroup # WD
+  id: BomzhOuterclothing
+  name: loadout-group-outerclothing
+  minLimit: 0
+  loadouts:
+  - BomzhOverCoat
+
+- type: loadoutGroup # WD
+  id: BomzhJobTrinkets
+  name: loadout-group-job-trinkets
+  minLimit: 0
+  maxLimit: 3
+  loadouts:
+  - BomzhTrashBag
+  - BomzhScalpelShiv
+  - BomzhLantern
+
 # Wildcards
 - type: loadoutGroup
   id: ReporterHat

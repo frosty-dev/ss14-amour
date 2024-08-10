@@ -369,12 +369,29 @@
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: SeniorResearcher
 
+#WHITE START
 - type: statusIcon
   parent: JobIcon
   id: JobIconInspector
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
     state: Inspector
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconBomzh
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Bomzh
+
+- type: statusIcon
+  parent: JobIcon
+  id: JobIconMaid
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Maid
+
+#WHITE END
 
 - type: statusIcon
   parent: JobIcon

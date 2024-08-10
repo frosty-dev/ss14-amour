@@ -21,6 +21,7 @@
             #service
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
+            Maid: [ 1, 1 ]
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
             Chef: [ 2, 2 ]
@@ -28,6 +29,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
+            Bomzh: [ 1, 1]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             SeniorEngineer: [ 1, 1 ]
@@ -44,9 +46,9 @@
             Psychologist: [ 1, 1 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            SeniorResearcher: [ 1, 1 ]        
+            SeniorResearcher: [ 1, 1 ]
             Scientist: [ 4, 4 ]
-            ResearchAssistant: [ 4, 4 ] 
+            ResearchAssistant: [ 4, 4 ]
             Borg: [ 2, 2 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
@@ -65,4 +67,4 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            
+

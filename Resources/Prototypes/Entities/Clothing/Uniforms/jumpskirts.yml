@@ -767,6 +767,8 @@
       - state: equipped-INNERCLOTHING-shirt
         color: "#b30000"
 
+
+#WHITE START
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtInspector
@@ -788,6 +790,30 @@
       sprite: Clothing/Uniforms/Jumpskirt/inspectorformal.rsi
     - type: Clothing
       sprite: Clothing/Uniforms/Jumpskirt/inspectorformal.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtMaid
+  name: maid's jumpskirt
+  description: Elegant maid's dress. Makes you feel comfortable, safe and clean around you.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Uniforms/Jumpskirt/maid.rsi
+  - type: Clothing
+    sprite: White/Clothing/Uniforms/Jumpskirt/maid.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtMaidMini
+  name: maid's mini jumpskirt
+  description: Elegant shortened maid's servant's dress. Makes you feel comfortable, safe and clean around you. This view expands your horizon in your eyes.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Uniforms/Jumpskirt/maidmini.rsi
+  - type: Clothing
+    sprite: White/Clothing/Uniforms/Jumpskirt/maidmini.rsi
+
+#WHITE END
 
 - type: entity
   parent: ClothingUniformSkirtBase

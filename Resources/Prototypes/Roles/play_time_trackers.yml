@@ -160,3 +160,9 @@
 # WHITE
 - type: playTimeTracker
   id: JobInspector
+
+- type: playTimeTracker
+  id: JobBomzh
+
+- type: playTimeTracker
+  id: JobMaid
