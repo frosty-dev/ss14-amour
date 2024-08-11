@@ -207,6 +207,15 @@
 
 - type: entity
   parent: ClothingUnderwearSocksBase
+  id: ClothingUnderwearStockingsLightWhite
+  name: stockings
+  description: Standard Nanotrasen stockings for station employees. Dyed yellow.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Underwear/Socks/stockings_white.rsi
+
+- type: entity
+  parent: ClothingUnderwearSocksBase
   id: ClothingUnderwearSocksStripedKnee
   name: stockings
   description: Standard Nanotrasen stockings for station employees. Dyed black-white.

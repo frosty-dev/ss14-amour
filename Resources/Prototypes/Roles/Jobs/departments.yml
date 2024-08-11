@@ -14,6 +14,7 @@
   - ResearchDirector
   - Quartermaster
   - Inspector
+  - Maid
   primary: false
   buttonStyle: ButtonColorCommandDepartment
 
@@ -122,6 +123,7 @@
   - Visitor
   - Zookeeper
   - Passenger
+  - Bomzh
   buttonStyle: ButtonColorCivilianDepartment
 
 - type: department

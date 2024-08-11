@@ -25,7 +25,10 @@
             - !type:EntityAnchored
           steps:
             - tool: Dagger
-              cultistOnly: true
+              userWhitelist:
+                components:
+                - Cultist
+                - Ghost
         - to: wall
           completed:
             - !type:SnapToGrid
@@ -46,7 +49,10 @@
               amount: 1
           steps:
             - tool: Dagger
-              cultistOnly: true
+              userWhitelist:
+                components:
+                - Cultist
+                - Ghost
 
 - type: constructionGraph
   id: AirlockGlassCult
@@ -75,7 +81,10 @@
             - !type:EntityAnchored
           steps:
             - tool: Dagger
-              cultistOnly: true
+              userWhitelist:
+                components:
+                - Cultist
+                - Ghost
 
 - type: constructionGraph
   id: CultPylon

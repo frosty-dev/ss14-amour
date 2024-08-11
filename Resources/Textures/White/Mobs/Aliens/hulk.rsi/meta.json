@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 31,
+    "y": 44
+  },
+  "states": [
+    {
+      "name": "hulk",
+      "directions": 4
+    }
+  ]
+}

@@ -417,7 +417,7 @@
     - type: PresetIdCard
       job: Lawyer
 
-#WHITE
+#WHITE START
 - type: entity
   parent: IDCardStandard
   id: InspectorIDCard
@@ -429,6 +429,32 @@
     - state: idinspector
   - type: PresetIdCard
     job: Inspector
+
+- type: entity
+  parent: IDCardStandard
+  id: BomzhIDCard
+  name: Bomzh ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idbomzh
+  - type: PresetIdCard
+    job: Passenger
+
+- type: entity
+  parent: IDCardStandard
+  id: MaidIDCard
+  name: Maid ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: idmaid
+  - type: PresetIdCard
+    job: Maid
+
+#WHITE END
 
 - type: entity
   parent: IDCardStandard

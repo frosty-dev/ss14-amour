@@ -1,0 +1,97 @@
+# Jumpsuit
+- type: itemLoadout # WD
+  id: MaidJumpskirt
+  equipment: MaidJumpskirt
+- type: startingGear
+  id: MaidJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMaid
+
+- type: itemLoadout # WD
+  id: MaidJumpskirtMini
+  equipment: MaidJumpskirtMini
+- type: startingGear
+  id: MaidJumpskirtMini
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtMaidMini
+
+# Back
+- type: itemLoadout # WD
+  id: MaidSatchel
+  equipment: MaidSatchel
+- type: startingGear
+  id: MaidSatchel
+  equipment:
+    back: ClothingBackpackSatchelFilled
+
+# Gloves
+- type: itemLoadout # WD
+  id: MaidGloves
+  equipment: MaidGloves
+- type: startingGear
+  id: MaidGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorWhite
+
+# PDA
+- type: itemLoadout # WD
+  id: MaidPDA
+  equipment: MaidPDA
+- type: startingGear
+  id: MaidPDA
+  equipment:
+    id: MaidPDA
+
+# Ears
+- type: itemLoadout # WD
+  id: MaidEars
+  equipment: MaidEars
+- type: startingGear
+  id: MaidEars
+  equipment:
+    id: ClothingHeadsetCommand
+
+# Shoes
+- type: itemLoadout # WD
+  id: MaidShoes
+  equipment: MaidShoes
+- type: startingGear
+  id: MaidShoes
+  equipment:
+    shoes: ClothingShoesMaid
+
+# Glasses
+- type: itemLoadout # WD
+  id: MaidGlasses
+  equipment: MaidGlasses
+- type: startingGear
+  id: MaidGlasses
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+
+# Job Trinkets
+- type: itemLoadout # WD
+  id: MaidSpray
+  equipment: MaidSpray
+- type: startingGear
+  id: MaidSpray
+  storage:
+    back:
+    - SprayBottleWater
+
+- type: itemLoadout # WD
+  id: MaidSoap
+  equipment: MaidSoap
+- type: startingGear
+  id: MaidSoap
+  storage:
+    back:
+    - Soap
+
+- type: itemLoadout # WD
+  id: MaidMop
+  equipment: MaidMop
+- type: startingGear
+  id: MaidMop
+  inhand:
+  - MopItem

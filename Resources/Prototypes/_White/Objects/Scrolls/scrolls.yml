@@ -178,3 +178,30 @@
     - type: Scroll
       actionId: ActionArcaneBarrageSpell
       learnPopup: scroll-component-barrage
+
+- type: entity
+  id: ScrollRodForm
+  parent: BaseScroll
+  name: "Rod form scroll"
+  components:
+  - type: Scroll
+    actionId: ActionRodFormSpell
+    learnPopup: scroll-component-rodform
+
+- type: entity
+  id: ScrollBlind
+  parent: BaseScroll
+  name: "Blind scroll"
+  components:
+  - type: Scroll
+    actionId: ActionBlindSpell
+    learnPopup: scroll-component-blind
+
+- type: entity
+  id: ScrollMutate
+  parent: BaseScroll
+  name: "Mutate scroll"
+  components:
+  - type: Scroll
+    actionId: ActionMutateSpell
+    learnPopup: scroll-component-mutate

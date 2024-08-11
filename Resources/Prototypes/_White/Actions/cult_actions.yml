@@ -7,8 +7,8 @@
     - type: EntityTargetAction
       canTargetSelf: false
       icon:
-        sprite: /Textures/Objects/Materials/Sheets/metal.rsi
-        state: steel
+        sprite: /Textures/White/Cult/actions_cult.rsi
+        state: transmute
       event: !type:CultTwistedConstructionActionEvent
         speech: "Ethra p'ni dedol!"
       itemIconStyle: BigAction
@@ -168,4 +168,4 @@
         state: gone
       revealIcon:
         sprite: /Textures/White/Cult/actions_cult.rsi
-        state: telerune
+        state: back

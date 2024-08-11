@@ -202,4 +202,22 @@ public sealed partial class ArcaneBarrageSpellEvent : InstantActionEvent, ISpeak
     public string? Speech { get; private set; }
 }
 
+public sealed partial class RodFormSpellEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField("speech")]
+    public string? Speech { get; private set; }
+}
+
+public sealed partial class BlindSpellEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField("speech")]
+    public string? Speech { get; private set; }
+}
+
+public sealed partial class MutateSpellEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField("speech")]
+    public string? Speech { get; private set; }
+}
+
 #endregion

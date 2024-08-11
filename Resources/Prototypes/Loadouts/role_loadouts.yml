@@ -40,6 +40,22 @@
   - CommonUnderwearBraHOP
   - CommonUnderwearSocks
 
+- type: roleLoadout
+  id: JobMaid
+  groups:
+  - MaidGlasses # WD
+  - CommonCommandHeadset # WD
+  - MaidJumpsuit
+  - MaidGloves # WD
+  - MaidBackpack
+  - MaidShoes
+  - MaidPDA # WD
+  - SelfDefenceDevices # WD
+  - MaidJobTrinkets
+  - CommonUnderwearBottom
+  - CommonUnderwearBra
+  - CommonUnderwearSocks
+
 # Civilian
 - type: roleLoadout
   id: JobPassenger
@@ -244,6 +260,16 @@
   - CommonUnderwearBottom
   - CommonUnderwearBra
   - CommonUnderwearSocks
+
+- type: roleLoadout
+  id: JobBomzh
+  groups:
+  - BomzhJumpsuit
+  - BomzhPDA
+  - BomzhOuterclothing
+  - BomzhJobTrinkets
+  - CommonUnderwearBottom
+  - CommonUnderwearBra
 
 # Cargo
 - type: roleLoadout

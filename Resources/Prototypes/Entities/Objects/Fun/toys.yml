@@ -1252,7 +1252,7 @@
         path: /Audio/Weapons/eblade1.ogg
         params:
           variation: 0.250
-        volume: -10
+          volume: -10
       activatedSoundOnSwing:
         path: /Audio/Weapons/eblademiss.ogg
         params:

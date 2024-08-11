@@ -19,8 +19,26 @@
 		{
 			"name": "mag-0"
 		},
-		{
-			"name": "silencer"
-		}
+        {
+            "name": "silencer"
+        },
+        {
+            "name": "light"
+        },
+        {
+            "name": "laser"
+        },
+        {
+            "name": "flamehider"
+        },
+        {
+            "name": "accelerator"
+        },
+        {
+            "name": "barrel_module"
+        },
+        {
+            "name": "handguard_module"
+        }
     ]
 }

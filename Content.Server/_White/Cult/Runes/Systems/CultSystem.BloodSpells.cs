@@ -3,16 +3,14 @@ using Content.Server.Body.Components;
 using Content.Shared._White.Cult;
 using Content.Shared._White.Cult.Components;
 using Content.Shared.DoAfter;
-using Content.Shared.Verbs;
 using Robust.Shared.Player;
 
 namespace Content.Server._White.Cult.Runes.Systems;
 
 public sealed partial class CultSystem
 {
-    public void InitializeVerb()
+    public void InitializeSpells()
     {
-        SubscribeLocalEvent<CultistComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
         SubscribeLocalEvent<CultistComponent, CultEmpowerSelectedBuiMessage>(OnCultistEmpowerSelected);
         SubscribeLocalEvent<CultistComponent, CultEmpowerRemoveBuiMessage>(OnCultistEmpowerRemove);
         SubscribeLocalEvent<CultistComponent, SpellCreatedEvent>(OnSpellCreated);
@@ -57,7 +55,7 @@ public sealed partial class CultSystem
 
         if (comp.SelectedEmpowers.Count >= 2)
         {
-            _popupSystem.PopupEntity(Loc.GetString("verb-spell-create-too-much"), ent, ent);
+            _popupSystem.PopupEntity(Loc.GetString("blood-spell-create-too-much"), ent, ent);
             return;
         }
 
@@ -71,42 +69,16 @@ public sealed partial class CultSystem
             });
     }
 
-    private void OnGetVerbs(Entity<CultistComponent> ent, ref GetVerbsEvent<Verb> args)
+    public void CreateSpell(Entity<CultistComponent> ent, ICommonSession session)
     {
-        if (ent.Owner != args.User || !TryComp<ActorComponent>(args.User, out var actor))
-            return;
-
-        var createSpellVerb = new Verb
-        {
-            Text = Loc.GetString("verb-spell-create-text"),
-            Message = Loc.GetString("verb-spell-create-message"),
-            Category = VerbCategory.Cult,
-            Act = () =>
-            {
-                _ui.TryOpen(ent, CultEmpowerUiKey.Key, actor.PlayerSession);
-            }
-        };
-
-        var removeSpellVerb = new Verb
-        {
-            Text = Loc.GetString("verb-spell-remove-text"),
-            Message = Loc.GetString("verb-spell-remove-message"),
-            Category = VerbCategory.Cult,
-            Act = () =>
-            {
-                RemoveSpell(ent, actor.PlayerSession);
-            }
-        };
-
-        args.Verbs.Add(createSpellVerb);
-        args.Verbs.Add(removeSpellVerb);
+        _ui.TryOpen(ent, CultEmpowerUiKey.Key, session);
     }
 
-    private void RemoveSpell(Entity<CultistComponent> ent, ICommonSession session)
+    public void RemoveSpell(Entity<CultistComponent> ent, ICommonSession session)
     {
         if (ent.Comp.SelectedEmpowers.Count == 0)
         {
-            _popupSystem.PopupEntity(Loc.GetString("verb-spell-remove-no-spells"), ent, ent);
+            _popupSystem.PopupEntity(Loc.GetString("blood-spell-remove-no-spells"), ent, ent);
             return;
         }
 

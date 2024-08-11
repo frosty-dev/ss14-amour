@@ -262,3 +262,6 @@ ent-ClothingUniformJumpsuitWhiteInspector = свободная форма инс
 ent-ClothingUniformJumpsuitWhiteInspectorFormal = cтрогая форма инспектора
     .desc = Рубашка, жилетка, штаны со стрелками и яркий красный галстук. Это комплект строгой официальной формы возможно самого ужасающего человека на станции - инспектора.
     .suffix = { "" }
+ent-ClothingUniformJumpsuitWhiteBomzh = обноски
+    .desc = Потрепанная форма человека, который прошел через многое. Вас поражают не столько дыры во всех местах, сколько ее запах.
+    .suffix = { "" }

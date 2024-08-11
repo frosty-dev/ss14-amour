@@ -29,3 +29,8 @@
 - type: latheCategory
   id: Weapons
   name: lathe-category-weapons
+
+# WD
+- type: latheCategory
+  id: Modules
+  name: lathe-category-modules

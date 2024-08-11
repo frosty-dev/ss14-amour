@@ -245,11 +245,18 @@ public sealed class MagicHandSystem : EntitySystem
             return;
         }
 
-        var halo = HasComp<PentagramComponent>(args.User);
+        var stunDuration = comp.Duration;
+        var muteDuration = comp.MuteDuration;
 
-        _statusEffects.TryAddStatusEffect(target, "Muted", halo ? comp.HaloMuteDuration : comp.MuteDuration, true,
-            "Muted", status);
-        _stun.TryParalyze(target, halo ? comp.HaloDuration : comp.Duration, true, status);
+        if (HasComp<PentagramComponent>(args.User))
+        {
+            var multiplier = comp.PentagramDurationMultiplier;
+            stunDuration *= multiplier;
+            muteDuration *= multiplier;
+        }
+
+        _statusEffects.TryAddStatusEffect(target, "Muted", muteDuration, true, "Muted", status);
+        _stun.TryParalyze(target, stunDuration, true, status);
     }
 
     private void Popup(string msg, EntityUid user, PopupType type = PopupType.Small)

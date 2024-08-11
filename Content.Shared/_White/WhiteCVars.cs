@@ -140,7 +140,7 @@ public sealed class WhiteCVars
     public static readonly CVarDef<bool> StalinEnabled =
         CVarDef.Create("stalin.enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
     public static readonly CVarDef<float> StalinDiscordMinimumAge =
-        CVarDef.Create("stalin.minimal_discord_age_minutes", 10080.0f, CVar.SERVERONLY | CVar.ARCHIVE);
+        CVarDef.Create("stalin.minimal_discord_age_minutes", 604800.0f, CVar.SERVERONLY | CVar.ARCHIVE);
 
 
     /*

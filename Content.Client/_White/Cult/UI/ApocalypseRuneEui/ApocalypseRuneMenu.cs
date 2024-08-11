@@ -4,7 +4,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
-namespace Content.Client.Ghost.UI;
+namespace Content.Client._White.Cult.UI.ApocalypseRuneEui;
 
 public sealed class ApocalypseRuneMenu : DefaultWindow
 {
