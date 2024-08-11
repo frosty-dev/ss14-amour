@@ -4,6 +4,7 @@ using Content.Server._White.Radio.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
 using Content.Server.DeviceNetwork.Systems;
+using Content.Server.Station.Systems;
 using Content.Shared._White.CartridgeLoader.Cartridges;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.Database;
@@ -19,6 +20,7 @@ public sealed class MessagesServerSystem : EntitySystem
     [Dependency] private readonly MessagesCartridgeSystem _messagesSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly StationSystem _stationSystem = default!;
 
     public override void Initialize()
     {
@@ -30,19 +32,12 @@ public sealed class MessagesServerSystem : EntitySystem
     private void OnInit(EntityUid uid, MessagesServerComponent component, ComponentInit args)
     {
         var query = EntityQueryEnumerator<MessagesCartridgeComponent>();
+        var stationId = _stationSystem.GetOwningStation(uid);
 
         while (query.MoveNext(out var entityUid, out var cartridge))
         {
-            if (!TryComp(entityUid, out CartridgeComponent? cartComponent))
-                continue;
-
-            _messagesSystem.TryGetMessagesUser(cartridge, cartComponent, out var messagesUser);
-
-            if (cartridge.UserUid == null || messagesUser.Name == Loc.GetString("messages-pda-unknown-name"))
-                continue;
-
-            component.Dictionary[cartridge.UserUid.Value] = messagesUser;
-            cartridge.LastServer = uid;
+            if (stationId.HasValue && _singletonServerSystem.TryGetActiveServerAddress<MessagesServerComponent>(stationId.Value, out var address) && TryComp(entityUid, out CartridgeComponent? cartComponent))
+                _messagesSystem.SendName(entityUid, cartridge, cartComponent, address);
         }
     }
 
