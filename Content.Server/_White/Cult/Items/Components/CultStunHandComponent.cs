@@ -7,11 +7,8 @@ public sealed partial class CultStunHandComponent : BaseMagicHandComponent
     public TimeSpan Duration = TimeSpan.FromSeconds(16);
 
     [DataField]
-    public TimeSpan HaloDuration = TimeSpan.FromSeconds(1.5);
-
-    [DataField]
     public TimeSpan MuteDuration = TimeSpan.FromSeconds(12);
 
     [DataField]
-    public TimeSpan HaloMuteDuration = TimeSpan.FromSeconds(1);
+    public float PentagramDurationMultiplier = 0.1f;
 }

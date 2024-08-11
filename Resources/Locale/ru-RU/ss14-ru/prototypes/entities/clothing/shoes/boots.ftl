@@ -19,3 +19,6 @@ ent-ClothingShoesBootsLaceup = шнурованные туфли
 ent-ClothingShoesBootsInspector = сапоги инспектора
     .desc = Высокие, тяжёлые кожаные сапоги инспектора. Выглядят блестяще и мордонабивательно!
     .suffix = { "" }
+ent-ClothingShoesMaid = туфли прислуги
+    .desc = Туфли прислуги. Блестят от чистоты.
+    .suffix = { "" }

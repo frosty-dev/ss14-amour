@@ -7,3 +7,74 @@
     - type: NpcFactionMember
       factions:
       - Changeling
+
+- type: entity
+  name: Hulk
+  id: MobHulk
+  parent: SimpleSpaceMobBase
+  description: Green
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Wizard
+  - type: Speech
+    speechVerb: LargeMob
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: White/Mobs/Aliens/hulk.rsi
+    state: hulk
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      350: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 5
+  - type: Tag
+    tags:
+    - FootstepSound
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletTrailLaserLight
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    projectileSpeed: 48
+    fireRate: 1
+    ShotsPerBurst: 2
+    useKey: false
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: CombatMode
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcSmash
+    soundHit:
+      path: /Audio/Effects/hulk_attack.ogg
+    soundNoDamage:
+      path: /Audio/Effects/hulk_attack.ogg
+    damage:
+      types:
+        Blunt: 40
+        Structural: 40
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/hulk_step.ogg

@@ -28,6 +28,7 @@ using Content.Shared._White.Antag;
 using Content.Shared._White.Cult.Components;
 using Content.Shared._White.Cult.Systems;
 using Content.Shared._White.Mood;
+using Content.Shared.Alert;
 using Content.Shared.Cloning;
 using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
@@ -55,6 +56,7 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
     [Dependency] private readonly BloodSpearSystem _bloodSpear = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly AlertsSystem _alertsSystem = default!;
 
     private const int PlayerPerCultist = 10;
     private int _minStartingCultists;
@@ -95,7 +97,6 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
     private void OnGetBriefing(Entity<CultistRoleComponent> ent, ref GetBriefingEvent args)
     {
         args.Append(Loc.GetString("cult-role-briefing-short"));
-        args.Append(Loc.GetString("cult-role-briefing-hint"));
     }
 
     private void OnStartAttempt(RoundStartAttemptEvent ev)
@@ -166,6 +167,7 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
     private void OnCultistComponentInit(EntityUid uid, CultistComponent component, ComponentInit args)
     {
         RaiseLocalEvent(uid, new MoodEffectEvent("CultFocused"));
+        _alertsSystem.ShowAlert(uid, AlertType.BloodSpells);
 
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out var cult, out _))
@@ -213,6 +215,7 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
             RemoveAllCultistItems(uid);
             RemoveCultistAppearance(uid);
             RaiseLocalEvent(uid, new MoodRemoveEffectEvent("CultFocused"));
+            _alertsSystem.ClearAlert(uid, AlertType.BloodSpells);
         }
 
         _bloodSpear.DetachSpearFromUser((uid, component));

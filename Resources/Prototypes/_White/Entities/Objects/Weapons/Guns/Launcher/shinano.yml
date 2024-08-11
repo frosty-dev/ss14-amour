@@ -24,7 +24,6 @@
     fireRate: 1
     selectedMode: SemiAuto
     projectileSpeed: 15
-    projectileSpeedModified: 15
     availableModes:
       - SemiAuto
     soundGunshot:

@@ -22,6 +22,9 @@ carry-start = { $carrier } пытается взять вас на руки!
 alerts-knockdown-name = Лежу
 alerts-knockdown-desc = Не могу встать.
 
+alerts-blood-spells-name = Заклинания крови
+alerts-blood-spells-desc = Нажмите, чтобы создать или удалить заклинания крови.
+
 melee-block-event-blocked = заблокировал!
 alerts-blocked-name = Атака заблокирована
 alerts-blocked-desc = Невозможно блокировать некоторое время.

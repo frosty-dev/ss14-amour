@@ -230,6 +230,12 @@
       "name": "pda-inspector"
     },
     {
+      "name": "pda-bomzh"
+    },
+    {
+      "name": "pda-maid"
+    },
+    {
       "name": "equipped-IDCARD",
       "directions": 4
     }

@@ -1,0 +1,51 @@
+# Jumpsuit
+- type: itemLoadout # WD
+  id: BomzhJumpsuit
+  equipment: BomzhJumpsuit
+- type: startingGear
+  id: BomzhJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitWhiteBomzh
+
+# PDA
+- type: itemLoadout # WD
+  id: BomzhPDA
+  equipment: BomzhPDA
+- type: startingGear
+  id: BomzhPDA
+  equipment:
+    id: BomzhPDA
+
+# Outer clothing
+- type: itemLoadout
+  id: BomzhOverCoat
+  equipment: BomzhOverCoat
+- type: startingGear
+  id: BomzhOverCoat
+  equipment:
+    outerClothing: ClothingOuterOverCoatBomzh
+
+# Job Trinkets
+- type: itemLoadout # WD
+  id: BomzhTrashBag
+  equipment: BomzhTrashBag
+- type: startingGear
+  id: BomzhTrashBag
+  inhand:
+  - TrashBag
+
+- type: itemLoadout # WD
+  id: BomzhScalpelShiv
+  equipment: BomzhScalpelShiv
+- type: startingGear
+  id: BomzhScalpelShiv
+  equipment:
+    pocket1: ScalpelShiv
+
+- type: itemLoadout # WD
+  id: BomzhLantern
+  equipment: BomzhLantern
+- type: startingGear
+  id: BomzhLantern
+  equipment:
+    belt: Lantern

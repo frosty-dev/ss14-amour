@@ -45,9 +45,6 @@
     outerClothing: ClothingOuterRealWizardFancy
     shoes: ClothingShoesWizard
     pocket1: SpellBook
-  innerClothingSkirt: ClothingUniformJumpskirtColorDarkBlue
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled
 
 - type: entity
   noSpawn: true

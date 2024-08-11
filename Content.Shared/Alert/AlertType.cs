@@ -40,6 +40,7 @@ namespace Content.Shared.Alert
         MoodDead,
         Arousal, //AMOUR
         CultBuffed,
+        BloodSpells,
         Knockdown,
         RecentlyBlocked,
         //WD end

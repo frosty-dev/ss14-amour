@@ -170,7 +170,7 @@ public sealed class MessagesCartridgeSystem : EntitySystem
     /// <summary>
     /// Updates the user's name in the storage component.
     /// </summary>
-    private void SendName(EntityUid uid, MessagesCartridgeComponent component, CartridgeComponent cartComponent, string? address)
+    public void SendName(EntityUid uid, MessagesCartridgeComponent component, CartridgeComponent cartComponent, string? address)
     {
         TryGetMessagesUser(component, cartComponent, out var messagesUser);
 

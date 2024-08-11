@@ -50,6 +50,8 @@ job-name-senior-researcher = ведущий исследователь
 job-name-senior-physician = медицинский офицер
 job-name-senior-officer = ветеран СБ
 job-name-senior-salvage-specialist = охотник карго
+job-name-maid = прислуга
+job-name-bomzh = бомж
 
 # Role timers - Make these alphabetical or I cut you
 JobAtmosphericTechnician = атмосферный техник

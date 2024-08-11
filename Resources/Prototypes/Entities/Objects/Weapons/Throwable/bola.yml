@@ -86,4 +86,5 @@
     walkSpeed: 0.6
     sprintSpeed: 0.6
   - type: EmitSoundOnLand
-    collection: sparks
+    sound:
+      collection: sparks

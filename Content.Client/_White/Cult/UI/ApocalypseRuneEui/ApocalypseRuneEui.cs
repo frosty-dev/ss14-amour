@@ -1,5 +1,4 @@
 ﻿using Content.Client.Eui;
-using Content.Client.Ghost.UI;
 using Content.Shared._White.Cult.UI;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;

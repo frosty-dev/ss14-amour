@@ -20,7 +20,7 @@
     maxAngle: 16
     fireRate: 8
     angleIncrease: 3
-    angleDecay: 16  
+    angleDecay: 16
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
@@ -106,11 +106,9 @@
       map: ["enum.GunVisualLayers.Mag"]
     - state: barrel_module
       visible: false
-      sprite: White/Objects/Weapons/modulesOnSMGs.rsi
       map: [ "enum.ModuleVisualState.BarrelModule" ]
     - state: handguard_module
       visible: false
-      sprite: White/Objects/Weapons/modulesOnSMGs.rsi
       map: [ "enum.ModuleVisualState.HandGuardModule" ]
     - state: aim_module
       visible: false
@@ -204,15 +202,13 @@
           map: ["enum.GunVisualLayers.Mag"]
         - state: barrel_module
           visible: false
-          sprite: White/Objects/Weapons/modulesOnWeapon.rsi
           map: [ "enum.ModuleVisualState.BarrelModule" ]
         - state: handguard_module
           visible: false
-          sprite: White/Objects/Weapons/modulesOnWeapon.rsi
           map: [ "enum.ModuleVisualState.HandGuardModule" ]
         - state: aim_module
           visible: false
-          sprite: White/Objects/Weapons/modulesOnWeapon.rsi
+          sprite: White/Objects/Weapons/modulesOnSMGs.rsi
           map: [ "enum.ModuleVisualState.AimModule" ]
     - type: Clothing
       sprite: White/Objects/Weapons/Guns/SMG/drozd-inhands.rsi
@@ -352,15 +348,13 @@
         shader: unshaded
       - state: barrel_module
         visible: false
-        sprite: White/Objects/Weapons/modulesOnWeapon.rsi
         map: [ "enum.ModuleVisualState.BarrelModule" ]
       - state: handguard_module
         visible: false
-        sprite: White/Objects/Weapons/modulesOnWeapon.rsi
         map: [ "enum.ModuleVisualState.HandGuardModule" ]
       - state: aim_module
         visible: false
-        sprite: White/Objects/Weapons/modulesOnWeapon.rsi
+        sprite: White/Objects/Weapons/modulesOnSMGs.rsi
         map: [ "enum.ModuleVisualState.AimModule" ]
   - type: Clothing
     sprite: White/Objects/Weapons/Guns/SMG/wt550-inhands.rsi
@@ -373,7 +367,7 @@
     minAngle: 1
     maxAngle: 6
     angleIncrease: 1.5
-    angleDecay: 6  
+    angleDecay: 6
     selectedMode: FullAuto
     shotsPerBurst: 5
     availableModes:

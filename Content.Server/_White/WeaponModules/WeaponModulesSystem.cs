@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared._White.Telescope;
 using Content.Shared._White.WeaponModules;
 using Content.Shared.Weapons.Ranged.Components;
@@ -128,7 +128,7 @@ public sealed class WeaponModulesSystem : EntitySystem
             return;
 
         weaponModulesComponent.WeaponFireEffect = true;
-        Dirty(module, weaponModulesComponent);
+        Dirty(weapon, weaponModulesComponent);
     }
 
     private void SilencerModuleOnInsert(EntityUid module, SilencerModuleComponent component, EntGotInsertedIntoContainerMessage args)
@@ -145,7 +145,7 @@ public sealed class WeaponModulesSystem : EntitySystem
         weaponModulesComponent.WeaponFireEffect = true;
         _gunSystem.SetSound(weapon, component.NewSoundGunshot);
 
-        Dirty(module, weaponModulesComponent);
+        Dirty(weapon, weaponModulesComponent);
     }
 
     private void AcceleratorModuleOnInsert(EntityUid module, AcceleratorModuleComponent component, EntGotInsertedIntoContainerMessage args)
@@ -224,7 +224,7 @@ public sealed class WeaponModulesSystem : EntitySystem
             return;
 
         weaponModulesComponent.WeaponFireEffect = false;
-        Dirty(module, weaponModulesComponent);
+        Dirty(weapon, weaponModulesComponent);
     }
 
     private void SilencerModuleOnEject(EntityUid module, SilencerModuleComponent component, EntGotRemovedFromContainerMessage args)
@@ -236,7 +236,7 @@ public sealed class WeaponModulesSystem : EntitySystem
 
         weaponModulesComponent.WeaponFireEffect = false;
         _gunSystem.SetSound(weapon, component.OldSoundGunshot!);
-        Dirty(module, weaponModulesComponent);
+        Dirty(weapon, weaponModulesComponent);
     }
 
     private void AcceleratorModuleOnEject(EntityUid module, AcceleratorModuleComponent component, EntGotRemovedFromContainerMessage args)

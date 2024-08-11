@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Examine;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared.Construction.Steps
 {
@@ -11,7 +12,7 @@ namespace Content.Shared.Construction.Steps
         [DataField("doAfter")] public float DoAfter { get; private set; }
 
         [DataField]
-        public bool CultistOnly { get; private set; } // WD
+        public EntityWhitelist? UserWhitelist { get; private set; } // WD
 
         public IReadOnlyList<IGraphAction> Completed => _completed;
 

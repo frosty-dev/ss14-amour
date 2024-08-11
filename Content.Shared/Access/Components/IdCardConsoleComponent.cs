@@ -97,7 +97,7 @@ public sealed partial class IdCardConsoleComponent : Component
     [DataField("jobIcons")]
     public List<List<string>> JobIcons = new()
     {
-        new List<string> {"Captain", "HeadOfPersonnel", "HeadOfSecurity", "ChiefMedicalOfficer", "ChiefEngineer", "ResearchDirector", "QuarterMaster", "Inspector"},
+        new List<string> {"Captain", "HeadOfPersonnel", "HeadOfSecurity", "ChiefMedicalOfficer", "ChiefEngineer", "ResearchDirector", "QuarterMaster", "Inspector", "Maid"},
         new List<string> {"HeadOfPersonnel", "Lawyer", "Clown", "Bartender", "Reporter", "Chef", "Botanist", "ServiceWorker", "Zookeeper", "Musician", "Librarian", "Janitor", "Chaplain", "Mime",  "Boxer", "Passenger", "Visitor", "Borg", "CustomId"},
         new List<string> {"HeadOfSecurity", "Warden",  "SeniorOfficer", "SecurityOfficer", "Detective", "SecurityCadet", "Brigmedic", "Lawyer"},
         new List<string> {"ChiefMedicalOfficer", "SeniorPhysician", "Paramedic", "Chemist", "MedicalDoctor", "Virologist", "Geneticist", "MedicalIntern", "Psychologist"},

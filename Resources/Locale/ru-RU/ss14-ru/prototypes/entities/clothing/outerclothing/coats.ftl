@@ -61,3 +61,6 @@ ent-ClothingOuterJacketInspector = китель инспектора
 ent-ClothingOuterOverCoatInspector = шинель инспектора
     .desc = Строгая офицерская шинель инспектора. Пусть экипаж боится вас!
     .suffix = { "" }
+ent-ClothingOuterOverCoatBomzh = потрёпанная куртка
+    .desc = Куртка прошедшая через многое, время не сохранило её и оставило свои шрамы.
+    .suffix = { "" }

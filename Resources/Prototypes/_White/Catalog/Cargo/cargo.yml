@@ -184,7 +184,7 @@
   description: проверенная временем автоматическая винтовка.
   id: cargoCV47
   icon:
-    sprite: White/Objects/Weapons/Guns/Rifles/ak.rsi
+    sprite: White/Objects/Weapons/Guns/Rifles/ak-icons.rsi
     state: icon
   product: CrateCV47
   cost: 10000

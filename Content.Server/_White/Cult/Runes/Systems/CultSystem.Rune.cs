@@ -127,7 +127,7 @@ public sealed partial class CultSystem : EntitySystem
         InitializeBarrierSystem();
         InitializeConstructsAbilities();
         InitializeActions();
-        InitializeVerb();
+        InitializeSpells();
     }
 
     private float _timeToDraw;
