@@ -39,6 +39,7 @@ namespace Content.Shared.Alert
         VeryVeryGood,
         MoodDead,
         CultBuffed,
+        BloodSpells,
         Knockdown,
         RecentlyBlocked,
         //WD end

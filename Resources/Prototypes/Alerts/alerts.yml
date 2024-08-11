@@ -5,6 +5,7 @@
   id: BaseAlertOrder
   order:
     - category: Health
+    - alertType: BloodSpells
     - alertType: Bleeding
     - category: Mood # WD edit
     - category: Stamina
@@ -518,3 +519,13 @@
     state: offer_item
   name: alerts-offer-name
   description: alerts-offer-desc
+
+# WD-EDIT
+- type: alert
+  id: BloodSpells
+  onClick: !type:OpenBloodSpellsUi {}
+  icons:
+  - sprite: /Textures/White/Cult/actions_cult.rsi
+    state: blood_spells
+  name: alerts-blood-spells-name
+  description: alerts-blood-spells-desc

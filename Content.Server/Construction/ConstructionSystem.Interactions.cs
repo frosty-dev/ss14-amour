@@ -29,6 +29,7 @@ namespace Content.Server.Construction
     public sealed partial class ConstructionSystem
     {
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!; // WD
 #if EXCEPTION_TOLERANCE
         [Dependency] private readonly IRuntimeLog _runtimeLog = default!;
 #endif
@@ -93,9 +94,6 @@ namespace Content.Server.Construction
         private HandleResult HandleNode(EntityUid uid, object ev, ConstructionGraphNode node, bool validation, ConstructionComponent? construction = null)
         {
             if (!Resolve(uid, ref construction))
-                return HandleResult.False;
-
-            if (TryComp(uid, out StackComponent? stack) && stack.Count > 1) // WD
                 return HandleResult.False;
 
             // Let's make extra sure this is zero...
@@ -209,7 +207,7 @@ namespace Content.Server.Construction
             // We can only perform the rest of our logic if it returns true.
             var handle = HandleInteraction(uid, ev, step, validation, out user, construction);
 
-            if (step.CultistOnly && !(HasComp<CultistComponent>(user) || HasComp<GhostComponent>(user))) // WD
+            if (user != null && step.UserWhitelist?.IsValid(user.Value, _entityManager) is false) // WD
                 return HandleResult.False;
 
             if (handle is not HandleResult.True)

@@ -4,16 +4,16 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using static Robust.Client.UserInterface.Controls.BoxContainer;
 
-namespace Content.Client._White.Cult.UI.ApocalypseRuneEui;
+namespace Content.Client._White.Cult.UI.CultBloodSpellsEui;
 
-public sealed class ApocalypseRuneMenu : DefaultWindow
+public sealed class CultBloodSpellsMenu : DefaultWindow
 {
-    public readonly Button DenyButton;
-    public readonly Button AcceptButton;
+    public readonly Button RemoveButton;
+    public readonly Button CreateButton;
 
-    public ApocalypseRuneMenu()
+    public CultBloodSpellsMenu()
     {
-        Title = Loc.GetString("apocalypse-rune-title");
+        Title = Loc.GetString("blood-spells-title");
 
         Contents.AddChild(new BoxContainer
         {
@@ -27,7 +27,7 @@ public sealed class ApocalypseRuneMenu : DefaultWindow
                     {
                         (new Label()
                         {
-                            Text = Loc.GetString("apocalypse-rune-text")
+                            Text = Loc.GetString("blood-spells-text")
                         }),
                         new BoxContainer
                         {
@@ -35,9 +35,9 @@ public sealed class ApocalypseRuneMenu : DefaultWindow
                             Align = AlignMode.Center,
                             Children =
                             {
-                                (AcceptButton = new Button
+                                (CreateButton = new Button
                                 {
-                                    Text = Loc.GetString("apocalypse-rune-accept-button"),
+                                    Text = Loc.GetString("blood-spells-create-button"),
                                 }),
 
                                 (new Control()
@@ -45,9 +45,9 @@ public sealed class ApocalypseRuneMenu : DefaultWindow
                                     MinSize = new Vector2(20, 0)
                                 }),
 
-                                (DenyButton = new Button
+                                (RemoveButton = new Button
                                 {
-                                    Text = Loc.GetString("apocalypse-rune-deny-button"),
+                                    Text = Loc.GetString("blood-spells-remove-button"),
                                 })
                             }
                         },
