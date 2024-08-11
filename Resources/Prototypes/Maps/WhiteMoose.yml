@@ -26,6 +26,7 @@
           ChiefMedicalOfficer: [ 1, 1 ]
           ResearchDirector: [ 1, 1 ]
           Quartermaster: [ 1, 1 ]
+          Maid: [ 1, 1 ]
           #Security
           Warden: [ 1, 1 ]
           SeniorOfficer: [ 1, 1 ]
@@ -67,4 +68,4 @@
           Boxer: [ 1, 1 ]
           Borg: [ 1, 1 ]
           Passenger: [ -1, -1 ]
-
+          Bomzh: [ 1, 0 ]

@@ -12418,8 +12418,6 @@ entities:
       pos: 0.5,18.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: AtmosPipeColor
       color: '#1E90FFFF'
 - proto: GasVentScrubber
@@ -12687,8 +12685,6 @@ entities:
       pos: 0.5,19.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
     - type: AtmosPipeColor
       color: '#B22222FF'
 - proto: GeneratorBasic15kW
