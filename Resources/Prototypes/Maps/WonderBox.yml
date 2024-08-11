@@ -60,4 +60,7 @@
             SeniorPhysician: [ 1, 1 ]
             SeniorEngineer: [ 1, 1 ]
             Borg: [ 2, 2 ]
+            Maid: [ 1, 1 ]
+            Bomzh: [ 1, 0 ]
+
 
