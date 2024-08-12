@@ -8118,3 +8118,27 @@
   id: 484
   time: '2024-08-12T10:29:49.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/611
+- author: Warete
+  changes:
+  - message: "Triumph \u0443\u0434\u0430\u043B\u0451\u043D \u0438\u0437 \u0440\u043E\
+      \u0442\u0430\u0446\u0438\u0438"
+    type: Remove
+  id: 485
+  time: '2024-08-12T19:22:49.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/615
+- author: PointPNG
+  changes:
+  - message: "\u0411\u044B\u043B\u0438 \u043F\u043E\u0447\u0438\u0449\u0435\u043D\u044B\
+      \ invalid entity \u0443 \u0422\u0440\u0438\u0443\u043C\u0444\u0430, \u0412\u0430\
+      \u0439\u0442\u0411\u043E\u043A\u0441\u0430, \u0414\u0440\u0430\u0439\u0434\u043E\
+      \u043A\u0430 \u0438 \u0412\u0430\u0439\u0442\u041C\u0443\u0441\u0430."
+    type: Fix
+  - message: "\u041E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435 \u0412\u0430\
+      \u0439\u0442\u041C\u0443\u0441\u0430."
+    type: Add
+  - message: "\u041E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435 \u0414\u0440\
+      \u0430\u0439\u0414\u043E\u043A\u0430."
+    type: Add
+  id: 486
+  time: '2024-08-12T19:22:33.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/614
