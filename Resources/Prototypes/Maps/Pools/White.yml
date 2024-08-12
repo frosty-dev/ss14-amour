@@ -2,11 +2,11 @@
   id: WhiteMapPool
   maps:
   - WonderBox
-  - Triumph
   - WhiteBox
   - WhiteMoose
   - DryDock
   - Meta
+# - Triumph Связь утеряна
 # - Train    # Temporary
 # - Scoupidia
 # - Bagel    # Она утонула
