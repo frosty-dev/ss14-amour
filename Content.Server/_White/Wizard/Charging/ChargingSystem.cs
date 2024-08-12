@@ -1,5 +1,7 @@
-﻿using Content.Shared._White.Wizard;
+﻿using Content.Server.Actions;
+using Content.Shared._White.Wizard;
 using Content.Shared._White.Wizard.Charging;
+using Content.Shared.Actions;
 using Content.Shared.Follower;
 using Content.Shared.Mobs;
 using Robust.Shared.Audio;
@@ -12,6 +14,7 @@ public sealed class ChargingSystem : SharedChargingSystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly FollowerSystem _followerSystem = default!;
+    [Dependency] private readonly ActionsSystem _actionsSystem = default!;
 
     private readonly Dictionary<EntityUid, List<EntityUid>> _charges = new();
 
@@ -132,8 +135,15 @@ public sealed class ChargingSystem : SharedChargingSystem
 
     private void Add(AddWizardChargeEvent msg, EntitySessionEventArgs args)
     {
+        var spell = GetEntity(msg.Spell);
+        if (!_actionsSystem.TryGetActionData(spell, out var baseAction) ||
+            baseAction is not BaseTargetActionComponent action || !action.IsChargeEnabled)
+        {
+            return;
+        }
+
         if (args.SenderSession.AttachedEntity != null)
-            AddCharge(args.SenderSession.AttachedEntity.Value, msg.ChargeProto);
+            AddCharge(args.SenderSession.AttachedEntity.Value, action.ChargeProto);
     }
 
     private void Remove(RemoveWizardChargeEvent msg, EntitySessionEventArgs args)

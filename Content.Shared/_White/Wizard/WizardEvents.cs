@@ -31,11 +31,11 @@ public struct BeforeCastSpellEvent
 [Serializable, NetSerializable]
 public sealed partial class AddWizardChargeEvent : EntityEventArgs
 {
-    public string ChargeProto;
+    public NetEntity Spell;
 
-    public AddWizardChargeEvent(string chargeProto)
+    public AddWizardChargeEvent(NetEntity spell)
     {
-        ChargeProto = chargeProto;
+        Spell = spell;
     }
 }
 
