@@ -44,8 +44,8 @@ public sealed class MessagesCartridgeSystem : EntitySystem
                 out var address) || !TryComp(uid, out CartridgeComponent? cartComponent))
             return;
 
-        SendName(uid, component, cartComponent, address);
         component.UserUid = cartComponent.LoaderUid?.Id;
+        SendName(uid, component, cartComponent, address);
     }
 
     private void OnRemove(EntityUid uid, MessagesCartridgeComponent component, ComponentRemove args)
@@ -179,6 +179,7 @@ public sealed class MessagesCartridgeSystem : EntitySystem
             [MessagesNetworkKeys.UserId] = component.UserUid,
             [MessagesNetworkKeys.NewUser] = messagesUser
         };
+
         _deviceNetworkSystem.QueuePacket(uid, address, packet);
     }
 
@@ -199,7 +200,7 @@ public sealed class MessagesCartridgeSystem : EntitySystem
     /// <summary>
     /// Returns the user's name, job title and job department
     /// </summary>
-    public bool TryGetMessagesUser(MessagesCartridgeComponent component, CartridgeComponent cartridgeComponent, out MessagesUserData messagesUserData)
+    private bool TryGetMessagesUser(MessagesCartridgeComponent component, CartridgeComponent cartridgeComponent, out MessagesUserData messagesUserData)
     {
         messagesUserData = new MessagesUserData();
 

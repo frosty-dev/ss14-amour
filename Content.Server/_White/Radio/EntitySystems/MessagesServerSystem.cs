@@ -3,6 +3,7 @@ using Content.Server._White.CartridgeLoader.Cartridges;
 using Content.Server._White.Radio.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
+using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Station.Systems;
 using Content.Shared._White.CartridgeLoader.Cartridges;
@@ -26,18 +27,27 @@ public sealed class MessagesServerSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MessagesServerComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
-        SubscribeLocalEvent<MessagesServerComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<MessagesServerComponent, MapInitEvent>(OnInit);
     }
 
-    private void OnInit(EntityUid uid, MessagesServerComponent component, ComponentInit args)
+    private void OnInit(EntityUid uid, MessagesServerComponent component, MapInitEvent args)
     {
+        if (!TryComp(uid, out DeviceNetworkComponent? device) || !_singletonServerSystem.SetServerActive(uid, true))
+            return;
+
+        _deviceNetworkSystem.ConnectDevice(uid, device);
+
+        var stationIdServer = _stationSystem.GetOwningStation(uid);
+        if (!stationIdServer.HasValue)
+            return;
+
         var query = EntityQueryEnumerator<MessagesCartridgeComponent>();
-        var stationId = _stationSystem.GetOwningStation(uid);
 
         while (query.MoveNext(out var entityUid, out var cartridge))
         {
-            if (stationId.HasValue && _singletonServerSystem.TryGetActiveServerAddress<MessagesServerComponent>(stationId.Value, out var address) && TryComp(entityUid, out CartridgeComponent? cartComponent))
-                _messagesSystem.SendName(entityUid, cartridge, cartComponent, address);
+            var stationId = _stationSystem.GetOwningStation(entityUid);
+            if (stationId.HasValue && stationIdServer == stationId && TryComp(entityUid, out CartridgeComponent? cartComponent))
+                _messagesSystem.SendName(entityUid, cartridge, cartComponent, device.Address);
         }
     }
 
