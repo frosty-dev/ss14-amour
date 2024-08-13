@@ -160,11 +160,12 @@
 - type: emote
   id: Salute
   category: Hands
-  buttonText: Отдать честь
-  chatMessages: [ отдает честь ]
+  buttonText: Приветствие
+  chatMessages: [ салютует ]
   chatTriggers:
   - салютует
   - отдаёт честь
+  - отдает честь
   allowMenu: true
 
 - type: emote

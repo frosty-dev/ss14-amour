@@ -8097,3 +8097,57 @@
   id: 482
   time: '2024-08-11T14:52:30.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/609
+- author: keslik
+  changes:
+  - message: "\u042D\u043C\u043E\u0446\u0438\u044F \"\u043E\u0442\u0434\u0430\u0451\
+      \u0442 \u0447\u0435\u0441\u0442\u044C\" \u0437\u0430\u043C\u0435\u043D\u0435\
+      \u043D\u0430 \u043D\u0430 \"\u0441\u0430\u043B\u044E\u0442\u0443\u0435\u0442\
+      \". \u0417\u0432\u0443\u043A \u0441\u043D\u043E\u0432\u0430 \u0440\u0430\u0431\
+      \u043E\u0442\u0430\u0435\u0442"
+    type: Fix
+  id: 483
+  time: '2024-08-11T21:28:56.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/610
+- author: Spatison
+  changes:
+  - message: "\u0421\u0435\u0440\u0432\u0435\u0440 \u0441\u043E\u043E\u0431\u0449\u0435\
+      \u043D\u0438\u0439 \u0442\u0435\u043F\u0435\u0440\u044C \u0432\u0438\u0434\u0438\
+      \u0442 \u043D\u043E\u0432\u044B\u0445 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\
+      \u0430\u0442\u0435\u043B\u0435\u0439"
+    type: Fix
+  id: 484
+  time: '2024-08-12T10:29:49.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/611
+- author: Warete
+  changes:
+  - message: "Triumph \u0443\u0434\u0430\u043B\u0451\u043D \u0438\u0437 \u0440\u043E\
+      \u0442\u0430\u0446\u0438\u0438"
+    type: Remove
+  id: 485
+  time: '2024-08-12T19:22:49.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/615
+- author: PointPNG
+  changes:
+  - message: "\u0411\u044B\u043B\u0438 \u043F\u043E\u0447\u0438\u0449\u0435\u043D\u044B\
+      \ invalid entity \u0443 \u0422\u0440\u0438\u0443\u043C\u0444\u0430, \u0412\u0430\
+      \u0439\u0442\u0411\u043E\u043A\u0441\u0430, \u0414\u0440\u0430\u0439\u0434\u043E\
+      \u043A\u0430 \u0438 \u0412\u0430\u0439\u0442\u041C\u0443\u0441\u0430."
+    type: Fix
+  - message: "\u041E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435 \u0412\u0430\
+      \u0439\u0442\u041C\u0443\u0441\u0430."
+    type: Add
+  - message: "\u041E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0435 \u0414\u0440\
+      \u0430\u0439\u0414\u043E\u043A\u0430."
+    type: Add
+  id: 486
+  time: '2024-08-12T19:22:33.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/614
+- author: keslik
+  changes:
+  - message: "\u0417\u0430\u0449\u0438\u0442\u0430 \u043E\u0442 \u0445\u043E\u043B\
+      \u043E\u0434\u0430 \u043E\u0442\u043E\u0431\u0440\u0430\u0436\u0430\u0435\u0442\
+      \u0441\u044F \u043A\u043E\u0440\u0440\u0435\u043A\u0442\u043D\u043E"
+    type: Fix
+  id: 487
+  time: '2024-08-12T22:34:10.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/616

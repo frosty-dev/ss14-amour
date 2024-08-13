@@ -30,6 +30,18 @@ public sealed class SingletonDeviceNetServerSystem : EntitySystem
     }
 
     /// <summary>
+    /// Set server active. WD EDIT
+    /// </summary>
+    public bool SetServerActive(EntityUid serverId, bool active, SingletonDeviceNetServerComponent? serverComponent = default)
+    {
+        if (!Resolve(serverId, ref serverComponent))
+            return false;
+
+        serverComponent.Active = active;
+        return true;
+    }
+
+    /// <summary>
     /// Returns the address of the currently active server for the given station id if there is one.<br/>
     /// What kind of server you're trying to get the active instance of is determined by the component type parameter TComp.<br/>
     /// <br/>

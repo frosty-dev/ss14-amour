@@ -94,8 +94,8 @@
   - type: ApcPowerReceiver
     powerLoad: 200
   - type: Actions
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-mechanical
+#  - type: SentienceTarget # В пизду, за это говно никто не садится и занимает место.
+#    flavorKind: station-event-random-sentience-flavor-mechanical
   - type: StaticPrice
     price: 100
   - type: Appearance

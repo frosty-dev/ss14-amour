@@ -1,0 +1,63 @@
+- type: entity
+  id: MessagesServer
+  parent: BaseMachinePowered
+  name: PDA messaging server
+  description: Server that allows PDA messaging to function on the station.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi
+    layers:
+      - state: server
+      - state: variant-research
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: ExtensionCableReceiver
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 1
+            max: 2
+  - type: Appearance
+  - type: AmbientSound
+    volume: -9
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/server_fans.ogg
+  - type: AmbientOnPowered
+  - type: MessagesServer
+  - type: SingletonDeviceNetServer
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: NTMessagesServer
+    receiveFrequencyId: NTMessagesClient
+    autoConnect: false
+  - type: StationLimitedNetwork
+
+- type: entity
+  id: SyndicateMessagesServer
+  parent: MessagesServer
+  name: Syndicate PDA messaging server
+  description: Server that allows PDA messaging between Syndicate operatives to function.
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    transmitFrequencyId: SyndicateMessagesServer
+    receiveFrequencyId: SyndicateMessagesClient
+    autoConnect: false
