@@ -1,14 +1,16 @@
 using System.Numerics;
 using Content.Client.Viewport;
+using Content.Shared._White;
 using Content.Shared._White.Telescope;
-using Content.Shared.Hands.Components;
 using Content.Shared.Input;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
+using Robust.Shared.Configuration;
 using Robust.Shared.Input;
+using Robust.Shared.Input.Binding;
 using Robust.Shared.Timing;
 
 namespace Content.Client._White.Telescope;
@@ -21,9 +23,26 @@ public sealed class TelescopeSystem : SharedTelescopeSystem
     [Dependency] private readonly IInputManager _input = default!;
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     private ScalingViewport? _viewport;
+    private bool _holdLookUp;
+    private bool _toggled;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _cfg.OnValueChanged(WhiteCVars.HoldLookUp,
+            val =>
+            {
+                var input = val ? null : InputCmdHandler.FromDelegate(_ => _toggled = !_toggled);
+                _input.SetInputCommand(ContentKeyFunctions.LookUp, input);
+                _holdLookUp = val;
+                _toggled = false;
+            },
+            true);
+    }
 
     public override void FrameUpdate(float frameTime)
     {
@@ -37,7 +56,10 @@ public sealed class TelescopeSystem : SharedTelescopeSystem
         var entity = GetRightEntity(player);
 
         if (entity == EntityUid.Invalid)
+        {
+            _toggled = false;
             return;
+        }
 
         var telescope = Comp<TelescopeComponent>(entity);
 
@@ -46,13 +68,17 @@ public sealed class TelescopeSystem : SharedTelescopeSystem
 
         var offset = Vector2.Zero;
 
-        if (_inputSystem.CmdStates.GetState(ContentKeyFunctions.LookUp) != BoundKeyState.Down)
+        if (_holdLookUp)
         {
-            RaisePredictiveEvent(new EyeOffsetChangedEvent
+            if (_inputSystem.CmdStates.GetState(ContentKeyFunctions.LookUp) != BoundKeyState.Down)
             {
-                Offset = offset
-            });
-
+                RaiseEvent(offset);
+                return;
+            }
+        }
+        else if (!_toggled)
+        {
+            RaiseEvent(offset);
             return;
         }
 
@@ -89,6 +115,11 @@ public sealed class TelescopeSystem : SharedTelescopeSystem
             offset = new Angle(-eye.Rotation.Theta).RotateVec(offset);
         }
 
+        RaiseEvent(offset);
+    }
+
+    private void RaiseEvent(Vector2 offset)
+    {
         RaisePredictiveEvent(new EyeOffsetChangedEvent
         {
             Offset = offset

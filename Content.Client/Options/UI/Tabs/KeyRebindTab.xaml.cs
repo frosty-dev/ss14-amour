@@ -98,6 +98,12 @@ namespace Content.Client.Options.UI.Tabs
             _deferCommands.Add(_inputManager.SaveToUserData);
         }
 
+        private void HandleHoldLookUp(BaseButton.ButtonToggledEventArgs args) // WD EDIT
+        {
+            _cfg.SetCVar(WhiteCVars.HoldLookUp, args.Pressed);
+            _cfg.SaveToFile();
+        }
+
         private void HandleToggleAutoGetUp(BaseButton.ButtonToggledEventArgs args) // WD EDIT
         {
             _cfg.SetCVar(WhiteCVars.AutoGetUp, args.Pressed);
@@ -194,6 +200,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.OfferItem); // WD EDIT
             AddButton(ContentKeyFunctions.LieDown); // WD EDIT
             AddButton(ContentKeyFunctions.LookUp); // WD EDIT
+            AddCheckBox("ui-options-function-hold-look-up", _cfg.GetCVar(WhiteCVars.HoldLookUp), HandleHoldLookUp); // WD EDIT
             AddCheckBox("ui-options-function-auto-get-up", _cfg.GetCVar(WhiteCVars.AutoGetUp), HandleToggleAutoGetUp); // WD EDIT
 
             AddHeader("ui-options-header-interaction-adv");

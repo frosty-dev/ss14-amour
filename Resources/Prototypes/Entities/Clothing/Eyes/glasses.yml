@@ -301,3 +301,19 @@
         - HamsterWearable
         - WhitelistChameleon
     - type: ShowSecurityIcons
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesMaid
+  name: maid's sunglasses
+  description: Maid's sunglasses. Clean and cute.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Eyes/Glasses/maidglasses.rsi
+  - type: Clothing
+    sprite: White/Clothing/Eyes/Glasses/maidglasses.rsi
+  - type: FlashImmunity
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: ShowSecurityIcons

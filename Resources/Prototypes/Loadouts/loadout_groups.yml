@@ -1,28 +1,4 @@
-#Bottom
-- type: loadoutGroup # WD!?
-  id: CommonBottom
-  name: loadout-group-bottom
-  loadouts:
-  - BottomPantiesWhite
-  - BottomBoxersWhite
-  - BottomBeeShorts
-  - BottomBoxersHeart
-  - BottomBoxersStriped
-  - BottomBriefs
-  - BottomFishnetLower
-  - BottomJockstrap
-  - BottomMankini
-  - BottomPantiesBeeKini
-  - BottomPantiesKinky
-  - BottomPantiesNeko
-  - BottomPantiesSlim
-  - BottomPantiesSwimming
-  - BottomPantiesThin
-  - BottomPantiesStripped
-  - BottomPantiesThong
-  - BottomWebLower
 
-# Miscellaneous
 - type: loadoutGroup
   id: Trinkets
   name: loadout-group-trinkets
@@ -1509,6 +1485,57 @@
   loadouts:
   - SecurityPDA
 
+- type: loadoutGroup # WD
+  id: BrigmedicHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - BrigmedicWhiteBeret
+  - BrigmedicSurgcapBlue
+
+- type: loadoutGroup # WD
+  id: BrigmedicHeadset
+  name: loadout-group-ears
+  loadouts:
+  - HeadsetBrigmedic
+
+- type: loadoutGroup # WD
+  id: BrigmedicUniform
+  name: loadout-group-jumpsuit
+  loadouts:
+  - BrigmedicWhiteJumpsuit
+  - BrigmedicWhiteJumpskirt
+
+- type: loadoutGroup # WD
+  id: BrigmedicBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - BackpackBrigmedic
+  - SatchelBrigmedic
+  - DuffelBrigmedic
+  - CommonSatchelLeatherSecurity
+
+- type: loadoutGroup # WD
+  id: BrigmedicOuterClothing
+  name: loadout-group-outerclothing
+  minLimit: 0
+  loadouts:
+  - ArmorCoatBrigmedic
+  - LabcoatBasic
+
+- type: loadoutGroup # WD
+  id: BrigmedicShoes
+  name: loadout-group-shoes
+  loadouts:
+  - JackBootsBrigmedic
+  - RedShoesBrigmedic
+
+- type: loadoutGroup # WD
+  id: BrigmedicPDA
+  name: loadout-group-pda
+  loadouts:
+  - BrigmedicPDA
+
 - type: loadoutGroup
   id: DetectiveHead
   name: loadout-group-head
@@ -2175,11 +2202,25 @@
 
 # Maid
 - type: loadoutGroup # WD
+  id: MaidSelfDefenceDevices
+  name: loadout-group-self-defence-devices
+  minLimit: 0
+  loadouts:
+  - Flash
+
+- type: loadoutGroup # WD
   id: MaidGlasses
   name: loadout-group-eyes
   minLimit: 0
   loadouts:
   - MaidGlasses
+
+- type: loadoutGroup # WD
+  id: MaidHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - MaidHeadMobCap
 
 - type: loadoutGroup # WD
   id: MaidJumpsuit
@@ -2229,6 +2270,15 @@
   name: loadout-group-jumpsuit
   loadouts:
   - BomzhJumpsuit
+
+- type: loadoutGroup # WD
+  id: BomzhHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - BomzhHeadHat
+  - BomzhHeadCap
+  - BomzhHeadHatMelon
 
 - type: loadoutGroup # WD
   id: BomzhPDA

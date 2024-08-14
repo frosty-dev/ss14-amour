@@ -85,20 +85,17 @@
     contents:
       - id: WeaponDisabler
       - id: TrackingImplanter
-        amount: 2
-      - id: ClothingOuterHardsuitBrigmedic
-      - id: BoxSterileMask
+      - id: BrigmedicHypospray
       - id: ClothingHeadHatBeretBrigmedic
+      - id: ClothingMaskSterile
       - id: ClothingOuterCoatAMG
       - id: ClothingUniformJumpsuitBrigmedic
       - id: ClothingUniformJumpskirtBrigmedic
       - id: ClothingUniformJumpskirtOfLife
-        prob: 0.1
+      - id: ClothingEyesHudMedSec
+      - id: ClothingHandsGlovesNitrile
+      - id: ClothingBeltMedicalRig
       - id: MedkitFilled
-      - id: MedkitCombatFilled
-        prob: 0.6
-      - id: MedkitAdvancedFilled
-        prob: 0.4
       - id: MedkitOxygenFilled
         prob: 0.3
       - id: MedkitBruteFilled
@@ -107,9 +104,8 @@
         prob: 0.3
       - id: MedkitBurnFilled
         prob: 0.7
-      - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
+      - id: ClothingNeckCloakMoth #bзззз, молепокалипсис
         prob: 0.15
-      - id: WeaponDisabler
 
 - type: entity
   id: LockerDetectiveFilled

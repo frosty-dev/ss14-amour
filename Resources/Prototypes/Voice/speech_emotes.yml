@@ -160,7 +160,7 @@
 - type: emote
   id: Salute
   category: Hands
-  buttonText: Приветствие
+  buttonText: Салютовать
   chatMessages: [ салютует ]
   chatTriggers:
   - салютует

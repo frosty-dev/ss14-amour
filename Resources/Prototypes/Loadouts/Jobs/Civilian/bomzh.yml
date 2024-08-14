@@ -7,6 +7,31 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitWhiteBomzh
 
+# HEAD
+- type: itemLoadout # WD
+  id: BomzhHeadCap
+  equipment: BomzhHeadCap
+- type: startingGear
+  id: BomzhHeadCap
+  equipment:
+   head: ClothingHeadHatBomzhCap
+
+- type: itemLoadout # WD
+  id: BomzhHeadHat
+  equipment: BomzhHeadHat
+- type: startingGear
+  id: BomzhHeadHat
+  equipment:
+    head: ClothingHeadHatBomzhHat
+
+- type: itemLoadout # WD
+  id: BomzhHeadHatMelon
+  equipment: BomzhHeadHatMelon
+- type: startingGear
+  id: BomzhHeadHatMelon
+  equipment:
+    head: ClothingHeadHatWatermelon
+
 # PDA
 - type: itemLoadout # WD
   id: BomzhPDA
