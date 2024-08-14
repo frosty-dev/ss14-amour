@@ -44,12 +44,13 @@
   groups:
   - MaidGlasses # WD
   - CommonCommandHeadset # WD
+  - MaidHead
   - MaidJumpsuit
   - MaidGloves # WD
   - MaidBackpack
   - MaidShoes
   - MaidPDA # WD
-  - SelfDefenceDevices # WD
+  - MaidSelfDefenceDevices # WD
   - MaidJobTrinkets
   - CommonUnderwearBottom
   - CommonUnderwearBra
@@ -254,6 +255,7 @@
   groups:
   - BomzhJumpsuit
   - BomzhPDA
+  - BomzhHead
   - BomzhOuterclothing
   - BomzhJobTrinkets
   - CommonUnderwearBottom

@@ -440,7 +440,7 @@
     - state: silver
     - state: idbomzh
   - type: PresetIdCard
-    job: Passenger
+    job: Bomzh
 
 - type: entity
   parent: IDCardStandard

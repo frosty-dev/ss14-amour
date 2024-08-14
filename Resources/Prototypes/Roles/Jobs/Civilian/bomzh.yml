@@ -24,7 +24,7 @@
   whitelistedSpecies:
   - Human
   canBeAntag: true
-  accessGroups:
+  access:
   - Maintenance
 
 - type: startingGear
