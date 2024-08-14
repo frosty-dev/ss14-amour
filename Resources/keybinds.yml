@@ -1,4 +1,4 @@
-﻿version: 1 # Not used right now, whatever.
+version: 1 # Not used right now, whatever.
 binds:
 - function: UIClick
   type: State
@@ -545,5 +545,4 @@ binds:
   key: U
 - function: LookUp
   type: State
-  key: MouseRight
-  mod1: Space
+  key: Space

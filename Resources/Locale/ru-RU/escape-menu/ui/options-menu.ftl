@@ -144,6 +144,8 @@ ui-options-function-auto-get-up = Автоматически вставать п
 ui-options-function-save-item-location = Сохранить позицию предмета
 ui-options-static-storage-ui = Закрепить интерфейс хранилища на хотбаре
 ui-options-function-offer-item = Передать что-то
+ui-options-function-look-up = Присмотреться/Прицелиться
+ui-options-function-hold-look-up = Удерживать клавишу для прицеливания
 
 ui-options-function-smart-equip-backpack = Умная экипировка в рюкзак
 ui-options-function-smart-equip-belt = Умная экипировка на пояс

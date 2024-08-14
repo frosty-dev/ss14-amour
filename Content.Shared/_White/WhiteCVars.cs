@@ -320,6 +320,12 @@ public sealed class WhiteCVars
     public static readonly CVarDef<bool> AutoGetUp =
         CVarDef.Create("white.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
 
+    /// <summary>
+    ///     Determines whether telescope functions by holing a button or via toggle
+    /// </summary>
+    public static readonly CVarDef<bool> HoldLookUp =
+        CVarDef.Create("white.hold_look_up", false, CVar.CLIENT | CVar.ARCHIVE);
+
     /*
      * Aspects
      */
