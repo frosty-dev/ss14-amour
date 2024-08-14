@@ -1,4 +1,4 @@
-# Miscellaneous
+
 - type: loadoutGroup
   id: Trinkets
   name: loadout-group-trinkets
@@ -1484,6 +1484,57 @@
   name: loadout-group-pda
   loadouts:
   - SecurityPDA
+
+- type: loadoutGroup # WD
+  id: BrigmedicHead
+  name: loadout-group-head
+  minLimit: 0
+  loadouts:
+  - BrigmedicWhiteBeret
+  - BrigmedicSurgcapBlue
+
+- type: loadoutGroup # WD
+  id: BrigmedicHeadset
+  name: loadout-group-ears
+  loadouts:
+  - HeadsetBrigmedic
+
+- type: loadoutGroup # WD
+  id: BrigmedicUniform
+  name: loadout-group-jumpsuit
+  loadouts:
+  - BrigmedicWhiteJumpsuit
+  - BrigmedicWhiteJumpskirt
+
+- type: loadoutGroup # WD
+  id: BrigmedicBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - BackpackBrigmedic
+  - SatchelBrigmedic
+  - DuffelBrigmedic
+  - CommonSatchelLeatherSecurity
+
+- type: loadoutGroup # WD
+  id: BrigmedicOuterClothing
+  name: loadout-group-outerclothing
+  minLimit: 0
+  loadouts:
+  - ArmorCoatBrigmedic
+  - LabcoatBasic
+
+- type: loadoutGroup # WD
+  id: BrigmedicShoes
+  name: loadout-group-shoes
+  loadouts:
+  - JackBootsBrigmedic
+  - RedShoesBrigmedic
+
+- type: loadoutGroup # WD
+  id: BrigmedicPDA
+  name: loadout-group-pda
+  loadouts:
+  - BrigmedicPDA
 
 - type: loadoutGroup
   id: DetectiveHead
