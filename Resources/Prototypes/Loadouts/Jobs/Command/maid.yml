@@ -15,6 +15,24 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtMaidMini
 
+# Head
+- type: itemLoadout # WD
+  id: MaidHeadMobCap
+  equipment: MaidHeadMobCap
+- type: startingGear
+  id: MaidHeadMobCap
+  equipment:
+    head: ClothingHeadHatMobCap
+
+# Eyes
+- type: itemLoadout # WD
+  id: MaidGlasses
+  equipment: MaidGlasses
+- type: startingGear
+  id: MaidGlasses
+  equipment:
+    eyes: ClothingEyesGlassesMaid
+
 # Back
 - type: itemLoadout # WD
   id: MaidSatchel
@@ -59,15 +77,6 @@
   id: MaidShoes
   equipment:
     shoes: ClothingShoesMaid
-
-# Glasses
-- type: itemLoadout # WD
-  id: MaidGlasses
-  equipment: MaidGlasses
-- type: startingGear
-  id: MaidGlasses
-  equipment:
-    eyes: ClothingEyesGlassesSecurity
 
 # Job Trinkets
 - type: itemLoadout # WD

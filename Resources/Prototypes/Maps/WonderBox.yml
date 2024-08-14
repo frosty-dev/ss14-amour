@@ -22,6 +22,7 @@
             Passenger: [ -1, -1 ]
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
+            Brigmedic: [ 1, 1 ]
             Chef: [ 2, 2 ]
             Clown: [ 1, 1 ]
             Janitor: [ 4, 4 ]

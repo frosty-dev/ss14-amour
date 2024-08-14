@@ -91,6 +91,13 @@
 
 - type: statusIcon
   parent: JobIcon
+  id: JobIconBrigmedic
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Brigmedic
+
+- type: statusIcon
+  parent: JobIcon
   id: JobIconNoId
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi

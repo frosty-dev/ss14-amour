@@ -440,7 +440,7 @@
     - state: silver
     - state: idbomzh
   - type: PresetIdCard
-    job: Passenger
+    job: Bomzh
 
 - type: entity
   parent: IDCardStandard
@@ -535,6 +535,8 @@
     layers:
     - state: default
     - state: idbrigmedic
+  - type: PresetIdCard
+    job: Brigmedic
 
 - type: entity
   parent: IDCardStandard

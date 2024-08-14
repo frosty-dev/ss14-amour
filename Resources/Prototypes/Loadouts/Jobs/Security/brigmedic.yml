@@ -1,0 +1,110 @@
+﻿# Head
+- type: itemLoadout # WD
+  id: BrigmedicWhiteBeret
+  equipment: BrigmedicWhiteBeret
+- type: startingGear
+  id: BrigmedicWhiteBeret
+  equipment:
+    head: ClothingHeadHatBeretBrigmedic
+
+- type: itemLoadout # WD
+  id: BrigmedicSurgcapBlue
+  equipment: BrigmedicSurgcapBlue
+- type: startingGear
+  id: BrigmedicSurgcapBlue
+  equipment:
+    head: ClothingHeadHatSurgcapBlue
+
+# Ears
+- type: itemLoadout # WD
+  id: HeadsetBrigmedic
+  equipment: HeadsetBrigmedic
+- type: startingGear
+  id: HeadsetBrigmedic
+  equipment:
+    ears: ClothingHeadsetBrigmedic
+
+# Uniform
+- type: itemLoadout # WD
+  id: BrigmedicWhiteJumpsuit
+  equipment: BrigmedicWhiteJumpsuit
+- type: startingGear
+  id: BrigmedicWhiteJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBrigmedic
+
+- type: itemLoadout # WD
+  id: BrigmedicWhiteJumpskirt
+  equipment: BrigmedicWhiteJumpskirt
+- type: startingGear
+  id: BrigmedicWhiteJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtBrigmedic
+
+# Back
+- type: itemLoadout # WD
+  id: BackpackBrigmedic
+  equipment: BackpackBrigmedic
+- type: startingGear
+  id: BackpackBrigmedic
+  equipment:
+    back: ClothingBackpackBrigmedicFilled
+
+- type: itemLoadout # WD
+  id: SatchelBrigmedic
+  equipment: SatchelBrigmedic
+- type: startingGear
+  id: SatchelBrigmedic
+  equipment:
+    back: ClothingBackpackSatchelBrigmedicFilled
+
+- type: itemLoadout # WD
+  id: DuffelBrigmedic
+  equipment: DuffelBrigmedic
+- type: startingGear
+  id: DuffelBrigmedic
+  equipment:
+    back: ClothingBackpackDuffelBrigmedicFilled
+
+# Outerclothing
+- type: itemLoadout # WD
+  id: ArmorCoatBrigmedic
+  equipment: ArmorCoatBrigmedic
+- type: startingGear
+  id: ArmorCoatBrigmedic
+  equipment:
+    outerClothing: ClothingOuterCoatAMG
+
+- type: itemLoadout # WD
+  id: LabcoatBasic
+  equipment: LabcoatBasic
+- type: startingGear
+  id: LabcoatBasic
+  equipment:
+    outerClothing: ClothingOuterCoatLab
+
+# Shoes
+- type: itemLoadout # WD
+  id: JackBootsBrigmedic
+  equipment: JackBootsBrigmedic
+- type: startingGear
+  id: JackBootsBrigmedic
+  equipment:
+    shoes: ClothingShoesBootsJack
+
+- type: itemLoadout # WD
+  id: RedShoesBrigmedic
+  equipment: RedShoesBrigmedic
+- type: startingGear
+  id: RedShoesBrigmedic
+  equipment:
+    shoes: ClothingShoesColorRed
+
+# PDA
+- type: itemLoadout
+  id: BrigmedicPDA
+  equipment: BrigmedicPDA
+- type: startingGear
+  id: BrigmedicPDA
+  equipment:
+    id: BrigmedicPDA
