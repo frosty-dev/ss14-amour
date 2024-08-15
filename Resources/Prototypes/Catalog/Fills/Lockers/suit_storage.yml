@@ -44,7 +44,7 @@
   suffix: Prisoner EVA
   components:
   - type: StorageFill
-    contents:   
+    contents:
         - id: OxygenTankFilled
         - id: ClothingOuterHardsuitEVAPrisoner
         - id: ClothingHeadHelmetEVALarge
@@ -143,6 +143,21 @@
         - id: ClothingMaskBreath
   - type: AccessReader
     access: [["Security"]]
+
+#Brigmedic's hardsuit
+- type: entity
+  id: SuitStorageBrigmedic
+  parent: SuitStorageBase
+  suffix: Brigmedic
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitBrigmedic
+    - id: ClothingMaskBreathMedicalSecurity
+  - type: AccessReader
+    access: [["Medical"]]
 
 #CE's hardsuit
 - type: entity
