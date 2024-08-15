@@ -266,9 +266,9 @@
     speechSounds: Arachnid
   - type: Vocal
     sounds:
-      Male: UnisexArachnid
-      Female: UnisexArachnid
-      Unsexed: UnisexArachnid
+      Male: AnimalArachnid
+      Female: AnimalArachnid
+      Unsexed: AnimalArachnid
   - type: TypingIndicator
     proto: spider
 

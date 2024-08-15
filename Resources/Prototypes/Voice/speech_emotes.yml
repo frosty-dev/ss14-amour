@@ -1,4 +1,4 @@
-﻿# vocal emotes
+# vocal emotes
 - type: emote
   id: Scream
   category: Vocal
@@ -224,12 +224,16 @@
     components:
     - Respirator
   chatMessages: ["chat-emote-msg-gasp"]
+  chatTriggers:
+  - задыхается
 
 - type: emote
   id: DefaultDeathgasp
   chatMessages: [ "emote-deathgasp" ]
   chatTriggers:
-  - задыхается
+  - отключается и бессильно падает, его глаза становятся пустыми и безжизненными...
+  - отключается и бессильно падает, её глаза становятся пустыми и безжизненными...
+  - отключается и бессильно падает, их глаза становятся пустыми и безжизненными...
 
 - type: emote
   id: Buzz
