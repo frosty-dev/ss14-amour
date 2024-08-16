@@ -5,19 +5,34 @@
     "size": { "y": 32, "x": 32 },
     "states": [
         {
-            "name": "wanted"
+            "name": "demote"
         },
         {
-            "name": "suspected"
-        },
-        {
-            "name": "released"
+            "name": "execute"
         },
         {
             "name": "incarcerated"
         },
         {
+            "name": "monitoring"
+        },
+        {
+            "name": "paroled"
+        },
+        {
+            "name": "released"
+        },
+        {
             "name": "remove"
+        },
+        {
+            "name": "search"
+        },
+        {
+            "name": "suspected"
+        },
+        {
+            "name": "wanted"
         }
     ]
 }

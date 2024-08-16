@@ -92,18 +92,11 @@
       - id: ClothingUniformJumpsuitBrigmedic
       - id: ClothingUniformJumpskirtBrigmedic
       - id: ClothingUniformJumpskirtOfLife
+        prob: 0.1
       - id: ClothingEyesHudMedSec
       - id: ClothingHandsGlovesNitrile
       - id: ClothingBeltMedicalRig
       - id: MedkitFilled
-      - id: MedkitOxygenFilled
-        prob: 0.3
-      - id: MedkitBruteFilled
-        prob: 0.3
-      - id: MedkitToxinFilled
-        prob: 0.3
-      - id: MedkitBurnFilled
-        prob: 0.7
       - id: ClothingNeckCloakMoth #bзззз, молепокалипсис
         prob: 0.15
 

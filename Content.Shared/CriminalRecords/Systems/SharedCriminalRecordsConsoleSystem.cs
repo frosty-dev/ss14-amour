@@ -41,8 +41,12 @@ public abstract class SharedCriminalRecordsConsoleSystem : EntitySystem
             SecurityStatus.Paroled => "SecurityIconParoled",
             SecurityStatus.Wanted => "SecurityIconWanted",
             SecurityStatus.Detained => "SecurityIconIncarcerated",
-            SecurityStatus.Discharged => "SecurityIconDischarged",
+            SecurityStatus.Demote => "SecurityIconDemote",
             SecurityStatus.Suspected => "SecurityIconSuspected",
+            SecurityStatus.Execute => "SecurityIconExecute", // WD start
+            SecurityStatus.Released => "SecurityIconReleased",
+            SecurityStatus.Monitoring => "SecurityIconMonitoring",
+            SecurityStatus.Search => "SecurityIconSearch", // WD end
             _ => record.StatusIcon
         };
 

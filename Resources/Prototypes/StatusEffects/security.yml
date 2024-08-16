@@ -6,44 +6,72 @@
   locationPreference: Right
   isShaded: true
 
-- type: statusIcon
+- type: statusIcon # WD start
   parent: SecurityIcon
-  id: SecurityIconDischarged
+  id: SecurityIconDemote
   icon:
-    sprite: /Textures/Interface/Misc/security_icons.rsi
-    state: hud_discharged
+    sprite: /Textures/White/Interface/records.rsi
+    state: hud_demote
 
 - type: statusIcon
   parent: SecurityIcon
   id: SecurityIconIncarcerated
   icon:
-    sprite: /Textures/Interface/Misc/security_icons.rsi
+    sprite: /Textures/White/Interface/records.rsi
     state: hud_incarcerated
 
 - type: statusIcon
   parent: SecurityIcon
   id: SecurityIconParoled
   icon:
-    sprite: /Textures/Interface/Misc/security_icons.rsi
+    sprite: /Textures/White/Interface/records.rsi
     state: hud_paroled
 
 - type: statusIcon
   parent: SecurityIcon
   id: SecurityIconSuspected
   icon:
-    sprite: /Textures/Interface/Misc/security_icons.rsi
+    sprite: /Textures/White/Interface/records.rsi
     state: hud_suspected
 
 - type: statusIcon
   parent: SecurityIcon
   id: SecurityIconWanted
   icon:
-    sprite: /Textures/Interface/Misc/security_icons.rsi
+    sprite: /Textures/White/Interface/records.rsi
     state: hud_wanted
+
+- type: statusIcon
+  parent: SecurityIcon
+  id: SecurityIconExecute
+  icon:
+    sprite: /Textures/White/Interface/records.rsi
+    state: hud_execute
+
+- type: statusIcon
+  parent: SecurityIcon
+  id: SecurityIconMonitoring
+  icon:
+    sprite: /Textures/White/Interface/records.rsi
+    state: hud_monitoring
+
+- type: statusIcon
+  parent: SecurityIcon
+  id: SecurityIconReleased
+  icon:
+    sprite: /Textures/White/Interface/records.rsi
+    state: hud_released
+
+- type: statusIcon
+  parent: SecurityIcon
+  id: SecurityIconSearch
+  icon:
+    sprite: /Textures/White/Interface/records.rsi
+    state: hud_search
 
 - type: statusIcon
   parent: SecurityIcon
   id: CriminalRecordIconRemove
   icon:
-    sprite: /Textures/Interface/Misc/security_icons.rsi
-    state: hud_discharged
+    sprite: /Textures/White/Interface/records.rsi
+    state: hud_demote # WD end

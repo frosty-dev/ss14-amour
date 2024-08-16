@@ -136,8 +136,12 @@ public sealed class SecurityHudSystem : EntitySystem
             (_, SecurityStatus.Detained) => "detained",
             (_, SecurityStatus.Suspected) => "suspected",
             (_, SecurityStatus.Paroled) => "paroled",
-            (_, SecurityStatus.Discharged) => "released",
+            (_, SecurityStatus.Demote) => "demoted", // WD start
             (_, SecurityStatus.Wanted) => "wanted",
+            (_, SecurityStatus.Monitoring) => "monitoring",
+            (_, SecurityStatus.Released) => "released",
+            (_, SecurityStatus.Search) => "search",
+            (_, SecurityStatus.Execute) => "execute",
             (SecurityStatus.Suspected, SecurityStatus.None) => "not-suspected",
             (SecurityStatus.Wanted, SecurityStatus.None) => "not-wanted",
             (SecurityStatus.Detained, SecurityStatus.None) => "released",

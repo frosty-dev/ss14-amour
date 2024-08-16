@@ -504,9 +504,9 @@
     accent: zombieMoth
   - type: Vocal
     sounds:
-      Male: UnisexMoth
-      Female: UnisexMoth
-      Unsexed: UnisexMoth
+      Male: AnimalMoth
+      Female: AnimalMoth
+      Unsexed: AnimalMoth
     wilhelmProbability: 0.001
   - type: MobPrice
     price: 150
@@ -1357,9 +1357,9 @@
     speechVerb: Reptilian
   - type: Vocal
     sounds:
-      Male: UnisexReptilian
-      Female: UnisexReptilian
-      Unsexed: UnisexReptilian
+      Male: AnimalReptilian
+      Female: AnimalReptilian
+      Unsexed: AnimalReptilian
   - type: TypingIndicator
     proto: lizard
   - type: InteractionPopup
@@ -2175,9 +2175,9 @@
     speechSounds: Arachnid
   - type: Vocal
     sounds:
-      Male: UnisexArachnid
-      Female: UnisexArachnid
-      Unsexed: UnisexArachnid
+      Male: AnimalArachnid
+      Female: AnimalArachnid
+      Unsexed: AnimalArachnid
   - type: TypingIndicator
     proto: spider
   - type: Tag
