@@ -12,10 +12,14 @@
 /// </summary>
 public enum SecurityStatus : byte
 {
-    None,
-    Suspected,
+    None, // WD start
     Wanted,
+    Suspected,
+    Demote,
+    Search,
+    Monitoring,
     Detained,
     Paroled,
-    Discharged
+    Released,
+    Execute // WD end
 }
