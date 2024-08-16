@@ -420,3 +420,12 @@
   alpha: 0.9
   ghostName: Никотиноед
   ghostDescription: Поедает никотин в любом виде
+
+#6mirage6
+- type: customGhost
+  id: 6mirage6-ghost
+  ckey: 6mirage6
+  sprite: White/Ghosts/6mirage6-ghost.rsi
+  alpha: 0.9
+  ghostName: M̷a̴r̶i̷
+  ghostDescription: Бежит от настоящего, возвращаясь в прошлое...
