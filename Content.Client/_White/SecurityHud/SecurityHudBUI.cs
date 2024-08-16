@@ -15,31 +15,43 @@ public sealed class SecurityHudBUI : BoundUserInterface
 
     private readonly Dictionary<string, string> _names = new()
     {
-        { "SecurityIconDischarged", Loc.GetString("criminal-records-status-discharged")},
+        { "SecurityIconDemote", Loc.GetString("criminal-records-status-demote")}, // WD start
         { "SecurityIconParoled", Loc.GetString("criminal-records-status-paroled")},
         { "SecurityIconSuspected", Loc.GetString("criminal-records-status-suspected")},
         { "SecurityIconWanted", Loc.GetString("criminal-records-status-wanted")},
         { "SecurityIconIncarcerated", Loc.GetString("criminal-records-status-detained")},
+        { "SecurityIconExecute", Loc.GetString("criminal-records-status-execute")},
+        { "SecurityIconMonitoring", Loc.GetString("criminal-records-status-monitoring")},
+        { "SecurityIconReleased", Loc.GetString("criminal-records-status-released")},
+        { "SecurityIconSearch", Loc.GetString("criminal-records-status-search")},
         { "CriminalRecordIconRemove", Loc.GetString("security-hud-remove-status") }
     };
 
     private readonly Dictionary<string, string> _icons = new()
     {
-        { "SecurityIconDischarged", "/Textures/White/Interface/securityhud.rsi/discharged.png" },
+        { "SecurityIconDemote", "/Textures/White/Interface/securityhud.rsi/demote.png" },
         { "SecurityIconParoled", "/Textures/White/Interface/securityhud.rsi/paroled.png" },
         { "SecurityIconSuspected", "/Textures/White/Interface/securityhud.rsi/suspected.png" },
         { "SecurityIconWanted", "/Textures/White/Interface/securityhud.rsi/wanted.png" },
         { "SecurityIconIncarcerated", "/Textures/White/Interface/securityhud.rsi/incarcerated.png" },
+        { "SecurityIconExecute", "/Textures/White/Interface/securityhud.rsi/execute.png" },
+        { "SecurityIconMonitoring", "/Textures/White/Interface/securityhud.rsi/monitoring.png" },
+        { "SecurityIconReleased", "/Textures/White/Interface/securityhud.rsi/released.png" },
+        { "SecurityIconSearch", "/Textures/White/Interface/securityhud.rsi/search.png" },
         { "CriminalRecordIconRemove", "/Textures/White/Interface/securityhud.rsi/remove.png" }
     };
 
     private readonly Dictionary<string, SecurityStatus> _status = new()
     {
-        { "SecurityIconDischarged", SecurityStatus.Discharged },
+        { "SecurityIconDemote", SecurityStatus.Demote },
         { "SecurityIconParoled", SecurityStatus.Paroled },
         { "SecurityIconSuspected", SecurityStatus.Suspected },
         { "SecurityIconWanted", SecurityStatus.Wanted },
         { "SecurityIconIncarcerated", SecurityStatus.Detained },
+        { "SecurityIconExecute", SecurityStatus.Execute },
+        { "SecurityIconMonitoring", SecurityStatus.Monitoring },
+        { "SecurityIconReleased", SecurityStatus.Released },
+        { "SecurityIconSearch", SecurityStatus.Search }, // WD end
         { "CriminalRecordIconRemove", SecurityStatus.None }
     };
 

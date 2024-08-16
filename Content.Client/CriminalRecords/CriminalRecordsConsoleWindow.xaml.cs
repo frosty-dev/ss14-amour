@@ -217,9 +217,19 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         }
     }
 
+    private HashSet<SecurityStatus> AllowedStatusList = new HashSet<SecurityStatus>()
+    {
+        SecurityStatus.Wanted,
+        SecurityStatus.Suspected,
+        SecurityStatus.Demote,
+        SecurityStatus.Monitoring,
+        SecurityStatus.Paroled,
+        SecurityStatus.Execute
+    };
+
     private void SetStatus(SecurityStatus status)
     {
-        if (status == SecurityStatus.Wanted || status == SecurityStatus.Suspected)
+        if (AllowedStatusList.Contains(status)) // WD end
         {
             GetReason(status);
             return;
