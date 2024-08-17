@@ -8309,3 +8309,22 @@
   id: 499
   time: '2024-08-17T12:48:05.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/631
+- author: ThereDrD0
+  changes:
+  - message: "\u0412\u0437\u0440\u044B\u0432\u044B \u0442\u0435\u043F\u0435\u0440\u044C\
+      \ \u0438\u043C\u0435\u044E\u0442 \u0432\u0438\u0437\u0443\u0430\u043B\u0438\u0437\
+      \u0430\u0446\u0438\u044E \u0443\u0434\u0430\u0440\u043D\u043E\u0439 \u0432\u043E\
+      \u043B\u043D\u044B"
+    type: Add
+  - message: "\u041D\u0435\u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0432\u0437\u0440\
+      \u044B\u0432\u044B \u0438\u043C\u0435\u044E\u0442 \u0432\u0438\u0437\u0443\u0430\
+      \u043B\u0438\u0437\u0430\u0446\u0438\u044E \u0448\u0440\u0430\u043F\u043D\u0435\
+      \u043B\u0438"
+    type: Add
+  - message: "\u041E\u0441\u043A\u043E\u043B\u043E\u0447\u043D\u0430\u044F \u0433\u0440\
+      \u0430\u043D\u0430\u0442\u0430 \u0431\u043E\u043B\u044C\u0448\u0435 \u043D\u0435\
+      \ \u043F\u0438\u0449\u0438\u0442"
+    type: Remove
+  id: 500
+  time: '2024-08-17T20:59:11.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/633
