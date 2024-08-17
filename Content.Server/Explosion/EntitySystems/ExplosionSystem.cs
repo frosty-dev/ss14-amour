@@ -7,6 +7,7 @@ using Content.Server.Explosion.Components;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NPC.Pathfinding;
 using Content.Server.Station.Systems;
+using Content.Shared._White.Explosion;
 using Content.Shared.Audio;
 using Content.Shared.Armor;
 using Content.Shared.Camera;
@@ -175,6 +176,11 @@ public sealed partial class ExplosionSystem
         if (radius != null)
             totalIntensity ??= RadiusToIntensity((float) radius, explosive.IntensitySlope, explosive.MaxIntensity);
         totalIntensity ??= explosive.TotalIntensity;
+
+        // WD edit start
+        var ev = new ExplosiveTriggeredEvent();
+        RaiseLocalEvent(uid, ref ev);
+        // WD edit end
 
         QueueExplosion(uid,
             explosive.ExplosionType,

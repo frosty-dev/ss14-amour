@@ -1,14 +1,14 @@
+using System.Numerics;
 using Content.Server.Explosion.Components;
+using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared.Explosion.Components;
 using Content.Shared.Flash.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Throwing;
-using Robust.Shared.Containers;
-using Robust.Shared.Random;
-using Content.Server.Weapons.Ranged.Systems;
-using System.Numerics;
-using Content.Shared.Explosion.Components;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
+using Robust.Shared.Containers;
+using Robust.Shared.Random;
 
 namespace Content.Server.Explosion.EntitySystems;
 
@@ -114,6 +114,7 @@ public sealed class ClusterGrenadeSystem : EntitySystem
                         RaiseLocalEvent(uid, ref ev);
                     }
                 }
+
                 // delete the empty shell of the clusterbomb
                 Del(uid);
             }
