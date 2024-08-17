@@ -25,7 +25,7 @@ public sealed class CustomGhostPrototype : IPrototype
     public float AlphaOverride { get; } = -1;
 
     [DataField("ghostName")]
-    public string GhostName = string.Empty;
+    public string? GhostName = string.Empty;
 
     [DataField("ghostDescription")]
     public string GhostDescription = string.Empty;

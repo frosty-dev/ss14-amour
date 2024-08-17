@@ -22,13 +22,21 @@
   ghostName: Winter's Scar
   ghostDescription: ...
 
+#- type: customGhost
+#  id: animeshka-ghost
+#  ckey: animeshka
+#  sprite: White/Ghosts/animeshka-ghost.rsi
+#  alpha: 0.7
+#  ghostName: Грабля
+#  ghostDescription: Ну привет уебан!
+
 - type: customGhost
   id: animeshka-ghost
-  ckey: animeshka
+  ckey: theredrd
   sprite: White/Ghosts/animeshka-ghost.rsi
   alpha: 0.7
-  ghostName: Грабля
-  ghostDescription: Ну привет уебан!
+  ghostName: null
+  ghostDescription: ...
 
 - type: customGhost
   id: shelupon-ghost
