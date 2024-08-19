@@ -539,15 +539,15 @@
   - type: Lathe
     idleState: fab-idle
     runningState: fab-active
-    staticRecipes:
+    staticRecipes: # WD edit - removed BorgModuleFireExtinguisher
     - MMI
     - PositronicBrain
     - SciFlash
     - BorgModuleCable
-    - BorgModuleFireExtinguisher
     - BorgModuleRadiationDetection
     - BorgModuleTool
     - BorgModuleAppraisal
+    - BorgModuleAtmospherics # WD
     - BorgModuleConstruction
     - BorgModuleService
     - BorgModuleTreatment
@@ -587,7 +587,7 @@
     - RightLegBorgService
     - HeadBorgService
     - TorsoBorgService
-    dynamicRecipes:
+    dynamicRecipes: # WD edit - removed BorgModuleDiagnosis
     - ProximitySensor
     - BorgModuleLightReplacer
     - BorgModuleAdvancedCleaning
@@ -595,14 +595,12 @@
     - BorgModuleGrapplingGun
     - BorgModuleAdvancedTool
     - BorgModuleGPS
-    - BorgModuleRCD
     - BorgModuleArtifact
     - BorgModuleAnomaly
     - BorgModuleGardening
     - BorgModuleHarvesting
     - BorgModuleMusique
     - BorgModuleClowning
-    - BorgModuleDiagnosis
     - BorgModuleDefibrillator
     - BorgModuleAdvancedTreatment
     - RipleyHarness

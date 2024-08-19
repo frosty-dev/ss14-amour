@@ -543,7 +543,15 @@
     maxCharges: 20
     charges: 20
   - type: AutoRecharge
-    rechargeDuration: 10
+    rechargeDuration: 3
+
+- type: entity # WD
+  id: RapidPipeDispenserRecharging
+  parent: RapidPipeDispenser
+  suffix: Empty
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 2
 
 - type: entity
   id: RCDExperimental

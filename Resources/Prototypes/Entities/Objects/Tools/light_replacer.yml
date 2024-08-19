@@ -33,3 +33,15 @@
     contents:
     - id: LightTube
       amount: 0
+
+- type: entity # WD - for borgs
+  parent: LightReplacer
+  id: LightReplacerBigger
+  suffix: 2x bulbs
+  components:
+  - type: LightReplacer
+    contents:
+    - id: LightTube
+      amount: 16
+    - id: LightBulb
+      amount: 16

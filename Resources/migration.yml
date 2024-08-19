@@ -272,3 +272,8 @@ BoxTrashbag: TrashBag
 
 # 2024-08-05 WD
 OmntnsHammer: JudgeHammer
+
+# 2024-08-07 WD
+BorgModuleDiagnosis: null
+BorgModuleRCD: BorgModuleConstruction
+BorgModuleFireExtinguisher: null
