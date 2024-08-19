@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Giede Prime Team",
+  "copyright": "https://github.com/frosty-dev/ss14-core",
   "size": {
     "x": 32,
     "y": 32
@@ -9,7 +9,29 @@
   "states": [
     {
       "name": "animated",
+      "directions": 4,
       "delays": [
+        [
+          0.14,
+          0.14,
+          0.14,
+          0.14,
+          0.14
+        ],
+        [
+          0.14,
+          0.14,
+          0.14,
+          0.14,
+          0.14
+        ],
+        [
+          0.14,
+          0.14,
+          0.14,
+          0.14,
+          0.14
+        ],
         [
           0.14,
           0.14,
