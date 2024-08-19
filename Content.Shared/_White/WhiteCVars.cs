@@ -102,7 +102,7 @@ public sealed class WhiteCVars
         */
 
     /// <summary>
-    /// URL of the TTS server API.
+    /// Is TTS enabled
     /// </summary>
     public static readonly CVarDef<bool> TtsEnabled =
         CVarDef.Create("tts.enabled", true, CVar.SERVERONLY);
@@ -125,11 +125,9 @@ public sealed class WhiteCVars
     public static readonly CVarDef<int> TtsMaxCacheSize =
         CVarDef.Create("tts.max_cash_size", 200, CVar.SERVERONLY | CVar.ARCHIVE);
 
-
-
     /*
- * Stalin
-     */
+    * Stalin
+    */
 
     public static readonly CVarDef<string> StalinSalt =
         CVarDef.Create("stalin.salt", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
@@ -138,10 +136,9 @@ public sealed class WhiteCVars
     public static readonly CVarDef<string> StalinAuthUrl =
         CVarDef.Create("stalin.auth_url", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
     public static readonly CVarDef<bool> StalinEnabled =
-        CVarDef.Create("stalin.enabled", true, CVar.SERVERONLY | CVar.ARCHIVE);
+        CVarDef.Create("stalin.enabled", false, CVar.SERVERONLY | CVar.ARCHIVE);
     public static readonly CVarDef<float> StalinDiscordMinimumAge =
         CVarDef.Create("stalin.minimal_discord_age_minutes", 604800.0f, CVar.SERVERONLY | CVar.ARCHIVE);
-
 
     /*
    * NonPeaceful Round End
