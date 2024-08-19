@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: rhailrake
-  changes:
-  - message: Added separate fork changelog
-    type: Add
-  id: 1
-  time: '2022-12-09T02:00:00.0000000+00:00'
 - author: RavMorgan
   changes:
   - message: "\u0418\u0441\u043F\u0440\u0430\u0432\u043B\u0435\u043D \u0431\u0430\u0433\
@@ -8328,3 +8322,12 @@
   id: 500
   time: '2024-08-17T20:59:11.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/633
+- author: ThereDrD0
+  changes:
+  - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D Giedi Prime"
+    type: Add
+  - message: "\u0423\u0431\u0440\u0430\u043D White Dream"
+    type: Remove
+  id: 501
+  time: '2024-08-19T00:27:31.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/635
