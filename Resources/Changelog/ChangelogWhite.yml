@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: rhailrake
-  changes:
-  - message: White changelog
-    type: Add
-  id: 4
-  time: '2022-12-09T12:26:07.0000000+00:00'
 - author: RavMorgan
   changes:
   - message: "\u041E\u0447\u0435\u0440\u0435\u0434\u043D\u043E\u0439 \u0444\u0438\u043A\
@@ -8388,3 +8382,15 @@
   id: 503
   time: '2024-08-19T01:25:10.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/637
+- author: ThereDrD0
+  changes:
+  - message: "\u0421\u0442\u0430\u043B\u0438\u043D \u0432\u044B\u043A\u043B\u044E\u0447\
+      \u0435\u043D \u0438\u0437-\u0437\u0430 \u043D\u0435\u0432\u043E\u0437\u043C\u043E\
+      \u0436\u043D\u043E\u0441\u0442\u0438 \u043F\u0440\u0438\u0432\u044F\u0437\u0430\
+      \u0442\u044C \u0434\u0438\u0441\u043A\u043E\u0440\u0434 \u043A \u0433\u043E\u0441\
+      \u0442\u0435\u0432\u043E\u043C\u0443 \u0430\u043A\u043A\u0430\u0443\u043D\u0442\
+      \u0443"
+    type: Remove
+  id: 504
+  time: '2024-08-19T15:13:22.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/638
