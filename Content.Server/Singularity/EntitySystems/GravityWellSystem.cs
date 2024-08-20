@@ -190,7 +190,10 @@ public sealed class GravityWellSystem : SharedGravityWellSystem
         var epicenter = mapPos.Position;
         var minRange2 = MathF.Max(minRange * minRange, MinGravPulseRange); // Cache square value for speed. Also apply a sane minimum value to the minimum value so that div/0s don't happen.
 
-        foreach(var entity in _lookup.GetEntitiesInRange(mapPos.MapId, epicenter, maxRange, flags: LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries))
+        var bodyQuery = GetEntityQuery<PhysicsComponent>();
+        var xformQuery = GetEntityQuery<TransformComponent>();
+
+        foreach(var entity in _lookup.GetEntitiesInRange(mapPos.MapId, epicenter, maxRange, flags: LookupFlags.Dynamic | LookupFlags.Sundries))
         {
             if (!entity.Valid)
                 continue;
