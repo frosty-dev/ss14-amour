@@ -48,9 +48,13 @@ criminal-records-console-not-wanted = {$name} больше не в розыск�
 criminal-records-console-paroled = {$name} был условно-досрочно освобождён {$officer} на основании {$reason}.
 criminal-records-console-not-parole = {$name} нарушил условия условно-досрочного освобождения.
 criminal-records-console-search = {$name} требуется обыскать по указу {$officer}.
+criminal-records-console-not-search = {$name} больше не требуется обыскать.
 criminal-records-console-monitoring = За {$name} требуется вести наблюдание по причине {$reason}.
+criminal-records-console-not-monitoring = За {$name} можно прекратить слежку.
 criminal-records-console-execute = {$name} требуется ликвидировать по приказу {$officer} по причине {$reason}.
+criminal-records-console-not-execute = Приказ на устранение {$name} отменён {$officer}.
 criminal-records-console-demoted = {$name} должен быть понижен в должности по указу {$officer} по причине {$reason}.
+criminal-records-console-not-demoted = {$name} больше не требуется уволить.
 criminal-records-console-unknown-officer = <неопознанный офицер>
 
 
