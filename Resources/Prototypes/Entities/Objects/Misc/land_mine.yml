@@ -70,9 +70,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 10
+    maxIntensity: 40
     intensitySlope: 3
-    totalIntensity: 120 # about a ~4 tile radius
+    totalIntensity: 70 # about a ~4 tile radius
     canCreateVacuum: false
 
 - type: entity

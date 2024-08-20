@@ -409,6 +409,10 @@
     state: icon
   - type: Item
     size: Normal
+    storedRotation: -90
+    shape: # WD
+    - 0, 1, 0, 1
+    - 0, 0, 1, 0
   - type: Clothing
     sprite: Objects/Tools/rcd.rsi
     quickEquip: false

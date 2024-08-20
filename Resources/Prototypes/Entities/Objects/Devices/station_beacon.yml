@@ -24,7 +24,7 @@
   - type: NavMapBeacon
     defaultText: station-beacon-general
     color: "#D4D4D496"
-  - type: WarpPoint
+#  - type: WarpPoint WD edit
   - type: SpawnTeleportLocation
   - type: GiftIgnore
   - type: ActivatableUI
