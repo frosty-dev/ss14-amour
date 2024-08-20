@@ -883,8 +883,6 @@
     idleState: icon
     runningState: icon
     staticRecipes:
-      - Brutepack
-      - Ointment
       - Gauze
       - HandLabeler
       - Defibrillator
@@ -905,6 +903,14 @@
       - RollerBedSpawnFolded
       - CheapRollerBedSpawnFolded
       - EmergencyRollerBedSpawnFolded
+      - ChemicalCartridgeRecipe # WD
+      - Scalpel
+      - Retractor
+      - Cautery
+      - Drill
+      - Saw
+      - Hemostat
+      - ClothingEyesGlassesChemical
       - Medkit
       - MedkitBurn
       - MedkitToxin
@@ -913,13 +919,6 @@
       - MedkitAdvanced
       - MedkitRadiation
       - MedkitCombat
-      - Scalpel
-      - Retractor
-      - Cautery
-      - Drill
-      - Saw
-      - Hemostat
-      - ClothingEyesGlassesChemical
     dynamicRecipes:
       - HandheldCrewMonitor
       - ChemicalPayload
