@@ -69,7 +69,7 @@ namespace Content.Server.Tabletop
             session.Entities.TryGetValue(entity, out var result);
             session.Entities.Remove(result);
 
-            tabletop.HologramsSpawned--; // Giede Prime fix
+            tabletop.HologramsSpawned--; // Giedi Prime fix
 
             QueueDel(result);
         }
