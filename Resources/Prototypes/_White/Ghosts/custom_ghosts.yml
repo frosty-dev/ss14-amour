@@ -446,3 +446,12 @@
   alpha: 0.9
   ghostName: Ярик
   ghostDescription: Дробилка, маска, плащ... Все эти вещи, казалось, сроднились с ним, сопровождая его даже после смерти.
+
+#Jabak
+- type: customGhost
+  id: jabak-ghost
+  ckey: Jabak
+  sprite: White/Ghosts/jabak-ghost.rsi
+  alpha: 0.9
+  ghostName: Жопа
+  ghostDescription: Хуй
