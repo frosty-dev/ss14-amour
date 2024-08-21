@@ -15,10 +15,13 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
+    hideOnToggle: true
 
 - type: entity
-  parent: ClothingMaskGas
+  parent: [ClothingMaskGas, BaseRestrictedContraband]
   id: ClothingMaskGasSecurity
   name: security gas mask
   description: A standard issue Security gas mask.
@@ -39,7 +42,7 @@
   - type: Halt
 
 - type: entity
-  parent: ClothingMaskGas
+  parent: [ClothingMaskGas, BaseSyndicateContraband]
   id: ClothingMaskGasSyndicate
   name: syndicate gas mask
   description: A close-fitting tactical mask that can be connected to an air supply.
@@ -74,7 +77,7 @@
         Heat: 0.80
 
 - type: entity
-  parent: ClothingMaskGasAtmos
+  parent: [ClothingMaskGasAtmos, BaseCommandContraband]
   id: ClothingMaskGasCaptain
   name: captain's gas mask
   description: Nanotrasen cut corners and repainted a spare atmospheric gas mask, but don't tell anyone.
@@ -89,7 +92,7 @@
 - type: entity
   parent: ClothingMaskGasAtmos
   id: ClothingMaskGasCentcom
-  name: CentCom gas mask
+  name: CentComm gas mask
   description: Oooh, gold and green. Fancy! This should help as you sit in your office.
   components:
   - type: Sprite
@@ -179,7 +182,7 @@
       Steel: 50
       Plastic: 100
   - type: StaticPrice
-    price: 12.5 # increases in price after decomposed into raw materials
+    price: 30 # increases in price after decomposed into raw materials
 
 - type: entity
   parent: ClothingMaskBase
@@ -198,7 +201,9 @@
     tags:
     - ClownMask
     - WhitelistChameleon
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
   parent: ClothingMaskClownBase
@@ -209,7 +214,9 @@
     - ClownMask
     - HamsterWearable
     - WhitelistChameleon
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
   parent: ClothingMaskClown
@@ -225,6 +232,24 @@
     node: mask
 
 - type: entity
+  parent: ClothingMaskClown
+  id: ClothingMaskClownSecurity
+  name: security clown wig and mask
+  description: A debatably oxymoronic but protective mask and wig.
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/clown_security.rsi
+  - type: Clothing
+    sprite: Clothing/Mask/clown_security.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
   parent: ClothingMaskBase
   id: ClothingMaskJoy
   name: joy mask
@@ -236,9 +261,9 @@
     sprite: Clothing/Mask/joy.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
   parent: ClothingMaskBase
@@ -256,7 +281,9 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -270,9 +297,12 @@
     sprite: Clothing/Mask/sterile.rsi
   - type: IngestionBlocker
   - type: Item
-    storedRotation: -90
+    size: Tiny
   - type: IdentityBlocker
     coverage: MOUTH
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 25
 
 - type: entity
   parent: ClothingMaskBase
@@ -286,6 +316,8 @@
     sprite: Clothing/Mask/muzzle.rsi
   - type: Clothing
     sprite: Clothing/Mask/muzzle.rsi
+    equipDelay: 3
+    unequipDelay: 3
   - type: IngestionBlocker
   - type: AddAccentClothing
     accent: ReplacementAccent
@@ -307,9 +339,10 @@
   - type: BreathMask
   - type: IngestionBlocker
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
+    hideOnToggle: true
 
 - type: entity
   parent: ClothingMaskClownBase
@@ -340,8 +373,11 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-    - HidesHair
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    hideOnToggle: true
 
 - type: entity
   parent: ClothingMaskGasExplorer
@@ -370,8 +406,11 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-    - HidesHair
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    hideOnToggle: true
 
 - type: entity
   parent: ClothingMaskGasERT
@@ -406,7 +445,9 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
   - type: IdentityBlocker
 
 - type: entity
@@ -421,9 +462,9 @@
     sprite: Clothing/Mask/fox.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
   parent: ClothingMaskBase
@@ -437,9 +478,9 @@
     sprite: Clothing/Mask/bee.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
   parent: ClothingMaskBase
@@ -453,9 +494,9 @@
     sprite: Clothing/Mask/bear.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
   parent: ClothingMaskBase
@@ -469,9 +510,9 @@
     sprite: Clothing/Mask/raven.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
   parent: ClothingMaskBase
@@ -485,9 +526,9 @@
     sprite: Clothing/Mask/jackal.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
   parent: ClothingMaskBase
@@ -501,9 +542,9 @@
     sprite: Clothing/Mask/bat.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - HidesNose
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
   parent: ClothingMaskBase
@@ -558,7 +599,7 @@
   parent: ClothingMaskMime
   id: ClothingMaskScaredMime
   name: scared mime mask
-  description: Looks like it would scream if it wasn't a mask
+  description: Looks like it would scream if it wasn't a mask.
   components:
   - type: Sprite
     sprite: Clothing/Mask/scaredmime.rsi

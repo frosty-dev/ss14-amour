@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<<< HEAD:Resources/Textures/White/Fluff/Serafim547/salvage.rsi/meta.json
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/0a1ae39f0fb7353b0704f27d1599a567891f727c, edited by Flareguy. In hand sprite scaled down by potato1234_x, monkey made by brainfood1183 (github) for ss14",
+========
+  "copyright": "Taken from tgstation at commit https://github.com/vgstation-coders/vgstation13/blob/HEAD/icons/obj/clothing/masks.dmi. Vox and Reptilian edits by EmoGarbage404 (Github)",
+>>>>>>>> upstream/master:Resources/Textures/Clothing/Mask/goldenmask.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32
@@ -11,15 +15,28 @@
       "name": "icon"
     },
     {
-      "name": "equipped-INNERCLOTHING",
+      "name": "icon-joy"
+    },
+    {
+      "name": "icon-despair"
+    },
+    {
+      "name": "icon-anger"
+    },
+    {
+      "name": "equipped-MASK",
       "directions": 4
     },
     {
+<<<<<<<< HEAD:Resources/Textures/White/Fluff/Serafim547/salvage.rsi/meta.json
       "name": "equipped-INNERCLOTHING-monkey",
       "directions": 4
     },
     {
       "name": "equipped-INNERCLOTHING-body-slim",
+========
+      "name": "equipped-MASK-vox",
+>>>>>>>> upstream/master:Resources/Textures/Clothing/Mask/goldenmask.rsi/meta.json
       "directions": 4
     },
     {

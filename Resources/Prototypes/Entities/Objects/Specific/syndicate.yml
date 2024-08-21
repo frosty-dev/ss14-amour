@@ -1,6 +1,7 @@
+
 - type: entity
   name: telecrystal
-  parent: BaseItem
+  parent: [BaseItem, BaseSyndicateContraband]
   id: Telecrystal
   suffix: 20 TC
   description: It seems to be pulsing with suspiciously enticing energies.
@@ -51,7 +52,7 @@
 
 # Uplinks
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, StorePresetUplink, BaseSyndicateContraband]
   id: BaseUplinkRadio
   name: syndicate uplink
   description: Suspiciously looking old radio...
@@ -67,12 +68,11 @@
     storedRotation: 90
   - type: UserInterface
     interfaces:
-    - key: enum.StoreUiKey.Key
-      type: StoreBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
   - type: ActivatableUI
     key: enum.StoreUiKey.Key
   - type: Store
-    preset: StorePresetUplink
     balance:
       Telecrystal: 0
   - type: GiftIgnore
@@ -83,7 +83,6 @@
   suffix: 20 TC
   components:
   - type: Store
-    preset: StorePresetUplink
     balance:
       Telecrystal: 20
 
@@ -93,7 +92,6 @@
   suffix: 25 TC
   components:
   - type: Store
-    preset: StorePresetUplink
     balance:
       Telecrystal: 25
 
@@ -104,7 +102,6 @@
   suffix: 30 TC, NukeOps
   components:
   - type: Store
-    preset: StorePresetUplink
     balance:
       Telecrystal: 30
   - type: Tag
@@ -117,7 +114,6 @@
   suffix: 60 TC, LoneOps
   components:
   - type: Store
-    preset: StorePresetUplink
     balance:
       Telecrystal: 60
   - type: Tag
@@ -130,7 +126,6 @@
   suffix: DEBUG
   components:
   - type: Store
-    preset: StorePresetUplink
     balance:
       Telecrystal: 99999
   - type: Tag

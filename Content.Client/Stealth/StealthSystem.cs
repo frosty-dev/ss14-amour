@@ -11,6 +11,7 @@ namespace Content.Client.Stealth;
 public sealed class StealthSystem : SharedStealthSystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     private ShaderInstance _shader = default!;
 
@@ -83,7 +84,7 @@ public sealed class StealthSystem : SharedStealthSystem
         if (!parent.IsValid())
             return; // should never happen, but lets not kill the client.
         var parentXform = Transform(parent);
-        var reference = args.Viewport.WorldToLocal(parentXform.WorldPosition);
+        var reference = args.Viewport.WorldToLocal(_transformSystem.GetWorldPosition(parentXform));
         reference.X = -reference.X;
         var visibility = GetVisibility(uid, component);
 
@@ -104,4 +105,3 @@ public sealed class StealthSystem : SharedStealthSystem
             args.Visible = false;
     }
 }
-

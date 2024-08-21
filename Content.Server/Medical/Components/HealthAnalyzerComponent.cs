@@ -7,6 +7,9 @@ namespace Content.Server.Medical.Components;
 /// <summary>
 /// After scanning, retrieves the target Uid to use with its related UI.
 /// </summary>
+/// <remarks>
+/// Requires <c>ItemToggleComponent</c>.
+/// </remarks>
 [RegisterComponent, AutoGenerateComponentPause]
 [Access(typeof(HealthAnalyzerSystem), typeof(TricorderSystem), typeof(CryoPodSystem))]
 public sealed partial class HealthAnalyzerComponent : Component
@@ -53,4 +56,10 @@ public sealed partial class HealthAnalyzerComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? ScanningEndSound;
+
+    /// <summary>
+    /// Whether to show up the popup
+    /// </summary>
+    [DataField]
+    public bool Silent;
 }

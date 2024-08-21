@@ -1,7 +1,11 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
+<<<<<<<< HEAD:Resources/Textures/White/Fluff/deus/deus_jumpsuit.rsi/meta.json
   "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/c838ba21dae97db345e0113f99596decd1d66039",
+========
+  "copyright": "Borrowed from QM turtleneck at https://github.com/space-wizards/space-station-14/tree/master/Resources/Textures/Clothing/Uniforms/Jumpsuit/qmturtle.rsi and modified by Hanzdegloker (github) for space station 14",
+>>>>>>>> upstream/master:Resources/Textures/Clothing/Uniforms/Jumpsuit/cmo_turtle.rsi/meta.json
   "size": {
     "x": 32,
     "y": 32

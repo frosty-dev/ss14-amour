@@ -11,14 +11,13 @@ namespace Content.Client.Research.UI
         private List<int> _serverIds = [];
         private int _selectedServerId = -1;
 
-        private ResearchClientBoundUserInterface Owner { get; }
+        public event Action<int>? OnServerSelected;
+        public event Action? OnServerDeselected;
 
-        public ResearchClientServerSelectionMenu(ResearchClientBoundUserInterface owner)
+        public ResearchClientServerSelectionMenu()
         {
             RobustXamlLoader.Load(this);
             IoCManager.InjectDependencies(this);
-
-            Owner = owner;
 
             Servers.OnItemSelected += OnItemSelected;
             Servers.OnItemDeselected += OnItemDeselected;
@@ -26,12 +25,12 @@ namespace Content.Client.Research.UI
 
         private void OnItemSelected(ItemList.ItemListSelectedEventArgs itemListSelectedEventArgs)
         {
-            Owner.SelectServer(_serverIds[itemListSelectedEventArgs.ItemIndex]);
+            OnServerSelected?.Invoke(_serverIds[itemListSelectedEventArgs.ItemIndex]);
         }
 
         private void OnItemDeselected(ItemList.ItemListDeselectedEventArgs itemListDeselectedEventArgs)
         {
-            Owner.DeselectServer();
+            OnServerDeselected?.Invoke();
         }
 
         public void Populate(List<string> serverNames, List<int> serverIds, int selectedServerId)

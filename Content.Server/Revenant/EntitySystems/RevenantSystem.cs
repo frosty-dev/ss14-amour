@@ -18,6 +18,7 @@ using Content.Shared.Popups;
 using Content.Shared.Revenant;
 using Content.Shared.Revenant.Components;
 using Content.Shared.StatusEffect;
+using Content.Shared.Store.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Melee;
@@ -92,8 +93,8 @@ public sealed partial class RevenantSystem : EntitySystem
 
         if (_ticker.RunLevel == GameRunLevel.PostRound && TryComp<VisibilityComponent>(uid, out var visibility))
         {
-            _visibility.AddLayer(uid, visibility, (int) VisibilityFlags.Ghost, false);
-            _visibility.RemoveLayer(uid, visibility, (int) VisibilityFlags.Normal, false);
+            _visibility.AddLayer((uid, visibility), (int) VisibilityFlags.Ghost, false);
+            _visibility.RemoveLayer((uid, visibility), (int) VisibilityFlags.Normal, false);
             _visibility.RefreshVisibility(uid, visibility);
         }
 
@@ -156,7 +157,7 @@ public sealed partial class RevenantSystem : EntitySystem
         if (TryComp<StoreComponent>(uid, out var store))
             _store.UpdateUserInterface(uid, uid, store);
 
-        _alerts.ShowAlert(uid, AlertType.Essence);
+        _alerts.ShowAlert(uid, component.EssenceAlert);
 
         if (component.Essence <= 0)
         {
@@ -206,13 +207,13 @@ public sealed partial class RevenantSystem : EntitySystem
         {
             if (visible)
             {
-                _visibility.AddLayer(uid, vis, (int) VisibilityFlags.Normal, false);
-                _visibility.RemoveLayer(uid, vis, (int) VisibilityFlags.Ghost, false);
+                _visibility.AddLayer((uid, vis), (int) VisibilityFlags.Normal, false);
+                _visibility.RemoveLayer((uid, vis), (int) VisibilityFlags.Ghost, false);
             }
             else
             {
-                _visibility.AddLayer(uid, vis, (int) VisibilityFlags.Ghost, false);
-                _visibility.RemoveLayer(uid, vis, (int) VisibilityFlags.Normal, false);
+                _visibility.AddLayer((uid, vis), (int) VisibilityFlags.Ghost, false);
+                _visibility.RemoveLayer((uid, vis), (int) VisibilityFlags.Normal, false);
             }
             _visibility.RefreshVisibility(uid, vis);
         }

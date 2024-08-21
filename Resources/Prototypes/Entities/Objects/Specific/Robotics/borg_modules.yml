@@ -17,7 +17,8 @@
     - BorgModuleGeneric
   - type: GuideHelp
     guides:
-      - Cyborgs
+    - Cyborgs
+    - Robotics
 
 - type: entity
   id: BaseProviderBorgModule
@@ -32,7 +33,6 @@
   id: ActionBorgSwapModule
   name: Swap Module
   description: Select this module, enabling you to use the tools it provides.
-  noSpawn: true
   components:
   - type: InstantAction
     itemIconStyle: BigItem
@@ -321,6 +321,7 @@
     - HoloprojectorBorg
     - SprayBottleSpaceCleaner
     - Dropper
+    - TrashBag
 
 # medical modules
 - type: entity
@@ -499,7 +500,7 @@
 #syndicate modules
 - type: entity
   id: BorgModuleSyndicateWeapon
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
   name: weapon cyborg module
   components:
   - type: Sprite
@@ -508,8 +509,8 @@
     - state: icon-syndicate
   - type: ItemBorgModule
     items:
-    - WeaponAdvancedLaser
-    - Machete
+    - WeaponPistolEchis
+    - EnergyDaggerLoud
 
 - type: entity
   id: BorgModuleOperative
@@ -554,5 +555,19 @@
       - state: icon-syndicate
     - type: ItemBorgModule
       items:
-      - WeaponLightMachineGunL6C
-      - PinpointerSyndicateNuclear
+        - WeaponLightMachineGunL6C
+        - PinpointerSyndicateNuclear
+
+- type: entity
+  id: BorgModuleMartyr
+  parent: [ BaseBorgModule, BaseProviderBorgModule, BaseSyndicateContraband ]
+  name: martyr cyborg module
+  description: "A module that comes with an explosive you probably don't want to handle yourself."
+  components:
+    - type: Sprite
+      layers:
+        - state: syndicateborgbomb
+        - state: icon-bomb
+    - type: ItemBorgModule
+      items:
+        - SelfDestructSeq

@@ -4,6 +4,7 @@ using Content.Server.Electrocution;
 using Content.Shared.Beam;
 using Content.Shared.Beam.Components;
 using Content.Shared.Physics;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -17,6 +18,7 @@ namespace Content.Server.Beam;
 public sealed class BeamSystem : SharedBeamSystem
 {
     [Dependency] private readonly FixtureSystem _fixture = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
@@ -148,8 +150,8 @@ public sealed class BeamSystem : SharedBeamSystem
         if (Deleted(user) || Deleted(target))
             yield break;
 
-        var userMapPos = Transform(user).MapPosition;
-        var targetMapPos = Transform(target).MapPosition;
+        var userMapPos = _transform.GetMapCoordinates(user);
+        var targetMapPos = _transform.GetMapCoordinates(target);
 
         //The distance between the target and the user.
         var calculatedDistance = targetMapPos.Position - userMapPos.Position;

@@ -68,7 +68,7 @@ namespace Content.Server.Voting
         }
     }
 
-    [AdminCommand(AdminFlags.Admin)]
+    [AdminCommand(AdminFlags.Moderator)]
     public sealed class CreateCustomCommand : IConsoleCommand
     {
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
@@ -323,7 +323,7 @@ namespace Content.Server.Voting
         }
     }
 
-    [AdminCommand(AdminFlags.Admin)]
+    [AdminCommand(AdminFlags.Moderator)]
     public sealed class CancelVoteCommand : IConsoleCommand
     {
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;

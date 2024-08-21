@@ -12,12 +12,19 @@ namespace Content.Client.Access.UI;
 [GenerateTypedNameReferences]
 public sealed partial class AccessLevelControl : GridContainer
 {
+    [Dependency] private readonly ILogManager _logManager = default!;
+
+    private ISawmill _sawmill = default!;
+
     public readonly Dictionary<ProtoId<AccessLevelPrototype>, Button> ButtonsList = new();
     public readonly List<Dictionary<ProtoId<AccessLevelPrototype>, Button>> ButtonGroups = new ();
 
     public AccessLevelControl()
     {
         RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this);
+
+        _sawmill = _logManager.GetSawmill("accesslevelcontrol");
     }
 
     public void Populate(List<ProtoId<AccessLevelPrototype>> accessLevels, IPrototypeManager prototypeManager)
@@ -26,7 +33,7 @@ public sealed partial class AccessLevelControl : GridContainer
         {
             if (!prototypeManager.TryIndex(access, out var accessLevel))
             {
-                Logger.Error($"Unable to find accesslevel for {access}");
+                _sawmill.Error($"Unable to find accesslevel for {access}");
                 continue;
             }
 

@@ -14,6 +14,19 @@
     - /Audio/White/Voice/Human/Female/laugh3.ogg # WD
 
 - type: soundCollection
+  id: MaleCough
+  files:
+    - /Audio/Voice/Human/male_cough_1.ogg
+    - /Audio/Voice/Human/male_cough_2.ogg
+
+- type: soundCollection
+  id: FemaleCough
+  files:
+    - /Audio/Voice/Human/female_cough_1.ogg
+    - /Audio/Voice/Human/female_cough_2.ogg
+
+
+- type: soundCollection
   id: Claps
   files:
     - /Audio/Effects/Emotes/clap1.ogg

@@ -64,11 +64,11 @@
     containers:
       DisposalTube: !type:Container
   - type: StaticPrice
-    price: 22
+    price: 30
 
 - type: entity
   id: DisposalHolder
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   name: disposal holder
   components:
   - type: DisposalHolder
@@ -82,7 +82,7 @@
   id: DisposalPipeBroken
   parent: DisposalPipeBase
   name: broken disposal pipe
-  description: A BBP (big broken pipe)
+  description: A BBP (big broken pipe).
   components:
   - type: Sprite
     drawdepth: ThickPipe
@@ -150,8 +150,8 @@
     key: enum.DisposalTaggerUiKey.Key
   - type: UserInterface
     interfaces:
-    - key: enum.DisposalTaggerUiKey.Key
-      type: DisposalTaggerBoundUserInterface
+      enum.DisposalTaggerUiKey.Key:
+        type: DisposalTaggerBoundUserInterface
   - type: Construction
     graph: DisposalPipe
     node: tagger
@@ -226,8 +226,8 @@
     key: enum.DisposalRouterUiKey.Key
   - type: UserInterface
     interfaces:
-    - key: enum.DisposalRouterUiKey.Key
-      type: DisposalRouterBoundUserInterface
+      enum.DisposalRouterUiKey.Key:
+        type: DisposalRouterBoundUserInterface
   - type: Fixtures
     fixtures:
       fix1:
@@ -278,6 +278,8 @@
           bounds: "-0.25,-0.5,0.5,0.5"
         mask:
         - SubfloorMask
+  - type: Construction
+    node: routerflipped
 
 - type: entity
   id: DisposalJunction
@@ -360,6 +362,8 @@
           bounds: "-0.25,-0.5,0.5,0.5"
         mask:
         - SubfloorMask
+  - type: Construction
+    node: junctionflipped
 
 - type: entity
   id: DisposalYJunction
@@ -496,3 +500,5 @@
         pipe:
           Free: { state: signal-router-flipped-free }
           Anchored: { state: signal-router-flipped }
+  - type: Construction
+    node: signal_router_flipped
