@@ -82,9 +82,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     private bool _deadLoocEnabled;
     private bool _critLoocEnabled;
     private readonly bool _adminLoocEnabled = true;
-    //Amour Edit
-    private readonly Dictionary<EntityUid, DateTime> _loocCooldowns = new();
-    //Amour Edit
+
 
     public override void Initialize()
     {
@@ -735,15 +733,6 @@ public sealed partial class ChatSystem : SharedChatSystem
         // If crit player LOOC is disabled, don't send the message at all.
         if (!_critLoocEnabled && _mobStateSystem.IsCritical(source))
             return;
-
-        //Amour EDIT
-        if (_loocCooldowns.TryGetValue(source, out var lastLoocTime) && DateTime.UtcNow - lastLoocTime < TimeSpan.FromSeconds(60)) //LOOC Cooldowns
-        {
-            return;
-        }
-
-        _loocCooldowns[source] = DateTime.UtcNow;
-        //Amour Edit
 
         var wrappedMessage = Loc.GetString("chat-manager-entity-looc-wrap-message",
             ("entityName", name),
