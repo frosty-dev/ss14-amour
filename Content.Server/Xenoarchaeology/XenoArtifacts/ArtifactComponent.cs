@@ -25,13 +25,13 @@ public sealed partial class ArtifactComponent : Component
     /// Minimum number of nodes to generate, inclusive
     /// </summary>
     [DataField("nodesMin")]
-    public int NodesMin = 3;
+    public int NodesMin = 2;
 
     /// <summary>
     /// Maximum number of nodes to generate, exclusive
     /// </summary>
     [DataField("nodesMax")]
-    public int NodesMax = 9;
+    public int NodesMax = 10;
     #endregion
 
     /// <summary>
