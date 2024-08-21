@@ -1,0 +1,12 @@
+﻿- type: entity
+  parent: BaseGameRule
+  id: DemolitionistSpawn
+  noSpawn: true
+  components:
+  - type: StationEvent
+    weight: 8
+    duration: 1
+    earliestStart: 20
+    minimumPlayers: 20
+  - type: RandomSpawnRule
+    prototype: SpawnPointGhostDemolitionist

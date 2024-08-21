@@ -1,0 +1,19 @@
+﻿# Подрывник синдиката
+- type: entity
+  parent: MobHuman
+  id: MobHumanDemolitionist
+  name: подрывник синдиката
+  suffix: Human, Base
+  components:
+  - type: CaucasianAccent
+  - type: GenericAntag
+    rule: Destroy
+  - type: Loadout
+    prototypes: [SyndicateDemolitionistGearExtremely]
+  - type: RandomMetadata
+    nameSegments:
+    - NamesFirstArab
+    - NamesLastArab
+  - type: NpcFactionMember
+    factions:
+    - Syndicate

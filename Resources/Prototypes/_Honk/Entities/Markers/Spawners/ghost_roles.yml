@@ -1,0 +1,16 @@
+﻿- type: entity
+  parent: MarkerBase
+  id: SpawnPointGhostDemolitionist
+  name: точка появление подрывника синдиката
+  components:
+  - type: GhostRole
+    name: Подрывник синдиката
+    description: Пришёл, чтобы красиво уйти
+    rules: Вы - антагонист и можете убивать всех, кто пытается вам помешать, но убийство цели - всегда ваш наивысший приоритет.
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanDemolitionist
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full

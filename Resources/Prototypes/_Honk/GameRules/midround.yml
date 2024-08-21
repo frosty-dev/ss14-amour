@@ -1,0 +1,9 @@
+﻿- type: entity
+  noSpawn: true
+  parent: BaseGameRule
+  id: Destroy
+  components:
+  - type: GenericAntagRule
+    agentName: подрывник
+    objectives:
+    - DemolitionistObjective

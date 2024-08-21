@@ -1,0 +1,6 @@
+﻿- type: antag
+  id: Demolitionist
+  name: Подрывник синдиката
+  antagonist: true
+  setPreference: false
+  objective: Искусство - это взрыв!

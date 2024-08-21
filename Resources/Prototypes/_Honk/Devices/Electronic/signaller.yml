@@ -1,0 +1,8 @@
+﻿- type: entity
+  parent: RemoteSignaller
+  id: RemoteSignallerSyndicate
+  name: передатчик сигналов синдиката
+  components:
+  - type: Sprite
+    sprite: _Honk/Devices/signallersyndicate.rsi
+    state: signaller

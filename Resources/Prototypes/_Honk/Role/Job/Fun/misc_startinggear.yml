@@ -1,0 +1,12 @@
+﻿- type: startingGear
+  id: SyndicateDemolitionistGearExtremely
+  equipment:
+    id: AgentIDCard
+    belt: ClothingBeltShahid
+    mask: ClothingBalaclava
+    jumpsuit: ClothingUniformJumpsuitOperative
+    back: ClothingBackpackSyndicate
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesColorBlack
+    pocket1: Multitool
+    pocket2: RemoteSignallerSyndicate

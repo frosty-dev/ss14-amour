@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingBeltBase
+  id: ClothingBeltShahid
+  name: пояс подрывника
+  description: Лучше не стоять рядом
+  components:
+  - type: Sprite
+    sprite: _Honk/Clothing/Belt/shahidbelt.rsi
+  - type: Clothing
+    sprite: _Honk/Clothing/Belt/shahidbelt.rsi
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
+    explosionType: DemolitionCharge
+    totalIntensity: 400
+    intensitySlope: 8
+    maxIntensity: 75
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger

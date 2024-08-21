@@ -1,0 +1,22 @@
+﻿- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseDemolitionistObjective
+  components:
+  - type: Objective
+    difficulty: 1
+    issuer: Цель
+
+- type: entity
+  noSpawn: true
+  parent: [BaseDemolitionistObjective, BaseKillObjective]
+  id: DemolitionistObjective
+  description: Враг синдиката должен быть взорван!
+  components:
+  - type: Objective
+    unique: false
+  - type: TargetObjective
+    title: Взорви врага синдиката!
+  - type: PickRandomPerson
+  - type: KillPersonCondition
+    requireDead: true

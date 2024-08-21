@@ -1,0 +1,10 @@
+﻿- type: entity
+  parent: ClothingMaskPullableBase
+  id: ClothingBalaclava
+  name: балаклава
+  description: Балаклава
+  components:
+  - type: Sprite
+    sprite: _Honk/Clothing/Mask/balaclava.rsi
+  - type: Clothing
+    sprite: _Honk/Clothing/Mask/balaclava.rsi

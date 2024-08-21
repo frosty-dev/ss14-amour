@@ -1,0 +1,6 @@
+﻿- type: trait
+  id: Caucasian
+  name: Кавказский акцент
+  description: Эу брат, пачэму ты нэ вибрал чэрту
+  components:
+  - type: CaucasianAccent

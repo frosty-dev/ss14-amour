@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseItem
+  id: ReinforcementRadioDemolitionist
+  name:  Радио подкрепления подрывника-синдиката
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: old-radio
+  - type: GhostRole
+    name: Подрывник синдиката
+    description: Искусство - это взрыв.
+    rules: Правило 1 - взорваться
+    raffle:
+      settings: short
+  - type: GhostRoleMobSpawner
+    prototype: MobHumanDemolitionist
+  - type: EmitSoundOnUse
+    sound: /Audio/Effects/Emotes/parp1.ogg
+  - type: UseDelay
+    delay: 300

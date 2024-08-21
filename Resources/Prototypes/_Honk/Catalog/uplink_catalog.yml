@@ -1,0 +1,9 @@
+﻿- type: listing
+  id: UplinkReinforcementRadioDemolitionist
+  name: Радио вызова подрывника
+  icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
+  productEntity: ReinforcementRadioDemolitionist
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkAllies
