@@ -20,6 +20,13 @@ public sealed class WhiteCVars
         CVarDef.Create("white.show_trails", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
+    * Bullet trails
+    */
+
+        public static readonly CVarDef<bool> EnableLightsGlowing =
+            CVarDef.Create("white.enable_lights_glowing", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /*
  * Offer Indicator
      */
 
