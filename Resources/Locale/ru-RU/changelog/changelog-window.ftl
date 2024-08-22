@@ -12,4 +12,4 @@ changelog-button-new-entries = Обновления (новые!)
 
 changelog-tab-title-Changelog = Changelog
 changelog-tab-title-Admin = Admin
-changelog-tab-title-ChangelogWhite = Giedi Prime
+changelog-tab-title-ChangelogWhite = Honk Station
