@@ -364,3 +364,15 @@
 #      startAudio:
 #        path: /Audio/White/Aspects/accent.ogg
 #    - type: SkeletonAspect
+
+#Honk Start
+- type: entity
+  id: DeleteVendingMachineAspect
+  parent: BaseGameRule
+  noSpawn: false
+  components:
+  - type: Aspect
+    name: "DeleteVendingMachineAspect"
+    description: "Некий Жабак украл все торговые автоматы!"
+    weight: 3
+  - type: DeleteVendingMachine
