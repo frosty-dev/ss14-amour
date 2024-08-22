@@ -369,7 +369,7 @@
 - type: entity
   id: DeleteVendingMachineAspect
   parent: BaseGameRule
-  noSpawn: false
+  noSpawn: true
   components:
   - type: Aspect
     name: "DeleteVendingMachineAspect"
