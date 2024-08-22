@@ -140,9 +140,10 @@
     state: scanner
   discipline: CivilianServices
   tier: 2
-  cost: 10000
+  cost: 5000
   recipeUnlocks:
   - HandheldCrewMonitor
+  - BorgModuleResque
 
 - type: technology
   id: MechanizedTreatment
@@ -152,7 +153,7 @@
     state: medical
   discipline: CivilianServices
   tier: 2
-  cost: 5000
+  cost: 10000
   recipeUnlocks:
   - BorgModuleAdvancedTreatment
   - BorgModuleDefibrillator

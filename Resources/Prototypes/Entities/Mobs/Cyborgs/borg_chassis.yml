@@ -257,7 +257,8 @@
     footstepSoundCollection:
       collection: FootstepHoverBorg
       params:
-        volume: -6
+        variation: 0.1
+        volume: -13
   - type: InteractionPopup
     interactSuccessString: petting-success-medical-cyborg
     interactFailureString: petting-failure-medical-cyborg

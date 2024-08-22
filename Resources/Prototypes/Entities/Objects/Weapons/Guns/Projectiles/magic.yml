@@ -29,6 +29,8 @@
     ignited: true
   - type: IgniteOnCollide
     fireStacks: 0.35
+  - type: ExplosionEffect # WD
+    maxShrapnel: 0
 
 - type: entity
   id: ProjectileAnomalyFireball

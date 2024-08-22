@@ -105,3 +105,17 @@
     materialComposition:
       Steel: 50
       Glass: 40
+
+- type: entity
+  name: massive fire extinguisher
+  parent: FireExtinguisher
+  id: FireExtinguisherMassive
+  description: It extinguishes fires.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      spray:
+        maxVol: 300
+        reagents:
+        - ReagentId: Water
+          Quantity: 300

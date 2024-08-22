@@ -35,7 +35,7 @@ public sealed partial class EmotePrototype : IPrototype
     [DataField("chatTriggers")]
     public HashSet<string>? ChatTriggers = new();
 
-    /// <summary> White Dream EDIT Start
+    /// <summary> Giedi Prime EDIT Start
     ///     Текст для кнопки в эмоут меню.
     ///     Бля ну или как это описать, вы поняли короче. ¯\_(ツ)_/¯
     /// </summary>
@@ -44,7 +44,7 @@ public sealed partial class EmotePrototype : IPrototype
 
     [DataField("allowMenu")]
     public bool AllowToEmotionsMenu { get; } = false;
-    // White Dream EDIT end
+    // Giedi Prime EDIT end
 }
 
 /// <summary>

@@ -73,8 +73,9 @@ namespace Content.Client.Options.UI.Tabs
             ViewportLowResCheckBox.OnToggled += OnCheckBoxToggled;
             ParallaxLowQualityCheckBox.OnToggled += OnCheckBoxToggled;
             FpsCounterCheckBox.OnToggled += OnCheckBoxToggled;
-            LogInChatCheckBox.OnToggled += OnCheckBoxToggled;
-            ShowTrailsCheckBox.OnToggled += OnCheckBoxToggled;
+            LogInChatCheckBox.OnToggled += OnCheckBoxToggled; // WD
+            ShowTrailsCheckBox.OnToggled += OnCheckBoxToggled; // WD
+            EnableLightsGlowingBox.OnToggled += OnCheckBoxToggled; // WD
             ApplyButton.OnPressed += OnApplyButtonPressed;
             VSyncCheckBox.Pressed = _cfg.GetCVar(CVars.DisplayVSync);
             FullscreenCheckBox.Pressed = ConfigIsFullscreen;
@@ -86,8 +87,9 @@ namespace Content.Client.Options.UI.Tabs
             ViewportLowResCheckBox.Pressed = !_cfg.GetCVar(CCVars.ViewportScaleRender);
             ParallaxLowQualityCheckBox.Pressed = _cfg.GetCVar(CCVars.ParallaxLowQuality);
             FpsCounterCheckBox.Pressed = _cfg.GetCVar(CCVars.HudFpsCounterVisible);
-            LogInChatCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.LogChatActions);
-            ShowTrailsCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.ShowTrails);
+            LogInChatCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.LogChatActions); // WD
+            ShowTrailsCheckBox.Pressed = _cfg.GetCVar(WhiteCVars.ShowTrails); // WD
+            EnableLightsGlowingBox.Pressed = _cfg.GetCVar(WhiteCVars.EnableLightsGlowing); // WD
             ViewportWidthSlider.Value = _cfg.GetCVar(CCVars.ViewportWidth);
 
             _cfg.OnValueChanged(CCVars.ViewportMinimumWidth, _ => UpdateViewportWidthRange());
@@ -120,8 +122,9 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SetCVar(CCVars.ViewportScaleRender, !ViewportLowResCheckBox.Pressed);
             _cfg.SetCVar(CCVars.ParallaxLowQuality, ParallaxLowQualityCheckBox.Pressed);
             _cfg.SetCVar(CCVars.HudFpsCounterVisible, FpsCounterCheckBox.Pressed);
-            _cfg.SetCVar(WhiteCVars.LogChatActions, LogInChatCheckBox.Pressed);
-            _cfg.SetCVar(WhiteCVars.ShowTrails, ShowTrailsCheckBox.Pressed);
+            _cfg.SetCVar(WhiteCVars.LogChatActions, LogInChatCheckBox.Pressed); // WD
+            _cfg.SetCVar(WhiteCVars.ShowTrails, ShowTrailsCheckBox.Pressed); // WD
+            _cfg.SetCVar(WhiteCVars.EnableLightsGlowing, EnableLightsGlowingBox.Pressed); // WD
             _cfg.SetCVar(CCVars.ViewportWidth, (int) ViewportWidthSlider.Value);
 
             _cfg.SaveToFile();
@@ -151,8 +154,9 @@ namespace Content.Client.Options.UI.Tabs
             var isVPResSame = ViewportLowResCheckBox.Pressed == !_cfg.GetCVar(CCVars.ViewportScaleRender);
             var isPLQSame = ParallaxLowQualityCheckBox.Pressed == _cfg.GetCVar(CCVars.ParallaxLowQuality);
             var isFpsCounterVisibleSame = FpsCounterCheckBox.Pressed == _cfg.GetCVar(CCVars.HudFpsCounterVisible);
-            var isLogInChatSame = LogInChatCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.LogChatActions);
-            var isShowTrailsSame = ShowTrailsCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.ShowTrails);
+            var isLogInChatSame = LogInChatCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.LogChatActions); // WD
+            var isShowTrailsSame = ShowTrailsCheckBox.Pressed == _cfg.GetCVar(WhiteCVars.ShowTrails); // WD
+            var isEnableLightsGlowing = EnableLightsGlowingBox.Pressed == _cfg.GetCVar(WhiteCVars.EnableLightsGlowing); // WD
             var isWidthSame = (int) ViewportWidthSlider.Value == _cfg.GetCVar(CCVars.ViewportWidth);
 
             ApplyButton.Disabled = isVSyncSame &&
@@ -167,7 +171,8 @@ namespace Content.Client.Options.UI.Tabs
                                    isFpsCounterVisibleSame &&
                                    isWidthSame &&
                                    isLogInChatSame &&
-                                   isShowTrailsSame;
+                                   isShowTrailsSame &&
+                                   isEnableLightsGlowing;
         }
 
         private bool ConfigIsFullscreen =>

@@ -41,6 +41,8 @@
     explosionType: Default
     intensitySlope: 4
     maxIntensity: 100
+  - type: ExplosionEffect # WD
+    maxShrapnel: 0
 
 - type: entity
   parent: BaseMeteor

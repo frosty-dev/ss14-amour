@@ -1,4 +1,3 @@
-using Content.Shared.Singularity.Components;
 using Content.Server.Singularity.EntitySystems;
 
 namespace Content.Server.Singularity.Components;
@@ -13,7 +12,7 @@ public sealed partial class GravityWellComponent : Component
     /// <summary>
     /// The maximum range at which the gravity well can push/pull entities.
     /// </summary>
-    [DataField("maxRange")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public float MaxRange;
 
@@ -21,27 +20,27 @@ public sealed partial class GravityWellComponent : Component
     /// The minimum range at which the gravity well can push/pull entities.
     /// This is effectively hardfloored at <see cref="GravityWellSystem.MinGravPulseRange"/>.
     /// </summary>
-    [DataField("minRange")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
-    public float MinRange = 0f;
+    public float MinRange;
 
     /// <summary>
     /// The acceleration entities will experience towards the gravity well at a distance of 1m.
     /// Negative values accelerate entities away from the gravity well.
     /// Actual acceleration scales with the inverse of the distance to the singularity.
     /// </summary>
-    [DataField("baseRadialAcceleration")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
-    public float BaseRadialAcceleration = 0.0f;
+    public float BaseRadialAcceleration;
 
     /// <summary>
     /// The acceleration entities will experience tangent to the gravity well at a distance of 1m.
     /// Positive tangential acceleration is counter-clockwise.
     /// Actual acceleration scales with the inverse of the distance to the singularity.
     /// </summary>
-    [DataField("baseTangentialAcceleration")]
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
-    public float BaseTangentialAcceleration = 0.0f;
+    public float BaseTangentialAcceleration;
 
     #region Update Timing
 

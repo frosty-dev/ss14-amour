@@ -1,0 +1,9 @@
+- type: shader
+  id: ShockWave
+  kind: source
+  path: "/Textures/White/Shaders/shock_wave.swsl"
+
+- type: shader
+  id: LightingOverlay
+  kind: source
+  path: "/Textures/White/Shaders/light.swsl"

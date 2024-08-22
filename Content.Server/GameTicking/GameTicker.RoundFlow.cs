@@ -23,6 +23,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Server._White.PandaSocket.Main;
+using Content.Server._White.RandomArtifacts;
 using Content.Server._White.RealRoundEnded;
 using Content.Server._White.Reputation;
 using Content.Server._White.Stalin;
@@ -287,6 +288,8 @@ namespace Content.Server.GameTicking
 
             // MapInitialize *before* spawning players, our codebase is too shit to do it afterwards...
             _mapManager.DoMapInitialize(DefaultMap);
+
+            RaiseLocalEvent(new RandomArtifactsSystem.MainMapInitEvent()); // Please no more organs-artifacts in players
 
             SpawnPlayers(readyPlayers, readyPlayerProfiles, force);
 

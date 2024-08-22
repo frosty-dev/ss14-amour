@@ -19,8 +19,8 @@
     colliderFixtureId: EventHorizonCollider
     consumerFixtureId: EventHorizonConsumer
   - type: GravityWell # To make the singularity attract things.
-    baseRadialAcceleration: 10
-    maxRange: 4
+    baseRadialAcceleration: 20
+    maxRange: 10
   - type: Fixtures
     fixtures:
       EventHorizonCollider:

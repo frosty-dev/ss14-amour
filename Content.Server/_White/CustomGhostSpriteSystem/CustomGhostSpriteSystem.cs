@@ -1,7 +1,5 @@
-using Content.Server.Ghost.Components;
 using Content.Shared.Ghost;
 using Content.Shared._White.CustomGhostSystem;
-using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -19,12 +17,13 @@ public sealed class CustomGhostSpriteSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<GhostComponent, PlayerAttachedEvent>(OnShit);
     }
 
     private void OnShit(EntityUid uid, GhostComponent component, PlayerAttachedEvent args)
     {
-        if(!_playerManager.TryGetSessionByEntity(uid, out var session))
+        if (!_playerManager.TryGetSessionByEntity(uid, out var session))
             return;
 
         TrySetCustomSprite(uid, session.Name);
@@ -37,32 +36,22 @@ public sealed class CustomGhostSpriteSystem : EntitySystem
 
         foreach (var customGhostPrototype in prototypes)
         {
-            if (string.Equals(customGhostPrototype.Ckey, ckey, StringComparison.CurrentCultureIgnoreCase))
-            {
-                _appearanceSystem.SetData(ghostUid, CustomGhostAppearance.Sprite, customGhostPrototype.CustomSpritePath.ToString());
-                _appearanceSystem.SetData(ghostUid, CustomGhostAppearance.SizeOverride, customGhostPrototype.SizeOverride);
+            if (!string.Equals(customGhostPrototype.Ckey, ckey, StringComparison.CurrentCultureIgnoreCase))
+                continue;
 
-                if(customGhostPrototype.AlphaOverride > 0)
-                {
-                    _appearanceSystem.SetData(ghostUid, CustomGhostAppearance.AlphaOverride, customGhostPrototype.AlphaOverride);
-                }
+            _appearanceSystem.SetData(ghostUid, CustomGhostAppearance.Sprite, customGhostPrototype.CustomSpritePath.ToString());
+            _appearanceSystem.SetData(ghostUid, CustomGhostAppearance.SizeOverride, customGhostPrototype.SizeOverride);
 
-                if (customGhostPrototype.GhostName != string.Empty)
-                {
-                    _metaData.SetEntityName(ghostUid, customGhostPrototype.GhostName);
-                }
+            if (customGhostPrototype.AlphaOverride > 0)
+                _appearanceSystem.SetData(ghostUid, CustomGhostAppearance.AlphaOverride, customGhostPrototype.AlphaOverride);
 
-                if (customGhostPrototype.GhostDescription != string.Empty)
-                {
-                    _metaData.SetEntityDescription(ghostUid, customGhostPrototype.GhostDescription);
-                }
+            if (customGhostPrototype.GhostName != string.Empty)
+                _metaData.SetEntityName(ghostUid, customGhostPrototype.GhostName ?? "null");
 
+            if (customGhostPrototype.GhostDescription != string.Empty)
+                _metaData.SetEntityDescription(ghostUid, customGhostPrototype.GhostDescription);
 
-
-
-                return;
-            }
-
+            return;
         }
     }
 }

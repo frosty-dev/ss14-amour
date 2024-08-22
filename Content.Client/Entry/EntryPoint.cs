@@ -1,7 +1,6 @@
 using Content.Client._White.Chat;
 using Content.Client._White.JoinQueue;
 using Content.Client._White.Jukebox;
-using Content.Client._White.Overlays;
 using Content.Client._White.Reputation;
 using Content.Client._White.Sponsors;
 using Content.Client._White.Stalin;
@@ -10,7 +9,6 @@ using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client.Eui;
-using Content.Client.Flash;
 using Content.Client.Fullscreen;
 using Content.Client.GhostKick;
 using Content.Client.Guidebook;
@@ -26,6 +24,7 @@ using Content.Client.Radiation.Overlays;
 using Content.Client.Replay;
 using Content.Client.Screenshot;
 using Content.Client.Singularity;
+using Content.Client._White.Explosion;
 using Content.Client.Stylesheets;
 using Content.Client.Viewport;
 using Content.Client.Voting;
@@ -179,6 +178,7 @@ namespace Content.Client.Entry
             _parallaxManager.LoadDefaultParallax();
 
             _overlayManager.AddOverlay(new SingularityOverlay());
+            _overlayManager.AddOverlay(new ExplosionShockWaveOverlay());
             _overlayManager.AddOverlay(new RadiationPulseOverlay());
             // _overlayManager.AddOverlay(new GrainOverlay());
             // _overlayManager.AddOverlay(new AtmOverlay());

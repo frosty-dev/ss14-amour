@@ -122,11 +122,7 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="singularity">The state of the singularity to set the energy of.</param>
     public void SetEnergy(EntityUid uid, float value, SingularityComponent? singularity = null)
     {
-        if(!Resolve(uid, ref singularity))
-            return;
-
-        var oldValue = singularity.Energy;
-        if (oldValue == value)
+        if (!Resolve(uid, ref singularity))
             return;
 
         singularity.Energy = value;
@@ -154,13 +150,14 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="singularity">The state of the singularity to adjust the energy of.</param>
     public void AdjustEnergy(EntityUid uid, float delta, float min = float.MinValue, float max = float.MaxValue, bool snapMin = true, bool snapMax = true, SingularityComponent? singularity = null)
     {
-        if(!Resolve(uid, ref singularity))
+        if (!Resolve(uid, ref singularity))
             return;
 
         var newValue = singularity.Energy + delta;
-        if((!snapMin && newValue < min)
-        || (!snapMax && newValue > max))
+
+        if ((!snapMin && newValue < min) || (!snapMax && newValue > max))
             return;
+
         SetEnergy(uid, MathHelper.Clamp(newValue, min, max), singularity);
     }
 

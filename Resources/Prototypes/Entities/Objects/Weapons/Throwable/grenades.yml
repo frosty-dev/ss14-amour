@@ -36,10 +36,18 @@
           Primed: { state: primed }
           Unprimed: { state: icon }
 
+- type: entity # WD
+  abstract: true
+  parent: GrenadeBase
+  id: GrenadeBaseExplosionEffect
+  components:
+  - type: ExplosionEffect
+    maxShrapnel: 0
+
 - type: entity
   name: explosive grenade
   description: Grenade that creates a small but devastating explosion.
-  parent: GrenadeBase
+  parent: GrenadeBaseExplosionEffect # WD
   id: ExGrenade
   components:
   - type: ExplodeOnTrigger
@@ -49,13 +57,8 @@
     intensitySlope: 3
     totalIntensity: 120 # about a ~4 tile radius
     canCreateVacuum: false
-  - type: OnUseTimerTrigger
-    beepSound:
-      path: "/Audio/Effects/beep1.ogg"
-      params:
-        volume: 5
-    initialBeepDelay: 0
-    beepInterval: 2 # 2 beeps total (at 0 and 2)
+  - type: ExplosionEffect
+    maxShrapnel: 12
 
 - type: entity
   name: flashbang
@@ -102,7 +105,7 @@
 - type: entity
   name: syndicate minibomb
   description: A syndicate-manufactured explosive used to stow destruction and cause chaos.
-  parent: GrenadeBase
+  parent: GrenadeBaseExplosionEffect # WD
   id: SyndieMiniBomb
   components:
   - type: Sprite
@@ -235,7 +238,7 @@
 - type: entity
   name: the nuclear option
   description: Please don't throw it, think of the children.
-  parent: GrenadeBase
+  parent: GrenadeBaseExplosionEffect # WD
   id: NuclearGrenade
   components:
   - type: Sprite
@@ -326,7 +329,7 @@
 - type: entity
   name: holy hand grenade
   description: O Lord, bless this thy hand grenade, that with it thou mayst blow thine enemies to tiny bits, in thy mercy.
-  parent: GrenadeBase
+  parent: GrenadeBaseExplosionEffect # WD
   id: HolyHandGrenade
   components:
   - type: Sprite

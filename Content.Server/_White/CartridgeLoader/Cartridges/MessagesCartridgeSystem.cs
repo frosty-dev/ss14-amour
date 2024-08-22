@@ -32,11 +32,10 @@ public sealed class MessagesCartridgeSystem : EntitySystem
         SubscribeLocalEvent<MessagesCartridgeComponent, CartridgeActivatedEvent>(OnCartActivation);
         SubscribeLocalEvent<MessagesCartridgeComponent, CartridgeDeactivatedEvent>(OnCartDeactivation);
         SubscribeLocalEvent<MessagesCartridgeComponent, CartridgeAddedEvent>(OnCartInsertion);
-        SubscribeLocalEvent<MessagesCartridgeComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<MessagesCartridgeComponent, ComponentRemove>(OnRemove);
     }
 
-    private void OnInit(EntityUid uid, MessagesCartridgeComponent component, ComponentInit args)
+    public void Send(EntityUid uid, MessagesCartridgeComponent component)
     {
         var stationId = _stationSystem.GetOwningStation(uid);
         if (!stationId.HasValue ||

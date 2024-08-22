@@ -165,4 +165,7 @@
   id: JobBomzh
 
 - type: playTimeTracker
+  id: JobBrigmedic
+
+- type: playTimeTracker
   id: JobMaid

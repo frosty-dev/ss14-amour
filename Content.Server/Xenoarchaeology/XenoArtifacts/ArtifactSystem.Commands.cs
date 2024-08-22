@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Text;
 using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
@@ -17,6 +18,10 @@ public partial class ArtifactSystem
 
         _conHost.RegisterCommand("getartifactmaxvalue", "Reports the maximum research point value for a given artifact", "forceartifacteffect <uid>",
             GetArtifactMaxValue);
+
+        // WD added
+        _conHost.RegisterCommand("listartifacts", "List all artifact ids and names", "forceartifacteffect",
+            ListArtifacts);
     }
 
     [AdminCommand(AdminFlags.Fun)]
@@ -68,4 +73,25 @@ public partial class ArtifactSystem
         var pointSum = GetResearchPointValue(uid.Value, artifact, true);
         shell.WriteLine($"Max point value for {ToPrettyString(uid.Value)} with {artifact.NodeTree.Count} nodes: {pointSum}");
     }
+
+
+    // WD added - start
+    [AdminCommand(AdminFlags.Admin)]
+    private void ListArtifacts(IConsoleShell shell, string argstr, string[] args)
+    {
+        var items = EntityQuery<ArtifactComponent>();
+
+        var msg = new StringBuilder();
+
+        foreach (var artifact in items)
+        {
+            var entity = artifact.Owner;
+            var effects = string.Join(", ", artifact.NodeTree.ToArray().Select(x => x.Effect));
+
+            msg.AppendFormat("{0}: {1}, {2}\n\n", Name(entity), effects, entity);
+        }
+
+        shell.WriteLine(msg.ToString());
+    }
+    // WD added - end
 }

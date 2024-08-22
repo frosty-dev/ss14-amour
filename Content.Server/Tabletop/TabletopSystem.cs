@@ -69,7 +69,7 @@ namespace Content.Server.Tabletop
             session.Entities.TryGetValue(entity, out var result);
             session.Entities.Remove(result);
 
-            tabletop.HologramsSpawned--; // White Dream fix
+            tabletop.HologramsSpawned--; // Giedi Prime fix
 
             QueueDel(result);
         }
@@ -102,7 +102,7 @@ namespace Content.Server.Tabletop
 
             component.HologramsSpawned++;
             // Skye hotfix end
-            
+
             var meta = MetaData(handEnt);
             var protoId = meta.EntityPrototype?.ID;
 
