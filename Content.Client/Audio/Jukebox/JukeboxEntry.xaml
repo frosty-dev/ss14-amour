@@ -1,7 +1,6 @@
 ﻿<BoxContainer xmlns="https://spacestation14.io"
               Orientation="Horizontal"
-              HorizontalExpand="True"
->
+              HorizontalExpand="True">
     <Label Name="SongName" HorizontalAlignment="Left" HorizontalExpand="True"/>
     <Button Name="PlayButton" StyleClasses="OpenRight" Text="{Loc 'jukebox-menu-buttonplay'}" />
     <Button Name="StopButton" StyleClasses="OpenLeft" Text="{Loc 'jukebox-menu-buttonstop'}" />

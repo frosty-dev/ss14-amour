@@ -480,6 +480,19 @@
     - Dexalin
     - Omnizine
 
+- type: artifactEffect # WD
+  id: EffectChemicalPuddleWaterPotassium
+  targetDepth: 2
+  effectHint: artifact-effect-hint-biochemical
+  components:
+  - type: ChemicalPuddleArtifact
+    chemicalSolution:
+      maxVol: 500
+      canReact: true
+    possibleChemicals:
+    - Water
+    - Potassium
+
 - type: artifactEffect
   id: EffectChemicalPuddleRare
   targetDepth: 2
@@ -536,6 +549,46 @@
   - type: PolyOthersArtifact
     polymorphPrototypeName: ArtifactLuminous
 
+- type: artifactEffect # WD
+  id: EffectPolyWallDoor
+  targetDepth: 3
+  effectHint: artifact-effect-hint-polymorph
+  components:
+  - type: PolyOthersArtifact
+    polymorphPrototypeName: ArtifactWallDoor
+
+- type: artifactEffect # WD
+  id: EffectPolyCluwne
+  targetDepth: 3
+  effectHint: artifact-effect-hint-polymorph
+  components:
+  - type: PolyOthersArtifact
+    polymorphPrototypeName: ArtifactCluwne
+
+- type: artifactEffect # WD
+  id: EffectPolyMouse
+  targetDepth: 3
+  effectHint: artifact-effect-hint-polymorph
+  components:
+  - type: PolyOthersArtifact
+    polymorphPrototypeName: ArtifactMouse
+
+- type: artifactEffect # WD
+  id: EffectPolyChicken
+  targetDepth: 3
+  effectHint: artifact-effect-hint-polymorph
+  components:
+  - type: PolyOthersArtifact
+    polymorphPrototypeName: ArtifactChicken
+
+- type: artifactEffect # WD
+  id: EffectPolyGnome
+  targetDepth: 3
+  effectHint: artifact-effect-hint-polymorph
+  components:
+  - type: PolyOthersArtifact
+    polymorphPrototypeName: ArtifactGnome
+
 - type: artifactEffect
   id: EffectHealAll
   targetDepth: 3
@@ -583,7 +636,7 @@
   components:
   - type: ShuffleArtifact
   - type: TelepathicArtifact
-    range: 7.5
+    range: 12
     messages:
     - shuffle-artifact-popup
 

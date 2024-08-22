@@ -51,7 +51,7 @@ public sealed partial class ParticleAcceleratorSystem
                 ParticleAcceleratorPowerState.Level2 => 3,
                 ParticleAcceleratorPowerState.Level3 => 10,
                 _ => 0,
-            } * 10;
+            } * 3.3f;
         }
 
         if (TryComp<ParticleProjectileComponent>(emitted, out var particle))

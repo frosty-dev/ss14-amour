@@ -409,6 +409,10 @@
     state: icon
   - type: Item
     size: Normal
+    storedRotation: -90
+    shape: # WD
+    - 0, 1, 0, 1
+    - 0, 0, 1, 0
   - type: Clothing
     sprite: Objects/Tools/rcd.rsi
     quickEquip: false
@@ -543,7 +547,15 @@
     maxCharges: 20
     charges: 20
   - type: AutoRecharge
-    rechargeDuration: 10
+    rechargeDuration: 3
+
+- type: entity # WD
+  id: RapidPipeDispenserRecharging
+  parent: RapidPipeDispenser
+  suffix: Empty
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 2
 
 - type: entity
   id: RCDExperimental

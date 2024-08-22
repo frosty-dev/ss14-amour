@@ -16,7 +16,7 @@
   - type: Wieldable
   - type: GunWieldBonus
     minAngle: -20
-    maxAngle: -20
+    maxAngle: -35 # WD
   - type: Gun
     minAngle: 24
     maxAngle: 45

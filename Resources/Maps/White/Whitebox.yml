@@ -90251,7 +90251,6 @@ entities:
     - type: Transform
       pos: 39.5,-37.5
       parent: 2
-    - type: DeviceNetwork
   - uid: 13105
     components:
     - type: Transform
@@ -118444,7 +118443,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -4.5,28.5
       parent: 2
-    - type: DeviceNetwork
     - type: AtmosPipeColor
       color: '#0055CCFF'
   - uid: 16718
@@ -132052,6 +132050,16 @@ entities:
     - type: Transform
       pos: 33.5,16.5
       parent: 2
+- proto: MessagesServer
+  entities:
+  - uid: 12470
+    components:
+    - type: Transform
+      pos: -14.5,-51.5
+      parent: 2
+    - type: SingletonDeviceNetServer
+      active: False
+      available: False
 - proto: MicroManipulatorStockPart
   entities:
   - uid: 18705
@@ -132184,13 +132192,6 @@ entities:
     components:
     - type: Transform
       pos: 52.38254,-44.60257
-      parent: 2
-- proto: MonkeyCubeBox
-  entities:
-  - uid: 12452
-    components:
-    - type: Transform
-      pos: 52.38254,-37.594757
       parent: 2
 - proto: MopBucket
   entities:
@@ -143193,13 +143194,13 @@ entities:
       pos: 4.166244,-61.42392
       parent: 2
     - type: RCDAmmo
-      charges: 45
+      charges: 67
   - uid: 19120
     components:
     - type: Transform
       parent: 18558
     - type: RCDAmmo
-      charges: 45
+      charges: 67
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143208,7 +143209,7 @@ entities:
     - type: Transform
       parent: 18558
     - type: RCDAmmo
-      charges: 45
+      charges: 67
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143217,7 +143218,7 @@ entities:
     - type: Transform
       parent: 18559
     - type: RCDAmmo
-      charges: 45
+      charges: 67
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143226,7 +143227,7 @@ entities:
     - type: Transform
       parent: 18559
     - type: RCDAmmo
-      charges: 45
+      charges: 67
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143235,7 +143236,7 @@ entities:
     - type: Transform
       parent: 18560
     - type: RCDAmmo
-      charges: 45
+      charges: 67
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143244,7 +143245,7 @@ entities:
     - type: Transform
       parent: 18560
     - type: RCDAmmo
-      charges: 45
+      charges: 67
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143254,14 +143255,14 @@ entities:
       pos: 4.173121,-61.326607
       parent: 2
     - type: RCDAmmo
-      charges: 45
+      charges: 67
   - uid: 24413
     components:
     - type: Transform
       pos: 4.166244,-61.51767
       parent: 2
     - type: RCDAmmo
-      charges: 45
+      charges: 67
 - proto: ReagentContainerFlourSmall
   entities:
   - uid: 20165
@@ -159591,10 +159592,6 @@ entities:
         - Left: Forward
         - Right: Reverse
         - Middle: Off
-        invalid:
-        - Left: Forward
-        - Right: Reverse
-        - Middle: Off
         11102:
         - Left: Forward
         - Right: Reverse
@@ -159749,6 +159746,11 @@ entities:
       parent: 2
 - proto: VariantCubeBox
   entities:
+  - uid: 12452
+    components:
+    - type: Transform
+      pos: 52.38254,-37.594757
+      parent: 2
   - uid: 18950
     components:
     - type: Transform

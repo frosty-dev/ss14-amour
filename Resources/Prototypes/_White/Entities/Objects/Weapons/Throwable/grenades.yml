@@ -1,0 +1,92 @@
+- type: entity
+  id: ExplosionEffectGrenade
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: White/Effects/grenade_explosion.rsi
+    state: grenade
+  - type: TimedDespawn
+    lifetime: 0.5
+
+- type: entity
+  id: ExplosionEffectGrenadeShockWave
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: ExplosionShockWave
+    falloffPower: 30
+    sharpness: 15
+    width: 1.3
+
+- type: entity
+  id: ExplosionEffectShrapnel1
+  noSpawn: true
+  components:
+  - type: CollisionWake
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0
+  - type: Sprite
+    sprite: White/Objects/Weapons/shrapnel.rsi
+    state: shrapnel_bright1
+  - type: TimedDespawn
+    lifetime: 0.5
+#  - type: DeleteOnCollide
+
+- type: entity
+  parent: ExplosionEffectShrapnel1
+  id: ExplosionEffectShrapnel2
+  noSpawn: true
+  components:
+  - type: Sprite
+    state: shrapnel_bright2
+
+# Не работает каким-то хуем
+- type: entity
+  parent: BaseBullet
+  id: ProjectileShrapnel
+  name: shrapnel
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: White/Objects/Weapons/Ammunition/Projectiles/shotgun_projectiles.rsi
+    layers:
+    - state: buckshot
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+        - LowImpassable
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 12
+    deleteOnCollide: true
+  - type: TimedDespawn
+    lifetime: 0.5

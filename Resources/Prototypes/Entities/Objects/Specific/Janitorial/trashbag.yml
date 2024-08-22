@@ -44,6 +44,24 @@
   - type: StorageFillVisualizer
     fillBaseName: blue-icon
 
+- type: entity # WD - for borgs
+  name: trash bag
+  id: TrashBagAdvanced
+  parent: TrashBagBlue
+  components:
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,4,9
+    quickInsert: true
+    areaInsert: true
+    storageOpenSound:
+      collection: trashBagRustle
+    storageInsertSound:
+      collection: trashBagRustle
+  - type: Dumpable
+    multiplier: 1.3
+
 - type: entity
   name: spell of all-consuming cleanliness
   id: BagOfSummoningGarbage

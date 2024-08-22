@@ -1,7 +1,9 @@
+using Content.Server._White.Other;
 using Content.Server.Atmos.Components;
 using Content.Server.Singularity.Components;
 using Content.Server.Stunnable;
 using Content.Shared.Ghost;
+using Content.Shared.Singularity.Components;
 using Content.Shared.Singularity.EntitySystems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -37,6 +39,7 @@ public sealed class GravityWellSystem : SharedGravityWellSystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<GravityWellComponent, ComponentStartup>(OnGravityWellStartup);
 
         var vvHandle = _vvManager.GetTypeHandler<GravityWellComponent>();
@@ -47,6 +50,7 @@ public sealed class GravityWellSystem : SharedGravityWellSystem
     {
         var vvHandle = _vvManager.GetTypeHandler<GravityWellComponent>();
         vvHandle.RemovePath(nameof(GravityWellComponent.TargetPulsePeriod));
+
         base.Shutdown();
     }
 
@@ -57,7 +61,7 @@ public sealed class GravityWellSystem : SharedGravityWellSystem
     /// <param name="frameTime">The time elapsed since the last set of updates.</param>
     public override void Update(float frameTime)
     {
-        if(!_timing.IsFirstTimePredicted)
+        if (!_timing.IsFirstTimePredicted)
             return;
 
         var query = EntityQueryEnumerator<GravityWellComponent, TransformComponent>();
@@ -91,15 +95,16 @@ public sealed class GravityWellSystem : SharedGravityWellSystem
     /// <param name="xform">The transform of the gravity well to make pulse.</param>
     private void Update(EntityUid uid, TimeSpan frameTime, GravityWellComponent? gravWell = null, TransformComponent? xform = null)
     {
-        if(!Resolve(uid, ref gravWell))
+        if (!Resolve(uid, ref gravWell))
             return;
 
         gravWell.LastPulseTime = _timing.CurTime;
         gravWell.NextPulseTime = gravWell.LastPulseTime + gravWell.TargetPulsePeriod;
+
         if (gravWell.MaxRange < 0.0f || !Resolve(uid, ref xform))
             return;
 
-        var scale = (float)frameTime.TotalSeconds;
+        var scale = (float) frameTime.TotalSeconds;
         GravPulse(uid, gravWell.MaxRange, gravWell.MinRange, gravWell.BaseRadialAcceleration * scale, gravWell.BaseTangentialAcceleration * scale, xform);
     }
 
@@ -113,10 +118,10 @@ public sealed class GravityWellSystem : SharedGravityWellSystem
     private bool CanGravPulseAffect(EntityUid entity)
     {
         return !(
-            EntityManager.HasComponent<GhostComponent>(entity) ||
-            EntityManager.HasComponent<MapGridComponent>(entity) ||
-            EntityManager.HasComponent<MapComponent>(entity) ||
-            EntityManager.HasComponent<GravityWellComponent>(entity)
+            HasComp<GhostComponent>(entity) ||
+            HasComp<MapGridComponent>(entity) ||
+            HasComp<MapComponent>(entity) ||
+            HasComp<GravityWellComponent>(entity)
         );
     }
 
@@ -184,33 +189,47 @@ public sealed class GravityWellSystem : SharedGravityWellSystem
 
         var epicenter = mapPos.Position;
         var minRange2 = MathF.Max(minRange * minRange, MinGravPulseRange); // Cache square value for speed. Also apply a sane minimum value to the minimum value so that div/0s don't happen.
-        var bodyQuery = GetEntityQuery<PhysicsComponent>();
-        var xformQuery = GetEntityQuery<TransformComponent>();
 
         foreach(var entity in _lookup.GetEntitiesInRange(mapPos.MapId, epicenter, maxRange, flags: LookupFlags.Dynamic | LookupFlags.Sundries))
         {
+            if (!entity.Valid)
+                continue;
+
             if (ignore?.Contains(entity) is true)
                 continue;
 
-            if (!bodyQuery.TryGetComponent(entity, out var physics)
-                || physics.BodyType == BodyType.Static)
-            {
-                continue;
-            }
-
-            if (TryComp<MovedByPressureComponent>(entity, out var movedPressure) && !movedPressure.Enabled) //Ignore magboots users
+            // WD added start
+            if (!TryComp<PhysicsComponent>(entity, out var physics)) // WD edit
                 continue;
 
-            if(!CanGravPulseAffect(entity))
+            if (!TryComp(entity, out TransformComponent? xform))
                 continue;
 
-            var displacement = epicenter - _transform.GetWorldPosition(entity, xformQuery);
+            if (HasComp<ContainmentFieldGeneratorComponent>(entity))
+                continue;
+
+            if (xform.Anchored && HasComp<RadiationCollectorComponent>(entity))
+                continue;
+            // WD added end
+
+            if (TryComp<MovedByPressureComponent>(entity, out var movedPressure) && !movedPressure.Enabled) // Ignore magboots users
+                continue;
+
+            if (!CanGravPulseAffect(entity))
+                continue;
+
+            if (xform.Anchored) // WD added
+                _transform.Unanchor(entity, xform);
+
+            var displacement = epicenter - _transform.GetWorldPosition(entity);
             var distance2 = displacement.LengthSquared();
+
             if (distance2 < minRange2)
                 continue;
 
             var scaling = (1f / distance2) * physics.Mass; // TODO: Variable falloff gradiants.
             _physics.ApplyLinearImpulse(entity, (displacement * baseMatrixDeltaV) * scaling, body: physics);
+
             if (stunTime > 0f)
                 _stun.TryParalyze(entity, TimeSpan.FromSeconds(stunTime), true);
         }
@@ -244,7 +263,7 @@ public sealed class GravityWellSystem : SharedGravityWellSystem
     /// <param name="gravWell">The state of the gravity well to set the pulse period for.</param>
     public void SetPulsePeriod(EntityUid uid, TimeSpan value, GravityWellComponent? gravWell = null)
     {
-        if(!Resolve(uid, ref gravWell))
+        if (!Resolve(uid, ref gravWell))
             return;
 
         if (MathHelper.CloseTo(gravWell.TargetPulsePeriod.TotalSeconds, value.TotalSeconds))
@@ -254,6 +273,7 @@ public sealed class GravityWellSystem : SharedGravityWellSystem
         gravWell.NextPulseTime = gravWell.LastPulseTime + gravWell.TargetPulsePeriod;
 
         var curTime = _timing.CurTime;
+
         if (gravWell.NextPulseTime <= curTime)
             Update(uid, curTime - gravWell.LastPulseTime, gravWell);
     }

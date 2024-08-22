@@ -20,6 +20,13 @@ public sealed class WhiteCVars
         CVarDef.Create("white.show_trails", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
+    * Bullet trails
+    */
+
+        public static readonly CVarDef<bool> EnableLightsGlowing =
+            CVarDef.Create("white.enable_lights_glowing", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /*
  * Offer Indicator
      */
 
@@ -102,7 +109,7 @@ public sealed class WhiteCVars
         */
 
     /// <summary>
-    /// URL of the TTS server API.
+    /// Is TTS enabled
     /// </summary>
     public static readonly CVarDef<bool> TtsEnabled =
         CVarDef.Create("tts.enabled", true, CVar.SERVERONLY);
@@ -125,11 +132,9 @@ public sealed class WhiteCVars
     public static readonly CVarDef<int> TtsMaxCacheSize =
         CVarDef.Create("tts.max_cash_size", 200, CVar.SERVERONLY | CVar.ARCHIVE);
 
-
-
     /*
- * Stalin
-     */
+    * Stalin
+    */
 
     public static readonly CVarDef<string> StalinSalt =
         CVarDef.Create("stalin.salt", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
@@ -141,7 +146,6 @@ public sealed class WhiteCVars
         CVarDef.Create("stalin.enabled", false, CVar.SERVERONLY | CVar.ARCHIVE);
     public static readonly CVarDef<float> StalinDiscordMinimumAge =
         CVarDef.Create("stalin.minimal_discord_age_minutes", 604800.0f, CVar.SERVERONLY | CVar.ARCHIVE);
-
 
     /*
    * NonPeaceful Round End
@@ -405,4 +409,14 @@ public sealed class WhiteCVars
 
     public static readonly CVarDef<string> TimeTrackerApiKey =
         CVarDef.Create("white.time_tracker_key", "", CVar.SERVERONLY | CVar.CONFIDENTIAL | CVar.ARCHIVE);
+
+    /*
+     * Random Artifacts
+     */
+
+    public static readonly CVarDef<bool> EnableRandomArtifacts =
+        CVarDef.Create("white.random_artifacts_enabled", true, CVar.SERVERONLY);
+
+    public static readonly CVarDef<float> ItemToArtifactRatio =
+        CVarDef.Create("white.random_artifacts_ratio", 0.4f, CVar.SERVERONLY);
 }

@@ -46,7 +46,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 15
+        Piercing: 30 # WD
   - type: Item
     storedRotation: 44 # It just works
     size: Huge

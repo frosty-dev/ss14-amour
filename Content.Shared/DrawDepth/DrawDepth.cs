@@ -75,7 +75,7 @@ namespace Content.Shared.DrawDepth
         Items = DrawDepthTag.Default + 3,
 
         Mobs = DrawDepthTag.Default + 4,
-		
+
         OverMobs = DrawDepthTag.Default + 5,
 
         Doors = DrawDepthTag.Default + 6,
@@ -93,14 +93,14 @@ namespace Content.Shared.DrawDepth
         /// <summary>
         ///     Explosions, fire, melee swings. Whatever.
         /// </summary>
-        Effects = DrawDepthTag.Default + 9,
+        Effects = DrawDepthTag.Default + 10,
 
-        Ghosts = DrawDepthTag.Default + 10,
+        Ghosts = DrawDepthTag.Default + 11,
 
         /// <summary>
         ///    Use this selectively if it absolutely needs to be drawn above (almost) everything else. Examples include
         ///    the pointing arrow, the drag & drop ghost-entity, and some debug tools.
         /// </summary>
-        Overlays = DrawDepthTag.Default + 11,
+        Overlays = DrawDepthTag.Default + 12,
     }
 }

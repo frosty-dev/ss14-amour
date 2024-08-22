@@ -22,13 +22,21 @@
   ghostName: Winter's Scar
   ghostDescription: ...
 
+#- type: customGhost
+#  id: animeshka-ghost
+#  ckey: animeshka
+#  sprite: White/Ghosts/animeshka-ghost.rsi
+#  alpha: 0.7
+#  ghostName: Грабля
+#  ghostDescription: Ну привет уебан!
+
 - type: customGhost
   id: animeshka-ghost
-  ckey: animeshka
+  ckey: theredrd
   sprite: White/Ghosts/animeshka-ghost.rsi
   alpha: 0.7
-  ghostName: Грабля
-  ghostDescription: Ну привет уебан!
+  ghostName: null
+  ghostDescription: ...
 
 - type: customGhost
   id: shelupon-ghost
@@ -465,3 +473,21 @@
   alpha: 0.9
   ghostName: M̷a̴r̶i̷
   ghostDescription: Бежит от настоящего, возвращаясь в прошлое...
+
+#6mirage6
+- type: customGhost
+  id: lllkjjjklll-ghost
+  ckey: lllkjjjklll
+  sprite: White/Ghosts/lllkjjjklll-ghost.rsi
+  alpha: 0.9
+  ghostName: Ярик
+  ghostDescription: Дробилка, маска, плащ... Все эти вещи, казалось, сроднились с ним, сопровождая его даже после смерти.
+
+#Jabak
+- type: customGhost
+  id: jabak-ghost
+  ckey: Jabak
+  sprite: White/Ghosts/jabak-ghost.rsi
+  alpha: 0.9
+  ghostName: Жопа
+  ghostDescription: Хуй

@@ -250,7 +250,7 @@
     sprintModifier: 0.8
 
 - type: entity
-  parent: ClothingShoesBaseButcherable
+  parent: ClothingShoesBase
   id: ClothingShoesSkates
   name: roller skates
   description: "Get your skates on!"
@@ -266,8 +266,8 @@
   - type: Item
     sprite: Clothing/Shoes/Specific/skates.rsi
   - type: ClothingSpeedModifier
-    walkModifier: 1.1
-    sprintModifier: 1.1
+    walkModifier: 1.3
+    sprintModifier: 1.3
   - type: Skates
   - type: FootstepModifier
     footstepSoundCollection:

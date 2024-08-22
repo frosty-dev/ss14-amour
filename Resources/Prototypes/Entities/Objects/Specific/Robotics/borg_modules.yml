@@ -121,19 +121,6 @@
     - trayScanner
 
 - type: entity
-  id: BorgModuleFireExtinguisher
-  parent: [ BaseBorgModule, BaseProviderBorgModule ]
-  name: fire extinguisher cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: generic
-    - state: icon-fire-extinguisher
-  - type: ItemBorgModule
-    items:
-    - FireExtinguisher
-
-- type: entity
   id: BorgModuleGPS
   parent: [ BaseBorgModule, BaseProviderBorgModule ]
   name: GPS cyborg module
@@ -178,6 +165,7 @@
     - Wirecutter
     - Multitool
     - WelderIndustrial
+    - FireExtinguisher
 
 # cargo modules
 - type: entity
@@ -236,20 +224,18 @@
     - state: icon-tools-adv
   - type: ItemBorgModule
     items:
-    - Omnitool
-    - WelderExperimental
-    - NetworkConfigurator
-    - RemoteSignaller
-    - GasAnalyzer
-    - GeigerCounter
-    - RemoteSignaller
-    - GasAnalyzer
+    - JawsOfLife # WD
+    - PowerDrill # WD
+    - WelderExperimental # WD
+    - Tricorder # WD
+    - AccessConfigurator # WD
+    - trayScanner # WD
     - GeigerCounter
 
 - type: entity
-  id: BorgModuleConstruction
+  id: BorgModuleAtmospherics # WD
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: construction cyborg module
+  name: atmospherics cyborg module
   components:
   - type: Sprite
     layers:
@@ -257,15 +243,15 @@
     - state: icon-construction
   - type: ItemBorgModule
     items:
-    - SheetSteelLingering0
-    - SheetGlassLingering0
-    - PartRodMetalLingering0
-    - FloorTileItemSteelLingering0
+    - HolofanProjector # WD
+    - RapidPipeDispenserRecharging # WD
+    - trayScanner # WD
+    - GasAnalyzer # WD
 
 - type: entity
-  id: BorgModuleRCD
+  id: BorgModuleConstruction # WD
   parent: [ BaseBorgModuleEngineering, BaseProviderBorgModule ]
-  name: RCD cyborg module
+  name: construction cyborg module
   components:
   - type: Sprite
     layers:
@@ -287,7 +273,7 @@
     - state: icon-light-replacer
   - type: ItemBorgModule
     items:
-    - LightReplacer
+    - LightReplacerBigger # WD
     - Crowbar
     - Screwdriver
 
@@ -319,24 +305,10 @@
     items:
     - AdvMopItem
     - HoloprojectorBorg
-    - SprayBottleSpaceCleaner
-    - Dropper
+    - SprayBottleSpaceCleanerSelfRecharging # WD
+    - TrashBagAdvanced # WD
 
 # medical modules
-- type: entity
-  id: BorgModuleDiagnosis # todo: reuse when med refractor is finished
-  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
-  name: diagnosis cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: medical
-    - state: icon-diagnosis
-  - type: ItemBorgModule
-    items:
-    - HandheldHealthAnalyzerUnpowered
-    - ClothingNeckStethoscope
-
 - type: entity
   id: BorgModuleTreatment
   parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
@@ -349,11 +321,23 @@
   - type: ItemBorgModule
     items:
     - HandheldHealthAnalyzerUnpowered
-    - Brutepack10Lingering
-    - Ointment10Lingering
-    - Gauze10Lingering
-    - Bloodpack10Lingering
+    - BorgHypo # WD
     - Syringe
+
+- type: entity # WD
+  id: BorgModuleResque
+  parent: [ BaseBorgModuleMedical, BaseProviderBorgModule ]
+  name: treatment cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: medical
+    - state: icon-treatment
+  - type: ItemBorgModule
+    items:
+    - HandheldHealthAnalyzerUnpowered
+    - BorgHypoParamedic
+    - HandheldCrewMonitor
 
 - type: entity
   id: BorgModuleDefibrillator
@@ -380,10 +364,10 @@
   - type: ItemBorgModule
     items:
     - HandheldHealthAnalyzerUnpowered
+    - BorgHypoAdvanced # WD
     - Beaker
     - Beaker
     - BorgDropper
-    - BorgHypo
 
 # science modules
 # todo: if science ever gets their own custom robot, add more "sci" modules.

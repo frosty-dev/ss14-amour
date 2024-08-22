@@ -743,6 +743,8 @@
     totalIntensity: 150 # a ~2 tile radius
     intensitySlope: 5
     maxIntensity: 10
+  - type: ExplosionEffect # WD
+    maxShrapnel: 0
 
 - type: entity
   id: BulletGrenadeFlash
@@ -781,6 +783,8 @@
     totalIntensity: 175 # about a ~6 tile radius
     intensitySlope: 1
     maxIntensity: 10
+  - type: ExplosionEffect # WD
+    maxShrapnel: 0
 
 - type: entity
   id: BulletGrenadeEMP

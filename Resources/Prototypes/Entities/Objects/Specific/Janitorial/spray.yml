@@ -27,7 +27,7 @@
   - type: UseDelay
   - type: Spray
     transferAmount: 10
-    sprayVelocity: 2
+    sprayVelocity: 5 # WD
     spraySound:
       path: /Audio/Effects/spray2.ogg
   - type: TrashOnSolutionEmpty
@@ -92,6 +92,20 @@
     tags:
       - Spray
       - DroneUsable #They don't have any other chem stuff on their whitelist so they can't refill it
+
+- type: entity # WD - for borgs
+  name: space cleaner
+  description: BLAM!-brand non-foaming space cleaner!
+  id: SprayBottleSpaceCleanerSelfRecharging
+  parent: SprayBottle
+  suffix: ""
+  components:
+  - type: SolutionRegeneration
+    solution: spray
+    generated:
+      reagents:
+      - ReagentId: SpaceCleaner
+        Quantity: 3
 
 # Vapor
 

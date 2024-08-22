@@ -130,18 +130,6 @@
     duration: 20
 
 - type: polymorph
-  id: ArtifactCluwne
-  configuration:
-    entity: MobCluwne
-    forced: true
-    transferName: true
-    transferHumanoidAppearance: true
-    inventory: None
-    revertOnDeath: true
-    revertOnCrit: true
-    duration: 30
-
-- type: polymorph
   id: ArtifactLizard
   configuration:
     entity: MobLizard
@@ -449,4 +437,58 @@
     inventory: None
     revertOnDeath: true
     revertOnCrit: true
-    duration: 20
+    duration: 60
+
+- type: polymorph # WD
+  id: ArtifactWallDoor
+  configuration:
+    entity: WoodDoor
+    forced: true
+    inventory: None
+    transferName: false
+    transferDamage: false
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 120
+
+- type: polymorph # WD
+  id: ArtifactCluwne
+  configuration:
+    entity: MobCluwne
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: true
+    inventory: Transfer
+    revertOnCrit: false
+    revertOnDeath: false
+    duration: 240
+
+- type: polymorph # WD
+  id: ArtifactMouse
+  configuration:
+    entity: MobMouse
+    forced: true
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 60
+
+- type: polymorph # WD
+  id: ArtifactChicken
+  configuration:
+    entity: MobChicken
+    forced: true
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 60
+
+- type: polymorph # WD
+  id: ArtifactGnome
+  configuration:
+    entity: MobGnome
+    forced: true
+    inventory: Drop
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 240

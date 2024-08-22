@@ -35,6 +35,8 @@
     explosionType: FireBomb # WD EDIT
     totalIntensity: 120 # ~ 5 tile radius
     canCreateVacuum: false
+  - type: ExplosionEffect # WD
+    maxShrapnel: 0
 
 - type: entity
   id: WeldingFuelTankFull

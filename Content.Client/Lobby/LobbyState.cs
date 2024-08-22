@@ -244,7 +244,7 @@ namespace Content.Client.Lobby
                 _lobby!.ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
             }
 
-            _lobby!.LabelName.SetMarkup("[font=\"Bedstead\" size=20] White Dream [/font]");
+            _lobby!.LabelName.SetMarkup("[font=\"Bedstead\" size=20] Giedi Prime [/font]");
             _lobby!.ChangelogLabel.SetMarkup("Список изменений:");
         }
 
