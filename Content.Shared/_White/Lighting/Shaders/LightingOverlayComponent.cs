@@ -11,7 +11,7 @@ namespace Content.Shared._White.Lighting.Shaders;
 public sealed partial class LightingOverlayComponent : Component
 {
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool Enabled = true;
+    public bool? Enabled;
 
     [DataField]
     public SpriteSpecifier Sprite = new Texture(new ResPath("Effects/LightMasks/lightmask_lamp.png"));

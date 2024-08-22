@@ -1,7 +1,8 @@
 ﻿using System.Linq;
+using Content.Server.Station.Components;
+using Content.Server.Station.Systems;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Shared._White;
-using Content.Shared.GameTicking;
 using Content.Shared.Item;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
@@ -13,6 +14,7 @@ public sealed class RandomArtifactsSystem : EntitySystem
     [Dependency] private readonly ArtifactSystem _artifactsSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+    [Dependency] private readonly StationSystem _station = default!;
 
     private float _itemToArtifactRatio; // from 0 to 100. In % percents. Default is 0.7%
     private bool _artifactsEnabled;
@@ -24,10 +26,10 @@ public sealed class RandomArtifactsSystem : EntitySystem
         _configurationManager.OnValueChanged(WhiteCVars.EnableRandomArtifacts, b => OnCvarChanged(b), true);
         _configurationManager.OnValueChanged(WhiteCVars.ItemToArtifactRatio, r => _itemToArtifactRatio = r, true);
 
-        SubscribeLocalEvent<RoundStartedEvent>(OnRoundStart);
+        SubscribeLocalEvent<MainMapInitEvent>(OnRoundStart);
     }
 
-    private void OnRoundStart(RoundStartedEvent ev)
+    private void OnRoundStart(MainMapInitEvent ev)
     {
         if (!_artifactsEnabled)
             return;
@@ -46,6 +48,12 @@ public sealed class RandomArtifactsSystem : EntitySystem
         foreach (var item in selectedItems)
         {
             var entity = item.Owner;
+            var xform = Transform(entity);
+
+            var station = _station.GetStationInMap(xform.MapID);
+
+            if (!HasComp<StationDataComponent>(station))
+                continue;
 
             var artifactComponent = EnsureComp<ArtifactComponent>(entity);
             _artifactsSystem.RandomizeArtifact(entity, artifactComponent);
@@ -73,6 +81,8 @@ public sealed class RandomArtifactsSystem : EntitySystem
 
         _artifactsEnabled = enabled;
     }
+
+    public sealed class MainMapInitEvent : EntityEventArgs { }
 
 }
 

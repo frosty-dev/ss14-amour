@@ -55,13 +55,13 @@ public sealed class LightingOverlay : Overlay
 
         _shader.SetParameter("SCREEN_TEXTURE", ScreenTexture);
 
-        var query = _entityManager.AllEntityQueryEnumerator<LightingOverlayComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var component, out var xform))
+        var query = _entityManager.AllEntityQueryEnumerator<LightingOverlayComponent, PointLightComponent, TransformComponent>();
+        while (query.MoveNext(out _, out var component, out var pointLight, out var xform))
         {
             if (xform.MapID != args.MapId)
                 continue;
 
-            if (!component.Enabled)
+            if (!component.Enabled ?? !pointLight.Enabled)
                 continue;
 
             var worldPos = _transformSystem.GetWorldPosition(xform, xformCompQuery);
@@ -69,10 +69,7 @@ public sealed class LightingOverlay : Overlay
             if (!bounds.Contains(worldPos))
                 continue;
 
-            var color = component.Color;
-
-            if (color == null && _entityManager.TryGetComponent<PointLightComponent>(uid, out var pointLight))
-                color = pointLight.Color;
+            var color = component.Color ?? pointLight.Color;
 
             var (_, _, worldMatrix) = xform.GetWorldPositionRotationMatrix(xformCompQuery);
             handle.SetTransform(worldMatrix);
