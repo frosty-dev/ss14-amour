@@ -21,7 +21,7 @@ public sealed class ExplosionShockWaveOverlay : Overlay, IEntityEventSubscriber
     /// <summary>
     ///     Maximum number of distortions that can be shown on screen at a time.
     /// </summary>
-    public const int MaxCount = 30;
+    public const int MaxCount = 15;
 
     public ExplosionShockWaveOverlay()
     {

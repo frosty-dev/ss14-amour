@@ -482,3 +482,21 @@
   alpha: 0.9
   ghostName: Ярик
   ghostDescription: Дробилка, маска, плащ... Все эти вещи, казалось, сроднились с ним, сопровождая его даже после смерти.
+
+#Jabak
+- type: customGhost
+  id: jabak-ghost
+  ckey: Jabak
+  sprite: White/Ghosts/jabak-ghost.rsi
+  alpha: 0.9
+  ghostName: Жопа
+  ghostDescription: Хуй
+
+#Devf_2
+- type: customGhost
+  id: devf_2-ghost
+  ckey: Devf_2
+  sprite: White/Ghosts/devf_2-ghost.rsi
+  alpha: 0.9
+  ghostName: Devf_2
+  ghostDescription: Aladeen madafaka
