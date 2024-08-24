@@ -18,6 +18,11 @@
   - type: HoleContainer
     useHumanGenitalLayers: true
   - type: CustomHeight
+  - type: HumanoidAppearance
+    species: Human
+    hideLayersOnEquip:
+    - Hair
+    - Snout
 
 - type: entity
   parent: BaseSpeciesDummy

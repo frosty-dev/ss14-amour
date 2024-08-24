@@ -8,6 +8,22 @@ public sealed class LizardAccentSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
 
+    private static readonly Regex RegexLowerS = new("s+");
+    private static readonly Regex RegexUpperS = new("S+");
+    private static readonly Regex RegexInternalX = new(@"(\w)x");
+    private static readonly Regex RegexLowerEndX = new(@"\bx([\-|r|R]|\b)");
+    private static readonly Regex RegexUpperEndX = new(@"\bX([\-|r|R]|\b)");
+
+    // Russian
+    private static readonly Regex RussianRegexLowerS = new("с+");
+    private static readonly Regex RussianRegexUpperS = new("С+");
+    private static readonly Regex RussianRegexLowerZ = new("з+");
+    private static readonly Regex RussianRegexUpperZ = new("З+");
+    private static readonly Regex RussianRegexLowerSh= new("ш+");
+    private static readonly Regex RussianRegexUpperSh= new("Ш+");
+    private static readonly Regex RussianRegexLowerСh= new("ч+");
+    private static readonly Regex RussianRegexUpperСh= new("Ч+");
+
     public override void Initialize()
     {
         base.Initialize();
@@ -19,69 +35,61 @@ public sealed class LizardAccentSystem : EntitySystem
         var message = args.Message;
 
         // hissss
-        message = Regex.Replace(message, "s+", "sss");
+        message = RegexLowerS.Replace(message, "sss");
         // hiSSS
-        message = Regex.Replace(message, "S+", "SSS");
+        message = RegexUpperS.Replace(message, "SSS");
         // ekssit
-        message = Regex.Replace(message, @"(\w)x", "$1kss");
+        message = RegexInternalX.Replace(message, "$1kss");
         // ecks
-        message = Regex.Replace(message, @"\bx([\-|r|R]|\b)", "ecks$1");
+        message = RegexLowerEndX.Replace(message, "ecks$1");
         // eckS
-        message = Regex.Replace(message, @"\bX([\-|r|R]|\b)", "ECKS$1");
+        message = RegexUpperEndX.Replace(message, "ECKS$1");
 
 
-        //WD-EDIT
+        //WD-EDIT start
 
         // c => ссс
-        message = Regex.Replace(
+        message = RussianRegexLowerS.Replace(
             message,
-            "с+",
             _random.Pick(new List<string>() { "сс", "ссс" })
         );
         // С => CCC
-        message = Regex.Replace(
+        message = RussianRegexUpperS.Replace(
             message,
-            "С+",
-            _random.Pick(new List<string>() { "Сс", "Ссс" })
+            _random.Pick(new List<string>() { "СС", "ССС" })
         );
         // з => ссс
-        message = Regex.Replace(
+        message = RussianRegexLowerZ.Replace(
             message,
-            "з+",
             _random.Pick(new List<string>() { "сс", "ссс" })
         );
         // З => CCC
-        message = Regex.Replace(
+        message = RussianRegexUpperZ.Replace(
             message,
-            "З+",
-            _random.Pick(new List<string>() { "Сс", "Ссс" })
+            _random.Pick(new List<string>() { "СС", "ССС" })
         );
         // ш => шшш
-        message = Regex.Replace(
+        message = RussianRegexLowerSh.Replace(
             message,
-            "ш+",
             _random.Pick(new List<string>() { "шш", "шшш" })
         );
         // Ш => ШШШ
-        message = Regex.Replace(
+        message = RussianRegexUpperSh.Replace(
             message,
-            "Ш+",
-            _random.Pick(new List<string>() { "Шш", "Шшш" })
+            _random.Pick(new List<string>() { "ШШ", "ШШШ" })
         );
         // ч => щщщ
-        message = Regex.Replace(
+        message = RussianRegexLowerСh.Replace(
             message,
-            "ч+",
             _random.Pick(new List<string>() { "щщ", "щщщ" })
         );
         // Ч => ЩЩЩ
-        message = Regex.Replace(
+        message = RussianRegexUpperСh.Replace(
             message,
-            "Ч+",
-            _random.Pick(new List<string>() { "Щщ", "Щщщ" })
+            _random.Pick(new List<string>() { "ЩШ", "ЩЩЩ" })
         );
 
-        //WD-EDIT
+        //WD-EDIT end
 
         args.Message = message;
     }

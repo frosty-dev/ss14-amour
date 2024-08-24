@@ -1709,11 +1709,12 @@
   minLimit: 0
   loadouts:
   - ChiefMedicalOfficerBeret
-  - SeniorPhysicianBeret
-  - BlueSurgeryCap
-  - GreenSurgeryCap
-  - PurpleSurgeryCap
-  - CowboyWhite
+  - SeniorPhysicianBeret # WD
+  - CMOMedicalHeadMirror
+  - BlueSurgeryCap # WD
+  - GreenSurgeryCap # WD
+  - PurpleSurgeryCap # WD
+  - CowboyWhite # WD
 
 - type: loadoutGroup # WD
   id: ChiefMedicalOfficerHeadset
@@ -1727,9 +1728,11 @@
   loadouts:
   - ChiefMedicalOfficerJumpsuit
   - ChiefMedicalOfficerJumpskirt
-  - MedicalBlueScrubs
-  - MedicalGreenScrubs
-  - MedicalPurpleScrubs
+  - ChiefMedicalOfficerTurtleneckJumpsuit
+  - ChiefMedicalOfficerTurtleneckJumpskirt
+  - MedicalBlueScrubs # WD
+  - MedicalGreenScrubs # WD
+  - MedicalPurpleScrubs # WD
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1816,6 +1819,7 @@
   minLimit: 0
   loadouts:
   - MedicalBeret
+  - MedicalHeadMirror
   - BlueSurgeryCap
   - GreenSurgeryCap
   - PurpleSurgeryCap

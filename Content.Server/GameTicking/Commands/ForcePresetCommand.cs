@@ -13,6 +13,7 @@ namespace Content.Server.GameTicking.Commands
     [AdminCommand(AdminFlags.Round)]
     sealed class ForcePresetCommand : IConsoleCommand
     {
+        [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
 
@@ -22,7 +23,7 @@ namespace Content.Server.GameTicking.Commands
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            var ticker = EntitySystem.Get<GameTicker>();
+            var ticker = _entityManager.System<GameTicker>();
             if (ticker.RunLevel != GameRunLevel.PreRoundLobby)
             {
                 shell.WriteLine("This can only be executed while the game is in the pre-round lobby.");

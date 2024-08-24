@@ -76,7 +76,7 @@
     bulb: Tube
     damage:
       types:
-        Heat: 20
+        Heat: 2
   - type: ContainerContainer
     containers:
       light_bulb: !type:ContainerSlot
@@ -121,7 +121,7 @@
     hasLampOnSpawn: LightTube
     damage:
       types:
-        Heat: 20
+        Heat: 2
   - type: StaticPrice
     price: 25
   - type: AmbientOnPowered
@@ -150,7 +150,7 @@
     hasLampOnSpawn: LedLightTube
     damage:
       types:
-        Heat: 20
+        Heat: 1
   - type: StaticPrice
     price: 25
   - type: AmbientOnPowered

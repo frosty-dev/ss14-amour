@@ -120,6 +120,11 @@ public sealed class GlobalPlayTimeTrackingManager : IPlayTimeTrackingManager
         _playersDirty.Clear();
     }
 
+    public IReadOnlyDictionary<string, TimeSpan> GetPlayTimes(ICommonSession session)
+    {
+        return GetTrackerTimes(session);
+    }
+
     private void RefreshSingleTracker(ICommonSession dirty, PlayTimeData data, TimeSpan time)
     {
         DebugTools.Assert(data.Initialized);

@@ -102,10 +102,9 @@ namespace Content.Server._White.Harpy
         /// </summary>
         private void CloseMidiUi(EntityUid uid)
         {
-            if (HasComp<ActiveInstrumentComponent>(uid) &&
-                TryComp<ActorComponent>(uid, out var actor))
+            if (HasComp<ActiveInstrumentComponent>(uid) && HasComp<ActorComponent>(uid))
             {
-                _instrument.ToggleInstrumentUi(uid, actor.PlayerSession);
+                _instrument.ToggleInstrumentUi(uid, uid);
             }
         }
 
@@ -117,7 +116,9 @@ namespace Content.Server._White.Harpy
             // CanSpeak covers all reasons you can't talk, including being incapacitated
             // (crit/dead), asleep, or for any reason mute inclding glimmer or a mime's vow.
             var canNotSpeak = !_blocker.CanSpeak(uid);
-            var zombified = TryComp<ZombieComponent>(uid, out var _);
+
+            var zombified = HasComp<ZombieComponent>(uid);
+
             var muzzled = _inventorySystem.TryGetSlotEntity(uid, "mask", out var maskUid) &&
                 TryComp<AddAccentClothingComponent>(maskUid, out var accent) &&
                 accent.ReplacementPrototype == "mumble";

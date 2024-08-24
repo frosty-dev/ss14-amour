@@ -215,7 +215,7 @@ public sealed partial class ChangelingSystem
 
     private void OnTransform(EntityUid uid, ChangelingComponent component, TransformActionEvent args)
     {
-        if (!TryComp<ActorComponent>(uid, out var actorComponent))
+        if (!HasComp<ActorComponent>(uid))
             return;
 
         if (component.AbsorbedEntities.Count <= 1 && !component.IsLesserForm)
@@ -223,9 +223,6 @@ public sealed partial class ChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-popup-transform-no-dna"), uid, uid);
             return;
         }
-
-        if (!_ui.TryGetUi(uid, ListViewSelectorUiKeyChangeling.Key, out var bui))
-            return;
 
         Dictionary<string, string> state;
 
@@ -242,8 +239,8 @@ public sealed partial class ChangelingSystem
                 => humanoidData.Value.Name);
         }
 
-        _ui.SetUiState(bui, new ListViewBuiState(state));
-        _ui.OpenUi(bui, actorComponent.PlayerSession);
+        _ui.SetUiState(uid, ListViewSelectorUiKeyChangeling.Key, new ListViewBuiState(state));
+        _ui.OpenUi(uid, ListViewSelectorUiKeyChangeling.Key, uid);
     }
 
     private void OnTransformUiMessage(EntityUid uid, ChangelingComponent component, ListViewItemSelectedMessage args)
@@ -258,13 +255,10 @@ public sealed partial class ChangelingSystem
             }
         );
 
-        if (!TryComp<ActorComponent>(uid, out var actorComponent))
+        if (!HasComp<ActorComponent>(uid))
             return;
 
-        if (!_ui.TryGetUi(user, ListViewSelectorUiKeyChangeling.Key, out var bui))
-            return;
-
-        _ui.CloseUi(bui, actorComponent.PlayerSession);
+        _ui.CloseUi(user, ListViewSelectorUiKeyChangeling.Key, uid);
     }
 
     private void OnRegenerate(EntityUid uid, ChangelingComponent component, RegenerateActionEvent args)
@@ -362,7 +356,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryComp<ActorComponent>(uid, out var actorComponent))
+        if (!HasComp<ActorComponent>(uid))
             return;
 
         if (component.AbsorbedEntities.Count < 1)
@@ -371,17 +365,14 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!_ui.TryGetUi(uid, TransformStingSelectorUiKey.Key, out var bui))
-            return;
-
         var target = GetNetEntity(args.Target);
 
         var state = component.AbsorbedEntities.ToDictionary(humanoidData
             => humanoidData.Key, humanoidData
             => humanoidData.Value.Name);
 
-        _ui.SetUiState(bui, new TransformStingBuiState(state, target));
-        _ui.OpenUi(bui, actorComponent.PlayerSession);
+        _ui.SetUiState(uid, TransformStingSelectorUiKey.Key, new TransformStingBuiState(state, target));
+        _ui.OpenUi(uid, TransformStingSelectorUiKey.Key, uid);
     }
 
     private void OnTransformStingMessage(
@@ -401,10 +392,7 @@ public sealed partial class ChangelingSystem
             return;
         }
 
-        if (!TryComp<ActorComponent>(uid, out var actorComponent))
-            return;
-
-        if (!_ui.TryGetUi(user, TransformStingSelectorUiKey.Key, out var bui))
+        if (!HasComp<ActorComponent>(uid))
             return;
 
         if (HasComp<ChangelingComponent>(target) || HasComp<SpaceNinjaComponent>(target) || HasComp<WizardComponent>(target) ||
@@ -437,7 +425,7 @@ public sealed partial class ChangelingSystem
             }
         }
 
-        _ui.CloseUi(bui, actorComponent.PlayerSession);
+        _ui.CloseUi(user, TransformStingSelectorUiKey.Key, uid);
 
         StartUseDelayById(uid, ChangelingTransformSting);
     }

@@ -122,7 +122,10 @@ public sealed class CarryingSystem : EntitySystem
 
     private void OnParentChanged(EntityUid uid, CarryingComponent component, ref EntParentChangedMessage args)
     {
-        if (Transform(uid).MapID != args.OldMapId)
+        if (!args.OldMapId.HasValue)
+            return;
+
+        if (Transform(uid).MapID != Transform(args.OldMapId.Value).MapID)
             return;
 
         DropCarried(uid, component.Carried);

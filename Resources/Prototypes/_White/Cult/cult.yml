@@ -1,0 +1,6 @@
+﻿- type: startingGear
+  id: CultGear
+  storage:
+    back:
+    - RitualDagger
+    - CultRunicMetal20

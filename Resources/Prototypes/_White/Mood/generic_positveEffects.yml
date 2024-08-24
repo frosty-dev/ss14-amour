@@ -64,3 +64,9 @@
   moodChange: enum.MoodChangeLevel.Medium
   positive: true
   timeout: 1
+
+- type: moodEffect
+  id: WizardFocused
+  description: "Ни что не в силах остановить мое могущество!"
+  moodChange: enum.MoodChangeLevel.Medium
+  positive: true

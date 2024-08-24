@@ -196,11 +196,9 @@
   - type: Prying
     pryPowered: true
     force: true
+  - type: StepTriggerImmune
   - type: Tag
     tags:
     - DoorBumpOpener
-    - ShoesRequiredStepTriggerImmune
-    # let mind transfer on gib work
-    - MindTransferTarget
-    # its just metal so no implants
-    - Unimplantable
+    - MindTransferTarget # let mind transfer on gib work
+    - Unimplantable # its just metal so no implants

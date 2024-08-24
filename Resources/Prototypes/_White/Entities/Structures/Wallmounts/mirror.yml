@@ -17,5 +17,5 @@
       singleUser: true
     - type: UserInterface
       interfaces:
-        - key: enum.WizardMirrorUiKey.Key
+        enum.WizardMirrorUiKey.Key:
           type: WizardMirrorBoundUserInterface

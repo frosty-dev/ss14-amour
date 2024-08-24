@@ -1,5 +1,4 @@
 ﻿using Content.Server.Medical.Components;
-using Content.Server.UserInterface;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
@@ -8,6 +7,7 @@ using Content.Shared.Examine;
 using Content.Shared.MedicalScanner;
 using Content.Shared.Verbs;
 using Content.Shared._White.Item.Tricorder;
+using Content.Shared.UserInterface;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Utility;

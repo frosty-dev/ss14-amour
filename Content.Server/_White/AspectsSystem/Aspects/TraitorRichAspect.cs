@@ -7,6 +7,7 @@ using Content.Server.Store.Systems;
 using Content.Server.Traitor.Uplink;
 using Content.Server._White.AspectsSystem.Aspects.Components;
 using Content.Server._White.AspectsSystem.Base;
+using Content.Server.GameTicking.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
 
@@ -35,7 +36,7 @@ public sealed class TraitorRichAspect : AspectSystem<TraitorRichAspectComponent>
 
     private void RewardTraitors()
     {
-        var traitors = _traitorRuleSystem.GetAllLivingConnectedTraitors();
+        var traitors = _traitorRuleSystem.GetOtherTraitorMindsAliveAndConnected(null);
 
         foreach (var traitor in traitors)
         {

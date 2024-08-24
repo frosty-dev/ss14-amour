@@ -1,0 +1,43 @@
+﻿- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitHOP
+  name: head of personnel's hardsuit
+  description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of light armor.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/hop.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/hop.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.9
+        Piercing: 0.9
+        Radiation: 0.9
+        Caustic: 0.8
+        Heat: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitHOP
+
+#Inspector's Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitHOP
+  id: ClothingOuterHardsuitInspector
+  name: inspector's hardsuit
+  description: Definitely not for spece assholes.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Hardsuits/inspector.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Hardsuits/inspector.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitInspector

@@ -26,10 +26,24 @@
   name: wizard spawn point (ghost role)
   components:
   - type: GhostRole
+    name: ghost-role-information-loneop-name
+    description: ghost-role-information-loneop-description
+    rules: ghost-role-information-loneop-rules
     raffle:
       settings: default
-  - type: GhostRoleMobSpawner
-    prototype: MobHumanSpaceWiz
+  - type: GhostRoleAntagSpawner
+    definitions:
+    - prefRoles: [ WizardRole ]
+      briefing:
+        text: wizard-welcome
+        color: Aqua
+      startingGear: WizardGear
+      components:
+      - type: Wizard
+      - type: RandomHumanoidAppearance
+      mindComponents:
+      - type: WizardRole
+        prototype: WizardRole
   - type: Sprite
     layers:
     - state: green
@@ -54,3 +68,5 @@
   components:
     - type: Wizard
     - type: RandomHumanoidAppearance
+    - type: GlobalAntagonist
+      antagonistPrototype: globalAntagonistWizard

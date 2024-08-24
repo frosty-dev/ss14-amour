@@ -24,14 +24,13 @@
     default: ClothingEyesGlassesSunglasses
   - type: UserInterface
     interfaces:
-    - key: enum.ChameleonUiKey.Key
-      type: ChameleonBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
 
 # Night Vision Goggles (Chameleon) Nuke Ops
 - type: entity
-  parent: ClothingEyesNightVisionGogglesSyndie
+  parent: [ClothingEyesNightVisionGogglesSyndie, ShowSecurityIcons]
   id: ClothingEyesNightVisionGogglesNukie
   suffix: "Хамелеон, Ядерные Оперативники"
   components:
   - type: ShowSyndicateIcons
-  - type: ShowSecurityIcons

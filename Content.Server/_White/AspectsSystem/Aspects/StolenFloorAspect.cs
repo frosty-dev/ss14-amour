@@ -2,6 +2,7 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Maps;
 using Content.Server._White.AspectsSystem.Aspects.Components;
 using Content.Server._White.AspectsSystem.Base;
+using Content.Server.GameTicking.Components;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;

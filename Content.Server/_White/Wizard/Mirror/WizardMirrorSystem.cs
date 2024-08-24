@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Content.Server.Humanoid;
 using Content.Server.IdentityManagement;
 using Content.Shared._White.Wizard.Mirror;
@@ -9,9 +8,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Content.Shared.Preferences;
 using Content.Shared.UserInterface;
-using FastAccessors;
 using Robust.Server.GameObjects;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Player;
 
 namespace Content.Server._White.Wizard.Mirror;
@@ -73,10 +70,10 @@ public sealed class WizardMirrorSystem : EntitySystem
         if (!args.CanReach || args.Target == null)
             return;
 
-        if (!TryComp<ActorComponent>(args.User, out var actor))
+        if (!HasComp<ActorComponent>(args.User))
             return;
 
-        if (!_uiSystem.TryOpen(uid, WizardMirrorUiKey.Key, actor.PlayerSession))
+        if (!_uiSystem.TryOpenUi(uid, WizardMirrorUiKey.Key, args.User))
             return;
 
         UpdateInterface(uid, args.Target.Value, component);
@@ -84,7 +81,7 @@ public sealed class WizardMirrorSystem : EntitySystem
 
     private void OnRangeCheck(EntityUid uid, WizardMirrorComponent component, ref BoundUserInterfaceCheckRangeEvent args)
     {
-        component.Target ??= args.Player.AttachedEntity;
+        component.Target ??= args.Actor;
 
         if (!component.Target.HasValue || !_interaction.InRangeUnobstructed(uid, component.Target!.Value, range: 2f, CollisionGroup.None))
             args.Result = BoundUserInterfaceRangeResult.Fail;
@@ -138,6 +135,6 @@ public sealed class WizardMirrorSystem : EntitySystem
         var state = new WizardMirrorUiState(profile);
 
         component.Target = targetUid;
-        _uiSystem.TrySetUiState(mirrorUid, WizardMirrorUiKey.Key, state);
+        _uiSystem.SetUiState(mirrorUid, WizardMirrorUiKey.Key, state);
     }
 }

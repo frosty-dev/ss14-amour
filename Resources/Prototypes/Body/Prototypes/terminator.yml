@@ -13,8 +13,8 @@
     torso:
       part: TorsoHuman
       connections:
-      - left arm
       - right arm
+      - left arm
       - left leg
       - right leg
     right arm:
@@ -55,8 +55,8 @@
     torso:
       part: TorsoTerminator
       connections:
-      - left arm
       - right arm
+      - left arm
       - left leg
       - right leg
     right arm:

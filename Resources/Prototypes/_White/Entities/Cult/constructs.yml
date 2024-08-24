@@ -236,7 +236,7 @@
       constructForms: [ArtificerConstruct, JuggernautConstruct, WraithConstruct]
     - type: UserInterface
       interfaces:
-        - key: enum.SelectConstructUi.Key
+        enum.SelectConstructUi.Key:
           type: ConstructSelectorBui
     - type: ContainerContainer
       containers:

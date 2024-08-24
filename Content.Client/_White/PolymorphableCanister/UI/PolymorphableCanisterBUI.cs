@@ -23,7 +23,7 @@ public sealed class PolymorphableCanisterBUI : BoundUserInterface
 
     public void SendMessage(string protoId)
     {
-        SendMessage(new PolymorphableCanisterMessage(protoId));
+        SendPredictedMessage(new PolymorphableCanisterMessage(protoId));
     }
 
     protected override void Dispose(bool disposing)

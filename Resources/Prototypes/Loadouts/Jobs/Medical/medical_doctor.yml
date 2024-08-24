@@ -19,6 +19,17 @@
       time: 216000 # 60 hrs
 
 # Head
+
+- type: itemLoadout
+  id: MedicalHeadMirror
+  equipment: MedicalHeadMirror
+# WD edit - removed timer from mirror
+
+- type: startingGear
+  id: MedicalHeadMirror
+  equipment:
+    head: ClothingHeadMirror
+
 - type: itemLoadout
   id: MedicalBeret
   equipment: MedicalBeret

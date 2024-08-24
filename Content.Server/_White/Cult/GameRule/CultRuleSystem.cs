@@ -2,16 +2,12 @@ using System.Linq;
 using Content.Server._Miracle.GulagSystem;
 using Content.Server.Actions;
 using Content.Server.Antag;
-using Content.Server.Bible.Components;
-using Content.Server.GameTicking;
+using Content.Server.GameTicking.Components;
 using Content.Server.GameTicking.Rules;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Hands.Systems;
 using Content.Server.Objectives.Components;
-using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.StationEvents.Components;
-using Content.Server.Storage.EntitySystems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
@@ -20,10 +16,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Roles;
-using Robust.Shared.Configuration;
 using Robust.Shared.Player;
-using Robust.Shared.Random;
-using Content.Shared._White;
 using Content.Shared._White.Antag;
 using Content.Shared._White.Cult.Components;
 using Content.Shared._White.Cult.Systems;
@@ -31,104 +24,51 @@ using Content.Shared._White.Mood;
 using Content.Shared.Alert;
 using Content.Shared.Cloning;
 using Content.Shared.Mind;
-using Content.Shared.NPC.Systems;
 using Robust.Server.Containers;
-using Robust.Server.Player;
+using Robust.Shared.Random;
 
 namespace Content.Server._White.Cult.GameRule;
 
 public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly StorageSystem _storageSystem = default!;
-    [Dependency] private readonly NpcFactionSystem _factionSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly SharedBodySystem _bodySystem = default!;
     [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly AntagSelectionSystem _antagSelection = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly GulagSystem _gulag = default!;
     [Dependency] private readonly BloodSpearSystem _bloodSpear = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly GulagSystem _gulag = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
-
-    private const int PlayerPerCultist = 10;
-    private int _minStartingCultists;
-    private int _maxStartingCultists;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _minStartingCultists = _cfg.GetCVar(WhiteCVars.CultMinStartingPlayers);
-        _maxStartingCultists = _cfg.GetCVar(WhiteCVars.CultMaxStartingPlayers);
+        SubscribeLocalEvent<CultRuleComponent, AfterAntagEntitySelectedEvent>(AfterEntitySelected);
 
-        SubscribeLocalEvent<RoundStartAttemptEvent>(OnStartAttempt);
-        SubscribeLocalEvent<RulePlayerJobsAssignedEvent>(OnPlayersSpawned);
-        SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
         SubscribeLocalEvent<CultNarsieSummoned>(OnNarsieSummon);
 
-        SubscribeLocalEvent<CultistComponent, ComponentInit>(OnCultistComponentInit);
         SubscribeLocalEvent<CultistComponent, ComponentRemove>(OnCultistComponentRemoved);
         SubscribeLocalEvent<CultistComponent, MobStateChangedEvent>(OnCultistsStateChanged);
         SubscribeLocalEvent<CultistComponent, CloningEvent>(OnClone);
+    }
 
-        SubscribeLocalEvent<CultistRoleComponent, GetBriefingEvent>(OnGetBriefing);
+    protected override void Added(EntityUid uid, CultRuleComponent rule, GameRuleComponent gameRule, GameRuleAddedEvent args)
+    {
+        base.Added(uid, rule, gameRule, args);
+
+        var potentialTargets = FindPotentialTargets();
+        rule.CultTarget = _random.PickAndTake(potentialTargets).Mind;
     }
 
     private void OnClone(Entity<CultistComponent> ent, ref CloningEvent args)
     {
         RemoveObjectiveAndRole(ent);
-    }
-
-    protected override void Added(EntityUid uid, CultRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
-    {
-        base.Added(uid, component, gameRule, args);
-
-        gameRule.MinPlayers = _cfg.GetCVar(WhiteCVars.CultMinPlayers);
-    }
-
-    private void OnGetBriefing(Entity<CultistRoleComponent> ent, ref GetBriefingEvent args)
-    {
-        args.Append(Loc.GetString("cult-role-briefing-short"));
-    }
-
-    private void OnStartAttempt(RoundStartAttemptEvent ev)
-    {
-        TryRoundStartAttempt(ev, "CULT");
-    }
-
-    private void OnPlayersSpawned(RulePlayerJobsAssignedEvent ev)
-    {
-        var query = QueryActiveRules();
-        while (query.MoveNext(out _, out var cult, out _))
-        {
-            DoCultistsStart(cult);
-        }
-    }
-
-    private void OnRoundEndText(RoundEndTextAppendEvent ev)
-    {
-        var query = QueryActiveRules();
-        while (query.MoveNext(out _, out var cult, out _))
-        {
-            var winText = Loc.GetString($"cult-condition-{cult.WinCondition.ToString().ToLower()}");
-            ev.AddLine(winText);
-
-            ev.AddLine(Loc.GetString("cultists-list-start"));
-
-            foreach (var (entityName, ckey) in cult.CultistsCache)
-            {
-                var lising = Loc.GetString("cultists-list-name", ("name", entityName), ("user", ckey));
-                ev.AddLine(lising);
-            }
-        }
     }
 
     private void OnNarsieSummon(CultNarsieSummoned ev)
@@ -161,29 +101,6 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
             }
 
             return;
-        }
-    }
-
-    private void OnCultistComponentInit(EntityUid uid, CultistComponent component, ComponentInit args)
-    {
-        RaiseLocalEvent(uid, new MoodEffectEvent("CultFocused"));
-        _alertsSystem.ShowAlert(uid, AlertType.BloodSpells);
-
-        var query = QueryActiveRules();
-        while (query.MoveNext(out _, out var cult, out _))
-        {
-            cult.CurrentCultists.Add(component);
-
-            var name = Name(uid);
-
-            if (TryComp<ActorComponent>(uid, out var actor))
-            {
-                cult.CultistsCache.TryAdd(name, actor.PlayerSession.Name);
-                _mindSystem.TryGetMind(actor.PlayerSession.UserId, out var mind);
-                component.OriginalMind = mind;
-            }
-
-            UpdateCultistsAppearance(cult);
         }
     }
 
@@ -233,30 +150,6 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
         if (ev.NewMobState == MobState.Dead)
         {
             CheckRoundShouldEnd();
-        }
-    }
-
-    private void DoCultistsStart(CultRuleComponent rule)
-    {
-        var eligiblePlayers = _antagSelection.GetEligiblePlayers(_playerManager.Sessions, rule.CultistRolePrototype,
-            customExcludeCondition: HasComp<BibleUserComponent>);
-
-        if (eligiblePlayers.Count == 0)
-        {
-            return;
-        }
-
-        var cultistsToSelect =
-            Math.Clamp(_playerManager.PlayerCount / PlayerPerCultist, _minStartingCultists, _maxStartingCultists);
-
-        var selectedCultists = _antagSelection.ChooseAntags(cultistsToSelect, eligiblePlayers);
-
-        var potentialTargets = FindPotentialTargets(selectedCultists);
-        rule.CultTarget = _random.PickAndTake(potentialTargets).Mind;
-
-        foreach (var cultist in selectedCultists)
-        {
-            MakeCultist(cultist, rule);
         }
     }
 
@@ -312,11 +205,11 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
                 if (!TryComp<MobStateComponent>(owner, out var mobState))
                     continue;
 
-            if (!_mobStateSystem.IsDead(owner, mobState))
-            {
-                aliveCultists++;
+                if (!_mobStateSystem.IsDead(owner, mobState))
+                {
+                    aliveCultists++;
+                }
             }
-        }
 
             if (aliveCultists != 0)
                 return;
@@ -356,106 +249,49 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
 
         foreach (var cultistComponent in cultRuleComponent.CurrentCultists)
         {
-            if (TryComp<HumanoidAppearanceComponent>(cultistComponent.Owner, out var appearanceComponent))
+            var cultist = cultistComponent.Owner;
+            if (TryComp<HumanoidAppearanceComponent>(cultist, out var appearanceComponent))
             {
                 appearanceComponent.EyeColor = cultRuleComponent.EyeColor;
-                Dirty(cultistComponent.Owner, appearanceComponent);
+                Dirty(cultist, appearanceComponent);
             }
 
             if (cultRuleComponent.Stage != CultStage.Pentagram)
                 return;
 
-            EnsureComp<PentagramComponent>(cultistComponent.Owner);
-            EnsureComp<GlobalAntagonistComponent>(cultistComponent.Owner).AntagonistPrototype = "globalAntagonistCult";
+            EnsureComp<PentagramComponent>(cultist);
+            EnsureComp<GlobalAntagonistComponent>(cultist).AntagonistPrototype = "globalAntagonistCult";
         }
     }
 
-    private List<MindContainerComponent> FindPotentialTargets(List<EntityUid> exclude = null!)
+    private void AfterEntitySelected(Entity<CultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
-        var querry =
-            EntityManager.EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent, ActorComponent>();
-
-        var potentialTargets = new List<MindContainerComponent>();
-
-        while (querry.MoveNext(out var uid, out var mind, out _, out var actor))
-        {
-            var entity = mind.Mind;
-
-            if (entity == default)
-                continue;
-
-            if (_gulag.IsUserGulagged(actor.PlayerSession.UserId, out _))
-                continue;
-
-            if (exclude?.Contains(uid) is true)
-            {
-                continue;
-            }
-
-            potentialTargets.Add(mind);
-        }
-
-        return potentialTargets;
+        MakeCultist(args.EntityUid, ent);
     }
 
-    public void AdminMakeCultist(EntityUid entity)
-    {
-        var cultistRule = EntityQuery<CultRuleComponent>().FirstOrDefault();
-        if (cultistRule == null)
-        {
-            GameTicker.StartGameRule("Cult", out var ruleEntity);
-            cultistRule = Comp<CultRuleComponent>(ruleEntity);
-        }
-
-        if (HasComp<CultistComponent>(entity))
-            return;
-
-        MakeCultist(entity, cultistRule);
-    }
-
-    public bool MakeCultist(EntityUid cultist, CultRuleComponent rule)
+    public void MakeCultist(EntityUid cultist, CultRuleComponent rule)
     {
         if (!_mindSystem.TryGetMind(cultist, out var mindId, out var mind))
-        {
-            Log.Info("Failed getting mind for picked cultist.");
-            return false;
-        }
-
-        if (HasComp<CultistRoleComponent>(mindId))
-        {
-            Log.Error($"Player {mind.CharacterName} is already a cultist.");
-            return false;
-        }
-
-        var briefing = Loc.GetString("cult-role-greeting");
-        _antagSelection.SendBriefing(cultist, briefing, null, rule.GreetingsSound);
-
-        _roleSystem.MindAddRole(mindId, new CultistRoleComponent
-        {
-            PrototypeId = rule.CultistRolePrototype
-        });
-
-        EnsureComp<CultistComponent>(cultist);
-
-        _factionSystem.RemoveFaction(cultist, "NanoTrasen", false);
-        _factionSystem.AddFaction(cultist, "Cultist");
-
-        if (_inventorySystem.TryGetSlotEntity(cultist, "back", out var backPack))
-        {
-            foreach (var itemPrototype in rule.StartingItems)
-            {
-                var itemEntity = Spawn(itemPrototype, Transform(cultist).Coordinates);
-
-                if (backPack != null)
-                {
-                    _storageSystem.Insert(backPack.Value, itemEntity, out _);
-                }
-            }
-        }
+            return;
 
         _mindSystem.TryAddObjective(mindId, mind, "KillCultTargetObjective");
 
-        return true;
+        if (!TryComp<CultistComponent>(cultist, out var cultistComponent))
+            return;
+
+        rule.CurrentCultists.Add(cultistComponent);
+        _alertsSystem.ShowAlert(cultist, AlertType.BloodSpells);
+
+        var name = Name(cultist);
+
+        if (TryComp<ActorComponent>(cultist, out var actor))
+        {
+            rule.CultistsCache.TryAdd(name, actor.PlayerSession.Name);
+            _mindSystem.TryGetMind(actor.PlayerSession.UserId, out var mindEnt);
+            cultistComponent.OriginalMind = mindEnt;
+        }
+
+        UpdateCultistsAppearance(rule);
     }
 
     private void RemoveAllCultistItems(EntityUid uid)
@@ -495,5 +331,31 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
 
         EnsureComp<CultistComponent>(transferTo);
         RemComp<CultistComponent>(transferFrom);
+    }
+
+    private List<MindContainerComponent> FindPotentialTargets()
+    {
+        var querry =
+            EntityManager.EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent, ActorComponent>();
+
+        var potentialTargets = new List<MindContainerComponent>();
+
+        while (querry.MoveNext(out var uid, out var mind, out _, out var actor))
+        {
+            var entity = mind.Mind;
+
+            if (entity == default)
+                continue;
+
+            if (_gulag.IsUserGulagged(actor.PlayerSession.UserId, out _))
+                continue;
+
+            if (HasComp<CultistComponent>(entity))
+                continue;
+
+            potentialTargets.Add(mind);
+        }
+
+        return potentialTargets;
     }
 }

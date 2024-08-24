@@ -71,7 +71,10 @@ public sealed partial class CultSystem
 
     public void CreateSpell(Entity<CultistComponent> ent, ICommonSession session)
     {
-        _ui.TryOpen(ent, CultEmpowerUiKey.Key, session);
+        if (!HasComp<ActorComponent>(ent.Owner))
+            return;
+
+        _ui.TryOpenUi(ent.Owner, CultEmpowerUiKey.Key, ent.Owner);
     }
 
     public void RemoveSpell(Entity<CultistComponent> ent, ICommonSession session)
@@ -82,6 +85,9 @@ public sealed partial class CultSystem
             return;
         }
 
-        _ui.TryOpen(ent, CultEmpowerRemoveUiKey.Key, session);
+        if (!HasComp<ActorComponent>(ent.Owner))
+            return;
+
+        _ui.TryOpenUi(ent.Owner, CultEmpowerRemoveUiKey.Key, ent.Owner);
     }
 }

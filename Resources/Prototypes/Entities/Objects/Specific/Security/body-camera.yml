@@ -69,7 +69,7 @@
           startingItem: PowerCellMedium
     - type: UserInterface
       interfaces:
-        - key: enum.SurveillanceCameraSetupUiKey.Camera
+        enum.SurveillanceCameraSetupUiKey.Camera:
           type: SurveillanceCameraSetupBoundUi
     - type: Tag
       tags:

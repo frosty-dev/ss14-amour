@@ -10,6 +10,7 @@ using Content.Server.Roles;
 using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Server._White.Sponsors;
+using Content.Server.Antag;
 using Content.Server.Administration.Managers;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
@@ -38,7 +39,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly StoreSystem _storeSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly TraitorRuleSystem _traitorRuleSystem = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly SponsorsManager _sponsorsManager = default!;
@@ -242,7 +243,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
             if (!fake)
             {
-                _traitorRuleSystem.MakeTraitorAdmin(target, true, true);
+                _antag.ForceMakeAntag<TraitorRuleComponent>(mindComponent.Session, "Traitor");
 
                 var msg = $"Игрок с сикеем {ckey} выдал антажку {targetActorComponent.PlayerSession.Name}";
                 _chatManager.SendAdminAnnouncement(msg);

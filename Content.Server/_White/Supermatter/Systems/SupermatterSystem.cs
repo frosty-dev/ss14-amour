@@ -110,7 +110,7 @@ namespace Content.Server._White.Supermatter.Systems
             float frameTime,
             SupermatterComponent? sMcomponent = null,
             RadiationSourceComponent? radcomponent = null,
-            Atmos.GasMixture? mixture = null)
+            GasMixture? mixture = null)
         {
             if (!Resolve(uid, ref sMcomponent, ref radcomponent))
             {
@@ -256,7 +256,7 @@ namespace Content.Server._White.Supermatter.Systems
             float frameTime,
             SupermatterComponent? sMcomponent = null,
             ExplosiveComponent? xplode = null,
-            Atmos.GasMixture? mixture = null)
+            GasMixture? mixture = null)
         {
             if (!Resolve(uid, ref sMcomponent, ref xplode))
             {
@@ -404,7 +404,7 @@ namespace Content.Server._White.Supermatter.Systems
             float frameTime,
             SupermatterComponent? sMcomponent = null,
             ExplosiveComponent? xplode = null,
-            Atmos.GasMixture? mixture = null)
+            GasMixture? mixture = null)
         {
             if (!Resolve(uid, ref sMcomponent, ref xplode))
             {

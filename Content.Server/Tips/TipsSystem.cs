@@ -4,6 +4,7 @@ using Content.Shared._Amour.Tips;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Dataset;
+using Content.Shared.Tips;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
@@ -26,6 +27,7 @@ public sealed class TipsSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IConsoleHost _conHost = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     private bool _tipsEnabled;
     private float _tipTimeOutOfRound;
@@ -76,37 +78,62 @@ public sealed class TipsSystem : EntitySystem
     {
         if (args.Length < 2)
         {
-            shell.WriteLine(
-                "usage: clippy <player Uid | broadcast> <message> [entity prototype] [speak time] [slide time] [waddle]");
+            shell.WriteLine(Loc.GetString("cmd-tippy-help"));
             return;
         }
+
         ActorComponent? actor = null;
-        if (args[0] != "broadcast" && args[0] != "all")
+        if (args[0] != "all")
         {
-            if (!EntityUid.TryParse(args[0], out var uid)
-                || !TryComp(uid, out actor))
+            ICommonSession? session;
+            if (args.Length > 0)
             {
-                shell.WriteError($"Could not find player {args[0]}");
+                // Get player entity
+                if (!_playerManager.TryGetSessionByUsername(args[0], out session))
+                {
+                    shell.WriteLine(Loc.GetString("cmd-tippy-error-no-user"));
+                    return;
+                }
+            }
+            else
+            {
+                session = shell.Player;
+            }
+
+            if (session?.AttachedEntity is not { } user)
+            {
+                shell.WriteLine(Loc.GetString("cmd-tippy-error-no-user"));
+                return;
+            }
+
+            if (!TryComp(user, out actor))
+            {
+                shell.WriteError(Loc.GetString("cmd-tippy-error-no-user"));
                 return;
             }
         }
-        var ev = new ClippyEvent(args[1]);
-        string proto;
+
+        var ev = new TippyEvent(args[1]);
+
         if (args.Length > 2)
         {
             ev.Proto = args[2];
             if (!_prototype.HasIndex<EntityPrototype>(args[2]))
             {
-                shell.WriteError($"Unknown prototype: {args[2]}");
+                shell.WriteError(Loc.GetString("cmd-tippy-error-no-prototype", ("proto", args[2])));
                 return;
             }
         }
+
         if (args.Length > 3)
             ev.SpeakTime = float.Parse(args[3]);
+
         if (args.Length > 4)
             ev.SlideTime = float.Parse(args[4]);
+
         if (args.Length > 5)
             ev.WaddleInterval = float.Parse(args[5]);
+
         if (actor != null)
             RaiseNetworkEvent(ev, actor.PlayerSession);
         else

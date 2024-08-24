@@ -26,6 +26,7 @@
     - WhitelistChameleon
   - type: StaticPrice
     price: 25
+  - type: ClothingRequiredStepTriggerImmune
 
 - type: entity
   abstract: true

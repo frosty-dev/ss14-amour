@@ -104,7 +104,7 @@ namespace Content.Server.GameTicking
             SetGamePreset(LobbyEnabled ? _configurationManager.GetCVar(CCVars.GameLobbyDefaultPreset) : "sandbox");
         }
 
-        public void SetGamePreset(GamePresetPrototype preset, bool force = false)
+        public void SetGamePreset(GamePresetPrototype? preset, bool force = false)
         {
             // Do nothing if this game ticker is a dummy!
             if (DummyTicker)
@@ -290,11 +290,6 @@ namespace Content.Server.GameTicking
             if (playerEntity != null)
                 _adminLogger.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
 
-            var player = mind.Session;
-            var userId = player?.UserId;
-            if (userId.HasValue && !_ghostSystem._deathTime.TryGetValue(userId.Value, out _))
-                _ghostSystem._deathTime[userId.Value] = _gameTiming.CurTime;
-            
             return true;
         }
 

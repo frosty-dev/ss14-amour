@@ -35,8 +35,8 @@
 
 - type: entity
   id: ImmovableRodDespawn
-  parent: ImmovableRod
   suffix: Despawn
+  parent: ImmovableRod
   components:
   - type: TimedDespawn
     lifetime: 30.0

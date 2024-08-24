@@ -3,7 +3,6 @@ using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Power.Components;
 using Content.Server.SurveillanceCamera.Components;
-using Content.Server.SurveillanceCamera.Systems;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.UserInterface;
 using Content.Shared.SurveillanceCamera;
@@ -237,7 +236,7 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
 
     private void OnBoundUiClose(EntityUid uid, SurveillanceCameraMonitorComponent component, BoundUIClosedEvent args)
     {
-        RemoveViewer(uid, args.Entity, component);
+        RemoveViewer(uid, args.Actor, component);
     }
 
     #endregion
@@ -496,6 +495,6 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         }
 
         var state = new SurveillanceCameraMonitorUiState(GetNetEntity(monitor.ActiveCamera), monitor.KnownSubnets.Keys.ToHashSet(), monitor.ActiveCameraAddress, monitor.KnownCameras);
-        _userInterface.TrySetUiState(uid, SurveillanceCameraMonitorUiKey.Key, state);
+        _userInterface.SetUiState(uid, SurveillanceCameraMonitorUiKey.Key, state);
     }
 }

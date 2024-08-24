@@ -45,32 +45,11 @@ namespace Content.IntegrationTests.Tests
         private static readonly string[] GameMaps =
         {
             "Dev",
-            "TestTeg",
-            "Fland",
-            "Meta",
-            "Packed",
-            "Cluster",
-            "Omega",
-            "Bagel",
-            "Origin",
             "CentComm",
-            "NukieOutpost",
-            "Box",
-            "Europa",
-            "Saltern",
-            "Core",
-            "Marathon",
-            "MeteorArena",
-            "Atlas",
-            "Reach",
-            "Train",
-            "Atom", 
-            "DryDock",
-            "Polaris",
-            "Scoupidia",
             "Triumph",
-            "Void",
-            "WonderBox"
+            "WonderBox",
+            "WhiteBox",
+            "WhiteMoose"
         };
 
         /// <summary>
@@ -165,7 +144,10 @@ namespace Content.IntegrationTests.Tests
         [Test, TestCaseSource(nameof(GameMaps))]
         public async Task GameMapsLoadableTest(string mapProto)
         {
-            await using var pair = await PoolManager.GetServerClient();
+            await using var pair = await PoolManager.GetServerClient(new PoolSettings
+            {
+                Dirty = true // Stations spawn a bunch of nullspace entities and maps like centcomm.
+            });
             var server = pair.Server;
 
             var mapManager = server.ResolveDependency<IMapManager>();

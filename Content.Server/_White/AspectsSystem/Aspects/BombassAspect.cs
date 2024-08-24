@@ -1,6 +1,7 @@
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server._White.AspectsSystem.Aspects.Components;
 using Content.Server._White.AspectsSystem.Base;
+using Content.Server.GameTicking.Components;
 using Robust.Shared.Random;
 
 namespace Content.Server._White.AspectsSystem.Aspects;

@@ -1,4 +1,5 @@
 using Content.Server.Atmos;
+using Content.Shared.Atmos;
 
 namespace Content.Server._White.Flamethrower;
 

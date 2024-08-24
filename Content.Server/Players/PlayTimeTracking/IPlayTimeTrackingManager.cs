@@ -1,11 +1,12 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Shared.Players.PlayTimeTracking;
 using Robust.Shared.Player;
 
 namespace Content.Server.Players.PlayTimeTracking;
 
-public interface IPlayTimeTrackingManager
+public interface IPlayTimeTrackingManager : ISharedPlaytimeManager
 {
     event CalcPlayTimeTrackersCallback? CalcTrackers;
 

@@ -4,3 +4,4 @@ security-hud-verb = Изменить статус
 security-hud-cant-set-status = Произошла ошибка при попытке установить статус!
 security-hud-remove-status = Убрать статус.
 security-hud-not-allowed = Недостаточный доступ для взаимодействия.
+security-changed-via-hud = Изменено с помощью визора

@@ -214,26 +214,26 @@
   - type: Strippable
   - type: UserInterface
     interfaces:
-      - key: enum.VoiceMaskUIKey.Key
+      enum.VoiceMaskUIKey.Key:
         type: VoiceMaskBoundUserInterface
-      - key: enum.HumanoidMarkingModifierKey.Key
+      enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
-      - key: enum.StrippingUiKey.Key
+      enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
       # WD-EDIT
-      - key: enum.ListViewSelectorUiKeyChangeling.Key
+      enum.ListViewSelectorUiKeyChangeling.Key:
         type: ListViewSelectorBui
-      - key: enum.TransformStingSelectorUiKey.Key
+      enum.TransformStingSelectorUiKey.Key:
         type: TransformStingSelectorBui
-      - key: enum.NameSelectorUIKey.Key
+      enum.NameSelectorUIKey.Key:
         type: NameSelectorBUI
-      - key: enum.RuneTeleporterUiKey.Key
+      enum.RuneTeleporterUiKey.Key:
         type: TeleportRunesListWindowBUI
-      - key: enum.SummonCultistUiKey.Key
+      enum.SummonCultistUiKey.Key:
         type: SummonCultistListWindowBUI
-      - key: enum.CultEmpowerUiKey.Key
+      enum.CultEmpowerUiKey.Key:
         type: SpellSelectorBUI
-      - key: enum.CultEmpowerRemoveUiKey.Key
+      enum.CultEmpowerRemoveUiKey.Key:
         type: SpellRemoverBUI
       # WD-EDIT END
   - type: Puller
@@ -427,6 +427,6 @@
     requiredLegs: 2
   - type: UserInterface
     interfaces:
-      - key: enum.HumanoidMarkingModifierKey.Key # sure, this can go here too
+      enum.HumanoidMarkingModifierKey.Key: # sure, this can go here too
         type: HumanoidMarkingModifierBoundUserInterface
   - type: HoleContainer

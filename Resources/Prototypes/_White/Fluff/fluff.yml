@@ -480,10 +480,6 @@
       sprite:
     - type: VoiceMasker
       default: ClothingMaskGas
-    - type: UserInterface
-      interfaces:
-        - key: enum.InstrumentUiKey.Key
-          type: InstrumentBoundUserInterface
     - type: ClothingMidi
       midiAction: MidiActionKoitorra
     - type: Instrument
@@ -491,7 +487,11 @@
       handheld: false
       bank: 1
       program: 2
-
+# TODO: Требует починить систему и переделать логику работы с УИ. Хранить УИ в компоненте это пиздец
+#    - type: UserInterface
+#      interfaces:
+#        enum.InstrumentUiKey.Key:
+#          type: InstrumentBoundUserInterface
 
 - type: entity
   id: MidiActionKoitorra
@@ -1033,7 +1033,7 @@
 
 #KommenDant
 - type: entity
-  parent: ClothingOuterCoatDetective
+  parent: ClothingOuterCoatDetectiveLoadout
   id: ClothingOuterWinterCoatKommenDant
   name: футуристичное пальто
   description: Зелёное, утеплённое пальто выполненное в единственном экземпляре, на нем отсутствуют кнопки или молнии – только скрытый магнитный механизм, имеет вшитые меховые и броневые подкладки, что обеспечивает хорошую термоизоляцию и защиту.

@@ -49,5 +49,5 @@
     closeOnHandDeselect: true
   - type: UserInterface
     interfaces:
-    - key: enum.BloodRitesUi.Key
-      type: CultistFactoryBUI
+      enum.BloodRitesUi.Key:
+        type: CultistFactoryBUI

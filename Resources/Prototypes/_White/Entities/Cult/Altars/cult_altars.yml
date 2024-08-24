@@ -123,8 +123,8 @@
     - FactoryCultVeilShifter
   - type: UserInterface
     interfaces:
-    - key: enum.CultistAltarUiKey.Key
-      type: CultistFactoryBUI
+      enum.CultistAltarUiKey.Key:
+        type: CultistFactoryBUI
   - type: Construction
     graph: AltarTome
     node: tome
@@ -182,8 +182,8 @@
     - FactoryConstructShell
   - type: UserInterface
     interfaces:
-    - key: enum.CultistAltarUiKey.Key
-      type: CultistFactoryBUI
+      enum.CultistAltarUiKey.Key:
+        type: CultistFactoryBUI
   - type: Construction
     graph: CultBloodAltar
     node: altar
@@ -245,8 +245,8 @@
     - FactoryCultMirrorShield
   - type: UserInterface
     interfaces:
-    - key: enum.CultistAltarUiKey.Key
-      type: CultistFactoryBUI
+      enum.CultistAltarUiKey.Key:
+        type: CultistFactoryBUI
   - type: Construction
     graph: CultForge
     node: forge

@@ -8,7 +8,7 @@ namespace Content.Shared.Preferences.Loadouts;
 /// Individual loadout item to be applied.
 /// </summary>
 [Prototype]
-public sealed class ItemLoadoutPrototype : IPrototype
+public sealed partial class ItemLoadoutPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; } = string.Empty;
