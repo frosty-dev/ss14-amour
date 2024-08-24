@@ -32,13 +32,8 @@ public abstract class SharedPolymorphableCanisterSystem : EntitySystem
 
     private void OnMessage(Entity<PolymorphableCanisterComponent> ent, ref PolymorphableCanisterMessage args)
     {
-        if (!args.Session.AttachedEntity.HasValue)
-        {
-            return;
-        }
-
         var doAfterArgs = new DoAfterArgs(EntityManager,
-            args.Session.AttachedEntity.Value,
+            args.Actor,
             ent.Comp.DoAfterTime,
             new PolymorphableCanisterDoAfterEvent(args.ProtoId),
             ent.Owner

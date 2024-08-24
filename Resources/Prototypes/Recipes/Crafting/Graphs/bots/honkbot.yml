@@ -6,17 +6,11 @@
     edges:
     - to: bot
       steps:
-      - tag: BoxHug
+      - tag: HappyHonk
         icon:
-          sprite: Objects/Storage/boxes.rsi
-          state: box_hug
-        name: коробка обнимашек
-      - tag: ClownRubberStamp
-        icon:
-          sprite: Objects/Misc/stamps.rsi
-          state: stamp-clown
-        name: печать клоуна
-        doAfter: 2
+          sprite: Objects/Storage/Happyhonk/clown.rsi
+          state: box
+        name: happy honk meal
       - tag: BikeHorn
         icon:
             sprite: White/Objects/Fun/bikehorn.rsi
@@ -45,17 +39,11 @@
     edges:
     - to: bot
       steps:
-      - tag: HappyHonk
+      - tag: CluwneHappyHonk
         icon:
-          sprite: Objects/Storage/Happyhonk/clown.rsi
+          sprite: Objects/Storage/Happyhonk/cluwne.rsi
           state: box
-        name: Хэппи Хонк Мил
-      - tag: ClownRubberStamp
-        icon:
-          sprite: Objects/Misc/stamps.rsi
-          state: stamp-clown
-        name: печать клоуна
-        doAfter: 2
+        name: woeful cluwne meal
       - tag: CluwneHorn
         icon:
             sprite: White/Objects/Fun/cluwnehorn.rsi

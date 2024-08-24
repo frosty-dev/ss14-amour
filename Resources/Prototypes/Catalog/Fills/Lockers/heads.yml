@@ -14,6 +14,8 @@
       - id: DoorRemoteCargo
       - id: RubberStampQm
       - id: BoxEncryptionKeyCargo
+      - id: RubberStampDenied
+      - id: RubberStampApproved
       - id: BoxFolderClipboard
 
 - type: entity
@@ -104,6 +106,8 @@
       - id: DoorRemoteService
       - id: ClothingNeckGoldmedal
       - id: RubberStampHop
+      - id: RubberStampDenied
+      - id: RubberStampApproved
       - id: BoxEncryptionKeyPassenger
       - id: BoxEncryptionKeyService
       - id: BoxFolderClipboard

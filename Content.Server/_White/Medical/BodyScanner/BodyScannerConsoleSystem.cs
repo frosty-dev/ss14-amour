@@ -80,13 +80,10 @@ namespace Content.Server._White.Medical.BodyScanner
             if (!Resolve(uid, ref scanComponent))
                 return;
 
-            if (!_uiSystem.TryGetUi(uid, BodyScannerConsoleUIKey.Key, out var bui))
-                return;
-
             var state = GetUserInterfaceState(scanComponent, activeScanComponent);
             scanComponent.LastScannedState = state;
 
-            _uiSystem.SetUiState(bui, state);
+            _uiSystem.SetUiState(uid, BodyScannerConsoleUIKey.Key, state);
         }
 
         private BodyScannerConsoleBoundUserInterfaceState GetUserInterfaceState(
@@ -231,7 +228,7 @@ namespace Content.Server._White.Medical.BodyScanner
 
         public void OnMapInit(EntityUid uid, BodyScannerConsoleComponent component, MapInitEvent args)
         {
-            if (!_uiSystem.TryGetUi(uid, BodyScannerConsoleUIKey.Key, out var bui))
+            if (!_uiSystem.HasUi(uid, BodyScannerConsoleUIKey.Key))
                 return;
 
             UpdateUserInterface(uid, component);
@@ -276,16 +273,13 @@ namespace Content.Server._White.Medical.BodyScanner
 
         private void OnStartPrinting(EntityUid uid, BodyScannerConsoleComponent component, BodyScannerStartPrintingMessage args)
         {
-            if (!_uiSystem.TryGetUi(uid, BodyScannerConsoleUIKey.Key, out var bui))
-                return;
-
             var state = component.LastScannedState;
             if (state == null)
                 return;
 
             state.CanPrint = false;
 
-            _uiSystem.SetUiState(bui, state);
+            _uiSystem.SetUiState(uid, BodyScannerConsoleUIKey.Key, state);
 
             var report = Spawn(component.ReportEntityId, Transform(uid).Coordinates);
             _metaSystem.SetEntityName(report,

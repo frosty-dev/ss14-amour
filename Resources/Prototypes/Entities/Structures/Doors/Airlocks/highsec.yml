@@ -35,6 +35,7 @@
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
   - type: Weldable
+    fuel: 10
     time: 10
   - type: ApcPowerReceiver
     powerLoad: 20
@@ -44,6 +45,11 @@
     boardName: wires-board-name-highsec
     layoutId: HighSec
     alwaysRandomize: true
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Airtight
   - type: Occluder
   - type: Destructible
     thresholds:

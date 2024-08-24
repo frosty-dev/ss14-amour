@@ -16,8 +16,10 @@
     RiotLaserShield: 2
     RiotBulletShield: 2
     SecurityWhistle: 5
+    CombatKnife: 3
     TearGasGrenade: 4
     ClusterBangFull: 2
+    RadioHandheldSecurity: 5
 
   contrabandInventory:
     FoodDonutHomer: 12

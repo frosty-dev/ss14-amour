@@ -5,6 +5,7 @@ using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Events;
 using Content.Server._White.GhostRecruitment;
+using Content.Server.GameTicking.Components;
 using Content.Shared._White;
 using Content.Shared._White.GhostRecruitment;
 using JetBrains.Annotations;
@@ -35,7 +36,7 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
         base.Initialize();
 
         _logger = Logger.GetSawmill("ERTRecruit");
-        SubscribeLocalEvent<RoundStartAttemptEvent>(OnStartAttempt);
+        //SubscribeLocalEvent<RoundStartAttemptEvent>(OnStartAttempt);
         SubscribeLocalEvent<RecruitedComponent,GhostRecruitmentSuccessEvent>(OnRecruitmentSuccess);
     }
 
@@ -191,7 +192,7 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
         }
         */
 
-        
+
         var ertMap = EnsureComp<ERTMapComponent>(outpost);
         ertMap.MapId = mapId;
         //ERTMap.Shuttle = shuttleId;

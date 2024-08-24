@@ -49,8 +49,8 @@
             state: "charger_APC"
           doAfter: 0.5
         - anyTags:
-          - PowerCell
-          - PowerCellSmall
+            - PowerCell
+            - PowerCellSmall
           store: powercell
           name: a powercell
           icon:

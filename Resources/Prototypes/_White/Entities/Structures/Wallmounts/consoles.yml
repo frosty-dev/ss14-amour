@@ -190,8 +190,8 @@
   - type: ActivatableUIRequiresPower
   - type: UserInterface
     interfaces:
-    - key: enum.SalvageConsoleUiKey.Expedition
-      type: SalvageExpeditionConsoleBoundUserInterface
+      enum.SalvageConsoleUiKey.Expedition:
+        type: SalvageExpeditionConsoleBoundUserInterface
   - type: Computer
     board: SalvageConsoleWallMountCircuitboard
   - type: PointLight
@@ -230,8 +230,8 @@
     key: enum.CargoConsoleUiKey.Orders
   - type: UserInterface
     interfaces:
-    - key: enum.CargoConsoleUiKey.Orders
-      type: CargoOrderConsoleBoundUserInterface
+      enum.CargoConsoleUiKey.Orders:
+        type: CargoOrderConsoleBoundUserInterface
   - type: Computer
     board: OrdersConsoleWallMountCircuitboard
   - type: PointLight
@@ -290,8 +290,8 @@
     anchored: true
   - type: UserInterface
     interfaces:
-    - key: enum.NewsWriterUiKey.Key
-      type: NewsWriterBoundUserInterface
+      enum.NewsWriterUiKey.Key:
+        type: NewsWriterBoundUserInterface
 
 # Radar console
 - type: entity
@@ -322,8 +322,8 @@
     key: enum.RadarConsoleUiKey.Key
   - type: UserInterface
     interfaces:
-    - key: enum.RadarConsoleUiKey.Key
-      type: RadarConsoleBoundUserInterface
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
   - type: Computer
     board: RadarConsoleWallMountCircuitboard
   - type: PointLight
@@ -372,5 +372,5 @@
     key: enum.PowerMonitoringConsoleUiKey.Key
   - type: UserInterface
     interfaces:
-    - key: enum.PowerMonitoringConsoleUiKey.Key
-      type: PowerMonitoringConsoleBoundUserInterface
+      enum.PowerMonitoringConsoleUiKey.Key:
+        type: PowerMonitoringConsoleBoundUserInterface

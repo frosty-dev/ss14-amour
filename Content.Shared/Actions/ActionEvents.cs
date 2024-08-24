@@ -68,9 +68,10 @@ public sealed class GetItemActionsEvent : EntityEventArgs
         AddAction(ref actionId, prototypeId, Provider);
     }
 
-    public void AddAction(EntityUid actionId)
+    public void AddAction(EntityUid? actionId)
     {
-        Actions.Add(actionId);
+        if (actionId != null)
+            Actions.Add(actionId.Value);
     }
 }
 
@@ -166,6 +167,9 @@ public abstract partial class BaseActionEvent : HandledEntityEventArgs
     /// </summary>
     public EntityUid Performer;
 
+    /// <summary>
+    ///     The action that was performed.
+    /// </summary>
     public EntityUid Action;
 
     public ActionUseType ActionUseType = ActionUseType.Default;

@@ -54,8 +54,8 @@
     isRune: true
   - type: UserInterface
     interfaces:
-    - key: enum.CultEmpowerUiKey.Key
-      type: SpellSelectorBUI
+      enum.CultEmpowerUiKey.Key:
+        type: SpellSelectorBUI
   - type: CultRune
   - type: Concealable
 

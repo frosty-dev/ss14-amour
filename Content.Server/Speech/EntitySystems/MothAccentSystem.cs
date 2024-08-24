@@ -5,6 +5,14 @@ namespace Content.Server.Speech.EntitySystems;
 
 public sealed class MothAccentSystem : EntitySystem
 {
+    private static readonly Regex RegexLowerBuzz = new Regex("z{1,3}");
+    private static readonly Regex RegexUpperBuzz = new Regex("Z{1,3}");
+
+    private static readonly Regex RussianRegexLowerZ = new Regex("Z{1,3}"); // WD
+    private static readonly Regex RussianRegexUpperZ = new Regex("Z{1,3}"); // WD
+    private static readonly Regex RussianRegexLowerZH = new Regex("Z{1,3}"); // WD
+    private static readonly Regex RussianRegexUpperZH = new Regex("Z{1,3}"); // WD
+
     public override void Initialize()
     {
         base.Initialize();
@@ -16,18 +24,18 @@ public sealed class MothAccentSystem : EntitySystem
         var message = args.Message;
 
         // buzzz
-        message = Regex.Replace(message, "z{1,3}", "zzz");
+        message = RegexLowerBuzz.Replace(message, "zzz");
         // buZZZ
-        message = Regex.Replace(message, "Z{1,3}", "ZZZ");
+        message = RegexUpperBuzz.Replace(message, "ZZZ");
 
         // WD EDIT START
-        message = Regex.Replace(message, "з{1,3}", "ззз");
+        message = RussianRegexLowerZ.Replace(message, "ззз");
 
-        message = Regex.Replace(message, "З{1,3}", "ЗЗЗ");
+        message = RussianRegexUpperZ.Replace(message, "ЗЗЗ");
 
-        message = Regex.Replace(message, "ж{1,3}", "жжж");
+        message = RussianRegexLowerZH.Replace(message, "жжж");
 
-        message = Regex.Replace(message, "Ж{1,3}", "ЖЖЖ");
+        message = RussianRegexUpperZH.Replace(message, "ЖЖЖ");
         // WD EDIT END
 
         args.Message = message;

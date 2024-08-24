@@ -24,6 +24,7 @@
       types:
         Blunt: 0
   - type: Stunprod
+    energyPerUse: 70
   - type: DelayedKnockdownOnHit
     delay: 4
   - type: MeleeWeapon
@@ -34,7 +35,7 @@
     damage:
       types:
         Blunt: 12
-    angle: 0
+    angle: 60
     animation: WeaponArcThrust
   - type: StaminaDamageOnHit
     damage: 60

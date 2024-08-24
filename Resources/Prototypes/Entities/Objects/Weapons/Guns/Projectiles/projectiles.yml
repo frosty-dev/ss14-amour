@@ -32,7 +32,6 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
     - state: bullet
-      shader: unshaded
   - type: Physics
     bodyType: Dynamic
     linearDamping: 0

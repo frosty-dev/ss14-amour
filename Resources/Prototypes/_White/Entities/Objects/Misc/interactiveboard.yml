@@ -21,8 +21,8 @@
     key: enum.InteractiveBoardUiKey.Key
   - type: UserInterface
     interfaces:
-    - key: enum.InteractiveBoardUiKey.Key
-      type: InteractiveBoardBoundUserInterface
+      enum.InteractiveBoardUiKey.Key:
+        type: InteractiveBoardBoundUserInterface
   - type: Appearance
   - type: InteractiveBoardVisuals
   - type: AccessReader

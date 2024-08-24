@@ -77,7 +77,7 @@ public sealed class CultistFactorySystem : EntitySystem
 
     private void OnInteract(EntityUid uid, CultistFactoryComponent component, InteractHandEvent args)
     {
-        if (!TryComp<ActorComponent>(args.User, out var actor))
+        if (!HasComp<ActorComponent>(args.User))
             return;
 
         if (!HasComp<CultistComponent>(args.User))
@@ -90,20 +90,15 @@ public sealed class CultistFactorySystem : EntitySystem
         if (!xform.Anchored)
             return;
 
-        if (_ui.TryGetUi(uid, CultistAltarUiKey.Key, out var bui))
-        {
-            _ui.SetUiState(bui, new CultistFactoryBUIState(component.Products));
-            _ui.OpenUi(bui, actor.PlayerSession);
-        }
+        _ui.SetUiState(uid, CultistAltarUiKey.Key, new CultistFactoryBUIState(component.Products));
+        _ui.OpenUi(uid, CultistAltarUiKey.Key, uid);
     }
 
     private void OnSelected(EntityUid uid, CultistFactoryComponent component, CultistFactoryItemSelectedMessage args)
     {
-        var user = args.Session.AttachedEntity;
-        if (user == null)
-            return;
+        var user = args.Actor;
 
-        if (!CanCraft(uid, component, user.Value))
+        if (!CanCraft(uid, component, user))
             return;
 
         if (!_prototypeManager.TryIndex<CultistFactoryProductionPrototype>(args.Item, out var prototype))
@@ -111,8 +106,8 @@ public sealed class CultistFactorySystem : EntitySystem
 
         foreach (var item in prototype.Item)
         {
-            var entity = Spawn(item, Transform(user.Value).Coordinates);
-            _handsSystem.TryPickupAnyHand(user.Value, entity);
+            var entity = Spawn(item, Transform(user).Coordinates);
+            _handsSystem.TryPickupAnyHand(user, entity);
         }
 
         component.NextTimeUse = _gameTiming.CurTime + TimeSpan.FromSeconds(component.Cooldown);

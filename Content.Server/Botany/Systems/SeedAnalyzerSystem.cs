@@ -56,11 +56,10 @@ public sealed class SeedAnalyzerSystem : EntitySystem
 
     private void OpenUserInterface(EntityUid user, EntityUid seedAnalyzer)
     {
-        if (!TryComp<ActorComponent>(user, out var actor) ||
-            !_uiSystem.TryGetUi(seedAnalyzer, SeedAnalyzerUiKey.Key, out var ui))
+        if (!HasComp<ActorComponent>(user))
             return;
 
-        _uiSystem.OpenUi(ui, actor.PlayerSession);
+        _uiSystem.TryOpenUi(seedAnalyzer, SeedAnalyzerUiKey.Key, user);
     }
 
     public void UpdateScannedSeed(
@@ -72,7 +71,7 @@ public sealed class SeedAnalyzerSystem : EntitySystem
         if (!Resolve(uid, ref seedAnalyzer))
             return;
 
-        if (target == null || !_uiSystem.TryGetUi(uid, SeedAnalyzerUiKey.Key, out var ui))
+        if (target == null || !_uiSystem.TryGetOpenUi(uid, SeedAnalyzerUiKey.Key, out var ui))
             return;
 
         if (!TryComp<PlantHolderComponent>(target, out var plant))
@@ -100,7 +99,7 @@ public sealed class SeedAnalyzerSystem : EntitySystem
 
         OpenUserInterface(user, uid);
 
-        _uiSystem.SendUiMessage(ui, new SeedAnalyzerScannedUserMessage(GetNetEntity(target),
+        _uiSystem.SendPredictedUiMessage(ui, new SeedAnalyzerScannedUserMessage(GetNetEntity(target),
             plant.Seed?.Yield,
             plant.Seed?.Production,
             plant.Seed?.Lifespan,

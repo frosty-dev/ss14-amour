@@ -62,11 +62,11 @@
     group: GenericNumber
   - type: Repairable
     doAfterDelay: 8
+    fuelCost: 15
   - type: Pullable
   - type: Tag
     tags:
     - DoorBumpOpener
-    - ShoesRequiredStepTriggerImmune
   - type: MobState
     allowedStates:
       - Alive
@@ -109,7 +109,7 @@
     proto: robot
   - type: ZombieImmune
   - type: Penetrated
-  - type: NoSlip
+  - type: StepTriggerImmune
   - type: Insulated
 
 - type: entity
@@ -300,8 +300,8 @@
   - type: Strippable
   - type: UserInterface
     interfaces:
-    - key: enum.StrippingUiKey.Key
-      type: StrippableBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: Sprite
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
@@ -323,3 +323,61 @@
     interactFailureString: petting-failure-mimebot
   - type: Inventory
     templateId: head
+
+- type: entity
+  parent: MobSiliconBase
+  id: MobSupplyBot
+  name: supplybot
+  description: Delivers cargo!
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/Bots/supplybot.rsi
+    layers:
+    - state: supplybot
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-supplybot-name
+    description: ghost-role-information-supplybot-description
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Construction
+    graph: SupplyBot
+    node: bot
+  - type: Access
+    tags:
+    - Cargo
+    - Maintenance
+    - Salvage
+  - type: Dumpable
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,9,3
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    radius: 3.5
+    softness: 2
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBorg
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Supply

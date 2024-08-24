@@ -24,13 +24,7 @@ public sealed class CultStructureCraftSystem : EntitySystem
         if (!HasComp<CultistComponent>(args.User))
             return;
 
-        if (!_playerManager.TryGetSessionByEntity(args.User, out var session) || session is not { } playerSession)
-            return;
-
-        if (_uiSystem.TryGetUi(uid, component.UserInterfaceKey, out var bui))
-        {
-            _uiSystem.CloseUi(bui, playerSession);
-            _uiSystem.OpenUi(bui, playerSession);
-        }
+        _uiSystem.CloseUi(uid, component.UserInterfaceKey, args.User);
+        _uiSystem.OpenUi(uid, component.UserInterfaceKey, args.User);
     }
 }

@@ -25,8 +25,8 @@
     closeOnHandDeselect: true
   - type: UserInterface
     interfaces:
-    - key: enum.SelectWeaponUi.Key
-      type: NullRodBui
+      enum.SelectWeaponUi.Key:
+        type: NullRodBui
   - type: NullRod
     weapons:
     - GodHand

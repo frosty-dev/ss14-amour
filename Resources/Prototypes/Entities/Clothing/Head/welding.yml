@@ -20,6 +20,10 @@
     tags:
     - DroneUsable
     - WhitelistChameleon
+    - WeldingMask
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
   parent: WeldingMaskBase
@@ -36,6 +40,7 @@
     - DroneUsable
     - HamsterWearable
     - WhitelistChameleon
+    - WeldingMask
 
 - type: entity
   parent: WeldingMaskBase

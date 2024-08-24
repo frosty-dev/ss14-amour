@@ -14,6 +14,7 @@ using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
@@ -46,12 +47,16 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly AlertsSystem _alertsSystem = default!;
         [Dependency] private readonly FixtureSystem _fixture = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+        [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly UseDelaySystem _useDelay = default!;
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly SpellBladeSystem _spellBlade = default!; // WD
+
+        private EntityQuery<InventoryComponent> _inventoryQuery;
+        private EntityQuery<PhysicsComponent> _physicsQuery;
 
         public const float MinimumFireStacks = -10f;
         public const float MaximumFireStacks = 20f;
@@ -67,6 +72,9 @@ namespace Content.Server.Atmos.EntitySystems
         public override void Initialize()
         {
             UpdatesAfter.Add(typeof(AtmosphereSystem));
+
+            _inventoryQuery = GetEntityQuery<InventoryComponent>();
+            _physicsQuery = GetEntityQuery<PhysicsComponent>();
 
             SubscribeLocalEvent<FlammableComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<FlammableComponent, InteractUsingEvent>(OnInteractUsing);
@@ -222,7 +230,17 @@ namespace Content.Server.Atmos.EntitySystems
                 if (weHold && !theyHold || theyHold && !weHold) // WD
                     return;
                 // Both are on fire -> equalize fire stacks.
-                var avg = (flammable.FireStacks + otherFlammable.FireStacks) / 2;
+                // Weight each thing's firestacks by its mass
+                var mass1 = 1f;
+                var mass2 = 1f;
+                if (_physicsQuery.TryComp(uid, out var physics) && _physicsQuery.TryComp(otherUid, out var otherPhys))
+                {
+                    mass1 = physics.Mass;
+                    mass2 = otherPhys.Mass;
+                }
+
+                var total = mass1 + mass2;
+                var avg = (flammable.FireStacks * mass1 + otherFlammable.FireStacks * mass2) / total;
                 flammable.FireStacks = flammable.CanExtinguish ? avg : Math.Max(flammable.FireStacks, avg);
                 otherFlammable.FireStacks = otherFlammable.CanExtinguish ? avg : Math.Max(otherFlammable.FireStacks, avg);
                 UpdateAppearance(uid, flammable);
@@ -231,29 +249,30 @@ namespace Content.Server.Atmos.EntitySystems
             }
 
             // Only one is on fire -> attempt to spread the fire.
-            if (flammable.OnFire)
+            var (srcUid, srcFlammable, destUid, destFlammable) = flammable.OnFire
+                ? (uid, flammable, otherUid, otherFlammable)
+                : (otherUid, otherFlammable, uid, flammable);
+
+            // if the thing on fire has less mass, spread less firestacks and vice versa
+            var ratio = 0.5f;
+            if (_physicsQuery.TryComp(srcUid, out var srcPhysics) && _physicsQuery.TryComp(destUid, out var destPhys))
             {
                 if (theyHold) // WD
                     return;
-                otherFlammable.FireStacks += flammable.FireStacks / 2;
-                Ignite(otherUid, uid, otherFlammable);
-                if (flammable.CanExtinguish)
-                {
-                    flammable.FireStacks /= 2;
-                    UpdateAppearance(uid, flammable);
-                }
+
+                ratio *= srcPhysics.Mass / destPhys.Mass;
             }
-            else
+
+            var lost = srcFlammable.FireStacks * ratio;
+            destFlammable.FireStacks += lost;
+            Ignite(destUid, srcUid, destFlammable);
+            if (srcFlammable.CanExtinguish)
             {
                 if (weHold) // WD
                     return;
-                flammable.FireStacks += otherFlammable.FireStacks / 2;
-                Ignite(uid, otherUid, flammable);
-                if (otherFlammable.CanExtinguish)
-                {
-                    otherFlammable.FireStacks /= 2;
-                    UpdateAppearance(otherUid, otherFlammable);
-                }
+
+                srcFlammable.FireStacks -= lost;
+                UpdateAppearance(srcUid, srcFlammable);
             }
         }
 
@@ -448,13 +467,20 @@ namespace Content.Server.Atmos.EntitySystems
                         continue;
                     }
 
-                    EnsureComp<IgnitionSourceComponent>(uid);
-                    _ignitionSourceSystem.SetIgnited(uid);
+                    var source = EnsureComp<IgnitionSourceComponent>(uid);
+                    _ignitionSourceSystem.SetIgnited((uid, source));
 
                     var damageScale = MathF.Min(  flammable.FireStacks, 5);
 
                     if (TryComp(uid, out TemperatureComponent? temp))
                         _temperatureSystem.ChangeHeat(uid, 12500 * damageScale, false, temp);
+
+                    var ev = new GetFireProtectionEvent();
+                    // let the thing on fire handle it
+                    RaiseLocalEvent(uid, ref ev);
+                    // and whatever it's wearing
+                    if (_inventoryQuery.TryComp(uid, out var inv))
+                        _inventory.RelayEvent((uid, inv), ref ev);
 
                     if (!_spellBlade.IsHoldingItemWithComponent<FireAspectComponent>(uid)) // WD EDIT
                         _damageableSystem.TryChangeDamage(uid, flammable.Damage * damageScale, interruptsDoAfters: false);

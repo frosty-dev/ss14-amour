@@ -3,6 +3,7 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server._White.Animations;
 using Content.Server._White.AspectsSystem.Aspects.Components;
 using Content.Server._White.AspectsSystem.Base;
+using Content.Server.GameTicking.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared._White.Animations;
 

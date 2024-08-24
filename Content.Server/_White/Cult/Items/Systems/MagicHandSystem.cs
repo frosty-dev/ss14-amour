@@ -68,8 +68,7 @@ public sealed class MagicHandSystem : EntitySystem
 
     private void BeforeRitesSelect(Entity<CultRitesHandComponent> ent, ref BeforeActivatableUIOpenEvent args)
     {
-        if (_ui.TryGetUi(ent, BloodRitesUi.Key, out var bui))
-            _ui.SetUiState(bui, new CultistFactoryBUIState(ent.Comp.BloodRites));
+        _ui.SetUiState(ent.Owner, BloodRitesUi.Key, new CultistFactoryBUIState(ent.Comp.BloodRites));
     }
 
     private void OnRitesSelectAttempt(Entity<CultRitesHandComponent> ent, ref ActivatableUIOpenAttemptEvent args)
@@ -80,15 +79,13 @@ public sealed class MagicHandSystem : EntitySystem
 
     private void OnBloodRitesSelected(Entity<CultRitesHandComponent> ent, ref CultistFactoryItemSelectedMessage args)
     {
-        var attachedEntity = args.Session.AttachedEntity;
-
-        if (!TryComp(attachedEntity, out CultistComponent? cultist))
+        if (!TryComp(args.Actor, out CultistComponent? cultist))
             return;
 
         if (!_prototypeManager.TryIndex<CultistFactoryProductionPrototype>(args.Item, out var prototype))
             return;
 
-        var uid = attachedEntity.Value;
+        var uid = args.Actor;
 
         if (cultist.RitesBloodAmount < prototype.BloodCost)
         {

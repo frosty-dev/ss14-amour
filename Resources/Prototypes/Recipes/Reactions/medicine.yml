@@ -554,11 +554,21 @@
       amount: 1
     Silicon:
       amount: 1
-    Benzene:
-      amount: 1
   products:
     Insuzine: 3
-    Ash: 1
+
+- type: reaction
+  id: Opporozidone
+  minTemp: 400 #Maybe if a method of reducing reagent temp exists one day, this could be -50
+  reactants:
+    Cognizine: 
+      amount: 1
+    Plasma:
+      amount: 2
+    Doxarubixadone:
+      amount: 1
+  products:
+    Opporozidone: 3
 
 - type: reaction
   id: Necrosol
@@ -585,7 +595,7 @@
     Sigynate:
       amount: 2
   products:
-    Aloxadone: 4
+      Aloxadone: 4
 
 - type: reaction
   id: Synthflesh

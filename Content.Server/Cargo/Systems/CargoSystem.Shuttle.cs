@@ -73,22 +73,21 @@ public sealed partial class CargoSystem
 
     private void UpdatePalletConsoleInterface(EntityUid uid)
     {
-        var bui = _uiSystem.GetUi(uid, CargoPalletConsoleUiKey.Sale);
         if (Transform(uid).GridUid is not EntityUid gridUid)
         {
-            _uiSystem.SetUiState(bui,
-                new CargoPalletConsoleInterfaceState(0, 0, false));
+            _uiSystem.SetUiState(uid, CargoPalletConsoleUiKey.Sale,
+            new CargoPalletConsoleInterfaceState(0, 0, false));
             return;
         }
 
         GetPalletGoods(gridUid, out var toSell, out var amount);
-        _uiSystem.SetUiState(bui,
-            new CargoPalletConsoleInterfaceState((int)amount, toSell.Count, true));
+        _uiSystem.SetUiState(uid, CargoPalletConsoleUiKey.Sale,
+            new CargoPalletConsoleInterfaceState((int) amount, toSell.Count, true));
     }
 
     private void OnPalletUIOpen(EntityUid uid, CargoPalletConsoleComponent component, BoundUIOpenedEvent args)
     {
-        var player = args.Session.AttachedEntity;
+        var player = args.Actor;
 
         if (player == null)
             return;
@@ -105,7 +104,7 @@ public sealed partial class CargoSystem
     /// </summary>
     private void OnPalletAppraise(EntityUid uid, CargoPalletConsoleComponent component, CargoPalletAppraiseMessage args)
     {
-        var player = args.Session.AttachedEntity;
+        var player = args.Actor;
 
         if (player == null)
             return;
@@ -130,14 +129,10 @@ public sealed partial class CargoSystem
             ? MetaData(orderDatabase.Shuttle.Value).EntityName
             : string.Empty;
 
-        if (_uiSystem.TryGetUi(uid, CargoConsoleUiKey.Shuttle, out var bui))
-            _uiSystem.SetUiState(bui, new CargoShuttleConsoleBoundUserInterfaceState(
-                station != null
-                    ? MetaData(station.Value).EntityName
-                    : Loc.GetString("cargo-shuttle-console-station-unknown"),
-                string.IsNullOrEmpty(shuttleName)
-                    ? Loc.GetString("cargo-shuttle-console-shuttle-not-found")
-                    : shuttleName,
+        if (_uiSystem.HasUi(uid, CargoConsoleUiKey.Shuttle))
+            _uiSystem.SetUiState(uid, CargoConsoleUiKey.Shuttle, new CargoShuttleConsoleBoundUserInterfaceState(
+                station != null ? MetaData(station.Value).EntityName : Loc.GetString("cargo-shuttle-console-station-unknown"),
+                string.IsNullOrEmpty(shuttleName) ? Loc.GetString("cargo-shuttle-console-shuttle-not-found") : shuttleName,
                 orders
             ));
     }
@@ -342,18 +337,17 @@ public sealed partial class CargoSystem
 
     private void OnPalletSale(EntityUid uid, CargoPalletConsoleComponent component, CargoPalletSellMessage args)
     {
-        var player = args.Session.AttachedEntity;
+        var player = args.Actor;
 
         if (player == null)
             return;
 
-        var bui = _uiSystem.GetUi(uid, CargoPalletConsoleUiKey.Sale);
         var xform = Transform(uid);
 
         if (xform.GridUid is not EntityUid gridUid)
         {
-            _uiSystem.SetUiState(bui,
-                new CargoPalletConsoleInterfaceState(0, 0, false));
+            _uiSystem.SetUiState(uid, CargoPalletConsoleUiKey.Sale,
+            new CargoPalletConsoleInterfaceState(0, 0, false));
             return;
         }
 

@@ -80,7 +80,7 @@
 - type: startingGear
   id: DetectiveCoat
   equipment:
-    outerClothing: ClothingOuterCoatDetective
+    outerClothing: ClothingOuterCoatDetectiveLoadout
 
 # Gloves
 

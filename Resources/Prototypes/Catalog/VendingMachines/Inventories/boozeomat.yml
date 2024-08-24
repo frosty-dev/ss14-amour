@@ -7,6 +7,9 @@
     DrinkVacuumFlask: 3
     DrinkFlaskBar: 3
     DrinkShaker: 3
+    DrinkJigger: 5
+    DrinkIceBucket: 2
+    BarSpoon: 3
     CustomDrinkJug: 2 #to allow for custom drinks in the soda/booze dispensers
     DrinkAbsintheBottleFull: 2
     DrinkAleBottleFull: 3
@@ -15,6 +18,7 @@
     DrinkCognacBottleFull: 3
     DrinkCoconutWaterCarton: 3
     DrinkColaBottleFull: 3
+    DrinkEnergyDrinkCan: 3
     DrinkMilkCarton: 2
     DrinkCreamCarton: 3
     DrinkGinBottleFull: 2

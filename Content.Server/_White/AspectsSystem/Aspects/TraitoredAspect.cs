@@ -6,6 +6,7 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server._White.AspectsSystem.Aspects.Components;
 using Content.Server._White.AspectsSystem.Base;
+using Content.Server.GameTicking.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 
@@ -20,10 +21,10 @@ namespace Content.Server._White.AspectsSystem.Aspects
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
 
-        private bool _announcedForTators;
+        private bool _announcedForTraitors;
 
         private float _timeElapsed;
-        private float _timeElapsedForTators;
+        private float _timeElapsedForTraitor;
 
         private float _wacky;
         private const float WackyAaa = 60;
@@ -45,13 +46,13 @@ namespace Content.Server._White.AspectsSystem.Aspects
         {
             base.ActiveTick(uid, component, gameRule, frameTime);
 
-            _timeElapsedForTators += frameTime;
+            _timeElapsedForTraitor += frameTime;
             _timeElapsed += frameTime;
 
-            if (_timeElapsedForTators >= WackyAaa && !_announcedForTators)
+            if (_timeElapsedForTraitor >= WackyAaa && !_announcedForTraitors)
             {
                 AnnounceToTators(uid, gameRule);
-                _announcedForTators = true;
+                _announcedForTraitors = true;
             }
 
             if (_timeElapsed >= _wacky)
@@ -70,37 +71,37 @@ namespace Content.Server._White.AspectsSystem.Aspects
 
         private void AnnounceToTators(EntityUid uid, GameRuleComponent rule)
         {
-            var tators = _traitorRuleSystem.GetAllLivingConnectedTraitors();
+            var traitors = _traitorRuleSystem.GetOtherTraitorMindsAliveAndConnected(null);
 
-            if (tators.Count == 0)
+            if (traitors.Count == 0)
             {
                 ForceEndSelf(uid, rule);
             }
 
-            foreach (var tator in tators)
+            foreach (var traitor in traitors)
             {
-                if (!_mindSystem.TryGetSession(tator.Mind, out var session))
+                if (!_mindSystem.TryGetSession(traitor.Mind, out var session))
                     continue;
 
-                var nig = tator.Mind.OwnedEntity;
+                var traitorMind = traitor.Mind.OwnedEntity;
 
-                if (nig == null)
+                if (traitorMind == null)
                     return;
 
                 _chatManager.DispatchServerMessage(session, "Внимание, коммуникации синдиката перехвачены, вас раскрыли!");
-                _audio.PlayEntity("/Audio/White/Aspects/palevo.ogg", nig.Value, nig.Value);
+                _audio.PlayEntity("/Audio/White/Aspects/palevo.ogg", traitorMind.Value, traitorMind.Value);
             }
         }
 
         private void AnnounceToAll(EntityUid uid, GameRuleComponent rule)
         {
-            var tators = _traitorRuleSystem.GetAllLivingConnectedTraitors();
+            var traitors = _traitorRuleSystem.GetOtherTraitorMindsAliveAndConnected(null);
 
             var msg = "Станция, служба контрразведки нанотрейзен рассекретила секретную передачу Синдиката и выяснила имена проникниших на вашу станцию агентов. Агенты имеют следующие имена: \n";
 
-            foreach (var tator in tators)
+            foreach (var traitor in traitors)
             {
-                var name = tator.Mind.CharacterName;
+                var name = traitor.Mind.CharacterName;
                 if (!string.IsNullOrEmpty(name))
                 {
                     msg += $" {name} - УБЕЙТЕ ЕГО НАХУЙ\n";
@@ -114,9 +115,9 @@ namespace Content.Server._White.AspectsSystem.Aspects
 
         private void ResetValues()
         {
-            _announcedForTators = false;
+            _announcedForTraitors = false;
             _timeElapsed = 0;
-            _timeElapsedForTators = 0;
+            _timeElapsedForTraitor = 0;
         }
 
         private bool HasTraitorGameRule()

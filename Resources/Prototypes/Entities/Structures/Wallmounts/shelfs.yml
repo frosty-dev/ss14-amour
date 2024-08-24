@@ -43,8 +43,8 @@
     maxItemSize: Normal
   - type: UserInterface
     interfaces:
-    - key: enum.StorageUiKey.Key
-      type: StorageBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   - type: InteractionOutline
   - type: ContainerContainer
     containers:
@@ -80,7 +80,6 @@
   - type: EntityStorageVisuals
     stateDoorOpen: open
     stateDoorClosed: closed
-
   - type: AccessReader
 
 # Normal

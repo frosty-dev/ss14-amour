@@ -17,14 +17,6 @@ namespace Content.Client.GameTicking.Commands
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            var ticker = _entitySystem.GetEntitySystem<ClientGameTicker>();
-            var window = ticker._window;
-
-            if (!ticker.IsGameStarted && window != null)
-            {
-                window.OpenCentered();
-                return;
-            }
             shell.WriteLine("You can't open manifest right now");
         }
     }

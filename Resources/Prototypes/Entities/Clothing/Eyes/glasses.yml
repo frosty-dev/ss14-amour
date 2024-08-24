@@ -155,7 +155,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingEyesBase, SecHud]
+  parent: [ClothingEyesBase, ShowSecurityIcons]
   id: ClothingEyesGlassesSecurity
   name: security glasses
   description: Upgraded sunglasses that provide flash immunity and a security HUD.
@@ -176,7 +176,6 @@
   - type: GuideHelp
     guides:
     - Security
-  - type: ShowSecurityIcons
   - type: IdentityBlocker
     coverage: EYES
   - type: StaticPrice
@@ -247,16 +246,15 @@
     default: ClothingEyesGlassesSunglasses
   - type: UserInterface
     interfaces:
-    - key: enum.ChameleonUiKey.Key
-      type: ChameleonBoundUserInterface
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
 
 - type: entity
-  parent: ClothingEyesGlassesThermalSyndie
+  parent: [ClothingEyesGlassesThermalSyndie, ShowSecurityIcons]
   id: ClothingEyesGlassesThermalNukie
   suffix: "Хамелеон, Ядерные Оперативники"
   components:
   - type: ShowSyndicateIcons
-  - type: ShowSecurityIcons
 
 - type: entity
   parent: ClothingEyesBase
@@ -286,7 +284,7 @@
     - type: NightVision
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, ShowSecurityIcons]
   id: ClothingEyesGlassesInspector
   name: inspector's sunglasses
   description: Inspector's sunglasses. The same as usual, but cooler.
@@ -300,10 +298,9 @@
       tags:
         - HamsterWearable
         - WhitelistChameleon
-    - type: ShowSecurityIcons
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, ShowSecurityIcons]
   id: ClothingEyesGlassesMaid
   name: maid's sunglasses
   description: Maid's sunglasses. Clean and cute.
@@ -316,4 +313,3 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-  - type: ShowSecurityIcons
