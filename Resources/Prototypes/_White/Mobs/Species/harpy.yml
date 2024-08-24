@@ -6,7 +6,6 @@
   abstract: true
   components:
   - type: HarpySinger
-
   - type: Instrument
     allowPercussion: false
     program: 52
@@ -87,13 +86,12 @@
         sprite: "Effects/creampie.rsi"
         state: "creampie_human"
         visible: false
-# Yes, RArm has to be down here
+# Yes, RArm has to be down here. WHY
       - map: [ "enum.HumanoidVisualLayers.RArm" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
       - map: [ "head" ]
-
   - type: HumanoidAppearance
     species: Harpy
   - type: Fixtures

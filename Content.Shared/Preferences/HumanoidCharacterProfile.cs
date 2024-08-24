@@ -28,7 +28,9 @@ namespace Content.Shared.Preferences
     [Serializable, NetSerializable]
     public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
-        private static readonly Regex RestrictedNameRegex = new("[^A-Z,a-z,0-9, -]");
+        // WD edit PLEASE DO NOT CHANGE RUSSIAN TO ENGLISH LETTERS, иначе уебу
+        private static readonly Regex RestrictedNameRegex = new("[^А-Я,а-я,0-9, -]");
+        private static readonly Regex RestrictedNameBorgsRegex = new("[^А-Я,а-я,0-9, -\\.]");
         private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
         public const int MaxNameLength = 32;
@@ -461,9 +463,9 @@ namespace Content.Shared.Preferences
         {
             if (maybeOther is not HumanoidCharacterProfile other) return false;
             if (Name != other.Name) return false;
-            if (ClownName != other.ClownName) return false;
-            if (MimeName != other.MimeName) return false;
-            if (BorgName != other.BorgName) return false;
+            if (ClownName != other.ClownName) return false; // WD
+            if (MimeName != other.MimeName) return false; // WD
+            if (BorgName != other.BorgName) return false; // WD
             if (Age != other.Age) return false;
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
@@ -532,9 +534,13 @@ namespace Content.Shared.Preferences
             };
 
             string name;
+
+            // WD edit start
             string clownName;
             string mimeName;
             string borgName;
+            // WD edit end
+
             if (string.IsNullOrEmpty(Name))
             {
                 name = GetName(Species, gender);
@@ -548,6 +554,7 @@ namespace Content.Shared.Preferences
                 name = Name;
             }
 
+            // WD edit start
             if (string.IsNullOrEmpty(ClownName))
             {
                 clownName = GetClownName();
@@ -586,36 +593,48 @@ namespace Content.Shared.Preferences
             {
                 borgName = BorgName;
             }
+            // WD edit end
 
             name = name.Trim();
+
+            // WD edit start
             clownName = clownName.Trim();
             mimeName = mimeName.Trim();
             borgName = borgName.Trim();
+            // WD edit end
 
             if (configManager.GetCVar(CCVars.RestrictedNames))
             {
                 name = RestrictedNameRegex.Replace(name, string.Empty);
+
+                // WD edit start
                 clownName = RestrictedNameRegex.Replace(clownName, string.Empty);
                 mimeName = RestrictedNameRegex.Replace(mimeName, string.Empty);
-                borgName = RestrictedNameRegex.Replace(borgName, string.Empty);
+                borgName = RestrictedNameBorgsRegex.Replace(borgName, string.Empty);
+                // WD edit end
             }
 
             if (configManager.GetCVar(CCVars.ICNameCase))
             {
                 // This regex replaces the first character of the first and last words of the name with their uppercase version
-                name = name = ICNameCaseRegex.Replace(name, m => m.Groups["word"].Value.ToUpper());
+                name = ICNameCaseRegex.Replace(name, m => m.Groups["word"].Value.ToUpper());
 
-                clownName = clownName = ICNameCaseRegex.Replace(name, m => m.Groups["word"].Value.ToUpper());
-                mimeName = mimeName = ICNameCaseRegex.Replace(name, m => m.Groups["word"].Value.ToUpper());
-                borgName = borgName = ICNameCaseRegex.Replace(name, m => m.Groups["word"].Value.ToUpper());
+
+                // Clowns, mimes and cyborgs may not have surnames
+                //clownName = ICNameCaseRegex.Replace(clownName, m => m.Groups["word"].Value.ToUpper());
+                //mimeName = ICNameCaseRegex.Replace(mimeName, m => m.Groups["word"].Value.ToUpper());
+                //borgName = ICNameCaseRegex.Replace(borgName, m => m.Groups["word"].Value.ToUpper());
             }
 
             if (string.IsNullOrEmpty(name))
             {
                 name = GetName(Species, gender);
+
+                // WD edit start
                 clownName = GetClownName();
                 mimeName = GetMimeName();
                 borgName = GetBorgName();
+                // WD edit end
             }
 
             var flavortext = FlavorText.Length > MaxDescLength

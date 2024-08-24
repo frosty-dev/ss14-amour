@@ -526,6 +526,7 @@ namespace Content.Client.Preferences.UI
 
             _controller.UpdateProfile(Profile);
             _controller.ReloadCharacterUI();
+
             IsDirty = true;
         }
 
@@ -1308,7 +1309,7 @@ namespace Content.Client.Preferences.UI
         private void SetBodyType(string newBodyType)
         {
             Profile = Profile?.WithBodyType(newBodyType);
-            IsDirty = true;
+            SetDirty();
             _needUpdatePreview = true;
         }
 
