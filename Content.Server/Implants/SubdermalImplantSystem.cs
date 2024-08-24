@@ -19,7 +19,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using System.Numerics;
 using Content.Server.IdentityManagement;
-using Content.Shared._Amour.GrammarSystem;
 using Content.Shared.IdentityManagement.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
@@ -27,6 +26,7 @@ using Robust.Shared.Collections;
 using Robust.Shared.Enums;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Map.Components;
+using GrammarSystem = Content.Shared._Amour.GrammarSystem.GrammarSystem;
 
 namespace Content.Server.Implants;
 

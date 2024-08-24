@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Content.Shared._Amour.Hole;
-using Content.Shared._Amour.Hole;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
@@ -283,7 +282,6 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance
                 skinColor = Humanoid.SkinColor.ValidSkinTone(speciesProto.SkinColoration, skinColor);
             }
 
-            markingSet.GetForwardEnumerator().ToList(), appearance.Height, genitals);
             markingSet.EnsureSpecies(species, bodyType, skinColor, markingManager);
             // WD-EDIT
             markingSet.FilterSponsor(sponsorMarkings, markingManager);

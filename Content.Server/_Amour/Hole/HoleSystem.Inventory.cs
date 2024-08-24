@@ -1,6 +1,5 @@
 ﻿using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
-using Content.Server.HealthExaminable;
 using Content.Server.Mind;
 using Content.Shared._Amour.Hole;
 using Content.Shared.Damage;

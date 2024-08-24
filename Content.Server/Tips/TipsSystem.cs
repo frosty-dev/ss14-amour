@@ -28,7 +28,6 @@ public sealed class TipsSystem : EntitySystem
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IConsoleHost _conHost = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly IConsoleHost _conHost = default!;
 
     private bool _tipsEnabled;
     private float _tipTimeOutOfRound;

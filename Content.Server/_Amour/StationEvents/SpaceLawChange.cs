@@ -2,8 +2,10 @@
 using Content.Server._Amour.StationEvents.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Fax;
+using Content.Server.GameTicking.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Events;
+using Content.Shared.Fax.Components;
 using Content.Shared.Paper;
 using Robust.Shared.Random;
 

@@ -1,4 +1,5 @@
 using Content.Server._White.AspectsSystem.Base;
+using Content.Server.GameTicking.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.VendingMachines;
 

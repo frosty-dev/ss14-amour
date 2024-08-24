@@ -25,7 +25,6 @@ public sealed partial class GenderChange : ReagentEffect
         {
             var uid = args.SolutionEntity;
             var newGender = NewGender;
-            var grammarSystem = args.EntityManager.System<GrammarSystem>();
             var identitySystem = args.EntityManager.System<IdentitySystem>();
 
             // bleh, this probably should not be here but I have no clue where to put it
@@ -39,8 +38,6 @@ public sealed partial class GenderChange : ReagentEffect
 
             if (newGender.HasValue)
             {
-                grammarSystem.SetGender((uid, grammar), newGender);
-
                 if (args.EntityManager.HasComponent<IdentityComponent>(uid))
                     identitySystem.QueueIdentityUpdate(uid);
             }
