@@ -38,7 +38,7 @@
   materials:
     Steel: 250
     Plastic: 100
-    
+
 - type: latheRecipe
   id: WeaponLaserCarbine
   result: WeaponLaserCarbine
@@ -389,6 +389,30 @@
   completetime: 5
   materials:
     Steel: 120
+
+- type: latheRecipe # WD
+  id: MagazineShotgun
+  result: MagazineShotgun
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 300
+
+- type: latheRecipe # WD
+  id: MagazineShotgunSlug
+  result: MagazineShotgunSlug
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 300
+
+- type: latheRecipe # WD
+  id: MagazinePistolCaselessRifle
+  result: MagazinePistolCaselessRifle
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 300
 
 - type: latheRecipe
   id: ShellShotgunIncendiary
