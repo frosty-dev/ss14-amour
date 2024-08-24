@@ -79,8 +79,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         var species = GetSpeciesRepresentation(component.Species).ToLower();
         var age = GetAgeRepresentation(component.Species, component.Age);
 
-        args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age),
-            ("species", species)));
+        args.PushText(Loc.GetString("humanoid-appearance-component-examine", ("user", identity), ("age", age), ("species", species)));
     }
 
     /// <summary>
@@ -183,9 +182,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         humanoid.MarkingSet = new MarkingSet(oldMarkings, prototype.MarkingPoints, _markingManager, _proto);
 
         if (sync)
-        {
             Dirty(uid, humanoid);
-        }
     }
 
     /// <summary>
@@ -373,11 +370,11 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="uid">The mob's entity UID.</param>
     /// <param name="profile">The character profile to load.</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public virtual void LoadProfile(
-        EntityUid uid,
-        HumanoidCharacterProfile profile,
-        HumanoidAppearanceComponent? humanoid = null)
+    public virtual void LoadProfile(EntityUid uid, HumanoidCharacterProfile? profile, HumanoidAppearanceComponent? humanoid = null)
     {
+        if (profile == null)
+            return;
+
         if (!Resolve(uid, ref humanoid))
         {
             return;

@@ -1195,9 +1195,9 @@
           Quantity: 1
 
 - type: entity
-  name: chili
+  name: chili pepper
   parent: FoodProduceBase
-  id: FoodChili
+  id: FoodChiliPepper
   description: Spicy, best not touch your eyes.
   components:
     - type: FlavorProfile
@@ -1225,7 +1225,7 @@
 - type: entity
   name: chilly pepper
   parent: FoodProduceBase
-  id: FoodChilly
+  id: FoodChillyPepper
   description: Icy hot.
   components:
     - type: FlavorProfile

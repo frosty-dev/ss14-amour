@@ -184,7 +184,7 @@ ActionVehicleHorn: null
 CrateFunATV: null
 CrateFunSyndicateSegway: null
 MobTaxiBot: null
-MobSupplyBot: null
+# MobSupplyBot: null
 SpawnVehicleMotobike: null
 SpawnVehicleATV: null
 SpawnVehicleSecway: null
@@ -228,6 +228,13 @@ AirlockExternalGlassEasyPryLocked: AirlockExternalGlassLocked
 AirlockGlassShuttleEasyPryLocked: AirlockExternalGlassShuttleLocked
 AirlockShuttleEasyPryLocked: AirlockExternalShuttleLocked
 
+# 2024-03-10
+ClothingBackpackFilledDetective: ClothingBackpackSecurityFilledDetective
+ClothingBackpackDuffelFilledDetective: ClothingBackpackDuffelSecurityFilledDetective
+ClothingBackpackSatchelFilledDetective: ClothingBackpackSatchelSecurityFilledDetective
+FoodChili: FoodChiliPepper
+FoodChilly: FoodChillyPepper
+
 # 2024-03-11
 ImprovisedExplosive: FireBomb
 ImprovisedExplosiveEmpty: FireBombEmpty
@@ -240,6 +247,8 @@ ClothingHeadHatHairflower: FoodPoppy
 RPED: null
 
 # 2024-03-30
+TraversalDistorterMachineCircuitboard: null
+MachineTraversalDistorter: null
 # These are technically not equivalent, but it probably makes more sense to replace any existing SCAF stuff with SOME kind of armor, instead of just deleting it outright.
 ClothingHeadHelmetScaf: ClothingHeadHelmetBasic
 ClothingOuterArmorScaf: ClothingOuterArmorBasic
@@ -277,3 +286,14 @@ OmntnsHammer: JudgeHammer
 BorgModuleDiagnosis: null
 BorgModuleRCD: BorgModuleConstruction
 BorgModuleFireExtinguisher: null
+
+GlassBoxLaserBroken: GlassBoxBroken
+ReinforcementRadioSyndicateMonkey: ReinforcementRadioSyndicateAncestor
+ReinforcementRadioSyndicateMonkeyNukeops: ReinforcementRadioSyndicateAncestorNukeops
+
+# 2024-05-01
+DrinkBottleGoldschlager: DrinkBottleGildlager
+
+# 2024-05-14
+soda_dispenser: SodaDispenser
+chem_master: ChemMaster

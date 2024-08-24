@@ -3,7 +3,6 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Binary.Components;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Chat.Managers;
-using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Atmos;
@@ -30,7 +29,6 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
-        [Dependency] private readonly EntityManager _entityManager = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
 
         public override void Initialize()
@@ -101,7 +99,7 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
             UpdateAppearance(uid, pump);
 
             DirtyUI(uid, pump);
-            _userInterfaceSystem.TryCloseAll(uid, GasPressurePumpUiKey.Key);
+            _userInterfaceSystem.CloseUi(uid, GasPressurePumpUiKey.Key);
         }
 
         private void OnPumpActivate(EntityUid uid, GasPressurePumpComponent pump, ActivateInWorldEvent args)
@@ -111,7 +109,7 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
 
             if (Transform(uid).Anchored)
             {
-                _userInterfaceSystem.TryOpen(uid, GasPressurePumpUiKey.Key, actor.PlayerSession);
+                _userInterfaceSystem.OpenUi(uid, GasPressurePumpUiKey.Key, actor.PlayerSession);
                 DirtyUI(uid, pump);
             }
             else
@@ -125,12 +123,16 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
         private void OnToggleStatusMessage(EntityUid uid, GasPressurePumpComponent pump, GasPressurePumpToggleStatusMessage args)
         {
             pump.Enabled = args.Enabled;
-            var player = args.Session.AttachedEntity!.Value;
             _adminLogger.Add(LogType.AtmosPowerChanged, LogImpact.Medium,
-                $"{ToPrettyString(player):player} set the power on {ToPrettyString(uid):device} to {args.Enabled}");
-            if (_entityManager.GetComponent<MetaDataComponent>(uid).EntityName == "plasma pump" && args.Enabled)
+                $"{ToPrettyString(args.Actor):player} set the power on {ToPrettyString(uid):device} to {args.Enabled}");
+
+            if (Name(uid) == "plasma pump" && args.Enabled) // WD
+            {
                 _chatManager.SendAdminAnnouncement(Loc.GetString("admin-chatalert-plasma-pump-enabled",
-                    ("pump", ToPrettyString(uid)), ("player", ToPrettyString(player))));
+                    ("pump", ToPrettyString(uid)), ("player", ToPrettyString(args.Actor))));
+            }
+
+
             DirtyUI(uid, pump);
             UpdateAppearance(uid, pump);
         }
@@ -138,14 +140,16 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
         private void OnOutputPressureChangeMessage(EntityUid uid, GasPressurePumpComponent pump, GasPressurePumpChangeOutputPressureMessage args)
         {
             pump.TargetPressure = Math.Clamp(args.Pressure, 0f, Atmospherics.MaxOutputPressure);
-            var player = args.Session.AttachedEntity!.Value;
             _adminLogger.Add(LogType.AtmosPressureChanged, LogImpact.Medium,
-                $"{ToPrettyString(player):player} set the pressure on {ToPrettyString(uid):device} to {args.Pressure}kPa");
-            if (_entityManager.GetComponent<MetaDataComponent>(uid).EntityName == "plasma pump")
-                _chatManager.SendAdminAnnouncement(Loc.GetString("admin-chatalert-plasma-pump-pressure-change",
-                    ("pump", ToPrettyString(uid)), ("player", ToPrettyString(player)), ("pressure", args.Pressure)));
-            DirtyUI(uid, pump);
+                $"{ToPrettyString(args.Actor):player} set the pressure on {ToPrettyString(uid):device} to {args.Pressure}kPa");
 
+            if (Name(uid) == "plasma pump")
+            {
+                _chatManager.SendAdminAnnouncement(Loc.GetString("admin-chatalert-plasma-pump-pressure-change",
+                    ("pump", ToPrettyString(uid)), ("player", ToPrettyString(args.Actor)), ("pressure", args.Pressure)));
+            }
+
+            DirtyUI(uid, pump);
         }
 
         private void DirtyUI(EntityUid uid, GasPressurePumpComponent? pump)
@@ -153,7 +157,7 @@ namespace Content.Server.Atmos.Piping.Binary.EntitySystems
             if (!Resolve(uid, ref pump))
                 return;
 
-            _userInterfaceSystem.TrySetUiState(uid, GasPressurePumpUiKey.Key,
+            _userInterfaceSystem.SetUiState(uid, GasPressurePumpUiKey.Key,
                 new GasPressurePumpBoundUserInterfaceState(EntityManager.GetComponent<MetaDataComponent>(uid).EntityName, pump.TargetPressure, pump.Enabled));
         }
 

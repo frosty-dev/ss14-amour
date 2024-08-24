@@ -25,7 +25,7 @@
     - type: CultItem
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, ShowSecurityIcons]
   id: CultClothingBlindfold
   name: zealot's blindfold
   description: A blindfold endowed with a strange power.
@@ -51,7 +51,6 @@
     - type: ShowHealthIcons
       damageContainers:
       - Biological
-    - type: ShowSecurityIcons
 
 - type: entity
   name: veil shifter
@@ -114,8 +113,8 @@
     - type: TorchCultistsProvider
     - type: UserInterface
       interfaces:
-          - key: enum.CultTeleporterUiKey.Key
-            type: TorchWindowBUI
+        enum.CultTeleporterUiKey.Key:
+          type: TorchWindowBUI
     - type: CultItem
 
 - type: cultistFactoryProduction
@@ -171,7 +170,7 @@
     - type: RunicMetal
     - type: UserInterface
       interfaces:
-        - key: enum.CultStructureCraftUiKey.Key
+        enum.CultStructureCraftUiKey.Key:
           type: StructureCraftBoundUserInterface
     - type: Item
       size: Small

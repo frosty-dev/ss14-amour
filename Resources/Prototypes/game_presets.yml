@@ -166,19 +166,6 @@
   - GameRuleMeteorScheduler
   - BasicRoundstartVariation
 
-- type: gamePreset
-  id: Pirates
-  alias:
-    - pirates
-  name: pirates-title
-  description: pirates-description
-  showInVote: false
-  rules:
-    - Pirates
-    - BasicStationEventScheduler
-    - BasicRoundstartVariation
-    - GameRuleMeteorScheduler
-
 #WD EDIT START
 - type: gamePreset
   id: Cult

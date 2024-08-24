@@ -30,9 +30,11 @@ namespace Content.Server.Database
 
         void Shutdown();
 
-#region Preferences
-
-        Task<PlayerPreferences> InitPrefsAsync(NetUserId userId, ICharacterProfile defaultProfile);
+        #region Preferences
+        Task<PlayerPreferences> InitPrefsAsync(
+            NetUserId userId,
+            ICharacterProfile defaultProfile,
+            CancellationToken cancel);
 
         Task SaveSelectedCharacterIndexAsync(NetUserId userId, int index);
 
@@ -42,10 +44,8 @@ namespace Content.Server.Database
 
         // Single method for two operations for transaction.
         Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot);
-
-        Task<PlayerPreferences?> GetPlayerPreferencesAsync(NetUserId userId);
-
-#endregion
+        Task<PlayerPreferences?> GetPlayerPreferencesAsync(NetUserId userId, CancellationToken cancel);
+        #endregion
 
 #region User Ids
 
@@ -174,8 +174,9 @@ namespace Content.Server.Database
         /// Look up a player's role timers.
         /// </summary>
         /// <param name="player">The player to get the role timer information from.</param>
+        /// <param name="cancel"></param>
         /// <returns>All role timers belonging to the player.</returns>
-        Task<List<PlayTime>> GetPlayTimes(Guid player);
+        Task<List<PlayTime>> GetPlayTimes(Guid player, CancellationToken cancel = default);
 
         /// <summary>
         /// Update play time information in bulk.
@@ -470,7 +471,10 @@ namespace Content.Server.Database
             _sqliteInMemoryConnection?.Dispose();
         }
 
-        public Task<PlayerPreferences> InitPrefsAsync(NetUserId userId, ICharacterProfile defaultProfile)
+        public Task<PlayerPreferences> InitPrefsAsync(
+            NetUserId userId,
+            ICharacterProfile defaultProfile,
+            CancellationToken cancel)
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.InitPrefsAsync(userId, defaultProfile));
@@ -500,10 +504,10 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.SaveAdminOOCColorAsync(userId, color));
         }
 
-        public Task<PlayerPreferences?> GetPlayerPreferencesAsync(NetUserId userId)
+        public Task<PlayerPreferences?> GetPlayerPreferencesAsync(NetUserId userId, CancellationToken cancel)
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetPlayerPreferencesAsync(userId));
+            return RunDbCommand(() => _db.GetPlayerPreferencesAsync(userId, cancel));
         }
 
         public Task AssignUserIdAsync(string name, NetUserId userId)
@@ -628,10 +632,10 @@ namespace Content.Server.Database
 
 #region Playtime
 
-        public Task<List<PlayTime>> GetPlayTimes(Guid player)
+        public Task<List<PlayTime>> GetPlayTimes(Guid player, CancellationToken cancel)
         {
             DbReadOpsMetric.Inc();
-            return RunDbCommand(() => _db.GetPlayTimes(player));
+            return RunDbCommand(() => _db.GetPlayTimes(player, cancel));
         }
 
         public Task UpdatePlayTimes(IReadOnlyCollection<PlayTimeUpdate> updates)

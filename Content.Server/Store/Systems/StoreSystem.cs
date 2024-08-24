@@ -7,7 +7,6 @@ using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Store;
 using JetBrains.Annotations;
-using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using Robust.Shared.Utility;
@@ -100,7 +99,7 @@ public sealed partial class StoreSystem : EntitySystem
         if (args.Handled)
         {
             var msg = Loc.GetString("store-currency-inserted", ("used", args.Used), ("target", args.Target));
-            _popup.PopupEntity(msg, args.Target.Value);
+            _popup.PopupEntity(msg, args.Target.Value, args.User);
             QueueDel(args.Used);
         }
     }
@@ -201,10 +200,9 @@ public sealed partial class StoreSystem : EntitySystem
 
         ApplySales(component.Listings, preset); // WD
 
-        var ui = _ui.GetUiOrNull(uid, StoreUiKey.Key);
-        if (ui != null)
+        if (_ui.HasUi(uid, StoreUiKey.Key))
         {
-            _ui.SetUiState(ui, new StoreInitializeState(preset.StoreName));
+            _ui.SetUiState(uid, StoreUiKey.Key, new StoreInitializeState(preset.StoreName));
         }
     }
 }

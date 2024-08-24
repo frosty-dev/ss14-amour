@@ -86,29 +86,26 @@ public sealed class AuthPanelSystem : EntitySystem
 
     private void OnButtonPressed(EntityUid uid, AuthPanelComponent component, AuthPanelButtonPressedMessage args)
     {
-        if(args.Session.AttachedEntity == null)
-            return;
-
-        var access = _access.FindAccessTags(args.Session.AttachedEntity.Value);
+        var access = _access.FindAccessTags(args.Actor);
 
         if (!access.Contains("Command"))
         {
             _popup.PopupEntity(Loc.GetString("auth-panel-no-access"),
-                args.Session.AttachedEntity.Value,args.Session.AttachedEntity.Value);
+                args.Actor,args.Actor);
             return;
         }
 
         if (string.IsNullOrEmpty(args.Reason))
         {
             _popup.PopupEntity(Loc.GetString("auth-panel-no-reason"),
-                args.Session.AttachedEntity.Value,args.Session.AttachedEntity.Value);
+                args.Actor, args.Actor);
             return;
         }
 
         if (_delay != null)
         {
             _popup.PopupEntity(Loc.GetString("auth-panel-wait"),
-                args.Session.AttachedEntity.Value,args.Session.AttachedEntity.Value);
+                args.Actor, args.Actor);
             return;
         }
 
@@ -130,14 +127,14 @@ public sealed class AuthPanelSystem : EntitySystem
         if (cardSet.Contains(access.Count))
         {
             _popup.PopupEntity(Loc.GetString("auth-panel-used-ID"),
-                args.Session.AttachedEntity.Value,args.Session.AttachedEntity.Value);
+                args.Actor,args.Actor);
             return;
         }
 
-        if (!hashSet.Add(args.Session.AttachedEntity.Value))
+        if (!hashSet.Add(args.Actor))
         {
             _popup.PopupEntity(Loc.GetString("auth-panel-pressed"),
-                args.Session.AttachedEntity.Value,args.Session.AttachedEntity.Value);
+                args.Actor, args.Actor);
             return;
         }
 
@@ -146,15 +143,13 @@ public sealed class AuthPanelSystem : EntitySystem
 
         Reason = args.Reason;
         UpdateUserInterface(args.Button);
-        _adminLogger.Add(LogType.EventStarted, LogImpact.High,
-            $"{ToPrettyString(args.Session.AttachedEntity.Value):player} vote for {args.Button}. Reason: {Reason}");
+        _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"{ToPrettyString(args.Actor):player} vote for {args.Button}. Reason: {Reason}");
 
         if (hashSet.Count == MaxCount)
         {
             var ev = new AuthPanelPerformActionEvent(args.Button);
             RaiseLocalEvent(uid,ev);
         }
-
     }
 
     public void UpdateUserInterface(AuthPanelAction rawaction)
@@ -171,9 +166,8 @@ public sealed class AuthPanelSystem : EntitySystem
                 return;
 
             var state = new AuthPanelConfirmationActionState(action);
-            var ui = _ui.GetUi(uid, AuthPanelUiKey.Key);
 
-            _ui.SetUiState(ui, state);
+            _ui.SetUiState(uid, AuthPanelUiKey.Key, state);
             _appearance.SetData(uid,AuthPanelVisualLayers.Confirm,true);
         }
     }

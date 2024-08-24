@@ -19,19 +19,19 @@ public sealed class ArmamentsBeaconSystem : EntitySystem
 
     private void OnArmorSelected(Entity<ArmamentsBeaconComponent> ent, ref ArmorSelectedEvent args)
     {
-        var entity = args.Session.AttachedEntity;
+        var entity = args.Actor;
         var index = args.SelectedIndex;
 
-        if (index < 0 || index >= ent.Comp.Armor.Count || entity == null)
+        if (index < 0 || index >= ent.Comp.Armor.Count)
             return;
 
-        _inventorySystem.TryUnequip(entity.Value, "outerClothing", true);
-        _inventorySystem.SpawnItemInSlot(entity.Value, "outerClothing", ent.Comp.Armor[index], silent: true);
+        _inventorySystem.TryUnequip(entity, "outerClothing", true);
+        _inventorySystem.SpawnItemInSlot(entity, "outerClothing", ent.Comp.Armor[index], silent: true);
 
         if (index < ent.Comp.Helmets.Count && ent.Comp.Helmets[index] != null)
         {
-            _inventorySystem.TryUnequip(entity.Value, "head", true);
-            _inventorySystem.SpawnItemInSlot(entity.Value, "head", ent.Comp.Helmets[index]!.Value, silent: true);
+            _inventorySystem.TryUnequip(entity, "head", true);
+            _inventorySystem.SpawnItemInSlot(entity, "head", ent.Comp.Helmets[index]!.Value, silent: true);
         }
 
         Del(ent);

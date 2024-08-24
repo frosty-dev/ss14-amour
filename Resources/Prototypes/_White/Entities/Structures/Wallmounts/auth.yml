@@ -30,7 +30,7 @@
       key: enum.AuthPanelUiKey.Key
     - type: UserInterface
       interfaces:
-        - key: enum.AuthPanelUiKey.Key
+        enum.AuthPanelUiKey.Key:
           type: AuthPanelBoundUserInterface
     - type: GenericVisualizer
       visuals:

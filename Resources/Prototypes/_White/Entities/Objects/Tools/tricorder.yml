@@ -21,16 +21,16 @@
     inHandsOnly: true
   - type: UserInterface
     interfaces:
-    - key: enum.NetworkConfiguratorUiKey.List
-      type: NetworkConfiguratorBoundUserInterface
-    - key: enum.NetworkConfiguratorUiKey.Configure
-      type: NetworkConfiguratorBoundUserInterface
-    - key: enum.NetworkConfiguratorUiKey.Link
-      type: NetworkConfiguratorBoundUserInterface
-    - key: enum.GasAnalyzerUiKey.Key
-      type: GasAnalyzerBoundUserInterface
-    - key: enum.HealthAnalyzerUiKey.Key
-      type: HealthAnalyzerBoundUserInterface
+      enum.NetworkConfiguratorUiKey.List:
+        type: NetworkConfiguratorBoundUserInterface
+      enum.NetworkConfiguratorUiKey.Configure:
+        type: NetworkConfiguratorBoundUserInterface
+      enum.NetworkConfiguratorUiKey.Link:
+        type: NetworkConfiguratorBoundUserInterface
+      enum.GasAnalyzerUiKey.Key:
+        type: GasAnalyzerBoundUserInterface
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface
   - type: NetworkConfigurator
   - type: Tag
     tags:

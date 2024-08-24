@@ -24,6 +24,7 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
     public Action<uint?>? OnKeySelected;
 
     public Action<StationRecordFilterType, string>? OnFiltersChanged;
+    public Action<uint>? OnDeleted;
 
     private bool _isPopulating;
 
@@ -125,11 +126,10 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
             RecordContainerStatus.Text = state.SelectedKey == null
                 ? Loc.GetString("general-station-record-console-no-record-found")
                 : Loc.GetString("general-station-record-console-select-record-info");
-            PopulateRecordContainer(state.Record);
+            PopulateRecordContainer(state.Record, state.CanDeleteEntries, state.SelectedKey);
         }
         else
         {
-            RecordContainer.DisposeAllChildren();
             RecordContainer.RemoveAllChildren();
         }
     }
@@ -151,101 +151,13 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
         RecordListing.SortItemsByText();
     }
 
-    private void PopulateRecordContainer(GeneralStationRecord record)
+    private void PopulateRecordContainer(GeneralStationRecord record, bool enableDelete, uint? id)
     {
-        RecordContainer.DisposeAllChildren();
         RecordContainer.RemoveAllChildren();
-        // sure
-        var recordControls = new Control[]
-        {
-            new Label()
-            {
-                Text = record.Name,
-                StyleClasses = { "LabelBig" }
-            },
-            SetupCharacterSpriteView(record),
-            new Label()
-            {
-                Text = Loc.GetString("general-station-record-console-record-age", ("age", record.Age.ToString()))
+        var newRecord = new GeneralRecord(record, enableDelete, id);
+        newRecord.OnDeletePressed = OnDeleted;
 
-            },
-            new Label()
-            {
-                Text = Loc.GetString("general-station-record-console-record-title", ("job", Loc.GetString(record.JobTitle)))
-            },
-            new Label()
-            {
-                Text = Loc.GetString("general-station-record-console-record-species", ("species", record.Species))
-            },
-            new Label()
-            {
-                Text = Loc.GetString("general-station-record-console-record-gender", ("gender", record.Gender.ToString()))
-            },
-            new Label()
-            {
-                Text = Loc.GetString("general-station-record-console-record-fingerprint", ("fingerprint", record.Fingerprint ?? Loc.GetString("generic-not-available-shorthand")))
-            },
-            new Label()
-            {
-                Text = Loc.GetString("general-station-record-console-record-dna", ("dna", record.DNA ?? Loc.GetString("generic-not-available-shorthand")))
-            }
-        };
-
-        foreach (var control in recordControls)
-        {
-            RecordContainer.AddChild(control);
-        }
-    }
-
-    private BoxContainer SetupCharacterSpriteView(GeneralStationRecord record)
-    {
-        IEntityManager entityManager = IoCManager.Resolve<IEntityManager>();
-        IPrototypeManager prototypeManager = IoCManager.Resolve<IPrototypeManager>();
-        HumanoidAppearanceSystem appearanceSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<HumanoidAppearanceSystem>();
-
-        entityManager.DeleteEntity(_previewDummy);
-
-        var profile = record.Profile ?? new HumanoidCharacterProfile();
-        _previewDummy = entityManager.SpawnEntity(prototypeManager.Index<SpeciesPrototype>(profile.Species).DollPrototype, MapCoordinates.Nullspace);
-        appearanceSystem.LoadProfile(_previewDummy, profile);
-        GiveDummyJobClothes(_previewDummy, record.JobPrototype, profile);
-
-        var spriteViewBox = new BoxContainer();
-        // var sprite = entityManager.GetComponent<SpriteComponent>(_previewDummy);
-
-        spriteViewBox.AddChild(new SpriteView(_previewDummy, entityManager) { Scale = new Vector2(5, 5)});
-        spriteViewBox.AddChild(new SpriteView(_previewDummy, entityManager) { Scale = new Vector2(5, 5), OverrideDirection = Direction.East});
-
-        return spriteViewBox;
-    }
-    private void GiveDummyJobClothes(EntityUid dummy, string jobPrototype, HumanoidCharacterProfile profile)
-    {
-        IEntityManager entityManager = IoCManager.Resolve<IEntityManager>();
-        IPrototypeManager prototypeManager = IoCManager.Resolve<IPrototypeManager>();
-        ClientInventorySystem inventorySystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<ClientInventorySystem>();
-
-        // ReSharper disable once NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract (what is resharper smoking?)
-        var job = prototypeManager.Index<JobPrototype>(jobPrototype ?? SharedGameTicker.FallbackOverflowJob);
-
-        if (job.StartingGear != null && inventorySystem.TryGetSlots(dummy, out var slots))
-        {
-            var gear = prototypeManager.Index<StartingGearPrototype>(job.StartingGear);
-
-            foreach (var slot in slots)
-            {
-                var itemType = gear.GetGear(slot.Name);
-                if (inventorySystem.TryUnequip(dummy, slot.Name, out var unequippedItem, true, true))
-                {
-                    entityManager.DeleteEntity(unequippedItem.Value);
-                }
-
-                if (itemType != string.Empty)
-                {
-                    var item = entityManager.SpawnEntity(itemType, MapCoordinates.Nullspace);
-                    inventorySystem.TryEquip(dummy, item, slot.Name, true, true);
-                }
-            }
-        }
+        RecordContainer.AddChild(newRecord);
     }
 
     private void FilterListingOfRecords(string text = "")
@@ -260,4 +172,5 @@ public sealed partial class GeneralStationRecordConsoleWindow : DefaultWindow
     {
         return Loc.GetString($"general-station-record-{type.ToString().ToLower()}-filter");
     }
+
 }

@@ -12,7 +12,7 @@
     closeOnHandDeselect: false
   - type: UserInterface
     interfaces:
-      - key: enum.SeedAnalyzerUiKey.Key
+      enum.SeedAnalyzerUiKey.Key:
         type: SeedAnalyzerBoundUserInterface
   - type: SeedAnalyzer
     scanningEndSound:

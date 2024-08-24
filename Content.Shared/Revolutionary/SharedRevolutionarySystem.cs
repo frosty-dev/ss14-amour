@@ -20,7 +20,6 @@ public sealed class SharedRevolutionarySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MindShieldComponent, MapInitEvent>(MindShieldImplanted);
-        SubscribeLocalEvent<RevolutionaryComponent, ComponentInit>(OnInit); // WD EDIT
         SubscribeLocalEvent<RevolutionaryComponent, ComponentShutdown>(OnShutdown); // WD EDIT
         SubscribeLocalEvent<RevolutionaryComponent, ComponentGetStateAttemptEvent>(OnRevCompGetStateAttempt);
         SubscribeLocalEvent<HeadRevolutionaryComponent, ComponentGetStateAttemptEvent>(OnRevCompGetStateAttempt);
@@ -33,11 +32,6 @@ public sealed class SharedRevolutionarySystem : EntitySystem
     private void OnShutdown(Entity<RevolutionaryComponent> ent, ref ComponentShutdown args)
     {
         RaiseLocalEvent(ent, new MoodRemoveEffectEvent("RevolutionFocused"));
-    }
-
-    private void OnInit(Entity<RevolutionaryComponent> ent, ref ComponentInit args)
-    {
-        RaiseLocalEvent(ent, new MoodEffectEvent("RevolutionFocused"));
     }
     // WD END
 

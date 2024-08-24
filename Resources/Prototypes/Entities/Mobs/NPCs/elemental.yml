@@ -45,7 +45,6 @@
   - type: Tag
     tags:
     - DoorBumpOpener
-    - ShoesRequiredStepTriggerImmune
   - type: MobState
     allowedStates:
       - Alive
@@ -75,6 +74,8 @@
   - type: MobMover
   - type: ZombieImmune
   - type: Penetrated
+  - type: ClothingRequiredStepTriggerImmune
+    slots: All
 
 - type: entity
   abstract: true

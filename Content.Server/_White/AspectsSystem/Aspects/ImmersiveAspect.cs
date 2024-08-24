@@ -3,6 +3,7 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server._White.AspectsSystem.Aspects.Components;
 using Content.Server._White.AspectsSystem.Base;
 using Content.Server.GameTicking;
+using Content.Server.GameTicking.Components;
 using Content.Shared._White.Telescope;
 using Content.Shared.Humanoid;
 using Content.Shared.Movement.Components;

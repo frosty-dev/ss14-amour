@@ -1,7 +1,6 @@
 ﻿using System.Threading;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._White.Cult.Components;
@@ -12,9 +11,6 @@ namespace Content.Shared._White.Cult.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class CultistComponent : Component
 {
-    [DataField("greetSound", customTypeSerializer: typeof(SoundSpecifierTypeSerializer))]
-    public SoundSpecifier? CultistGreetSound = new SoundPathSpecifier("/Audio/CultSounds/fart.ogg");
-
     [ViewVariables(VVAccess.ReadWrite), DataField("holyConvertTime")]
     public float HolyConvertTime = 15f;
 

@@ -489,7 +489,6 @@
           - !type:OrganType # WD
             type: AnthroAnimal
             shouldHave: false
-        reagent: Protein
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]

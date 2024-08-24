@@ -66,9 +66,7 @@
   - type: Puller
   - type: StandingState
   - type: Alerts
-  - type: Tag
-    tags:
-      - ShoesRequiredStepTriggerImmune
+  - type: StepTriggerImmune
 
 - type: entity
   name: drone
@@ -91,10 +89,10 @@
   - type: InputMover
   - type: UserInterface
     interfaces:
-    - key: enum.StrippingUiKey.Key
-      type: StrippableBoundUserInterface
-    - key: enum.SiliconLawsUiKey.Key
-      type: SiliconLawBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
   #- type: GhostRole
   #  makeSentient: true
   #  name: Maintenance Drone
@@ -174,9 +172,9 @@
     softness: 1
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
+  - type: StepTriggerImmune
   - type: Tag
     tags:
-      - ShoesRequiredStepTriggerImmune
       - CannotSuicide
 
 - type: entity
@@ -192,8 +190,8 @@
       - id: WeaponXrayCannon
   - type: UserInterface
     interfaces:
-    - key: enum.StrippingUiKey.Key
-      type: StrippableBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: GhostRole
     makeSentient: true
     name: ghost-role-information-onestar-mecha-name

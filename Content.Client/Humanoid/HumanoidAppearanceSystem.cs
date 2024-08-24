@@ -109,9 +109,12 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
     /// </remarks>
     public override void LoadProfile(
         EntityUid uid,
-        HumanoidCharacterProfile profile,
+        HumanoidCharacterProfile? profile,
         HumanoidAppearanceComponent? humanoid = null)
     {
+        if (profile == null)
+            return;
+
         if (!Resolve(uid, ref humanoid))
         {
             return;

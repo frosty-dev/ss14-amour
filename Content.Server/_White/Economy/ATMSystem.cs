@@ -129,6 +129,6 @@ public sealed class ATMSystem : SharedATMSystem
         };
 
 
-        _ui.TrySetUiState(uid, ATMUiKey.Key, state);
+        _ui.SetUiState(uid, ATMUiKey.Key, state);
     }
 }

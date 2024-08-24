@@ -30,7 +30,7 @@
         MeatyOreCoin: 0
     - type: UserInterface
       interfaces:
-        - key: enum.StoreUiKey.Key
+        enum.StoreUiKey.Key:
           type: StoreBoundUserInterface
           range: -1
     - type: IgnorBUIInteractionRange

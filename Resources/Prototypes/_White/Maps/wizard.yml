@@ -1,0 +1,20 @@
+﻿- type: entity
+  id: StandardWizardShuttle
+  parent:
+  - BaseStation
+  - BaseStationSyndicate
+  noSpawn: true
+  components:
+  - type: Transform
+
+- type: gameMap
+  id: WizardShuttle
+  mapName: Wizard Shuttle
+  mapPath: /Maps/White/Shuttles/wizard.yml
+  minPlayers: 0
+  stations:
+    WizardStation:
+      stationProto: StandardWizardShuttle
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: "Wizard Shuttle"

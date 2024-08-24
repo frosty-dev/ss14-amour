@@ -94,8 +94,7 @@
     rules: ghost-role-information-loneop-rules
     raffle:
       settings: default
-  - type: GhostRoleMobSpawner
-    prototype: MobHumanLoneNuclearOperative
+  - type: GhostRoleAntagSpawner
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:

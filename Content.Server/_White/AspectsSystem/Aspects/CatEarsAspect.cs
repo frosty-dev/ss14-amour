@@ -5,6 +5,7 @@ using Content.Server.Speech.Components;
 using Content.Server._White.AspectsSystem.Aspects.Components;
 using Content.Server._White.AspectsSystem.Base;
 using Content.Server._White.Discord.GameTicking;
+using Content.Server.GameTicking.Components;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;

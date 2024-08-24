@@ -63,6 +63,9 @@
       - id: ClothingHeadsetAltMedical
       - id: ClothingMaskSterile
       - id: ClothingEyesEyepatchHudMedical
+      - id: ClothingHeadMirror
+      - id: ClothingUniformJumpsuitCMOTurtle
+      - id: ClothingUniformJumpskirtCMOTurtle
       - id: ClothingUnderwearBottomBoxersCMO # WD
       - id: ClothingUnderwearBottomPantiesCMO # WD
       - id: ClothingUnderwearTopBraCMO # WD

@@ -34,6 +34,7 @@ using Content.Shared.SSDIndicator;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
@@ -60,12 +61,10 @@ namespace Content.Server.Ghost
         [Dependency] private readonly GameTicker _ticker = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
+        [Dependency] private readonly MetaDataSystem _metaData = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly MetaDataSystem _metaData = default!;
-        [Dependency] private readonly IMapManager _mapManager = default!;
-
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -574,16 +573,14 @@ namespace Content.Server.Ghost
             return ghostBoo.Handled;
         }
 
-        public EntityUid? SpawnGhost(Entity<MindComponent?> mind,
-            EntityUid targetEntity,
+        public EntityUid? SpawnGhost(Entity<MindComponent?> mind, EntityUid targetEntity,
             bool canReturn = false)
         {
             _transformSystem.TryGetMapOrGridCoordinates(targetEntity, out var spawnPosition);
             return SpawnGhost(mind, spawnPosition, canReturn);
         }
 
-        public EntityUid? SpawnGhost(Entity<MindComponent?> mind,
-            EntityCoordinates? spawnPosition = null,
+        public EntityUid? SpawnGhost(Entity<MindComponent?> mind, EntityCoordinates? spawnPosition = null,
             bool canReturn = false)
         {
             if (!Resolve(mind, ref mind.Comp))
@@ -599,7 +596,7 @@ namespace Content.Server.Ghost
             if (!spawnPosition.Value.IsValid(EntityManager))
             {
                 Log.Warning($"No spawn valid ghost spawn position found for {mind.Comp.CharacterName}"
-                            + " \"{ToPrettyString(mind)}\"");
+                    + " \"{ToPrettyString(mind)}\"");
                 _minds.TransferTo(mind.Owner, null, createGhost: false, mind: mind.Comp);
                 return null;
             }

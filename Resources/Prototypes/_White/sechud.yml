@@ -1,13 +1,13 @@
 - type: entity
-  id: SecHud
+  id: ShowCriminalRecords
   name: sechud
   abstract: true
   noSpawn: true
   components:
   - type: AccessReader
     access: [["Security"]]
-  - type: SecurityHud
-    criminalrecords:
+  - type: ShowCriminalRecordIcons
+    status:
     - SecurityIconDemote
     - SecurityIconParoled
     - SecurityIconSuspected
@@ -20,5 +20,5 @@
     - CriminalRecordIconRemove
   - type: UserInterface
     interfaces:
-    - key: enum.SecurityHudUiKey.Key
-      type: SecurityHudBUI
+      enum.SecurityHudUiKey.Key:
+        type: SecurityHudBUI

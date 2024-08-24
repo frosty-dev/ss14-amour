@@ -36,9 +36,9 @@
             3: { state: can-o3, shader: "unshaded" }
     - type: UserInterface # WhiteDream - Added PolymorphableCanisterUiKey
       interfaces:
-        - key: enum.GasCanisterUiKey.Key
+        enum.GasCanisterUiKey.Key:
           type: GasCanisterBoundUserInterface
-        - key: enum.PolymorphableCanisterUiKey.Key
+        enum.PolymorphableCanisterUiKey.Key:
           type: PolymorphableCanisterBUI
     - type: Destructible
       thresholds:

@@ -10,7 +10,7 @@ namespace Content.Shared.RCD;
 /// Contains the parameters for a RCD construction / operation
 /// </summary>
 [Prototype("rcd")]
-public sealed class RCDPrototype : IPrototype
+public sealed partial class RCDPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;

@@ -148,7 +148,7 @@ public sealed class InteractiveBoardSystem : EntitySystem
                 return;
 
             component.Mode = InteractiveBoardAction.Write;
-            _uiSystem.TryOpen(uid, InteractiveBoardUiKey.Key, actor.PlayerSession);
+            _uiSystem.OpenUi(uid, InteractiveBoardUiKey.Key, actor.PlayerSession);
             UpdateUserInterface(uid, component, actor.PlayerSession);
             args.Handled = true;
         }
@@ -212,8 +212,7 @@ public sealed class InteractiveBoardSystem : EntitySystem
             if (!Resolve(uid, ref component))
                 return;
 
-            if (_uiSystem.TryGetUi(uid, InteractiveBoardUiKey.Key, out var bui))
-                _uiSystem.SetUiState(bui, new InteractiveBoardBoundUserInterfaceState(component.Content, component.Mode), session);
+            _uiSystem.SetUiState(uid, InteractiveBoardUiKey.Key, new InteractiveBoardBoundUserInterfaceState(component.Content, component.Mode));
         }
 }
 

@@ -55,14 +55,10 @@ public sealed class TorchCultistsProviderSystem : EntitySystem
     private void OnInteract(EntityUid uid, TorchCultistsProviderComponent comp, AfterInteractEvent args)
     {
         if (!args.Target.HasValue)
-        {
             return;
-        }
 
         if (!_interactionSystem.InRangeUnobstructed(args.User, args.Target.Value))
-        {
             return;
-        }
 
         if (!TryComp<TorchCultistsProviderComponent>(uid, out var provider))
             return;
@@ -93,13 +89,6 @@ public sealed class TorchCultistsProviderSystem : EntitySystem
         }
 
         if (!HasComp<ItemComponent>(args.Target))
-        {
-            return;
-        }
-
-        var ui = _ui.GetUiOrNull(uid, comp.UserInterfaceKey);
-
-        if (ui == null)
             return;
 
         provider.ItemSelected = args.Target;
@@ -124,12 +113,12 @@ public sealed class TorchCultistsProviderSystem : EntitySystem
             return;
         }
 
-        _ui.SetUiState(ui, new TorchWindowBUIState(list));
+        _ui.SetUiState(uid, comp.UserInterfaceKey, new TorchWindowBUIState(list));
 
-        if (!TryComp<ActorComponent>(args.User, out var actorComponent))
+        if (!HasComp<ActorComponent>(args.User))
             return;
 
-        _ui.ToggleUi(ui, actorComponent.PlayerSession);
+        _ui.TryToggleUi(uid, comp.UserInterfaceKey, args.User);
     }
 
     private void OnCultistSelected(
@@ -137,7 +126,7 @@ public sealed class TorchCultistsProviderSystem : EntitySystem
         TorchCultistsProviderComponent component,
         TorchWindowItemSelectedMessage args)
     {
-        var entityUid = args.Session.AttachedEntity;
+        var entityUid = args.Actor;
         var cultistsQuery = EntityQueryEnumerator<CultistComponent>();
 
         while (cultistsQuery.MoveNext(out var cultistUid, out _))
@@ -146,9 +135,9 @@ public sealed class TorchCultistsProviderSystem : EntitySystem
                 entityUid = cultistUid;
         }
 
-        if (entityUid == args.Session.AttachedEntity && entityUid != null)
+        if (entityUid == args.Actor)
         {
-            _popup.PopupEntity(Loc.GetString("cult-torch-no-cultist"), entityUid.Value, entityUid.Value);
+            _popup.PopupEntity(Loc.GetString("cult-torch-no-cultist"), entityUid, entityUid);
             return;
         }
 
@@ -163,7 +152,7 @@ public sealed class TorchCultistsProviderSystem : EntitySystem
             _hands.PickupOrDrop(entityUid, item);
         }
 
-        UpdateUsesCount(uid, args.Session.AttachedEntity, component);
+        UpdateUsesCount(uid, args.Actor, component);
     }
 
     private void UpdateAppearance(EntityUid uid, TorchCultistsProviderComponent component)

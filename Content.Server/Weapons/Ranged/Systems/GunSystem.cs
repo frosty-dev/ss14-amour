@@ -111,14 +111,7 @@ public sealed partial class GunSystem : SharedGunSystem
         // Update shot based on the recoil
         toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
         mapDirection = toMap - fromMap.Position;
-
-        // WD EDIT START
-        // var gunVelocity = Physics.GetMapLinearVelocity(gunUid);
-        var gunVelocity = Vector2.Zero;
-
-        if (grid != null && TryComp(gridUid, out PhysicsComponent? physics))
-            gunVelocity = physics.LinearVelocity;
-        // WD EDIT END
+        var gunVelocity = Physics.GetMapLinearVelocity(fromEnt);
 
         // I must be high because this was getting tripped even when true.
         // DebugTools.Assert(direction != Vector2.Zero);
@@ -167,7 +160,7 @@ public sealed partial class GunSystem : SharedGunSystem
                         });
 
                         SetCartridgeSpent(ent.Value, cartridge, true);
-                        MuzzleFlash(gunUid, cartridge, user);
+                        MuzzleFlash(gunUid, cartridge, mapDirection.ToAngle(), user);
                         Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
 
                         if (cartridge.DeleteOnSpawn)
@@ -190,7 +183,7 @@ public sealed partial class GunSystem : SharedGunSystem
                 // Ammo shoots itself
                 case AmmoComponent newAmmo:
                     shotProjectiles.Add(ent!.Value);
-                    MuzzleFlash(gunUid, newAmmo, user);
+                    MuzzleFlash(gunUid, newAmmo, mapDirection.ToAngle(), user);
                     Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                     ShootOrThrow(ent.Value, mapDirection, gunVelocity, gun, gunUid, user);
                     break;
@@ -216,7 +209,7 @@ public sealed partial class GunSystem : SharedGunSystem
                             if (rayCastResults.Count == 0)
                                 break;
 
-                            RayCastResults? result = null; 
+                            RayCastResults? result = null;
                             foreach (var castResults in rayCastResults)
                             {
                                 var hitscanAttemptEv = new HitscanHitAttemptEvent(castResults.HitEntity, gun.Target);
@@ -234,7 +227,7 @@ public sealed partial class GunSystem : SharedGunSystem
                             {
                                 return;
                             }
-                            
+
                             var hit = result.Value.HitEntity;
                             lastHit = hit;
                             FireEffects(fromEffect, result.Value.Distance, dir.Normalized().ToAngle(), hitscan, hit);
@@ -373,9 +366,9 @@ public sealed partial class GunSystem : SharedGunSystem
 
     protected override void Popup(string message, EntityUid? uid, EntityUid? user) { }
 
-    protected override void CreateEffect(EntityUid uid, MuzzleFlashEvent message, EntityUid? user = null)
+    protected override void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null)
     {
-        var filter = Filter.Pvs(uid, entityManager: EntityManager);
+        var filter = Filter.Pvs(gunUid, entityManager: EntityManager);
 
         if (TryComp<ActorComponent>(user, out var actor))
             filter.RemovePlayer(actor.PlayerSession);

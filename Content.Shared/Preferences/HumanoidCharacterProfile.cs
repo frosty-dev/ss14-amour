@@ -28,6 +28,9 @@ namespace Content.Shared.Preferences
     [Serializable, NetSerializable]
     public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
+        private static readonly Regex RestrictedNameRegex = new("[^A-Z,a-z,0-9, -]");
+        private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
+
         public const int MaxNameLength = 32;
         public const int MaxDescLength = 512;
 
@@ -464,6 +467,7 @@ namespace Content.Shared.Preferences
             if (Age != other.Age) return false;
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
+            if (Species != other.Species) return false;
             if (BodyType != other.BodyType) return false;
             if (PreferenceUnavailable != other.PreferenceUnavailable) return false;
             if (SpawnPriority != other.SpawnPriority) return false;
@@ -590,30 +594,20 @@ namespace Content.Shared.Preferences
 
             if (configManager.GetCVar(CCVars.RestrictedNames))
             {
-                name = Regex.Replace(name, @"[^А-Я,а-я,0-9, -]", string.Empty); //WD EDIT
-                clownName = Regex.Replace(clownName, @"[^А-Я,а-я,0-9, -]", string.Empty);
-                mimeName = Regex.Replace(mimeName, @"[^А-Я,а-я,0-9, -]", string.Empty);
-                borgName = Regex.Replace(borgName, @"[^А-Я,а-я,0-9, -]", string.Empty);
+                name = RestrictedNameRegex.Replace(name, string.Empty);
+                clownName = RestrictedNameRegex.Replace(clownName, string.Empty);
+                mimeName = RestrictedNameRegex.Replace(mimeName, string.Empty);
+                borgName = RestrictedNameRegex.Replace(borgName, string.Empty);
             }
 
             if (configManager.GetCVar(CCVars.ICNameCase))
             {
                 // This regex replaces the first character of the first and last words of the name with their uppercase version
-                name = Regex.Replace(name,
-                    @"^(?<word>\w)|\b(?<word>\w)(?=\w*$)",
-                    m => m.Groups["word"].Value.ToUpper());
+                name = name = ICNameCaseRegex.Replace(name, m => m.Groups["word"].Value.ToUpper());
 
-                clownName = Regex.Replace(clownName,
-                    @"^(?<word>\w)|\b(?<word>\w)(?=\w*$)",
-                    m => m.Groups["word"].Value.ToUpper());
-
-                mimeName = Regex.Replace(mimeName,
-                    @"^(?<word>\w)|\b(?<word>\w)(?=\w*$)",
-                    m => m.Groups["word"].Value.ToUpper());
-
-                borgName = Regex.Replace(borgName,
-                    @"^(?<word>\w)|\b(?<word>\w)(?=\w*$)",
-                    m => m.Groups["word"].Value.ToUpper());
+                clownName = clownName = ICNameCaseRegex.Replace(name, m => m.Groups["word"].Value.ToUpper());
+                mimeName = mimeName = ICNameCaseRegex.Replace(name, m => m.Groups["word"].Value.ToUpper());
+                borgName = borgName = ICNameCaseRegex.Replace(name, m => m.Groups["word"].Value.ToUpper());
             }
 
             if (string.IsNullOrEmpty(name))
@@ -629,7 +623,7 @@ namespace Content.Shared.Preferences
                 : FormattedMessage.RemoveMarkup(FlavorText);
 
             // WD-EDIT
-            var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, BodyType, sponsorMarkings);
+            var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, BodyType, sponsorMarkings, sex);
             // WD-EDIT
 
             var prefsUnavailableMode = PreferenceUnavailable switch

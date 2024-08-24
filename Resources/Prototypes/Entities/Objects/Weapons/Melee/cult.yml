@@ -44,7 +44,7 @@
     closeOnHandDeselect: true
   - type: UserInterface
     interfaces:
-      - key: enum.ListViewSelectorUiKey.Key
+      enum.ListViewSelectorUiKey.Key:
         type: ListViewSelectorBUI
   - type: Tool
     qualities:

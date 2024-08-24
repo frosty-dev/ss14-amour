@@ -1,4 +1,5 @@
-﻿using Content.Server.Chat.Managers;
+﻿using Content.Server.Antag;
+using Content.Server.Chat.Managers;
 using Content.Shared.Alert;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
@@ -34,6 +35,14 @@ public sealed class MoodSystem : EntitySystem
         SubscribeLocalEvent<MoodComponent, DamageChangedEvent>(OnDamageChange);
         SubscribeLocalEvent<MoodComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<MoodComponent, MoodRemoveEffectEvent>(OnRemoveEffect);
+
+        SubscribeLocalEvent<AfterAntagEntitySelectedEvent>(AfterEntitySelected);
+    }
+
+    private void AfterEntitySelected(ref AfterAntagEntitySelectedEvent args)
+    {
+        if (args.Def.MoodEffect != null)
+            RaiseLocalEvent(args.EntityUid, new MoodEffectEvent(args.Def.MoodEffect));
     }
 
     private void OnRemoveEffect(EntityUid uid, MoodComponent component, MoodRemoveEffectEvent args)

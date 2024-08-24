@@ -56,10 +56,10 @@ public sealed class InstrumentPlayedStatSystem : EntitySystem
         // Otherwise people playing their tunes on the evac shuttle will not be counted.
         foreach (var instrument in EntityManager.EntityQuery<InstrumentComponent>().Where(i => i.InstrumentPlayer != null))
         {
-            if (instrument.TimeStartedPlaying != null && instrument.InstrumentPlayer != null)
+            if (instrument.TimeStartedPlaying != null && instrument.InstrumentPlayer.HasValue)
             {
-                var username = instrument.InstrumentPlayer.Name;
-                var entity = instrument.InstrumentPlayer.AttachedEntity;
+                var username = Name(instrument.InstrumentPlayer.Value);
+                var entity = instrument.InstrumentPlayer;
                 var name = entity != null ? MetaData((EntityUid) entity).EntityName : "Unknown";
 
                 RaiseLocalEvent(new InstrumentPlayedStatEvent(name, (TimeSpan) (_gameTiming.CurTime - instrument.TimeStartedPlaying), username));

@@ -203,7 +203,7 @@ public sealed partial class GulagSystem : SharedGulagSystem
         }
 
         _cargoSystem.AddAndApproveOrder(station.Value, "CrateGulag", "Автоматическая система доставки", 0, 1, Loc.GetString("gulag-sender"),
-            Loc.GetString("gulag-order-description"), Loc.GetString("gulag-order-destination"), comp, dataComp);
+            Loc.GetString("gulag-order-description"), Loc.GetString("gulag-order-destination"), comp, (station.Value, dataComp));
 
         _nextShuttleFillUpdate = DateTime.Now + _shuttleFillUpdateRate;
     }

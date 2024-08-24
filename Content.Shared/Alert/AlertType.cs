@@ -72,7 +72,8 @@ namespace Content.Shared.Alert
         BorgHealth,
         BorgCrit,
         BorgDead,
-        Offer // WD EDITS
+        Deflecting,
+        Offer // WD EDIT
     }
 
 }

@@ -1,3 +1,4 @@
+using Content.Shared._White.Mood;
 using Content.Shared.Humanoid;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -57,6 +58,9 @@ public sealed partial class ChangelingComponent : Component
     public float LesserFormDelay;
 
     public bool IsInited;
+
+    [DataField]
+    public ProtoId<MoodEffectPrototype> MoodBuffEffect = "TraitorFocused";
 }
 
 public struct HumanoidData

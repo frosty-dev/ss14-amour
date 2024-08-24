@@ -50,8 +50,8 @@
     sprite: White/Objects/Weapons/Chaplain/spellblade.rsi
   - type: UserInterface
     interfaces:
-    - key: enum.SpellBladeUiKey.Key
-      type: SpellBladeBUI
+      enum.SpellBladeUiKey.Key:
+        type: SpellBladeBUI
   - type: ActivatableUI
     key: enum.SpellBladeUiKey.Key
     inHandsOnly: true

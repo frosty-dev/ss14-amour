@@ -230,7 +230,7 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
             ForceImplant(recipient, donorImplant, subdermal, true);
 
             if (TryComp(recipient, out ActorComponent? actor))
-                _ui.TryClose(donorImplant, StoreUiKey.Key, actor.PlayerSession);
+                _ui.CloseUi(donorImplant, StoreUiKey.Key, actor.PlayerSession);
         }
     }
 

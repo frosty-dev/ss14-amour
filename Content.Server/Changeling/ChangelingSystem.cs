@@ -3,6 +3,7 @@ using Content.Server.Store.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Changeling;
 using Content.Shared.Examine;
+using Content.Shared.GameTicking;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
@@ -16,12 +17,14 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly ChemicalsSystem _chemicalsSystem = default!;
     [Dependency] private readonly SharedSubdermalImplantSystem _implantSystem = default!;
     [Dependency] private readonly StoreSystem _storeSystem = default!;
+    [Dependency] private readonly ChangelingNameGenerator _nameGenerator = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ChangelingComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
 
         SubscribeLocalEvent<AbsorbedComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<AbsorbedComponent, RejuvenateEvent>(OnRejuvenate);
@@ -38,8 +41,16 @@ public sealed partial class ChangelingSystem : EntitySystem
         SetupInitActions(uid, component);
         CopyHumanoidData(uid, uid, component);
 
+        component.HiveName = _nameGenerator.GetName();
+        Dirty(uid, component);
+
         _chemicalsSystem.UpdateAlert(uid, component);
         component.IsInited = true;
+    }
+
+    private void OnRoundRestart(RoundRestartCleanupEvent _)
+    {
+        _nameGenerator.ClearUsed();
     }
 
     private void OnExamine(EntityUid uid, AbsorbedComponent component, ExaminedEvent args)
