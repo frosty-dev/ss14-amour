@@ -10,7 +10,9 @@
     FoodSnackPistachios: 3
     FoodSnackSus: 3
     FoodSnackSemki: 3
-
+    FoodSnackKirieshkiSalami: 2
+    FoodSnackKirieshkiSirom: 2
+    FoodSnackKirieshkiKyrichey: 2
   emaggedInventory:
     FoodSnackSyndi: 3
 

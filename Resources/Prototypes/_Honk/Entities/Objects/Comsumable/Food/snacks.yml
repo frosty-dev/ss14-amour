@@ -1,0 +1,84 @@
+﻿- type: entity
+  name: Кириешки с салями
+  parent: FoodSnackBase
+  id: FoodSnackKirieshkiSalami
+  description: Легендарные кириешки со вкусом салями
+  components:
+  - type: FlavorProfile
+    flavors:
+    - bread
+    - flavorhard
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: kirieshkisalami
+  - type: Item
+  - type: Food
+    trash: FoodPacketKirieshkiSalami
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketTrash
+  id: FoodPacketKirieshkiSalami
+  name: Кириешки с салями
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: kirieshkisalami-trash
+
+
+- type: entity
+  name: Кириешки с ветчиной и сыром
+  parent: FoodSnackBase
+  id: FoodSnackKirieshkiSirom
+  description: Легендарные кириешки со вкусом ветчины и сыра
+  components:
+  - type: FlavorProfile
+    flavors:
+    - cheesy
+    - bread
+    - flavorhard
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: kirieshkivet
+  - type: Item
+  - type: Food
+    trash: FoodPacketKirieshkiSirom
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketTrash
+  id: FoodPacketKirieshkiSirom
+  name: Кириешки с ветчиной и сыром
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: kirieshkivet-trash
+
+
+
+- type: entity
+  name: Кириешки с ветчиной и сыром
+  parent: FoodSnackBase
+  id: FoodSnackKirieshkiKyrichey
+  description: Легендарные кириешки со вкусом курицы
+  components:
+  - type: FlavorProfile
+    flavors:
+    - bread
+    - flavorhard
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: kirieshkikyr
+  - type: Item
+  - type: Food
+    trash: FoodPacketKirieshkiKyrichey
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketTrash
+  id: FoodPacketKirieshkiKyrichey
+  name: Кириешки с курицей
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/snacks.rsi
+    state: kirieshkikyr-trash
