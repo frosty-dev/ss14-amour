@@ -1,5 +1,5 @@
 ﻿- type: entity
-  name: Кириешки с салями
+  name: кириешки с салями
   parent: FoodSnackBase
   id: FoodSnackKirieshkiSalami
   description: Легендарные кириешки со вкусом салями
@@ -19,7 +19,7 @@
   noSpawn: true
   parent: FoodPacketTrash
   id: FoodPacketKirieshkiSalami
-  name: Кириешки с салями
+  name: кириешки с салями
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
@@ -27,7 +27,7 @@
 
 
 - type: entity
-  name: Кириешки с ветчиной и сыром
+  name: кириешки с ветчиной и сыром
   parent: FoodSnackBase
   id: FoodSnackKirieshkiSirom
   description: Легендарные кириешки со вкусом ветчины и сыра
@@ -48,7 +48,7 @@
   noSpawn: true
   parent: FoodPacketTrash
   id: FoodPacketKirieshkiSirom
-  name: Кириешки с ветчиной и сыром
+  name: кириешки с ветчиной и сыром
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
@@ -57,7 +57,7 @@
 
 
 - type: entity
-  name: Кириешки с ветчиной и сыром
+  name: кириешки с курицей
   parent: FoodSnackBase
   id: FoodSnackKirieshkiKyrichey
   description: Легендарные кириешки со вкусом курицы
@@ -77,7 +77,7 @@
   noSpawn: true
   parent: FoodPacketTrash
   id: FoodPacketKirieshkiKyrichey
-  name: Кириешки с курицей
+  name: кириешки с курицей
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/snacks.rsi
