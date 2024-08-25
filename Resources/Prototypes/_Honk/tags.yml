@@ -1,0 +1,11 @@
+﻿- type: Tag
+  id: EnergyCellСarbine
+
+- type: Tag
+  id: EnergyCellDisabler
+
+- type: Tag
+  id: EnergyCellDisablerSmg
+
+- type: Tag
+  id: EnergyCellEgun
