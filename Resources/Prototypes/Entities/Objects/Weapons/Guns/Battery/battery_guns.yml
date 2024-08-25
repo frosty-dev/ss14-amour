@@ -231,7 +231,7 @@
 - type: entity
   name: laser rifle
   parent: [BaseWeaponBattery, BaseGunWieldable]
-  id: WeaponLaserCarbine
+  id: WeaponLaserCarbineOld
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
   - type: Sprite
@@ -261,7 +261,7 @@
 
 - type: entity
   name: practice laser rifle
-  parent: WeaponLaserCarbine
+  parent: WeaponLaserCarbineOld
   id: WeaponLaserCarbinePractice
   description: This modified laser rifle fires nearly harmless beams in the 40-watt range, for target practice.
   components:
@@ -478,9 +478,9 @@
   - type: Appearance
 
 - type: entity
-  name: disabler
+  name: disabler old
   parent: BaseWeaponBatterySmall
-  id: WeaponDisabler
+  id: WeaponDisablerOld
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
   components:
     - type: Tag
@@ -518,9 +518,9 @@
       - Security
 
 - type: entity
-  name: disabler SMG
+  name: disabler SMG old
   parent: BaseWeaponBattery
-  id: WeaponDisablerSMG
+  id: WeaponDisablerSMGOld
   description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
   components:
   - type: Item
@@ -557,7 +557,7 @@
 
 - type: entity
   name: practice disabler
-  parent: WeaponDisabler
+  parent: WeaponDisablerOld
   id: WeaponDisablerPractice
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for cadets making it mostly harmless.
   components:
