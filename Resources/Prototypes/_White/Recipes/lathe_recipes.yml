@@ -103,8 +103,8 @@
     Silver: 300
 
 - type: latheRecipe
-  id: MagazinePistolCaselessRifle
-  result: MagazinePistolCaselessRifle
+  id: MagazinePistolCaselessRifleBox
+  result: MagazinePistolCaselessRifleBox
   category: Ammo
   completetime: 5
   materials:

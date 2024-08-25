@@ -1,0 +1,39 @@
+﻿- type: cargoProduct
+  id: ServiceBooksRandomStory
+  icon:
+    sprite: Objects/Misc/books.rsi
+    state: book_icon
+  product: CrateServiceBooksRandomStory
+  cost: 1000
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: ServiceBooksStory1
+  icon:
+    sprite: Objects/Misc/books.rsi
+    state: book_icon
+  product: CrateServiceBooksStory1
+  cost: 1500
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: ServiceBooksStory2
+  icon:
+    sprite: Objects/Misc/books.rsi
+    state: book_icon
+  product: CrateServiceBooksStory2
+  cost: 1500
+  category: cargoproduct-category-name-service
+  group: market
+
+- type: cargoProduct
+  id: ServiceBooksStory3
+  icon:
+    sprite: Objects/Misc/books.rsi
+    state: book_icon
+  product: CrateServiceBooksStory3
+  cost: 1500
+  category: cargoproduct-category-name-service
+  group: market

@@ -1,0 +1,61 @@
+﻿- type: entity
+  id: CrateServiceBooksRandomStory
+  parent: CrateGenericSteel
+  name: ящик книг со случайным содержанием
+  description: Contains 7 empty books of random story.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BookRandomStory
+      amount: 7
+
+- type: entity
+  id: CrateServiceBooksStory1
+  parent: CrateGenericSteel
+  name: ящик книг с историей 1
+  description: Contains 8 empty books of random appearance.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BookNarsieLegend
+    - id: BookTruth
+    - id: BookWorld
+    - id: BookIanAntarctica
+    - id: BookSlothClownSSS
+    - id: BookSlothClownPranks
+    - id: BookSlothClownMMD
+    - id: BookStruck
+
+- type: entity
+  id: CrateServiceBooksStory2
+  parent: CrateGenericSteel
+  name: ящик книг с историей 2
+  description: Contains 8 empty books of random appearance.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BookSun
+    - id: BookPossum
+    - id: BookCafe
+    - id: BookFeather
+    - id: BookIanLostWolfPup
+    - id: BookIanRanch
+    - id: BookIanOcean
+    - id: BookIanMountain
+
+- type: entity
+  id: CrateServiceBooksStory3
+  parent: CrateGenericSteel
+  name: ящик книг с историей 3
+  description: Contains 8 empty books of random appearance.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BookIanCity
+    - id: BookIanArctic
+    - id: BookIanDesert
+    - id: BookNames
+    - id: BookEarth
+    - id: BookAurora
+    - id: BookTemple
+    - id: BookWatched
