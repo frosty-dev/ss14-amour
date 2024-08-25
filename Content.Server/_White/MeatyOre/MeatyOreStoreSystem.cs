@@ -1,4 +1,5 @@
 using Content.Server.Chat.Managers;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net.Http;
@@ -31,6 +32,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._White.MeatyOre;
 
@@ -49,6 +51,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IBanManager _banManager = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     private HttpClient _httpClient = default!;
     private string _apiUrl = default!;
@@ -152,7 +155,7 @@ public sealed class MeatyOreStoreSystem : EntitySystem
             return;
 
         _pvsOverrideSystem.AddSessionOverride(storeEntity.Value, playerSession);
-        _storeSystem.ToggleUi(playerEntity.Value, storeEntity.Value, storeComponent);
+        _storeSystem.ToggleUi(playerEntity.Value, storeEntity.Value);
     }
 
     private bool TryGetStore(ICommonSession session, out StoreComponent store, [NotNullWhen(true)] out EntityUid? storeEntity)
@@ -190,19 +193,19 @@ public sealed class MeatyOreStoreSystem : EntitySystem
     private (EntityUid, StoreComponent) CreateStore(NetUserId userId, int balance)
     {
         var session = _playerManager.GetSessionById(userId);
-        var storeEntity = _entityManager.SpawnEntity("StoreMeatyOreEntity", MapCoordinates.Nullspace);
-        var storeComponent = Comp<StoreComponent>(storeEntity);
+        var user = session.AttachedEntity!;
 
-        _storeSystem.InitializeFromPreset(StorePresetPrototype, storeEntity, storeComponent);
+        var storeComponent = Comp<StoreComponent>(user.Value);
+
+        _storeSystem.InitializeFromPreset(StorePresetPrototype, user.Value, storeComponent);
         storeComponent.Balance.Clear();
 
         _storeSystem.TryAddCurrency(new Dictionary<string, FixedPoint2> { { MeatyOreCurrencyPrototype, balance } },
-            storeEntity, storeComponent);
+            user.Value, storeComponent);
 
-        _meatyOreStores[userId] = (storeEntity, storeComponent);
-        _pvsOverrideSystem.AddSessionOverride(storeEntity, session);
+        _meatyOreStores[userId] = (user.Value, storeComponent);
 
-        return (storeEntity, storeComponent);
+        return (user.Value, storeComponent);
     }
 
     private async void TryAddRole(EntityUid user, EntityUid target, StoreComponent store, EntityUid storeEntity)

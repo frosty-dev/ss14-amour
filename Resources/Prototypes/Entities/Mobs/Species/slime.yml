@@ -17,6 +17,7 @@
     grid:
     - 0,0,1,2
     maxItemSize: Large
+    clickInsert: false
     storageInsertSound:
       path: /Audio/Voice/Slime/slime_squish.ogg
   - type: ContainerContainer

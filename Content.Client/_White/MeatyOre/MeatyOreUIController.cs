@@ -43,7 +43,9 @@ public sealed class MeatyOreUIController : UIController
     {
         base.FrameUpdate(args);
 
-        if(!_buttonLoaded) return;
+        if (!_buttonLoaded)
+            return;
+
         var shouldBeVisible = CheckButtonVisibility();
         MeatyOreButton!.Visible = shouldBeVisible;
     }
@@ -51,13 +53,19 @@ public sealed class MeatyOreUIController : UIController
 
     private bool CheckButtonVisibility()
     {
-        if(!_sponsorsManager.TryGetInfo(out var sponsor)) return false;
-        if(sponsor?.Tier == null || sponsor?.MeatyOreCoin == 0) return false;
+        if (!_sponsorsManager.TryGetInfo(out var sponsor))
+            return false;
 
-        var controlledEntity = _playerManager!.LocalPlayer!.ControlledEntity;
-        if(controlledEntity == null) return false;
+        if (sponsor.Tier == null || sponsor.MeatyOreCoin == 0)
+            return false;
 
-        if (!_entityManager.HasComponent<HumanoidAppearanceComponent>(controlledEntity)) return false;
+        var controlledEntity = _playerManager.LocalPlayer!.ControlledEntity;
+
+        if (controlledEntity == null)
+            return false;
+
+        if (!_entityManager.HasComponent<HumanoidAppearanceComponent>(controlledEntity))
+            return false;
 
         return true;
     }
