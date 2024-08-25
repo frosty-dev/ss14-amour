@@ -45,7 +45,7 @@ public sealed partial class ChangelingSystem
 
     private void OnShop(EntityUid uid, SubdermalImplantComponent component, ChangelingShopActionEvent args)
     {
-        if(!TryComp<StoreComponent>(uid, out var store))
+        if (!TryComp<StoreComponent>(uid, out var store))
             return;
 
         _storeSystem.ToggleUi(args.Performer, uid, store);

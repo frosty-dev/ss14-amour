@@ -235,8 +235,17 @@
         type: SpellSelectorBUI
       enum.CultEmpowerRemoveUiKey.Key:
         type: SpellRemoverBUI
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
       # WD-EDIT END
   - type: Puller
+  # WD edit start
+  - type: Store
+    preset: StorePresetMeatyOre
+    balance:
+      MeatyOreCoin: 0
+  - type: IgnorBUIInteractionRange # Oleg kryt
+  # WD edit end
   - type: Butcherable
     butcheringType: Spike # TODO human.
     spawned:

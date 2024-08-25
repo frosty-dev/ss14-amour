@@ -20,15 +20,14 @@ namespace Content.Client.Lathe.UI
             _menu = new LatheMenu(this);
             _menu.OnClose += Close;
 
-
             _menu.OnServerListButtonPressed += _ =>
             {
-                SendMessage(new ConsoleServerSelectionMessage());
+                SendPredictedMessage(new ConsoleServerSelectionMessage());
             };
 
             _menu.RecipeQueueAction += (recipe, amount) =>
             {
-                SendMessage(new LatheQueueRecipeMessage(recipe, amount));
+                SendPredictedMessage(new LatheQueueRecipeMessage(recipe, amount));
             };
 
             _menu.OpenCenteredRight();
@@ -54,8 +53,10 @@ namespace Content.Client.Lathe.UI
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
+
             if (!disposing)
                 return;
+
             _menu?.Dispose();
         }
     }
