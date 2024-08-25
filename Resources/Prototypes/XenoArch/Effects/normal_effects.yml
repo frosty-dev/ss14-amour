@@ -253,7 +253,7 @@
 
 - type: artifactEffect
   id: EffectRadiate
-  targetDepth: 1
+  targetDepth: 4
   effectHint: artifact-effect-hint-release
   components:
   - type: RadiationSource
@@ -713,7 +713,7 @@
 
 - type: artifactEffect
   id: EffectSingulo
-  targetDepth: 10
+  targetDepth: 8
   effectHint: artifact-effect-hint-destruction
   components:
   - type: SpawnArtifact
@@ -723,7 +723,7 @@
 
 - type: artifactEffect
   id: EffectTesla
-  targetDepth: 10
+  targetDepth: 8
   effectHint: artifact-effect-hint-destruction
   components:
   - type: SpawnArtifact
