@@ -1,0 +1,12 @@
+﻿- type: entity
+  id: CaucasianAccentAspect
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: Aspect
+    name: "Ежжи брат"
+    description: "Всэгда интэрэсно, какой ежжи брат вы услишитэ слэдующим."
+    weight: 3
+    startAudio:
+      path: /Audio/White/Aspects/accent.ogg
+  - type: CaucasianAccentAspect
