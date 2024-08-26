@@ -111,7 +111,7 @@
   name: post light
   description: "A light fixture. Draws power and produces light when equipped with a light tube."
   suffix: ""
-  parent: PoweredLightPostSmallEmpty
+  parent: [PoweredLightPostSmallEmpty, LightAmbientSound] # WD
   components:
   - type: Sprite
     state: base
@@ -124,19 +124,13 @@
         Heat: 2
   - type: StaticPrice
     price: 25
-  - type: AmbientOnPowered
-  - type: AmbientSound
-    volume: -15
-    range: 3
-    sound:
-      path: /Audio/Ambience/Objects/light_hum.ogg
 
 - type: entity
   id: PoweredLEDLightPostSmall
   name: post light
   description: "A light fixture. Draws power and produces light when equipped with a light tube."
   suffix: LED
-  parent: PoweredLightPostSmallEmpty
+  parent: [PoweredLightPostSmallEmpty, LightAmbientSound] # WD
   components:
   - type: Sprite
     state: base
@@ -153,9 +147,3 @@
         Heat: 1
   - type: StaticPrice
     price: 25
-  - type: AmbientOnPowered
-  - type: AmbientSound
-    volume: -15
-    range: 3
-    sound:
-      path: /Audio/Ambience/Objects/light_hum.ogg
