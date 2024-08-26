@@ -24,6 +24,7 @@ public sealed class RoundEndVoteSystem : EntitySystem
             return;
 
         _voteManager.CreateStandardVote(null, StandardVoteType.Preset);
+        _voteManager.CreateStandardVote(null, StandardVoteType.Map);
     }
 
 }
