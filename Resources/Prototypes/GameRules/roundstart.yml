@@ -184,6 +184,9 @@
       mindComponents:
       - type: RevolutionaryRole
         prototype: HeadRev
+      blacklist: # WD
+        components:
+          - CommandStaff
 
 - type: entity
   id: Sandbox

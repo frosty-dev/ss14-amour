@@ -62,13 +62,14 @@ public sealed class DefibrillatorSystem : EntitySystem
     // WD START
     private void OnStaminaHitAttempt(Entity<DefibrillatorComponent> ent, ref StaminaDamageOnHitAttemptEvent args)
     {
-        var (uid, comp) = ent;
-        if (comp.Enabled && _powerCell.TryUseActivatableCharge(uid))
+        if (ent.Comp.Enabled && _powerCell.TryUseActivatableCharge(ent))
         {
-            if (!_powerCell.HasActivatableCharge(uid))
-                TryDisable(uid, comp);
-            comp.NextZapTime = _timing.CurTime + TimeSpan.FromSeconds(3);
-            _appearance.SetData(uid, DefibrillatorVisuals.Ready, false);
+            if (!_powerCell.HasActivatableCharge(ent))
+                TryDisable(ent);
+
+            ent.Comp.NextZapTime = _timing.CurTime + TimeSpan.FromSeconds(3);
+            _appearance.SetData(ent, DefibrillatorVisuals.Ready, false);
+
             return;
         }
 
@@ -194,10 +195,11 @@ public sealed class DefibrillatorSystem : EntitySystem
             return false;
 
         _audio.PlayPvs(component.ChargeSound, uid);
+
         return _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.DoAfterDuration, new DefibrillatorZapDoAfterEvent(),
             uid, target, uid)
             {
-                BreakOnMove = user == target, // WD EDIT
+                BreakOnMove = user != target, // WD EDIT
                 DuplicateCondition = DuplicateConditions.None, // WD EDIT
                 BlockDuplicate = true,
                 BreakOnHandChange = true,
