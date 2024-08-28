@@ -4,10 +4,11 @@ import os
 import re
 
 locale_template = "ent-{} = {}\n   .desc = {}\n"
+suffix_template = "   .suffix = {}\n"
 
 enitites_path = "../Resources/Prototypes/Entities"
 locales_path = "../Resources/Locale/ru-RU"
-new_locales_path = locales_path+"/locales-new"
+new_locales_path = locales_path + "/_white/locales-new"
 
 existing_prototypes = {}
 existing_locales = []
@@ -27,22 +28,21 @@ yaml.add_multi_constructor('', default_ctor)
 #cache all existing enitites
 for root, dirs, files in os.walk(enitites_path):
     for filename in files:
-        # print(f"{root}/{filename}")
         with open(f"{root}/{filename}", "r", encoding="utf-8") as file:
-            # text = file.read().encode()
-            # text = text.decode("utf-8-sig")
             data = yaml.full_load_all(file)
             if not data: continue
             for entrylist in data:
                 for entry in entrylist:
                     entry: dict
-                    if entry["type"] != "entity": continue
-                    existing_prototypes[entry["id"]] = {"name":entry.get("name", '"name"'), "desc":entry.get("description", '"desc"')}
+                    if entry.get("type", None) != "entity": continue
+                    if entry.get("abstract", False) or entry.get("noSpawn", False): continue
+                    name = entry.get("name", None)
+                    if not name: continue
+                    existing_prototypes[entry["id"]] = {"name":name, "desc":entry.get("description", f'"{name}"') or "", "suffix":entry.get("suffix", None)}
 
 #cache all existing locales
 for root, dirs, files in os.walk(locales_path):
     for filename in files:
-        # print(f"{root}/{filename}")
         if "autotranslate-" in filename:
             _num = filename.split("autotranslate-")[1]
             _num = int(_num.split(".")[0])
@@ -50,7 +50,7 @@ for root, dirs, files in os.walk(locales_path):
                 num = _num
                 new_filename = _num + 1
         with open(f"{root}/{filename}", "r", encoding="utf-8") as file:
-            data = re.findall(r'(?<=^ent-)(\w+)', file.read(), re.MULTILINE)
+            data = re.findall(r'(?<=^ent-)(.+)(?= =)', file.read(), re.MULTILINE)
             if not len(data): continue
             for entity in data:
                 existing_locales.append(entity)
@@ -62,7 +62,10 @@ for entity, entity_data in existing_prototypes.items():
     if entity in existing_locales: continue
     name = entity_data["name"]
     desc = entity_data["desc"]
+    suffix = entity_data["suffix"]
     locale_text += locale_template.format(entity, name, desc)
+    if suffix:
+        locale_text += suffix_template.format(suffix)
     locales += 1
     if locales == 20:
         with open(f"{new_locales_path}/autotranslate-{new_filename}.ftl", "w", encoding="utf-8") as file:
@@ -77,4 +80,4 @@ if locale_text:
             file.write(locale_text)
     new_filename += 1
 
-print(f"Wrote {new_filename-num} new files.")
+print(f"Wrote {new_filename-num-1} new files.")
