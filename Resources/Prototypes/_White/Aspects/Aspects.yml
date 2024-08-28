@@ -4,8 +4,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Акценты вне контроля"
-      description: "Всегда интересно, какой акцент вы услышите следующим."
+      name: Акценты вне контроля
+      description: Всегда интересно, какой акцент вы услышите следующим
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -17,8 +17,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Fast and Furious"
-      description: "Люди спешат и не важно куда."
+      name: Fast and Furious
+      description: Люди спешат и не важно куда
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -30,8 +30,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Random appearance"
-      description: "Экипаж перестал узнавать друг-друга в лицо."
+      name: Random appearance
+      description: Экипаж перестал узнавать друг-друга в лицо
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -43,9 +43,9 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Bombass"
-      description: "Кто-то заложил мины на станции!"
-      weight: 1
+      name: Bombass
+      description: Кто-то заложил мины на станции!
+      weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
     - type: BombassAspect
@@ -56,8 +56,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Drunk"
-      description: "На станции стоит явный запах вчерашнего веселья... и кажется оно только начинается."
+      name: Drunk
+      description: На станции стоит явный запах вчерашнего веселья... и кажется оно только начинается
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -69,8 +69,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Cargo Rich"
-      description: "Карго работало усердно в прошлую смену, за что они и были награждены премией в размере 100000 кредитов."
+      name: Cargo Rich
+      description: Карго работало усердно в прошлую смену, за что они и были награждены премией в размере 100000 кредитов
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -82,11 +82,11 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Traitored"
-      description: "Кто-то сдал всех предателей!"
-      requires: "Traitors"
+      name: Traitored
+      description: Кто-то сдал всех предателей!
+      requires: Traitors
       weight: 1
-      hidden: true
+      isHidden: true
     - type: TraitoredAspect
 
 - type: entity
@@ -95,8 +95,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Weak Walls"
-      description: "На стенах явно экономили."
+      name: Weak Walls
+      description: На стенах явно экономили
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -108,8 +108,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "No engine"
-      description: "Какой-то смышлённый агент синдиката решил украсть все ваши генераторы энергии целиком."
+      name: No engine
+      description: Какой-то смышлённый агент синдиката решил украсть все ваши генераторы энергии целиком
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -121,11 +121,12 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Airunlock"
-      description: "Кого волнует безопасность? Экипаж свободно может ходить по всем отсекам, ведь все шлюзы теперь для них доступны."
+      name: Airunlock
+      description: Кого волнует безопасность? Экипаж свободно может ходить по всем отсекам, ведь все шлюзы теперь для них доступны
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
+      isForbidden: true
     - type: AiRunLockAspect
 
 - type: entity
@@ -134,9 +135,9 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Bloody"
-      description: "В эту смену любая незначительная травма может оказаться летальной."
-      weight: 1
+      name: Bloody
+      description: В эту смену любая незначительная травма может оказаться летальной
+      weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
     - type: BloodyAspect
@@ -147,8 +148,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Weak"
-      description: "Удары стали слабее. Пули мягче. К чему это приведёт?"
+      name: Weak
+      description: Удары стали слабее. Пули мягче. К чему это приведёт?
       weight: 1
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -160,8 +161,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Battled"
-      description: "Люди очень насторожены и готовы дать отпор в любую секунду."
+      name: Battled
+      description: Люди очень насторожены и готовы дать отпор в любую секунду
       weight: 1
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -173,8 +174,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "I Have Two Butts But I must Seat"
-      description: "Стулья украли!"
+      name: I Have Two Butts But I must Seat
+      description: Стулья украли!
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -186,9 +187,9 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Presents"
-      description: "А вы верите в Деда Мороза?"
-      weight: 2
+      name: Presents
+      description: А вы верите в Деда Мороза?
+      weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
     - type: PresentAspect
@@ -199,12 +200,11 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Dance"
-      description: "Танцуют все!"
+      name: Dance
+      description: Танцуют все!
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
-      forbidden: true
     - type: DancingAspect
 
 - type: entity
@@ -213,8 +213,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Reflect"
-      description: "Ваше отражение повсюду."
+      name: Reflect
+      description: Ваше отражение повсюду
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -226,8 +226,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Slippery"
-      description: "Постарайтесь не поскальзываться!"
+      name: Slippery
+      description: Постарайтесь не поскальзываться!
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -239,11 +239,11 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Extra TC"
-      description: "Синдикат выделил 10 дополнительных телекристаллов для предателей."
-      requires: "Traitors"
-      weight: 2
-      hidden: true
+      name: Extra TC
+      description: Синдикат выделил 10 дополнительных телекристаллов для предателей
+      requires: Traitors
+      weight: 3
+      isHidden: true
     - type: TraitorRichAspect
 
 - type: entity
@@ -252,12 +252,12 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Whisper"
-      description: "Из-за боли в горле речь дается вам с трудом."
+      name: Whisper
+      description: Из-за боли в горле речь дается вам с трудом
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
-      forbidden: true
+      isForbidden: true
     - type: WhisperAspect
 
 - type: entity
@@ -266,8 +266,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Darkness"
-      description: "Почему все так темно?"
+      name: Darkness
+      description: Почему все так темно?
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -279,8 +279,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Stolen Floor"
-      description: "Рабочие забыли положить плитку при строительстве станции."
+      name: Stolen Floor
+      description: Рабочие забыли положить плитку при строительстве станции
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -292,8 +292,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Are We In Dungeon"
-      description: "В связи с невероятной хрупкостью окон было решено заменить их на стены."
+      name: Are We In Dungeon
+      description: В связи с невероятной хрупкостью окон было решено заменить их на стены
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -305,8 +305,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Cat Ears And Tail"
-      description: "Из-за ошибки в системе клонирования на ЦК все члены экипажа стали походить на фелинидов."
+      name: Cat Ears And Tail
+      description: Из-за ошибки в системе клонирования на ЦК все члены экипажа стали походить на фелинидов
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -318,11 +318,11 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Nothing"
-      description: "Ничего."
+      name: Nothing
+      description: Ничего
       weight: 3
-      forbidden: true
-      hidden: true
+      isForbidden: true
+      isHidden: true
     - type: NothingAspect
 
 - type: entity
@@ -331,8 +331,8 @@
   noSpawn: true
   components:
     - type: Aspect
-      name: "Random item"
-      description: "ЦК выдало каждому члену экипажа определённый предмет."
+      name: Random item
+      description: ЦК выдало каждому члену экипажа определённый предмет
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -344,8 +344,8 @@
   noSpawn: true
   components:
   - type: Aspect
-    name: "Immersive"
-    description: "В связи с недавними трагичными событиями экипаж станции погрузился в себя"
+    name: Immersive
+    description: В связи с недавними трагичными событиями экипаж станции погрузился в себя
     weight: 3
     startAudio:
       path: /Audio/White/Aspects/accent.ogg
@@ -358,8 +358,8 @@
 #  noSpawn: true
 #  components:
 #    - type: Aspect
-#      name: "Skeletons"
-#      description: "АЧК АЧК!"
+#      name: Skeletons
+#      description: АЧК АЧК!
 #      weight: 1
 #      startAudio:
 #        path: /Audio/White/Aspects/accent.ogg
