@@ -70,12 +70,13 @@ entities:
     - type: MetaData
     - type: Transform
     - type: Map
+      mapPaused: True
     - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: LoadedMap
-    - type: GridTree
-    - type: MovedGrids
   - uid: 2
     components:
     - type: MetaData
@@ -66164,28 +66165,6 @@ entities:
     - type: Transform
       pos: 5.5,40.5
       parent: 2
-- proto: chem_master
-  entities:
-  - uid: 8850
-    components:
-    - type: Transform
-      pos: 22.5,-7.5
-      parent: 2
-  - uid: 8851
-    components:
-    - type: Transform
-      pos: 52.5,-3.5
-      parent: 2
-  - uid: 8852
-    components:
-    - type: Transform
-      pos: 52.5,0.5
-      parent: 2
-  - uid: 8853
-    components:
-    - type: Transform
-      pos: 56.5,0.5
-      parent: 2
 - proto: ChemDispenser
   entities:
   - uid: 8854
@@ -66222,6 +66201,28 @@ entities:
       - 851
     - type: PlaceableSurface
       isPlaceable: False
+- proto: ChemMaster
+  entities:
+  - uid: 8850
+    components:
+    - type: Transform
+      pos: 22.5,-7.5
+      parent: 2
+  - uid: 8851
+    components:
+    - type: Transform
+      pos: 52.5,-3.5
+      parent: 2
+  - uid: 8852
+    components:
+    - type: Transform
+      pos: 52.5,0.5
+      parent: 2
+  - uid: 8853
+    components:
+    - type: Transform
+      pos: 56.5,0.5
+      parent: 2
 - proto: ChemMasterMachineCircuitboard
   entities:
   - uid: 25655
@@ -72286,6 +72287,13 @@ entities:
     components:
     - type: Transform
       pos: 7.5,10.5
+      parent: 2
+- proto: ComputerRoboticsControl
+  entities:
+  - uid: 16082
+    components:
+    - type: Transform
+      pos: 59.5,-19.5
       parent: 2
 - proto: ComputerSalvageExpedition
   entities:
@@ -80033,7 +80041,6 @@ entities:
       solutions:
         drink:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 20
           name: null
@@ -80050,7 +80057,6 @@ entities:
       solutions:
         drink:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 20
           name: null
@@ -80067,7 +80073,6 @@ entities:
       solutions:
         drink:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 20
           name: null
@@ -123071,14 +123076,6 @@ entities:
     - type: Transform
       pos: 16.5,37.5
       parent: 2
-- proto: MachineTraversalDistorter
-  entities:
-  - uid: 16082
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 70.5,-39.5
-      parent: 2
 - proto: MagazinePistolSubMachineGunTopMounted
   entities:
   - uid: 1177
@@ -125949,7 +125946,6 @@ entities:
       solutions:
         food:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 50
           name: null
@@ -125977,7 +125973,6 @@ entities:
       solutions:
         food:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 50
           name: null
@@ -125999,7 +125994,6 @@ entities:
       solutions:
         food:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 50
           name: null
@@ -126024,7 +126018,6 @@ entities:
       solutions:
         food:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 50
           name: null
@@ -126052,7 +126045,6 @@ entities:
       solutions:
         food:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 50
           name: null
@@ -126104,7 +126096,6 @@ entities:
       solutions:
         food:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 50
           name: null
@@ -126128,7 +126119,6 @@ entities:
       solutions:
         food:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 50
           name: null
@@ -132940,49 +132930,49 @@ entities:
       pos: 6.7808495,-46.50002
       parent: 2
     - type: RCDAmmo
-      charges: 100
+      charges: 150
   - uid: 24069
     components:
     - type: Transform
       pos: 6.7808495,-46.030556
       parent: 2
     - type: RCDAmmo
-      charges: 100
+      charges: 150
   - uid: 24070
     components:
     - type: Transform
       pos: 6.7808495,-45.564182
       parent: 2
     - type: RCDAmmo
-      charges: 100
+      charges: 150
   - uid: 24071
     components:
     - type: Transform
       pos: 6.4999847,-46.441338
       parent: 2
     - type: RCDAmmo
-      charges: 100
+      charges: 150
   - uid: 24072
     components:
     - type: Transform
       pos: 6.4999847,-45.968784
       parent: 2
     - type: RCDAmmo
-      charges: 100
+      charges: 150
   - uid: 24073
     components:
     - type: Transform
       pos: 6.4999847,-45.502415
       parent: 2
     - type: RCDAmmo
-      charges: 100
+      charges: 150
   - uid: 24203
     components:
     - type: Transform
       pos: 4.636591,-46.013115
       parent: 2
     - type: RCDAmmo
-      charges: 100
+      charges: 150
 - proto: ReagentContainerFlour
   entities:
   - uid: 17280
@@ -142788,7 +142778,7 @@ entities:
     - type: Transform
       pos: -29.727818,40.539623
       parent: 2
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 18632
     components:
@@ -147355,7 +147345,6 @@ entities:
       solutions:
         injector:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 15
           name: null
