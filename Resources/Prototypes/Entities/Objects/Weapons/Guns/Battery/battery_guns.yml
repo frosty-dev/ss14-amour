@@ -230,7 +230,7 @@
 
 - type: entity
   name: laser rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: BaseWeaponBattery
   id: WeaponLaserCarbine
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:

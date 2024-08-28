@@ -1,10 +1,13 @@
 using Content.Shared.Explosion;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 
 namespace Content.Server.Inventory
 {
     public sealed class ServerInventorySystem : InventorySystem
     {
+        [Dependency] private readonly SharedHandsSystem _hands = default!; // WD
+
         public override void Initialize()
         {
             base.Initialize();
@@ -43,5 +46,24 @@ namespace Content.Server.Inventory
             }
             // WD EDIT END
         }
+
+
+        // WD edit start - new helper method for drop anything from inventory.
+        public void DropAnything(EntityUid uid)
+        {
+            if (TryGetContainerSlotEnumerator(uid, out var enumerator))
+            {
+                while (enumerator.MoveNext(out var slot))
+                {
+                    TryUnequip(uid, slot.ID, true, true);
+                }
+            }
+
+            foreach (var held in _hands.EnumerateHeld(uid))
+            {
+                _hands.TryDrop(uid, held);
+            }
+        }
+        // WD edit end
     }
 }

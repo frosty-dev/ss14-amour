@@ -86,6 +86,7 @@
       playerRatio: 10
       startingGear: SyndicateCommanderGearFull
       moodEffect: TraitorFocused # WD
+      dropInventory: true # WD
       components:
       - type: NukeOperative
       - type: RandomMetadata
@@ -262,7 +263,7 @@
     definitions:
     - prefRoles: [ Cultist ]
       max: 3
-      moodEffect: CultFocused
+      moodEffect: CultFocused # WD
       briefing:
         text: cult-role-greeting
         color: Red
@@ -291,7 +292,8 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ WizardRole ]
-      moodEffect: WizardFocused
+      moodEffect: WizardFocused # WD
+      dropInventory: true # WD
       briefing:
         text: wizard-welcome
         color: Aqua
@@ -322,7 +324,7 @@
       max: 8
       playerRatio: 10
       lateJoinAdditional: true
-      moodEffect: TraitorFocused
+      moodEffect: TraitorFocused # WD
       briefing:
         text: changeling-role-greeting
         color: Red

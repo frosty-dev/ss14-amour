@@ -4,9 +4,10 @@ using Content.Server.Mind;
 using Content.Server.RoundEnd;
 using Content.Shared.Mobs;
 using System.Linq;
+using Content.Server._White.Wizard.Appearance;
 using Content.Server.Objectives;
 using Content.Server.StationEvents.Components;
-using Content.Shared._White.Mood;
+using Content.Shared._White.Wizard.Appearance;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 
@@ -20,12 +21,16 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly ObjectivesSystem _objectives = default!;
+    [Dependency] private readonly WizardAppearanceSystem _wizardAppearance = default!;
+
+    private const string WizardObjective = "WizardSurviveObjective";
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<WizardRuleComponent, AntagSelectEntityEvent>(OnAntagSelectEntity);
         SubscribeLocalEvent<WizardRuleComponent, AfterAntagEntitySelectedEvent>(AfterEntitySelected);
 
         SubscribeLocalEvent<WizardComponent, MobStateChangedEvent>(OnMobStateChanged);
@@ -46,7 +51,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
     private void GiveObjectives(EntityUid mindId, MindComponent mind, WizardRuleComponent wizardRule)
     {
-        _mind.TryAddObjective(mindId, mind, "WizardSurviveObjective");
+        _mind.TryAddObjective(mindId, mind, WizardObjective);
 
         var difficulty = 0f;
         for (var pick = 0; pick < 6 && 8 > difficulty; pick++)
@@ -64,6 +69,24 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
     private void AfterEntitySelected(Entity<WizardRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
         MakeWizard(args.EntityUid, ent);
+    }
+
+    private void OnAntagSelectEntity(Entity<WizardRuleComponent> ent, ref AntagSelectEntityEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!args.Entity.HasValue)
+            return;
+
+        var wizardAppearanceComponent = EnsureComp<WizardAppearanceComponent>(args.Entity.Value);
+
+        // TODO: Пофиксить, что игрун сохраняет свой прототип вместе с расой и остаются абилки расы
+
+        var entity = _wizardAppearance.GetWizardEntity(wizardAppearanceComponent);
+
+        if (entity != EntityUid.Invalid)
+            args.Entity = entity;
     }
 
     private void MakeWizard(EntityUid wizard, WizardRuleComponent component, bool giveObjectives = true)
