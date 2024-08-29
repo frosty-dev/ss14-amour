@@ -79,6 +79,7 @@ entities:
       name: DryDock
     - type: Transform
     - type: Map
+      mapPaused: True
     - type: PhysicsMap
     - type: GridTree
     - type: MovedGrids
@@ -11809,16 +11810,16 @@ entities:
           id: docking387992
           localAnchorB: 9,-2.5
           localAnchorA: 8,-2.5
-          damping: 613.96765
-          stiffness: 5510.961
+          damping: 613.9685
+          stiffness: 5510.9683
         docking387991: !type:WeldJoint
           bodyB: 17144
           bodyA: 2
           id: docking387991
           localAnchorB: 9,-4.5
           localAnchorA: 8,-4.5
-          damping: 613.96765
-          stiffness: 5510.961
+          damping: 613.9685
+          stiffness: 5510.9683
     - type: BecomesStation
       id: DryDockStation
     - type: MaterialStorage
@@ -14544,6 +14545,10 @@ entities:
     - type: Docking
       dockJointId: docking387991
       dockedWith: 17147
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: False
+        DockStatus: True
   - uid: 345
     components:
     - type: Transform
@@ -14553,6 +14558,10 @@ entities:
     - type: Docking
       dockJointId: docking387992
       dockedWith: 17148
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: False
+        DockStatus: True
   - uid: 346
     components:
     - type: Transform
@@ -14574,6 +14583,10 @@ entities:
     - type: Docking
       dockJointId: docking387991
       dockedWith: 344
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: False
+        DockStatus: True
   - uid: 17148
     components:
     - type: Transform
@@ -14583,6 +14596,10 @@ entities:
     - type: Docking
       dockJointId: docking387992
       dockedWith: 345
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: False
+        DockStatus: True
 - proto: AirlockShuttleAssembly
   entities:
   - uid: 348
@@ -47286,13 +47303,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -170.4859,0.49424088
       parent: 2
-- proto: chem_master
-  entities:
-  - uid: 6520
-    components:
-    - type: Transform
-      pos: -192.5,-24.5
-      parent: 2
 - proto: ChemBag
   entities:
   - uid: 6522
@@ -47329,6 +47339,13 @@ entities:
     components:
     - type: Transform
       pos: -191.5,-26.5
+      parent: 2
+- proto: ChemMaster
+  entities:
+  - uid: 6520
+    components:
+    - type: Transform
+      pos: -192.5,-24.5
       parent: 2
 - proto: ChessBoard
   entities:
@@ -50077,6 +50094,14 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -202.5,22.5
+      parent: 2
+- proto: ComputerRoboticsControl
+  entities:
+  - uid: 17275
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -201.5,20.5
       parent: 2
 - proto: ComputerSalvageExpedition
   entities:
@@ -93499,7 +93524,7 @@ entities:
     - type: Transform
       pos: -92.52622,-11.487034
       parent: 2
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 13328
     components:
@@ -98813,7 +98838,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -162.5,-15.5
       parent: 2
-    - type: DisposalUnit
     - type: ContainerContainer
       containers:
         stash: !type:ContainerSlot

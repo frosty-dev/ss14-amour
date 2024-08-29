@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.GameTicking;
 using Content.Server._White.AspectsSystem.Base;
 using Content.Shared.GameTicking;
@@ -191,6 +192,13 @@ namespace Content.Server._White.AspectsSystem.Managers
             }
 
             return aspectIds;
+        }
+
+        public Dictionary<EntityPrototype, AspectComponent> GetAspectsPrototypesId()
+        {
+            var availableAspects = AllAspects();
+
+            return availableAspects;
         }
 
         /// <summary>

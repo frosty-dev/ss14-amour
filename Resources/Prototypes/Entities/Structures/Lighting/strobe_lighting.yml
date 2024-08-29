@@ -1,14 +1,10 @@
 - type: entity
   id: AlwaysPoweredStrobeLight
+  parent: LightAmbientSound # WD
   name: strobe
   description: "UH?! Sorry, all I can hear is WEE-OOO-WEE-OOO!"
   suffix: Always powered
   components:
-  - type: AmbientSound
-    volume: -15
-    range: 2
-    sound:
-      path: /Audio/Ambience/Objects/light_hum.ogg
   - type: MeleeSound
     soundGroups:
       Brute:

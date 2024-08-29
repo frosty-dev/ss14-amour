@@ -86,6 +86,7 @@
       playerRatio: 10
       startingGear: SyndicateCommanderGearFull
       moodEffect: TraitorFocused # WD
+      dropInventory: true # WD
       components:
       - type: NukeOperative
       - type: RandomMetadata
@@ -143,6 +144,9 @@
   components:
   - type: GameRule
     minPlayers: 5
+    delay:
+      min: 240
+      max: 420
   - type: TraitorRule
   - type: AntagSelection
     definitions:
@@ -184,6 +188,9 @@
       mindComponents:
       - type: RevolutionaryRole
         prototype: HeadRev
+      blacklist: # WD
+        components:
+          - CommandStaff
 
 - type: entity
   id: Sandbox
@@ -259,7 +266,7 @@
     definitions:
     - prefRoles: [ Cultist ]
       max: 3
-      moodEffect: CultFocused
+      moodEffect: CultFocused # WD
       briefing:
         text: cult-role-greeting
         color: Red
@@ -288,7 +295,8 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ WizardRole ]
-      moodEffect: WizardFocused
+      moodEffect: WizardFocused # WD
+      dropInventory: true # WD
       briefing:
         text: wizard-welcome
         color: Aqua
@@ -312,6 +320,9 @@
   components:
   - type: GameRule
     minPlayers: 15
+    delay:
+      min: 240
+      max: 420
   - type: ChangelingRule
   - type: AntagSelection
     definitions:
@@ -319,7 +330,7 @@
       max: 8
       playerRatio: 10
       lateJoinAdditional: true
-      moodEffect: TraitorFocused
+      moodEffect: TraitorFocused # WD
       briefing:
         text: changeling-role-greeting
         color: Red

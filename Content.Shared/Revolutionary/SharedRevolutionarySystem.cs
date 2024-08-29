@@ -50,7 +50,9 @@ public sealed class SharedRevolutionarySystem : EntitySystem
         {
             var stunTime = TimeSpan.FromSeconds(4);
             var name = Identity.Entity(uid, EntityManager);
+
             RemComp<RevolutionaryComponent>(uid);
+
             _sharedStun.TryParalyze(uid, stunTime, true);
             _popupSystem.PopupEntity(Loc.GetString("rev-break-control", ("name", name)), uid);
         }
