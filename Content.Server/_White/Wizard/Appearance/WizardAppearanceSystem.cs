@@ -1,6 +1,7 @@
 ﻿using Content.Server.Humanoid;
 using Content.Shared._White.Wizard.Appearance;
 using Content.Shared.Dataset;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -22,8 +23,41 @@ public sealed class WizardAppearanceSystem : EntitySystem
 
     private void OnInit(EntityUid wizard, WizardAppearanceComponent appearance, ComponentInit _)
     {
-        var random = IoCManager.Resolve<IRobustRandom>();
-        var profile = HumanoidCharacterProfile.RandomWithSpecies().WithAge(random.Next(appearance.MinAge, appearance.MaxAge));
+        Wizardify(wizard, appearance);
+    }
+
+    public void Wizardify(EntityUid wizard, WizardAppearanceComponent appearance)
+    {
+        var profile = GetWizardProfile(appearance);
+
+        _humanoid.LoadProfile(wizard, profile);
+
+        _metaData.SetEntityName(wizard, GetRandom(appearance.Name, string.Empty));
+    }
+
+    public string GetWizardName(WizardAppearanceComponent appearance)
+    {
+        return GetRandom(appearance.Name, string.Empty);
+    }
+
+    public EntityUid GetWizardEntity(WizardAppearanceComponent appearance)
+    {
+        var profile = GetWizardProfile(appearance);
+
+        if (!_prototypeManager.TryIndex(profile.Species, out SpeciesPrototype? species))
+            return EntityUid.Invalid;
+
+        var entity = Spawn(species.Prototype);
+
+        _humanoid.LoadProfile(entity, profile);
+        _metaData.SetEntityName(entity, GetWizardName(appearance));
+
+        return entity;
+    }
+
+    public HumanoidCharacterProfile GetWizardProfile(WizardAppearanceComponent appearance)
+    {
+        var profile = HumanoidCharacterProfile.RandomWithSpecies().WithAge(_random.Next(appearance.MinAge, appearance.MaxAge));
 
         var color = Color.FromHex(GetRandom(appearance.Color, "#B5B8B1"));
         var hair = GetRandom(appearance.Hair, "HumanHairAfricanPigtails");
@@ -37,9 +71,7 @@ public sealed class WizardAppearanceSystem : EntitySystem
                         .Appearance.WithHairColor(color))
                 .Appearance.WithFacialHairColor(color));
 
-        _humanoid.LoadProfile(wizard, profile);
-
-        _metaData.SetEntityName(wizard, GetRandom(appearance.Name, string.Empty));
+        return profile;
     }
 
     private string GetRandom(string list, string ifNull)

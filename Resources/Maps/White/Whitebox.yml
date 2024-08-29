@@ -48,12 +48,13 @@ entities:
       name: WhiteBox
     - type: Transform
     - type: Map
+      mapPaused: True
     - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: LoadedMap
-    - type: GridTree
-    - type: MovedGrids
   - uid: 2
     components:
     - type: MetaData
@@ -68728,12 +68729,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 70.5,-35.5
       parent: 2
-  - uid: 22014
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 69.5,-35.5
-      parent: 2
 - proto: ChairOfficeDark
   entities:
   - uid: 8447
@@ -69347,28 +69342,6 @@ entities:
     - type: Transform
       pos: 14.5,10.5
       parent: 2
-- proto: chem_master
-  entities:
-  - uid: 794
-    components:
-    - type: Transform
-      pos: 18.5,-17.5
-      parent: 2
-  - uid: 10252
-    components:
-    - type: Transform
-      pos: 21.5,-20.5
-      parent: 2
-  - uid: 10253
-    components:
-    - type: Transform
-      pos: 21.5,-16.5
-      parent: 2
-  - uid: 20855
-    components:
-    - type: Transform
-      pos: 54.5,-38.5
-      parent: 2
 - proto: ChemDispenser
   entities:
   - uid: 17269
@@ -69404,6 +69377,28 @@ entities:
     components:
     - type: Transform
       pos: 35.5,-6.5
+      parent: 2
+- proto: ChemMaster
+  entities:
+  - uid: 794
+    components:
+    - type: Transform
+      pos: 18.5,-17.5
+      parent: 2
+  - uid: 10252
+    components:
+    - type: Transform
+      pos: 21.5,-20.5
+      parent: 2
+  - uid: 10253
+    components:
+    - type: Transform
+      pos: 21.5,-16.5
+      parent: 2
+  - uid: 20855
+    components:
+    - type: Transform
+      pos: 54.5,-38.5
       parent: 2
 - proto: ChemMasterMachineCircuitboard
   entities:
@@ -77129,6 +77124,14 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 70.5,-37.5
+      parent: 2
+- proto: ComputerRoboticsControl
+  entities:
+  - uid: 12472
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 69.5,-33.5
       parent: 2
 - proto: ComputerSalvageExpedition
   entities:
@@ -87496,6 +87499,11 @@ entities:
     - type: Transform
       pos: 22.5,-18.5
       parent: 2
+  - uid: 12471
+    components:
+    - type: Transform
+      pos: 69.5,-35.5
+      parent: 2
   - uid: 19440
     components:
     - type: Transform
@@ -87510,11 +87518,6 @@ entities:
     components:
     - type: Transform
       pos: 70.5,-31.5
-      parent: 2
-  - uid: 22937
-    components:
-    - type: Transform
-      pos: 69.5,-33.5
       parent: 2
   - uid: 24691
     components:
@@ -91949,7 +91952,6 @@ entities:
       solutions:
         food:
           temperature: 293.15
-          canMix: False
           canReact: True
           maxVol: 30
           name: null
@@ -143194,13 +143196,13 @@ entities:
       pos: 4.166244,-61.42392
       parent: 2
     - type: RCDAmmo
-      charges: 67
+      charges: 100
   - uid: 19120
     components:
     - type: Transform
       parent: 18558
     - type: RCDAmmo
-      charges: 67
+      charges: 100
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143209,7 +143211,7 @@ entities:
     - type: Transform
       parent: 18558
     - type: RCDAmmo
-      charges: 67
+      charges: 100
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143218,7 +143220,7 @@ entities:
     - type: Transform
       parent: 18559
     - type: RCDAmmo
-      charges: 67
+      charges: 100
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143227,7 +143229,7 @@ entities:
     - type: Transform
       parent: 18559
     - type: RCDAmmo
-      charges: 67
+      charges: 100
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143236,7 +143238,7 @@ entities:
     - type: Transform
       parent: 18560
     - type: RCDAmmo
-      charges: 67
+      charges: 100
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143245,7 +143247,7 @@ entities:
     - type: Transform
       parent: 18560
     - type: RCDAmmo
-      charges: 67
+      charges: 100
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143255,14 +143257,14 @@ entities:
       pos: 4.173121,-61.326607
       parent: 2
     - type: RCDAmmo
-      charges: 67
+      charges: 100
   - uid: 24413
     components:
     - type: Transform
       pos: 4.166244,-61.51767
       parent: 2
     - type: RCDAmmo
-      charges: 67
+      charges: 100
 - proto: ReagentContainerFlourSmall
   entities:
   - uid: 20165
@@ -151058,7 +151060,7 @@ entities:
     - type: Transform
       pos: 10.464365,-22.554323
       parent: 2
-- proto: soda_dispenser
+- proto: SodaDispenser
   entities:
   - uid: 21552
     components:
@@ -152431,10 +152433,10 @@ entities:
       enabled: False
 - proto: SpawnMobBandito
   entities:
-  - uid: 20426
+  - uid: 12473
     components:
     - type: Transform
-      pos: 69.5,-33.5
+      pos: 69.5,-35.5
       parent: 2
 - proto: SpawnMobButterfly
   entities:

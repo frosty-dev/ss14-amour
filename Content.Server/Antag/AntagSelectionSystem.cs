@@ -26,6 +26,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Content.Server._Miracle.GulagSystem;
+using Content.Server.Inventory;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Antag;
@@ -43,6 +44,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly GulagSystem _gulag = default!; // WD
+    [Dependency] private readonly ServerInventorySystem _inventory = default!; // WD
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -273,6 +275,11 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         if (antagEnt is not { } player)
             return;
+
+        // WD edit start - preventing wizard with previous entity`s gear
+        if (def.DropInventory)
+            _inventory.DropAnything(player);
+        // WD edit end
 
         var getPosEv = new AntagSelectLocationEvent(session, ent);
         RaiseLocalEvent(ent, ref getPosEv, true);

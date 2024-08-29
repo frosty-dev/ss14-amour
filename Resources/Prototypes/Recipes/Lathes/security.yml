@@ -406,14 +406,6 @@
   materials:
     Steel: 300
 
-- type: latheRecipe # WD
-  id: MagazinePistolCaselessRifle
-  result: MagazinePistolCaselessRifle
-  category: Ammo
-  completetime: 5
-  materials:
-    Steel: 300
-
 - type: latheRecipe
   id: ShellShotgunIncendiary
   result: ShellShotgunIncendiary

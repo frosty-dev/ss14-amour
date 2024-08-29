@@ -6,7 +6,6 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
 
 namespace Content.Server.Botany.Systems;
 
@@ -34,8 +33,13 @@ public sealed class SeedAnalyzerSystem : EntitySystem
 
         _audio.PlayPvs(seedAnalyzer.ScanningBeginSound, uid);
 
-        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, seedAnalyzer.ScanDelay,
-            new SeedAnalyzerDoAfterEvent(), uid, target: args.Target, used: uid)
+        _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager,
+            args.User,
+            seedAnalyzer.ScanDelay,
+            new SeedAnalyzerDoAfterEvent(),
+            uid,
+            target: args.Target,
+            used: uid)
         {
             BreakOnMove = true,
             NeedHand = true
@@ -50,28 +54,28 @@ public sealed class SeedAnalyzerSystem : EntitySystem
 
         _audio.PlayPvs(component.ScanningEndSound, args.Args.User);
 
-        UpdateScannedSeed(uid, args.Args.User, args.Args.Target.Value, component);
+        OpenUserInterface(args.User, uid);
+        UpdateScannedSeed(uid, args.Args.Target.Value, component);
         args.Handled = true;
     }
 
     private void OpenUserInterface(EntityUid user, EntityUid seedAnalyzer)
     {
-        if (!HasComp<ActorComponent>(user))
+        if (!_uiSystem.HasUi(seedAnalyzer, SeedAnalyzerUiKey.Key))
             return;
 
-        _uiSystem.TryOpenUi(seedAnalyzer, SeedAnalyzerUiKey.Key, user);
+        _uiSystem.OpenUi(seedAnalyzer, SeedAnalyzerUiKey.Key, user);
     }
 
-    public void UpdateScannedSeed(
+    private void UpdateScannedSeed(
         EntityUid uid,
-        EntityUid user,
         EntityUid? target,
         SeedAnalyzerComponent? seedAnalyzer = null)
     {
         if (!Resolve(uid, ref seedAnalyzer))
             return;
 
-        if (target == null || !_uiSystem.TryGetOpenUi(uid, SeedAnalyzerUiKey.Key, out var ui))
+        if (!_uiSystem.HasUi(uid, SeedAnalyzerUiKey.Key))
             return;
 
         if (!TryComp<PlantHolderComponent>(target, out var plant))
@@ -97,9 +101,9 @@ public sealed class SeedAnalyzerSystem : EntitySystem
             }
         }
 
-        OpenUserInterface(user, uid);
-
-        _uiSystem.SendPredictedUiMessage(ui, new SeedAnalyzerScannedUserMessage(GetNetEntity(target),
+        _uiSystem.ServerSendUiMessage(uid,
+            SeedAnalyzerUiKey.Key,
+            new SeedAnalyzerScannedUserMessage(GetNetEntity(target),
             plant.Seed?.Yield,
             plant.Seed?.Production,
             plant.Seed?.Lifespan,

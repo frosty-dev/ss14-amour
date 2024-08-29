@@ -3,6 +3,17 @@
 #Empty - on map init, light spawns without bulb
 #Blue/Sodium/etc. - the color of the light
 
+- type: entity # WD
+  id: LightAmbientSound
+  abstract: true
+  components:
+  - type: AmbientOnPowered
+  - type: AmbientSound
+    volume: -11
+    range: 3
+    sound:
+      path: /Audio/Ambience/Objects/light_hum.ogg
+
 #Basic lights
 - type: entity
   id: AlwaysPoweredWallLight
@@ -124,7 +135,7 @@
   id: Poweredlight
   description: "A light fixture. Draws power and produces light when equipped with a light tube."
   suffix: ""
-  parent: PoweredlightEmpty
+  parent: [PoweredlightEmpty, LightAmbientSound] # WD
   components:
   - type: Sprite
     state: base
@@ -135,12 +146,6 @@
     damage:
       types:
         Heat: 2
-  - type: AmbientOnPowered
-  - type: AmbientSound
-    volume: -15
-    range: 2
-    sound:
-      path: /Audio/Ambience/Objects/light_hum.ogg
 
 #LED lights
 - type: entity
@@ -230,13 +235,8 @@
   description: "An always powered light."
   id: SmallLight
   suffix: Always Powered
-  parent: AlwaysPoweredWallLight
+  parent: [AlwaysPoweredWallLight, LightAmbientSound] # WD
   components:
-    - type: AmbientSound
-      volume: -15
-      range: 2
-      sound:
-        path: /Audio/Ambience/Objects/light_hum.ogg
     - type: Sprite
       sprite: Structures/Wallmounts/Lighting/light_small.rsi
       state: base
