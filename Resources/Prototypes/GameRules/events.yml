@@ -157,6 +157,7 @@
     duration: 240
   - type: KudzuGrowthRule
 
+# Added MobMouse to specialEntries list to reduce RatKing spawn
 - type: entity
   id: MouseMigration
   parent: BaseGameRule
@@ -183,6 +184,8 @@
     specialEntries:
     - id: SpawnPointGhostRatKing
       prob: 0.001
+    - id: MobMouse # WD
+      prob: 0.02
 
 - type: entity
   id: CockroachMigration
