@@ -1,10 +1,4 @@
 ﻿Entries:
-- author: rhailrake
-  changes:
-  - message: better ui
-    type: Add
-  id: 32
-  time: '2023-01-17T17:58:22.0000000+00:00'
 - author: Valtos
   changes:
   - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u044B \u043A\u0430\u0441\
@@ -8658,3 +8652,13 @@
   id: 531
   time: '2024-08-29T19:09:18.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/677
+- author: Valtos
+  changes:
+  - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u043E 20 \u043D\u043E\
+      \u0432\u044B\u0445 \u0433\u043E\u043B\u043E\u0441\u043E\u0432 TTS. \u0412\u0441\
+      \u0435\u0433\u043E \u0442\u0435\u043F\u0435\u0440\u044C 151 \u0433\u043E\u043B\
+      \u043E\u0441."
+    type: Add
+  id: 532
+  time: '2024-08-29T20:15:00.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/678
