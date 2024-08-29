@@ -33,7 +33,7 @@
       - Biological
     damage:
       groups:
-        Burn: -10 # WD
+        Burn: 10 # WD
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
