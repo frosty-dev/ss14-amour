@@ -118,7 +118,7 @@
       - Biological
     damage:
       groups:
-        Brute: -15 # 5 for each type in the group
+        Brute: 15 # Honk
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
