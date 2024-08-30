@@ -33,7 +33,7 @@
       - Biological
     damage:
       groups:
-        Burn: 10 # WD
+        Burn: -15 # Honk
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
@@ -118,7 +118,7 @@
       - Biological
     damage:
       groups:
-        Brute: 15 # Honk
+        Brute: -20 # Honk
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
