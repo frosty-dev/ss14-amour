@@ -1,0 +1,24 @@
+- type: entity
+  name: травматический дробовик
+  parent: BaseWeaponShotgun
+  id: WeaponResinShotgun
+  description: When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds. Uses .50 shotgun shells.
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,4,0
+    sprite: _Honk/Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
+  - type: Sprite
+    sprite: _Honk/Objects/Weapons/Guns/Shotguns/pump.rsi
+  - type: Clothing
+    sprite: _Honk/Objects/Weapons/Guns/Shotguns/pump.rsi
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunResinShot
+    capacity: 6
+    whitelist:
+      tags:
+      - ShellResinShotgun
+  - type: Tag
+    tags:
+    - WeaponResinShotgun
