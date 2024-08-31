@@ -38,6 +38,12 @@
             "name": "improvised-spent"
         },
         {
+            "name": "resin"
+        },
+        {
+            "name": "resin-spent"
+        },
+        {
             "name": "incendiary"
         },
         {

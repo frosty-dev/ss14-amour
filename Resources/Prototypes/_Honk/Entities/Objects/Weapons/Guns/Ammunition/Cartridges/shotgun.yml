@@ -1,0 +1,16 @@
+- type: entity
+  id: ShellShotgunResinShot
+  name: shell (.49 резиновая дробь)
+  parent: BaseShellShotgun
+  components:
+  - type: Tag
+    tags:
+    - ShellResinShotgun
+  - type: Sprite
+    layers:
+    - state: resin
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgunResinShot
+  - type: SpentAmmoVisuals
+    state: "resin"

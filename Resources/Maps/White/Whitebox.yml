@@ -77,7 +77,7 @@ entities:
           version: 6
         -1,0:
           ind: -1,0
-          tiles: hAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAABXgAAAAABXgAAAAADXgAAAAAChAAAAAAAJQAAAAACXgAAAAACXgAAAAABXgAAAAABXgAAAAABXgAAAAADJQAAAAAAhAAAAAAAJQAAAAAAJQAAAAAAhAAAAAAAXgAAAAABXgAAAAAAXgAAAAADXgAAAAABhAAAAAAAJQAAAAAAXgAAAAACJQAAAAACXgAAAAACJQAAAAABXgAAAAADJQAAAAAChAAAAAAAXgAAAAAAXgAAAAAAhAAAAAAAXgAAAAABhAAAAAAAXgAAAAADhAAAAAAAhAAAAAAAJQAAAAADXgAAAAADJQAAAAACXgAAAAAAJQAAAAADXgAAAAAAJQAAAAAAhAAAAAAAXgAAAAAAXgAAAAAAhAAAAAAAXgAAAAAChAAAAAAAXgAAAAACXgAAAAABhAAAAAAAJQAAAAABXgAAAAABJQAAAAABXgAAAAAAJQAAAAAAXgAAAAACJQAAAAAChAAAAAAAXgAAAAAAXgAAAAAAhAAAAAAAXgAAAAADhAAAAAAAXgAAAAAAXgAAAAAChAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAADhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAAAhAAAAAAAXgAAAAAAhAAAAAAAXgAAAAADXgAAAAADhAAAAAAAJQAAAAACXgAAAAAAXgAAAAAAXgAAAAADXgAAAAABXgAAAAADJQAAAAADhAAAAAAAJQAAAAABXgAAAAACXgAAAAADXgAAAAADhAAAAAAAXgAAAAADXgAAAAADhAAAAAAAJQAAAAAAXgAAAAABXgAAAAABXgAAAAABXgAAAAACXgAAAAAAJQAAAAAChAAAAAAAJQAAAAADXgAAAAADXgAAAAAAXgAAAAADhAAAAAAAXgAAAAADXgAAAAADhAAAAAAAXgAAAAADXgAAAAACXgAAAAACXgAAAAADXgAAAAAAXgAAAAADXgAAAAACXgAAAAABXgAAAAADXgAAAAADXgAAAAAAXgAAAAADhAAAAAAAXgAAAAACXgAAAAAAhAAAAAAAJQAAAAACJQAAAAADXgAAAAACXgAAAAAAXgAAAAADXgAAAAAAJQAAAAABhAAAAAAAXgAAAAAAXgAAAAACXgAAAAABJQAAAAADhAAAAAAAXgAAAAACXgAAAAABhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAABXgAAAAADhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAAAXgAAAAABhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAAAXgAAAAADhAAAAAAAAQAAAAAAhAAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAhAAAAAAAdAAAAAACdAAAAAAChAAAAAAAXgAAAAADAQAAAAAAAQAAAAAAhAAAAAAAXgAAAAABXgAAAAAAhAAAAAAAAQAAAAAAhAAAAAAAhAAAAAAAXgAAAAABhAAAAAAAhAAAAAAAdAAAAAAAhAAAAAAAhAAAAAAAXgAAAAABAQAAAAAAAQAAAAAAhAAAAAAAXgAAAAADXgAAAAAChAAAAAAAgQAAAAAChAAAAAAAXgAAAAACXgAAAAAAAQAAAAAAhAAAAAAAAQAAAAAAAQAAAAAAhAAAAAAAXgAAAAABAQAAAAAAAQAAAAAAhAAAAAAAXgAAAAABXgAAAAAB
+          tiles: hAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAABXgAAAAABXgAAAAADXgAAAAAChAAAAAAAJQAAAAACXgAAAAACXgAAAAABXgAAAAABXgAAAAABXgAAAAADJQAAAAAAhAAAAAAAJQAAAAAAJQAAAAAAhAAAAAAAXgAAAAABXgAAAAAAXgAAAAADXgAAAAABhAAAAAAAJQAAAAAAXgAAAAACJQAAAAACXgAAAAACJQAAAAABXgAAAAADJQAAAAAChAAAAAAAXgAAAAAAXgAAAAAAhAAAAAAAXgAAAAABhAAAAAAAXgAAAAADhAAAAAAAhAAAAAAAJQAAAAADXgAAAAADJQAAAAACXgAAAAAAJQAAAAADXgAAAAAAJQAAAAAAhAAAAAAAXgAAAAAAXgAAAAAAhAAAAAAAXgAAAAAChAAAAAAAXgAAAAACXgAAAAABhAAAAAAAJQAAAAABXgAAAAABJQAAAAABXgAAAAAAJQAAAAAAXgAAAAACJQAAAAAChAAAAAAAXgAAAAAAXgAAAAAAhAAAAAAAXgAAAAADhAAAAAAAXgAAAAAAXgAAAAAChAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAADhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAAAhAAAAAAAXgAAAAAAhAAAAAAAXgAAAAADXgAAAAADhAAAAAAAJQAAAAACXgAAAAAAXgAAAAAAXgAAAAADXgAAAAABXgAAAAADJQAAAAADhAAAAAAAJQAAAAABXgAAAAACXgAAAAADXgAAAAADhAAAAAAAXgAAAAADXgAAAAADhAAAAAAAJQAAAAAAXgAAAAABXgAAAAABXgAAAAABXgAAAAACXgAAAAAAJQAAAAAChAAAAAAAJQAAAAADXgAAAAADXgAAAAAAXgAAAAADhAAAAAAAXgAAAAADXgAAAAADhAAAAAAAXgAAAAADXgAAAAACXgAAAAACXgAAAAADXgAAAAAAXgAAAAADXgAAAAACXgAAAAABXgAAAAADXgAAAAADXgAAAAAAXgAAAAADhAAAAAAAXgAAAAACXgAAAAAAhAAAAAAAJQAAAAACJQAAAAADXgAAAAACXgAAAAAAXgAAAAADXgAAAAAAJQAAAAABhAAAAAAAXgAAAAAAXgAAAAACXgAAAAABJQAAAAADhAAAAAAAXgAAAAACXgAAAAABhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAABXgAAAAADhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAAAXgAAAAABhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAhAAAAAAAXgAAAAAAXgAAAAADhAAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAAQAAAAAAhAAAAAAAdAAAAAACdAAAAAAChAAAAAAAXgAAAAADAQAAAAAAAQAAAAAAhAAAAAAAXgAAAAABXgAAAAAAhAAAAAAAAQAAAAAAAQAAAAAAhAAAAAAAXgAAAAABhAAAAAAAhAAAAAAAdAAAAAAAhAAAAAAAhAAAAAAAXgAAAAABAQAAAAAAAQAAAAAAhAAAAAAAXgAAAAADXgAAAAAChAAAAAAAgQAAAAAChAAAAAAAXgAAAAACXgAAAAAAAQAAAAAAhAAAAAAAAQAAAAAAAQAAAAAAhAAAAAAAXgAAAAABAQAAAAAAAQAAAAAAhAAAAAAAXgAAAAABXgAAAAAB
           version: 6
         1,-1:
           ind: 1,-1
@@ -22174,6 +22174,18 @@ entities:
     - type: Transform
       pos: 46.48018,-25.706886
       parent: 2
+- proto: BoxResinShot
+  entities:
+  - uid: 12481
+    components:
+    - type: Transform
+      pos: 11.30615,35.06965
+      parent: 2
+  - uid: 12482
+    components:
+    - type: Transform
+      pos: 11.321775,34.772774
+      parent: 2
 - proto: BoxSterileMask
   entities:
   - uid: 20707
@@ -22242,13 +22254,6 @@ entities:
     components:
     - type: Transform
       parent: 118
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 25694
-    components:
-    - type: Transform
-      parent: 25571
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -73491,13 +73496,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 25622
-    components:
-    - type: Transform
-      parent: 25571
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingEyesHudMedical
   entities:
   - uid: 110
@@ -73619,26 +73617,12 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 25749
-    components:
-    - type: Transform
-      parent: 25571
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingHandsGlovesColorBlue
   entities:
   - uid: 411
     components:
     - type: Transform
       parent: 118
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 25623
-    components:
-    - type: Transform
-      parent: 25571
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -73651,26 +73635,12 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 25624
-    components:
-    - type: Transform
-      parent: 25571
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingHandsGlovesColorLightBrown
   entities:
   - uid: 391
     components:
     - type: Transform
       parent: 118
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 25573
-    components:
-    - type: Transform
-      parent: 25571
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -73697,26 +73667,12 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 25574
-    components:
-    - type: Transform
-      parent: 25571
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingHandsGlovesColorRed
   entities:
   - uid: 433
     components:
     - type: Transform
       parent: 118
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 25572
-    components:
-    - type: Transform
-      parent: 25571
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -75167,13 +75123,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 25754
-    components:
-    - type: Transform
-      parent: 25571
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingNeckMantleCE
   entities:
   - uid: 10866
@@ -76080,13 +76029,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 25819
-    components:
-    - type: Transform
-      parent: 25571
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingShoesColorGreen
   entities:
   - uid: 20569
@@ -76391,26 +76333,12 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 25746
-    components:
-    - type: Transform
-      parent: 25571
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingUniformJumpskirtLawyerBlue
   entities:
   - uid: 384
     components:
     - type: Transform
       parent: 118
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 25755
-    components:
-    - type: Transform
-      parent: 25571
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -76423,26 +76351,12 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 25805
-    components:
-    - type: Transform
-      parent: 25571
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingUniformJumpskirtLawyerRed
   entities:
   - uid: 179
     components:
     - type: Transform
       parent: 118
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 25753
-    components:
-    - type: Transform
-      parent: 25571
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -76627,26 +76541,12 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 25575
-    components:
-    - type: Transform
-      parent: 25571
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingUniformJumpsuitLawyerBlue
   entities:
   - uid: 121
     components:
     - type: Transform
       parent: 118
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 25598
-    components:
-    - type: Transform
-      parent: 25571
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -76659,26 +76559,12 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 25747
-    components:
-    - type: Transform
-      parent: 25571
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingUniformJumpsuitLawyerRed
   entities:
   - uid: 334
     components:
     - type: Transform
       parent: 118
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 25728
-    components:
-    - type: Transform
-      parent: 25571
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -130420,75 +130306,24 @@ entities:
           ent: null
     missingComponents:
     - AccessReader
-  - uid: 25571
+  - uid: 12475
     components:
-    - type: MetaData
-      desc: Стандартное хранилище Nanotrasen.
-      name: шкаф юриста
     - type: Transform
       pos: -12.5,13.5
       parent: 2
     - type: PointLight
       color: '#D56C6CFF'
       enabled: True
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 25749
-          - 25572
-          - 25573
-          - 25574
-          - 25575
-          - 25598
-          - 25616
-          - 25622
-          - 25623
-          - 25624
-          - 25694
-          - 25728
-          - 25746
-          - 25747
-          - 25753
-          - 25754
-          - 25755
-          - 25805
-          - 25819
-          - 25936
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-    missingComponents:
-    - AccessReader
+- proto: LockerInspectorFilled
+  entities:
+  - uid: 12476
+    components:
+    - type: Transform
+      pos: -13.5,14.5
+      parent: 2
+    - type: PointLight
+      color: '#D56C6CFF'
+      enabled: True
 - proto: LockerMedical
   entities:
   - uid: 22948
@@ -134124,13 +133959,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -13.422112,-15.180332
       parent: 2
-  - uid: 25616
-    components:
-    - type: Transform
-      parent: 25571
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 26843
     components:
     - type: Transform
@@ -143196,13 +143024,13 @@ entities:
       pos: 4.166244,-61.42392
       parent: 2
     - type: RCDAmmo
-      charges: 100
+      charges: 225
   - uid: 19120
     components:
     - type: Transform
       parent: 18558
     - type: RCDAmmo
-      charges: 100
+      charges: 225
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143211,7 +143039,7 @@ entities:
     - type: Transform
       parent: 18558
     - type: RCDAmmo
-      charges: 100
+      charges: 225
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143220,7 +143048,7 @@ entities:
     - type: Transform
       parent: 18559
     - type: RCDAmmo
-      charges: 100
+      charges: 225
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143229,7 +143057,7 @@ entities:
     - type: Transform
       parent: 18559
     - type: RCDAmmo
-      charges: 100
+      charges: 225
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143238,7 +143066,7 @@ entities:
     - type: Transform
       parent: 18560
     - type: RCDAmmo
-      charges: 100
+      charges: 225
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143247,7 +143075,7 @@ entities:
     - type: Transform
       parent: 18560
     - type: RCDAmmo
-      charges: 100
+      charges: 225
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143257,14 +143085,14 @@ entities:
       pos: 4.173121,-61.326607
       parent: 2
     - type: RCDAmmo
-      charges: 100
+      charges: 225
   - uid: 24413
     components:
     - type: Transform
       pos: 4.166244,-61.51767
       parent: 2
     - type: RCDAmmo
-      charges: 100
+      charges: 225
 - proto: ReagentContainerFlourSmall
   entities:
   - uid: 20165
@@ -152782,6 +152610,13 @@ entities:
     - type: Transform
       pos: 14.5,39.5
       parent: 2
+- proto: SpawnPointInspector
+  entities:
+  - uid: 12474
+    components:
+    - type: Transform
+      pos: -14.5,14.5
+      parent: 2
 - proto: SpawnPointJanitor
   entities:
   - uid: 13656
@@ -157424,6 +157259,16 @@ entities:
     - type: Transform
       pos: 33.5,-4.5
       parent: 2
+  - uid: 12478
+    components:
+    - type: Transform
+      pos: 11.5,34.5
+      parent: 2
+  - uid: 12479
+    components:
+    - type: Transform
+      pos: 11.5,35.5
+      parent: 2
   - uid: 13387
     components:
     - type: Transform
@@ -160399,13 +160244,6 @@ entities:
     - type: Transform
       pos: -17.448671,31.349062
       parent: 2
-  - uid: 25936
-    components:
-    - type: Transform
-      parent: 25571
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: WallmountTelescreen
   entities:
   - uid: 15319
@@ -161254,8 +161092,7 @@ entities:
   - uid: 11285
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -13.5,14.5
+      pos: -13.5,13.5
       parent: 2
   - uid: 11286
     components:
@@ -161793,12 +161630,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 60.5,-53.5
-      parent: 2
-  - uid: 19407
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -13.5,13.5
       parent: 2
   - uid: 19467
     components:
@@ -181851,12 +181682,12 @@ entities:
   - uid: 943
     components:
     - type: Transform
-      pos: -0.5155313,39.42321
+      pos: -0.56726366,39.443146
       parent: 2
   - uid: 26870
     components:
     - type: Transform
-      pos: -0.5155313,39.67321
+      pos: -0.47059953,39.662384
       parent: 2
 - proto: WeaponLaserCarbinePractice
   entities:
@@ -181869,6 +181700,18 @@ entities:
     components:
     - type: Transform
       pos: 25.484055,36.464966
+      parent: 2
+- proto: WeaponResinShotgun
+  entities:
+  - uid: 12477
+    components:
+    - type: Transform
+      pos: 11.43115,35.804024
+      parent: 2
+  - uid: 12480
+    components:
+    - type: Transform
+      pos: 11.478025,35.554024
       parent: 2
 - proto: WeaponRevolverDeckard
   entities:

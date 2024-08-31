@@ -8,4 +8,19 @@
   id: EnergyCellDisablerSmg
 
 - type: Tag
-  id: EnergyCellEgun
+  id: EnergyCellLaserCannon
+
+- type: Tag
+  id: EnergyCellLaserRetro
+
+- type: Tag
+  id: EnergyCellMakeshift
+
+- type: Tag
+  id: WeaponResinShotgun
+
+- type: Tag
+  id: MagazineResinShotgun
+
+- type: Tag
+  id: ShellResinShotgun
