@@ -4,3 +4,10 @@
   description: Эу брат, пачэму ты нэ вибрал чэрту
   components:
   - type: CaucasianAccent
+
+- type: trait
+  id: Jewish
+  name: Еврейский акцент
+  description: Ой вей, вы тоже хотите деняг?
+  components:
+  - type: JewishAccent
