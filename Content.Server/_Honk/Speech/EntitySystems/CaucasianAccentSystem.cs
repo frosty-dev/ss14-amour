@@ -22,6 +22,15 @@ public sealed class CaucasianAccentSystem : EntitySystem
 
         message = _replacement.ApplyReplacements(message, "caucasian");
 
+        var words = message.Split();
+        var rnd = new Random();
+        if (words.Length > 2)
+        {
+            var value = rnd.Next(0, 2);
+            if (value == 1)
+                message = message + @" ежжи брат!";
+        }
+
         message = Regex.Replace(message, @"Свинья", "Хиндзир");
 
         message = Regex.Replace(message, @"Здравствуйте", "Ас-саляму алейкум ва-рахмату-ллахи ва-баракятух");
@@ -29,8 +38,6 @@ public sealed class CaucasianAccentSystem : EntitySystem
         message = Regex.Replace(message, @"Здравствуй", "Ас-саляму алейкум ва-рахмату-ллахи ва-баракятух");
         message = Regex.Replace(message, @"здравствуй", "ас-саляму алейкум ва-рахмату-ллахи ва-баракятух");
 
-        message = Regex.Replace(message, @"Закон", "Шариат");
-        message = Regex.Replace(message, @"закон", "шариат");
         message = Regex.Replace(message, @"Законы", "Шариат");
         message = Regex.Replace(message, @"законы", "шариат");
         message = Regex.Replace(message, @"Закону", "Шариату");
