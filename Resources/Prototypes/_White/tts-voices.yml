@@ -839,3 +839,118 @@
   sex: Male
   speaker: threedog_radio
   id: ThreedogRadio
+
+- type: ttsVoice
+  name: tts-voice-name-generic-goblin-c
+  sex: Male
+  speaker: generic_goblin_c
+  id: GenericGoblinC
+
+- type: ttsVoice
+  name: tts-voice-name-dinah-hecat
+  sex: Female
+  speaker: dinah_hecat
+  id: DinahHecat
+
+- type: ttsVoice
+  name: tts-voice-name-aesop-sharp 
+  sex: Male
+  speaker: aesop_sharp
+  id: AesopSharp
+
+- type: ttsVoice
+  name: tts-voice-name-abraham-ronen
+  sex: Male
+  speaker: abraham_ronen
+  id: AbrahamRonen
+
+- type: ttsVoice
+  name: tts-voice-name-samantha-dale
+  sex: Female
+  speaker: samantha_dale
+  id: SamanthaDale
+
+- type: ttsVoice
+  name: tts-voice-name-sirona-ryan
+  sex: Female
+  speaker: sirona_ryan
+  id: SironaRyan
+
+- type: ttsVoice
+  name: tts-voice-name-sophronia-franklin
+  sex: Female
+  speaker: sophronia_franklin
+  id: SophroniaFranklin
+
+- type: ttsVoice
+  name: tts-voice-name-mister-handy-fl3
+  sex: Male
+  speaker: mister_handy_fl3
+  id: MisterHandyFl3
+
+- type: ttsVoice
+  name: tts-voice-name-mister-gutsy-fl3
+  sex: Male
+  speaker: mister_gutsy_fl3
+  id: MisterGutsyFl3
+
+- type: ttsVoice
+  name: tts-voice-name-jericho-fl3
+  sex: Male
+  speaker: jericho_fl3
+  id: JerichoFl3
+
+- type: ttsVoice
+  name: tts-voice-name-elder-lyons-fl3
+  sex: Male
+  speaker: elder_lyons_fl3
+  id: ElderLyonsFl3
+
+- type: ttsVoice
+  name: tts-voice-name-sarah-lyons-fl3
+  sex: Female
+  speaker: sarah_lyons_fl3
+  id: SarahLyonsFl3
+
+- type: ttsVoice
+  name: tts-voice-name-kovir-nobleman
+  sex: Male
+  speaker: kovir_nobleman
+  id: KovirNobleman
+
+- type: ttsVoice
+  name: tts-voice-name-zoltan-chivay
+  sex: Male
+  speaker: zoltan_chivay
+  id: ZoltanChivay
+
+- type: ttsVoice
+  name: tts-voice-name-maiko
+  sex: Female
+  speaker: maiko
+  id: Maiko
+
+- type: ttsVoice
+  name: tts-voice-name-brendan
+  sex: Male
+  speaker: brendan
+  id: Brendan
+
+- type: ttsVoice
+  name: tts-voice-name-nancy-hartley
+  sex: Female
+  speaker: nancy_hartley
+  id: NancyHartley
+
+- type: ttsVoice
+  name: tts-voice-name-oswald-forrest
+  sex: Male
+  speaker: oswald_forrest
+  id: OswaldForrest
+
+- type: ttsVoice
+  name: tts-voice-name-steve
+  sex: Male
+  speaker: steve
+  id: Steve
+
