@@ -39,6 +39,22 @@ public sealed partial class ReflectComponent : Component
     [DataField]
     public bool Innate = false;
 
+    // WD START
+    /// <summary>
+    /// If the item for reflection needed in inventory slots only - select Body.
+    /// If the item for reflection needed in hands only - select Hands.
+    /// Otherwise it will reflect in any inventory position.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite), DataField]
+    public Placement Placement = Placement.Hands | Placement.Body;
+
+    /// <summary>
+    /// Can only reflect when placed correctly.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public bool InRightPlace = true;
+    // WD END
+
     /// <summary>
     /// Maximum probability for a projectile to be reflected.
     /// </summary>
@@ -70,4 +86,12 @@ public enum ReflectType : byte
     None = 0,
     NonEnergy = 1 << 0,
     Energy = 1 << 1,
+}
+
+[Flags]
+public enum Placement : byte
+{
+    None = 0,
+    Hands = 1 << 0,
+    Body = 1 << 1,
 }

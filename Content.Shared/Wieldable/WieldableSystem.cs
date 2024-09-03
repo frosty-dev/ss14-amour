@@ -226,8 +226,8 @@ public sealed class WieldableSystem : EntitySystem
         var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", user), ("item", used));
         _popupSystem.PopupPredicted(selfMessage, othersMessage, user, user);
 
-        var targEv = new ItemWieldedEvent();
-        RaiseLocalEvent(used, ref targEv);
+        var targEv = new ItemWieldedEvent(user); // WD added user
+        RaiseLocalEvent(used, targEv); // WD removed ref from targEv
 
         Dirty(used, component);
         return true;

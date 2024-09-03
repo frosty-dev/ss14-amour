@@ -101,6 +101,8 @@
     reflectProb: 0.3
     velocityBeforeNotMaxProb: 6.0 # don't punish ninjas for being ninjas
     velocityBeforeMinProb: 10.0
+    placement:  # WD
+      - Hands
   - type: MeleeBlock
     delay: 6.1
 
