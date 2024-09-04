@@ -287,6 +287,7 @@
   - type: RoleplayInfo
   - type: Mood # WD
   - type: OfferItem # WD-EDIT
+  - type: Cuntable #Honk Edit
 
 - type: entity
   save: false

@@ -1,0 +1,12 @@
+﻿- type: emote
+  id: Squelch
+  category: Gesture
+  buttonText: Кончать
+  chatMessages: [ кончает ]
+  chatTriggers:
+  - кончит
+  - кончает
+  - кончил
+  - кончила
+  - кончило
+  allowMenu: true
