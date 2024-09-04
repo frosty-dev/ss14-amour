@@ -1,6 +1,5 @@
 ﻿- type: emote
   id: Squelch
-  category: Gesture
   buttonText: Кончать
   chatMessages: [ кончает ]
   chatTriggers:
