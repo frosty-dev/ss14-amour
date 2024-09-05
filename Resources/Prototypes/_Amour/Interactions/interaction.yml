@@ -376,8 +376,9 @@
 - type: interaction
   id: Cum
   checks:
-  - !type:CantInteractSelf
   - !type:HasSmallDistance
+  - !type:CantInteractSelf
+  - !type:UserHasPenis
   beginningSound:
     path: /Audio/_Honk/Cunt/cunt.ogg
   beginningActions:
@@ -388,5 +389,5 @@
     k3: 0.25
   beginningMessages:
   - interaction-cum
-  group: Danger
+  group: Safe
   endTime: 2
