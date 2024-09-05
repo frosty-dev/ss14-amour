@@ -1,10 +1,15 @@
 using Content.Server._Amour.Animation;
 using Content.Server._Amour.Hole;
+using Content.Server._Honk.Cunt;
 using Content.Server.Hands.Systems;
 using Content.Server.Standing;
+using Content.Shared._Amour.Hole;
 using Content.Shared._Amour.InteractionPanel;
+using Content.Shared._Honk.Cunt;
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Pulling.Systems;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._Amour.InteractionPanel;
 
@@ -15,6 +20,8 @@ public sealed class Interactions : EntitySystem
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly HoleSystem _holeSystem = default!;
     [Dependency] private readonly HandsSystem _handsSystem = default!;
+    [Dependency] private readonly CuntSystem _cuntSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {

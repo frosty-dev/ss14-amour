@@ -372,3 +372,22 @@
   - interaction-pull2
   - interaction-pull3
   group: Safe
+
+- type: interaction
+  id: Cum
+  checks:
+  - !type:HasSmallDistance
+  - !type:CantInteractSelf
+  - !type:UserHasPenis
+  beginningSound:
+    path: /Audio/_Honk/Cunt/cunt.ogg
+  beginningActions:
+  - !type:RequireAnimation
+    k0: 0
+    k1: 0.1
+    k2: 0.75
+    k3: 0.25
+  beginningMessages:
+  - interaction-cum
+  group: Safe
+  endTime: 2
