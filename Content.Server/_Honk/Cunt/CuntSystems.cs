@@ -1,15 +1,15 @@
 ﻿using Content.Server.Chat.Systems;
+using Content.Server.Fluids.EntitySystems;
 using Content.Shared._Honk.Cunt;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Fluids;
 
-namespace Content.Server._Honk.Count;
+namespace Content.Server._Honk.Cunt;
 
 // ДРД ИДИ НАХУЙ!!!!!!!!!!!!!!!!!!!!!
 public sealed class CuntSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
+    [Dependency] private readonly PuddleSystem _puddle = default!;
     //[Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
@@ -22,7 +22,7 @@ public sealed class CuntSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, CuntableComponent component, ComponentStartup args)
     {
-        _solutionContainer.EnsureSolution(uid, "Cunt" , out _);
+        _solutionContainer.EnsureSolution(uid, "Cunt" , out _, 20);
     }
 
     private void OnCunt(EntityUid uid, CuntableComponent component, ref EmoteEvent args)
@@ -47,7 +47,7 @@ public sealed class CuntSystem : EntitySystem
 
         var cum = new Solution("Cunt", 5);
 
-        _puddle.TrySpillAt(uid, cum, out _);
+        _puddle.TrySpillAt(uid, cum, out _, false);
         _solutionContainer.SplitSolution(uid!, 50);
 
         return true;

@@ -108,3 +108,6 @@ interaction-butt-comb3 = проводя ладошкой по упругой п�
 interaction-pull1 = робко схватил за ручки { $target }
 interaction-pull2 = подхватывает { $target } за руки
 interaction-pull3 = подхватывает { $target } за руки
+
+interaction-name-cum = Кончить
+interaction-cum = кончает в { $target }
