@@ -1,13 +1,9 @@
 ﻿using System.Linq;
-using Content.Server._White.CartridgeLoader.Cartridges;
 using Content.Server._White.Radio.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Systems;
-using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
-using Content.Server.Station.Systems;
 using Content.Shared._White.CartridgeLoader.Cartridges;
-using Content.Shared.CartridgeLoader;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
 
@@ -18,37 +14,13 @@ public sealed class MessagesServerSystem : EntitySystem
 {
     [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
     [Dependency] private readonly SingletonDeviceNetServerSystem _singletonServerSystem = default!;
-    [Dependency] private readonly MessagesCartridgeSystem _messagesSystem = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly StationSystem _stationSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<MessagesServerComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
-        SubscribeLocalEvent<MessagesServerComponent, MapInitEvent>(OnInit);
-    }
-
-    private void OnInit(EntityUid uid, MessagesServerComponent component, MapInitEvent args)
-    {
-        if (!TryComp(uid, out DeviceNetworkComponent? device) || !_singletonServerSystem.SetServerActive(uid, true))
-            return;
-
-        _deviceNetworkSystem.ConnectDevice(uid, device);
-
-        var stationIdServer = _stationSystem.GetOwningStation(uid);
-        if (!stationIdServer.HasValue)
-            return;
-
-        var query = EntityQueryEnumerator<MessagesCartridgeComponent>();
-
-        while (query.MoveNext(out var entityUid, out var cartridge))
-        {
-            var stationId = _stationSystem.GetOwningStation(entityUid);
-            if (stationId.HasValue && stationIdServer == stationId && TryComp(entityUid, out CartridgeComponent? cartComponent))
-                _messagesSystem.SendName(entityUid, cartridge, cartComponent, device.Address);
-        }
     }
 
     /// <summary>
