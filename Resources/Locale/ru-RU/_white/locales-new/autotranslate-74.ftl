@@ -38,6 +38,5 @@ ent-MobMoth = Ури́ст МакФлафф
 ent-MobSkeletonCloset = скелет в шкафу
    .desc = "скелет в шкафу"
 ent-MobHumanTerminator = exterminator
-   .desc = "exterminator"
-ent-MobTerminatorEndoskeleton = эндоскелет nt-800 "exterminator"
+ent-MobTerminatorEndoskeleton = эндоскелет nt-800 "Экстерминатор"
    .desc = Внутренняя движущая сила инфильтрационного андроида Susnet. Невероятно прочный сплав внутри, обычная плоть снаружи.

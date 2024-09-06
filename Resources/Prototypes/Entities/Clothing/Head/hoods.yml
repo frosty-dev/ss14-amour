@@ -110,9 +110,9 @@
   description: There's no cult without cult hoods.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/cult.rsi
+    sprite: White/Cult/culthood.rsi # WD
   - type: Clothing
-    sprite: Clothing/Head/Hoods/cult.rsi
+    sprite: White/Cult/culthood.rsi # WD
   - type: Tag
     tags:
     - WhitelistChameleon
