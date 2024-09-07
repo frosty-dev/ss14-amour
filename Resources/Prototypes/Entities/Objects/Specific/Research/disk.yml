@@ -7,9 +7,9 @@
   - type: Item
     size: Small
     shape:
-    - 0, 0, 1, 1
+    - 0, 0, 0, 0 # WD
   - type: Sprite
-    sprite: Objects/Specific/Research/researchdisk.rsi
+    sprite: White/Objects/Specific/Research/researchdisk.rsi # WD
     state: icon
   - type: ResearchDisk
   - type: GuideHelp
@@ -61,6 +61,10 @@
   name: technology disk
   description: A disk for the R&D server containing research technology.
   components:
+  - type: Item # WD
+    size: Small
+    shape:
+    - 0, 0, 0, 0
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     layers:

@@ -10,6 +10,8 @@ using Content.Server.DeviceNetwork.Systems;
 using Content.Shared.DeviceNetwork;
 using Content.Server.Station.Systems;
 using Content.Shared._White.CartridgeLoader.Cartridges;
+using Content.Shared.Inventory;
+using Content.Shared.Mind.Components;
 
 namespace Content.Server._White.CartridgeLoader.Cartridges;
 
@@ -22,6 +24,7 @@ public sealed class MessagesCartridgeSystem : EntitySystem
     [Dependency] private readonly DeviceNetworkSystem _deviceNetworkSystem = default!;
     [Dependency] private readonly SingletonDeviceNetServerSystem _singletonServerSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
 
     public override void Initialize()
     {
@@ -33,18 +36,30 @@ public sealed class MessagesCartridgeSystem : EntitySystem
         SubscribeLocalEvent<MessagesCartridgeComponent, CartridgeDeactivatedEvent>(OnCartDeactivation);
         SubscribeLocalEvent<MessagesCartridgeComponent, CartridgeAddedEvent>(OnCartInsertion);
         SubscribeLocalEvent<MessagesCartridgeComponent, ComponentRemove>(OnRemove);
+
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawned);
     }
 
-    public void Send(EntityUid uid, MessagesCartridgeComponent component)
+    private void OnPlayerSpawned(PlayerSpawnCompleteEvent ev)
     {
-        var stationId = _stationSystem.GetOwningStation(uid);
-        if (!stationId.HasValue ||
-            !_singletonServerSystem.TryGetActiveServerAddress<MessagesServerComponent>(stationId.Value,
-                out var address) || !TryComp(uid, out CartridgeComponent? cartComponent))
+        if (!_inventorySystem.TryGetSlotEntity(ev.Mob, "id", out var pdaUid) || !HasComp<MindContainerComponent>(ev.Mob))
+            return;
+        MessagesCartridgeComponent? comp = null;
+
+        var programs = _cartridgeLoaderSystem.GetInstalled(pdaUid.Value);
+        var program = programs.ToList().Find(program => TryComp(program, out comp));
+
+        if (comp == null)
             return;
 
-        component.UserUid = cartComponent.LoaderUid?.Id;
-        SendName(uid, component, cartComponent, address);
+        if (!TryComp(program, out CartridgeComponent? cartComponent))
+            return;
+
+        var stationId = _stationSystem.GetOwningStation(pdaUid);
+        if (!stationId.HasValue || !_singletonServerSystem.TryGetActiveServerAddress<MessagesServerComponent>(stationId.Value, out var address))
+            return;
+
+        SendName(pdaUid.Value, comp, cartComponent, address);
     }
 
     private void OnRemove(EntityUid uid, MessagesCartridgeComponent component, ComponentRemove args)
@@ -172,7 +187,7 @@ public sealed class MessagesCartridgeSystem : EntitySystem
     public void SendName(EntityUid uid, MessagesCartridgeComponent component, CartridgeComponent cartComponent, string? address)
     {
         TryGetMessagesUser(component, cartComponent, out var messagesUser);
-
+;
         var packet = new NetworkPayload()
         {
             [MessagesNetworkKeys.UserId] = component.UserUid,
