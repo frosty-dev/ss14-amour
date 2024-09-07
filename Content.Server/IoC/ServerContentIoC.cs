@@ -67,12 +67,14 @@ namespace Content.Server.IoC
             IoCManager.Register<PoissonDiskSampler>();
             IoCManager.Register<DiscordWebhook>();
             IoCManager.Register<ServerDbEntryManager>();
-            IoCManager.Register<ISharedPlaytimeManager, PlayTimeTrackingManager>();
 
 #if FULL_RELEASE
+            // затерпишь
             IoCManager.Register<IPlayTimeTrackingManager, GlobalPlayTimeTrackingManager>();
+            IoCManager.Register<ISharedPlaytimeManager, GlobalPlayTimeTrackingManager>();
 #else
             IoCManager.Register<IPlayTimeTrackingManager, PlayTimeTrackingManager>();
+            IoCManager.Register<ISharedPlaytimeManager, PlayTimeTrackingManager>();
 #endif
 
             // WD-EDIT

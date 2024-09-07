@@ -13,6 +13,9 @@
 - type: itemLoadout # WD
   id: MercenaryBand
   equipment: MercenaryBand
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: MercenaryLoadoutTimer
 - type: startingGear
   id: MercenaryBand
   equipment:
@@ -21,6 +24,9 @@
 - type: itemLoadout # WD
   id: MercenaryBeret
   equipment: MercenaryBeret
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: MercenaryLoadoutTimer
 - type: startingGear
   id: MercenaryBeret
   equipment:
@@ -41,6 +47,9 @@
 - type: itemLoadout # WD
   id: MercenaryGlasses
   equipment: MercenaryGlasses
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: MercenaryLoadoutTimer
 - type: startingGear
   id: MercenaryGlasses
   equipment:
@@ -51,6 +60,9 @@
 - type: itemLoadout # WD
   id: MercenaryMask
   equipment: MercenaryMask
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: MercenaryLoadoutTimer
 - type: startingGear
   id: MercenaryMask
   equipment:
@@ -59,6 +71,9 @@
 - type: itemLoadout # WD
   id: MercenaryMaskGas
   equipment: MercenaryMaskGas
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: MercenaryLoadoutTimer
 - type: startingGear
   id: MercenaryMaskGas
   equipment:
@@ -69,6 +84,9 @@
 - type: itemLoadout # WD
   id: MercenaryJumpsuit
   equipment: MercenaryJumpsuit
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: MercenaryLoadoutTimer
 - type: startingGear
   id: MercenaryJumpsuit
   equipment:
@@ -79,6 +97,9 @@
 - type: itemLoadout # WD
   id: MercenaryGlovesFingerless
   equipment: MercenaryGlovesFingerless
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: MercenaryLoadoutTimer
 - type: startingGear
   id: MercenaryGlovesFingerless
   equipment:
@@ -89,6 +110,9 @@
 - type: itemLoadout # WD
   id: MercenaryBoots
   equipment: MercenaryBoots
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: MercenaryLoadoutTimer
 - type: startingGear
   id: MercenaryBoots
   equipment:
@@ -107,6 +131,9 @@
 - type: itemLoadout # WD
   id: MercenaryBackpack
   equipment: MercenaryBackpack
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: MercenaryLoadoutTimer
 - type: startingGear
   id: MercenaryBackpack
   equipment:
