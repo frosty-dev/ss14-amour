@@ -22,7 +22,7 @@ public sealed class CuntSystem : EntitySystem
 
     private void OnStartup(EntityUid uid, CuntableComponent component, ComponentStartup args)
     {
-        _solutionContainer.EnsureSolution(uid, "Cunt" , out _, 20);
+        _solutionContainer.EnsureSolution(uid, CuntableComponent.CuntSolutionName , out _, 50);
     }
 
     private void OnCunt(EntityUid uid, CuntableComponent component, ref EmoteEvent args)
@@ -34,29 +34,27 @@ public sealed class CuntSystem : EntitySystem
         }
     }
 
-    public bool TryCunt(EntityUid uid, CuntableComponent? component = null)
+    public void TryCunt(EntityUid uid, CuntableComponent? component = null)
     {
         if (!Resolve(uid, ref component))
-            return false;
+            return;
 
-        if(!_solutionContainer.TryGetSolution(uid,CuntableComponent.CuntSolutionName,out var solution))
-            return false;
+        if(!_solutionContainer.TryGetSolution(uid,CuntableComponent.CuntSolutionName, out var solution))
+            return;
 
         if (solution.Value != default)
-            return false;
+            return ;
 
         var cum = new Solution("Cunt", 5);
 
         _puddle.TrySpillAt(uid, cum, out _, false);
         _solutionContainer.SplitSolution(uid!, 50);
-
-        return true;
     }
 
     public void GenCum(EntityUid uid, CuntableComponent? component = null)
     {
         if (!Resolve(uid, ref component))
-            return ;
+            return;
 
         if (_solutionContainer.TryGetSolution(uid, CuntableComponent.CuntSolutionName, out var solution))
         {

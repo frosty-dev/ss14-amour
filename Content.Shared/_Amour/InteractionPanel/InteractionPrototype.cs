@@ -2,7 +2,6 @@ using Content.Shared._Amour.InteractionPanel.Actions;
 using Content.Shared._Amour.InteractionPanel.Checks;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared._Amour.InteractionPanel;
 

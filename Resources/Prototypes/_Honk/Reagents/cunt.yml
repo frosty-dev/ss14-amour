@@ -5,7 +5,15 @@
   physicalDesc: reagent-physical-desc-cunt
   recognizable: true
   flavor: cunt
-  color: "#AAAAAA"
+  color: "#FFFFFF"
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Moth
+
 
 - type: flavor
   id: cunt
