@@ -208,7 +208,7 @@
   id: ClothingSerbwoNeckFluff
   name: плащ гильдии
   suffix: fluff
-  description: излучает ауру спокойствия и умиротворения!
+  description: Излучает ауру спокойствия и умиротворения!
   components:
     - type: Sprite
       sprite: White/Fluff/serbwo/admiralcloak.rsi

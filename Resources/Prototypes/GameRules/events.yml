@@ -169,6 +169,7 @@
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
     earliestStart: 15
+    minimumPlayers: 15 # WD
     weight: 6
     duration: 50
   - type: VentCrittersRule

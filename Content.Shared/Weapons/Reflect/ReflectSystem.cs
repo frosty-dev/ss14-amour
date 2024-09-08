@@ -103,6 +103,7 @@ public sealed class ReflectSystem : EntitySystem
         if (
             !Resolve(reflector, ref reflect, false) ||
             !reflect.Enabled ||
+            !reflect.InRightPlace || // WD
             !TryComp<ReflectiveComponent>(projectile, out var reflective) ||
             (reflect.Reflects & reflective.Reflective) == 0x0 ||
             !TryComp<PhysicsComponent>(projectile, out var physics) ||
@@ -210,6 +211,7 @@ public sealed class ReflectSystem : EntitySystem
     {
         if (!TryComp<ReflectComponent>(reflector, out var reflect) ||
             !reflect.Enabled ||
+            !reflect.InRightPlace || // WD
             TryComp<StaminaComponent>(reflector, out var staminaComponent) && staminaComponent.Critical ||
             _standing.IsDown(reflector))
         {
@@ -246,7 +248,9 @@ public sealed class ReflectSystem : EntitySystem
 
         EnsureComp<ReflectUserComponent>(args.Equipee);
 
-        if (component.Enabled)
+        component.InRightPlace = IsInRightPlace(component, Placement.Body); // WD
+
+        if (component.Enabled && component.InRightPlace) // WD added component.InRightPlace
             EnableAlert(args.Equipee);
     }
 
@@ -262,7 +266,9 @@ public sealed class ReflectSystem : EntitySystem
 
         EnsureComp<ReflectUserComponent>(args.User);
 
-        if (component.Enabled)
+        component.InRightPlace = IsInRightPlace(component, Placement.Hands); // WD
+
+        if (component.Enabled && component.InRightPlace) // WD added component.InRightPlace
             EnableAlert(args.User);
     }
 
@@ -276,10 +282,18 @@ public sealed class ReflectSystem : EntitySystem
         comp.Enabled = args.Activated;
         Dirty(uid, comp);
 
-        if (comp.Enabled)
-            EnableAlert(uid);
-        else
-            DisableAlert(uid);
+        // WD edit start
+        // Reason for the edit: previously EnableAlert and DisableAlert were given an "EntityUid uid" which
+        // belongs to an item, not to the item user. Now its logic corrected and moved to "RefreshReflectUser()".
+        // if (comp.Enabled)
+        //     EnableAlert(uid);
+        // else
+        //     DisableAlert(uid);
+        if (args.User != null)
+        {
+            RefreshReflectUser((EntityUid) args.User);
+        }
+        // WD edit end
     }
 
     /// <summary>
@@ -293,7 +307,19 @@ public sealed class ReflectSystem : EntitySystem
                 continue;
 
             EnsureComp<ReflectUserComponent>(user);
-            EnableAlert(user);
+
+            // WD edit start
+            // Reason for the edit: to ensure correct display of alert.
+            if (!TryComp<ReflectComponent>(ent, out var component))
+                continue;
+            if (component.Enabled && component.InRightPlace)
+                EnableAlert(user);
+            else
+            {
+                DisableAlert(user);
+                continue;
+            }
+            // WD edit end
 
             return;
         }
@@ -310,5 +336,16 @@ public sealed class ReflectSystem : EntitySystem
     private void DisableAlert(EntityUid alertee)
     {
         _alerts.ClearAlert(alertee, AlertType.Deflecting);
+    }
+
+    /// <summary>
+    /// Selfdescribing.
+    /// </summary>
+    private static bool IsInRightPlace(ReflectComponent component, Placement placement) // WD
+    {
+        if (component.Placement == (Placement.Hands | Placement.Body))
+            return true;
+        else
+            return (component.Placement & placement) != 0x0;
     }
 }

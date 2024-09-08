@@ -216,7 +216,7 @@ public abstract class SharedItemToggleSystem : EntitySystem
     private void TurnOnonWielded(EntityUid uid, ItemToggleComponent itemToggle, ref ItemWieldedEvent args)
     {
         if (!itemToggle.Activated)
-            TryActivate(uid, itemToggle: itemToggle);
+            TryActivate(uid, args.User, itemToggle: itemToggle); // WD added "args.User" parameter
     }
 
     public bool IsActivated(EntityUid uid, ItemToggleComponent? comp = null)

@@ -46,6 +46,8 @@
   - type: Sprite
     sprite: Objects/Misc/nukedisk.rsi
     state: icon
+  - type: Item # WD
+    size: Tiny
   - type: StaticPrice
     price: 1 # it's worth even less than normal items. Perfection.
     # WD edit sounds start

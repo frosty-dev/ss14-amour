@@ -32,6 +32,9 @@
 - type: itemLoadout # WD
   id: GlassesJamjar
   equipment: GlassesJamjar
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: JamjarTimer
 - type: startingGear
   id: GlassesJamjar
   equipment:
@@ -41,6 +44,9 @@
 - type: itemLoadout # WD
   id: GlassesJensen
   equipment: GlassesJensen
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: JensenTimer
 - type: startingGear
   id: GlassesJensen
   equipment:
