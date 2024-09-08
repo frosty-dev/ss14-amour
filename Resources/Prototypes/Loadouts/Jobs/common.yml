@@ -301,6 +301,9 @@
 - type: itemLoadout
   id: CoatSpaceAsshole
   equipment: CoatSpaceAsshole
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: TimerTrueAssistant
 - type: startingGear
   id: CoatSpaceAsshole
   equipment:

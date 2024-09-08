@@ -26,25 +26,25 @@ public sealed partial class IonStormTargetComponent : Component
     /// Chance to replace the lawset with a random one
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float RandomLawsetChance = 0.25f;
+    public float RandomLawsetChance = 0.40f; // WD was 0.25f
 
     /// <summary>
     /// Chance to remove a random law.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float RemoveChance = 0.2f;
+    public float RemoveChance = 0.15f; // WD was 0.20f
 
     /// <summary>
     /// Chance to replace a random law with the new one, rather than have it be a glitched-order law.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float ReplaceChance = 0.2f;
+    public float ReplaceChance = 0.15f; // WD was 0.20f
 
     /// <summary>
     /// Chance to shuffle laws after everything is done.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float ShuffleChance = 0.2f;
+    public float ShuffleChance = 0.15f; // WD was 0.20f
 }
 
 /// <summary>

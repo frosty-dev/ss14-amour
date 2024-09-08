@@ -88019,51 +88019,6 @@ entities:
         14802:
           position: 4,0
           _rotation: South
-        14803:
-          position: 0,1
-          _rotation: South
-        14804:
-          position: 1,1
-          _rotation: South
-        14805:
-          position: 2,1
-          _rotation: South
-        14806:
-          position: 3,1
-          _rotation: South
-        14807:
-          position: 4,1
-          _rotation: South
-        14808:
-          position: 0,2
-          _rotation: South
-        14809:
-          position: 1,2
-          _rotation: South
-        14810:
-          position: 2,2
-          _rotation: South
-        14811:
-          position: 3,2
-          _rotation: South
-        14812:
-          position: 4,2
-          _rotation: South
-        14813:
-          position: 0,3
-          _rotation: South
-        14814:
-          position: 1,3
-          _rotation: South
-        14815:
-          position: 2,3
-          _rotation: South
-        14816:
-          position: 3,3
-          _rotation: South
-        14817:
-          position: 4,3
-          _rotation: South
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
@@ -88075,21 +88030,6 @@ entities:
           - 14800
           - 14801
           - 14802
-          - 14803
-          - 14804
-          - 14805
-          - 14806
-          - 14807
-          - 14808
-          - 14809
-          - 14810
-          - 14811
-          - 14812
-          - 14813
-          - 14814
-          - 14815
-          - 14816
-          - 14817
 - proto: SodaDispenser
   entities:
   - uid: 6638

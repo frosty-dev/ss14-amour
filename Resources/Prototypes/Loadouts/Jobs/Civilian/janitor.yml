@@ -21,6 +21,9 @@
 - type: itemLoadout # WD
   id: JanitorPlunger
   equipment: JanitorPlunger
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: TimerJanitorFunnyHeads
 - type: startingGear
   id: JanitorPlunger
   equipment:
@@ -29,6 +32,9 @@
 - type: itemLoadout # WD
   id: JanitorBucket
   equipment: JanitorBucket
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: TimerJanitorFunnyHeads
 - type: startingGear
   id: JanitorBucket
   equipment:
@@ -94,6 +100,9 @@
 - type: itemLoadout # WD
   id: JanitorWetFloorSign
   equipment: JanitorWetFloorSign
+  effects:
+    - !type:GroupLoadoutEffect
+      proto: TimerJanitorFunnyHeads
 - type: startingGear
   id: JanitorWetFloorSign
   equipment:

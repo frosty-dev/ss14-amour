@@ -144,9 +144,9 @@
   description: There's no cult without classic red/crimson cult robes.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Misc/cultrobes.rsi
+    sprite: White/Cult/cultrobes.rsi # WD
   - type: Clothing
-    sprite: Clothing/OuterClothing/Misc/cultrobes.rsi
+    sprite: White/Cult/cultrobes.rsi # WD
 
 - type: entity
   parent: ClothingOuterMiscBase # WD edit

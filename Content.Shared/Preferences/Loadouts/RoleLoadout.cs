@@ -80,12 +80,12 @@ public sealed class RoleLoadout
                     continue;
                 }
 
-                // Validate the loadout can be applied (e.g. points).
-                if (!IsValid(profile, session, loadout.Prototype, collection, out _))
-                {
-                    loadouts.RemoveAt(i);
-                    continue;
-                }
+                // Похуй FIXME
+                //if (!IsValid(profile, session, loadout.Prototype, collection, out _))
+                // {
+                //     loadouts.RemoveAt(i);
+                //     continue;
+                // }
 
                 Apply(loadoutProto);
             }

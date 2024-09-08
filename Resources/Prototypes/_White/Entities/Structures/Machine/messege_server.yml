@@ -1,6 +1,6 @@
 - type: entity
   id: MessagesServer
-  parent: BaseMachinePowered
+  parent: BaseMachine
   name: PDA messaging server
   description: Server that allows PDA messaging to function on the station.
   components:
@@ -9,9 +9,6 @@
     layers:
       - state: server
       - state: variant-research
-  - type: ApcPowerReceiver
-    powerLoad: 200
-  - type: ExtensionCableReceiver
   - type: Destructible
     thresholds:
     - trigger:
@@ -43,11 +40,11 @@
   - type: AmbientOnPowered
   - type: MessagesServer
   - type: SingletonDeviceNetServer
+    available: true
   - type: DeviceNetwork
     deviceNetId: Wireless
     transmitFrequencyId: NTMessagesServer
     receiveFrequencyId: NTMessagesClient
-    autoConnect: false
   - type: StationLimitedNetwork
 
 - type: entity
@@ -60,4 +57,3 @@
     deviceNetId: Wireless
     transmitFrequencyId: SyndicateMessagesServer
     receiveFrequencyId: SyndicateMessagesClient
-    autoConnect: false
