@@ -1,6 +1,5 @@
 using Content.Server._White.Accent.Bloodloss;
 using Content.Server.Body.Components;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Chemistry.ReactionEffects;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
@@ -13,7 +12,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Drunk;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
@@ -23,7 +21,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Speech.EntitySystems;
 using Robust.Server.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -42,8 +39,7 @@ public sealed class BloodstreamSystem : EntitySystem
     [Dependency] private readonly PuddleSystem _puddleSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedDrunkSystem _drunkSystem = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
     [Dependency] private readonly ForensicsSystem _forensicsSystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!; // WD
@@ -188,12 +184,23 @@ public sealed class BloodstreamSystem : EntitySystem
 
     private void OnComponentInit(Entity<BloodstreamComponent> entity, ref ComponentInit args)
     {
-        var chemicalSolution = _solutionContainerSystem.EnsureSolution(entity.Owner, entity.Comp.ChemicalSolutionName);
-        var bloodSolution = _solutionContainerSystem.EnsureSolution(entity.Owner, entity.Comp.BloodSolutionName);
-        var tempSolution = _solutionContainerSystem.EnsureSolution(entity.Owner, entity.Comp.BloodTemporarySolutionName);
+        _solutionContainerSystem.EnsureSolution(entity.Owner, entity.Comp.ChemicalSolutionName, out var chemicalSolution);
+        _solutionContainerSystem.EnsureSolution(entity.Owner, entity.Comp.BloodSolutionName, out var bloodSolution);
+        _solutionContainerSystem.EnsureSolution(entity.Owner, entity.Comp.BloodTemporarySolutionName, out var tempSolution);
+
+        if (chemicalSolution == null)
+            return;
 
         chemicalSolution.MaxVolume = entity.Comp.ChemicalMaxVolume;
+
+        if (bloodSolution == null)
+            return;
+
         bloodSolution.MaxVolume = entity.Comp.BloodMaxVolume;
+
+        if (tempSolution == null)
+            return;
+
         tempSolution.MaxVolume = entity.Comp.BleedPuddleThreshold * 4; // give some leeway, for chemstream as well
 
         // Fill blood solution with BLOOD
@@ -203,12 +210,10 @@ public sealed class BloodstreamSystem : EntitySystem
     private void OnDamageChanged(Entity<BloodstreamComponent> ent, ref DamageChangedEvent args)
     {
         if (args.DamageDelta is null || !args.DamageIncreased)
-        {
             return;
-        }
 
         // TODO probably cache this or something. humans get hurt a lot
-        if (!_prototypeManager.TryIndex<DamageModifierSetPrototype>(ent.Comp.DamageBleedModifiers, out var modifiers))
+        if (!_prototypeManager.TryIndex(ent.Comp.DamageBleedModifiers, out var modifiers))
             return;
 
         var bloodloss = DamageSpecifier.ApplyModifierSet(args.DamageDelta, modifiers);
@@ -222,11 +227,12 @@ public sealed class BloodstreamSystem : EntitySystem
         var totalFloat = total.Float();
         TryModifyBleedAmount(ent, totalFloat, ent);
 
-        /// <summary>
-        ///     Critical hit. Causes target to lose blood, using the bleed rate modifier of the weapon, currently divided by 5
-        ///     The crit chance is currently the bleed rate modifier divided by 25.
-        ///     Higher damage weapons have a higher chance to crit!
-        /// </summary>
+        /*
+            Critical hit. Causes target to lose blood, using the bleed rate modifier of the weapon, currently divided by 5
+            The crit chance is currently the bleed rate modifier divided by 25.
+            Higher damage weapons have a higher chance to crit!
+        */
+
         var prob = Math.Clamp(totalFloat / 25, 0, 1);
         if (totalFloat > 0 && _robustRandom.Prob(prob))
         {
@@ -413,7 +419,7 @@ public sealed class BloodstreamSystem : EntitySystem
 
         if (HasComp<BloodLustComponent>(uid)) // WD
         {
-            if (component.BleedAmount == 0f)
+            if (component.BleedAmount == 0)
                 RemComp<BloodLustComponent>(uid);
 
             _speed.RefreshMovementSpeedModifiers(uid);

@@ -1,5 +1,21 @@
+# Так как мечей много, а смысла в них не очень - я буду писать в комментариях геймдизайнерских прикол каждого из них
+
 - type: entity
   parent: BaseItem
+  id: BaseHolyWeapon
+  abstract: true
+  components:
+  - type: HolyWeapon
+  - type: Sprite
+    sprite: White/Objects/Weapons/Chaplain/forceweapon.rsi
+    state: icon
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+
+# Базовая палка, чтобы как можно быстрее сменить ее.
+- type: entity
+  parent: BaseHolyWeapon
   id: NullRod
   name: жезл нулификации
   description: Жезл из чистого обсидиана. Само его присутствие разрушает и ослабляет "магические силы". Во всяком случае так написано в путеводителе.
@@ -11,6 +27,8 @@
     damage:
       types:
         Blunt: 18
+    soundHit:
+      collection: MetalThud
   - type: Item
     size: Normal
     sprite: White/Objects/Weapons/Chaplain/nullrod.rsi
@@ -43,10 +61,10 @@
     - UnholyPitchfork
     - WarHammer
     - HyperTool
-  - type: HolyWeapon
 
+# Прикольно выглядящая рука, нельзя снять и бьет ожогами.
 - type: entity
-  parent: BaseItem
+  parent: BaseHolyWeapon
   id: GodHand
   name: божья длань
   description: Эта рука сияет с потрясающей силой!
@@ -63,26 +81,22 @@
     wideAnimationRotation: 180
     damage:
       types:
-        Heat: 18
+        Heat: 15
   - type: Item
     size: Ginormous
     sprite: White/Objects/Weapons/Chaplain/godhand.rsi
   - type: Unremoveable
     deleteOnDrop: true
-  - type: HolyWeapon
 
+# Типичный меч, база базовая. Может блокировать, острый.
 - type: entity
-  parent: Claymore
+  parent: BaseHolyWeapon
   id: HolyClaymore
   name: священный клеймор
   description: Оружие, подходящее для крестового похода!
   components:
   - type: Sprite
     sprite: White/Objects/Weapons/Chaplain/claymore.rsi
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 33
   - type: Clothing
     sprite: White/Objects/Weapons/Chaplain/claymore.rsi
     slots:
@@ -91,29 +105,45 @@
     - suitStorage
   - type: Item
     sprite: White/Objects/Weapons/Chaplain/claymore.rsi
-  - type: HolyWeapon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 15
+  - type: Sharp
+  - type: MeleeBlock
+    delay: 12.1
 
+# Отсылка на вархаммер, больше всего урона, так как не может блокировать
 - type: entity
-  parent: HolyClaymore
+  parent: BaseHolyWeapon
   id: Chainsword
   name: цепной меч
   description: Не позволь еретику жить.
   components:
   - type: Sprite
     sprite: White/Objects/Weapons/Chaplain/chainsword.rsi
+    state: icon
+  - type: Clothing
+    sprite: White/Objects/Weapons/Chaplain/chainsword.rsi
+    slots:
+    - back
+    - belt
+    - suitStorage
+  - type: Item
+    sprite: White/Objects/Weapons/Chaplain/chainsword.rsi
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/chainsaw.ogg
-  - type: Clothing
-    sprite: White/Objects/Weapons/Chaplain/chainsword.rsi
-  - type: Item
-    sprite: White/Objects/Weapons/Chaplain/chainsword.rsi
+    damage:
+      types:
+        Slash: 21
   - type: Tool
     qualities:
       - Sawing
     speed: 0.5
-  - type: HolyWeapon
+  - type: Sharp
 
+# Он светится
 - type: entity
   parent: HolyClaymore
   id: SwordGlowing
@@ -130,10 +160,10 @@
     color: lightblue
   - type: Item
     sprite: White/Objects/Weapons/Chaplain/forceweapon.rsi
-  - type: HolyWeapon
 
+# Позволяет блокировать быстрее, средненький урон.
 - type: entity
-  parent: Katana
+  parent: BaseHolyWeapon
   id: HolyKatana
   name: лезвие ханзо
   description: Способен прорезать святой клеймор.
@@ -148,10 +178,24 @@
     - suitStorage
   - type: Item
     sprite: White/Objects/Weapons/Chaplain/katana.rsi
-  - type: HolyWeapon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Slash: 13
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DisarmMalus
+  - type: MeleeBlock
+    delay: 8.1
+  - type: Sharp
+  - type: Tag
+    tags:
+    - Katana
 
+# Смешной меч с разбросом дамага
 - type: entity
-  parent: HolyKatana
+  parent: BaseHolyWeapon
   id: MultiverseBlade
   name: внепространственный клинок
   description: Будучи когда-то предвестником межпространственной войны, его острота сильно колеблется. Наносит от 1 до 50 урона.
@@ -170,10 +214,11 @@
   - type: Item
     sprite: White/Objects/Weapons/Chaplain/multiverse.rsi
   - type: RandomDamage
-  - type: HolyWeapon
+  - type: Sharp
 
+# Пробивает броню
 - type: entity
-  parent: HolyClaymore
+  parent: BaseHolyWeapon
   id: VorpalScythe
   name: коса жнеца
   description: И жрец, и жнец, и на дуде игрец! Коса способна пробить броню противника.
@@ -184,7 +229,7 @@
     ignoreResistances: true
     damage:
       types:
-        Slash: 24
+        Slash: 14
   - type: Clothing
     sprite: White/Objects/Weapons/Chaplain/scythe.rsi
     slots:
@@ -192,8 +237,9 @@
     - suitStorage
   - type: Item
     sprite: White/Objects/Weapons/Chaplain/scythe-inhands.rsi
-  - type: HolyWeapon
+  - type: Sharp
 
+# Может пиздеть
 - type: entity
   parent: HolyKatana
   id: PossessedBlade
@@ -218,10 +264,10 @@
   - type: Examiner
   - type: Item
     sprite: White/Objects/Weapons/Chaplain/possessed.rsi
-  - type: HolyWeapon
 
+# Приклеен к руке, быстро и громко бьет
 - type: entity
-  parent: BaseItem
+  parent: BaseHolyWeapon
   id: ChainsawHand
   name: рука-бензопила
   description: Добро? Зло? Ты парень с бензопилой в руке.
@@ -251,10 +297,10 @@
     qualities:
       - Sawing
     speed: 0.5
-  - type: HolyWeapon
 
+# Нокдаунит при ударе
 - type: entity
-  parent: BaseItem
+  parent: BaseHolyWeapon
   id: HolyWhip
   name: священная плеть
   description: Какая ужасная ночь на космической станции 14.
@@ -265,10 +311,11 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/White/Items/hit/chainhit.ogg
-    range: 2.5
+    range: 1.5
+    attackRate: 0.5
     damage:
       types:
-        Blunt: 18
+        Blunt: 10
   - type: Item
     size: Normal
     sprite: White/Objects/Weapons/Chaplain/whip.rsi
@@ -277,10 +324,13 @@
     slots:
     - belt
   - type: DisarmMalus
-  - type: HolyWeapon
+  - type: KnockDownOnHit
+    knockDownBehavior: NoDrop
+    knockdownTime: 0.4
 
+# Отбрасывает при ударе и может блокировать, требует держать себя в двух руках для отброса
 - type: entity
-  parent: BaseItem
+  parent: BaseHolyWeapon
   id: HolyStaff
   name: посох монаха
   description: Длинный высокий посох из полированного дерева. Традиционно используемый в боевых искусствах древней Земли, теперь он используется для преследования клоуна.
@@ -288,11 +338,6 @@
   - type: Sprite
     sprite: White/Objects/Weapons/Chaplain/staff.rsi
     state: icon
-  - type: MeleeWeapon
-    wideAnimationRotation: 135
-    damage:
-      types:
-        Blunt: 10
   - type: Item
     size: Huge
     sprite: White/Objects/Weapons/Chaplain/staff.rsi
@@ -301,23 +346,64 @@
     slots:
     - back
     - suitStorage
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    damage:
+      types:
+        Blunt: 6
+    soundHit:
+      collection: MetalThud
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
         Blunt: 8
+  - type: MeleeThrowOnHit
+    lifetime: 0.2
+    speed: 5
+    fallAfterHit: true
+    requireWield: true
   - type: UseDelay
-  - type: DisarmMalus
   - type: MeleeBlock
-    delay: 6.1
-  - type: HolyWeapon
+    delay: 8.1
 
+# Можно кинуть, если попасть нанесет ебать как много, не попадет - ты проебал ее. Далеко бьет
 - type: entity
-  parent: BaseItem
+  parent: BaseHolyWeapon
   id: UnholyPitchfork
   name: нечестивые вилы
   description: Держа это, ты выглядишь абсолютно по дьявольски.
   components:
+  - type: Sprite
+    sprite: White/Objects/Weapons/Chaplain/pitchfork.rsi
+    state: icon
+  - type: Item
+    sprite: White/Objects/Weapons/Chaplain/pitchfork.rsi
+    size: Huge
+  - type: Clothing
+    sprite: White/Objects/Weapons/Chaplain/pitchfork.rsi
+    slots:
+    - back
+    - suitStorage
+  - type: MeleeWeapon
+    range: 2
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 8
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 77
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 4
   - type: EmbeddableProjectile
     offset: 0.15,0.15
   - type: ThrowingAngle
@@ -337,42 +423,12 @@
         restitution: 0.3
         friction: 0.2
   - type: Sharp
-  - type: Sprite
-    sprite: White/Objects/Weapons/Chaplain/pitchfork.rsi
-    state: icon
-  - type: MeleeWeapon
-    range: 2
-    wideAnimationRotation: -135
-    damage:
-      types:
-        Piercing: 15
-    angle: 0
-    animation: WeaponArcThrust
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        Piercing: 25
-  - type: Item
-    sprite: White/Objects/Weapons/Chaplain/pitchfork.rsi
-    size: Huge
-  - type: Clothing
-    sprite: White/Objects/Weapons/Chaplain/pitchfork.rsi
-    slots:
-    - back
-    - suitStorage
-  - type: Wieldable
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Piercing: 9
   - type: UseDelay
   - type: DisarmMalus
-  - type: HolyWeapon
 
+# Высокий структурный урон
 - type: entity
-  parent: BaseItem
+  parent: BaseHolyWeapon
   id: WarHammer
   name: реликтовый боевой молот
   description: Этот боевой молот обошелся священнику в сорок тысяч кредитов.
@@ -380,17 +436,6 @@
   - type: Sprite
     sprite: White/Objects/Weapons/Chaplain/hammer.rsi
     state: icon
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    attackRate: 0.75
-    damage:
-      types:
-        Blunt: 24
-        Structural: 40
-    soundHit:
-      collection: HammerHit
-    soundSwing:
-      collection: HammerMiss
   - type: Item
     size: Huge
     sprite: White/Objects/Weapons/Chaplain/hammer.rsi
@@ -400,14 +445,25 @@
     - belt
     - back
     - suitStorage
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 0.75
+    damage:
+      types:
+        Blunt: 16
+        Structural: 40
+    soundHit:
+      collection: HammerHit
+    soundSwing:
+      collection: HammerMiss
   - type: DisarmMalus
-  - type: HolyWeapon
 
+# Имеет все инструменты в себе, но работает медленно и почти не наносит урона
 - type: entity
-  parent: BaseItem
+  parent: BaseHolyWeapon
   id: HyperTool
   name: гиперинструмент
-  description: Инструмент настолько мощный, что даже вы не можете им идеально пользоваться.
+  description: Кто-то додумался склеить все инструменты вместе и вот, что вышло. Настолько продуманный, что вы не понимаете, как этим адекватно пользоваться
   components:
   - type: Sprite
     sprite: White/Objects/Weapons/Chaplain/hypertool.rsi
@@ -417,9 +473,9 @@
     canHeavyAttack: false
     damage:
       types:
-        Blunt: 0
-  - type: StaminaDamageOnHit
-    damage: 40
+        Blunt: 4
+    soundHit:
+      collection: HyperToolUsing
   - type: Item
     size: Normal
     sprite: White/Objects/Weapons/Chaplain/hypertool.rsi
@@ -428,4 +484,29 @@
     slots:
     - belt
   - type: DisarmMalus
-  - type: HolyWeapon
+  - type: Tool
+    qualities:
+    - Screwing
+    - Prying
+    - Anchoring
+    - Cutting
+    - Pulsing
+    speed: 0.7
+    useSound:
+      collection: HyperToolUsing
+
+- type: soundCollection
+  id: HyperToolUsing
+  files:
+  - /Audio/Effects/RingtoneNotes/a.ogg
+  - /Audio/Effects/RingtoneNotes/asharp.ogg
+  - /Audio/Effects/RingtoneNotes/b.ogg
+  - /Audio/Effects/RingtoneNotes/c.ogg
+  - /Audio/Effects/RingtoneNotes/csharp.ogg
+  - /Audio/Effects/RingtoneNotes/d.ogg
+  - /Audio/Effects/RingtoneNotes/dsharp.ogg
+  - /Audio/Effects/RingtoneNotes/e.ogg
+  - /Audio/Effects/RingtoneNotes/f.ogg
+  - /Audio/Effects/RingtoneNotes/fsharp.ogg
+  - /Audio/Effects/RingtoneNotes/g.ogg
+  - /Audio/Effects/RingtoneNotes/gsharp.ogg
