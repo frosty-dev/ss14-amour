@@ -10,6 +10,12 @@ public sealed class FrontalLispSystem : EntitySystem
     private static readonly Regex RegexLowerTh = new(@"[t]+[s]+|[s]+[c]+(?=[iey]+)|[c]+(?=[iey]+)|[p][s]+|([s]+[t]+|[t]+)(?=[i]+[o]+[u]*[n]*)|[c]+[h]+(?=[i]*[e]*)|[z]+|[s]+|[x]+(?=[e]+)");
     private static readonly Regex RegexUpperEcks = new(@"[E]+[Xx]+[Cc]*|[X]+");
     private static readonly Regex RegexLowerEcks = new(@"[e]+[x]+[c]*|[x]+");
+    // WD start
+    private static readonly Regex RegexUpperS = new(@"С");
+    private static readonly Regex RegexLowerS = new(@"с");
+    private static readonly Regex RegexUpperZ = new(@"З");
+    private static readonly Regex RegexLowerZ = new(@"з");
+    // WD end
     // @formatter:on
 
     public override void Initialize()
@@ -28,6 +34,13 @@ public sealed class FrontalLispSystem : EntitySystem
         // handles ex(c), x
         message = RegexUpperEcks.Replace(message, "EKTH");
         message = RegexLowerEcks.Replace(message, "ekth");
+
+        // WD start
+        message = RegexUpperS.Replace(message, "Ш");
+        message = RegexLowerS.Replace(message, "ш");
+        message = RegexUpperZ.Replace(message, "Ж");
+        message = RegexLowerZ.Replace(message, "ж");
+        // WD end
 
         args.Message = message;
     }
