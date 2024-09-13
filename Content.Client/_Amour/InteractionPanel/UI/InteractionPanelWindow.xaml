@@ -44,6 +44,9 @@
         <BoxContainer Margin="5 5 5 5" Orientation="Vertical">
             <LineEdit Name="SearchBar" Margin="5 0 5 0" PlaceHolder="{Loc 'interaction-filter-placeholder'}"/>
             <ScrollContainer Name="InteractoinScroll" VerticalExpand="True" HorizontalExpand="True" HScrollEnabled="False">
+                <BoxContainer Name="ButtonContainer" Orientation="Vertical" VerticalExpand="True" SeparationOverride="5">
+
+                </BoxContainer>
             </ScrollContainer>
         </BoxContainer>
 

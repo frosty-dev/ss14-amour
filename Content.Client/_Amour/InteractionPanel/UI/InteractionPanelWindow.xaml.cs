@@ -33,9 +33,26 @@ public sealed partial class InteractionPanelWindow : DefaultWindow
     }
 
     //Honk EDIT
+
+    private bool ButtonIsVisible(Button button)
+    {
+        return string.IsNullOrEmpty(_search) || button.Text == null || button.Text.Contains(_search, StringComparison.OrdinalIgnoreCase);
+    }
+
+    private void UpdateVisibleButtons()
+    {
+        foreach (var child in ButtonContainer.Children)
+        {
+            if (child is Button button)
+                button.Visible = ButtonIsVisible(button);
+        }
+    }
+
     private void OnSearchTextChanged(LineEdit.LineEditEventArgs obj)
     {
         _search = obj.Text;
+
+        UpdateVisibleButtons();
 
         InteractoinScroll.SetScrollValue(Vector2.Zero);
     }
