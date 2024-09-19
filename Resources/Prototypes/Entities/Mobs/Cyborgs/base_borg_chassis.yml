@@ -128,12 +128,7 @@
     - Flashed
   - type: TypingIndicator
     proto: robot
-  - type: Speech
-    speechVerb: Robotic
-    speechSounds: Borg
-  - type: Vocal
-    sounds:
-      Unsexed: UnisexSilicon
+  - type: TTS
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:
@@ -282,10 +277,6 @@
     - Syndicate
   - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
-  - type: Speech
-    speechSounds: SyndieBorg
-  - type: Vocal
-    sounds:
-      Unsexed: UnisexSiliconSyndicate
+  - type: TTS
   - type: PointLight
     color: "#dd200b"
