@@ -824,7 +824,7 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Slash: 18
+        Slash: 14
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: HolyWeapon

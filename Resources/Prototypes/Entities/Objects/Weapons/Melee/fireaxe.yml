@@ -18,8 +18,8 @@
     damage:
       types:
         # axes are kinda like sharp hammers, you know?
-        Blunt: 5
-        Slash: 13
+        Blunt: 3 # WD
+        Slash: 10 # WD
         Structural: 10
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
@@ -28,7 +28,7 @@
     damage:
       types:
         Blunt: 2.5
-        Slash: 10.5
+        Slash: 8 # WD
         Structural: 60
   - type: Item
     size: Ginormous

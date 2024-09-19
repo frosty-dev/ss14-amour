@@ -1,9 +1,11 @@
 using System.Numerics;
 using Content.Shared.Construction.Components;
+using Content.Shared.Standing.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Wieldable.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -20,8 +22,9 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!; // WD
-    [Dependency] private readonly ThrownItemSystem _thrownItem = default!; // WD
+    [Dependency] private readonly SharedStunSystem _stun = default!; // WD added
+    [Dependency] private readonly ThrownItemSystem _thrownItem = default!; // WD added
+    [Dependency] private readonly SharedStandingStateSystem _standingState = default!; // WD added
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -36,8 +39,10 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
 
     private void OnDoHit(Entity<MeleeThrowOnHitComponent> ent, ref ThrowDoHitEvent args) // WD
     {
+        // WD edit start
         if (!ent.Comp.ThrowOnThrowHit)
             return;
+        // WD edit end
 
         if (!CanThrowOnHit(ent, args.Target))
             return;
@@ -55,8 +60,14 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
             MinLifetime = ent.Comp.MinLifetime
         };
         AddComp(args.Target, thrownComp);
+
+        // WD added start
         if (ent.Comp.StunTime != 0f)
             _stun.TryParalyze(args.Target, TimeSpan.FromSeconds(ent.Comp.StunTime), true);
+
+        else if (ent.Comp.FallAfterHit)
+            _standingState.TryLieDown(ent, null, SharedStandingStateSystem.DropHeldItemsBehavior.DropIfStanding);
+        // WD added end
 
         _thrownItem.LandComponent(ent, args.Component, physics, false);
         _physics.SetLinearVelocity(ent, Vector2.Zero);
@@ -67,14 +78,24 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         if (args.Handled) // WD
             return;
 
-        var (_, comp) = ent;
         if (!args.IsHit)
             return;
 
-        // WD START
-        var stunTime = comp.StunTime;
-        var speed = comp.Speed;
-        var lifetime = comp.Lifetime;
+        // WD added start
+        if (ent.Comp.RequireWield)
+        {
+            if (!TryComp<WieldableComponent>(args.Weapon, out var weapon))
+                return;
+
+            if (!weapon.Wielded)
+                return;
+        }
+        // WD added end
+
+        // WD edit start
+        var stunTime = ent.Comp.StunTime;
+        var speed = ent.Comp.Speed;
+        var lifetime = ent.Comp.Lifetime;
 
         if (args.Direction != null) // Heavy attack
         {
@@ -82,7 +103,7 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
             speed *= 0.5f;
             lifetime *= 0.5f;
         }
-        // WD END
+        // WD edit end
 
         var mapPos = _transform.GetMapCoordinates(args.User).Position;
         foreach (var hit in args.HitEntities)
@@ -95,7 +116,7 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
             if (!CanThrowOnHit(ent, hit))
                 continue;
 
-            if (comp.UnanchorOnHit && HasComp<AnchorableComponent>(hit))
+            if (ent.Comp.UnanchorOnHit && HasComp<AnchorableComponent>(hit))
             {
                 _transform.Unanchor(hit, Transform(hit));
             }
@@ -105,13 +126,19 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
             RaiseLocalEvent(hit, ref ev);
             var thrownComp = new MeleeThrownComponent
             {
-                Velocity = angle.Normalized() * speed, // WD EDIT
-                Lifetime = lifetime, // WD EDIT
-                MinLifetime = comp.MinLifetime
+                Velocity = angle.Normalized() * speed, // WD edit
+                Lifetime = lifetime, // WD edit
+                MinLifetime = ent.Comp.MinLifetime
             };
             AddComp(hit, thrownComp);
+
+            // WD added end
             if (stunTime != 0f)
                 _stun.TryParalyze(hit, TimeSpan.FromSeconds(stunTime), true);
+
+            else if (ent.Comp.FallAfterHit)
+                _standingState.TryLieDown(hit);
+            // WD added start
         }
     }
 
@@ -126,9 +153,11 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         comp.PreviousStatus = body.BodyStatus;
         comp.ThrownEndTime = _timing.CurTime + TimeSpan.FromSeconds(comp.Lifetime);
         comp.MinLifetimeTime = _timing.CurTime + TimeSpan.FromSeconds(comp.MinLifetime);
+
         _physics.SetBodyStatus(ent, body, BodyStatus.InAir);
         _physics.SetLinearVelocity(ent, Vector2.Zero, body: body);
         _physics.ApplyLinearImpulse(ent, comp.Velocity * body.Mass, body: body);
+
         Dirty(ent, ent.Comp);
     }
 

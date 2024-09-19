@@ -63,6 +63,21 @@ public sealed class RCDAmmoSystem : EntitySystem
 
         var user = args.User;
         args.Handled = true;
+
+        // WD edit start
+        TryComp<StackComponent>(uid, out var stackComponent);
+        if (stackComponent != null)
+        {
+            var realValue = (int) (stackComponent.Count * comp.ChargeCountModifier);
+            comp.Charges = realValue;
+            if (realValue == 0)
+            {
+                _popup.PopupClient(Loc.GetString("rcd-ammo-component-after-interact-not-enough"), target, user);
+                return;
+            }
+        }
+        // WD edit end
+
         var count = Math.Min(charges.MaxCharges - charges.Charges, comp.Charges);
         if (count <= 0)
         {
@@ -73,7 +88,7 @@ public sealed class RCDAmmoSystem : EntitySystem
         _popup.PopupClient(Loc.GetString("rcd-ammo-component-after-interact-refilled"), target, user);
 
         // WD edit start
-        if (TryComp<StackComponent>(uid, out var stackComponent))
+        if (stackComponent != null)
         {
             var spent = (int) (count / comp.ChargeCountModifier) == 0 ? 1 : (int) (count / comp.ChargeCountModifier);
             _stack.SetCount(uid, stackComponent.Count - spent);

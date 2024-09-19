@@ -77,7 +77,7 @@
       damage:
         types:
           Slash: 8
-          Piercing: 10
+          Piercing: 16 # WD
     - type: StaminaDamageOnCollide
       damage: 45
     - type: StaminaDamageOnEmbed

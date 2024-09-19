@@ -106,25 +106,25 @@ public abstract class SharedStunSystem : EntitySystem
 
     private void OnKnockInit(EntityUid uid, KnockedDownComponent component, ComponentInit args)
     {
-        RaiseNetworkEvent(new CheckAutoGetUpEvent()); // WD EDIT
-        _standingState.TryLieDown(uid, null, SharedStandingStateSystem.DropHeldItemsBehavior.DropIfStanding);
+        RaiseNetworkEvent(new CheckAutoGetUpEvent()); // WD edit
+        _standingState.TryLieDown(uid, null, component.KnockDownBehavior); // WD edit
     }
 
     private void OnKnockShutdown(EntityUid uid, KnockedDownComponent component, ComponentShutdown args)
     {
-        // WD EDIT START
+        // WD edit start
         // Don't stand up if we can lie down via keybind
-        if (!TryComp(uid, out StandingStateComponent? standing) || !(!standing.CanLieDown || standing.AutoGetUp)) // WD EDIT
+        if (!TryComp(uid, out StandingStateComponent? standing) || !(!standing.CanLieDown || standing.AutoGetUp)) // WD edit
             return;
 
-        if (standing.AutoGetUp && !_container.IsEntityInContainer(uid)) // WD EDIT
+        if (standing.AutoGetUp && !_container.IsEntityInContainer(uid)) // WD edit
         {
             _standingState.TryStandUp(uid, standing);
             return;
         }
 
         _standingState.Stand(uid, standing);
-        // WD EDIT END
+        // WD edit end
     }
 
     private void OnStandAttempt(EntityUid uid, KnockedDownComponent component, StandAttemptEvent args)
@@ -178,7 +178,7 @@ public abstract class SharedStunSystem : EntitySystem
     ///     Knocks down the entity, making it fall to the ground.
     /// </summary>
     public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
-        StatusEffectsComponent? status = null)
+        StatusEffectsComponent? status = null, SharedStandingStateSystem.DropHeldItemsBehavior? behavior = null)
     {
         if (time <= TimeSpan.Zero)
             return false;
@@ -186,8 +186,24 @@ public abstract class SharedStunSystem : EntitySystem
         if (!Resolve(uid, ref status, false))
             return false;
 
-        if (!_statusEffect.TryAddStatusEffect<KnockedDownComponent>(uid, "KnockedDown", time, refresh))
-            return false;
+        // WD added start
+        // May god forgive us
+        if (behavior.HasValue && !HasComp<KnockedDownComponent>(uid))
+        {
+            var knockedDownComponent = new KnockedDownComponent
+            {
+                KnockDownBehavior = behavior.Value
+            };
+
+            if (!_statusEffect.TryAddStatusEffect<KnockedDownComponent>(uid, "KnockedDown", time, refresh, knockedDownComponent))
+                return false;
+        }
+        else
+        {
+            if (!_statusEffect.TryAddStatusEffect<KnockedDownComponent>(uid, "KnockedDown", time, refresh))
+                return false;
+        }
+        // WD added end
 
         var ev = new KnockedDownEvent();
         RaiseLocalEvent(uid, ref ev);
