@@ -36,8 +36,7 @@
         variation: 0.125
     activatedDamage:
         types:
-            Slash: 15
-            Heat: 15
+            Slash: 41 # WD
             Structural: 20
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword.rsi
@@ -131,8 +130,7 @@
         variation: 0.250
     activatedDamage:
         types:
-            Slash: 10
-            Heat: 10
+            Slash: 23 # WD
     deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
@@ -263,8 +261,7 @@
     - type: IncreaseDamageOnWield
       damage:
         types:
-          Slash: 15
-          Heat: 15
+          Slash: 30 # WD
     - type: Reflect
       reflectProb: 1
       enabled: false
@@ -299,8 +296,7 @@
           variation: 0.125
       activatedDamage:
         types:
-          Slash: 15
-          Heat: 15
+          Slash: 33 # WD
           Structural: 20
     - type: Reflect
       reflectProb: 0.8

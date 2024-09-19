@@ -4,6 +4,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
+using Content.Server.RoundEnd;
 using Content.Server.Station.Systems;
 using Content.Shared.Audio;
 using Content.Shared.Containers.ItemSlots;
@@ -43,6 +44,7 @@ public sealed class NukeSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
 
     /// <summary>
     ///     Used to calculate when the nuke song should start playing for maximum kino with the nuke sfx
@@ -568,6 +570,8 @@ public sealed class NukeSystem : EntitySystem
 
         _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
         Del(uid);
+
+        _roundEndSystem.EndRound(TimeSpan.FromSeconds(30)); //Giedi EDIT
     }
 
     /// <summary>

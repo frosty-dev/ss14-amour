@@ -11,7 +11,7 @@
     attackRate: 5
     damage:
       types:
-        Slash: 10
+        Slash: 25
   - type: Clothing
     sprite: White/Objects/Weapons/Chaplain/hfrequency.rsi
     slots:
@@ -101,6 +101,7 @@
     minLifetime: 0.01
     speed: 20
     stunTime: 1.5
+    fallAfterHit: true
     throwOnThrowHit: true
   - type: DamageOtherOnHit
     sound:

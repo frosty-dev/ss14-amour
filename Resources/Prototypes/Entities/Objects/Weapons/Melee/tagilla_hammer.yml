@@ -14,8 +14,7 @@
       attackRate: 0.75
       damage:
         types:
-          Blunt: 5
-          Slash: 5
+          Blunt: 10
           Structural: 10
       soundHit:
         path: "/Audio/Weapons/sledgehammer_hit_1.ogg"
@@ -23,8 +22,7 @@
     - type: IncreaseDamageOnWield
       damage:
         types:
-          Blunt: 10
-          Slash: 5
+          Blunt: 15
           Structural: 40
     - type: Item
       size: Ginormous

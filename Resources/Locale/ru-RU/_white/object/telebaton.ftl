@@ -3,3 +3,6 @@ ent-TelescopicBaton = телескопическая дубинка
 
 comp-telebaton-examined-on = Дубинка в боевом положении.
 comp-telebaton-examined-off = Дубинка сложена.
+
+comp-item-toggle-on = Активировано
+comp-item-toggle-off = Деактивировано

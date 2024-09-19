@@ -228,13 +228,13 @@
     layers:
     - state: pancakes1
       map: ["pancakes1"]
-      visible: false
+      visible: true # WD changed to fix chameleon projector bug
     - state: pancakes2
       map: ["pancakes2"]
-      visible: false
+      visible: true # WD changed to fix chameleon projector bug
     - state: pancakes3
       map: ["pancakes3"]
-      visible: false
+      visible: true # WD changed to fix chameleon projector bug
     - state: pancakes4
       map: ["pancakes4"]
       visible: false
@@ -277,7 +277,7 @@
     layers:
     - state: pancakesbb1
       map: ["pancakesbb1"]
-      visible: false
+      visible: true # WD changed to fix chameleon projector bug
     - state: pancakesbb2
       map: ["pancakesbb2"]
       visible: false
@@ -309,7 +309,7 @@
     layers:
     - state: pancakescc1
       map: ["pancakescc1"]
-      visible: false
+      visible: true # WD changed to fix chameleon projector bug
     - state: pancakescc2
       map: ["pancakescc2"]
       visible: false
