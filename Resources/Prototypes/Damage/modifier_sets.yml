@@ -241,10 +241,10 @@
 # in relation to how they cause bleed rate.
 - type: damageModifierSet
   id: BloodlossHuman
-  coefficients:
-    Blunt: 0.05
-    Slash: 0.25
-    Piercing: 0.2
+  coefficients: # WD edit alert!! Weapons rebalanced - only slash and piercing damage should cast bleeding
+    Blunt: 0.0
+    Slash: 0.45 # WD
+    Piercing: 0.3 # WD
     Shock: 0.0
     Cold: 0.0
     Heat: -0.5 # heat damage cauterizes wounds, but will still hurt obviously.

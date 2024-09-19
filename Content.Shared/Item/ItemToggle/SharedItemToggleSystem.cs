@@ -1,3 +1,4 @@
+using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
@@ -23,6 +24,8 @@ public abstract class SharedItemToggleSystem : EntitySystem
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
+    [Dependency] private readonly SharedItemSystem _item = default!; // WD
+
     public override void Initialize()
     {
         base.Initialize();
@@ -35,6 +38,9 @@ public abstract class SharedItemToggleSystem : EntitySystem
         SubscribeLocalEvent<ItemToggleHotComponent, IsHotEvent>(OnIsHotEvent);
 
         SubscribeLocalEvent<ItemToggleActiveSoundComponent, ItemToggledEvent>(UpdateActiveSound);
+
+        SubscribeLocalEvent<ItemToggleComponent, ExaminedEvent>(OnExamined); // WD
+        SubscribeLocalEvent<ItemToggleComponent, ItemToggledEvent>(UpdatePrefix); // WD
     }
 
     private void OnStartup(Entity<ItemToggleComponent> ent, ref ComponentStartup args)
@@ -255,4 +261,21 @@ public abstract class SharedItemToggleSystem : EntitySystem
             activeSound.PlayingStream = _audio.Stop(activeSound.PlayingStream);
         }
     }
+
+    // WD added start
+    private void OnExamined(Entity<ItemToggleComponent> ent, ref ExaminedEvent args)
+    {
+        var onMsg = IsActivated(ent.Owner)
+            ? Loc.GetString(ent.Comp.ActivatedDescription)
+            : Loc.GetString(ent.Comp.DeactivatedDescription);
+
+        args.PushMarkup(onMsg);
+    }
+
+    private void UpdatePrefix(Entity<ItemToggleComponent> ent, ref ItemToggledEvent args)
+    {
+        _item.SetHeldPrefix(ent.Owner, args.Activated ? "on" : "off");
+    }
+
+    // WD added end
 }

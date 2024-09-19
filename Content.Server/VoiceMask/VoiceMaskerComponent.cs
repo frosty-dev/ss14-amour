@@ -7,7 +7,7 @@ namespace Content.Server.VoiceMask;
 public sealed partial class VoiceMaskerComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField]
-    public string LastSetName = "Unknown";
+    public string LastSetName = "Неизвестный"; // WD translate
 
     [ViewVariables(VVAccess.ReadWrite)]
     public string? LastSetVoice; // tts

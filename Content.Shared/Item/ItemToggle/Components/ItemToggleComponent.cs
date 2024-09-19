@@ -51,6 +51,14 @@ public sealed partial class ItemToggleComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public bool ToggleLight = true;
+
+    // WD added start
+    [DataField]
+    public string ActivatedDescription = "comp-item-toggle-on"; // fallback/standard text
+
+    [DataField]
+    public string DeactivatedDescription = "comp-item-toggle-off"; // fallback/standard text
+    // WD added end
 }
 
 /// <summary>

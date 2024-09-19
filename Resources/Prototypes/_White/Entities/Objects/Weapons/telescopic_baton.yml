@@ -4,7 +4,6 @@
   name: telescopic baton
   description: A compact yet robust personal defense weapon. Can be concealed when folded.
   components:
-  - type: TelescopicBaton
   - type: Sprite
     sprite: White/Objects/Weapons/telebaton.rsi
     layers:
@@ -23,6 +22,8 @@
       path: /Audio/Weapons/telescopicoff.ogg
       params:
         volume: -5
+    activatedDescription: comp-telebaton-examined-on
+    deactivatedDescription: comp-telebaton-examined-off
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -64,3 +65,4 @@
       - Belt
   - type: StaticPrice
     price: 150
+  - type: KnockDownOnHit

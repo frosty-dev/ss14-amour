@@ -48,7 +48,7 @@ public sealed partial class MeleeThrowOnHitComponent : Component
     [AutoNetworkedField]
     public bool Enabled = true;
 
-    // WD START
+    // WD added
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public float StunTime;
@@ -56,7 +56,15 @@ public sealed partial class MeleeThrowOnHitComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public bool ThrowOnThrowHit;
-    // WD END
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
+    public bool FallAfterHit;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
+    public bool RequireWield = true;
+    // WD added
 }
 
 /// <summary>
