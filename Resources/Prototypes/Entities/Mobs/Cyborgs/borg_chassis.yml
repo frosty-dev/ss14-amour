@@ -27,8 +27,6 @@
     name: cyborg
   - type: Construction
     node: cyborg
-  - type: Speech # WD
-    speechSounds: BorgUpgraded
   - type: InteractionPopup
     interactSuccessString: petting-success-generic-cyborg
     interactFailureString: petting-failure-generic-cyborg
