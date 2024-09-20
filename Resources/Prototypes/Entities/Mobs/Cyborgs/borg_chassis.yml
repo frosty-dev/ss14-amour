@@ -27,6 +27,8 @@
     name: cyborg
   - type: Construction
     node: cyborg
+  - type: Speech # WD
+    speechSounds: BorgUpgraded
   - type: InteractionPopup
     interactSuccessString: petting-success-generic-cyborg
     interactFailureString: petting-failure-generic-cyborg
@@ -88,6 +90,8 @@
     access: [["Cargo"], ["Salvage"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgTall
+  - type: Speech # WD
+    speechSounds: BorgUpgraded
   - type: InteractionPopup
     interactSuccessString: petting-success-salvage-cyborg
     interactFailureString: petting-failure-salvage-cyborg
@@ -141,6 +145,8 @@
     access: [["Engineering"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgShort
+  - type: Speech # WD
+    speechSounds: BorgUpgraded
   - type: InteractionPopup
     interactSuccessString: petting-success-engineer-cyborg
     interactFailureString: petting-failure-engineer-cyborg
@@ -202,6 +208,8 @@
     access: [["Service"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgShort
+  - type: Speech # WD
+    speechSounds: BorgUpgraded
   - type: InteractionPopup
     interactSuccessString: petting-success-janitor-cyborg
     interactFailureString: petting-failure-janitor-cyborg
@@ -276,6 +284,8 @@
       params:
         variation: 0.1
         volume: -13
+  - type: Speech # WD
+    speechSounds: BorgUpgraded
   - type: InteractionPopup
     interactSuccessString: petting-success-medical-cyborg
     interactFailureString: petting-failure-medical-cyborg
@@ -329,6 +339,8 @@
     access: [["Service"], ["Command"], ["Research"]]
   - type: Inventory
     templateId: borgTall
+  - type: Speech # WD
+    speechSounds: BorgUpgraded
   - type: InteractionPopup
     interactSuccessString: petting-success-service-cyborg
     interactFailureString: petting-failure-service-cyborg
