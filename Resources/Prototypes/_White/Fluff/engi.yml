@@ -1,0 +1,14 @@
+# WD Engi Exclusive
+#Rikka
+- type: entity
+  parent: BasePlushie
+  id: PlushieRikkaFluff
+  name: плюшевая Аврора
+  description: Теперь бесит компактнее.
+  suffix: fluff
+  components:
+  - type: Sprite
+    sprite: White/Fluff/_Engi/Rikka/rikka-plushie.rsi
+    state: icon
+  - type: Item
+    size: Normal
