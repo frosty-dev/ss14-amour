@@ -19,10 +19,13 @@ using Robust.Shared.Utility;
 using Content.Shared.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Body.Components;
-using Content.Server.Speech.EntitySystems;
 using Content.Server.Speech.Components;
-// WD Engi Exclusive
+
 namespace Content.Server._White.Other.Suhariki;
+
+/// <summary>
+/// WD Engi Exclusive.
+/// </summary>
 public sealed class SuharikiSystem : EntitySystem
 {
     [Dependency] private readonly PopupSystem _popup = default!;

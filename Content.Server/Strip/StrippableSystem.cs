@@ -136,7 +136,7 @@ namespace Content.Server.Strip
             }
             // WD EDIT END
 
-            // WD ENGI EXCLUSIVE START EDIT
+            // WD ENGI EXCLUSIVE EDIT START
             if (args.Slot == "ears" && TryComp(strippable, out PreventStrippingFromEarsComponent? _))
             {
                 var message = Loc.GetString("buckethelmet-cant-strip");

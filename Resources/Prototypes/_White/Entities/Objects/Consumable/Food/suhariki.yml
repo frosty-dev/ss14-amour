@@ -1,4 +1,5 @@
-- type: entity # WD Engi Exclusive
+# WD Engi Exclusive
+- type: entity
   parent: BaseItem
   id: FoodSnackSuhariki
   name: suhariki

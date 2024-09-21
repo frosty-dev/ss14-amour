@@ -1,14 +1,14 @@
 using Content.Shared.Inventory.Events;
 using Content.Shared._White.BucketHelmet;
-// WD Engi Exclusive
+
 namespace Content.Server._White.BucketHelmet;
 
 /// <summary>
 /// This handles placemet of PreventStrippingFromEarsComponent when bucket helmet is in use.
+/// WD Engi Exclusive.
 /// </summary>
 public sealed class BucketHelmetSystem : EntitySystem
 {
-    /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<BucketHelmetComponent, GotEquippedEvent>(OnGotEquipped);

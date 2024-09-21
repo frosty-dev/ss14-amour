@@ -1,4 +1,5 @@
-- type: entity # WD Engi Exclusive
+# WD Engi Exclusive
+- type: entity
   parent: ClothingOuterArmorBasic
   id: ClothingOuterArmorReflectiveGhetto
   name: makeshift reflective vest

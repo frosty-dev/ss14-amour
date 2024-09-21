@@ -3,9 +3,13 @@ using Content.Shared.Damage;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Audio;
-// WD Engi Exclusive
+
 namespace Content.Server._White.Other.Suhariki;
 
+/// <summary>
+/// Makes you loose your tooth and have funny accent.
+/// WD Engi Exclusive.
+/// </summary>
 [RegisterComponent, Access(typeof(SuharikiSystem))]
 public sealed partial class SuharikiComponent : Component
 
@@ -32,13 +36,13 @@ public sealed partial class SuharikiComponent : Component
     /// <summary>
     /// The prototype that will be spawned on event.
     /// </summary>
-    [DataField("holdingPrototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>)), ViewVariables(VVAccess.ReadWrite)]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>)), ViewVariables(VVAccess.ReadWrite)]
     public string HoldingPrototype = "SuharikiTooth";
 
     /// <summary>
     /// Emote triggered on event.
     /// </summary>
-    [DataField("emote", customTypeSerializer: typeof(PrototypeIdSerializer<EmotePrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EmotePrototype>))]
     public string EmoteId = "Scream";
 
     /// <summary>

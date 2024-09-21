@@ -1,8 +1,11 @@
 using Robust.Shared.Timing;
 using Content.Shared.Inventory.Events;
-// WD Engi Exclusive
+
 namespace Content.Shared.DamageableClothing;
 
+/// <summary>
+/// WD Engi Exclusive.
+/// </summary>
 public sealed partial class DamageableClothingSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;

@@ -1,7 +1,10 @@
 using Content.Shared.Damage;
-// WD Engi Exclusive
+
 namespace Content.Shared.DamageableClothing;
 
+/// <summary>
+/// WD Engi Exclusive.
+/// </summary>
 public sealed partial class DamageableClothingSystem
 {
     [Dependency] private readonly DamageableSystem _damageable = default!;
