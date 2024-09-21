@@ -21,6 +21,8 @@ public abstract partial class SharedBorgSystem : EntitySystem
     [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] protected readonly ItemSlotsSystem ItemSlots = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
+    [Dependency] protected readonly IRobustRandom RobustRandom = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -40,12 +42,13 @@ public abstract partial class SharedBorgSystem : EntitySystem
 
     private void RandomTTS(EntityUid uid, SharedTTSComponent component, ComponentStartup args)
     {
-        if (TryComp<BorgChassisComponent>(uid, out var borgChassis) && borgChassis.Initialized)
-        {
-            var voices = IoCManager.Resolve<IPrototypeManager>().EnumeratePrototypes<TTSBorgVoicePrototype>().ToList();
-            var voice = IoCManager.Resolve<IRobustRandom>().Pick(voices);
-            component.VoicePrototypeId = voice.ID;
-        }
+        if (TryComp<BorgChassisComponent>(uid, out _))
+            return;
+
+        var voiceList = PrototypeManager.EnumeratePrototypes<TTSBorgVoicePrototype>().ToHashSet();
+        var voice = RobustRandom.Pick(voiceList);
+        component.VoicePrototypeId = voice.ID;
+
     }
 
     private void OnItemSlotInsertAttempt(EntityUid uid, BorgChassisComponent component, ref ItemSlotInsertAttemptEvent args)
