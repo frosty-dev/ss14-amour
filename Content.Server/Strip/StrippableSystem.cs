@@ -22,6 +22,7 @@ using Content.Shared._White.MagGloves;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Content.Shared._White.BucketHelmet;
 
 namespace Content.Server.Strip
 {
@@ -134,6 +135,16 @@ namespace Content.Server.Strip
                 return;
             }
             // WD EDIT END
+
+            // WD ENGI EXCLUSIVE START EDIT
+            if (args.Slot == "ears" && TryComp(strippable, out PreventStrippingFromEarsComponent? _))
+            {
+                var message = Loc.GetString("buckethelmet-cant-strip");
+                _popupSystem.PopupEntity(message, user, user);
+                return;
+            }
+            // WD ENGI EXCLUSIVE EDIT END
+
 
             if (args.IsHand)
             {

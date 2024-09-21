@@ -1,0 +1,22 @@
+﻿# WD Engi Exclusive
+- type: constructionGraph
+  id: ClothingHeadBucketHelmet
+  start: start
+  graph:
+    - node: start
+      entity: Bucket
+      edges:
+        - to: helmet
+          conditions:
+          - !type:SolutionEmpty
+            solution: bucket
+          steps:
+            - tool: Cutting
+              doAfter: 5
+    - node: helmet
+      entity: ClothingHeadBucketHelmet
+      edges:
+      - to: start
+        steps:
+        - tool: Welding
+          doAfter: 5
