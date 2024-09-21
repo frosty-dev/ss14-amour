@@ -594,6 +594,8 @@
           prob: 0.10
         - id: BarberScissors
           prob: 0.05
+        - id: FoodSnackSuhariki # WD Engi Exclusive
+          prob: 0.10
         # Syndicate loot
         - id: null
           prob: 0.95
