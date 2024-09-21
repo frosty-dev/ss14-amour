@@ -120,3 +120,7 @@
 
 - type: Tag
   id: VoiceActivatedBombImplant
+
+# WD Engi Exclusive
+- type: Tag
+  id: MirrorShieldGhetto
