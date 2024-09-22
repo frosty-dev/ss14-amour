@@ -224,3 +224,36 @@ ghost-role-information-syndicate-reinforcement-rules = Действуют обы
 ghost-role-information-syndicate-monkey-reinforcement-name = Агент-обезьяна Синдиката
 ghost-role-information-syndicate-monkey-reinforcement-description = Кому-то нужно подкрепление. Вы, специально обученная обезьяна, поможете им.
 ghost-role-information-syndicate-monkey-reinforcement-rules = Действуют обычные правила антагонистов Синдиката. Работайте с тем, кто вас вызвал, и не причиняйте ему вреда.
+
+ghost-role-information-lost-cargo-technical-name = Потерянный Грузчик
+ghost-role-information-lost-cargo-technical-description = Что-то пошло не так и ваш грузовой шаттл с товарами был переправлен в сектор другой станции.
+ghost-role-information-lost-cargo-technical-rules = Вы обычный грузчик с другой станции. Делай то, что делают обычные грузчики.
+
+ghost-role-information-clown-troupe-name = Космический Клоун
+ghost-role-information-clown-troupe-description = Вы и ваша труппа прилетели поднять настроение этой станции своими лучшими шутками. Хонк!
+ghost-role-information-clown-troupe-rules = Действуют обычные правила для персонала станции.
+
+ghost-role-information-traveling-chef-name = Путешествующий Повар
+ghost-role-information-traveling-chef-description = Вы шеф-повар на путешествующем шаттле экзотической кухни. Порадуйте станцию ​​вкусной едой!
+ghost-role-information-traveling-chef-rules = Действуют обычные правила для персонала станции.
+
+ghost-role-information-disaster-victim-name = Потерпевший Бедствие
+ghost-role-information-disaster-victim-description = Вы спаслись в эвакуационной капсуле с другой станции, потерпевшей ужасную трагедию. Возможно, вас найдут и спасут.
+ghost-role-information-disaster-victim-rules = Действуют обычные правила для персонала станции.
+
+ghost-role-information-syndie-disaster-victim-name = Потерпевший Бедствие Синдикат
+ghost-role-information-syndie-disaster-victim-description = Вы обычный рабочий со станции синдиката. К сожалению, эвакуационная капсула забросила вас во вражеский сектор...
+ghost-role-information-syndie-disaster-victim-rules = Действуют обычные правила для персонала станции. Вы [color=red]НЕ[/color] антагонист.
+
+ghost-role-information-syndicate-kobold-reinforcement-name = Агент-кобольд Синдиката
+ghost-role-information-syndicate-kobold-reinforcement-description = Кому-то нужно подкрепление. Вы, специально обученный кобольд, поможете им.
+ghost-role-information-syndicate-kobold-reinforcement-rules = Действуют обычные правила антагонистов Синдиката. Работайте с тем, кто вас вызвал, и не причиняйте ему вреда.
+
+ghost-role-information-artifact-name = Разумный Артефакт
+ghost-role-information-artifact-description =
+      Воплотите в жизнь свои сверхъестественные прихоти.
+      Принудительно активируйте свои узлы во благо или во зло.
+
+
+ghost-role-information-gnome-name = Садовый Гном
+ghost-role-information-gnome-description = Вы — доверенный хранитель сада станции, следите за безопасностью своих владений.
