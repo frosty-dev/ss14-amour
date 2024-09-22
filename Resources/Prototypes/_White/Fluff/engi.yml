@@ -1,4 +1,14 @@
 # WD Engi Exclusive
+
+#BIG_Zi_348
+- type: customGhost
+  id: big_zi_348-ghost
+  ckey: BIG_Zi_348
+  sprite: White/Fluff/_Engi/BIG_Zi_348/big_zi_348-ghost.rsi
+  alpha: 0.9
+  ghostName: BIG_Zi_348
+  ghostDescription: Как хорошо быть кем-то в этой жизни.
+
 #Rikka
 - type: entity
   parent: BasePlushie
