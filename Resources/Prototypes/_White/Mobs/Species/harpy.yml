@@ -44,6 +44,8 @@
         type: SpellSelectorBUI
       enum.CultEmpowerRemoveUiKey.Key:
         type: SpellRemoverBUI
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
       # WD-EDIT END
   - type: Sprite
     scale: 0.9, 0.9
