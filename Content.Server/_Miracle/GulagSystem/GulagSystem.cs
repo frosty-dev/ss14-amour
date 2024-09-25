@@ -135,7 +135,7 @@ public sealed partial class GulagSystem : SharedGulagSystem
             return;
         }
 
-        if (ev.Primary is not KillPlayerSource source || ev.Suicide)
+        if (ev.Primary is not KillPlayerSource source)
         {
             return;
         }
