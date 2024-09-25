@@ -41,9 +41,6 @@
 
                                 <info:LinkBanner Name="LinkBanner" VerticalExpand="True" HorizontalAlignment="Center" />
 
-                                <Button Name="AHelpButton" Access="Public" Text="{Loc 'ui-lobby-ahelp-button'}"
-                                        StyleClasses="Button" />
-
                             </BoxContainer>
 
                         </BoxContainer>
@@ -97,6 +94,12 @@
                                 Name="OptionsButton"
                                 Access="Public"
                                 ButtonText="Options"
+                                Margin="0 10 0 10" />
+
+                            <buttons:OhioLobbyTextButton
+                                Name="AHelpButton"
+                                Access="Public"
+                                ButtonText="AHelp"
                                 Margin="0 10 0 10" />
 
                             <buttons:OhioLobbyTextButton
