@@ -38,7 +38,7 @@ public sealed class WhiteCVars
     */
 
     public static readonly CVarDef<string> RulesWiki =
-        CVarDef.Create("white.wiki_rules", "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        CVarDef.Create("white.wiki_rules", "https://wiki.ss14.su/rules",
             CVar.SERVER | CVar.REPLICATED);
 
     /*
