@@ -196,13 +196,14 @@
   description: Groovy! Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
+    sprite: White/Objects/Weapons/Guns/Shotguns/sawn_shotgun-icons.rsi
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
+    sprite: White/Objects/Weapons/Guns/Shotguns/sawn_shotgun-inhands.rsi
   - type: Item
     size: Small
-    sprite: Objects/Weapons/Guns/Shotguns/inhands_64x.rsi
-    heldPrefix: sawn
+    shape: # WD
+    - 0,0,1,0
+    sprite: White/Objects/Weapons/Guns/Shotguns/sawn_shotgun-inhands.rsi
   - type: Gun
     fireRate: 2
   - type: BallisticAmmoProvider

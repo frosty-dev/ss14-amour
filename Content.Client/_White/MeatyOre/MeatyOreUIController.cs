@@ -61,7 +61,7 @@ public sealed class MeatyOreUIController : UIController
 
         var controlledEntity = _playerManager.LocalPlayer!.ControlledEntity;
 
-        if (controlledEntity == null)
+        if (!controlledEntity.HasValue)
             return false;
 
         if (!_entityManager.HasComponent<HumanoidAppearanceComponent>(controlledEntity))
