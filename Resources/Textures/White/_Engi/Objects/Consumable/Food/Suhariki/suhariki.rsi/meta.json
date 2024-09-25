@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "deadisko and BIG_Zi_348",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "suhariki"
+    },
+    {
+      "name": "suhariki-trash"
+    },
+    {
+      "name": "suhariki-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "suhariki-inhand-left",
+      "directions": 4
+    }
+  ]
+}

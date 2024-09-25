@@ -1,0 +1,26 @@
+﻿# WD Engi Exclusive
+- type: construction
+  name: самодельный зеркальный щит
+  id: MirrorShieldGhetto
+  graph: MirrorShieldGhetto
+  startNode: start
+  targetNode: shield
+  category: construction-category-weapons
+  objectType: Item
+  description: Сделанное на скорую руку зеркало с рукояткой для использования как сомнительная защита от лазеров.
+  icon:
+    sprite: White/_Engi/Objects/Weapons/ghetto_mirror_shield.rsi
+    state: icon
+
+- type: construction
+  name: самодельный отражающий жилет
+  id: ClothingOuterArmorReflectiveGhetto
+  graph: ClothingOuterArmorReflectiveGhetto
+  startNode: start
+  targetNode: vest
+  category: construction-category-clothing
+  objectType: Item
+  description: Два зеркала соединённые проводами для сомнительной защиты от лазеров.
+  icon:
+    sprite: White/_Engi/Clothing/OuterClothing/armor_reflect_ghetto.rsi
+    state: icon
