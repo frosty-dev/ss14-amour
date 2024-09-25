@@ -139,6 +139,9 @@
           prob: 0.05
         - id: Soap
           prob: 0.10
+        - id: null # WD tweak to decrease this plushie spawn
+          prob: 0.65
+          orGroup: carp
         - id: PlushieCarp
           prob: 0.2
           orGroup: carp
@@ -220,6 +223,19 @@
         - id: WeaponSniperMosin
           prob: 0.0010
           orGroup: syndiemaintloot
+        # StockParts - WD Edit
+        - id: null
+          prob: 0.65
+          orGroup: stockparts
+        - id: MatterBinStockPart
+          prob: 0.15
+          orGroup: stockparts
+        - id: MicroManipulatorStockPart
+          prob: 0.15
+          orGroup: stockparts
+        - id: CapacitorStockPart
+          prob: 0.15
+          orGroup: stockparts
         # Materials - WD Edit
         - id: null
           prob: 0.88
@@ -615,6 +631,19 @@
         - id: WeaponSniperMosin
           prob: 0.0010
           orGroup: syndiemaintloot
+        # StockParts - WD Edit
+        - id: null
+          prob: 0.65
+          orGroup: stockparts
+        - id: MatterBinStockPart
+          prob: 0.15
+          orGroup: stockparts
+        - id: MicroManipulatorStockPart
+          prob: 0.15
+          orGroup: stockparts
+        - id: CapacitorStockPart
+          prob: 0.15
+          orGroup: stockparts
         # Materials - WD Edit
         - id: null
           prob: 0.88
