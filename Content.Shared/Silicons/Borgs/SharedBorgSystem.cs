@@ -1,4 +1,5 @@
-﻿using Content.Shared.Access.Components;
+﻿using System.Linq;
+using Content.Shared._White.TTS;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
@@ -7,6 +8,8 @@ using Content.Shared.PowerCell.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Wires;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Shared.Silicons.Borgs;
 
@@ -18,6 +21,10 @@ public abstract partial class SharedBorgSystem : EntitySystem
     [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] protected readonly ItemSlotsSystem ItemSlots = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
+    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!; // Giedi EDIT
+    [Dependency] protected readonly IRobustRandom RobustRandom = default!; // Giedi EDIT
+
+    private HashSet<TTSVoicePrototype> _voices = new ();
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -31,8 +38,32 @@ public abstract partial class SharedBorgSystem : EntitySystem
         SubscribeLocalEvent<BorgChassisComponent, EntRemovedFromContainerMessage>(OnRemoved);
         SubscribeLocalEvent<BorgChassisComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
 
+        // WD edit
+        SubscribeLocalEvent<SharedTTSComponent, ComponentStartup>(EnsureRandomTTS);
+
         InitializeRelay();
+        GenerateVoiceList(); // WD edit
     }
+
+    // Giedi added
+    private void EnsureRandomTTS(EntityUid uid, SharedTTSComponent component, ComponentStartup args)
+    {
+        if (!HasComp<BorgChassisComponent>(uid))
+            return;
+
+        var voiceId = RobustRandom.Pick(_voices);
+
+        component.VoicePrototypeId = voiceId.ID;
+        Dirty(uid, component);
+    }
+
+    private void GenerateVoiceList()
+    {
+        _voices = PrototypeManager.EnumeratePrototypes<TTSVoicePrototype>()
+            .Where(x => x.BorgVoice)
+            .ToHashSet();
+    }
+    // Giedi added
 
     private void OnItemSlotInsertAttempt(EntityUid uid, BorgChassisComponent component, ref ItemSlotInsertAttemptEvent args)
     {
