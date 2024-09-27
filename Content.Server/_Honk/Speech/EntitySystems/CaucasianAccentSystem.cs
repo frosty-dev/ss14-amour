@@ -22,6 +22,7 @@ public sealed class CaucasianAccentSystem : EntitySystem
 
         message = _replacement.ApplyReplacements(message, "caucasian");
 
+        var temp = @"";
         var words = message.Split();
         var rnd = new Random();
         if (words.Length > 2)
@@ -30,6 +31,37 @@ public sealed class CaucasianAccentSystem : EntitySystem
             if (value == 1)
                 message = message + @" ежжи брат!";
         }
+        words = message.Split();
+        for (var i = 0; i < words.Length; i++)
+        {
+            if (words[i] == @"нт" || words[i] == @"Нт" || words[i] == @"НТ")
+            {
+                if (words[i] != @"НТ")
+                    words[i] = words[i].Replace(words[i], @"Халифат");
+                else
+                    words[i] = words[i].Replace(words[i], @"ХАЛИФАТ");
+            }
+            if (words[i] == @"вау")
+                words[i] = words[i].Replace(words[i], @"ой вей");
+            if (words[i] == @"Вау")
+                words[i] = words[i].Replace(words[i], @"Ой вей");
+            if (words[i] == @"брат")
+                words[i] = words[i].Replace(words[i], @"ежжи брат");
+            if (words[i] == @"Брат")
+                words[i] = words[i].Replace(words[i], @"Ежжи брат");
+            if (words[i] == @"Бог" || words[i] == @"бог")
+                words[i] = words[i].Replace(words[i], @"Аллах");
+            if (words[i] == @"Богу" || words[i] == @"богу")
+                words[i] = words[i].Replace(words[i], @"Аллаху");
+            if (words[i] == @"Бога" || words[i] == @"бога")
+                words[i] = words[i].Replace(words[i], @"Аллаха");
+            if (i != words.Length - 1)
+                temp = temp + words[i] + @" ";
+            else
+                temp = temp + words[i];
+        }
+        message = temp;
+        temp = @"";
 
         message = Regex.Replace(message, @"Свинья", "Хиндзир");
 
@@ -83,10 +115,6 @@ public sealed class CaucasianAccentSystem : EntitySystem
         message = Regex.Replace(message, @"Можно", "Халял");
         message = Regex.Replace(message, @"можно", "халял");
 
-        message = Regex.Replace(message, @" Нт ", " Халифат ");
-        message = Regex.Replace(message, @" нт ", " халифат ");
-        message = Regex.Replace(message, @" Нт, ", " Халифат ");
-        message = Regex.Replace(message, @" нт, ", " халифат ");
         message = Regex.Replace(message, @"Нанотрайзен", "Халифат");
         message = Regex.Replace(message, @"нанотрайзен", "халифат");
 
@@ -108,18 +136,6 @@ public sealed class CaucasianAccentSystem : EntitySystem
 
         message = Regex.Replace(message, @"Спасибо", "Альхамдуллиля");
         message = Regex.Replace(message, @"спасибо", "альхамдуллиля");
-
-        message = Regex.Replace(message, @" Брат ", " Ежжи ахи ");
-        message = Regex.Replace(message, @" брат ", " ежжи ахи ");
-
-        message = Regex.Replace(message, @" Боги ", " Аллах ");
-        message = Regex.Replace(message, @" боги ", " Аллах ");
-        message = Regex.Replace(message, @" Бога ", " Аллаха ");
-        message = Regex.Replace(message, @" бога ", " Аллаха ");
-        message = Regex.Replace(message, @" Богу ", " Аллаху ");
-        message = Regex.Replace(message, @" богу ", " Аллаху ");
-        message = Regex.Replace(message, @" Бог ", " Аллах ");
-        message = Regex.Replace(message, @" бог ", " Аллах ");
 
         message = Regex.Replace(message, @"Л", "Ль");
         message = Regex.Replace(message, @"л", "ль");

@@ -22,6 +22,7 @@ public sealed class JewishAccentSystem : EntitySystem
 
         message = _replacement.ApplyReplacements(message, "jewish");
 
+        var temp = @"";
         var words = message.Split();
         var rnd = new Random();
         var value = 0;
@@ -29,37 +30,41 @@ public sealed class JewishAccentSystem : EntitySystem
         {
             if (words.Length >= 4)
             {
-                value = rnd.Next(0, words.Length);
-                var temp = @"";
-                for (int i = 0; i < words.Length; i++)
-                {
-                    temp = temp + words[i] + " ";
-                    if (i == value)
-                    {
-                        temp = temp + @"дай шекелей ";
-                    }
-                }
-                message = temp;
-            }
-            value = rnd.Next(0, 2);
-            if (value == 1)
-            {
-                words = message.Split();
-                words[0].ToLower();
-                message = @"Таки " + message;
+                value = rnd.Next(0, 2);
+                if (value == 1)
+                    message = message + @" дай шекелей!";
             }
         }
-        message = Regex.Replace(message, @"Привет", "шалом ");
-        message = Regex.Replace(message, @"привет", "Шалом ");
-
-        message = Regex.Replace(message, @"Здравствуйте", "Шалом ходячий кошелёк");
-        message = Regex.Replace(message, @"здравствуйте", "шалом ходячий кошелёк");
-        message = Regex.Replace(message, @"Здравствуй", "Шалом ходячий кошелёк");
-        message = Regex.Replace(message, @"здравствуй", "шалом ходячий кошелёк");
-
-        message = Regex.Replace(message, @" плати ", " отдай шекели ");
-
-        message = Regex.Replace(message, @" вау ", " ой вей ");
+        words = message.Split();
+        for (var i = 0; i < words.Length; i++)
+        {
+            if (words[i] == @"Здравствуйте" || words[i] == @"Здравствуй")
+                words[i] = words[i].Replace(words[i], "Шалом ходячий кошелёк");
+            if (words[i] == @"здравствуйте" || words[i] == @"здравствуй")
+                words[i] = words[i].Replace(words[i], "шалом ходячий кошелёк");
+            if (words[i] == "да")
+                words[i] = words[i].Replace(words[i], "таки да");
+            if (words[i] == "да")
+                words[i] = words[i].Replace(words[i], "таки да");
+            if (words[i] == "Да")
+                words[i] = words[i].Replace(words[i], "Таки да");
+            if (words[i] == "вау")
+                words[i] = words[i].Replace(words[i], "ой вей");
+            if (words[i] == "Вау")
+                words[i] = words[i].Replace(words[i], "Ой вей");
+            if (words[i] == "Плати")
+                words[i] = words[i].Replace(words[i], "Отдай шекели");
+            if (words[i] == "плати")
+                words[i] = words[i].Replace(words[i], "отдай шекели");
+            if (i != words.Length - 1)
+                temp = temp + words[i] + @" ";
+            else
+                temp = temp + words[i];
+        }
+        message = temp;
+        temp = @"";
+        message = Regex.Replace(message, @"Привет", "шалом");
+        message = Regex.Replace(message, @"привет", "Шалом");
 
         message = Regex.Replace(message, @"Р", "Л");
         message = Regex.Replace(message, @"р", "л");
