@@ -12,5 +12,7 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: PelletShotgunResinShot
+    count: 4
+    spread: 7
   - type: SpentAmmoVisuals
     state: "resin"
