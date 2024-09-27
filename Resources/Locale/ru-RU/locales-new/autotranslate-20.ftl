@@ -1,5 +1,5 @@
 ent-FatExtractorMachineCircuitboard = машинная плата для извлечения липидов
-   .desc = ""
+   .desc = Машинная печатная плата для извлечения липидов
 ent-CargoTelepadMachineCircuitboard = машинная плата грузового телепада
    .desc = Машинная печатная плата для грузового телепада.
 ent-SalvageMagnetMachineCircuitboard = машинная плата для утилизационных магнитов

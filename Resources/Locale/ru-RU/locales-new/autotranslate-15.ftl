@@ -1,15 +1,10 @@
 ent-MobArachnid = Урист МакПаутина
-   .desc = ""
 ent-BaseMobDragon = космо-дракон
    .desc = Летающий левиафан, слабо связанный с космическими карпами.
 ent-MobHumanLoneNuclearOperative = одинокий оперативник
-   .desc = ""
 ent-MobHumanScrambled = взбаламученный человек
-   .desc = ""
 ent-MobSkrellSyndicateAgent = Скрелл-синдикатовец
-   .desc = ""
 ent-BaseMobArachnid = Урист МакПаутина
-   .desc = ""
 ent-MobArachnidDummy = Урист МакПлюш
    .desc = Фиктивный арахнид, предназначенный для использования при настройке персонажа.
 ent-DrinkCogChampBase = стакан кончемпа

@@ -1,5 +1,5 @@
 ent-ClothingHeadHatBlacksoftFlipped = черная кепка
-   .desc = "черная кепка"
+   .desc = черная кепка
 ent-ClothingMaskBandBlack = черная бандана
    .desc = Черная бандана, чтобы ты выглядел круто.
 ent-ClothingMaskBandBlue = синяя бандана
@@ -21,7 +21,7 @@ ent-ClothingMaskBandMerc = бандана наемника
 ent-ClothingMaskBandBrown = коричневая бандана
    .desc = Коричневая бандана, чтобы ты выглядел круто.
 ent-ClothingMaskClownBanana = парик и маска бананового клоуна
-   .desc = "парик и маска бананового клоуна"
+   .desc = парик и маска бананового клоуна
 ent-ClothingMaskNinja = маска ниндзя
    .desc = Плотно прилегающая нано-улучшенная маска, которая служит как воздушным фильтром, так и постмодернистским модным заявлением.
 ent-ClothingMaskWeldingGas = сварочная маска

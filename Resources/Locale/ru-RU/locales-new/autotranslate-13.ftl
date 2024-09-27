@@ -1,9 +1,6 @@
 ent-RandomVendingDrinks = Спавнер случайного вендомата напитков
-   .desc = ""
 ent-RandomVendingSnacks = Спавнер случайного ведомата закусок
-   .desc = ""
 ent-MobBoxingKangaroo = кенгуру-боксёр
-   .desc = ""
 ent-MobGuidebookMonkey = обезьяна руководства
    .desc = Надеюсь, полезная обезьянка, единственная цель которой в жизни - чтобы вы нажали на нее. Считается ли это за то, что обезьяна дала вам урок?
 ent-MobMonkeySyndicateAgent = обезьяна
