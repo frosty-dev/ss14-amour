@@ -1,0 +1,23 @@
+- type: entity
+  id: CrateBoxesResinShot
+  parent: CrateWeaponSecure
+  name: коробки с резинововой дробью
+  description: много букав, лень читать
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxResinShot
+      amount: 3
+
+- type: entity
+  id: CrateResinShotgun
+  parent: CrateWeaponSecure
+  name: травматический дробовик
+  description: Пиу пиу, чтобы не убить. @СБ Стетхем
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponResinShotgun
+      amount: 1
+    - id: BoxResinShot
+      amount: 2
