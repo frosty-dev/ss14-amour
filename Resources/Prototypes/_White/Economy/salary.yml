@@ -3,6 +3,7 @@
   salaries:
     Captain: 800
     CentralCommandOfficial: 800
+    Inspector: 600
     ChiefEngineer: 600
     ChiefMedicalOfficer: 600
     HeadOfPersonnel: 600
