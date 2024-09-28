@@ -507,6 +507,11 @@
     soundSwing:
       collection: HammerMiss
   - type: DisarmMalus
+  # WD Engi Exclusive start
+  - type: KnockDownOnHit
+    knockDownBehavior: NoDrop
+    knockdownTime: 0.4
+  # WD Engi Exclusive end
 
 # Имеет все инструменты в себе, но работает медленно и почти не наносит урона
 - type: entity
