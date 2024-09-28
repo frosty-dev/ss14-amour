@@ -30,6 +30,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Server._White;
+using Content.Server._White.GuideGenerator;
 using Content.Server._White.JoinQueue;
 using Content.Server._White.Jukebox;
 using Content.Server._White.PandaSocket.Main;
@@ -144,6 +145,15 @@ namespace Content.Server.Entry
                 file.Flush();
                 file = resourceManager.UserData.OpenWriteText(resPath.WithName("react_" + dest));
                 ReactionJsonGenerator.PublishJson(file);
+                file.Flush();
+                file = resourceManager.UserData.OpenWriteText(resPath.WithName("entity_" + dest));
+                EntityJsonGenerator.PublishJson(file);
+                file.Flush();
+                file = resourceManager.UserData.OpenWriteText(resPath.WithName("mealrecipes_" + dest));
+                MealsRecipesJsonGenerator.PublishJson(file);
+                file.Flush();
+                file = resourceManager.UserData.OpenWriteText(resPath.WithName("healthchangereagents_" + dest));
+                HealthChangeReagentsJsonGenerator.PublishJson(file);
                 file.Flush();
                 IoCManager.Resolve<IBaseServer>().Shutdown("Data generation done");
             }
