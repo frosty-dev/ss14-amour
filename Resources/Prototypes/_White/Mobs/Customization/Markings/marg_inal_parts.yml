@@ -1,0 +1,11 @@
+﻿- type: marking
+  id: CatTailMarginal
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, Felinid]
+  sponsorOnly: true
+  sprites:
+    - sprite: White/Mobs/Customization/marg_inal.rsi
+      state: m_waggingtail_leopard_primary
+    - sprite: White/Mobs/Customization/marg_inal.rsi
+      state: m_waggingtail_leopard_tertiary
