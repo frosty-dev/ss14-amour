@@ -1,5 +1,5 @@
-ent-ClothingBackpackERTChaplain = рюкзак капеллана ERT
-   .desc = Просторный рюкзак с множеством карманов, который носят капелланы отряда быстрого реагирования.
+ent-ClothingBackpackERTChaplain = рюкзак капеллана ОБР
+   .desc = Просторный рюкзак с множеством карманов, который носят капелланы Отряда Быстрого Реагирования.
 ent-ClothingBackpackSyndicate = рюкзак синдиката
 ent-ClothingBackpackDebug = странный рюкзак
    .desc = Что за хрень?
