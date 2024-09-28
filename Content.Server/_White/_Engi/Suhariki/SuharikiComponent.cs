@@ -49,5 +49,5 @@ public sealed partial class SuharikiComponent : Component
     /// Sound triggered on event.
     /// </summary>
     [DataField]
-    public SoundSpecifier UseSound { get; set; } = new SoundPathSpecifier("/Audio/White/Object/Misc/Suhariki/tooth_break.ogg");
+    public SoundSpecifier UseSound { get; set; } = new SoundPathSpecifier("/Audio/White/_Engi/Object/Misc/Suhariki/tooth_break.ogg");
 }
