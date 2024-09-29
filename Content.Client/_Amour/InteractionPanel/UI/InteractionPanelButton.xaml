@@ -1,10 +1,9 @@
 <ui:InteractionPanelButton
     xmlns="https://spacestation14.io"
-    xmlns:ui="clr-namespace:Content.Client._Amour.InteractionPanel.UI"
-    xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls">
+    xmlns:ui="clr-namespace:Content.Client._Amour.InteractionPanel.UI">
     <Control Name="ColorControl">
         <BoxContainer HorizontalAlignment="Left">
-            <TextureRect TexturePath="/Textures/Interface/NavMap/beveled_circle.png" Name="Rect" Margin="5 5 5 5"/>
+            <TextureRect TexturePath="/Textures/_Amour/Alerts/arousal.rsi/arousal.png" Name="Rect" Margin="5 5 5 5"/>
             <Label Name="InteractionName" Margin="10 0 15 0"/>
         </BoxContainer>
         <Label Text=">" Margin="5 0 5 0" HorizontalAlignment="Right"/>
