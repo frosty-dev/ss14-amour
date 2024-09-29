@@ -1,5 +1,5 @@
-ent-ClothingBackpackERTChaplain = рюкзак капеллана ERT
-   .desc = Просторный рюкзак с множеством карманов, который носят капелланы отряда быстрого реагирования.
+ent-ClothingBackpackERTChaplain = рюкзак капеллана ОБР
+   .desc = Просторный рюкзак с множеством карманов, который носят капелланы Отряда Быстрого Реагирования.
 ent-ClothingBackpackSyndicate = рюкзак синдиката
 ent-ClothingBackpackDebug = странный рюкзак
    .desc = Что за хрень?
@@ -19,7 +19,7 @@ ent-ClothingBeltAssaultFilled = штурмовой пояс
    .desc = Тактический штурмовой пояс.
    .suffix = Filled
 ent-ClothingHeadsetAltFreelancer = наушники фрилансера
-   .desc = "наушники фрилансера"
+   .desc = наушники фрилансера
 ent-ClothingEyesGlassesJensen = очки Дженсена
    .desc = Пара желтых складных очков. Ты никогда не просил об этом.
 ent-ClothingEyesGlassesJamjar = очки "банка варенья"

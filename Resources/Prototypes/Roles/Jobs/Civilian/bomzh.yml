@@ -18,11 +18,13 @@
   - !type:SpeciesRequirement
     species:
     - Human
+    - Dwarf
   weight: 20
   icon: "JobIconBomzh"
   supervisors: job-supervisors-hop
   whitelistedSpecies:
   - Human
+  - Dwarf
   canBeAntag: true
   access:
   - Maintenance

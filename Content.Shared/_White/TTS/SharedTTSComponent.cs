@@ -1,11 +1,12 @@
-﻿using Robust.Shared.Prototypes;
+﻿using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.TTS;
 
 /// <summary>
 /// Apply TTS for entity chat say messages
 /// </summary>
-[RegisterComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 // ReSharper disable once InconsistentNaming
 public sealed partial class SharedTTSComponent : Component
 {

@@ -1,11 +1,7 @@
 ent-GasMinerOxygenStation = Добытчик газа O2
-   .desc = ""
 ent-GasMinerOxygenStationLarge = Добытчик газа O2
-   .desc = ""
 ent-GasMinerNitrogenStation = Добытчик газа N2
-   .desc = ""
 ent-GasMinerNitrogenStationLarge = Добытчик газа N2
-   .desc = ""
 ent-GasThermoMachineFreezerEnabled = { ent-GasThermoMachineFreezer }
    .desc = { ent-BaseGasThermoMachine.desc }
 ent-GasThermoMachineHeaterEnabled = { ent-GasThermoMachineHeater }

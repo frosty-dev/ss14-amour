@@ -47,7 +47,7 @@
 
 - type: jukebox # WD
   id: AllThatICanSee
-  name: "[NEW] Song - All That I Can See"
+  name: Song - All That I Can See
   path:
     path: /Audio/White/Music/Lobby/Songs/AllThatICanSee.ogg
 
@@ -97,31 +97,31 @@
 
 - type: jukebox # WD
   id: Delirium
-  name: "[NEW] Music - Delirium"
+  name: Music - Delirium
   path:
     path: /Audio/White/Music/Lobby/Music/delirium.ogg
 
 - type: jukebox # WD
   id: MagicFly
-  name: "[NEW] Music - Magic Fly"
+  name: Music - Magic Fly
   path:
     path: /Audio/White/Music/Lobby/Music/magicfly.ogg
 
 - type: jukebox # WD
   id: CrokketTheme
-  name: "[NEW] Music - Crokket theme"
+  name: Music - Crokket theme
   path:
     path: /Audio/White/Music/crokett_39_s_theme.ogg
 
 - type: jukebox # WD
   id: Guts
-  name: "[NEW] Music - Guts"
+  name: Music - Guts
   path:
     path: /Audio/White/Music/guts.ogg
 
 - type: jukebox # WD
   id: VoyageNeverEnding
-  name: "[NEW] Music - Voyage Never Ending"
+  name: Music - Voyage Never Ending
   path:
     path: /Audio/Ambience/voyage_neverending.ogg
 
@@ -130,3 +130,15 @@
   name: Music - Cosmic Temperance
   path:
     path: /Audio/Lobby/White/cosmictemperance.ogg
+
+- type: jukebox # WD
+  id: LibetsDelay
+  name: "[NEW] Music - Libets Delay"
+  path:
+    path: /Audio/White/Music/Lobby/Music/Libets_Delay.ogg
+
+- type: jukebox # WD
+  id: ItsJustABurningMemory
+  name: "[NEW] Music - Its just a burning memory"
+  path:
+    path: /Audio/White/Music/Lobby/Music/Its_just_a_burning_memory.ogg

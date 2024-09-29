@@ -1,5 +1,5 @@
 ent-ClothingShoesBootsCowboyFancy = модные ковбойские сапоги
-   .desc = "модные ковбойские сапоги"
+   .desc = модные ковбойские сапоги
 ent-ClothingShoesSnakeskinBoots = сапоги из змеиной кожи
    .desc = Сапоги из высококачественной змеиной кожи, все вокруг будут завидовать.
 ent-ClothingShoesBootsSpeed = скоростные ботинки
@@ -35,6 +35,6 @@ ent-ClothingUniformJumpsuitChiefEngineerTurtle = водолазка главно
 ent-ClothingUniformJumpsuitCentcomAgent = комбинезон агента ЦенКом
    .desc = Костюм, который носит юридическая команда ЦенКом. Пахнет жженой кофе.
 ent-ClothingUniformJumpsuitClownBanana = банановый костюм клоуна
-   .desc = "банановый костюм клоуна"
+   .desc = банановый костюм клоуна
 ent-ClothingUniformJumpsuitCMOTurtle = водолазка с комбинезоном главного врача
    .desc = Это водолазка, которую носят те, у кого есть опыт работы главным врачом. Она обеспечивает незначительную биологическую защиту.
