@@ -1,5 +1,7 @@
 ent-BaseWhistle = свисток
   .desc = Кто-то явно забыл выключить чайник!
+ent-SecurityWhistle = свисток
+  .desc = От одного звука становится страшно.
 ent-TurboItemRecharger = турбо зарядник
   .desc = Может заряжать батарейки и оружие с повышенной скоростью.
 ent-GasThermoMachineHellfireFreezer = улучшенный охладитель

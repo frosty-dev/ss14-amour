@@ -25,3 +25,5 @@ ent-ClothingBeltMilitaryWebbingMedFilled = { ent-ClothingBeltMilitaryWebbingMed 
 ent-ClothingBeltWandFilled = { ent-ClothingBeltWand }
     .suffix = Заполненный
     .desc = { ent-ClothingBeltWand.desc }
+ent-ClothingBeltUtilityEngineering = { ent-ClothingBeltUtility }
+    .desc = { ent-ClothingBeltUtility.desc }

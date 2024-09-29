@@ -1,6 +1,9 @@
 trait-blindness-name = Слепота
 trait-blindness-desc = Вы слепы, и не можете видеть дальше нескольких метров от себя.
 
+trait-poor-vision-name = Близорукость
+trait-poor-vision-desc = Ваши глаза уже не те, что раньше, вам трудно видеть предметы вдали без корректирующих очков.
+
 trait-narcolepsy-name = Нарколепсия
 trait-narcolepsy-decs = Вас одолевают приступы сонливости
 
@@ -32,6 +35,10 @@ trait-frontal-lisp-desc = Вы шепелявите при рашговоре
 
 trait-socialanxiety-name = Социальная тревожность
 trait-socialanxiety-desc = Вы очень сильно волнуетесь при разговоре и заикаетесь.
+
+# TODO Надо бы это вырезать, т.к. невозможно перевести
+trait-southern-name = Southern Drawl
+trait-southern-desc = You have a different way of speakin'.
 
 trait-snoring-name = Храп
 trait-snoring-desc = Вы храпите во сне.
