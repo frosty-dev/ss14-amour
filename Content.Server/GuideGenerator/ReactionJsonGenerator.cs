@@ -7,7 +7,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.GuideGenerator;
 
-public sealed class ReactionJsonGenerator
+public sealed partial class ReactionJsonGenerator
 {
     public static void PublishJson(StreamWriter file)
     {
@@ -19,13 +19,16 @@ public sealed class ReactionJsonGenerator
                 .Select(x => new ReactionEntry(x))
                 .ToDictionary(x => x.Id, x => x);
 
+        if (reactions is not null) AddMixingCategories(reactions, prototype);
+
         var serializeOptions = new JsonSerializerOptions
         {
             WriteIndented = true,
             Converters =
             {
                 new UniversalJsonConverter<ReagentEffect>(),
-            }
+            },
+            NumberHandling = System.Text.Json.Serialization.JsonNumberHandling.AllowNamedFloatingPointLiterals
         };
 
         file.Write(JsonSerializer.Serialize(reactions, serializeOptions));

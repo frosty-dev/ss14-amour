@@ -1,11 +1,11 @@
 ent-MobRandomScienceCorpse = неизвестный ученый
-   .desc = "Его смерть будет самой великой загадкой."
+   .desc = Его смерть будет самой великой загадкой.
    .suffix = "Мертвый"
 ent-MobRandomSecurityCorpse = неизвестный охранник
-   .desc = "Вы видите след ящика из-под инструментов на его затылке."
+   .desc = Вы видите след ящика из-под инструментов на его затылке.
    .suffix = "Мертвый"
 ent-MobRandomCommandCorpse = неизвестный глава
-   .desc = "Возможно теперь его вещи в надежных руках?"
+   .desc = Возможно теперь его вещи в надежных руках?
    .suffix = "Мертвый"
 ent-FoodEggChickenFertilized = { ent-FoodEgg }
    .desc = { ent-FoodEggBase.desc }

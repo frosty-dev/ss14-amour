@@ -13,7 +13,6 @@ ent-FoodShakerPepper = перечница
 ent-Vape = вейп
    .desc = Как сигара, но для крепких подростков. (ВНИМАНИЕ: наливайте в вейп только воду)
 ent-DoorRemoteAll = супер дверной пульт
-   .desc = ""
 ent-EncryptionKey = ключ шифрования
    .desc = Небольшой шифрочип для наушников.
 ent-ForensicReportPaper = отчет судебного сканера

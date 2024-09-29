@@ -1,4 +1,6 @@
-<p align="center"> <img alt="Space Station 14" width="880" height="300" src="https://raw.githubusercontent.com/space-wizards/asset-dump/de329a7898bb716b9d5ba9a0cd07f38e61f1ed05/github-logo.svg" /></p>
+<p align="center">
+    <img alt="Giedi Prime" width="880" height="300" src="https://github.com/user-attachments/assets/bd8a079b-9ef0-46ac-b640-8c36835fbf32" />
+</p>
 
 Space Station 14 это ремейк SS13, который работает на собственном движке [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), написанном на C#.
 
@@ -6,7 +8,7 @@ Space Station 14 это ремейк SS13, который работает на 
 
 ## Ссылки
 
-[Наш Discord](https://discord.station13.ru) | [Наша Вики](https://wiki.ss14.station13.ru) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Клиент без Steam](https://spacestation14.io/about/nightlies/) | [Основной репозиторий](https://github.com/space-wizards/space-station-14)
+[Наш Discord](https://discord.ss14.su) | [Наша Вики](https://wiki.ss14.su) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Клиент без Steam](https://spacestation14.io/about/nightlies/) | [Основной репозиторий](https://github.com/space-wizards/space-station-14)
 
 ## Документация
 
@@ -26,8 +28,4 @@ Space Station 14 это ремейк SS13, который работает на 
 
 ## Лицензия
 
-Весь код проекта принадлежит организации [Frosty Dev](https://github.com/frosty-dev/ss14-new/blob/master/LICENSE.TXT) и не подлежит разглашению. Что это означает? В случае утечки информации будет применена ст. 14.33 КоАП РФ и ст. 13.14 КоАП РФ соответственно.
-
-Большинство ассетов лицензированы под [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), если не указано иное. Ассеты имеют свою лицензию и авторские права в файле метаданных. [Пример](https://github.com/space-syndicate/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
-
-Обратите внимание, что некоторые ассеты лицензированы на некоммерческой основе [CC-BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/) или аналогичной некоммерческой лицензией, и их необходимо удалить, если вы хотите использовать этот проект в коммерческих целях.
+Код репозитория лицензирован как под MIT - это касается кода Space Wizards Federation, так и под CLA - это касается наших изменений, определение которых дано в тексте CLA. Мы не стремимся к полному разграничению нашего кода и кода Space Wizards Federation, поэтому во избежание инцидентов рекомендуется брать их код из их репозитория.

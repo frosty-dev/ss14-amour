@@ -57,3 +57,7 @@ marking-TailReider207-tailtip = Кончик
 
 marking-TechnoClawsEgoruch = Слуга Омниссии
 marking-TechnoClawsEgoruch-claws_overlay = Клешни
+
+marking-CatTailMarginal = Хвост леопарда
+marking-CatTailMarginal-m_waggingtail_leopard_primary = Хвост
+marking-CatTailMarginal-m_waggingtail_leopard_tertiary = Цвет хвоста

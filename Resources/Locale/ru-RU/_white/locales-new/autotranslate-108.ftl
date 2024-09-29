@@ -1,5 +1,5 @@
 ent-Fulton1 = fulton
-   .desc = "fulton"
+   .desc = fulton
    .suffix = One
 ent-EmergencyNitrogenTank = аварийный баллон с азотом
    .desc = Легко переносимый баллон для аварийных ситуаций. Содержит очень мало азота, предназначен только для выживания.

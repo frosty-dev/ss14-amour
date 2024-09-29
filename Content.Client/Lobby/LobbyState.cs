@@ -295,17 +295,17 @@ namespace Content.Client.Lobby
 
         private void MakeButtonReady(OhioLobbyTextButton button)
         {
-            button.ButtonText = "Ready";
+            button.ButtonText = "Готов";
         }
 
         private void MakeButtonUnReady(OhioLobbyTextButton button)
         {
-            button.ButtonText = "Not Ready";
+            button.ButtonText = "Не готов";
         }
 
         private void MakeButtonJoinGame(OhioLobbyTextButton button)
         {
-            button.ButtonText = "Join Game";
+            button.ButtonText = "Присоединиться к игре";
         }
 
         private async void PopulateChangelog()

@@ -695,7 +695,7 @@
   category: construction-category-furniture
   description: Do not apply fire to this. Rumour says it burns easily.
   icon:
-    sprite: Structures/Furniture/Tables/wood.rsi
+    sprite: White/Structures/Furniture/Tables/wood.rsi
     state: full
   objectType: Structure
   placementMode: SnapgridCenter
