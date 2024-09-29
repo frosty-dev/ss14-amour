@@ -39,14 +39,14 @@ public abstract partial class SharedBorgSystem : EntitySystem
         SubscribeLocalEvent<BorgChassisComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
 
         // WD edit
-        SubscribeLocalEvent<SharedTTSComponent, ComponentStartup>(EnsureRandomTTS);
+        SubscribeLocalEvent<SharedTTSComponent, ComponentInit>(EnsureRandomTTS);
 
         InitializeRelay();
         GenerateVoiceList(); // WD edit
     }
 
     // Giedi added
-    private void EnsureRandomTTS(EntityUid uid, SharedTTSComponent component, ComponentStartup args)
+    private void EnsureRandomTTS(EntityUid uid, SharedTTSComponent component, ComponentInit args)
     {
         if (!HasComp<BorgChassisComponent>(uid))
             return;

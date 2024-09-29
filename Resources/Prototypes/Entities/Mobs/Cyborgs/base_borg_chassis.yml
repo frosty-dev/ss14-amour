@@ -129,6 +129,9 @@
   - type: TypingIndicator
     proto: robot
   - type: TTS
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
   - type: UnblockableSpeech
   - type: FootstepModifier
     footstepSoundCollection:
