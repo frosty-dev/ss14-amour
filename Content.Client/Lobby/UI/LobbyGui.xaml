@@ -97,12 +97,6 @@
                                 Margin="0 7 0 7" />
 
                             <buttons:OhioLobbyTextButton
-                                Name="AHelpButton"
-                                Access="Public"
-                                ButtonText="AHelp"
-                                Margin="0 7 0 8" />
-
-                            <buttons:OhioLobbyTextButton
                                 Name="DiscordButton"
                                 Access="Public"
                                 ButtonText="Привязать Discord"

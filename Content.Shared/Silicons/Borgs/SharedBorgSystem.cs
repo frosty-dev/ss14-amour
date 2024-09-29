@@ -21,8 +21,10 @@ public abstract partial class SharedBorgSystem : EntitySystem
     [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] protected readonly ItemSlotsSystem ItemSlots = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
-    [Dependency] protected readonly IRobustRandom RobustRandom = default!;
+    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!; //Honk
+    [Dependency] protected readonly IRobustRandom RobustRandom = default!; //Honk
+
+    private HashSet<TTSVoicePrototype> _voices = new();
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -35,21 +37,34 @@ public abstract partial class SharedBorgSystem : EntitySystem
         SubscribeLocalEvent<BorgChassisComponent, EntInsertedIntoContainerMessage>(OnInserted);
         SubscribeLocalEvent<BorgChassisComponent, EntRemovedFromContainerMessage>(OnRemoved);
         SubscribeLocalEvent<BorgChassisComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
-        SubscribeLocalEvent<SharedTTSComponent, ComponentStartup>(RandomTTS);
+
+        //Honk
+        SubscribeLocalEvent<SharedTTSComponent, ComponentInit>(RandomTTS);
+        GenerateVoiceList();
+        //Honk
 
         InitializeRelay();
     }
 
-    private void RandomTTS(EntityUid uid, SharedTTSComponent component, ComponentStartup args)
+    //Honk
+    private void RandomTTS(EntityUid uid, SharedTTSComponent component, ComponentInit args)
     {
-        if (TryComp<BorgChassisComponent>(uid, out _))
+        if (!HasComp<BorgChassisComponent>(uid))
             return;
 
-        var voiceList = PrototypeManager.EnumeratePrototypes<TTSBorgVoicePrototype>().ToHashSet();
-        var voice = RobustRandom.Pick(voiceList);
-        component.VoicePrototypeId = voice.ID;
+        var voiceId = RobustRandom.Pick(_voices);
 
+        component.VoicePrototypeId = voiceId.ID;
+        Dirty(uid, component);
     }
+
+    private void GenerateVoiceList()
+    {
+        _voices = PrototypeManager.EnumeratePrototypes<TTSVoicePrototype>()
+            .Where(x => x.BorgVoice)
+            .ToHashSet();
+    }
+    //Honk
 
     private void OnItemSlotInsertAttempt(EntityUid uid, BorgChassisComponent component, ref ItemSlotInsertAttemptEvent args)
     {
