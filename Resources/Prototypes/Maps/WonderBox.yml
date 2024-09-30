@@ -2,7 +2,7 @@
   id: WonderBox
   mapName: 'WonderBox Station'
   mapPath: /Maps/White/WonderBox.yml
-  minPlayers: 20
+  minPlayers: 20 #20
   stations:
     WonderBoxStation:
       stationProto: StandardNanotrasenStation
