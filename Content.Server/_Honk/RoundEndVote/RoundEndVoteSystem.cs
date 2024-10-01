@@ -12,7 +12,6 @@ public sealed class RoundEndVoteSystem : EntitySystem
 {
     [Dependency] private readonly IVoteManager _voteManager = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     public override void Initialize()
     {
@@ -24,16 +23,8 @@ public sealed class RoundEndVoteSystem : EntitySystem
         if(_gameTicker.RunLevel != GameRunLevel.PreRoundLobby)
             return;
 
-        var player = _playerManager.PlayerCount;
-
-        if (player >= 20)
-        {
-            _voteManager.CreateStandardVote(null, StandardVoteType.Preset);
-        }
-
+        _voteManager.CreateStandardVote(null, StandardVoteType.Preset);
         _voteManager.CreateStandardVote(null, StandardVoteType.Map);
-
-        _gameTicker.SetGamePreset("Secret");
     }
 
 }
