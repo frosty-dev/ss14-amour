@@ -275,7 +275,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 8
+    weight: 4
     duration: 1
     earliestStart: 30
     minimumPlayers: 20
@@ -310,7 +310,7 @@
     startDelay: 10
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 3
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -333,7 +333,7 @@
     startDelay: 10
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 3
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -348,7 +348,7 @@
   - type: StationEvent
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 4
     duration: 60
     startDelay: 30
     startAnnouncement: borer-event-announcement
@@ -419,7 +419,7 @@
   components:
   - type: StationEvent
     earliestStart: 35
-    weight: 5.5
+    weight: 4.5
     minimumPlayers: 20
     duration: 1
   - type: LoadMapRule
@@ -477,7 +477,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 7
+    weight: 4
     duration: 150
     maxDuration: 300
     reoccurrenceDelay: 30
@@ -534,7 +534,7 @@
   id: IonStorm
   components:
   - type: StationEvent
-    weight: 8
+    weight: 4
     reoccurrenceDelay: 20
     duration: 1
   - type: IonStormRule
@@ -557,7 +557,7 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 8
+    weight: 5
     reoccurrenceDelay: 20
     duration: 1
   - type: SpaceLawChangeRule
