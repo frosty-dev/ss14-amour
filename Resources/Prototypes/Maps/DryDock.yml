@@ -2,7 +2,7 @@
   id: DryDock
   mapName: 'DryDock Station'
   mapPath: /Maps/White/DryDock.yml
-  minPlayers: 10 #10
+  minPlayers: 10
   stations:
     DryDockStation:
       stationProto: StandardNanotrasenStation

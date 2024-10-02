@@ -1,15 +1,14 @@
 - type: gameMapPool
   id: WhiteMapPool
   maps:
-#  - Bagel    # Она утонула #Я её запустил ыыыыыы
-  - WonderBox   #Да
-  - WhiteBox    #Да
-  - WhiteMoose  #Да
-  - DryDock     #Да
-  - Meta        #Да
-  - Train    # Temporary
-  - Scoupidia
+  - WonderBox
 #  - Triumph  #Ебал в рот мапперов
-#  - Polaris
-#  - Kettle #хуйня не работает
+  - WhiteBox
+  - WhiteMoose
+  - DryDock
+  - Meta
+# - Train    # Temporary
+# - Scoupidia
+# - Bagel    # Она утонула
+# - Polaris
 # - Void
