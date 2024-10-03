@@ -332,6 +332,23 @@
   id: BaseSyringe
   abstract: true
   components:
+  - type: MeleeWeapon
+    wideAnimationRotation: -45
+    damage:
+      types:
+        Piercing: 2
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/pierce.ogg
+  - type: ThrowingAngle
+    angle: 50
+  - type: DamageOtherOnHit
+    ignoreResistances: true
+    damage:
+      types:
+        Piercing: 2
+  - type: EmbeddableProjectile
   - type: Sprite
     sprite: Objects/Specific/Chemistry/syringe.rsi
     layers:
@@ -351,6 +368,19 @@
     solutions:
       injector:
         maxVol: 15
+  - type: MeleeChemicalInjector
+    solution: injector
+  - type: RefillableSolution
+    solution: injector
+  - type: InjectableSolution
+    solution: injector
+  - type: SolutionTransfer
+    maxTransferAmount: 2
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: SolutionInjectOnEmbed
+    transferAmount: 2
+    olution: injector
   - type: Injector
     injectOnly: false
   - type: ExaminableSolution
