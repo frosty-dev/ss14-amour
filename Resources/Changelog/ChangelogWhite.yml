@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: wCATw
-  changes:
-  - message: "\u0424\u0438\u043A\u0441 \u0440\u0430\u0434\u0438\u043E \u043A\u0435\
-      \u0439\u043A\u043E\u0434\u043E\u0432."
-    type: Add
-  id: 67
-  time: '2023-02-11T18:45:49.0000000+00:00'
 - author: RavMorgan
   changes:
   - message: "\u041C\u0435\u043B\u043A\u043E\u0435 \u0438\u0441\u043F\u0440\u0430\u0432\
@@ -8733,3 +8726,19 @@
   id: 566
   time: '2024-09-29T20:39:22.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/721
+- author: Vorge
+  changes:
+  - message: "\u0422\u0435\u043F\u0435\u0440\u044C \u0448\u043F\u0440\u0438\u0446\u044B\
+      \ \u043C\u043E\u0436\u043D\u043E \u043C\u0435\u0442\u0430\u0442\u044C \u0438\
+      \ \u043E\u043D\u0438 \u0431\u0443\u0434\u0443\u0442 \u043F\u0435\u0440\u0435\
+      \u043B\u0438\u0432\u0430\u0442\u044C 2 \u0443\u043D\u0446\u0438\u0438 \u0445\
+      \u0438\u043C\u0438\u043A\u0430\u0442\u0430 \u0432 \u0436\u0435\u0440\u0442\u0432\
+      \u0443. E\u0441\u043B\u0438 \u043D\u0430\u0441\u0442\u0443\u043A\u0430\u0442\
+      \u044C \u0432 \u0445\u0430\u0440\u043C \u043C\u043E\u0434\u0435 \u043F\u043E\
+      \ \u0446\u0435\u043B\u0438, \u0448\u043F\u0440\u0438\u0446 \u0431\u0443\u0434\
+      \u0435\u0442 \u043F\u0435\u0440\u0435\u043A\u0430\u0447\u0438\u0432\u0430\u0442\
+      \u044C 1 \u0443\u043D\u0446\u0438\u044E"
+    type: Add
+  id: 567
+  time: '2024-10-03T09:08:56.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/724
