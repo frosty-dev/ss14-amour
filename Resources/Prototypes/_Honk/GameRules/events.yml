@@ -8,5 +8,4 @@
     duration: 1
     earliestStart: 20
     minimumPlayers: 20
-  - type: RandomSpawnRule
-    prototype: SpawnPointGhostDemolitionist
+  - type: DemolitionistRule
