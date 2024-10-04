@@ -2,6 +2,8 @@
 
 # К недавно добавленной музыке добавлять [NEW] в название, чтобы привлечь внимание игроков
 
+# При добавлении песенки формата stereo в консоль срёт error'ку, поэтому конвертируйте в mono, i guess? Я уже конвертировал всё то, что было в стерео
+
 # Songs
 - type: jukebox # WD
   id: SpaceOddity
@@ -125,20 +127,158 @@
   path:
     path: /Audio/Ambience/voyage_neverending.ogg
 
-- type: jukebox
+- type: jukebox # HONK
   id: CosmicTemperance
   name: Music - Cosmic Temperance
   path:
-    path: /Audio/Lobby/White/cosmictemperance.ogg
+    path: /Audio/_Honk/Jukebox/blinch_Cosmic_Temperance.ogg
 
 - type: jukebox # WD
   id: LibetsDelay
-  name: "[NEW] Music - Libets Delay"
+  name: Music - Libets Delay
   path:
     path: /Audio/White/Music/Lobby/Music/Libets_Delay.ogg
 
 - type: jukebox # WD
   id: ItsJustABurningMemory
-  name: "[NEW] Music - Its just a burning memory"
+  name: Music - Its just a burning memory
   path:
     path: /Audio/White/Music/Lobby/Music/Its_just_a_burning_memory.ogg
+
+- type: jukebox # HONK
+  id: AnamnesisoftheworldsSin
+  name: "[NEW] Music - Anamnesis of the world's Sin"
+  path:
+    path: /Audio/_Honk/Jukebox/blinch_Anamnesis_of_the worlds_Sin.ogg
+
+- type: jukebox # HONK
+  id: DarkMatterMoon
+  name: "[NEW] Music - Dark Matter Moon"
+  path:
+    path: /Audio/_Honk/Jukebox/blinch_Dark_Matter_Moon.ogg
+
+- type: jukebox # HONK
+  id: EmptyOcean
+  name: "[NEW] Music - Empty Ocean"
+  path:
+    path: /Audio/_Honk/Jukebox/blinch_Empty_Ocean.ogg
+
+- type: jukebox # HONK
+  id: GoldenWinPiano
+  name: "[NEW] Music - Golden Win Piano"
+  path:
+    path: /Audio/_Honk/Jukebox/blinch_Golden_Win_Piano.ogg
+
+- type: jukebox # HONK
+  id: KillerXChase
+  name: "[NEW] Music - Killer X Chase"
+  path:
+    path: /Audio/_Honk/Jukebox/blinch_Killer_X_Chase.ogg
+
+- type: jukebox # HONK
+  id: PathLootCrusaders
+  name: "[NEW] Music - PathLoot Crusaders"
+  path:
+    path: /Audio/_Honk/Jukebox/blinch_PathLoot_Crusaders.ogg
+
+- type: jukebox # HONK
+  id: PristintheMirror
+  name: "[NEW] Music - Prist in the Mirror"
+  path:
+    path: /Audio/_Honk/Jukebox/blinch_Prist_in_the_Mirror.ogg
+
+- type: jukebox # HONK
+  id: StarJudgment
+  name: "[NEW] Music - Star Judgment"
+  path:
+    path: /Audio/_Honk/Jukebox/blinch_Star_Judgment.ogg
+
+- type: jukebox # HONK
+  id: WheelofFaith
+  name: "[NEW] Music - Wheel of Faith"
+  path:
+    path: /Audio/_Honk/Jukebox/blinch_Wheel_of_Faith.ogg
+
+- type: jukebox # HONK
+  id: TheUnknown
+  name: "[NEW] Music - The Unknown"
+  path:
+    path: /Audio/_Honk/Jukebox/The_Unknown.ogg
+
+- type: jukebox # HONK
+  id: EscapeintheNight
+  name: "[NEW] Music - Escape in the Night"
+  path:
+    path: /Audio/_Honk/Jukebox/Escape_in_the_Night.ogg
+
+- type: jukebox # HONK
+  id: BossTheme
+  name: "[NEW] Music - Boss Theme"
+  path:
+    path: /Audio/_Honk/Jukebox/Boss_Theme.ogg
+
+- type: jukebox # HONK
+  id: BattleThemeII
+  name: "[NEW] Music - Battle Theme II"
+  path:
+    path: /Audio/_Honk/Jukebox/Battle_Theme_II.ogg
+
+- type: jukebox # HONK
+  id: GameOver
+  name: "[NEW] Music - Game_Over..."
+  path:
+    path: /Audio/_Honk/Jukebox/Game_Over.ogg
+
+- type: jukebox # HONK
+  id: TryAgain
+  name: "[NEW] Music - Try Again?"
+  path:
+    path: /Audio/_Honk/Jukebox/Try_Again.ogg
+
+- type: jukebox # HONK
+  id: WheelofFaith
+  name: "[NEW] Music - Beasts_and_Betrayal"
+  path:
+    path: /Audio/_Honk/Jukebox/Beasts_and_Betrayal.ogg
+
+- type: jukebox # HONK
+  id: BattleThemeI
+  name: "[NEW] Music - Battle Theme I"
+  path:
+    path: /Audio/_Honk/Jukebox/Battle_Theme_I.ogg
+
+- type: jukebox # HONK
+  id: HEAVENSAYSMANDELA
+  name: "[NEW] Music - HEAVEN SAYS MANDELA"
+  path:
+    path: /Audio/_Honk/Jukebox/HEAVEN_SAYS_MANDELA.ogg
+
+- type: jukebox # HONK
+  id: CYBERSWORLD
+  name: "[NEW] Music - CYBERS WORLD?"
+  path:
+    path: /Audio/_Honk/Jukebox/Toby_Fox_A_CYBERS_WORLD.ogg
+
+- type: jukebox # HONK
+  id: BIGSHOT
+  name: "[NEW] Music - BIG SHOT"
+  path:
+    path: /Audio/_Honk/Jukebox/Toby_Fox_BIG_SHOT.ogg
+
+- type: jukebox # HONK
+  id: NOWSYOURCHANCETOBEA
+  name: "[NEW] Music - NOWS YOUR CHANCE TO BE A"
+  path:
+    path: /Audio/_Honk/Jukebox/Toby_Fox_NOWS_YOUR_CHANCE_TO_BE_A.ogg
+
+- type: jukebox # HONK
+  id: Pandora Palace
+  name: "[NEW] Music - Pandora Palace"
+  path:
+    path: /Audio/_Honk/Jukebox/Toby_Fox_Pandora_Palace.ogg
+
+- type: jukebox # HONK
+  id: AttackoftheKillerQueen
+  name: "[NEW] Music - Attack of the Killer Queen"
+  path:
+    path: /Audio/_Honk/Jukebox/Toby_Fox_feat_Lena_Raine_Marcy_Nabors_Attack_of_the_Killer_Queen.ogg
