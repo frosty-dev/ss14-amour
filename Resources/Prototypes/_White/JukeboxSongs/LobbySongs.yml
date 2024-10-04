@@ -236,7 +236,7 @@
     path: /Audio/_Honk/Jukebox/Try_Again.ogg
 
 - type: jukebox # HONK
-  id: WheelofFaith
+  id: BeastsandBetrayal
   name: "[NEW] Music - Beasts_and_Betrayal"
   path:
     path: /Audio/_Honk/Jukebox/Beasts_and_Betrayal.ogg
