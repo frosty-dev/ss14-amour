@@ -246,3 +246,39 @@
   name: "[NEW] Music - Battle Theme I"
   path:
     path: /Audio/_Honk/Jukebox/Battle_Theme_I.ogg
+
+- type: jukebox # HONK
+  id: HEAVENSAYSMANDELA
+  name: "[NEW] Music - HEAVEN SAYS MANDELA"
+  path:
+    path: /Audio/_Honk/Jukebox/HEAVEN_SAYS_MANDELA.ogg
+
+- type: jukebox # HONK
+  id: CYBERSWORLD
+  name: "[NEW] Music - CYBERS WORLD?"
+  path:
+    path: /Audio/_Honk/Jukebox/Toby_Fox_A_CYBERS_WORLD.ogg
+
+- type: jukebox # HONK
+  id: BIGSHOT
+  name: "[NEW] Music - BIG SHOT"
+  path:
+    path: /Audio/_Honk/Jukebox/Toby_Fox_BIG_SHOT.ogg
+
+- type: jukebox # HONK
+  id: NOWSYOURCHANCETOBEA
+  name: "[NEW] Music - NOWS YOUR CHANCE TO BE A"
+  path:
+    path: /Audio/_Honk/Jukebox/Toby_Fox_NOWS_YOUR_CHANCE_TO_BE_A.ogg
+
+- type: jukebox # HONK
+  id: Pandora Palace
+  name: "[NEW] Music - Pandora Palace"
+  path:
+    path: /Audio/_Honk/Jukebox/Toby_Fox_Pandora_Palace.ogg
+
+- type: jukebox # HONK
+  id: AttackoftheKillerQueen
+  name: "[NEW] Music - Attack of the Killer Queen"
+  path:
+    path: /Audio/_Honk/Jukebox/Toby_Fox_feat_Lena_Raine_Marcy_Nabors_Attack_of_the_Killer_Queen.ogg
