@@ -75,13 +75,22 @@
 
 # WD Start
 - type: entity
-  abstract: true
+  parent: [BaseFoldable]
   id: ClothingUniformFoldableBase
+  abstract: true
   components:
+  - type: Appearance
   - type: Foldable
     canFoldInsideContainer: true
     unfoldVerbText: unfold-verb-clothing-jacket
     foldVerbText: fold-verb-clothing-jacket
   - type: FoldableClothing
     foldedEquippedPrefix: folded
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "unfoldedLayer" ]
+    - state: icon_folded
+      map: ["foldedLayer"]
+      visible: false
 # WD End
