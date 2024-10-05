@@ -464,3 +464,12 @@
   alpha: 0.9
   ghostName: Devf_2
   ghostDescription: Aladeen madafaka
+
+#BIG_Zi_348
+- type: customGhost
+  id: big_zi_348-ghost
+  ckey: BIG_Zi_348
+  sprite: White/Ghosts/big_zi_348-ghost.rsi
+  alpha: 0.9
+  ghostName: BIG_Zi_348
+  ghostDescription: Зенит космической энергии — генезис сознания из пустоты.
