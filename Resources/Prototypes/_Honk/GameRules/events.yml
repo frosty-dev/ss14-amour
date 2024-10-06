@@ -8,4 +8,5 @@
     duration: 1
     earliestStart: 20
     minimumPlayers: 20
-  - type: DemolitionistRule
+  - type: LoadMapRule
+    preloadedGrid: DemolitionistShuttle
