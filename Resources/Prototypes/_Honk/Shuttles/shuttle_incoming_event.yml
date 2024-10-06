@@ -1,0 +1,4 @@
+﻿- type: preloadedGrid
+  id: DemolitionistShuttle
+  path: /Maps/_Honk/Shuttles/StationEvent/DemolitionistShuttle.yml
+  copies: 2
