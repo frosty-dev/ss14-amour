@@ -1,0 +1,26 @@
+﻿- type: entity
+  name: арабская рация
+  description: A handy handheld radio.
+  parent: BaseItem
+  id: RadioArab
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Arab
+    listenRange: 1
+  - type: RadioSpeaker
+    channels:
+    - Arab
+  - type: Speech
+    speechVerb: Robotic
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: walkietalkie
+    - state: walkietalkie-on
+    state: walkietalkie
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: walkietalkie
+  - type: Tag
+    tags:
+    - Radio

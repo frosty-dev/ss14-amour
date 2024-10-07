@@ -1,0 +1,9 @@
+﻿- type: radioChannel
+  id: Arab
+  name: Араб
+  keycodes:
+  - 'а'
+  - 'a'
+  frequency: 1312
+  color: "#8f4a4b"
+  longRange: true
