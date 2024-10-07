@@ -7,3 +7,28 @@
     Telecrystal: 12
   categories:
   - UplinkAllies
+
+
+# Араб
+
+- type: listing
+  id: UplinkAK47
+  name: АК-47
+  description: Старый, добрый и надёжный автомат!
+  productEntity: WeaponRifleAk47
+  icon: { sprite: /Textures/_Honk/Objects/Weapons/Guns/Rifles/ak47.rsi, state: icon }
+  cost:
+    Telecrystal: 10
+  categories:
+  - ArabUplinkWeaponry
+
+- type: listing
+  id: UplinkAK47y
+  name: АК-47у
+  description: Старый, добрый и надёжный автомат! Но без приклада
+  productEntity: WeaponRifleAk47y
+  icon: { sprite: /Textures/_Honk/Objects/Weapons/Guns/Rifles/ak47y.rsi, state: icon }
+  cost:
+    Telecrystal: 9
+  categories:
+  - ArabUplinkWeaponry

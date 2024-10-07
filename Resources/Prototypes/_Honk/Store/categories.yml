@@ -1,0 +1,5 @@
+#uplink categoires
+- type: storeCategory
+  id: ArabUplinkWeaponry
+  name: вооружение
+  priority: 0

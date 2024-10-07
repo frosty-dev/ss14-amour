@@ -1,0 +1,9 @@
+﻿- type: storePreset
+  id: ArabStorePresetUplink
+  storeName: ArabStore
+  categories:
+  - ArabUplinkWeaponry
+  currencyWhitelist:
+  - Telecrystal
+  sales:
+    enabled: true

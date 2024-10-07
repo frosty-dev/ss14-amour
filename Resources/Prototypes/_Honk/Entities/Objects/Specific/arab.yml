@@ -1,0 +1,25 @@
+﻿- type: entity
+  parent: BaseItem
+  id: BaseArabUplinkRadio
+  name: арабский аплинк
+  description: Suspiciously looking old radio...
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: old-radio
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: old-radio
+    storedRotation: 90
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    preset: ArabStorePresetUplink
+    balance:
+      Telecrystal: 30
+  - type: GiftIgnore
