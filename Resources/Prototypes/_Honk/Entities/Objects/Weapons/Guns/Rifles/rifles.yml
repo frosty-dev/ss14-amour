@@ -1,0 +1,135 @@
+﻿- type: entity
+  name: АК-47
+  parent: BaseWeaponRifle
+  id: BaseWeaponRifleAk47
+  description: An iconic weapon of war. Uses .30 rifle ammo.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Honk/Objects/Weapons/Guns/Rifles/ak47.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
+  - type: Clothing
+    sprite: _Honk/Objects/Weapons/Guns/Rifles/ak47.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: GunWieldBonus
+    minAngle: -10
+    maxAngle: -25
+  - type: Gun
+    minAngle: 12
+    maxAngle: 30
+    fireRate: 5
+    angleIncrease: 3
+    angleDecay: 16
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ak.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 4
+        whitelist:
+          tags:
+          - MagazineLightRifle
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeLightRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: UseDelay
+    delay: 1
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RiflesDrop
+  - type: PointLight
+    enabled: false
+    autoRot: true
+  - type: Appearance
+
+- type: entity
+  name: АК-47
+  parent: BaseWeaponRifleAk47
+  id: WeaponRifleAk47
+  description: An iconic weapon of war. Uses .30 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: _Honk/Objects/Weapons/Guns/Rifles/ak47.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _Honk/Objects/Weapons/Guns/Rifles/ak47.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+
+- type: entity
+  name: АК-47у
+  parent: BaseWeaponRifleAk47
+  id: WeaponRifleAk47y
+  description: An iconic weapon of war. Uses .30 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: _Honk/Objects/Weapons/Guns/Rifles/ak47y.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _Honk/Objects/Weapons/Guns/Rifles/ak47y.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+  - type: GunWieldBonus
+    minAngle: -12
+    maxAngle: -27
+  - type: Gun
+    minAngle: 17
+    maxAngle: 35
