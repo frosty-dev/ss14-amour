@@ -1,0 +1,32 @@
+# Шайба снюса, нужен спрайт
+- type: entity
+  id: BasePuckSnus
+  name: Шайба снюса
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvival
+  - type: Sprite
+    sprite: #НЕТУ НАХУЙ Я НЕ УМЕЮ РИСОВАТЬ!
+    layers:
+    - state: #ХУЙ ПИЗДА ЖОПА
+
+# Пакетик снюса
+- type: entity
+  parent: BaseItem
+  id: BaseBagSnus
+  name: Пакетик снюса
+  description: Эксклюзивный снюс премиум-класса. Изготовлен из отборного табака и натуральных ароматизаторов.
+  components:
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 20
+  - type: Sprite
+    sprite: _Honk/Snus/bag.rsi
+    layers:
+    - state: paket
