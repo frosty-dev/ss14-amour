@@ -1,11 +1,13 @@
 # Шайба снюса, нужен спрайт
 - type: entity
+  parent: ClothingBackpack
   id: BasePuckSnus
   name: Шайба снюса
   components:
   - type: StorageFill
     contents:
-    - id: BoxSurvival
+    - id: BaseBagSnus
+      amount: 15
   - type: Sprite
     sprite: #НЕТУ НАХУЙ Я НЕ УМЕЮ РИСОВАТЬ!
     layers:
