@@ -73,7 +73,8 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnPostRoundCleanup);
         SubscribeNetworkEvent<MeatyOreShopRequestEvent>(OnShopRequested);
-        SubscribeLocalEvent<GetVerbsEvent<Verb>>(MeatyOreVerbs);
+
+        // SubscribeLocalEvent<GetVerbsEvent<Verb>>(MeatyOreVerbs);
     }
 
     private void MeatyOreVerbs(GetVerbsEvent<Verb> ev)
