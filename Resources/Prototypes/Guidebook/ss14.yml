@@ -10,16 +10,17 @@
   - Antagonists
   - Species
   - Writing
-  - Glossary
+# - Glossary # WD Removed До лучшего времени
 
 - type: guideEntry
   id: Writing
   name: guide-entry-writing
   text: "/ServerInfo/Guidebook/Writing.xml"
 
-- type: guideEntry
-  id: Glossary
-  name: guide-entry-glossary
-  text: "/ServerInfo/Guidebook/Glossary.xml"
+# WD Removed До лучшего времени
+# - type: guideEntry
+#   id: Glossary
+#   name: guide-entry-glossary
+#   text: "/ServerInfo/Guidebook/Glossary.xml"
 
 
