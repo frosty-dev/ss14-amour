@@ -39,3 +39,5 @@ ent-ClothingBackpackHolding = блюспейс рюкзак
 ent-ClothingBackpackCluwne = проклятое Хихиканье Фон Хонкертон
     .desc = Проклятый рюкзак Хихиканье Фон Хонкертон.
     .suffix = Неснимаемое
+ent-ClothingBackpackDeathSquadFilled = рюкзак отряда смерти
+    .desc = Содержит набор самых опасных агентов Центкома.

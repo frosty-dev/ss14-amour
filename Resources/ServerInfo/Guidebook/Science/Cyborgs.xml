@@ -43,7 +43,6 @@
   <Box>
     <GuideEntityEmbed Entity="BorgModuleCable" Caption="Cable"/>
     <GuideEntityEmbed Entity="BorgModuleGPS" Caption="GPS"/>
-    <GuideEntityEmbed Entity="BorgModuleFireExtinguisher" Caption="Fire Extinguisher"/>
   </Box>
   <Box>
     [italic]Examples of generic modules[/italic]
@@ -52,7 +51,8 @@
   For more specific needs, [color=#a4885c]specialized[/color] modules are available, granting capabilities like scanning anomalies, constructing walls, reviving crew mates, or cleaning a space lube spill. These modules are typically colored with the same palette as the department [italic](or occupation)[/italic] they relate to. These modules [italic](with exception to [color=#D381C9]science[/color] modules, which can fit any chassis,)[/italic] can only be fitted in their associated borg chassis. [bold]The specialized borg chassis, being the engineering, janitorial, service, medical, and mining chassis, can fit up to 4 modules.[/bold]
   <Box>
     <GuideEntityEmbed Entity="BorgModuleAnomaly" Caption="Anomaly"/>
-    <GuideEntityEmbed Entity="BorgModuleRCD" Caption="RCD"/>
+    <GuideEntityEmbed Entity="BorgModuleConstruction" Caption="Construction"/>
+    <GuideEntityEmbed Entity="BorgModuleAtmospherics" Caption="Atmospherics"/>
     <GuideEntityEmbed Entity="BorgModuleMining" Caption="Mining"/>
     <GuideEntityEmbed Entity="BorgModuleCleaning" Caption="Cleaning"/>
     <GuideEntityEmbed Entity="BorgModuleService" Caption="Service"/>
@@ -63,4 +63,3 @@
   </Box>
   Additional modules with advanced or novel capabilities can be acquired through new [textlink="technologies"  link="Technologies"] researched by scientists.
 </Document>
-

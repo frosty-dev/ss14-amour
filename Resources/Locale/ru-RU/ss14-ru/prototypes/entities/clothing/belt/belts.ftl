@@ -37,7 +37,7 @@ ent-ClothingBeltChef = пояс шеф повара
 ent-ClothingBeltMedicalEMT = пояс парамедика
     .desc = Пояс, идеально подходит для хранения различного оборудования для экстренной медицинской помощи.
 ent-ClothingBeltMedicalEMTFilled = { ent-ClothingBeltMedicalEMT }
-    .desc = { ClothingBeltMedicalEMT.desc }
+    .desc = { ent-ClothingBeltMedicalEMT.desc }
 ent-ClothingBeltQuiver = колчан
     .desc = Вмещает до 15 стрел и плотно прилегает к талии.
 

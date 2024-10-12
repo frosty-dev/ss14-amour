@@ -73,3 +73,6 @@ ent-ClothingBackpackDuffelChiefEngineerFilled = { ent-ClothingBackpackDuffelEngi
 ent-ClothingBackpackDuffelAtmosphericsFilled = { ent-ClothingBackpackDuffelAtmospherics }
     .desc = { ent-ClothingBackpackDuffelAtmospherics.desc }
     .suffix = Заполненный
+ent-ClothingBackpackDuffelCBURNFilled = { ent-ClothingBackpackDuffelCBURN }
+    .desc = { ent-ClothingBackpackDuffelCBURN.desc }
+    .suffix = Заполненный

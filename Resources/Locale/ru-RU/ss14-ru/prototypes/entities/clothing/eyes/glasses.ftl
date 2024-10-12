@@ -18,3 +18,5 @@ ent-ClothingEyesGlassesThermal = оптический термальный ск�
     .desc = Термалы в форме очков.
 ent-ClothingEyesGlassesInspector = очки инспектора
     .desc = Солнцезащитные очки инспектора. Такие же, как обычные, но круче.
+ent-ClothingEyesGlassesHiddenSecurity = { ent-ClothingEyesGlassesSunglasses }
+    .desc = { ent-ClothingEyesGlassesSunglasses.desc }
