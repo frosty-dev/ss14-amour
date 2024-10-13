@@ -453,3 +453,19 @@
   id: RitokaCloak
   entity: ClothingOuterCloakRitoka
   sponsorOnly: true
+
+# IMercuryI
+- type: sponsorLoadout
+  id: IMercuryIJumpsuit
+  entity: ClothingUniformJumpsuitIMercuryI
+  sponsorOnly: true
+
+- type: sponsorLoadout
+  id: IMercuryISuit
+  entity: ClothingOuterIMercuryI
+  sponsorOnly: true
+
+- type: sponsorLoadout
+  id: IMercuryITie
+  entity: ClothingNeckTieIMercuryI
+  sponsorOnly: true

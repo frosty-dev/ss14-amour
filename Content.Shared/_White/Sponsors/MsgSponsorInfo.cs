@@ -36,6 +36,9 @@ public sealed class SponsorInfo
 
     [JsonPropertyName("MeatyOreCoin")]
     public int MeatyOreCoin { get; set; }
+
+    [JsonPropertyName("antagChance")]
+    public int AntagChance { get; set; }
 }
 
 /// <summary>

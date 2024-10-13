@@ -26,6 +26,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Content.Server._Miracle.GulagSystem;
+using Content.Server._White.Sponsors;
 using Content.Server.Inventory;
 using Robust.Shared.Utility;
 
@@ -45,6 +46,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly GulagSystem _gulag = default!; // WD
     [Dependency] private readonly ServerInventorySystem _inventory = default!; // WD
+    [Dependency] private readonly SponsorsManager _sponsors = default!; // WD
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -333,8 +335,9 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     /// </summary>
     public AntagSelectionPlayerPool GetPlayerPool(Entity<AntagSelectionComponent> ent, IList<ICommonSession> sessions, AntagSelectionDefinition def)
     {
-        var preferredList = new List<ICommonSession>();
-        var fallbackList = new List<ICommonSession>();
+        var premiumPool = new List<ICommonSession>();
+        var defaultPool = new List<ICommonSession>();
+
         foreach (var session in sessions)
         {
             if (!IsSessionValid(ent, session, def) ||
@@ -342,17 +345,36 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                 continue;
 
             var pref = (HumanoidCharacterProfile) _pref.GetPreferences(session.UserId).SelectedCharacter;
-            if (def.PrefRoles.Count != 0 && pref.AntagPreferences.Any(p => def.PrefRoles.Contains(p)))
+            var hasPreference = def.PrefRoles.Count != 0 && pref.AntagPreferences.Any(p => def.PrefRoles.Contains(p));
+            var hasFallbackPreference = def.FallbackRoles.Count != 0 && pref.AntagPreferences.Any(p => def.FallbackRoles.Contains(p));
+
+            if (RobustRandom.Prob(GetPremiumPoolChance(session)))
             {
-                preferredList.Add(session);
+                if (hasPreference || hasFallbackPreference)
+                    premiumPool.Add(session);
             }
-            else if (def.FallbackRoles.Count != 0 && pref.AntagPreferences.Any(p => def.FallbackRoles.Contains(p)))
+            else
             {
-                fallbackList.Add(session);
+                if (hasPreference)
+                    defaultPool.Add(session);
+                else if (hasFallbackPreference)
+                    defaultPool.Add(session);
             }
         }
 
-        return new AntagSelectionPlayerPool(new() { preferredList, fallbackList });
+
+        if (premiumPool.Count == 0 && defaultPool.Count == 0)
+        {
+            foreach (var session in sessions)
+            {
+                if (IsSessionValid(ent, session, def) && IsEntityValid(session.AttachedEntity, def))
+                {
+                    defaultPool.Add(session);
+                }
+            }
+        }
+
+        return new AntagSelectionPlayerPool(new() { premiumPool, defaultPool });
     }
 
     /// <summary>
@@ -431,6 +453,20 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         }
 
         return true;
+    }
+
+    public float GetPremiumPoolChance(ICommonSession session)
+    {
+        if (!_sponsors.TryGetInfo(session.UserId, out var info))
+            return 0f;
+
+        var antagChance = info.AntagChance;
+
+        // Ensure antagChance is within 0-100 range
+        antagChance = Math.Clamp(antagChance, 0, 100);
+
+        // Convert clamped antagChance from 0-100 range to 0-1 range
+        return antagChance / 100f;
     }
 }
 

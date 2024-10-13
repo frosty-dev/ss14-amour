@@ -1,6 +1,7 @@
 ent-ClothingBackpackERTChaplain = рюкзак капеллана ОБР
    .desc = Просторный рюкзак с множеством карманов, который носят капелланы Отряда Быстрого Реагирования.
 ent-ClothingBackpackSyndicate = рюкзак синдиката
+    .desc = { ent-ClothingBackpack.desc }
 ent-ClothingBackpackDebug = странный рюкзак
    .desc = Что за хрень?
    .suffix = Debug

@@ -1,69 +1,4 @@
 ﻿Entries:
-- author: RavMorgan
-  changes:
-  - message: "\u0412\u0430\u0441 \u044D\u0442\u043E \u0432\u043E\u043B\u043D\u043E\
-      \u0432\u0430\u0442\u044C \u043D\u0435 \u0434\u043E\u043B\u0436\u043D\u043E!"
-    type: Add
-  id: 64
-  time: '2023-02-05T17:12:32.0000000+00:00'
-- author: UndefinedSignal
-  changes:
-  - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0430 \u0440\u0430\u0441\
-      \u0430 \u0441\u043A\u0440\u0435\u043B\u043B\u043E\u0432."
-    type: Add
-  id: 65
-  time: '2023-02-07T10:57:33.0000000+00:00'
-- author: HitPanda
-  changes:
-  - message: "\u0424\u0438\u043A\u0441 \u0434\u043E\u0441\u0442\u0443\u043F\u0430\
-      \ \u0432 \u0430\u0434\u043C\u0438\u043D-\u0447\u0430\u0442"
-    type: Fix
-  id: 66
-  time: '2023-02-08T13:13:06.0000000+00:00'
-- author: wCATw
-  changes:
-  - message: "\u0424\u0438\u043A\u0441 \u0440\u0430\u0434\u0438\u043E \u043A\u0435\
-      \u0439\u043A\u043E\u0434\u043E\u0432."
-    type: Add
-  id: 67
-  time: '2023-02-11T18:45:49.0000000+00:00'
-- author: RavMorgan
-  changes:
-  - message: "\u041C\u0435\u043B\u043A\u043E\u0435 \u0438\u0441\u043F\u0440\u0430\u0432\
-      \u043B\u0435\u043D\u0438\u0435 \u0411\u0443\u043D\u043A\u0435\u0440\u0430 \u0421\
-      \u0442\u0430\u043B\u0438\u043D\u0430!"
-    type: Add
-  id: 68
-  time: '2023-02-13T10:04:40.0000000+00:00'
-- author: wCATw
-  changes:
-  - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u043E \u043C\u0435\u043D\
-      \u044E \u044D\u043C\u043E\u0446\u0438\u0439"
-    type: Add
-  id: 69
-  time: '2023-02-15T15:08:23.0000000+00:00'
-- author: RavMorgan
-  changes:
-  - message: "\u0421\u043C\u0435\u0448\u043D\u0430\u044F \u043F\u0430\u043D\u0435\u043B\
-      \u044C \u0434\u043B\u044F \u043C\u044F\u0441\u043D\u044B\u0445 \u043E\u0440\u043E\
-      \u0432!"
-    type: Add
-  id: 70
-  time: '2023-02-15T16:37:43.0000000+00:00'
-- author: RavMorgan
-  changes:
-  - message: "\u041A\u0443\u043F\u0438 \u043C\u0438\u0442\u0438\u043E\u0440 \u0438\
-      \ \u0443\u0437\u043D\u0430\u0435\u0448\u044C!!!!!"
-    type: Add
-  id: 71
-  time: '2023-02-15T23:06:55.0000000+00:00'
-- author: RavMorgan
-  changes:
-  - message: "\u0424\u0438\u043A\u0441 \u0441\u043F\u0430\u043C\u0430 \u044D\u043C\
-      \u043E\u0443\u0442\u0430\u043C\u0438!"
-    type: Add
-  id: 72
-  time: '2023-02-16T19:39:32.0000000+00:00'
 - author: HitPanda
   changes:
   - message: "\u0413\u043E\u0441\u0442\u0430\u043C \u0434\u043E\u0431\u0430\u0432\u043B\
@@ -8722,3 +8657,130 @@
   id: 563
   time: '2024-09-28T22:15:33.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/718
+- author: Jabaks
+  changes:
+  - message: "\u0418\u0441\u043F\u0440\u0430\u0432\u043B\u0435\u043D \u0431\u0430\u0433\
+      \ \u0438\u0437-\u0437\u0430 \u043A\u043E\u0442\u043E\u0440\u043E\u0433\u043E\
+      \ \u0431\u043E\u0440\u0433\u0438 \u043D\u0435 \u043C\u043E\u0433\u043B\u0438\
+      \ \u043D\u0430\u0437\u044B\u0432\u0430\u0442\u044C \u0441\u0432\u043E\u0438\
+      \ \u0437\u0430\u043A\u043E\u043D\u044B."
+    type: Fix
+  id: 564
+  time: '2024-09-29T10:46:14.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/719
+- author: BIG_Zi_348
+  changes:
+  - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u044B \u043D\u0435\u0434\
+      \u043E\u0441\u0442\u0430\u044E\u0449\u0438\u0435 \u043F\u0435\u0440\u0435\u0432\
+      \u043E\u0434\u044B \u043C\u0435\u043D\u044E \u0441\u043E\u0437\u0434\u0430\u043D\
+      \u0438\u044F \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430."
+    type: Add
+  id: 565
+  time: '2024-09-29T19:34:33.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/720
+- author: BIG_Zi_348
+  changes:
+  - message: "\u0418\u0441\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u043E \u043E\u0442\
+      \u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435 \u043F\u043E\u0442\u0435\
+      \u0440\u0438 \u043C\u0430\u0441\u0442\u0435\u0440\u0430 \u0434\u043B\u044F \u0438\
+      \u043C\u043F\u043B\u0430\u043D\u0442\u0430 \u043F\u043E\u0434\u0447\u0438\u043D\
+      \u0435\u043D\u0438\u044F."
+    type: Fix
+  id: 566
+  time: '2024-09-29T20:39:22.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/721
+- author: Vorge
+  changes:
+  - message: "\u0422\u0435\u043F\u0435\u0440\u044C \u0448\u043F\u0440\u0438\u0446\u044B\
+      \ \u043C\u043E\u0436\u043D\u043E \u043C\u0435\u0442\u0430\u0442\u044C \u0438\
+      \ \u043E\u043D\u0438 \u0431\u0443\u0434\u0443\u0442 \u043F\u0435\u0440\u0435\
+      \u043B\u0438\u0432\u0430\u0442\u044C 2 \u0443\u043D\u0446\u0438\u0438 \u0445\
+      \u0438\u043C\u0438\u043A\u0430\u0442\u0430 \u0432 \u0436\u0435\u0440\u0442\u0432\
+      \u0443. E\u0441\u043B\u0438 \u043D\u0430\u0441\u0442\u0443\u043A\u0430\u0442\
+      \u044C \u0432 \u0445\u0430\u0440\u043C \u043C\u043E\u0434\u0435 \u043F\u043E\
+      \ \u0446\u0435\u043B\u0438, \u0448\u043F\u0440\u0438\u0446 \u0431\u0443\u0434\
+      \u0435\u0442 \u043F\u0435\u0440\u0435\u043A\u0430\u0447\u0438\u0432\u0430\u0442\
+      \u044C 1 \u0443\u043D\u0446\u0438\u044E"
+    type: Add
+  id: 567
+  time: '2024-10-03T09:08:56.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/724
+- author: BIGZi0348
+  changes:
+  - message: "\u0418\u0437\u043C\u0435\u043D\u0435\u043D\u044B \u0442\u0435\u043A\u0441\
+      \u0442\u0443\u0440\u043A\u0438 \u043A\u043E\u043C\u0431\u0438\u043D\u0435\u0437\
+      \u043E\u043D\u043E\u0432 \u0432 \u0441\u043B\u043E\u0436\u0435\u043D\u043D\u043E\
+      \u043C \u0441\u043E\u0441\u0442\u043E\u044F\u043D\u0438\u0438, \u0434\u043B\u044F\
+      \ \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u044F \u0441\
+      \ \u043E\u0431\u0449\u0438\u043C \u0434\u0438\u0437\u0430\u0439\u043D\u043E\u043C\
+      ."
+    type: Tweak
+  - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u044B \u0441\u043B\u043E\
+      \u0436\u0435\u043D\u043D\u044B\u0435 \u0441\u043E\u0441\u0442\u043E\u044F\u043D\
+      \u0438\u044F \u0434\u043B\u044F \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u044B\
+      \u0445 \u0434\u0440\u0443\u0433\u0438\u0445 \u043A\u043E\u043C\u0431\u0438\u043D\
+      \u0435\u0437\u043E\u043D\u043E\u0432."
+    type: Add
+  id: 568
+  time: '2024-10-04T20:51:56.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/725
+- author: Vorge
+  changes:
+  - message: "\u0421\u0430\u0443\u043D\u0434\u0442\u0440\u0435\u043A\u0438 (\u0447\
+      \u0430\u0441\u0442\u044C) \u0438\u0437 Loop hero, Deltarune 2 chapter, HEAVEN\
+      \ SAYS, \u0430 \u0442\u0430\u043A \u0436\u0435 \u0432\u043E\u0442 [\u044D\u0442\
+      \u043E\u0442 \u043F\u043B\u0435\u0439\u043B\u0438\u0441\u0442](https://youtube.com/playlist?list=PLUi8JUtEEidBo0RCiAEcMxbRbYs45-uSo&si=nx-pnZFRWAUlfROI)\
+      \ \u0434\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u044B \u0432 jukebo."
+    type: Add
+  - message: "\u041F\u043E\u0444\u0438\u043A\u0448\u0435\u043D Cosmic Temperence (\u0438\
+      \u0437-\u0437\u0430 \u043F\u043E\u0442\u0435\u0440\u0438 \u0444\u0430\u0439\u043B\
+      \u0430 \u0432 \u0438\u0433\u0440\u0435 \u043F\u0440\u043E\u0438\u0441\u0445\u043E\
+      \u0434\u0438\u043B \u0443\u0436\u0430\u0441)"
+    type: Fix
+  - message: "\u041F\u043E\u0444\u0438\u043A\u0448\u0435\u043D\u044B \u043F\u0435\u0441\
+      \u043D\u0438 \u0441 \u043D\u0435\u043F\u0440\u0430\u0432\u0438\u043B\u044C\u043D\
+      \u044B\u043C \u0444\u043E\u0440\u043C\u0430\u0442\u043E\u043C, \u043A\u043E\u0442\
+      \u043E\u0440\u044B\u0435 \u043D\u0435 \u043F\u043E\u0434\u0434\u0430\u0432\u0430\
+      \u043B\u0430\u0438\u0441\u044C \u0443\u043C\u0435\u043D\u044C\u0448\u0435\u043D\
+      \u0438\u044E \u0433\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u0438 \u0438\u0437\
+      -\u0437\u0430 \u0440\u0430\u0441\u0441\u0442\u043E\u044F\u043D\u0438\u044F"
+    type: Fix
+  id: 569
+  time: '2024-10-04T21:11:32.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/726
+- author: Valtos
+  changes:
+  - message: "\u041D\u043E\u0432\u044B\u0439 \u043B\u043E\u0433\u043E\u0442\u0438\u043F\
+      ."
+    type: Add
+  id: 570
+  time: '2024-10-06T08:01:24.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/729
+- author: BIG_Zi_348
+  changes:
+  - message: "\u0418\u0441\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u044B \u043F\u0435\
+      \u0440\u0435\u0432\u043E\u0434\u044B \u043C\u043D\u043E\u0433\u0438\u0445 \u043C\
+      \u0435\u043B\u043E\u0447\u0435\u0439."
+    type: Fix
+  - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u044B \u043F\u0435\u0440\
+      \u0435\u0432\u043E\u0434\u044B \u043C\u043D\u043E\u0433\u0438\u0445 \u043C\u0435\
+      \u043B\u043E\u0447\u0435\u0439."
+    type: Add
+  - message: "\u0418\u0441\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u043E \u043E\u0442\
+      \u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435 \u0440\u0443\u043A\u043E\
+      \u0432\u043E\u0434\u0441\u0442\u0432\u0430 \u0431\u043E\u0440\u0433\u043E\u0432\
+      ."
+    type: Fix
+  id: 571
+  time: '2024-10-12T20:54:46.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/728
+- author: BIG_Zi_348
+  changes:
+  - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u044B \u043D\u0435\u0434\
+      \u043E\u0441\u0442\u0430\u044E\u0449\u0438\u0435 \u043F\u0435\u0440\u0435\u0432\
+      \u043E\u0434\u044B \u0440\u0443\u043A\u043E\u0432\u043E\u0434\u0441\u0442\u0432\
+      ."
+    type: Add
+  id: 572
+  time: '2024-10-12T21:01:02.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/730

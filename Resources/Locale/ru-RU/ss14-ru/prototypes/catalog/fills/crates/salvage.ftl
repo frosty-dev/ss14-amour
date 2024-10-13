@@ -4,3 +4,7 @@ ent-CrateSalvageEquipment = ящик со снаряжением для утил
 ent-CrateSalvageAssortedGoodies = { ent-CrateGenericSteel }
     .suffix = Заполненный, Случайный утиль
     .desc = { ent-CrateGenericSteel.desc }
+ent-CrateCargoLuxuryHardsuit = ящик c роскошным шахтёрсим скафандром
+    .desc = Наконец-то, скафандр который квартирмейстер может назвать своим. Центком вас услышал, теперь перестаньте спрашивать.
+ent-CrateCargoGambling = большая лотерея $$$
+    .desc = Ящик, содержащий сокровища, превосходящие ваши самые смелые фантазии!

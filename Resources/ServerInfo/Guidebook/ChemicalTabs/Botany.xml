@@ -1,14 +1,10 @@
 <Document>
 
-# Botanical Chemicals
+# Ботанические
 
-These chemicals are used by botanists. Some of the chemicals change the properties of the plants.
+Эти химикаты используются ботаниками. Некоторые из химикатов изменяют свойства растений.
 
-<GuideReagentEmbed Reagent="Ammonia"/>
-<GuideReagentEmbed Reagent="Diethylamine"/>
-<GuideReagentEmbed Reagent="EZNutrient"/>
-<GuideReagentEmbed Reagent="Left4Zed"/>
-<GuideReagentEmbed Reagent="RobustHarvest"/>
+<GuideReagentGroupEmbed Group="Botanical"/>
 <GuideReagentEmbed Reagent="UnstableMutagen"/>
 
 </Document>

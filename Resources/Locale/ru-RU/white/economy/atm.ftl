@@ -10,4 +10,3 @@ atm-ui-balance = Баланс: { $balance } ¢
 
 ent-ATM = Банкомат
     .desc = Для всех ваших денежных нужд!
-    .suffix = { "" }

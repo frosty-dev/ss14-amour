@@ -1,5 +1,7 @@
 ent-ToolboxElectricalTurret = ящик для инструментов электрика
    .desc = Ящик для инструментов, обычно снабженный электрическим оборудованием.
+ent-ToolboxElectricalTurretFilled = { ent-ToolboxElectricalTurret }
+    .desc = { ent-ToolboxElectricalTurret.desc }
 ent-NetworkConfigurator = сетевой конфигуратор
    .desc = Инструмент для соединения устройств вместе. Имеет два режима: режим списка для массового связывания устройств и режим связывания для расширенного связывания устройств.
 ent-RCDExperimental = экспериментальное РЦД

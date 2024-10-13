@@ -57,3 +57,7 @@ rcd-component-plating = лист обшивки
 
 ent-RapidPipeDispenser = РПД
     .desc = Новейшее ручное строительное устройство, которое может быстро размещать трубы и атмосферные приборы.
+ent-RapidPipeDispenserEmpty = { ent-RapidPipeDispenser }
+    .desc = { ent-RapidPipeDispenser.desc }
+ent-RapidPipeDispenserRecharging = { ent-RapidPipeDispenser }
+    .desc = { ent-RapidPipeDispenser.desc }
