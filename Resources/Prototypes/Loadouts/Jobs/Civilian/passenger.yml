@@ -80,6 +80,17 @@
 
 # Gloves
 - type: itemLoadout
+  id: AssistantHandsGlovesColorYellow
+  equipment: AssistantHandsGlovesColorYellow
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: TimerTrueAssistant
+- type: startingGear
+  id: AssistantHandsGlovesColorYellow
+  equipment:
+    outerClothing: ClothingHandsGlovesColorYellow
+
+- type: itemLoadout
   id: AssistantGloves
   equipment: FingerlessInsulatedGloves
   effects:
