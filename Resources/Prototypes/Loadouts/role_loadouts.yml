@@ -68,7 +68,7 @@
   - AssistantJumpsuit
   - CommonBottom # WD
   - CommonBackpack
-  - CommonGloves # WD
+  - AssistentGloves # Honk
   - AssistantOuterClothing
   - CommonShoes # WD
   - AssistantPDA # WD
@@ -518,6 +518,7 @@
   - CommonUnderwearBraHOS
   - CommonUnderwearSocks
 
+
 - type: roleLoadout
   id: JobWarden
   groups:
@@ -616,12 +617,14 @@
   - CommonUnderwearBottom
   - CommonUnderwearBra
   - CommonUnderwearSocks
+  - CommonSecurityMask #honk
 
 - type: roleLoadout
   id: JobSecurityCadet
   groups:
   - CommonSecurityHead
   - CommonSecurityHeadsetFull # WD
+  - CommonSecurityMask #honk
   - CommonSecurityNeck
   - SecurityCadetJumpsuit
   - CommonBottom # WD

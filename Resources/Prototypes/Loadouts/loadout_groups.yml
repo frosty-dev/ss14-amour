@@ -746,6 +746,15 @@
   - GlovesFingerless
 
 - type: loadoutGroup
+  id: AssistentGloves
+  name: loadout-group-gloves
+  minLimit: 0
+  loadouts:
+  - AssistantHandsGlovesColorYellow
+  - GlovesColorBlack
+  - GlovesFingerless
+
+- type: loadoutGroup
   id: CommonShoes
   name: loadout-group-shoes
   loadouts:
@@ -1633,6 +1642,7 @@
   name: loadout-group-mask
   minLimit: 0
   loadouts:
+  - SecurityMaskBalaclava
   - SecurityMaskStandard
 
 - type: loadoutGroup # WD
@@ -1642,6 +1652,7 @@
   loadouts:
   - SecurityMaskStandard
   - SecurityMaskSwat
+  - SecurityMaskBalaclava #goooooooooool
 
 - type: loadoutGroup # WD
   id: CommonSecurityNeck
