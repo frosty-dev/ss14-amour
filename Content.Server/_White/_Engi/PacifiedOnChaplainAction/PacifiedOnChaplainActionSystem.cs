@@ -6,6 +6,8 @@ using Content.Shared.Verbs;
 using Content.Server.Bible.Components;
 using Content.Shared.Timing;
 using Content.Shared.CombatMode.Pacification;
+using Content.Server.Administration.Logs;
+using Content.Shared.Database;
 
 namespace Content.Server._White._Engi.PacifiedOnChaplainAction
 {
@@ -18,6 +20,7 @@ namespace Content.Server._White._Engi.PacifiedOnChaplainAction
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
+        [Dependency] private readonly IAdminLogManager _adminLogger = default!;
 
         public override void Initialize()
         {
@@ -41,6 +44,10 @@ namespace Content.Server._White._Engi.PacifiedOnChaplainAction
                 popup = "pacified-by-chaplain";
                 EnsureComp<PacifiedComponent>(target);
             }
+
+            _adminLogger.Add(LogType.Verb,
+            LogImpact.Medium,
+            $"{ToPrettyString(target):target} {popup} {ToPrettyString(user):user}");
 
             _popupSystem.PopupEntity(Loc.GetString(popup, ("target", target)), user, user);
 
