@@ -22,3 +22,6 @@ ent-LockerClownFilled = { ent-LockerClown }
 ent-LockerMimeFilled = { ent-LockerMime }
     .suffix = Заполненный
     .desc = { ent-LockerMime.desc }
+ent-ClosetJanitorBombFilled = { ent-ClosetJanitorBomb }
+    .suffix = Заполненный
+    .desc = { ent-ClosetJanitorBomb.desc }

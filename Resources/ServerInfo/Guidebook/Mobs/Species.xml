@@ -1,18 +1,23 @@
 <Document>
-  # Species
+  # Расы
 
-  Nanotrasen employs a variety of sapient species.
+  Нанотразен нанимает разнообразные разумные виды.
 
   <Box>
-  <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
-  <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
-  <GuideEntityEmbed Entity="MobDwarf" Caption="Dwarf"/>
-  <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
+  <GuideEntityEmbed Entity="MobHuman" Caption="Человек"/>
+  <GuideEntityEmbed Entity="MobReptilian" Caption="Унатх"/>
+  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слаймолюд"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
-  <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
-  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
+  <GuideEntityEmbed Entity="MobSkrell" Caption="Скрелл"/>
+  <GuideEntityEmbed Entity="MobMoth" Caption="Моль"/>
+  <GuideEntityEmbed Entity="MobArachnid" Caption="Арахнид"/>
+  <GuideEntityEmbed Entity="MobDiona" Caption="Диона"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="MobDwarf" Caption="Дворф"/>
+    <GuideEntityEmbed Entity="MobHarpy" Caption="Гарпия"/>
+    <GuideEntityEmbed Entity="MobFelinid" Caption="Фелинид"/>
   </Box>
 
 </Document>

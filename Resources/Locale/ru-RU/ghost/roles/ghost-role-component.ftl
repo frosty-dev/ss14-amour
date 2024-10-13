@@ -134,7 +134,7 @@ ghost-role-information-ifrit-name = Ифрит
 ghost-role-information-ifrit-description = Слушай своего хозяина. Не принимайте урон. Сильно бей людей.
 
 ghost-role-information-space-dragon-name = Космический дракон
-ghost-role-information-space-dragon-description = Вызовите 3 карповых переката и захватите этот сектор! У вас есть всего 5 минут между каждым разрывом, прежде чем вы исчезнете.
+ghost-role-information-space-dragon-description = Вызовите 3 карповых разлома и захватите этот сектор! У вас есть всего 5 минут между каждым разломом, прежде чем вы исчезнете.
 ghost-role-information-space-dragon-dungeon-description = Защищайте подземелье экспедиции вместе со своими рыбьими товарищами!!
 
 ghost-role-information-cluwne-name = Клувн

@@ -1,7 +1,5 @@
 ent-ChairMeat = мясной стул
    .desc = Неприятно потный.
-ent-DresserFilled = { ent-Dresser }
-   .desc = { ent-Dresser.desc }
 ent-CounterBase = стойка
 ent-HolosignSecurity = голографический барьер
    .desc = Барьер жесткого света, который блокирует движение, но довольно слабый.
@@ -14,7 +12,7 @@ ent-Sheetifier = лист-мейстер 2000
    .desc = Очень листовая машина.
 ent-MaterialReclaimer = регенератор материалов
    .desc = Не может восстановить нематериальные вещи, такие как мотивация.
-ent-VendingMachineWinter = ЗимКомод
+ent-VendingMachineWinter = ЗимШкаф
    .desc = Лучшее место, чтобы насладиться холодом!
 ent-VendingMachineSustenance = Продовольственный вендомат
    .desc = Торговый автомат, который продает еду, как того требует раздел 47-C Соглашения об этическом обращении с заключенными NT.

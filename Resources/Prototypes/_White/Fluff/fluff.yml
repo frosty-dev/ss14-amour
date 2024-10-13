@@ -1185,3 +1185,40 @@
   sprites:
   - sprite: White/Fluff/DoxXxoM/hair.rsi
     state: hair_allthefuzz
+
+# IMercuryI
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitIMercuryI
+  suffix: fluff
+  name: Изумрудная загадка
+  description: Выражает Доминирующий черный оттенок, яркие зеленые акценты и атмосферу таинственности, окружающую как одежду так и ее обладателя.
+  components:
+    - type: Sprite
+      sprite: White/Fluff/IMercuryI/uniform.rsi
+    - type: Clothing
+      sprite: White/Fluff/IMercuryI/uniform.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterIMercuryI
+  name: Зеленый Авангард
+  description: Может похвастается изысканным дизайном и обтекаемым силуэтом который дополняет любое телосложение.
+  suffix: fluff
+  components:
+    - type: Sprite
+      sprite: White/Fluff/IMercuryI/suit.rsi
+    - type: Clothing
+      sprite: White/Fluff/IMercuryI/suit.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckTieIMercuryI
+  name: Диагональ
+  description: На нем смелый асимметричный узор который кажется смещается и меняется в зависимости от угла, под которым на него смотрят.
+  suffix: fluff
+  components:
+    - type: Sprite
+      sprite: White/Fluff/IMercuryI/tie.rsi
+    - type: Clothing
+      sprite: White/Fluff/IMercuryI/tie.rsi

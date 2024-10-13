@@ -500,3 +500,12 @@
   alpha: 0.9
   ghostName: Никелевый камушек
   ghostDescription: Этот Ниггер имеет талант, знаешь что я тебе за это дам???
+
+#BIG_Zi_348
+- type: customGhost
+  id: big_zi_348-ghost
+  ckey: BIG_Zi_348
+  sprite: White/Ghosts/big_zi_348-ghost.rsi
+  alpha: 0.9
+  ghostName: BIG_Zi_348
+  ghostDescription: Зенит космической энергии — генезис сознания из пустоты.

@@ -1,12 +1,9 @@
 ent-BaseBigBox = картонная коробка
     .desc = А? Просто коробка...
-    .suffix = { "" }
 ent-StealthBox = картонная коробка
     .desc = Заставил тебя ждать, да?
     .suffix = Невидимость
 ent-GhostBox = призрачная коробка
     .desc = Остерегайтесь!
-    .suffix = { "" }
 ent-Exclamation = восклицание
     .desc = { "" }
-    .suffix = { "" }

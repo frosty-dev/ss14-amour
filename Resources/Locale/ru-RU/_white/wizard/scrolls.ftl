@@ -65,3 +65,5 @@ ent-ScrollRodForm = свиток формы стержня
     .desc = { ent-BaseScroll.desc }
 ent-ScrollBlind = свиток ослепления
     .desc = { ent-BaseScroll.desc }
+ent-ScrollMutate = свиток мутации
+    .desc = { ent-BaseScroll.desc }

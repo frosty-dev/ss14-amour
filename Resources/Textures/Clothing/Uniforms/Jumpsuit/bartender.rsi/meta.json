@@ -11,6 +11,9 @@
             "name": "icon"
         },
         {
+            "name": "icon_folded"
+        },
+        {
             "name": "equipped-INNERCLOTHING",
             "directions": 4
         },
