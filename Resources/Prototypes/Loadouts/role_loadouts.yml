@@ -518,7 +518,6 @@
   - CommonUnderwearBraHOS
   - CommonUnderwearSocks
 
-
 - type: roleLoadout
   id: JobWarden
   groups:

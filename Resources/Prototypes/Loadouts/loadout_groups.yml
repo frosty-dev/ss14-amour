@@ -745,7 +745,7 @@
   - GlovesColorBlack
   - GlovesFingerless
 
-- type: loadoutGroup
+- type: loadoutGroup #Honk
   id: AssistentGloves
   name: loadout-group-gloves
   minLimit: 0
@@ -1642,7 +1642,7 @@
   name: loadout-group-mask
   minLimit: 0
   loadouts:
-  - SecurityMaskBalaclava
+  - SecurityMaskBalaclava #Honk
   - SecurityMaskStandard
 
 - type: loadoutGroup # WD
@@ -1652,7 +1652,7 @@
   loadouts:
   - SecurityMaskStandard
   - SecurityMaskSwat
-  - SecurityMaskBalaclava #goooooooooool
+  - SecurityMaskBalaclava #Honk
 
 - type: loadoutGroup # WD
   id: CommonSecurityNeck

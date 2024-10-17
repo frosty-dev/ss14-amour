@@ -79,7 +79,7 @@
     back: ClothingBackpackDuffelFilled
 
 # Gloves
-- type: itemLoadout
+- type: itemLoadout #Honk
   id: AssistantHandsGlovesColorYellow
   equipment: AssistantHandsGlovesColorYellow
   effects:
