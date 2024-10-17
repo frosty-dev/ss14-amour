@@ -1,0 +1,34 @@
+# Шайба снюса
+- type: entity
+  parent: ClothingBackpack
+  id: BasePuckSnus
+  name: Шайба снюса
+  description: Эксклюзивный снюс премиум-класса. Изготовлен из отборного табака и натуральных ароматизаторов.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BaseBagSnus
+      amount: 15
+  - type: Sprite
+    sprite: _Honk/Snus/puck.rsi #Выглядит как ПОЛНАЯ хуита, но мне похуй!
+    layers:
+    - state: puck
+
+# Пакетик снюса
+- type: entity
+  parent: BaseItem
+  id: BaseBagSnus
+  name: Пакетик снюса
+  components:
+  - type: Food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 10
+  - type: Sprite
+    sprite: _Honk/Snus/bag.rsi
+    layers:
+    - state: paket
