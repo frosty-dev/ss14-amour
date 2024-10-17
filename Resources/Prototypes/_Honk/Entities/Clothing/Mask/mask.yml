@@ -8,3 +8,7 @@
     sprite: _Honk/Clothing/Mask/balaclava.rsi
   - type: Clothing
     sprite: _Honk/Clothing/Mask/balaclava.rsi
+  - type: HideLayerClothing # Точно не Honk в папке Honk'a
+    slots:
+    - Hair
+    - Snout

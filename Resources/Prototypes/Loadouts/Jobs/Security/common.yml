@@ -26,6 +26,14 @@
 
 # Mask
 
+- type: itemLoadout # Honk
+  id: SecurityMaskBalaclava
+  equipment: SecurityMaskBalaclava
+- type: startingGear
+  id: SecurityMaskBalaclava
+  equipment:
+    mask: ClothingBalaclava
+
 - type: itemLoadout # WD
   id: SecurityMaskStandard
   equipment: SecurityMaskStandard
