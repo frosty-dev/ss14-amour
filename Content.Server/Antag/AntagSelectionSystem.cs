@@ -28,6 +28,7 @@ using Robust.Shared.Random;
 using Content.Server._Miracle.GulagSystem;
 using Content.Server._White.Sponsors;
 using Content.Server.Inventory;
+using FastAccessors;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Antag;
@@ -463,10 +464,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         var antagChance = info.AntagChance;
 
         // Ensure antagChance is within 0-100 range
-        antagChance = Math.Clamp(antagChance, 0, 100);
+        antagChance = Math.Clamp(antagChance, 0, 50);
 
         // Convert clamped antagChance from 0-100 range to 0-1 range
-        return antagChance / 100f;
+        return antagChance / 50f;
     }
 }
 
