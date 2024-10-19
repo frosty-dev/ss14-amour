@@ -11,7 +11,7 @@ using Content.Server.Administration.Logs;
 using Content.Shared.Database;
 using Content.Server.Chat.Systems;
 using Content.Server.Nutrition.EntitySystems;
-using Timer = Robust.Shared.Timing.Timer;
+using Robust.Shared.Timing;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Verbs;
