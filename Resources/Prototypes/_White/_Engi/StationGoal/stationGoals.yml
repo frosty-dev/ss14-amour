@@ -1,0 +1,68 @@
+# WD ENGI EXCLUSIVE
+- type: stationGoal
+  id: Singularity
+  text: engi-station-goal-singularity
+
+- type: stationGoal
+  id: SolarPanels
+  text: engi-station-goal-solar-panels
+
+- type: stationGoal
+  id: Artifacts
+  text: engi-station-goal-artifacts
+
+- type: stationGoal
+  id: Bank
+  text: engi-station-goal-bank
+
+- type: stationGoal
+  id: Zoo
+  text: engi-station-goal-zoo
+
+- type: stationGoal
+  id: MiningOutpost
+  text: engi-station-goal-mining-outpost
+
+- type: stationGoal
+  id: Tesla
+  text: engi-station-goal-tesla
+
+- type: stationGoal
+  id: SecurityTraining
+  text: engi-station-goal-security
+
+- type: stationGoal
+  id: ShuttleMed
+  text: engi-station-goal-shuttle-med
+
+- type: stationGoal
+  id: ShuttleSec
+  text: engi-station-goal-shuttle-sec
+
+- type: stationGoal
+  id: ShuttleRnd
+  text: engi-station-goal-shuttle-rnd
+
+- type: stationGoal
+  id: ShuttleSrv
+  text: engi-station-goal-shuttle-srv
+
+- type: stationGoal
+  id: ShuttleEmergency
+  text: engi-station-goal-shuttle-emergency
+
+- type: stationGoal
+  id: Theatre
+  text: engi-station-goal-theatre
+
+- type: stationGoal
+  id: CellAI
+  text: engi-station-goal-ai
+
+- type: stationGoal
+  id: Botany
+  text: engi-station-goal-botany
+
+- type: stationGoal
+  id: Bunker
+  text: engi-station-goal-bunker
