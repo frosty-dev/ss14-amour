@@ -9,6 +9,9 @@
     state: cane
   - type: Item
     size: Normal
+    storedRotation: -44 # WD
+    shape: # WD
+    - 0,0,0,2
     sprite: Objects/Weapons/Melee/cane.rsi
   - type: Appearance
   - type: MeleeWeapon
@@ -46,6 +49,9 @@
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: Normal
+    storedRotation: -44 # WD
+    shape: # WD
+    - 0,0,0,2
     sprite: Objects/Weapons/Melee/cane_blade.rsi
   - type: Tag
     tags:

@@ -88,6 +88,8 @@
   - type: Tag
     tags:
     - Knife
+  - type: Item # WD
+    storedRotation: -44
 
 # Like a crusher... but better
 - type: entity

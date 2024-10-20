@@ -114,6 +114,9 @@
     bluntStaminaDamageFactor: 1.5
   - type: Item
     size: Normal
+    storedRotation: -44 # WD
+    shape: # WD
+    - 0,0,0,2
   - type: Tag
     tags: 
     - Truncheon
