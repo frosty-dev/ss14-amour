@@ -1,14 +1,6 @@
 ﻿Entries:
 - author: RavMorgan
   changes:
-  - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D \u043D\u043E\u0432\u044B\
-      \u0439 \u0438\u0433\u0440\u043E\u0432\u043E\u0439 \u0440\u0435\u0436\u0438\u043C\
-      \ - \u0420\u0415\u0412\u041E\u041B\u042E\u0426\u0418\u042F!"
-    type: Add
-  id: 80
-  time: '2023-02-21T21:06:19.0000000+00:00'
-- author: RavMorgan
-  changes:
   - message: "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u0438\u0435 \u043A\u0438\u0431\
       \u043E\u0440\u0433\u043E\u0432 \u043E\u0442\u043C\u0435\u043D\u044F\u0435\u0442\
       \u0441\u044F!"
@@ -8770,3 +8762,14 @@
   id: 579
   time: '2024-10-20T19:25:41.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/741
+- author: BIG_Zi_348
+  changes:
+  - message: "\u0418\u0441\u043F\u0440\u0430\u0432\u043B\u0435\u043D \u0431\u0430\u0433\
+      , \u0440\u0430\u0437\u0440\u0435\u0448\u0430\u044E\u0449\u0438\u0439 \u0431\u0435\
+      \u0441\u043A\u043E\u043D\u0435\u0447\u043D\u043E \u0430\u0442\u0430\u043A\u043E\
+      \u0432\u0430\u0442\u044C \u041F\u041A\u041C \u0431\u0435\u0437 \u0437\u0430\u0442\
+      \u0440\u0430\u0442 \u0441\u0442\u0430\u043C\u0438\u043D\u044B."
+    type: Fix
+  id: 580
+  time: '2024-10-21T19:15:09.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/742
