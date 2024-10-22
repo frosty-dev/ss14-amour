@@ -1,13 +1,12 @@
 using Content.Shared.Damage;
-using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared.Zombies;
+namespace Content.Server.Zombies;
 
 /// <summary>
 /// Temporary because diseases suck.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent]
 public sealed partial class PendingZombieComponent : Component
 {
     /// <summary>

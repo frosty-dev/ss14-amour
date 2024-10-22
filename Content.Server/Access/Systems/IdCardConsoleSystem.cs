@@ -44,7 +44,8 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         if (args.Actor is not { Valid: true } player)
             return;
 
-        TryWriteToTargetId(uid, args.FullName, args.JobTitle, args.AccessList, args.JobPrototype,  args.SelectedIcon, player, component);
+        TryWriteToTargetId(uid, args.FullName, args.JobTitle, args.AccessList, args.JobPrototype, args.SelectedIcon,
+            player, component);
 
         UpdateUserInterface(uid, component, args);
     }
@@ -151,9 +152,6 @@ public sealed class IdCardConsoleSystem : SharedIdCardConsoleSystem
         {
             _idCard.TryChangeJobDepartment(targetId, job);
         }
-
-        UpdateStationRecord(uid, targetId, newFullName, newJobTitle, job, newJobIcon);
-
 
         if (!newAccessList.TrueForAll(x => component.AccessLevels.Contains(x)))
         {

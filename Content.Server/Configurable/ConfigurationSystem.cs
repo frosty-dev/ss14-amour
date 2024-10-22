@@ -24,7 +24,6 @@ public sealed class ConfigurationSystem : EntitySystem
 
     private void OnInteractUsing(EntityUid uid, ConfigurationComponent component, InteractUsingEvent args)
     {
-        // TODO use activatable ui system
         if (args.Handled)
             return;
 

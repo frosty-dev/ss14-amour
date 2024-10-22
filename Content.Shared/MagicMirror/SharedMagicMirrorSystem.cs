@@ -2,7 +2,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Interaction;
 using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.MagicMirror;
 
@@ -18,13 +17,10 @@ public abstract class SharedMagicMirrorSystem : EntitySystem
 
     private void OnMirrorRangeCheck(EntityUid uid, MagicMirrorComponent component, ref BoundUserInterfaceCheckRangeEvent args)
     {
-        if (args.Result == BoundUserInterfaceRangeResult.Fail)
-            return;
-
-        DebugTools.Assert(component.Target != null && Exists(component.Target));
-
-        if (!_interaction.InRangeUnobstructed(uid, component.Target.Value))
+        if (!Exists(component.Target) || !_interaction.InRangeUnobstructed(uid, component.Target.Value))
+        {
             args.Result = BoundUserInterfaceRangeResult.Fail;
+        }
     }
 }
 

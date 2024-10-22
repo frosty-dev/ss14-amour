@@ -239,10 +239,8 @@ namespace Content.Client.Examine
 
             if (knowTarget)
             {
-                // TODO: FormattedMessage.RemoveMarkupPermissive
-                // var itemName = FormattedMessage.RemoveMarkupPermissive(Identity.Name(target, EntityManager, player));
-                var itemName = FormattedMessage.FromMarkupPermissive(Identity.Name(target, EntityManager, player)).ToString();
-                var labelMessage = FormattedMessage.FromMarkupPermissive($"[bold]{itemName}[/bold]");
+                var itemName = FormattedMessage.RemoveMarkup(Identity.Name(target, EntityManager, player));
+                var labelMessage = FormattedMessage.FromMarkup($"[bold]{itemName}[/bold]");
                 var label = new RichTextLabel();
                 label.SetMessage(labelMessage);
                 hBox.AddChild(label);

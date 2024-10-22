@@ -413,9 +413,9 @@
         prototype: InitialInfected
 
 - type: entity
-  noSpawn: true
-  parent: BaseNukeopsRule
   id: LoneOpsSpawn
+  parent: BaseGameRule
+  noSpawn: true
   components:
   - type: StationEvent
     earliestStart: 35
@@ -447,9 +447,9 @@
         prototype: Nukeops
 
 - type: entity
-  noSpawn: true
-  parent: BaseTraitorRule
   id: SleeperAgentsRule
+  parent: BaseGameRule
+  noSpawn: true
   components:
   - type: StationEvent
     earliestStart: 30
@@ -460,6 +460,7 @@
     startAudio:
       path: /Audio/Announcements/intercept.ogg
   - type: AlertLevelInterceptionRule
+  - type: TraitorRule
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]

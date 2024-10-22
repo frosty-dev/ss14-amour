@@ -96,7 +96,7 @@ public abstract class SharedNavMapSystem : EntitySystem
                 chunks.Add(origin, chunk.TileData);
             }
 
-            args.State = new NavMapState(chunks, component.Beacons);
+            args.State = new NavMapComponentState(chunks, component.Beacons);
             return;
         }
 
@@ -109,7 +109,12 @@ public abstract class SharedNavMapSystem : EntitySystem
             chunks.Add(origin, chunk.TileData);
         }
 
-        args.State = new NavMapDeltaState(chunks, component.Beacons, new(component.Chunks.Keys));
+        args.State = new NavMapComponentState(chunks, component.Beacons)
+        {
+            // TODO NAVMAP cache a single AllChunks hashset in the component.
+            // Or maybe just only send them if a chunk gets removed.
+            AllChunks = new(component.Chunks.Keys),
+        };
     }
 
     #endregion
@@ -117,35 +122,32 @@ public abstract class SharedNavMapSystem : EntitySystem
     #region: System messages
 
     [Serializable, NetSerializable]
-    protected sealed class NavMapState(
+    protected sealed class NavMapComponentState(
         Dictionary<Vector2i, int[]> chunks,
         Dictionary<NetEntity, NavMapBeacon> beacons)
-        : ComponentState
+        : ComponentState, IComponentDeltaState
     {
         public Dictionary<Vector2i, int[]> Chunks = chunks;
         public Dictionary<NetEntity, NavMapBeacon> Beacons = beacons;
-    }
 
-    [Serializable, NetSerializable]
-    protected sealed class NavMapDeltaState(
-        Dictionary<Vector2i, int[]> modifiedChunks,
-        Dictionary<NetEntity, NavMapBeacon> beacons,
-        HashSet<Vector2i> allChunks)
-        : ComponentState, IComponentDeltaState<NavMapState>
-    {
-        public Dictionary<Vector2i, int[]> ModifiedChunks = modifiedChunks;
-        public Dictionary<NetEntity, NavMapBeacon> Beacons = beacons;
-        public HashSet<Vector2i> AllChunks = allChunks;
+        // Required to infer deleted/missing chunks for delta states
+        public HashSet<Vector2i>? AllChunks;
 
-        public void ApplyToFullState(NavMapState state)
+        public bool FullState => AllChunks == null;
+
+        public void ApplyToFullState(IComponentState fullState)
         {
+            DebugTools.Assert(!FullState);
+            var state = (NavMapComponentState) fullState;
+            DebugTools.Assert(state.FullState);
+
             foreach (var key in state.Chunks.Keys)
             {
                 if (!AllChunks!.Contains(key))
                     state.Chunks.Remove(key);
             }
 
-            foreach (var (index, data) in ModifiedChunks)
+            foreach (var (index, data) in Chunks)
             {
                 if (!state.Chunks.TryGetValue(index, out var stateValue))
                     state.Chunks[index] = stateValue = new int[data.Length];
@@ -160,8 +162,12 @@ public abstract class SharedNavMapSystem : EntitySystem
             }
         }
 
-        public NavMapState CreateNewFullState(NavMapState state)
+        public IComponentState CreateNewFullState(IComponentState fullState)
         {
+            DebugTools.Assert(!FullState);
+            var state = (NavMapComponentState) fullState;
+            DebugTools.Assert(state.FullState);
+
             var chunks = new Dictionary<Vector2i, int[]>(state.Chunks.Count);
             foreach (var (index, data) in state.Chunks)
             {
@@ -170,13 +176,13 @@ public abstract class SharedNavMapSystem : EntitySystem
 
                 var newData = chunks[index] = new int[ArraySize];
 
-                if (ModifiedChunks.TryGetValue(index, out var updatedData))
+                if (Chunks.TryGetValue(index, out var updatedData))
                     Array.Copy(newData, updatedData, ArraySize);
                 else
                     Array.Copy(newData, data, ArraySize);
             }
 
-            return new NavMapState(chunks, new(Beacons));
+            return new NavMapComponentState(chunks, new(Beacons));
         }
     }
 

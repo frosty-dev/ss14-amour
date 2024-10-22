@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Ensnaring;
+using Content.Shared.CombatMode;
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
@@ -9,6 +10,7 @@ using Content.Shared.Ensnaring.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
@@ -27,6 +29,7 @@ namespace Content.Server.Strip
     {
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly EnsnareableSystem _ensnaringSystem = default!;
+        [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
 
         [Dependency] private readonly SharedCuffableSystem _cuffableSystem = default!;
         [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
@@ -43,6 +46,7 @@ namespace Content.Server.Strip
 
             SubscribeLocalEvent<StrippableComponent, GetVerbsEvent<Verb>>(AddStripVerb);
             SubscribeLocalEvent<StrippableComponent, GetVerbsEvent<ExamineVerb>>(AddStripExamineVerb);
+            SubscribeLocalEvent<StrippableComponent, ActivateInWorldEvent>(OnActivateInWorld);
 
             // BUI
             SubscribeLocalEvent<StrippableComponent, StrippingSlotButtonPressed>(OnStripButtonPressed);
@@ -65,7 +69,7 @@ namespace Content.Server.Strip
             {
                 Text = Loc.GetString("strip-verb-get-data-text"),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
-                Act = () => TryOpenStrippingUi(args.User, (uid, component), true),
+                Act = () => StartOpeningStripper(args.User, (uid, component), true),
             };
 
             args.Verbs.Add(verb);
@@ -83,11 +87,35 @@ namespace Content.Server.Strip
             {
                 Text = Loc.GetString("strip-verb-get-data-text"),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/outfit.svg.192dpi.png")),
-                Act = () => TryOpenStrippingUi(args.User, (uid, component), true),
+                Act = () => StartOpeningStripper(args.User, (uid, component), true),
                 Category = VerbCategory.Examine,
             };
 
             args.Verbs.Add(verb);
+        }
+
+        private void OnActivateInWorld(EntityUid uid, StrippableComponent component, ActivateInWorldEvent args)
+        {
+            if (args.Target == args.User)
+                return;
+
+            if (!HasComp<ActorComponent>(args.User))
+                return;
+
+            StartOpeningStripper(args.User, (uid, component));
+        }
+
+        public override void StartOpeningStripper(EntityUid user, Entity<StrippableComponent> strippable, bool openInCombat = false)
+        {
+            base.StartOpeningStripper(user, strippable, openInCombat);
+
+            if (TryComp<CombatModeComponent>(user, out var mode) && mode.IsInCombatMode && !openInCombat)
+                return;
+
+            if (HasComp<StrippingComponent>(user))
+            {
+                _userInterfaceSystem.OpenUi(strippable.Owner, StrippingUiKey.Key, user);
+            }
         }
 
         private void OnStripButtonPressed(Entity<StrippableComponent> strippable, ref StrippingSlotButtonPressed args)

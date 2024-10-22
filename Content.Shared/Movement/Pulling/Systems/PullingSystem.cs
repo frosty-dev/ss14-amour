@@ -344,17 +344,14 @@ public sealed class PullingSystem : EntitySystem
         return !startPull.Cancelled && !getPulled.Cancelled;
     }
 
-    public bool TogglePull(Entity<PullableComponent?> pullable, EntityUid pullerUid)
+    public bool TogglePull(EntityUid pullableUid, EntityUid pullerUid, PullableComponent pullable)
     {
-        if (!Resolve(pullable, ref pullable.Comp, false))
-            return false;
-
-        if (pullable.Comp.Puller == pullerUid)
+        if (pullable.Puller == pullerUid)
         {
-            return TryStopPull(pullable, pullable.Comp);
+            return TryStopPull(pullableUid, pullable);
         }
 
-        return TryStartPull(pullerUid, pullable, pullableComp: pullable);
+        return TryStartPull(pullerUid, pullableUid, pullableComp: pullable);
     }
 
     public bool TogglePull(EntityUid pullerUid, PullerComponent puller)
@@ -362,7 +359,7 @@ public sealed class PullingSystem : EntitySystem
         if (!TryComp<PullableComponent>(puller.Pulling, out var pullable))
             return false;
 
-        return TogglePull((puller.Pulling.Value, pullable), pullerUid);
+        return TogglePull(puller.Pulling.Value, pullerUid, pullable);
     }
 
     public bool TryStartPull(EntityUid pullerUid, EntityUid pullableUid,

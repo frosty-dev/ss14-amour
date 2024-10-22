@@ -50,12 +50,6 @@
         store: payloadTrigger
         name: триггер
         doAfter: 0.5
-    - to: caseWithPayload
-      steps:
-      - tag: Payload
-        store: payload
-        name: Payload
-        doAfter: 0.5
 
   - node: caseWithTrigger
     actions:
@@ -75,26 +69,6 @@
       - tag: Payload
         store: payload
         name: заряд
-        doAfter: 0.5
-
-  - node: caseWithPayload
-    actions:
-    - !type:AppearanceChange
-    - !type:PlaySound
-      sound: /Audio/Machines/button.ogg
-    edges:
-    - to: wiredCase
-      steps:
-      - tool: Prying
-        doAfter: 0.5
-        completed:
-        - !type:EmptyContainer
-          container: payload
-    - to: grenade
-      steps:
-      - component: PayloadTrigger
-        store: payloadTrigger
-        name: Trigger
         doAfter: 0.5
 
   - node: grenade

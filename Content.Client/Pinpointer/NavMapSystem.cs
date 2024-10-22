@@ -14,40 +14,27 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
 
     private void OnHandleState(EntityUid uid, NavMapComponent component, ref ComponentHandleState args)
     {
-        Dictionary<Vector2i, int[]> modifiedChunks;
-        Dictionary<NetEntity, NavMapBeacon> beacons;
+        if (args.Current is not NavMapComponentState state)
+            return;
 
-        switch (args.Current)
+        if (!state.FullState)
         {
-            case NavMapDeltaState delta:
+            foreach (var index in component.Chunks.Keys)
             {
-                modifiedChunks = delta.ModifiedChunks;
-                beacons = delta.Beacons;
-                foreach (var index in component.Chunks.Keys)
-                {
-                    if (!delta.AllChunks!.Contains(index))
-                        component.Chunks.Remove(index);
-                }
-
-                break;
+                if (!state.AllChunks!.Contains(index))
+                    component.Chunks.Remove(index);
             }
-            case NavMapState state:
+        }
+        else
+        {
+            foreach (var index in component.Chunks.Keys)
             {
-                modifiedChunks = state.Chunks;
-                beacons = state.Beacons;
-                foreach (var index in component.Chunks.Keys)
-                {
-                    if (!state.Chunks.ContainsKey(index))
-                        component.Chunks.Remove(index);
-                }
-
-                break;
+                if (!state.Chunks.ContainsKey(index))
+                    component.Chunks.Remove(index);
             }
-            default:
-                return;
         }
 
-        foreach (var (origin, chunk) in modifiedChunks)
+        foreach (var (origin, chunk) in state.Chunks)
         {
             var newChunk = new NavMapChunk(origin);
             Array.Copy(chunk, newChunk.TileData, chunk.Length);
@@ -55,7 +42,7 @@ public sealed partial class NavMapSystem : SharedNavMapSystem
         }
 
         component.Beacons.Clear();
-        foreach (var (nuid, beacon) in beacons)
+        foreach (var (nuid, beacon) in state.Beacons)
         {
             component.Beacons[nuid] = beacon;
         }

@@ -42,7 +42,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: EmitterFlatpack
+      - id: Emitter # TODO change to flatpack
 
 - type: entity
   id: CrateEngineeringSingularityCollector

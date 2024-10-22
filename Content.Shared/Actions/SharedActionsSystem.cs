@@ -508,7 +508,13 @@ public abstract class SharedActionsSystem : EntitySystem
             return distance <= action.Range;
         }
 
-        return _interactionSystem.InRangeAndAccessible(user, target, range: action.Range);
+        if (_interactionSystem.InRangeUnobstructed(user, target, range: action.Range)
+            && _containerSystem.IsInSameOrParentContainer(user, target))
+        {
+            return true;
+        }
+
+        return _interactionSystem.CanAccessViaStorage(user, target);
     }
 
     public bool ValidateWorldTarget(EntityUid user, EntityCoordinates coords, Entity<WorldTargetActionComponent> action)

@@ -24,6 +24,9 @@ public sealed partial class TraitorRuleComponent : Component
     public ProtoId<NpcFactionPrototype> SyndicateFaction = "Syndicate";
 
     [DataField]
+    public ProtoId<WeightedRandomPrototype> ObjectiveGroup = "TraitorObjectiveGroups";
+
+    [DataField]
     public ProtoId<DatasetPrototype> CodewordAdjectives = "adjectives";
 
     [DataField]
@@ -75,4 +78,7 @@ public sealed partial class TraitorRuleComponent : Component
     /// </summary>
     [DataField]
     public int StartingBalance = 20;
+
+    [DataField]
+    public int MaxDifficulty = 5;
 }
