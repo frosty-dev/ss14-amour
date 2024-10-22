@@ -464,10 +464,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         var antagChance = info.AntagChance;
 
         // Ensure antagChance is within 0-100 range
-        antagChance = Math.Clamp(antagChance, 0, 50);
+        antagChance = Math.Clamp(antagChance, 0, 100);
 
         // Convert clamped antagChance from 0-100 range to 0-1 range
-        return antagChance / 50f;
+        return antagChance / 100f;
     }
 }
 
