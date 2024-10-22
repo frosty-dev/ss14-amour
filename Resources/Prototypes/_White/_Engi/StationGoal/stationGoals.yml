@@ -66,3 +66,11 @@
 - type: stationGoal
   id: Bunker
   text: engi-station-goal-bunker
+
+- type: stationGoal
+  id: HamsterСircus
+  text: engi-station-goal-circus
+
+- type: stationGoal
+  id: Biodome
+  text: station-goal-biodome
