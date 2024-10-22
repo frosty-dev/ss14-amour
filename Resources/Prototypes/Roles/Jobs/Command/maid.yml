@@ -23,6 +23,7 @@
     - Human
     - Felinid
     - Harpy
+    - Tajaran
   weight: 20
   icon: "JobIconMaid"
   supervisors: job-supervisors-hop
