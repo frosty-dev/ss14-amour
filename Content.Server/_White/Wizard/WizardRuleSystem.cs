@@ -39,7 +39,7 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 
     private void OnObjectivesTextGetInfo(Entity<WizardRuleComponent> ent, ref ObjectivesTextGetInfoEvent args)
     {
-        args.Minds = ent.Comp.WizardMinds;
+        args.Minds = ent.Comp.WizardMinds.Select(mindId => (mindId, Comp<MindComponent>(mindId).CharacterName ?? "?")).ToList();
         args.AgentName = Loc.GetString("wizard-round-end-agent-name");
     }
 

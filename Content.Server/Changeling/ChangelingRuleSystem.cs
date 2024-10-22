@@ -1,9 +1,11 @@
+using System.Linq;
 using Content.Server._Miracle.GulagSystem;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Shared._White.Mood;
+using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 
 namespace Content.Server.Changeling;
@@ -30,7 +32,7 @@ public sealed class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponen
         ChangelingRuleComponent comp,
         ref ObjectivesTextGetInfoEvent args)
     {
-        args.Minds = comp.ChangelingMinds;
+        args.Minds = comp.ChangelingMinds.Select(mindId => (mindId, Comp<MindComponent>(mindId).CharacterName ?? "?")).ToList();
         args.AgentName = Loc.GetString("changeling-round-end-agent-name");
     }
 
