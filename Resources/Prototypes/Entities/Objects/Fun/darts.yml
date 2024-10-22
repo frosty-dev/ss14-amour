@@ -128,7 +128,6 @@
     transferAmount: 7
     blockSlots: NONE
     solution: melee
-    blockSlots: NONE
   - type: SolutionTransfer
     maxTransferAmount: 7
 
