@@ -48,4 +48,13 @@ public sealed class RoundEndSummaryUIController : UIController,
         _input.SetInputCommand(ContentKeyFunctions.ToggleRoundEndSummaryWindow,
             InputCmdHandler.FromDelegate(ToggleScoreboardWindow));
     }
+
+    /// <summary>
+    /// WD.
+    /// Used for cosnole command.
+    /// </summary>
+    public void ShowManifest()
+    {
+        ToggleScoreboardWindow();
+    }
 }

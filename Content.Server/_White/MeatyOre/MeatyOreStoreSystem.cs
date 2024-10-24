@@ -1,4 +1,3 @@
-using Content.Server.Chat.Managers;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -13,6 +12,7 @@ using Content.Server.Store.Systems;
 using Content.Server._White.Sponsors;
 using Content.Server.Antag;
 using Content.Server.Administration.Managers;
+using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.FixedPoint;
