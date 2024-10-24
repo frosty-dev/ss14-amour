@@ -6,6 +6,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Damage.Components; // WD
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands;
@@ -643,6 +644,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         // TODO: This is copy-paste as fuck with DoPreciseAttack
         if (!TryComp(user, out TransformComponent? userXform))
             return false;
+
+        // WD EDIT
+        if (TryComp<StaminaComponent>(user, out var stamina) && stamina.StaminaDamage >= stamina.CritThreshold)
+            return false;
+        // WD EDIT END
 
         var targetMap = GetCoordinates(ev.Coordinates).ToMap(EntityManager, TransformSystem);
 

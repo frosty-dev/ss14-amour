@@ -1,23 +1,21 @@
-﻿using Content.Client.GameTicking.Managers;
-using Content.Shared.Administration;
-using Content.Shared.GameTicking;
+﻿using Content.Shared.Administration;
 using Robust.Shared.Console;
-using Robust.Shared.Network;
+using Content.Client.RoundEnd;
+using Robust.Client.UserInterface;
 
 namespace Content.Client.GameTicking.Commands
 {
     [AnyCommand]
     public sealed class ShowManifestCommand : IConsoleCommand
     {
-        [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
-
+        [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         public string Command => "showmanifest";
         public string Description => "Shows round end summary window";
         public string Help => "Usage: showmanifest";
 
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            shell.WriteLine("You can't open manifest right now");
+            _userInterfaceManager.GetUIController<RoundEndSummaryUIController>().ShowManifest();
         }
     }
 }

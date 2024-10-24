@@ -23,6 +23,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Robust.Shared.Timing; // WD
 
 namespace Content.Server.Nuke;
 
@@ -571,7 +572,7 @@ public sealed class NukeSystem : EntitySystem
         _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
         Del(uid);
 
-        _roundEndSystem.EndRound(TimeSpan.FromSeconds(30)); //Giedi EDIT
+        Timer.Spawn(TimeSpan.FromSeconds(60), () => _roundEndSystem.EndRound(TimeSpan.FromSeconds(60))); //Giedi EDIT
     }
 
     /// <summary>

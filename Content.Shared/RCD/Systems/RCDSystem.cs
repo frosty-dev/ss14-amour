@@ -400,45 +400,62 @@ public class RCDSystem : EntitySystem
         }
 
         // Entity specific rules
-
-        // Check rule: The tile is unoccupied
-        var isWindow = component.CachedPrototype.ConstructionRules.Contains(RcdConstructionRule.IsWindow);
-        var isCatwalk = component.CachedPrototype.ConstructionRules.Contains(RcdConstructionRule.IsCatwalk);
-
-        _intersectingEntities.Clear();
-        _lookup.GetLocalEntitiesIntersecting(mapGridData.GridUid, mapGridData.Position, _intersectingEntities, -0.05f, LookupFlags.Uncontained);
-
-        foreach (var ent in _intersectingEntities)
+        if (component.CachedPrototype.Mode == RcdMode.ConstructObject)
         {
-            if (isWindow && HasComp<SharedCanBuildWindowOnTopComponent>(ent))
-                continue;
+            // Check for existing identical entities in the same tile
+            _intersectingEntities.Clear();
+            _lookup.GetLocalEntitiesIntersecting(mapGridData.GridUid, mapGridData.Position, _intersectingEntities, -0.05f, LookupFlags.Uncontained);
 
-            if (isCatwalk && _tags.HasTag(ent, "Catwalk"))
+            if (component.CachedPrototype.Prototype != null)
             {
-                if (popMsgs)
-                    _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-on-occupied-tile-message"), uid, user);
+                foreach (var entity in _intersectingEntities)
+                {
+                    // Check if the entity has the same prototype ID
+                    if (MetaData(entity).EntityPrototype?.ID == component.CachedPrototype.Prototype)
+                    {
+                        if (popMsgs)
+                            _popup.PopupClient("An identical object already exists in this location.", uid, user);
 
-                return false;
+                        return false;
+                    }
+                }
             }
 
-            if (component.CachedPrototype.CollisionMask != CollisionGroup.None && TryComp<FixturesComponent>(ent, out var fixtures))
+            var isWindow = component.CachedPrototype.ConstructionRules.Contains(RcdConstructionRule.IsWindow);
+            var isCatwalk = component.CachedPrototype.ConstructionRules.Contains(RcdConstructionRule.IsCatwalk);
+
+            foreach (var ent in _intersectingEntities)
             {
-                foreach (var fixture in fixtures.Fixtures.Values)
+                if (isWindow && HasComp<SharedCanBuildWindowOnTopComponent>(ent))
+                    continue;
+
+                if (isCatwalk && _tags.HasTag(ent, "Catwalk"))
                 {
-                    // Continue if no collision is possible
-                    if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int) component.CachedPrototype.CollisionMask) == 0)
-                        continue;
-
-                    // Continue if our custom collision bounds are not intersected
-                    if (component.CachedPrototype.CollisionPolygon != null &&
-                        !DoesCustomBoundsIntersectWithFixture(component.CachedPrototype.CollisionPolygon, component.ConstructionTransform, ent, fixture))
-                        continue;
-
-                    // Collision was detected
                     if (popMsgs)
                         _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-on-occupied-tile-message"), uid, user);
 
                     return false;
+                }
+
+                if (component.CachedPrototype.CollisionMask != CollisionGroup.None && TryComp<FixturesComponent>(ent, out var fixtures))
+                {
+                    foreach (var fixture in fixtures.Fixtures.Values)
+                    {
+                        // Continue if no collision is possible
+                        if (!fixture.Hard || fixture.CollisionLayer <= 0 || (fixture.CollisionLayer & (int) component.CachedPrototype.CollisionMask) == 0)
+                            continue;
+
+                        // Continue if our custom collision bounds are not intersected
+                        if (component.CachedPrototype.CollisionPolygon != null &&
+                            !DoesCustomBoundsIntersectWithFixture(component.CachedPrototype.CollisionPolygon, component.ConstructionTransform, ent, fixture))
+                            continue;
+
+                        // Collision was detected
+                        if (popMsgs)
+                            _popup.PopupClient(Loc.GetString("rcd-component-cannot-build-on-occupied-tile-message"), uid, user);
+
+                        return false;
+                    }
                 }
             }
         }
