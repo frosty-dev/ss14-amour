@@ -1,6 +1,7 @@
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._White.AutoRegenReagent
 {
@@ -11,10 +12,10 @@ namespace Content.Server._White.AutoRegenReagent
         public string? SolutionName = null; // we'll fail during tests otherwise
 
         [DataField("reagents", required: true)]
-        public List<string> Reagents = default!;
+        public List<ProtoId<ReagentPrototype>> Reagents = default!;
 
         [DataField]
-        public string CurrentReagent = "";
+        public ProtoId<ReagentPrototype> CurrentReagent = default!;
 
         [DataField]
         public int CurrentIndex = 0;
