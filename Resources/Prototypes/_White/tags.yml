@@ -99,3 +99,6 @@
 
 - type: Tag
   id: BlueMagusArmor
+
+- type: Tag
+  id: ClusterBang
