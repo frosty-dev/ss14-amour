@@ -6,9 +6,6 @@ using Robust.Shared.Timing;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
-using Content.Server.GameTicking;
-using Content.Shared._White;
-using Robust.Shared.Configuration;
 
 namespace Content.Server._Miracle.Nya;
 
@@ -17,30 +14,18 @@ public sealed class ExpectedReplySystem : EntitySystem
     [Dependency] private readonly ISharedPlayerManager _playMan = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly CheatCheckSystem _cheatCheckSystem = default!;
 
     private readonly Dictionary<ICommonSession, PendingReply> _pendingReplies = new();
 
-    private const float ReplyTimeoutSeconds = 6.0f;
+    private const float ReplyTimeoutSeconds = 5.0f;
     private readonly HttpClient _httpClient = new();
 
-    private string _webhookUrl = "";
+    private const string WebhookUrl = "https://discord.com/api/webhooks/1300204694395945021/jO_2nmXDXfMm2hKHH019gk1HqujhcHlW8yfmyMBeuScaOvCOiRJK9XurSJLf6AxpHmRv";
 
     public override void Initialize()
     {
         base.Initialize();
-
         _playMan.PlayerStatusChanged += OnPlayerStatusChanged;
-
-        SubscribeLocalEvent<PlayerJoinedLobbyEvent>(OnPlayerJoinedLobby);
-
-        _configuration.OnValueChanged(WhiteCVars.ACWebhook, s => _webhookUrl = s, true);
-    }
-
-    private void OnPlayerJoinedLobby(PlayerJoinedLobbyEvent ev)
-    {
-        _cheatCheckSystem.RequestCheck(ev.PlayerSession);
     }
 
     private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
@@ -49,7 +34,7 @@ public sealed class ExpectedReplySystem : EntitySystem
         {
             if (_pendingReplies.ContainsKey(e.Session))
             {
-                var warningMsg = $"Игрок отключился во время ожидания ответа! Nya должен был получить: {_pendingReplies[e.Session].Request.ExpectedReplyType}.";
+                var warningMsg = $"Игрок отключился во время ожидания ответа!";
                 SendSuspiciousActivityAlert(e.Session, warningMsg, 80);
                 _pendingReplies.Remove(e.Session);
             }
@@ -118,7 +103,7 @@ public sealed class ExpectedReplySystem : EntitySystem
 
     private void HandleTimeout(ICommonSession player)
     {
-        var warningMsg = $"Не получен ответ в течение {ReplyTimeoutSeconds} секунд. Будьте бдительны с этим игроком! Nya советует использовать nyagrab!";
+        var warningMsg = $"Не получен ответ в течение {ReplyTimeoutSeconds} секунд";
         SendSuspiciousActivityAlert(player, warningMsg, 65);
     }
 
@@ -155,14 +140,14 @@ public sealed class ExpectedReplySystem : EntitySystem
 
         try
         {
-            await _httpClient.PostAsync(_webhookUrl, content);
+            await _httpClient.PostAsync(WebhookUrl, content);
         }
         catch (Exception e)
         {
             Log.Error($"Failed to send Discord webhook: {e}");
         }
 
-        var inGameMsg = $"[Anticheat] Внимание! Подозрительная активность:\n" +
+        var inGameMsg = $"[color=red][Anticheat][/color] Внимание! Подозрительная активность:\n" +
                         $"Игрок {player.Name} возможно читер!\n" +
                         $"Причина обнаружения: {reason}";
 

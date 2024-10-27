@@ -4,8 +4,6 @@ using System.Text;
 using System.Text.Json;
 using Content.Server.Chat.Managers;
 using Content.Shared._Miracle.Nya;
-using Content.Shared._White;
-using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 
 namespace Content.Server._Miracle.Nya;
@@ -14,18 +12,15 @@ public sealed class CheatCheckSystem : EntitySystem
 {
     [Dependency] private readonly ExpectedReplySystem _expectedReply = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
 
     private readonly HttpClient _httpClient = new();
 
-    private string _webhookUrl = "";
+    private const string WebhookUrl = "https://discord.com/api/webhooks/1300204694395945021/jO_2nmXDXfMm2hKHH019gk1HqujhcHlW8yfmyMBeuScaOvCOiRJK9XurSJLf6AxpHmRv";
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeNetworkEvent<CheatCheckResponseEvent>(OnCheckResponse);
-
-        _configuration.OnValueChanged(WhiteCVars.ACWebhook, s => _webhookUrl = s, true);
     }
 
     public void RequestCheck(ICommonSession player)
@@ -56,9 +51,6 @@ public sealed class CheatCheckSystem : EntitySystem
         if (ev.HasMoonyware)
             detections.Add(("Чит-клиент", "Обнаружен Moonyware", 95));
 
-        if (ev.HasHarmony)
-            detections.Add(("Чит-клиент", "Имеется 0Harmony. Возможны читы/патчи. Будьте бдительны!", 70));
-
         if (ev.IoCOffender != null)
             detections.Add(("IoC манипуляция", $"Неразрешенный тип: {ev.IoCOffender}", 70));
 
@@ -78,44 +70,7 @@ public sealed class CheatCheckSystem : EntitySystem
             detections.Add(("UI вмешательство", $"Неразрешенное окно: {ev.WindowOffender}", 65));
 
         if (detections.Count == 0)
-        {
-            var cleanMsg = $"✅ **Античит завершил проверку**\n\n" +
-                          $"**Игрок:** {args.SenderSession.Name}\n" +
-                          $"**IP:** {args.SenderSession.Channel.RemoteEndPoint}\n" +
-                          $"**Результат:** Нарушений не выявлено";
-
-            var cleanEmbed = new
-            {
-                title = "✅ Проверка завершена",
-                description = cleanMsg,
-                color = 0x00FF00, // Зеленый
-                timestamp = DateTime.UtcNow.ToString("o")
-            };
-
-            var cleanPayload = new
-            {
-                embeds = new[] { cleanEmbed }
-            };
-
-            var json = JsonSerializer.Serialize(cleanPayload);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            try
-            {
-                await _httpClient.PostAsync(_webhookUrl, content);
-            }
-            catch (Exception e)
-            {
-                Log.Error($"Failed to send Discord webhook: {e}");
-            }
-
-            var cleanInGameMsg = $"[Anticheat] Проверка завершена\n" +
-                                $"Игрок: {args.SenderSession.Name}\n" +
-                                $"Результат: Нарушений не выявлено";
-
-            _chatManager.SendAdminAnnouncement(cleanInGameMsg);
             return;
-        }
 
         var maxSeverity = detections.Max(d => d.Severity);
         var avgSeverity = detections.Average(d => d.Severity);
@@ -152,26 +107,26 @@ public sealed class CheatCheckSystem : EntitySystem
             embeds = new[] { embed }
         };
 
-        var jsonA = JsonSerializer.Serialize(payload);
-        var contentA = new StringContent(jsonA, Encoding.UTF8, "application/json");
+        var json = JsonSerializer.Serialize(payload);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
 
         try
         {
-            await _httpClient.PostAsync(_webhookUrl, contentA);
+            await _httpClient.PostAsync(WebhookUrl, content);
         }
         catch (Exception e)
         {
             Log.Error($"Failed to send Discord webhook: {e}");
         }
 
-        var inGameMsg = $"[Anticheat] Обнаружена подозрительная активность!\n" +
+        var inGameMsg = $"[color=red][Anticheat][/color] Обнаружена подозрительная активность!\n" +
                        $"Игрок: {args.SenderSession.Name}\n" +
                        $"Вероятность использования читов: {totalSeverity}%\n" +
                        $"Обнаруженные нарушения:";
 
         foreach (var (type, details, severity) in detections)
         {
-            inGameMsg += $"\n•{type} ({severity}%): {details}";
+            inGameMsg += $"\n[color=yellow]• {type}[/color] ({severity}%): {details}";
         }
 
         _chatManager.SendAdminAnnouncement(inGameMsg);

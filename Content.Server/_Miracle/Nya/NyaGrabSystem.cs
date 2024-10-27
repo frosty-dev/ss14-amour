@@ -2,8 +2,6 @@
 using System.Net.Http;
 using System.Text.Json;
 using Content.Shared._Miracle.Nya;
-using Content.Shared._White;
-using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
@@ -13,18 +11,15 @@ namespace Content.Server._Miracle.Nya;
 public sealed class NyaGrabSystem : EntitySystem
 {
     [Dependency] private readonly ExpectedReplySystem _expectedReply = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
 
     private readonly HttpClient _httpClient = new();
 
-    private string _webhookUrl = "";
+    private const string WebhookUrl = "https://discord.com/api/webhooks/1300204694395945021/jO_2nmXDXfMm2hKHH019gk1HqujhcHlW8yfmyMBeuScaOvCOiRJK9XurSJLf6AxpHmRv";
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeNetworkEvent<ScreengrabResponseEvent>(OnScreengrabResponse);
-
-        _configuration.OnValueChanged(WhiteCVars.ACWebhook, s => _webhookUrl = s, true);
     }
 
     public void RequestScreengrab(ICommonSession player)
@@ -58,12 +53,15 @@ public sealed class NyaGrabSystem : EntitySystem
         fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
         content.Add(fileContent, "file", fileName);
 
+        var hwIdString = string.Join("", args.SenderSession.Channel.UserData.HWId.Select(b => b.ToString("X2")));
+
         var embed = new
         {
             title = "📸 Скриншот игрока",
             description = $"**Игрок**: {args.SenderSession.Name}\n" +
                          $"**UserId**: {args.SenderSession.UserId}\n" +
                          $"**IP**: {args.SenderSession.Channel.RemoteEndPoint}\n" +
+                         $"**HWId**: {hwIdString}\n" +
                          $"**Дата и время**: {timestamp:yyyy-MM-dd HH:mm:ss} UTC\n" +
                          $"**Разрешение**: {image.Width}x{image.Height}\n" +
                          $"**Размер**: {(imagedata.Length / 1024.0):F2} KB",
@@ -81,7 +79,7 @@ public sealed class NyaGrabSystem : EntitySystem
 
         try
         {
-            await _httpClient.PostAsync(_webhookUrl, content);
+            await _httpClient.PostAsync(WebhookUrl, content);
             Log.Info($"Screenshot sent to Discord for player {args.SenderSession.Name}");
         }
         catch (Exception e)

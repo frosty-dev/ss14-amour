@@ -25,7 +25,8 @@ public sealed class NyaCheckClientSystem : EntitySystem
         "Content.Shared.Database",
         "Robust.Client",
         "Robust.Shared",
-        "Robust.Server"
+        "Robust.Server",
+        "Content.Anticheat",
     ];
 
     public override void Initialize()
@@ -47,7 +48,6 @@ public sealed class NyaCheckClientSystem : EntitySystem
             HasPatchMetadata = FoundPatchMetadataTypes(),
             ReflectionOffender = FoundExtraTypesIReflection(out var reflectionOffender) ? reflectionOffender : null,
             HasMoonyware = FoundMoonywareModuleReflection(),
-            HasHarmony = CheckForHarmony(),
             IoCOffender = TypesNotFromContentIoC(out var iocOffender) ? iocOffender : null,
             ExtraModuleOffender = CheckExtraModule(out var moduleOffender) ? moduleOffender : null,
             CvarOffender = CheckCommonCheatCvars(out var cvarOffender) ? cvarOffender : null,
@@ -63,16 +63,10 @@ public sealed class NyaCheckClientSystem : EntitySystem
         return found is not null;
     }
 
-    private bool CheckForHarmony()
-    {
-        var harmonyType = Type.GetType("HarmonyLib.Harmony, 0Harmony");
-        return harmonyType != null;
-    }
-
     private bool FoundExtraTypesIReflection([NotNullWhen(true)] out string? offender)
     {
         offender = null;
-        string[] typenames = ["SubverterPatch", "MarseyPatch", "MarseyEntry", "Sedition", "Ware"];
+        string[] typenames = ["SubverterPatch", "MarseyPatch", "MarseyEntry", "Sedition"];
 
         var types = _reflection.FindAllTypes();
 
@@ -174,12 +168,9 @@ public sealed class NyaCheckClientSystem : EntitySystem
         string[] keywords =
         [
             "aimbot",
-            "visuals",
             "esp",
             "noslip",
             "exploit",
-            "fun",
-            "scan",
         ];
 
         offend = null;
