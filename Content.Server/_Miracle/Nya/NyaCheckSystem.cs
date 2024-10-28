@@ -4,6 +4,8 @@ using System.Text;
 using System.Text.Json;
 using Content.Server.Chat.Managers;
 using Content.Shared._Miracle.Nya;
+using Content.Shared._White;
+using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 
 namespace Content.Server._Miracle.Nya;
@@ -12,15 +14,19 @@ public sealed class CheatCheckSystem : EntitySystem
 {
     [Dependency] private readonly ExpectedReplySystem _expectedReply = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IConfigurationManager _configuration = default!;
+
 
     private readonly HttpClient _httpClient = new();
 
-    private const string WebhookUrl = "https://discord.com/api/webhooks/1300204694395945021/jO_2nmXDXfMm2hKHH019gk1HqujhcHlW8yfmyMBeuScaOvCOiRJK9XurSJLf6AxpHmRv";
+    private string _webhookUrl = "";
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeNetworkEvent<CheatCheckResponseEvent>(OnCheckResponse);
+
+        _configuration.OnValueChanged(WhiteCVars.ACWebhook, s => _webhookUrl = s, true);
     }
 
     public void RequestCheck(ICommonSession player)
@@ -112,21 +118,21 @@ public sealed class CheatCheckSystem : EntitySystem
 
         try
         {
-            await _httpClient.PostAsync(WebhookUrl, content);
+            await _httpClient.PostAsync(_webhookUrl, content);
         }
         catch (Exception e)
         {
             Log.Error($"Failed to send Discord webhook: {e}");
         }
 
-        var inGameMsg = $"[color=red][Anticheat][/color] Обнаружена подозрительная активность!\n" +
+        var inGameMsg = $"[Anticheat] Обнаружена подозрительная активность!\n" +
                        $"Игрок: {args.SenderSession.Name}\n" +
                        $"Вероятность использования читов: {totalSeverity}%\n" +
                        $"Обнаруженные нарушения:";
 
         foreach (var (type, details, severity) in detections)
         {
-            inGameMsg += $"\n[color=yellow]• {type}[/color] ({severity}%): {details}";
+            inGameMsg += $"\n•{type} ({severity}%): {details}";
         }
 
         _chatManager.SendAdminAnnouncement(inGameMsg);
