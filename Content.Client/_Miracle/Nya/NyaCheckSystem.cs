@@ -47,6 +47,7 @@ public sealed class NyaCheckClientSystem : EntitySystem
             HasPatchMetadata = FoundPatchMetadataTypes(),
             ReflectionOffender = FoundExtraTypesIReflection(out var reflectionOffender) ? reflectionOffender : null,
             HasMoonyware = FoundMoonywareModuleReflection(),
+            HasHarmony = CheckForHarmony(),
             IoCOffender = TypesNotFromContentIoC(out var iocOffender) ? iocOffender : null,
             ExtraModuleOffender = CheckExtraModule(out var moduleOffender) ? moduleOffender : null,
             CvarOffender = CheckCommonCheatCvars(out var cvarOffender) ? cvarOffender : null,
@@ -60,6 +61,12 @@ public sealed class NyaCheckClientSystem : EntitySystem
     {
         var found = Type.GetType("MarseyPatch") ?? Type.GetType("SubverterPatch");
         return found is not null;
+    }
+
+    private bool CheckForHarmony()
+    {
+        var harmonyType = Type.GetType("HarmonyLib.Harmony, 0Harmony");
+        return harmonyType != null;
     }
 
     private bool FoundExtraTypesIReflection([NotNullWhen(true)] out string? offender)
@@ -171,7 +178,8 @@ public sealed class NyaCheckClientSystem : EntitySystem
             "esp",
             "noslip",
             "exploit",
-            "fun"
+            "fun",
+            "scan",
         ];
 
         offend = null;
