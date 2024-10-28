@@ -21,6 +21,7 @@ public sealed class CheatCheckResponseEvent : EntityEventArgs
     public bool HasPatchMetadata;
     public string? ReflectionOffender;
     public bool HasMoonyware;
+    public bool HasHarmony;
     public string? IoCOffender;
     public string? ExtraModuleOffender;
     public string? CvarOffender;
