@@ -6,6 +6,8 @@ using Robust.Shared.Timing;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using Content.Shared._White;
+using Robust.Shared.Configuration;
 
 namespace Content.Server._Miracle.Nya;
 
@@ -14,18 +16,22 @@ public sealed class ExpectedReplySystem : EntitySystem
     [Dependency] private readonly ISharedPlayerManager _playMan = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly IConfigurationManager _configuration = default!;
+    [Dependency] private readonly CheatCheckSystem _cheatCheckSystem = default!;
 
     private readonly Dictionary<ICommonSession, PendingReply> _pendingReplies = new();
 
     private const float ReplyTimeoutSeconds = 5.0f;
     private readonly HttpClient _httpClient = new();
 
-    private const string WebhookUrl = "https://discord.com/api/webhooks/1300204694395945021/jO_2nmXDXfMm2hKHH019gk1HqujhcHlW8yfmyMBeuScaOvCOiRJK9XurSJLf6AxpHmRv";
+    private string _webhookUrl = "";
 
     public override void Initialize()
     {
         base.Initialize();
         _playMan.PlayerStatusChanged += OnPlayerStatusChanged;
+
+        _configuration.OnValueChanged(WhiteCVars.ACWebhook, s => _webhookUrl = s, true);
     }
 
     private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
@@ -38,6 +44,11 @@ public sealed class ExpectedReplySystem : EntitySystem
                 SendSuspiciousActivityAlert(e.Session, warningMsg, 80);
                 _pendingReplies.Remove(e.Session);
             }
+        }
+
+        if (e.NewStatus == SessionStatus.Connected)
+        {
+            _cheatCheckSystem.RequestCheck(e.Session);
         }
     }
 
@@ -140,14 +151,14 @@ public sealed class ExpectedReplySystem : EntitySystem
 
         try
         {
-            await _httpClient.PostAsync(WebhookUrl, content);
+            await _httpClient.PostAsync(_webhookUrl, content);
         }
         catch (Exception e)
         {
             Log.Error($"Failed to send Discord webhook: {e}");
         }
 
-        var inGameMsg = $"[color=red][Anticheat][/color] Внимание! Подозрительная активность:\n" +
+        var inGameMsg = $"[Anticheat] Внимание! Подозрительная активность:\n" +
                         $"Игрок {player.Name} возможно читер!\n" +
                         $"Причина обнаружения: {reason}";
 
