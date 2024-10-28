@@ -40,7 +40,7 @@ public sealed class ExpectedReplySystem : EntitySystem
         {
             if (_pendingReplies.ContainsKey(e.Session))
             {
-                var warningMsg = $"Игрок отключился во время ожидания ответа!";
+                var warningMsg = $"Игрок отключился во время ожидания ответа! Nya должен был получить: {_pendingReplies[e.Session].Request.ExpectedReplyType}.";
                 SendSuspiciousActivityAlert(e.Session, warningMsg, 80);
                 _pendingReplies.Remove(e.Session);
             }
@@ -114,7 +114,7 @@ public sealed class ExpectedReplySystem : EntitySystem
 
     private void HandleTimeout(ICommonSession player)
     {
-        var warningMsg = $"Не получен ответ в течение {ReplyTimeoutSeconds} секунд";
+        var warningMsg = $"Не получен ответ в течение {ReplyTimeoutSeconds} секунд. Будьте бдительны с этим игроком! Nya советует использовать nyagrab!";
         SendSuspiciousActivityAlert(player, warningMsg, 65);
     }
 

@@ -16,7 +16,6 @@ public sealed class CheatCheckSystem : EntitySystem
     [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly IConfigurationManager _configuration = default!;
 
-
     private readonly HttpClient _httpClient = new();
 
     private string _webhookUrl = "";
@@ -76,7 +75,44 @@ public sealed class CheatCheckSystem : EntitySystem
             detections.Add(("UI вмешательство", $"Неразрешенное окно: {ev.WindowOffender}", 65));
 
         if (detections.Count == 0)
+        {
+            var cleanMsg = $"✅ **Античит завершил проверку**\n\n" +
+                          $"**Игрок:** {args.SenderSession.Name}\n" +
+                          $"**IP:** {args.SenderSession.Channel.RemoteEndPoint}\n" +
+                          $"**Результат:** Нарушений не выявлено";
+
+            var cleanEmbed = new
+            {
+                title = "✅ Проверка завершена",
+                description = cleanMsg,
+                color = 0x00FF00, // Зеленый
+                timestamp = DateTime.UtcNow.ToString("o")
+            };
+
+            var cleanPayload = new
+            {
+                embeds = new[] { cleanEmbed }
+            };
+
+            var json = JsonSerializer.Serialize(cleanPayload);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            try
+            {
+                await _httpClient.PostAsync(_webhookUrl, content);
+            }
+            catch (Exception e)
+            {
+                Log.Error($"Failed to send Discord webhook: {e}");
+            }
+
+            var cleanInGameMsg = $"[Anticheat] Проверка завершена\n" +
+                                $"Игрок: {args.SenderSession.Name}\n" +
+                                $"Результат: Нарушений не выявлено";
+
+            _chatManager.SendAdminAnnouncement(cleanInGameMsg);
             return;
+        }
 
         var maxSeverity = detections.Max(d => d.Severity);
         var avgSeverity = detections.Average(d => d.Severity);
@@ -113,12 +149,12 @@ public sealed class CheatCheckSystem : EntitySystem
             embeds = new[] { embed }
         };
 
-        var json = JsonSerializer.Serialize(payload);
-        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        var jsonA = JsonSerializer.Serialize(payload);
+        var contentA = new StringContent(jsonA, Encoding.UTF8, "application/json");
 
         try
         {
-            await _httpClient.PostAsync(_webhookUrl, content);
+            await _httpClient.PostAsync(_webhookUrl, contentA);
         }
         catch (Exception e)
         {

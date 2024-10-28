@@ -25,8 +25,7 @@ public sealed class NyaCheckClientSystem : EntitySystem
         "Content.Shared.Database",
         "Robust.Client",
         "Robust.Shared",
-        "Robust.Server",
-        "Content.Anticheat",
+        "Robust.Server"
     ];
 
     public override void Initialize()
@@ -66,7 +65,7 @@ public sealed class NyaCheckClientSystem : EntitySystem
     private bool FoundExtraTypesIReflection([NotNullWhen(true)] out string? offender)
     {
         offender = null;
-        string[] typenames = ["SubverterPatch", "MarseyPatch", "MarseyEntry", "Sedition"];
+        string[] typenames = ["SubverterPatch", "MarseyPatch", "MarseyEntry", "Sedition", "Ware"];
 
         var types = _reflection.FindAllTypes();
 
@@ -168,9 +167,11 @@ public sealed class NyaCheckClientSystem : EntitySystem
         string[] keywords =
         [
             "aimbot",
+            "visuals",
             "esp",
             "noslip",
             "exploit",
+            "fun"
         ];
 
         offend = null;
