@@ -207,7 +207,7 @@
     state: microreactor
   discipline: Industrial
   tier: 3
-  cost: 10000
+  cost: 15000 # WD from 10000 to 15000
   recipeUnlocks:
   - PowerCellMicroreactor
   technologyPrerequisites:
