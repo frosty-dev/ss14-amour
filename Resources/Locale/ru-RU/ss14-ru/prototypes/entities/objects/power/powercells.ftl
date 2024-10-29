@@ -29,5 +29,7 @@ ent-PowerCellHyperPrinted = { ent-PowerCellHyper }
 ent-PowerCellMicroreactor = маленькая микрореакторная батарея
     .desc = Стандартизированный перезаряжаемый микрореактор. Предназначен для устройств с низким энергопотреблением, он медленно заряжается сам по себе.
     .suffix = Полный
+ent-PowerCellMicroreactorPrinted = { ent-PowerCellMicroreactor }
+    .desc = { ent-PowerCellMicroreactor.desc }
 ent-PowerCellAntiqueProto = прототип древней батареи
     .desc = Маленький самозаряжающийся элемент питания. Использовался в старых разработках лазерного оружия.
