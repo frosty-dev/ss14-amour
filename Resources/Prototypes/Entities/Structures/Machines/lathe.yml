@@ -676,6 +676,7 @@
     - BorgModuleClowning
     - BorgModuleDefibrillator
     - BorgModuleAdvancedTreatment
+    - BorgModuleResque # WD
     - RipleyHarness
     - RipleyLArm
     - RipleyRArm
