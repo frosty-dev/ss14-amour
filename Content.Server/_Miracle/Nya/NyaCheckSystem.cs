@@ -57,7 +57,7 @@ public sealed class CheatCheckSystem : EntitySystem
             detections.Add(("Чит-клиент", "Обнаружен Moonyware", 95));
 
         if (ev.HasHarmony)
-            detections.Add(("Чит-клиент", "Имеется 0Harmony. Скорее всего читер. Следите с помощью nyagrab", 100));
+            detections.Add(("Чит-клиент", "Имеется 0Harmony. Возможны читы/патчи. Будьте бдительны!", 70));
 
         if (ev.IoCOffender != null)
             detections.Add(("IoC манипуляция", $"Неразрешенный тип: {ev.IoCOffender}", 70));
