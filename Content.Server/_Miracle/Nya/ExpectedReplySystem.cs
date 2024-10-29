@@ -6,6 +6,7 @@ using Robust.Shared.Timing;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using Content.Server.GameTicking;
 using Content.Shared._White;
 using Robust.Shared.Configuration;
 
@@ -21,7 +22,7 @@ public sealed class ExpectedReplySystem : EntitySystem
 
     private readonly Dictionary<ICommonSession, PendingReply> _pendingReplies = new();
 
-    private const float ReplyTimeoutSeconds = 5.0f;
+    private const float ReplyTimeoutSeconds = 6.0f;
     private readonly HttpClient _httpClient = new();
 
     private string _webhookUrl = "";
@@ -29,9 +30,17 @@ public sealed class ExpectedReplySystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         _playMan.PlayerStatusChanged += OnPlayerStatusChanged;
 
+        SubscribeLocalEvent<PlayerJoinedLobbyEvent>(OnPlayerJoinedLobby);
+
         _configuration.OnValueChanged(WhiteCVars.ACWebhook, s => _webhookUrl = s, true);
+    }
+
+    private void OnPlayerJoinedLobby(PlayerJoinedLobbyEvent ev)
+    {
+        _cheatCheckSystem.RequestCheck(ev.PlayerSession);
     }
 
     private void OnPlayerStatusChanged(object? sender, SessionStatusEventArgs e)
@@ -44,11 +53,6 @@ public sealed class ExpectedReplySystem : EntitySystem
                 SendSuspiciousActivityAlert(e.Session, warningMsg, 80);
                 _pendingReplies.Remove(e.Session);
             }
-        }
-
-        if (e.NewStatus == SessionStatus.Connected)
-        {
-            _cheatCheckSystem.RequestCheck(e.Session);
         }
     }
 
