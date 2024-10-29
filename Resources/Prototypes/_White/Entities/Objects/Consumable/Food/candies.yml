@@ -1,0 +1,127 @@
+- type: entity
+  noSpawn: true
+  abstract: true
+  id: CandyBase
+  parent: FoodSnackBase
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: White/Objects/Consumable/Food/candies.rsi
+  - type: Item
+    sprite: White/Objects/Consumable/Food/candies.rsi
+  - type: Tag
+    tags:
+      - FoodSnack
+
+- type: entity
+  name: candy
+  parent: CandyBase
+  id: FoodSnackCandyBlack
+  description: Sweet candies of momentary indulgences neutralize the bitterness of unfulfilled hopes.
+  components:
+  - type: Sprite
+    state: black
+  - type: Item
+    state: black
+  - type: Food
+    trash: FoodPacketCandyBlackTrash
+
+- type: entity
+  name: candy
+  parent: CandyBase
+  id: FoodSnackCandyGreen
+  description: Sweet candies of momentary indulgences neutralize the bitterness of unfulfilled hopes.
+  components:
+  - type: Sprite
+    state: green
+  - type: Item
+    state: green
+  - type: Food
+    trash: FoodPacketCandyGreenTrash
+
+- type: entity
+  name: candy
+  parent: CandyBase
+  id: FoodSnackCandyRed
+  description: Sweet candies of momentary indulgences neutralize the bitterness of unfulfilled hopes.
+  components:
+  - type: Sprite
+    state: red
+  - type: Item
+    state: red
+  - type: Food
+    trash: FoodPacketCandyRedTrash
+
+- type: entity
+  name: candy
+  parent: CandyBase
+  id: FoodSnackCandyTurquoise
+  description: Sweet candies of momentary indulgences neutralize the bitterness of unfulfilled hopes.
+  components:
+  - type: Sprite
+    state: turquoise
+  - type: Item
+    state: turquoise
+  - type: Food
+    trash: FoodPacketCandyTurquoiseTrash
+
+- type: entity
+  parent: FoodPacketTrash
+  id: FoodPacketCandyBlackTrash
+  name: candy wrapper
+  description: Candy wrapper, the candy is nowhere to be found.
+  components:
+  - type: Sprite
+    sprite: White/Objects/Consumable/Food/candies.rsi
+    state: black-trash
+  - type: Item
+    sprite: White/Objects/Consumable/Food/candies.rsi
+    state: black-trash
+
+- type: entity
+  parent: FoodPacketTrash
+  id: FoodPacketCandyGreenTrash
+  name: candy wrapper
+  description: Candy wrapper, the candy is nowhere to be found.
+  components:
+  - type: Sprite
+    sprite: White/Objects/Consumable/Food/candies.rsi
+    state: green-trash
+  - type: Item
+    sprite: White/Objects/Consumable/Food/candies.rsi
+    state: green-trash
+
+- type: entity
+  parent: FoodPacketTrash
+  id: FoodPacketCandyRedTrash
+  name: candy wrapper
+  description: Candy wrapper, the candy is nowhere to be found.
+  components:
+  - type: Sprite
+    sprite: White/Objects/Consumable/Food/candies.rsi
+    state: red-trash
+  - type: Item
+    sprite: White/Objects/Consumable/Food/candies.rsi
+    state: red-trash
+
+- type: entity
+  parent: FoodPacketTrash
+  id: FoodPacketCandyTurquoiseTrash
+  name: candy wrapper
+  description: Candy wrapper, the candy is nowhere to be found.
+  components:
+  - type: Sprite
+    sprite: White/Objects/Consumable/Food/candies.rsi
+    state: turquoise-trash
+  - type: Item
+    sprite: White/Objects/Consumable/Food/candies.rsi
+    state: turquoise-trash

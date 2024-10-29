@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Mady by zastupnic and dosharus",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "black"
+        },
+        {
+            "name": "black-trash"
+        },
+        {
+            "name": "green"
+        },
+        {
+            "name": "green-trash"
+        },
+        {
+            "name": "red"
+        },
+        {
+            "name": "red-trash"
+        },
+        {
+            "name": "turquoise"
+        },
+        {
+            "name": "turquoise-trash"
+        }
+    ]
+}
