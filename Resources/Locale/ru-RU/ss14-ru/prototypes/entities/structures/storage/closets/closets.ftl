@@ -18,3 +18,5 @@ ent-ClosetL3Janitor = { ent-ClosetL3 }
     .desc = { ent-ClosetL3.desc }
 ent-ClosetMaintenance = технический шкаф
     .desc = Это хранилище.
+ent-LockerOldAISat = шкаф
+    .desc = { ent-ClosetMaintenance.desc }

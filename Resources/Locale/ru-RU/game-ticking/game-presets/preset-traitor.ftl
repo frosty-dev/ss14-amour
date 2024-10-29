@@ -43,4 +43,4 @@ traitor-role-codewords-short =
     Кодовые слова::
     {$codewords}.
 
-traitor-role-uplink-code-short = Код от вашего аплинка - {$code}. Set it as your PDA ringtone to access uplink.
+traitor-role-uplink-code-short = Код от вашего аплинка - {$code}. Установите его в качестве рингтона на своём ПДА для доступа к аплинку.

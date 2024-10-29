@@ -18,3 +18,7 @@ ent-CarpetPurple = фиолетовый ковёр
     .desc = { ent-CarpetBase.desc }
 ent-CarpetChapel = ковёр церкви
     .desc = { ent-BaseStructure.desc }
+ent-CarpetCyan = голубой ковёр
+    .desc = { ent-CarpetBase.desc }
+ent-CarpetWhite = белый ковёр
+    .desc = { ent-CarpetBase.desc }

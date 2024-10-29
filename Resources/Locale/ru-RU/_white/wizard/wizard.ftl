@@ -30,7 +30,25 @@ ent-ClothingHeadHatRealWizardFancy = волшебная шляпа
 ent-ClothingHeadHatRealWizardFancyAlt = волшебная шляпа
     .desc = Странный головной убор, который наверняка принадлежит настоящему магу.
 
+ent-ClothingHeadHatRealWizardBlue = волшебная шляпа
+    .desc = Странный головной убор, который наверняка принадлежит настоящему магу.
+
+ent-ClothingHeadHatRealWizardRed = красная волшебная шляпа
+    .desc = Странный головной убор, который наверняка принадлежит настоящему магу.
+
+ent-ClothingHeadHatRealWizardViolet = фиолетовая волшебная шляпа
+    .desc = Странный головной убор, который наверняка принадлежит настоящему магу.
+
 ent-ClothingOuterRealWizardFancy = мантия волшебника
+    .desc = Великолепная, украшенная драгоценными камнями мантия, которая, кажется, излучает силу.
+
+ent-ClothingOuterRealWizardBlue = мантия волшебника
+    .desc = Великолепная, украшенная драгоценными камнями мантия, которая, кажется, излучает силу.
+
+ent-ClothingOuterRealWizardRed = красная мантия волшебника
+    .desc = Великолепная, украшенная драгоценными камнями мантия, которая, кажется, излучает силу.
+
+ent-ClothingOuterRealWizardViolet = фиолетовая мантия волшебника
     .desc = Великолепная, украшенная драгоценными камнями мантия, которая, кажется, излучает силу.
 
 ent-ClothingHeadHelmetWizardHelmArmored = шлем мага
