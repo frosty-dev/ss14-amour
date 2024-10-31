@@ -1,11 +1,10 @@
-using Content.Shared.Chemistry.EntitySystems;
+using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Popups;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
 using Robust.Shared.Timing;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._White.AutoRegenReagent
 {
@@ -14,10 +13,9 @@ namespace Content.Server._White.AutoRegenReagent
     /// </summary>
     public sealed class AutoRegenReagentSystem : EntitySystem
     {
-        [Dependency] private readonly SharedSolutionContainerSystem _solutionSystem = default!;
+        [Dependency] private readonly SolutionContainerSystem _solutionSystem = default!;
         [Dependency] private readonly PopupSystem _popups = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         public override void Initialize()
         {
@@ -47,7 +45,7 @@ namespace Content.Server._White.AutoRegenReagent
                 if (autoComp.Solution == null)
                     return;
 
-                _solutionSystem.TryAddReagent(autoComp.Solution.Value, autoComp.CurrentReagent, autoComp.UnitsPerInterval, out _);
+                _solutionSystem.TryAddReagent(autoComp.Solution.Value, autoComp.CurrentReagent, autoComp.UnitsPerInterval);
             }
         }
 
@@ -71,8 +69,7 @@ namespace Content.Server._White.AutoRegenReagent
 
         private void OnExamined(EntityUid uid, AutoRegenReagentComponent component, ExaminedEvent args)
         {
-            if (_prototypeManager.TryIndex(component.CurrentReagent, out var reagentProto))
-                args.PushMarkup(Loc.GetString("reagent-name", ("reagent", reagentProto.LocalizedName)));
+            args.PushMarkup(Loc.GetString("reagent-name", ("reagent", component.CurrentReagent)));
         }
 
         private void AddSwitchVerb(EntityUid uid, AutoRegenReagentComponent component,
@@ -109,7 +106,7 @@ namespace Content.Server._White.AutoRegenReagent
             component.CurrentReagent = component.Reagents[component.CurrentIndex];
         }
 
-        private void SwitchReagent(AutoRegenReagentComponent component, EntityUid? user = null)
+        private string SwitchReagent(AutoRegenReagentComponent component, EntityUid? user = null)
         {
             if (component.CurrentIndex + 1 == component.Reagents.Count)
                 component.CurrentIndex = 0;
@@ -121,14 +118,10 @@ namespace Content.Server._White.AutoRegenReagent
 
             component.CurrentReagent = component.Reagents[component.CurrentIndex];
 
-            if (user == null)
-                return;
+            if (user != null)
+                _popups.PopupEntity(Loc.GetString("autoregen-switched", ("reagent", component.CurrentReagent)), user.Value, user.Value);
 
-            if (!_prototypeManager.TryIndex(component.CurrentReagent, out var reagentProto))
-                return;
-
-            _popups.PopupEntity(Loc.GetString("autoregen-switched", ("reagent", reagentProto.LocalizedName)), user.Value, user.Value);
-
+            return component.CurrentReagent;
         }
     }
 }

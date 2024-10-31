@@ -77,17 +77,17 @@
     - type: Blocking
       passiveBlockModifier:
         coefficients:
-          Blunt: 0.6
-          Slash: 0.8
-          Piercing: 0.9
+          Blunt: 0.7
+          Slash: 0.7
+          Piercing: 0.5
       activeBlockModifier:
         coefficients:
-          Blunt: 0.5
-          Slash: 0.7
-          Piercing: 0.8
+          Blunt: 0.6
+          Slash: 0.6
+          Piercing: 0.4
         flatReductions:
-          Blunt: 2
-          Slash: 1
+          Blunt: 1.5
+          Piercing: 1.5
     - type: Destructible
       thresholds:
       - trigger:
@@ -122,7 +122,7 @@
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 140
+          damage: 120
         behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
@@ -144,21 +144,22 @@
     - type: Blocking
       passiveBlockModifier:
         coefficients:
-          Blunt: 0.9
-          Slash: 0.9
-          Piercing: 0.6
+          Blunt: 0.8
+          Slash: 0.8
+          Piercing: 0.8
       activeBlockModifier:
         coefficients:
-          Blunt: 0.85
-          Slash: 0.85
-          Piercing: 0.5
+          Blunt: 0.7
+          Slash: 0.7
+          Piercing: 0.7
         flatReductions:
-          Piercing: 2
+          Blunt: 1.5
+          Piercing: 1.5
     - type: Destructible
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 200
+          damage: 220
         behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ] # WD end
