@@ -15,6 +15,14 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtMaidMini
 
+- type: itemLoadout # WD
+  id: MaidTacticalUniform
+  equipment: MaidTacticalUniform
+- type: startingGear
+  id: MaidTacticalUniform
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtTacticalMaid
+
 # Head
 - type: itemLoadout # WD
   id: MaidHeadMobCap
@@ -23,6 +31,14 @@
   id: MaidHeadMobCap
   equipment:
     head: ClothingHeadHatMobCap
+
+- type: itemLoadout # WD
+  id: MaidTacticalHead
+  equipment: MaidTacticalHead
+- type: startingGear
+  id: MaidTacticalHead
+  equipment:
+    head: ClothingHeadHatTacticalMaidHeadband
 
 # Eyes
 - type: itemLoadout # WD
@@ -50,6 +66,14 @@
   id: MaidGloves
   equipment:
     gloves: ClothingHandsGlovesColorWhite
+
+- type: itemLoadout # WD
+  id: MaidTacticalGloves
+  equipment: MaidTacticalGloves
+- type: startingGear
+  id: MaidTacticalGloves
+  equipment:
+    gloves: ClothingHandsTacticalMaidGloves
 
 # PDA
 - type: itemLoadout # WD
