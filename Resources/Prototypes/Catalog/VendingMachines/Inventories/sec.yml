@@ -4,21 +4,21 @@
     Handcuffs: 8
     Zipties: 12
     GrenadeFlashBang: 4
-    SmokeGrenade: 6
     GrenadeStinger: 4
+    TearGasGrenade: 4 # WD edit start
+    SmokeGrenade: 4
+    ClusterBangFull: 1
     Flash: 7
-    EnergyBola: 7
+    EnergyBola: 6
     Tourniquet: 7
-    FlashlightSeclite: 5
+    FlashlightSeclite: 4
     ClothingEyesGlassesSunglasses: 2
-    ClothingBeltSecurityWebbing: 5
-    RiotShield: 2
-    RiotLaserShield: 2
-    RiotBulletShield: 2
+    ClothingBeltSecurityWebbing: 3
+    RiotShield: 4
+    RiotLaserShield: 1
+    RiotBulletShield: 1
     SecurityWhistle: 5
-    CombatKnife: 3
-    TearGasGrenade: 4
-    ClusterBangFull: 2
+    CombatKnife: 2
     RadioHandheldSecurity: 5
 
   contrabandInventory:
@@ -27,4 +27,4 @@
 
   emaggedInventory:
     ExGrenade: 1
-    Truncheon: 1
+    Truncheon: 3 # WD edit end

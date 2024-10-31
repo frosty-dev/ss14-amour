@@ -99,6 +99,19 @@
   - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
 
+- type: technology
+  id: MechanizedTreatment
+  name: research-technology-mechanized-treatment
+  icon:
+    sprite: Mobs/Silicon/chassis.rsi
+    state: medical
+  discipline: CivilianServices
+  tier: 1 # WD from 2 to 1
+  cost: 10000
+  recipeUnlocks:
+  - BorgModuleAdvancedTreatment
+  - BorgModuleDefibrillator
+
 # Tier 2
 
 - type: technology
@@ -146,19 +159,6 @@
   - BorgModuleResque
 
 - type: technology
-  id: MechanizedTreatment
-  name: research-technology-mechanized-treatment
-  icon:
-    sprite: Mobs/Silicon/chassis.rsi
-    state: medical
-  discipline: CivilianServices
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - BorgModuleAdvancedTreatment
-  - BorgModuleDefibrillator
-
-- type: technology
   id: AdvancedCleaning
   name: research-technology-advanced-cleaning
   icon:
@@ -204,6 +204,8 @@
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
 
+# Tier 3
+
 - type: technology
   id: BluespaceCargoTransport
   name: research-technology-bluespace-cargo-transport
@@ -211,12 +213,10 @@
     sprite: Structures/cargo_telepad.rsi
     state: display
   discipline: CivilianServices
-  tier: 2
+  tier: 3 # WD from 2 to 3
   cost: 15000
   recipeUnlocks:
   - CargoTelepadMachineCircuitboard
-
-# Tier 3
 
 - type: technology
   id: QuantumFiberWeaving
@@ -226,7 +226,7 @@
     state: icon
   discipline: CivilianServices
   tier: 3
-  cost: 10000
+  cost: 15000 # WD from 10000 to 15000
   recipeUnlocks:
   - ClothingShoesBootsSpeed
 
@@ -238,7 +238,7 @@
     state: beakerbluespace
   discipline: CivilianServices
   tier: 3
-  cost: 10000
+  cost: 15000 # WD from 10000 to 15000
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace

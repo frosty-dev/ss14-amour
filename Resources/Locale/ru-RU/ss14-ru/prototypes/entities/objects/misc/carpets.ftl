@@ -14,3 +14,7 @@ ent-FloorCarpetItemPurple = фиолетовый ковёр
     .desc = { ent-FloorTileItemBase.desc }
 ent-FloorCarpetItemPink = розовый ковёр
     .desc = { ent-FloorTileItemBase.desc }
+ent-FloorCarpetItemCyan = голубой ковёр
+    .desc = { ent-FloorTileItemBase.desc }
+ent-FloorCarpetItemWhite = белый ковёр
+    .desc = { ent-FloorTileItemBase.desc }

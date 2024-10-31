@@ -1,2 +1,6 @@
 ent-Barricade = баррикада
-    .desc = { ent-BaseStructure.desc }
+    .desc = Баррикада из деревянных досок. Похоже, она выдержит несколько серьезных ударов.
+ent-BarricadeBlock = { ent-Barricade }
+    .desc = { ent-Barricade.desc }
+ent-BarricadeDirectional = { ent-Barricade }
+    .desc = { ent-Barricade.desc }

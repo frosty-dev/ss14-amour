@@ -16,6 +16,9 @@
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
+  - type: Tag # WD
+    tags:
+      - ClusterBang
 
 - type: entity
   parent: GrenadeBase
@@ -48,6 +51,9 @@
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
+  - type: Tag # WD
+    tags:
+      - ClusterBang
 
 - type: entity
   parent: GrenadeBase

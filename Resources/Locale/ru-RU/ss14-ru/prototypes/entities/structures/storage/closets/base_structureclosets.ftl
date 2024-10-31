@@ -4,3 +4,5 @@ ent-BaseWallCloset = настенный шкаф
     .desc = Стандартное хранилище Nanotrasen, теперь и на стене.
 ent-BaseWallLocker = { ent-BaseWallCloset }
     .desc = { ent-BaseWallCloset.desc }
+ent-ClosetSteelBase = { ent-ClosetBase }
+    .desc = { ent-ClosetBase.desc }

@@ -168,7 +168,7 @@
     state: full
   discipline: Arsenal
   tier: 2
-  cost: 10500
+  cost: 10000 # WD from 10500 to 10000
   recipeUnlocks:
   - PowerCageRechargerCircuitboard
   - PowerCageSmall
@@ -191,7 +191,7 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 10000
+  cost: 15000 # WD from 10000 to 15000
   recipeUnlocks:
     - ClothingHandsGlovesMagneticAdvanced
 
