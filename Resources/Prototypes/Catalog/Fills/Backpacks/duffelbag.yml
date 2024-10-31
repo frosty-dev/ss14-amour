@@ -21,14 +21,18 @@
   - type: StorageFill
     contents:
     - id: BoxSurvivalEngineering
-    - id: WeaponShotgunDoubleBarreled
+    - id: WeaponShotgunEnforcer
     - id: BoxShotgunIncendiary
       amount: 2
     - id: GrenadeFlashBang
       amount: 2
+    - id: GrenadeIncendiary
+    - id: MedkitOxygenFilled
     - id: PillAmbuzolPlus
     - id: PillAmbuzol
       amount: 4
+    - id: HolofanProjector
+    - id: CrowbarRed
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle

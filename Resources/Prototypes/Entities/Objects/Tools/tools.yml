@@ -483,8 +483,9 @@
     sprite: White/Items/Tools/rpd.rsi
   - type: Item
     size: Normal
+    storedRotation: -90
     shape:
-    - 0, 0, 1, 0
+    - 0, 0, 0, 1
   - type: Clothing
     sprite: White/Items/Tools/rpd.rsi
     quickEquip: false
