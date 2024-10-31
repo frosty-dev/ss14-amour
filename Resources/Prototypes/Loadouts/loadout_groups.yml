@@ -2236,6 +2236,7 @@
   minLimit: 0
   loadouts:
   - MaidHeadMobCap
+  - MaidTacticalHead
 
 - type: loadoutGroup # WD
   id: MaidJumpsuit
@@ -2243,6 +2244,7 @@
   loadouts:
   - MaidJumpskirt
   - MaidJumpskirtMini
+  - MaidTacticalUniform
 
 - type: loadoutGroup # WD
   id: MaidBackpack
@@ -2256,6 +2258,7 @@
   minLimit: 0
   loadouts:
   - MaidGloves
+  - MaidTacticalGloves
 
 - type: loadoutGroup # WD
   id: MaidShoes
