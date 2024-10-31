@@ -48,7 +48,7 @@
       - id: SpaceMedipen
       - id: EmergencyMedipen
       - id: Flare
-      - id: RadioHandheld # WD
+      - id: RadioHandheldSecurity # WD
   - type: Sprite
     layers:
       - state: internals

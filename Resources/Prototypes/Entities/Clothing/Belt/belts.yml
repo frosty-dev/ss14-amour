@@ -124,6 +124,7 @@
         - Multitool
         - AppraisalTool
       components:
+        - AccessOverrider # WD
         - SprayPainter
         - NetworkConfigurator
         - RCD
