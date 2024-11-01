@@ -380,7 +380,7 @@
     damageContainer: Inorganic
   - type: SolutionInjectOnEmbed
     transferAmount: 2
-    olution: injector
+    solution: injector
   - type: Injector
     injectOnly: false
   - type: ExaminableSolution
