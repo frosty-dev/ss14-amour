@@ -1,0 +1,9 @@
+﻿- type: marking
+  id: CatTailFeda
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human, Felinid]
+  sponsorOnly: true
+  sprites:
+    - sprite: White/Mobs/Customization/feda.rsi
+      state: m_waggingtail_shark_primary
