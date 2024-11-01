@@ -1,0 +1,169 @@
+- type: entity # WD feature
+  parent: ClothingPouchStorageBase
+  id: ClothingPouchMedical
+  name: medical pouch
+  description: Medical pouch.
+  components:
+  - type: Sprite
+    sprite: Clothing/Pouches/medical.rsi
+  - type: Clothing
+    sprite: Clothing/Pouches/medical.rsi
+  - type: Storage
+    grid:
+    - 0,0,1,4
+    whitelist:
+      tags:
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - DiscreteHealthAnalyzer
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+        - Patch
+        - Healing
+  - type: StaticPrice
+    price: 250
+  - type: Appearance
+
+- type: entity
+  parent: ClothingPouchStorageBase
+  id: ClothingPouchGrenade
+  name: grenade pouch
+  description: Grenade pouch.
+  components:
+  - type: Sprite
+    sprite: Clothing/Pouches/grenade.rsi
+  - type: Clothing
+    sprite: Clothing/Pouches/grenade.rsi
+  - type: Storage
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,2,1
+    whitelist:
+      components:
+        - FlashOnTrigger
+        - SmokeOnTrigger
+        - ClusterGrenade
+        - ExplodeOnTrigger
+  - type: StaticPrice
+    price: 125
+  - type: Appearance
+
+- type: entity
+  parent: ClothingPouchStorageBase
+  id: ClothingPouchMagazine
+  name: magazine pouch
+  description: Magazine pouch.
+  components:
+  - type: Sprite
+    sprite: Clothing/Pouches/magazine.rsi
+  - type: Clothing
+    sprite: Clothing/Pouches/magazine.rsi
+  - type: Storage
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,3,1
+    whitelist:
+      tags:
+        - MagazinePistol
+        - MagazineMagnum
+        - MagazineHeavyRifle
+        - MagazineCaselessRifle
+        - MagazineLightRifle
+        - MagazinePistolHighCapacity
+        - MagazinePistolCaselessRifle
+        - MagazineRifle
+        - MagazinePistolSubMachineGunTopMounted
+        - MagazineShotgun
+        - MagazineMagnumSubMachineGun
+        - MagazinePistolSubMachineGun
+        - Cartridge
+  - type: Appearance
+
+- type: entity
+  parent: ClothingPouchStorageBase
+  id: ClothingPouchHandcuffHolder
+  name: handcuff holder
+  description: Handcuff holder.
+  components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/White/Object/Tools/Key/pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/White/Object/Tools/Key/drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/White/Object/Tools/Key/drop.ogg
+  - type: Sprite
+    sprite: Clothing/Pouches/handcuff_holder.rsi
+    layers:
+    - state: icon
+    - map: [ "enum.StorageContainerVisualLayers.Fill" ]
+      visible: false
+  - type: Clothing
+    sprite: Clothing/Pouches/handcuff_holder.rsi
+  - type: Storage
+    grid:
+    - 0,0,2,2
+    whitelist:
+      components:
+        - Handcuff
+  - type: StorageContainerVisuals
+    maxFillLevels: 1
+    fillBaseName: fill-
+  - type: StaticPrice
+    price: 110
+  - type: Appearance
+
+- type: entity
+  parent: BaseItem
+  id: ClothingPouchCartridgeBelt
+  name: cartridge belt
+  description: Cartridge belt.
+  components:
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/White/Items/handling/component_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/White/Items/handling/component_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/White/Items/handling/component_drop.ogg
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - ShellShotgun
+    capacity: 12
+    soundRack:
+      path: /Audio/White/Gun/Modules/insertmodule.ogg
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Clothing/Pouches/cartridge_belt.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Clothing
+    sprite: Clothing/Pouches/cartridge_belt.rsi
+    slots: [pocket, belt]
+    quickEquip: false
+  - type: StaticPrice
+    price: 150
+  - type: Appearance

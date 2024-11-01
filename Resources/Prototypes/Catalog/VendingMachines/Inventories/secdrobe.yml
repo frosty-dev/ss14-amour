@@ -4,6 +4,11 @@
     ClothingBackpackSecurity: 4
     ClothingBackpackSatchelSecurity: 4
     ClothingBackpackDuffelSecurity: 4
+    ClothingPouchHandcuffHolder: 4
+    ClothingPouchMedical: 3
+    ClothingPouchCartridgeBelt: 3
+    ClothingPouchMagazine: 2
+    ClothingPouchGrenade: 2
     ClothingHeadHatBeret: 4
     ClothingHeadHatSecsoft: 4
     ClothingHeadBandRed: 4
