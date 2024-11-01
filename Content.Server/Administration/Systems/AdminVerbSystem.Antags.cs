@@ -160,7 +160,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = "Сделать культистом",
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ("/Textures/White/Cult/interface.rsi"), "icon"),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/White/Cult/interface.rsi"), "icon"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<CultRuleComponent>(target, DefaultCultRule);
@@ -174,7 +174,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = Loc.GetString("admin-verb-text-make-changeling"),
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/White/Actions/changeling.rsi/absorb.png")),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/White/Actions/changeling.rsi"), "absorb"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<ChangelingRuleComponent>(target, DefaultChangelingRule);
@@ -188,7 +188,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = Loc.GetString("admin-verb-text-make-wizard"),
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/Clothing/Head/Hats/wizardhat.rsi/icon.png")),
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Clothing/Head/Hats/wizardhat.rsi"), "icon"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<WizardRuleComponent>(target, DefaultWizardRule);
