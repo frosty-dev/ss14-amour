@@ -18,7 +18,9 @@
   components:
   - type: EntityTargetAction
     itemIconStyle: NoItem
-    icon: White/Actions/changeling.rsi/absorb.png
+    icon:
+        sprite: White/Actions/changeling.rsi
+        state: absorb
     event: !type:AbsorbDnaActionEvent
     canTargetSelf: false
     useDelay: 1
@@ -32,7 +34,9 @@
   components:
     - type: InstantAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/transform.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: transform
       event: !type:TransformActionEvent
       useDelay: 1
 
@@ -44,7 +48,9 @@
   components:
     - type: InstantAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/reviving_stasis.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: reviving_stasis
       event: !type:RegenerateActionEvent
       checkCanInteract: false
       checkConsciousness: false
@@ -58,7 +64,9 @@
   components:
     - type: InstantAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/lesser_form.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: lesser_form
       event: !type:LesserFormActionEvent
       useDelay: 1
       checkCanInteract: false
@@ -72,7 +80,9 @@
   components:
   - type: EntityTargetAction
     itemIconStyle: NoItem
-    icon: White/Actions/changeling.rsi/sting_extract.png
+    icon:
+        sprite: White/Actions/changeling.rsi
+        state: sting_extract
     event: !type:ExtractionStingActionEvent
     canTargetSelf: false
     useDelay: 1
@@ -88,7 +98,9 @@
   components:
     - type: EntityTargetAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/sting_transform.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: sting_transform
       event: !type:TransformStingActionEvent
       canTargetSelf: false
       useDelay: 1
@@ -104,7 +116,9 @@
   components:
     - type: EntityTargetAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/sting_blind.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: sting_blind
       event: !type:BlindStingActionEvent
       canTargetSelf: false
       useDelay: 1
@@ -121,7 +135,9 @@
   components:
     - type: EntityTargetAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/sting_mute.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: sting_mute
       event: !type:MuteStingActionEvent
       canTargetSelf: false
       useDelay: 1
@@ -137,7 +153,9 @@
   components:
     - type: EntityTargetAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/sting_hallucination.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: sting_hallucination
       event: !type:HallucinationStingActionEvent
       canTargetSelf: false
       useDelay: 1
@@ -153,7 +171,9 @@
   components:
     - type: EntityTargetAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/sting_cryo.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: sting_cryo
       event: !type:CryoStingActionEvent
       canTargetSelf: false
       useDelay: 1
@@ -170,7 +190,9 @@
   components:
     - type: InstantAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/adrenaline_sacs.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: adrenaline_sacs
       event: !type:AdrenalineSacsActionEvent
       useDelay: 1
       checkConsciousness: false
@@ -185,7 +207,9 @@
   components:
     - type: InstantAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/fleshmend.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: fleshmend
       event: !type:FleshmendActionEvent
       useDelay: 1
       checkConsciousness: false
@@ -200,7 +224,9 @@
   components:
     - type: InstantAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/arm_blade.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: arm_blade
       event: !type:ArmbladeActionEvent
       useDelay: 1
     - type: LesserFormRestricted
@@ -213,7 +239,9 @@
   components:
     - type: InstantAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/shield.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: shield
       event: !type:OrganicShieldActionEvent
       useDelay: 1
     - type: LesserFormRestricted
@@ -226,7 +254,9 @@
   components:
     - type: InstantAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/armor.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: armor
       event: !type:ChitinousArmorActionEvent
       useDelay: 1
     - type: LesserFormRestricted
@@ -239,7 +269,9 @@
   components:
     - type: InstantAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/hive_head.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: hive_head
       event: !type:HiveHeadActionEvent
       useDelay: 1
       checkCanInteract: false
@@ -253,7 +285,9 @@
   components:
     - type: InstantAction
       itemIconStyle: NoItem
-      icon: White/Actions/changeling.rsi/tentacle_arm.png
+      icon:
+        sprite: White/Actions/changeling.rsi
+        state: tentacle_arm
       event: !type:TentacleArmActionEvent
       useDelay: 1
     - type: LesserFormRestricted
@@ -267,7 +301,9 @@
   - type: InstantAction
     itemIconStyle: NoItem
     checkCanInteract: false
-    icon: White/Actions/changeling.rsi/biodegrade.png
+    icon:
+      sprite: White/Actions/changeling.rsi
+      state: biodegrade
     event: !type:BiodegradeActionEvent
     useDelay: 1
 
@@ -280,7 +316,9 @@
   - type: InstantAction
     itemIconStyle: NoItem
     checkCanInteract: false
-    icon: White/Actions/changeling.rsi/augmented_eyesight.png
+    icon:
+      sprite: White/Actions/changeling.rsi
+      state: augmented_eyesight
     event: !type:AugmentedEyesightActionEvent
 
 - type: entity
@@ -292,7 +330,9 @@
   - type: InstantAction
     itemIconStyle: NoItem
     checkCanInteract: false
-    icon: White/Actions/changeling.rsi/dissonant_shriek.png
+    icon:
+      sprite: White/Actions/changeling.rsi
+      state: dissonant_shriek
     event: !type:DissonantShriekActionEvent
     useDelay: 1
   - type: LesserFormRestricted
