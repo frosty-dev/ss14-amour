@@ -69,3 +69,6 @@ store-category-spells-attack = Атакующие заклинания
 store-category-spells-defence = Защитные заклинания
 store-category-spells-utility = Вспомогательные заклинания
 store-category-magic-items = Магические предметы
+
+ent-MobHulk = Халк
+    .desc = Зелёный.
