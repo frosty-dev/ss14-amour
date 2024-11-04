@@ -5,18 +5,17 @@
   components:
   - type: Objective
     difficulty: 1
-    issuer: Цель
+    issuer: syndicate
 
 - type: entity
   noSpawn: true
   parent: [BaseDemolitionistObjective, BaseKillObjective]
   id: DemolitionistObjective
-  description: Враг синдиката должен быть взорван!
+  name: Взорви врага синдиката!
+  description: Выполни приказ своего мастера - покажи глупцам верный путь, окутанный пламенной яростью.
   components:
   - type: Objective
     unique: false
   - type: TargetObjective
     title: Взорви врага синдиката!
-  - type: PickRandomPerson
-  - type: KillPersonCondition
-    requireDead: true
+  - type: DieCondition

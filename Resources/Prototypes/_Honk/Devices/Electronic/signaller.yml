@@ -2,6 +2,7 @@
   parent: RemoteSignaller
   id: RemoteSignallerSyndicate
   name: передатчик сигналов синдиката
+  description: Портативное устройство, используемое для дистанционной передачи сигналов объектам.
   components:
   - type: Sprite
     sprite: _Honk/Devices/signallersyndicate.rsi

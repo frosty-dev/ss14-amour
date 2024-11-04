@@ -12,3 +12,7 @@
     slots:
     - Hair
     - Snout
+  - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon

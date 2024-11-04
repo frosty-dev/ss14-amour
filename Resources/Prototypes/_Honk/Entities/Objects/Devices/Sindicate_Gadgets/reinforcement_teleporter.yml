@@ -10,7 +10,7 @@
   - type: GhostRole
     name: Подрывник синдиката
     description: Искусство - это взрыв.
-    rules: Правило 1 - взорваться
+    rules: Действуют обычные правила антагонистов Синдиката. Работайте с тем, кто вас вызвал, и не причиняйте ему вреда.
     raffle:
       settings: short
   - type: GhostRoleMobSpawner

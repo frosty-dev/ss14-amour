@@ -1,6 +1,7 @@
 ﻿- type: listing
   id: UplinkReinforcementRadioDemolitionist
   name: Радио вызова подрывника
+  description: Радио сомнительного качества, вызывающее специально подготовленного агента. Кнопки отключения нет, покупайте если вы готовы к вечеринке. У агента будет взрывчатка и неумолимое желания взорваться, ради высшей цели. На этом всё.
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
   productEntity: ReinforcementRadioDemolitionist
   cost:
