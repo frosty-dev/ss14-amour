@@ -75,7 +75,7 @@
                                 Access="Public"
                                 ToggleMode="True"
                                 ButtonText="Ready"
-                                Margin="0 0 0 7" />
+                                Margin="0 7 0 7" />
 
                             <buttons:OhioUICommandButton
                                 Name="ObserveButton"
@@ -106,7 +106,14 @@
                                 Name="AHelpButton"
                                 Access="Public"
                                 ButtonText="AHelp"
-                                Margin="0 10 0 10" />
+                                Margin="0 7 0 7" />
+
+                            <buttons:OhioLobbyTextButton
+                                Name="ChangelogHonk"
+                                Access="Public"
+                                ButtonText="Changelog"
+                                Margin="0 7 0 7"
+                                />
 
                             <buttons:OhioLobbyTextButton
                                 Name="QuitButton"
