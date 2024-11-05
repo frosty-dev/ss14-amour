@@ -97,7 +97,7 @@ namespace Content.Server._White.AspectsSystem.Aspects
         {
             var traitors = _traitorRuleSystem.GetOtherTraitorMindsAliveAndConnected(null);
 
-            var msg = "Станция, служба контрразведки нанотрейзен рассекретила секретную передачу Синдиката и выяснила имена проникниших на вашу станцию агентов. Агенты имеют следующие имена: \n";
+            var msg = "Станция, служба контрразведки НаноТрейзен рассекретила секретную передачу Синдиката и выяснила имена проникниших на вашу станцию агентов. Агенты имеют следующие имена: \n";
 
             foreach (var traitor in traitors)
             {
