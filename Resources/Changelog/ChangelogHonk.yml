@@ -74,16 +74,16 @@
   - message: "Добавлен список изменений для Honk"
     type: Add
   id: 11
-  time: '2024-05-11T18:00:13.0000000+00:00'
+  time: '2024-11-05T18:00:13.0000000+00:00'
 - author: BIG_Zi_348
   changes:
   - message: "HOTFIX ChangelogHonk"
     type: Add
   id: 12
-  time: '2024-05-11T18:00:13.0000000+00:00'
+  time: '2024-11-05T18:00:13.0000000+00:00'
 - author: Jabak
   changes:
   - message: "Changelog в меню"
     type: Add
   id: 13
-  time: '2024-05-11T18:00:13.0000000+00:00'
+  time: '2024-11-05T18:00:13.0000000+00:00'
