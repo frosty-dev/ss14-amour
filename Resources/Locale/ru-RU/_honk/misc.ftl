@@ -1,2 +1,2 @@
-ent-VendingMachineKink = кинк-о-мат
+ent-VendingMachineKink = Кинк-о-Мат
     .desc = Торговый автомат для всех ваших сокровенных желаний.
