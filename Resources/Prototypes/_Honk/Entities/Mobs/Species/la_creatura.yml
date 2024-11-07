@@ -1,0 +1,93 @@
+- type: entity
+  name: нечто ужасное
+  parent: [ SimpleMobBase, MobCombat ]
+  id: MobLaCreatura
+  description: Отвратительный кошмар.
+  suffix: Admeme
+  components:
+  - type: InputMover
+  - type: TimedDespawn
+    lifetime: 10
+  - type: CombatMode
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Honk/Mobs/la_creatura.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: abomination
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: abomination
+    noMovementLayers:
+      movement:
+        state: abomination
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobState
+  - type: Deathgasp
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      10000: Dead
+  - type: Stamina
+    critThreshold: 100
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 8
+    baseSprintSpeed : 8
+  - type: Tag
+    tags:
+      - DoorBumpOpener
+  - type: Bloodstream
+    bloodMaxVolume: 100
+  - type: NonSpreaderZombie
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Mouse_burning
+  - type: Tool
+    speed: 2
+    qualities:
+         Prying
+  - type: Prying
+    pryPowered: !type:Bool
+        true
+    force: !type:Bool
+      true
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      groups:
+        Brute: 5
+  - type: AmbientSound
+    range: 10
+    volume: 20
+    sound:
+      path: /Audio/_Honk/la_creatura/scary.ogg
