@@ -1,27 +1,24 @@
 - type: entity
   name: нечто ужасное
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, MobCombat, MobFlammable ]
   id: MobLaCreatura
   description: Отвратительный кошмар.
   suffix: Admeme
   components:
   - type: InputMover
-  - type: TimedDespawn
-    lifetime: 10
   - type: CombatMode
   - type: Sprite
-    drawdepth: Mobs
     sprite: _Honk/Mobs/la_creatura.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
-      state: abomination
-  - type: SpriteMovement
+      state: abomination-moving
+  - type: SpriteMovement # It's useless, unless moved by player
     movementLayers:
       movement:
-        state: abomination
+        state: abomination-moving
     noMovementLayers:
       movement:
-        state: abomination
+        state: abomination-moving
   - type: NpcFactionMember
     factions:
       - SimpleHostile
@@ -51,7 +48,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      10000: Dead
+      100: Dead
   - type: Stamina
     critThreshold: 100
   - type: MovementSpeedModifier
@@ -63,9 +60,6 @@
   - type: Bloodstream
     bloodMaxVolume: 100
   - type: NonSpreaderZombie
-  - type: FireVisuals
-    sprite: Mobs/Effects/onfire.rsi
-    normalState: Mouse_burning
   - type: Tool
     speed: 2
     qualities:
@@ -91,3 +85,31 @@
     volume: 20
     sound:
       path: /Audio/_Honk/la_creatura/scary.ogg
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: DeleteOnTrigger
+
+- type: entity
+  id: MobLaCreatura5
+  parent: MobLaCreatura
+  suffix: Admeme 5
+  components:
+  - type: TimedDespawn
+    lifetime: 5
+
+- type: entity
+  id: MobLaCreatura10
+  parent: MobLaCreatura
+  suffix: Admeme 10
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+
+- type: entity
+  id: MobLaCreatura30
+  parent: MobLaCreatura
+  suffix: Admeme 30
+  components:
+  - type: TimedDespawn
+    lifetime: 30
