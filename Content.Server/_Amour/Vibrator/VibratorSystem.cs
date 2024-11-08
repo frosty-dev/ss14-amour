@@ -13,26 +13,30 @@ public sealed class VibratorSystem : SharedVibratorSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<VibratorComponent,UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<VibratorComponent,ComponentInit>(OnInit);
-        SubscribeLocalEvent<VibratorComponent,SignalReceivedEvent>(OnsignalReceived);
+        SubscribeLocalEvent<VibratorComponent, UseInHandEvent>(OnUseInHand);
+        SubscribeLocalEvent<VibratorComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<VibratorComponent, SignalReceivedEvent>(OnsignalReceived);
     }
 
-    private void OnsignalReceived(EntityUid uid, VibratorComponent component,ref SignalReceivedEvent args)
+    private void OnsignalReceived(EntityUid uid, VibratorComponent component, ref SignalReceivedEvent args)
     {
-        if(args.Port != component.TogglePort)
+        if (args.Port != component.TogglePort)
             return;
 
-        ToggleVibration(uid,component);
+        ToggleVibration(uid, component);
     }
 
     private void OnInit(EntityUid uid, VibratorComponent component, ComponentInit args)
     {
-        _signalSystem.EnsureSinkPorts(uid,component.TogglePort);
+        _signalSystem.EnsureSinkPorts(uid, component.TogglePort);
     }
 
     private void OnUseInHand(EntityUid uid, VibratorComponent component, UseInHandEvent args)
     {
-        ToggleVibration(uid,component);
+        if (args.Handled)
+            return;
+
+        ToggleVibration(uid, component);
+        args.Handled = true;
     }
 }
