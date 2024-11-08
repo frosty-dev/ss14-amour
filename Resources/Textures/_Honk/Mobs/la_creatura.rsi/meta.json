@@ -9,6 +9,10 @@
     "states": [
         {
             "name": "abomination",
+            "directions": 4
+        },
+        {
+            "name": "abomination-moving",
             "directions": 4,
             "delays": [
                 [
