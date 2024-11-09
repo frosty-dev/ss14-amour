@@ -2,7 +2,7 @@
   name: травматический дробовик
   parent: BaseWeaponShotgun
   id: WeaponResinShotgun
-  description: When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds. Uses .50 shotgun shells.
+  description: Вот что выходит, когда старый дизайн Ремингтона соединяется с современными материалами. Модифицирован под миротворческие нужны Службы Безопасности. Использует патроны калибра .49 ружейный.
   components:
   - type: Item
     size: Normal
