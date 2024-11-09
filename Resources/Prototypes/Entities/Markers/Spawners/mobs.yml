@@ -16,7 +16,6 @@
       - MobMouse
       - MobMouse1
       - MobMouse2
-      - MobMouseUranium
 
 - type: entity
   name: Cockroach Spawner
