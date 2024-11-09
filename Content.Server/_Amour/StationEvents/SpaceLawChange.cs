@@ -8,6 +8,9 @@ using Content.Server.StationEvents.Events;
 using Content.Shared.Fax.Components;
 using Content.Shared.Paper;
 using Robust.Shared.Random;
+using Content.Server.RandomMetadata;
+using Content.Server.Station.Systems;
+using Content.Server.Station.Components;
 
 namespace Content.Server._Amour.StationEvents
 {
@@ -16,6 +19,8 @@ namespace Content.Server._Amour.StationEvents
         [Dependency] private readonly ChatSystem _chat = default!;
         [Dependency] private readonly IRobustRandom _robustRandom = default!;
         [Dependency] private readonly FaxSystem _faxSystem = default!;
+        [Dependency] private readonly RandomMetadataSystem _randomMeta = default!;
+        [Dependency] private readonly StationSystem _station = default!;
         private readonly RandomSelector _randomSelector = default!;
 
         public SpaceLawChangeRule()
@@ -31,8 +36,7 @@ namespace Content.Server._Amour.StationEvents
                 "7",
                 "8",
                 "9",
-                "10",
-                "11"
+                "10"
                 // Add other message options here if necessary
             };
 
@@ -48,9 +52,37 @@ namespace Content.Server._Amour.StationEvents
 
             var message = Loc.GetString($"station-event-space-law-change-announcement-{randomMessage}");
 
-            _chat.DispatchGlobalAnnouncement(message, playSound: true, colorOverride: Color.Gold);
+            var station = "";
+            foreach (var uniqueStation in _station.GetStationsSet())
+            {
+                if (HasComp<StationJobsComponent>(uniqueStation))
+                {
+                    station = MetaData(uniqueStation).EntityName;
+                    break;
+                }
+            }
 
-            SendSpaceLawChangeFax(message);
+            var today = DateTime.Today.ToString("dd.MM");
+            var namesList = new List<string>
+            {
+                "names_first_male",
+                "names_last_male"
+            };
+            var operatorName = _randomMeta.GetRandomFromSegments(namesList, " ");
+
+            var faxContent = Loc.GetString("station-event-space-law-change-form",
+            ("station", station),
+            ("date", today),
+            ("operator", operatorName),
+            ("text", message));
+
+            var announcement = Loc.GetString("station-event-space-law-change-announcement-template",
+            ("station", station),
+            ("text", message)); ;
+
+            _chat.DispatchGlobalAnnouncement(announcement, sender: Loc.GetString("admin-announce-announcer-default"), playSound: true, colorOverride: Color.Gold);
+
+            SendSpaceLawChangeFax(faxContent);
         }
 
         /// <summary>
@@ -61,12 +93,13 @@ namespace Content.Server._Amour.StationEvents
             var printout = new FaxPrintout(
                 message,
                 Loc.GetString("materials-paper"),
-                stampedBy: new List<StampDisplayInfo>
+                null,
+                null,
+                "paper_stamp-centcom",
+                new List<StampDisplayInfo>
                 {
-                    new() { StampedName = Loc.GetString("stamp-component-stamped-name-centcom"), StampedColor = Color.FromHex("#006600") }
-                },
-                prototypeId: null!,
-                stampState: null);
+                    new() { StampedName = Loc.GetString("stamp-component-stamped-name-centcom"), StampedColor = Color.FromHex("#006600") },
+                });
 
             var faxes = EntityManager.EntityQuery<FaxMachineComponent>();
             foreach (var fax in faxes)
