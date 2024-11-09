@@ -167,7 +167,7 @@
     damageContainers:
     - Biological
     - Inorganic
-  - type: ShowSyndicateIcons
+  - type: ShowAntagonistIcons
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
@@ -185,7 +185,7 @@
     - Inorganic
   - type: ShowHungerIcons
   - type: ShowThirstIcons
-  - type: ShowSyndicateIcons
+  - type: ShowAntagonistIcons
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons]
@@ -197,7 +197,7 @@
     sprite: Clothing/Eyes/Hud/synd.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/synd.rsi
-  - type: ShowSyndicateIcons
+  - type: ShowAntagonistIcons
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons]
@@ -209,7 +209,7 @@
     sprite: Clothing/Eyes/Hud/syndagent.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/syndagent.rsi
-  - type: ShowSyndicateIcons
+  - type: ShowAntagonistIcons
   - type: ShowHealthBars
     damageContainers:
     - Biological
