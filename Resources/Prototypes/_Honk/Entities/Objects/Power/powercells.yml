@@ -45,8 +45,8 @@
   parent: BasePowerCellHonk
   id: EnergyCellСarbine
   suffix: Full
-  name: энергитическая батарея карабина
-  description: Много умных букав и приписка сделано в хонокниуме
+  name: энергетическая батарея карабина
+  description: Перезаряжаемый элемент питания. Модифицирован для работы с лазерной винтовкой.
   components:
   - type: Sprite
     sprite: _Honk/Objects/Power/carbine_energy_cells.rsi
@@ -70,8 +70,8 @@
   parent: BasePowerCellHonk
   id: EnergyCellDisabler
   suffix: Full
-  name: энергитическая батарея дизейблера
-  description: Много умных букав и приписка сделано в хонокниуме
+  name: энергетическая батарея дизейблера
+  description: Перезаряжаемый элемент питания. Модифицирован для работы с дизейблером.
   components:
   - type: Sprite
     sprite: _Honk/Objects/Power/disabler_energy_cells.rsi
@@ -95,8 +95,8 @@
   parent: BasePowerCellHonk
   id: EnergyCellDisablerSmg
   suffix: Full
-  name: энергитическая батарея дизейблера пулемёта
-  description: Много умных букав и приписка сделано в хонокниуме
+  name: энергетическая батарея дизейблера пулемёта
+  description: Перезаряжаемый элемент питания. Модифицирован для работы с дизейблером-пулемётом.
   components:
   - type: Sprite
     sprite: _Honk/Objects/Power/disabler_smg_energy_cells.rsi
