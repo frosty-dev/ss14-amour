@@ -56,3 +56,6 @@ ent-ImplanterSyndi = { ent-BaseImplanter }
     .desc = { ent-BaseImplanter.desc }
 ent-NeuroStabilizationImplanter = { ent-BaseImplanter }
     .desc = { ent-BaseImplanter.desc }
+ent-VoiceActivatedBombImplanter = { ent-BaseImplanter }
+    .desc = { ent-BaseImplanter.desc }
+    .suffix = бомба с голосовым триггером
