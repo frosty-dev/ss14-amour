@@ -37,8 +37,8 @@ spellbook-mime-desc = { ent-ActionMimeTouchSpell.desc }
 spellbook-recall-name = { ent-ActionInstantRecallSpell }
 spellbook-recall-desc = { ent-ActionInstantRecallSpell.desc }
 
-spellbook-smite-name = { ent-ActionSmite }
-spellbook-smite-desc = { ent-ActionSmite.desc }
+spellbook-smite-name = { ent-ActionSmiteWizard }
+spellbook-smite-desc = { ent-ActionSmiteWizard.desc }
 
 spellbook-mindswap-name = { ent-ActionMindswapSpell }
 spellbook-mindswap-desc = { ent-ActionMindswapSpell.desc }
