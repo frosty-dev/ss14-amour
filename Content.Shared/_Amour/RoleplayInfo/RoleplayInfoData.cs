@@ -5,8 +5,8 @@ namespace Content.Shared._Amour.RoleplayInfo;
 [Serializable, NetSerializable, DataDefinition]
 public sealed partial class RoleplayInfo
 {
-    [DataField] public string Name ;
-    [DataField] public RoleplaySelection RoleplaySelection;
+    [ViewVariables] public string Name;
+    [ViewVariables] public RoleplaySelection RoleplaySelection;
     public RoleplayInfo(string name, RoleplaySelection roleplaySelection)
     {
         Name = name;
