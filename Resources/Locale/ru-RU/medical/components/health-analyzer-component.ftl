@@ -13,27 +13,27 @@ health-analyzer-window-scan-mode-text = Режим сканирования:
 health-analyzer-window-scan-mode-active = ВКЛЮЧЕН
 health-analyzer-window-scan-mode-inactive = ВЫКЛЮЧЕН
 
-health-analyzer-window-damage-group-Brute = Механические:
-health-analyzer-window-damage-type-Blunt = Удары:
-health-analyzer-window-damage-type-Slash = Разрезы:
-health-analyzer-window-damage-type-Piercing = Уколы:
+damage-group-brute = Механические
+damage-type-blunt = Удары
+damage-type-slash = Разрезы
+damage-type-piercing = Уколы
 
-health-analyzer-window-damage-group-Burn = Ожоги:
-health-analyzer-window-damage-type-Heat = Термические:
-health-analyzer-window-damage-type-Laser = Лазерный:
-health-analyzer-window-damage-type-Shock = Электрические:
-health-analyzer-window-damage-type-Cold = Обморожение:
-health-analyzer-window-damage-type-Caustic = Кислотные:
+damage-group-burn = Ожоги
+damage-type-heat = Термические
+damage-type-laser = Лазерный
+damage-type-shock = Электрические
+damage-type-cold = Обморожение
+damage-type-caustic = Кислотные
 
-health-analyzer-window-damage-group-Airloss = Нехватка воздуха:
-health-analyzer-window-damage-type-Asphyxiation = Удушение:
-health-analyzer-window-damage-type-Bloodloss = Кровопотеря:
+damage-group-airloss = Нехватка воздуха
+damage-type-asphyxiation = Удушение
+damage-type-bloodloss = Кровопотеря
 
-health-analyzer-window-damage-group-Toxin = Токсины:
-health-analyzer-window-damage-type-Poison = Яды:
-health-analyzer-window-damage-type-Radiation = Радиация:
+damage-group-toxin = Токсины
+damage-type-poison = Яды
+damage-type-radiation = Радиация
 
-health-analyzer-window-damage-group-Genetic = Генетические:
-health-analyzer-window-damage-type-Cellular = Клеточные:
+damage-group-genetic = Генетические
+damage-type-cellular = Клеточные
 
 health-analyzer-window-malnutrition = Тяжёлое недоедание
