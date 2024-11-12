@@ -10,6 +10,15 @@ ghost-role-information-mouse-description = Голодная и озорная м
 ghost-role-information-mothroach-name = Таракамоль
 ghost-role-information-mothroach-description = Милая озорная таракамоль.
 
+ghost-role-information-snail-name = Улитка
+ghost-role-information-snail-description = Маленькая улитка, которая не против немного побыть на свободе. Только не убегай за пределы клетки!
+ghost-role-information-snailspeed-name = Улитка
+ghost-role-information-snailspeed-description = Маленькая улитка с турбоулиточными ускорителями.
+ghost-role-information-snoth-name = Молитка
+ghost-role-information-snoth-description = Маленькая молитка, которая не против немного побыть на свободе. Только не убегай за пределы клетки!
+ghost-role-information-deathsnail-name = Улитка забвения
+ghost-role-information-deathsnail-description = Маленькая улитка, предвестник Конца, последний адепт Элегиста. Вся жизнь будет окончена, все звёзды - потухнут, но она останется.
+
 ghost-role-information-giant-spider-name = Гигантский паук
 ghost-role-information-giant-spider-description = Устройте хаос обитателям станции!
 
