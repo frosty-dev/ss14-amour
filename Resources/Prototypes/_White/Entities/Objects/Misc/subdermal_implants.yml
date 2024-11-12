@@ -49,27 +49,6 @@
     tags:
     - NeuroStabilization
 
-- type: entity
-  parent: BaseSubdermalImplant
-  id: VoiceActivatedBombImplant
-  name: voice activated Bomb implant
-  description: A microbomb implant with a trigger that causes it to go off by vocal keywords.
-  noSpawn: true
-  components:
-    - type: SubdermalImplant
-      permanent: true
-    - type: TriggerOnVoice
-    - type: ExplodeOnTrigger
-    - type: Explosive
-      explosionType: MicroBomb
-      totalIntensity: 150
-      intensitySlope: 5
-      maxIntensity: 30
-      canCreateVacuum: false
-    - type: Tag
-      tags:
-        - VoiceActivatedBombImplant
-
 #Amour
 - type: entity
   parent: BaseSubdermalImplant

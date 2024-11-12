@@ -4,6 +4,8 @@
   description: Instantly gibs a target.
   noSpawn: true
   components:
+  - type: Magic
+    requiresClothes: true
   - type: EntityTargetAction
     useDelay: 60
     itemIconStyle: BigAction
@@ -20,13 +22,3 @@
       state: gib
     event: !type:SmiteSpellEvent
       speech: action-speech-spell-smite
-
-- type: entity
-  id: ActionSmiteWizard
-  parent: ActionSmite
-  name: Smite
-  description: Instantly gibs a target.
-  noSpawn: true
-  components:
-  - type: Magic
-    requiresClothes: true

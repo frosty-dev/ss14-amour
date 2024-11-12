@@ -278,7 +278,7 @@
   - type: ActiveRadio
     channels:
     - Syndicate
-  - type: ShowAntagonistIcons
+  - type: ShowSyndicateIcons
   - type: MovementAlwaysTouching
   - type: TTS
   - type: PointLight

@@ -10,7 +10,3 @@ species-name-skrell = Скрелл
 species-name-moth = Моль
 species-name-skeleton = Скелет
 species-name-felinid = Фелинид
-
-## Misc species things
-
-snail-hurt-by-salt-popup = Соленый раствор жжет, как кислота!

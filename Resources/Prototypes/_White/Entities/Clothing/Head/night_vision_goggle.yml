@@ -33,4 +33,4 @@
   id: ClothingEyesNightVisionGogglesNukie
   suffix: "Хамелеон, Ядерные Оперативники"
   components:
-  - type: ShowAntagonistIcons
+  - type: ShowSyndicateIcons

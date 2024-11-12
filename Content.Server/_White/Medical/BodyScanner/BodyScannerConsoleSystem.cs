@@ -354,7 +354,7 @@ namespace Content.Server._White.Medical.BodyScanner
                 ("amount", $"{state.CurrentThirst:f1}")));
             text.AppendLine(Loc.GetString("body-scanner-console-window-thirst-current-thirst-status-text",
                 ("status",
-                    Loc.GetString("body-scanner-console-window-thirst-current-thirst-status-" +
+                    Loc.GetString("body-scanner-console-window-hunger-current-hunger-status-" +
                                   state.CurrentThirstThreshold))));
             text.AppendLine();
 
@@ -363,7 +363,7 @@ namespace Content.Server._White.Medical.BodyScanner
                 ("amount", $"{state.CurrentHunger:f1}")));
             text.AppendLine(Loc.GetString("body-scanner-console-window-hunger-current-hunger-status-text",
                 ("status",
-                    Loc.GetString("body-scanner-console-window-hunger-current-hunger-status-" +
+                    Loc.GetString("body-scanner-console-window-thirst-current-thirst-status-" +
                                   state.CurrentHungerThreshold))));
             text.AppendLine();
 
