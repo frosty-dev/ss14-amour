@@ -102,3 +102,6 @@
 
 - type: Tag
   id: ClusterBang
+
+- type: Tag
+  id: VoiceActivatedBombImplant

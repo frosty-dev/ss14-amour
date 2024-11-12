@@ -149,7 +149,7 @@
   name: "Smite scroll"
   components:
     - type: Scroll
-      actionId: ActionSmite
+      actionId: ActionSmiteWizard
       learnPopup: scroll-component-smite
 
 - type: entity

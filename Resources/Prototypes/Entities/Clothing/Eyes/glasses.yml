@@ -254,7 +254,7 @@
   id: ClothingEyesGlassesThermalNukie
   suffix: "Хамелеон, Ядерные Оперативники"
   components:
-  - type: ShowSyndicateIcons
+  - type: ShowAntagonistIcons
 
 - type: entity
   parent: ClothingEyesBase

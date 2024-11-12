@@ -93,12 +93,12 @@ namespace Content.Client._White.Medical.BodyScanner
             CurrentThirst.Text = Loc.GetString("body-scanner-console-window-thirst-current-thirst-text",
                 ("amount", $"{state.CurrentThirst:f1}"));
             CurrentThirstStatus.Text = Loc.GetString("body-scanner-console-window-thirst-current-thirst-status-text",
-                ("status", Loc.GetString("body-scanner-console-window-hunger-current-hunger-status-" + state.CurrentThirstThreshold)));
+                ("status", Loc.GetString("body-scanner-console-window-thirst-current-thirst-status-" + state.CurrentThirstThreshold)));
 
             CurrentHunger.Text = Loc.GetString("body-scanner-console-window-hunger-current-hunger-text",
                 ("amount", $"{state.CurrentHunger:f1}"));
             CurrentHungerStatus.Text = Loc.GetString("body-scanner-console-window-hunger-current-hunger-status-text",
-                ("status", Loc.GetString("body-scanner-console-window-thirst-current-thirst-status-" + state.CurrentHungerThreshold)));
+                ("status", Loc.GetString("body-scanner-console-window-hunger-current-hunger-status-" + state.CurrentHungerThreshold)));
 
             BloodSolutionVolume.Text = Loc.GetString("body-scanner-console-window-blood-solutions-volume-group-text",
                 ("amount", $"{state.BloodSolution.Volume.Float():f1}"),
@@ -127,6 +127,9 @@ namespace Content.Client._White.Medical.BodyScanner
             });
 
             // Third column.
+            if (state.DeadThreshold == FixedPoint2.Zero)
+                state.DeadThreshold = 0.01;
+
             HealthBar.Value = 1 - (state.TotalDamage / state.DeadThreshold).Float();
 
             HealthBar.ForegroundStyleBoxOverride = new StyleBoxFlat()

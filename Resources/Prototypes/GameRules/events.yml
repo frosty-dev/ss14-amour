@@ -207,6 +207,52 @@
     - id: MobMothroach
       prob: 0.008
 
+- type: entity # WD Ahead of wizden
+  id: SnailMigrationLowPop
+  # parent: BaseStationEventShortDelay # WD TODO later
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 6
+    duration: 50
+  - type: VentCrittersRule
+    entries:
+    - id: MobSnail
+      prob: 0.02
+    - id: MobSnailSpeed
+      prob: 0.002
+    - id: MobSnailMoth
+      prob: 0.005 # WD edit from 0.002 to 0.005
+
+- type: entity # WD Ahead of wizden
+  id: SnailMigration
+  # parent: BaseStationEventShortDelay # WD TODO later
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-vent-creatures-start-announcement
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 15
+    weight: 6
+    duration: 50
+    minimumPlayers: 30
+  - type: VentCrittersRule
+    entries:
+    - id: MobSnail
+      prob: 0.02
+    - id: MobSnailSpeed
+      prob: 0.002
+    - id: MobSnailMoth
+      prob: 0.005 # WD edit from 0.002 to 0.005
+    - id: MobSnailInstantDeath
+      prob: 0.00001 #  ~ 1:2000 snails
+
 - type: entity
   id: PowerGridCheck
   parent: BaseGameRule

@@ -44,6 +44,18 @@ public sealed class SubdermalImplantRemoved(EntityUid user, EntityUid target, Su
     public SubdermalImplantComponent Component = component;
 }
 
+public sealed class ImplanterUsed(EntityUid implant, EntityUid implanter) : EventArgs
+{
+    /// <summary>
+    ///     Implant which was used
+    /// </summary>
+    public EntityUid Implant = implant;
+    /// <summary>
+    ///     Implanter which was used
+    /// </summary>
+    public EntityUid Implanter = implanter;
+}
+
 //WD EDIT END
 
 public abstract class SharedImplanterSystem : EntitySystem
@@ -113,6 +125,7 @@ public abstract class SharedImplanterSystem : EntitySystem
 
         var ev = new TransferDnaEvent { Donor = target, Recipient = implanter };
         RaiseLocalEvent(target, ref ev);
+        RaiseLocalEvent(implant.Value, new ImplanterUsed(implant.Value, implanter)); // WD
 
         Dirty(implanter, component);
     }

@@ -499,7 +499,7 @@
   sprite: White/Ghosts/DEN4IK_64-ghost.rsi
   alpha: 0.9
   ghostName: Никелевый камушек
-  ghostDescription: Этот Ниггер имеет талант, знаешь что я тебе за это дам???
+  ghostDescription: Этот камушек имеет талант, знаешь что я тебе за это дам???
 
 #BIG_Zi_348
 - type: customGhost
@@ -509,3 +509,13 @@
   alpha: 0.9
   ghostName: BIG_Zi_348
   ghostDescription: Зенит космической энергии — генезис сознания из пустоты.
+
+#AugustNacist1488
+- type: customGhost
+  id: augustnacist1488-ghost
+  ckey: AugustNacist1488
+  sprite: White/Ghosts/augustnacist1488-ghost.rsi
+  alpha: 0.9
+  ghostName: Ash drake
+  ghostDescription: Почитаемый хранитель некрополя.
+  size: 0.75, 0.75
