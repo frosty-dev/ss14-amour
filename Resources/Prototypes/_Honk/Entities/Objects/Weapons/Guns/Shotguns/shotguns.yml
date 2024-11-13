@@ -12,7 +12,7 @@
   - type: Sprite
     sprite: _Honk/Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: Clothing
-    sprite: _Honk/Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: _Honk/Objects/Weapons/Guns/Shotguns/pump_onbody.rsi
   - type: BallisticAmmoProvider
     proto: ShellShotgunResinShot
     capacity: 6

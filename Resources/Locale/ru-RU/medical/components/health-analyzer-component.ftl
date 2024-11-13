@@ -38,5 +38,5 @@ damage-type-cellular = Клеточные
 
 health-analyzer-window-malnutrition = Тяжёлое недоедание
 
-#Amour
+# Amour
 health-analyzer-popup-scan-target = {CAPITALIZE(THE($user))} пытается вас просканировать!

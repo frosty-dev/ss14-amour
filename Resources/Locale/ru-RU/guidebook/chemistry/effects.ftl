@@ -322,7 +322,7 @@ reagent-effect-guidebook-missing =
        *[other] cause
     } an unknown effect as nobody has written this effect yet
 
-#Amour
+# Amour
 reagent-effect-guidebook-sex-change =
     { $chance ->
     [1] Делает

@@ -499,7 +499,7 @@
   sprite: White/Ghosts/DEN4IK_64-ghost.rsi
   alpha: 0.9
   ghostName: Никелевый камушек
-  ghostDescription: Этот Ниггер имеет талант, знаешь что я тебе за это дам???
+  ghostDescription: Этот камушек имеет талант, знаешь что я тебе за это дам???
 
 #BIG_Zi_348
 - type: customGhost
