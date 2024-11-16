@@ -19,6 +19,7 @@
   supervisors: job-supervisors-captain
   access:
     - Service
+    - Lawyer
     - Brig
     - Maintenance
     - Command

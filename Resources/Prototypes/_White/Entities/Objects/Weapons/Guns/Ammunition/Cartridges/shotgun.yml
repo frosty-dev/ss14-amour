@@ -1,0 +1,16 @@
+- type: entity
+  id: ShellShotgunRubberShot
+  name: ружейный патрон (.49 резиновая дробь)
+  parent: BaseShellShotgun
+  components:
+  - type: Tag
+    tags:
+    - ShellRubberShotgun
+  - type: Sprite
+    layers:
+    - state: rubber
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: PelletShotgunRubberShot
+  - type: SpentAmmoVisuals
+    state: rubber
