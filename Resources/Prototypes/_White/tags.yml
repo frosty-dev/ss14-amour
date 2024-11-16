@@ -104,4 +104,10 @@
   id: ClusterBang
 
 - type: Tag
+  id: Lighting
+
+- type: Tag
+  id: DisposalUnits
+
+- type: Tag
   id: VoiceActivatedBombImplant

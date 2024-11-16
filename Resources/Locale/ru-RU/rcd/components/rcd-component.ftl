@@ -30,7 +30,8 @@ rcd-component-must-build-on-subfloor-message = Вы можете строить 
 rcd-component-cannot-build-on-subfloor-message = Вы не можете строить это на открытом полу!
 rcd-component-cannot-build-on-occupied-tile-message = Вы не можете строить здесь, это место уже занято!
 rcd-component-cannot-build-identical-tile = Эта плитка уже существует!
-
+rcd-component-cannot-build-blacklisted-entity = Вы не можете строить здесь, недостаточно свободного места!
+rcd-component-cannot-build-identical-entity = Идентичный объект уже существует в этом месте!
 
 ### Category names
 

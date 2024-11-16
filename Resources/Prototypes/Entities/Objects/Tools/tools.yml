@@ -466,6 +466,9 @@
     - APC # WD
     - Camera # WD
     - Deconstruct
+    blacklistOnOneTile: # WD
+      tags:
+      - Lighting
 
 - type: entity
   id: RCDEmpty
@@ -528,6 +531,9 @@
     - DisposalUnit # disposal units
     - MailingUnit
     - ToiletEmpty
+    blacklistOnOneTile: # WD
+      tags:
+      - DisposalUnits
 
 - type: entity # WD
   id: RapidPipeDispenserEmpty
