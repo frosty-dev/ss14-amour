@@ -16,11 +16,3 @@
 - type: Tag
   id: EnergyCellMakeshift
 
-- type: Tag
-  id: WeaponResinShotgun
-
-- type: Tag
-  id: MagazineResinShotgun
-
-- type: Tag
-  id: ShellResinShotgun

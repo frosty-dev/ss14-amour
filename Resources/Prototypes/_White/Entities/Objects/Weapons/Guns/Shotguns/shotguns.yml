@@ -1,24 +1,24 @@
 - type: entity
   name: травматический дробовик
   parent: BaseWeaponShotgun
-  id: WeaponResinShotgun
+  id: WeaponRubberShotgun
   description: Вот что выходит, когда старый дизайн Ремингтона соединяется с современными материалами. Модифицирован под миротворческие нужны Службы Безопасности. Использует патроны калибра .49 ружейный.
   components:
   - type: Item
     size: Normal
     shape:
     - 0,0,4,0
-    sprite: _Honk/Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
+    sprite: White/Objects/Weapons/Guns/Shotguns/rubber_pump_inhands_64x.rsi
   - type: Sprite
-    sprite: _Honk/Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: White/Objects/Weapons/Guns/Shotguns/rubber_pump.rsi
   - type: Clothing
-    sprite: _Honk/Objects/Weapons/Guns/Shotguns/pump_onbody.rsi
+    sprite: White/Objects/Weapons/Guns/Shotguns/rubber_pump_onbody.rsi
   - type: BallisticAmmoProvider
-    proto: ShellShotgunResinShot
+    proto: ShellShotgunRubberShot
     capacity: 6
     whitelist:
       tags:
-      - ShellResinShotgun
+      - ShellRubberShotgun
   - type: Tag
     tags:
-    - WeaponResinShotgun
+    - WeaponRubberShotgun

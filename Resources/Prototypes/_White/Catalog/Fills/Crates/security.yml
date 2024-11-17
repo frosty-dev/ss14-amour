@@ -1,0 +1,23 @@
+- type: entity # WD ahead of wd upstream
+  id: CrateBoxesRubberShot
+  parent: CrateWeaponSecure
+  name: ящик с коробками резиновой дроби
+  description: Ящик с четырьмя коробками резиновой дроби.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxRubberShot
+      amount: 4
+
+- type: entity
+  id: CrateRubberShotgun
+  parent: CrateWeaponSecure
+  name: ящик с травматическим дробовиком
+  description: Ящик с травматическим дробовиком и двумя коробками с резиновой дробью.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponRubberShotgun
+      amount: 1
+    - id: BoxRubberShot
+      amount: 2

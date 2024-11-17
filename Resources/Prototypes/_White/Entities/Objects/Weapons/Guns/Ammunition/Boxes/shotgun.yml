@@ -2,12 +2,12 @@
 - type: entity
   name: коробка резиновой дроби
   parent: AmmoProviderShotgunShell
-  id: BoxResinShot
+  id: BoxRubberShot
   description: A dispenser box full of beanbag shots, designed for riot shotguns.
   components:
     - type: BallisticAmmoProvider
-      proto: ShellShotgunResinShot
+      proto: ShellShotgunRubberShot
     - type: Sprite
       layers:
         - state: boxwide
-        - state: shellresin
+        - state: shellrubber

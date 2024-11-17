@@ -1,5 +1,5 @@
 - type: entity
-  id: PelletShotgunResinShot
+  id: PelletShotgunRubberShot
   name: резиновая дробь (.49)
   noSpawn: true
   parent: [BaseBullet, BaseBulletTrail]
@@ -13,4 +13,4 @@
         Blunt: 1
   - type: StaminaDamageOnCollide
     ignoreResistances: false
-    damage: 22
+    damage: 25

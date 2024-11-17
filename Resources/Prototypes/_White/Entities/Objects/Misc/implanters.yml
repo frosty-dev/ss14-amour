@@ -43,15 +43,6 @@
   - type: Implanter
     implant: NeuroStabilizationImplant
 
-#Amour
-- type: entity
-  id: GenderSwapImplanter
-  name: gender swap implanter
-  parent: BaseImplantOnlyImplanter
-  components:
-  - type: Implanter
-    implant: GenderSwapImplant
-
 - type: entity
   parent: BaseImplantOnlyImplanterSyndi
   id: VoiceActivatedBombImplanter

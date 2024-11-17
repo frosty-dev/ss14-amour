@@ -81,6 +81,9 @@
       - !type:PlaySoundBehavior
         sound:
           collection: GlassBreak
+  - type: Tag # WD EDIT
+    tags:
+    - Lighting
   - type: LightingOverlay # WD
   - type: LightMark
   placement:
