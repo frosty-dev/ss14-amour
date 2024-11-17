@@ -75,7 +75,7 @@
   result: Gauze1
   completetime: 1
   materials:
-    Cloth: 200
+    Cloth: 50 # Honk Edit due to different balance of the item
 
 - type: latheRecipe
   id: HandheldCrewMonitor
