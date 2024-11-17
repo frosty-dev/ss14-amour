@@ -8,7 +8,8 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 5
-    reoccurrenceDelay: 30
+  # reoccurrenceDelay: 30 # HONK EDIT
+    maxOccurrences: 1 # HONK EDIT
     duration: 1
   - type: LoadMapRule
     preloadedGrid: ShuttleCargoLost
@@ -23,7 +24,8 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 5
-    reoccurrenceDelay: 30
+  # reoccurrenceDelay: 30 # HONK EDIT
+    maxOccurrences: 1 # HONK EDIT
     duration: 1
   - type: LoadMapRule
     preloadedGrid: TravelingCuisine
@@ -38,7 +40,8 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 5
-    reoccurrenceDelay: 30
+  # reoccurrenceDelay: 30 # HONK EDIT
+    maxOccurrences: 1 # HONK EDIT
     duration: 1
   - type: LoadMapRule
     preloadedGrid: DisasterEvacPod
@@ -53,7 +56,8 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 2
-    reoccurrenceDelay: 30
+  # reoccurrenceDelay: 30 # HONK EDIT
+    maxOccurrences: 1 # HONK EDIT
     duration: 1
   - type: LoadMapRule
     preloadedGrid: Honki
@@ -68,7 +72,9 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 2
-    reoccurrenceDelay: 30
+  # reoccurrenceDelay: 30 # HONK EDIT
+    maxOccurrences: 1 # HONK EDIT
+    minimumPlayers: 30 # HONK EDIT
     duration: 1
   - type: LoadMapRule
     preloadedGrid: SyndieEvacPod

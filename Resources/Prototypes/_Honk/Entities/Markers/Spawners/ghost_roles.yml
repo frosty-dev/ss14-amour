@@ -7,6 +7,8 @@
     name: Подрывник синдиката
     description: Пришёл, чтобы красиво уйти
     rules: Вы - антагонист и можете убивать всех, кто пытается вам помешать, но убийство цели - всегда ваш наивысший приоритет.
+    raffle:
+      settings: default
   - type: GhostRoleMobSpawner
     prototype: MobHumanDemolitionist
   - type: Sprite
