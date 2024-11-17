@@ -1,0 +1,8 @@
+#DEN4IK_64
+- type: customGhost
+  id: den4ik_64-ghost
+  ckey: DEN4IK__64
+  sprite: White/Ghosts/DEN4IK_64-ghost.rsi
+  alpha: 0.9
+  ghostName: Никелевый камушек
+  ghostDescription: Этот камушек имеет талант, знаешь что я тебе за это дам???

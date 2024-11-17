@@ -37,23 +37,3 @@
   cost: 1500
   category: cargoproduct-category-name-service
   group: market
-
-- type: cargoProduct
-  id: ServiceBoxesResinShot
-  icon:
-    sprite: Objects/Storage/boxes.rsi
-    state: shellresin
-  product: CrateBoxesResinShot
-  cost: 3000
-  category: cargoproduct-category-name-armory
-  group: market
-
-- type: cargoProduct
-  id: ServiceResinShotgun
-  icon:
-    sprite: _Honk/Objects/Weapons/Guns/Shotguns/pump.rsi
-    state: icon
-  product: CrateResinShotgun
-  cost: 4000
-  category: cargoproduct-category-name-armory
-  group: market
