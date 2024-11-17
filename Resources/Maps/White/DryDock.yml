@@ -18416,7 +18416,7 @@ entities:
     - type: Transform
       pos: 12.8871565,-5.2782454
       parent: 17144
-- proto: BoxResinShot
+- proto: BoxRubberShot
   entities:
   - uid: 17282
     components:
@@ -114123,7 +114123,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -149.58974,10.572603
       parent: 2
-- proto: WeaponResinShotgun
+- proto: WeaponRubberShotgun
   entities:
   - uid: 17280
     components:

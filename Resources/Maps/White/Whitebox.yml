@@ -22174,7 +22174,7 @@ entities:
     - type: Transform
       pos: 46.48018,-25.706886
       parent: 2
-- proto: BoxResinShot
+- proto: BoxRubberShot
   entities:
   - uid: 12481
     components:
@@ -181701,7 +181701,7 @@ entities:
     - type: Transform
       pos: 25.484055,36.464966
       parent: 2
-- proto: WeaponResinShotgun
+- proto: WeaponRubberShotgun
   entities:
   - uid: 12477
     components:

@@ -6,7 +6,7 @@ namespace Content.Server.Administration;
 
 //res<IEntityManager>().System<MindSystem>().TryGetSession(new EntityUid(X), out var seks);res<IEntityManager>().System<QuickDialogSystem>().OpenDialog<string, bool, bool, int, VoidOption, VoidOption, Hex16>(seks, "Заголовок", "Серийный код твоей матери", "Селёдкой пахнет?", "Сосал?", "Сколько ванотян жрал хуёв:", "тыгыдык тыгыдык тыгыдык тыгыдык" ," ", "Вскрываем байты", (_,_,_,_,_,_,_)=>{});
 //
-//List<(Type, string, object)> entries = new();entries.Add((typeof(string), "shitass", "faggot"));entries.Add((typeof(int), "cunt", 2254))
+//List<(Type, string, object)> entries = new();entries.Add((typeof(string), "shitass", "idiot"));entries.Add((typeof(int), "cunt", 2254))
 //res<IEntityManager>().System<MindSystem>().TryGetSession(new EntityUid(X), out var seks);res<IEntityManager>().System<QuickDialogSystem>().OpenDialog(seks, "Заголовок", entries, (_)=>{});
 public sealed partial class QuickDialogSystem
 {

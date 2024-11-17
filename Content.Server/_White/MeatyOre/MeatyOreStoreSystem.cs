@@ -76,40 +76,41 @@ public sealed class MeatyOreStoreSystem : EntitySystem
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnPostRoundCleanup);
         SubscribeNetworkEvent<MeatyOreShopRequestEvent>(OnShopRequested);
-        //SubscribeLocalEvent<GetVerbsEvent<Verb>>(MeatyOreVerbs);
+
+        // SubscribeLocalEvent<GetVerbsEvent<Verb>>(MeatyOreVerbs);
     }
 
-//    private void MeatyOreVerbs(GetVerbsEvent<Verb> ev)
-//    {
-//        if (!_antagGrantEnabled)
-//            return;
-//
-//        if (!EntityManager.TryGetComponent<ActorComponent>(ev.User, out var actorComponent))
-//            return;
-//
-//        if (!_sponsorsManager.TryGetInfo(actorComponent.PlayerSession.UserId, out _))
-//            return;
-//
-//        if (!HasComp<HumanoidAppearanceComponent>(ev.Target))
-//            return;
-//
-//         if (!TryGetStore(actorComponent.PlayerSession, out var store, out var storeEntity))
-//             return;
-//
-//         var verb = new Verb
-//         {
-//             Text = "Выдать роль.",
-//             ConfirmationPopup = true,
-//             Message = $"Цена - {MeatyOreCurrencyPrototype}:10",
-//             Act = () =>
-//             {
-//                 TryAddRole(ev.User, ev.Target, store, storeEntity.Value);
-//             },
-//             Category = VerbCategory.MeatyOre
-//         };
-//
-//        ev.Verbs.Add();
-//    }
+    //    private void MeatyOreVerbs(GetVerbsEvent<Verb> ev)
+    //    {
+    //        if (!_antagGrantEnabled)
+    //            return;
+    //
+    //        if (!EntityManager.TryGetComponent<ActorComponent>(ev.User, out var actorComponent))
+    //            return;
+    //
+    //        if (!_sponsorsManager.TryGetInfo(actorComponent.PlayerSession.UserId, out _))
+    //            return;
+    //
+    //        if (!HasComp<HumanoidAppearanceComponent>(ev.Target))
+    //            return;
+    //
+    //         if (!TryGetStore(actorComponent.PlayerSession, out var store, out var storeEntity))
+    //             return;
+    //
+    //         var verb = new Verb
+    //         {
+    //             Text = "Выдать роль.",
+    //             ConfirmationPopup = true,
+    //             Message = $"Цена - {MeatyOreCurrencyPrototype}:10",
+    //             Act = () =>
+    //             {
+    //                 TryAddRole(ev.User, ev.Target, store, storeEntity.Value);
+    //             },
+    //             Category = VerbCategory.MeatyOre
+    //         };
+    //
+    //        ev.Verbs.Add();
+    //    }
 
     private void OnPanelEnableChanged(bool enabled)
     {
@@ -269,21 +270,21 @@ public sealed class MeatyOreStoreSystem : EntitySystem
         }
     }
 
-//    private async void TryBanDolboeb(ICommonSession session)
-//     {
-//         if(_banManager.GetServerBans(session.UserId).Count > 0)
-//             return;
-//
-//         _banManager.CreateServerBan(session.UserId,
-//             session.Name,
-//             null,
-//             null,
-//             null,
-//             2880,
-//             NoteSeverity.Minor,
-//             "Кусок дерьма, блядина нахуй! У НАС АНТАЖКУ ВЫДАВАТЬ ЗАПРЕЩЕНО НАХУЙ!!!! ЧТОБ ТЯ ВЫЕБАЛИ СТО НЕГРОВ НАХУЙ!",
-//             false);
-//     }
+    //    private async void TryBanDolboeb(ICommonSession session)
+    //     {
+    //         if(_banManager.GetServerBans(session.UserId).Count > 0)
+    //             return;
+    //
+    //         _banManager.CreateServerBan(session.UserId,
+    //             session.Name,
+    //             null,
+    //             null,
+    //             null,
+    //             2880,
+    //             NoteSeverity.Minor,
+    //             "Кусок дерьма, блядина нахуй! У НАС АНТАЖКУ ВЫДАВАТЬ ЗАПРЕЩЕНО НАХУЙ!!!! ЧТОБ ТЯ ВЫЕБАЛИ СТО НЕГРОВ НАХУЙ!",
+    //             false);
+    //     }
 
     private async Task<bool> GrantAntagonist(string ckey, bool isFriend)
     {

@@ -104,4 +104,19 @@
   id: ClusterBang
 
 - type: Tag
+  id: WeaponRubberShotgun
+
+- type: Tag
+  id: MagazineRubberShotgun
+
+- type: Tag
+  id: ShellRubberShotgun
+
+- type: Tag
+  id: Lighting
+
+- type: Tag
+  id: DisposalUnits
+
+- type: Tag
   id: VoiceActivatedBombImplant
