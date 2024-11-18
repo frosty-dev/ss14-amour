@@ -24,15 +24,17 @@ public sealed class RoundEndVoteSystem : EntitySystem
         if (_gameTicker.RunLevel != GameRunLevel.PreRoundLobby)
             return;
 
-        var player = _playerManager.PlayerCount >= 20;
-
-        if (player)
+        if (_playerManager.PlayerCount >= 15)
         {
             _voteManager.CreateStandardVote(null, StandardVoteType.Preset);
         }
+        else if (_playerManager.PlayerCount >= 5)
+        {
+            _gameTicker.SetGamePreset("Extended");
+        }
         else
         {
-            _gameTicker.SetGamePreset("Secret");
+            _gameTicker.SetGamePreset("Greenshift");
         }
 
         _voteManager.CreateStandardVote(null, StandardVoteType.Map);
