@@ -14,7 +14,7 @@ reagent-desc-thc-oil = Чистое масло ТГК, полученное из
 reagent-name-bananadine = бананадин
 reagent-desc-bananadine = Слабый психоделик, содержащийся в небольших  в шкурках от бананов.
 
-reagent-name-nicotine = никотинколичествах
+reagent-name-nicotine = никотин
 reagent-desc-nicotine = Опасен и вызывает сильное привыкание.
 reagent-name-impedrezene = импедризин
 reagent-desc-impedrezene = Наркотик, который лишает человека дееспособности, замедляя высшие функции клеток мозга. Вызывает обширные повреждения мозга.
