@@ -1,0 +1,110 @@
+- type: entity
+  name: Kalashnikov LMG
+  id: WeaponKalashnikovLightMachineGun
+  parent: BaseWeaponLightMachineGun
+  description: Kalashnikov Light Machine Gun is as reliable as the assault rifle. Uses .30 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: _Honk/Objects/Weapons/Guns/LMGs/klmg-icons.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-4
+      map: [ "enum.GunVisualLayers.Mag" ]
+    - state: barrel_module
+      visible: false
+      map: [ "enum.ModuleVisualState.BarrelModule" ]
+    - state: handguard_module
+      visible: false
+      map: [ "enum.ModuleVisualState.HandGuardModule" ]
+    - state: aim_module
+      visible: false
+      sprite: White/Objects/Weapons/modulesOnWeapon.rsi
+      map: [ "enum.ModuleVisualState.AimModule" ]
+  - type: Item
+    sprite: _Honk/Objects/Weapons/Guns/LMGs/klmg-inhands.rsi
+    size: Huge
+  - type: Clothing
+    sprite: _Honk/Objects/Weapons/Guns/LMGs/klmg-inhands.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: WeaponModules
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineKalashLightRifleBox
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineKalashLightRifleBox
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeLightRifle
+      handguard_module:
+        name: Handguard Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - BaseHandGuardModule
+      barrel_module:
+        name: Barrel Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 3
+        whitelist:
+          tags:
+          - BaseBarrelModule
+      aim_module:
+        name: Aim Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 3
+        whitelist:
+          tags:
+          - BaseAimModule
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      handguard_module: !type:ContainerSlot
+      barrel_module: !type:ContainerSlot
+      aim_module: !type:ContainerSlot
+  - type: PointLight
+    enabled: false
+    autoRot: true
+  - type: Gun
+    fireRate: 5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/ak.ogg
+
+- type: entity
+  id: MagazineKalashLightRifleBox
+  name: "Kalashnikov LMG magazine box (.30 rifle)"
+  parent: BaseMagazineLightRifle
+  components:
+  - type: Tag
+    tags:
+      - MagazineKalashLightRifleBox
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifle
+    capacity: 70
+  - type: Item
+  - type: Sprite
+    sprite: White/Objects/Weapons/Ammunition/Magazine/LightRifle/light_rifle_box.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
