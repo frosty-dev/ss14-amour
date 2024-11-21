@@ -1,0 +1,12 @@
+﻿- type: entity
+  id: CrateArmoryKLMG
+  parent: CrateWeaponSecure
+  name: KLMG crate
+  description: Contains a set of one KLMG and two boxes of ammo for it. Requires Armory access to open.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponKalashnikovLightMachineGun
+      amount: 1
+    - id: MagazineKalashLightRifleBox
+      amount: 2
