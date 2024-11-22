@@ -1,5 +1,6 @@
 using Content.Shared._White.Mood;
 using Content.Shared.Dataset;
+using Content.Shared.FixedPoint;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.Random;
 using Content.Shared.Roles;
@@ -34,7 +35,25 @@ public sealed partial class TraitorRuleComponent : Component
 
     [DataField]
     public ProtoId<DatasetPrototype> ObjectiveIssuers = "TraitorCorporations";
+    // WD EDIT START AHEAD OF WIZDEN UPSTREAM
+    /// <summary>
+    /// Give this traitor an Uplink on spawn.
+    /// </summary>
+    [DataField]
+    public bool GiveUplink = true;
 
+    /// <summary>
+    /// Give this traitor the codewords.
+    /// </summary>
+    [DataField]
+    public bool GiveCodewords = true;
+
+    /// <summary>
+    /// Give this traitor a briefing in chat.
+    /// </summary>
+    [DataField]
+    public bool GiveBriefing = true;
+    // WD EDIT END AHEAD OF WIZDEN UPSTREAM
     // WD edit start
     [DataField]
     public ProtoId<MoodEffectPrototype> MoodBuffEffect = "TraitorFocused";
@@ -77,7 +96,7 @@ public sealed partial class TraitorRuleComponent : Component
     /// The amount of TC traitors start with.
     /// </summary>
     [DataField]
-    public int StartingBalance = 20;
+    public FixedPoint2 StartingBalance = 20; // WD EDIT AHEAD OF WIZDEN UPSTREAM
 
     [DataField]
     public int MaxDifficulty = 5;
