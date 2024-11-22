@@ -584,11 +584,11 @@
     - type: EyeProtection
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitSerafimSalvageSpecialist
-  name: комбинезон специалиста по утилизации
+  name: экспедиторская униформа
   suffix: fluff
-  description: Удобный прочный комбинезон. Особенно грязный.
+  description: Нестандартная форма экспедитора, специалиста сопровождающего рабочие процессы Карго и РНД отделов. На вороте имеется примечательная нашивка "corp.Embryo-Evolt".
   components:
     - type: Sprite
       sprite: White/Fluff/Serafim547/salvage.rsi
