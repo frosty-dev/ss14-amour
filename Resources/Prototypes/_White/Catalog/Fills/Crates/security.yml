@@ -1,4 +1,4 @@
-- type: entity # WD ahead of wd upstream
+- type: entity
   id: CrateBoxesRubberShot
   parent: CrateWeaponSecure
   name: ящик с коробками резиновой дроби
