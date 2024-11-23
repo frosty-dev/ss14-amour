@@ -584,11 +584,11 @@
     - type: EyeProtection
 
 - type: entity
-  parent: ClothingUniformBase
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitSerafimSalvageSpecialist
-  name: комбинезон специалиста по утилизации
+  name: экспедиторская униформа
   suffix: fluff
-  description: Удобный прочный комбинезон. Особенно грязный.
+  description: Нестандартная форма экспедитора, специалиста сопровождающего рабочие процессы Карго и РНД отделов. На вороте имеется примечательная нашивка "corp.Embryo-Evolt".
   components:
     - type: Sprite
       sprite: White/Fluff/Serafim547/salvage.rsi
@@ -596,20 +596,23 @@
       sprite: White/Fluff/Serafim547/salvage.rsi
 
 - type: entity
-  parent: BaseDice
+  parent: BaseItem
   id: VulpCoin
   name: Золотая монета
   suffix: fluff
   description: Коллекционная чеканная монета с родины вульпканин, редкая находка обладающая не столь реальной, сколько символической ценностью.
   components:
-    - type: Dice
+    - type: UseDelay
+    - type: CoinDice
       sound:
         collection: CoinDrop
       sides: 2
-      currentValue: 2
+      currentValue: 1
     - type: Sprite
       sprite: White/Fluff/Serafim547/vulp_coin.rsi
-      state: coin_2
+      state: coin_1
+    - type: Item
+      size: Tiny
 
 # Skrimex
 

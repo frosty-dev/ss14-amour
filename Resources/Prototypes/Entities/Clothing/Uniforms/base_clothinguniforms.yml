@@ -87,6 +87,7 @@
     foldVerbText: fold-verb-clothing-jacket
   - type: FoldableClothing
     foldedEquippedPrefix: folded
+    foldedHeldPrefix: folded
   - type: Sprite
     layers:
     - state: icon
