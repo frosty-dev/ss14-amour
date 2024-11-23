@@ -22,7 +22,7 @@ using Content.Shared._White.MagGloves;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
-using Content.Shared._White.BucketHelmet;
+using Content.Shared._White._Engi.BucketHelmet;
 
 namespace Content.Server.Strip
 {
