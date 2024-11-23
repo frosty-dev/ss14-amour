@@ -277,22 +277,22 @@
   category: Security
   group: market
 
-- type: cargoProduct # WD ahead of wd upstream
+- type: cargoProduct
   id: cargoBoxesRubberShot
   icon:
     sprite: Objects/Storage/boxes.rsi
-    state: shellRubber
+    state: shellrubber
   product: CrateBoxesRubberShot
-  cost: 3000
-  category: cargoproduct-category-name-armory
+  cost: 800
+  category: Security
   group: market
 
 - type: cargoProduct
   id: cargoRubberShotgun
   icon:
-    sprite: _Honk/Objects/Weapons/Guns/Shotguns/pump.rsi
+    sprite: White/Objects/Weapons/Guns/Shotguns/rubber_pump.rsi
     state: icon
   product: CrateRubberShotgun
-  cost: 4000
-  category: cargoproduct-category-name-armory
+  cost: 2000
+  category: Security
   group: market
