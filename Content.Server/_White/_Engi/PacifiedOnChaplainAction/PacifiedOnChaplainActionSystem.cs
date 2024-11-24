@@ -12,7 +12,7 @@ using Content.Shared.Database;
 namespace Content.Server._White._Engi.PacifiedOnChaplainAction
 {
     /// <summary>
-    /// WD Engi Exclusive.
+    /// WD
     /// </summary>
     public sealed class PacifiedOnChaplainAction : EntitySystem
     {

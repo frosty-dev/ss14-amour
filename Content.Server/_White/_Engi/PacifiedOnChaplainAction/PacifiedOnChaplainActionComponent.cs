@@ -3,8 +3,8 @@ using Robust.Shared.Audio;
 namespace Content.Server._White._Engi.PacifiedOnChaplainAction
 {
     /// <summary>
+    /// WD.
     /// Adds verb for chaplain to pacify entity.
-    /// WD Engi Exclusive.
     /// </summary>
     [RegisterComponent]
     public sealed partial class PacifiedOnChaplainActionComponent : Component

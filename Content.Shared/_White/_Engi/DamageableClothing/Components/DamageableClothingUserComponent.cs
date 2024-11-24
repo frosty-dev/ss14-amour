@@ -1,8 +1,8 @@
 namespace Content.Shared._White._Engi.DamageableClothing;
 
 /// <summary>
+/// WD.
 /// This component gets dynamically added to an Entity via the <see cref="DamageableClothing"/>.
-/// WD Engi Exclusive.
 /// </summary>
 [RegisterComponent]
 public sealed partial class DamageableClothingUserComponent : Component

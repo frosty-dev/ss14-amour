@@ -4,8 +4,8 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._White._Engi.DamageableClothing;
 
 /// <summary>
+/// WD.
 /// This component goes on an equippable item that should take damage while in use.
-/// WD Engi Exclusive.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class DamageableClothingComponent : Component

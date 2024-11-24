@@ -12,7 +12,7 @@ using Content.Server.RandomMetadata;
 namespace Content.Server._White._Engi.StationGoal
 {
     /// <summary>
-    /// WD ENGI EXCLUSIVE.
+    /// WD.
     /// System to spawn paper with station goal.
     /// </summary>
     public sealed class StationGoalPaperSystem : EntitySystem
@@ -71,7 +71,6 @@ namespace Content.Server._White._Engi.StationGoal
         }
 
         /// <summary>
-        /// WD ENGI EXCLUSIVE.
         /// Send a station goal on selected station to all faxes which are authorized to receive it.
         /// </summary>
         /// <returns>True if at least one fax received paper</returns>

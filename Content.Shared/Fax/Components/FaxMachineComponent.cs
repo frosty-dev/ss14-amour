@@ -60,7 +60,7 @@ public sealed partial class FaxMachineComponent : Component
     public bool ReceiveNukeCodes { get; set; } = false;
 
     /// <summary>
-    /// WD ENGI EXCLUSIVE.
+    /// WD.
     /// Should that fax receive station goal info
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]

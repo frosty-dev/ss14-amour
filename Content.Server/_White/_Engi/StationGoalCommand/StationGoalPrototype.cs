@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server._White._Engi.StationGoal
 {
     /// <summary>
-    /// WD ENGI EXCLUSIVE.
+    /// WD
     /// </summary>
     [Serializable, Prototype("stationGoal")]
     public sealed class StationGoalPrototype : IPrototype

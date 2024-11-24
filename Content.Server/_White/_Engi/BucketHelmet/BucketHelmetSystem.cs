@@ -4,8 +4,8 @@ using Content.Shared._White._Engi.BucketHelmet;
 namespace Content.Server._White._Engi.BucketHelmet;
 
 /// <summary>
+/// WD.
 /// This handles placemet of PreventStrippingFromEarsComponent when bucket helmet is in use.
-/// WD Engi Exclusive.
 /// </summary>
 public sealed class BucketHelmetSystem : EntitySystem
 {

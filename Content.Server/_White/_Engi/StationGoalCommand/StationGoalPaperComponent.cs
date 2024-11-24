@@ -1,7 +1,7 @@
 namespace Content.Server._White._Engi.StationGoal
 {
     /// <summary>
-    /// WD ENGI EXCLUSIVE.
+    /// WD.
     /// Paper with a written station goal in it.
     /// </summary>
     [RegisterComponent]

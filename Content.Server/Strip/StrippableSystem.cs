@@ -136,14 +136,14 @@ namespace Content.Server.Strip
             }
             // WD EDIT END
 
-            // WD ENGI EXCLUSIVE EDIT START
+            // WD EDIT START
             if (args.Slot == "ears" && TryComp(strippable, out PreventStrippingFromEarsComponent? _))
             {
                 var message = Loc.GetString("buckethelmet-cant-strip");
                 _popupSystem.PopupEntity(message, user, user);
                 return;
             }
-            // WD ENGI EXCLUSIVE EDIT END
+            // WD EDIT END
 
 
             if (args.IsHand)
@@ -616,7 +616,7 @@ namespace Content.Server.Strip
 
             if (ev.Event.InventoryOrHand)
             {
-                if ( ev.Event.InsertOrRemove && !CanStripInsertInventory((entity.Owner, entity.Comp), args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName) ||
+                if (ev.Event.InsertOrRemove && !CanStripInsertInventory((entity.Owner, entity.Comp), args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName) ||
                     !ev.Event.InsertOrRemove && !CanStripRemoveInventory(entity.Owner, args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName))
                 {
                     ev.Cancel();
@@ -624,7 +624,7 @@ namespace Content.Server.Strip
             }
             else
             {
-                if ( ev.Event.InsertOrRemove && !CanStripInsertHand((entity.Owner, entity.Comp), args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName) ||
+                if (ev.Event.InsertOrRemove && !CanStripInsertHand((entity.Owner, entity.Comp), args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName) ||
                     !ev.Event.InsertOrRemove && !CanStripRemoveHand(entity.Owner, args.Target.Value, args.Used.Value, ev.Event.SlotOrHandName))
                 {
                     ev.Cancel();
@@ -645,14 +645,14 @@ namespace Content.Server.Strip
             if (ev.InventoryOrHand)
             {
                 if (ev.InsertOrRemove)
-                        StripInsertInventory((entity.Owner, entity.Comp), ev.Target.Value, ev.Used.Value, ev.SlotOrHandName);
-                else    StripRemoveInventory(entity.Owner, ev.Target.Value, ev.Used.Value, ev.SlotOrHandName, ev.Args.Hidden);
+                    StripInsertInventory((entity.Owner, entity.Comp), ev.Target.Value, ev.Used.Value, ev.SlotOrHandName);
+                else StripRemoveInventory(entity.Owner, ev.Target.Value, ev.Used.Value, ev.SlotOrHandName, ev.Args.Hidden);
             }
             else
             {
                 if (ev.InsertOrRemove)
-                        StripInsertHand((entity.Owner, entity.Comp), ev.Target.Value, ev.Used.Value, ev.SlotOrHandName, ev.Args.Hidden);
-                else    StripRemoveHand((entity.Owner, entity.Comp), ev.Target.Value, ev.Used.Value, ev.SlotOrHandName, ev.Args.Hidden);
+                    StripInsertHand((entity.Owner, entity.Comp), ev.Target.Value, ev.Used.Value, ev.SlotOrHandName, ev.Args.Hidden);
+                else StripRemoveHand((entity.Owner, entity.Comp), ev.Target.Value, ev.Used.Value, ev.SlotOrHandName, ev.Args.Hidden);
             }
         }
     }

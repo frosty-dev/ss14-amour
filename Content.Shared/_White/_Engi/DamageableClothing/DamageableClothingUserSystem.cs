@@ -3,7 +3,7 @@ using Content.Shared.Damage;
 namespace Content.Shared._White._Engi.DamageableClothing;
 
 /// <summary>
-/// WD Engi Exclusive.
+/// WD
 /// </summary>
 public sealed partial class DamageableClothingSystem
 {

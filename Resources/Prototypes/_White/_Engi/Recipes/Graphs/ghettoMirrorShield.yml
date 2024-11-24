@@ -1,5 +1,4 @@
-﻿# WD Engi Exclusive
-- type: constructionGraph
+﻿- type: constructionGraph
   id: MirrorShieldGhetto
   start: start
   graph:

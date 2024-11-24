@@ -263,8 +263,7 @@
     sprite: White/Objects/Weapons/Chaplain/scythe-inhands.rsi
   - type: Sharp
 
-# Может пиздеть
-# WD Engi Exclusive - и может давать пизды
+# Может пиздеть и может давать пизды
 - type: entity
   parent: HolyKatana
   id: PossessedBlade
@@ -282,11 +281,9 @@
     - suitStorage
   - type: GhostRole
     allowSpeech: true
-  # WD Engi Exclusive edit start
     name: ghost-role-information-possessed-blade-name
     description: ghost-role-information-possessed-blade-description
     rules: ghost-role-information-possessed-blade-rules
-  # WD Engi Exclusive edit end
   - type: GhostTakeoverAvailable
   - type: Examiner
   - type: Item
@@ -295,7 +292,6 @@
     shape:
     - 0, 0, 1, 3
     sprite: White/Objects/Weapons/Chaplain/possessed.rsi
-  # WD Engi Exclusive start
   - type: DamageOtherOnHit
     damage:
       types:
@@ -304,7 +300,6 @@
   - type: UseDelay
     delay: 2.0
   - type: PacifiedOnChaplainAction
-  # WD Engi Exclusive end
 
 # Приклеен к руке, быстро и громко бьет
 - type: entity
@@ -507,11 +502,9 @@
     soundSwing:
       collection: HammerMiss
   - type: DisarmMalus
-  # WD Engi Exclusive start
   - type: KnockDownOnHit
     knockDownBehavior: NoDrop
     knockdownTime: 0.4
-  # WD Engi Exclusive end
 
 # Имеет все инструменты в себе, но работает медленно и почти не наносит урона
 - type: entity
