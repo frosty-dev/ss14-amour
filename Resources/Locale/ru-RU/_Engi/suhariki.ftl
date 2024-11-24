@@ -1,6 +1,7 @@
 ent-FoodSnackSuhariki = сухарики
-    .desc = Старая реликвия из прошлого, на этикетке едва можно прочитать слово «Кириешки».
+    .desc = Старая реликвия из прошлого, к сожалению, слова на этикетке нечитаемы.
 ent-FoodPacketSuharikiTrash = упаковка от сухариков
+    .desc = { ent-FoodPacketTrash.desc }
 ent-SuharikiTooth = зуб
     .desc = Может быть он твой, а может и не твой.
 

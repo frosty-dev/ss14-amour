@@ -7,8 +7,8 @@ using Robust.Shared.Audio;
 namespace Content.Server._White._Engi.Suhariki;
 
 /// <summary>
+/// WD.
 /// Makes you loose your tooth and have funny accent.
-/// WD Engi Exclusive.
 /// </summary>
 [RegisterComponent, Access(typeof(SuharikiSystem))]
 public sealed partial class SuharikiComponent : Component

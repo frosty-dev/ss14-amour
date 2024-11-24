@@ -24,7 +24,7 @@ using Content.Server.Speech.Components;
 namespace Content.Server._White._Engi.Suhariki;
 
 /// <summary>
-/// WD Engi Exclusive.
+/// WD
 /// </summary>
 public sealed class SuharikiSystem : EntitySystem
 {

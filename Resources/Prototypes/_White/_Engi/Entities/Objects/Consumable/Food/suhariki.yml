@@ -1,9 +1,8 @@
-# WD Engi Exclusive
 - type: entity
   parent: BaseItem
   id: FoodSnackSuhariki
   name: suhariki
-  description: Old relic of the past, you can barely read the label "Kirieshki".
+  description: An old relic from the past, unfortunately the words on the label are illegible.
   components:
   - type: Food
     trash: FoodPacketSuharikiTrash
@@ -56,10 +55,10 @@
 
 - type: entity
   noSpawn: true
-  name: Зуб
+  name: Tooth
   parent: BaseItem
   id: SuharikiTooth
-  description: Может быть он твой, а может и не твой.
+  description: Maybe it's yours, maybe it's not.
   components:
   - type: Sprite
     sprite: White/_Engi/Objects/Consumable/Food/Suhariki/tooth.rsi
