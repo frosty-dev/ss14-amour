@@ -36,6 +36,8 @@ damage-type-radiation = Радиация
 damage-group-genetic = Генетические
 damage-type-cellular = Клеточные
 
+damage-type-structural = Структурные
+
 health-analyzer-window-malnutrition = Тяжёлое недоедание
 
 # Amour
