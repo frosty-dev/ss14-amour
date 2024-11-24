@@ -29,6 +29,7 @@ public sealed partial class HoleComponent : Component
     [ViewVariables(VVAccess.ReadWrite)] public bool IsExcited = false;
     [DataField] public bool IsMainHole = false;
     [DataField] public bool IsVisibleInSkirt = true;
+    [DataField] public bool IsVisibleInFoldedJumpsuit = false;
 }
 
 [Serializable, NetSerializable, DataDefinition]
@@ -51,7 +52,7 @@ public enum HoleType : byte
     Mother
 }
 
-[Serializable,NetSerializable]
+[Serializable, NetSerializable]
 public sealed partial class HoleComponentState : ComponentState
 {
     public readonly NetEntity? Parent;

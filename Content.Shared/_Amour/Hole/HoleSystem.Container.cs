@@ -11,8 +11,8 @@ public abstract partial class SharedHoleSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     public void InitializeContainer()
     {
-        SubscribeLocalEvent<HoleContainerComponent,ComponentInit>(OnContainerInit);
-        SubscribeLocalEvent<HoleContainerComponent,HumanoidAppearanceLoadedEvent>(OnAppearanceLoaded);
+        SubscribeLocalEvent<HoleContainerComponent, ComponentInit>(OnContainerInit);
+        SubscribeLocalEvent<HoleContainerComponent, HumanoidAppearanceLoadedEvent>(OnAppearanceLoaded);
         SubscribeLocalEvent<HoleContainerComponent, HumanoidAppearanceClonedEvent>(OnClone);
     }
 
@@ -22,19 +22,19 @@ public abstract partial class SharedHoleSystem
         foreach (var entity in component.Slot.ContainedEntities)
         {
             var meta = MetaData(entity);
-            if(meta.EntityPrototype is null || !TryComp<HoleComponent>(entity, out var holeComponent))
+            if (meta.EntityPrototype is null || !TryComp<HoleComponent>(entity, out var holeComponent))
                 continue;
-            AddHole(new Entity<HoleContainerComponent?>(args.Target,holeContainerComponent), meta.EntityPrototype.ID, holeComponent.Layers[0].Color);
+            AddHole(new Entity<HoleContainerComponent?>(args.Target, holeContainerComponent), meta.EntityPrototype.ID, holeComponent.Layers[0].Color);
         }
 
-        Dirty(args.Target,holeContainerComponent);
+        Dirty(args.Target, holeContainerComponent);
     }
 
     private void OnAppearanceLoaded(EntityUid uid, HoleContainerComponent component, HumanoidAppearanceLoadedEvent args)
     {
         foreach (var genitals in args.Profile.Appearance.Genitals)
         {
-            AddHole(new Entity<HoleContainerComponent?>(uid,component),genitals.GenitalId,genitals.Color);
+            AddHole(new Entity<HoleContainerComponent?>(uid, component), genitals.GenitalId, genitals.Color);
         }
     }
 
@@ -43,7 +43,7 @@ public abstract partial class SharedHoleSystem
         component.Slot = _containerSystem.EnsureContainer<Container>(uid, HoleContainerComponent.SlotName);
         foreach (var protoId in component.HolePrototypes)
         {
-            AddHole(new Entity<HoleContainerComponent?>(uid,component),protoId);
+            AddHole(new Entity<HoleContainerComponent?>(uid, component), protoId);
         }
     }
 
@@ -54,8 +54,8 @@ public abstract partial class SharedHoleSystem
             Log.Error(protoId + " NOT EXIST YOU BASTARD!");
             return;
         }
-        if (!Resolve(entity.Owner, ref entity.Comp,logMissing:false))
-           entity.Comp = EnsureComp<HoleContainerComponent>(entity.Owner);
+        if (!Resolve(entity.Owner, ref entity.Comp, logMissing: false))
+            entity.Comp = EnsureComp<HoleContainerComponent>(entity.Owner);
 
         var spawned = Spawn(protoId);
         if (!TryComp<HoleComponent>(spawned, out var component))
@@ -70,6 +70,6 @@ public abstract partial class SharedHoleSystem
             entity.Comp.MainHole = GetNetEntity(spawned);
 
         _containerSystem.Insert(spawned, entity.Comp.Slot);
-        Dirty(spawned,component);
+        Dirty(spawned, component);
     }
 }

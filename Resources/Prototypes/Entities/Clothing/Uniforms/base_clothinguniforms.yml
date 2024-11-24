@@ -95,4 +95,5 @@
     - state: icon_folded
       map: ["foldedLayer"]
       visible: false
+  - type: HoleBlocker # AMOUR EDIT
 # WD End
