@@ -45,5 +45,6 @@
       - FoodFrozenSnowconeRainbow
       - FoodSnackPistachios
       - FoodSnackSemki
+      - FoodSnackSuhariki # WD from Engi to Amour
     chance: 0.8
     offset: 0.0
