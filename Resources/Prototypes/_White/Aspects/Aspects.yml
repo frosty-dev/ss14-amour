@@ -365,7 +365,7 @@
 #        path: /Audio/White/Aspects/accent.ogg
 #    - type: SkeletonAspect
 
-#Honk Start
+# Amour Start
 - type: entity
   id: DeleteVendingMachineAspect
   parent: BaseGameRule

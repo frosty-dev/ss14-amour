@@ -109,7 +109,7 @@
                                 Margin="0 7 0 7" />
 
                             <buttons:OhioLobbyTextButton
-                                Name="ChangelogHonk"
+                                Name="ChangelogAmour"
                                 Access="Public"
                                 ButtonText="Changelog"
                                 Margin="0 7 0 7"

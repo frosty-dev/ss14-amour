@@ -1,6 +1,6 @@
 ﻿<BoxContainer xmlns="https://spacestation14.io"
               Orientation="Vertical" HorizontalExpand="True">
-    <Label Text="Правила сервера Honk Station"
+    <Label Text="Правила сервера Amour"
            StyleClasses="LabelHeading"
            HorizontalExpand="True"
            HorizontalAlignment="Center"/>

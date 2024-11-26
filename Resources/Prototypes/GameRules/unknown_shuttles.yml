@@ -8,8 +8,8 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 5
-  # reoccurrenceDelay: 30 # HONK EDIT
-    maxOccurrences: 1 # HONK EDIT
+  # reoccurrenceDelay: 30 # Amour EDIT
+    maxOccurrences: 1 # Amour EDIT
     duration: 1
   - type: LoadMapRule
     preloadedGrid: ShuttleCargoLost
@@ -24,8 +24,8 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 5
-  # reoccurrenceDelay: 30 # HONK EDIT
-    maxOccurrences: 1 # HONK EDIT
+  # reoccurrenceDelay: 30 # Amour EDIT
+    maxOccurrences: 1 # Amour EDIT
     duration: 1
   - type: LoadMapRule
     preloadedGrid: TravelingCuisine
@@ -40,8 +40,8 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 5
-  # reoccurrenceDelay: 30 # HONK EDIT
-    maxOccurrences: 1 # HONK EDIT
+  # reoccurrenceDelay: 30 # Amour EDIT
+    maxOccurrences: 1 # Amour EDIT
     duration: 1
   - type: LoadMapRule
     preloadedGrid: DisasterEvacPod
@@ -56,8 +56,8 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 2
-  # reoccurrenceDelay: 30 # HONK EDIT
-    maxOccurrences: 1 # HONK EDIT
+  # reoccurrenceDelay: 30 # Amour EDIT
+    maxOccurrences: 1 # Amour EDIT
     duration: 1
   - type: LoadMapRule
     preloadedGrid: Honki
@@ -72,9 +72,9 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 2
-  # reoccurrenceDelay: 30 # HONK EDIT
-    maxOccurrences: 1 # HONK EDIT
-    minimumPlayers: 30 # HONK EDIT
+  # reoccurrenceDelay: 30 # Amour EDIT
+    maxOccurrences: 1 # Amour EDIT
+    minimumPlayers: 30 # Amour EDIT
     duration: 1
   - type: LoadMapRule
     preloadedGrid: SyndieEvacPod
