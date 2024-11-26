@@ -21,8 +21,8 @@ public abstract partial class SharedBorgSystem : EntitySystem
     [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] protected readonly ItemSlotsSystem ItemSlots = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!; //Honk
-    [Dependency] protected readonly IRobustRandom RobustRandom = default!; //Honk
+    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!; // Amour
+    [Dependency] protected readonly IRobustRandom RobustRandom = default!; // Amour
 
     private HashSet<TTSVoicePrototype> _voices = new();
 
@@ -63,7 +63,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
             .Where(x => x.BorgVoice)
             .ToHashSet();
     }
-    //Honk
+    // Amour
 
     private void OnItemSlotInsertAttempt(EntityUid uid, BorgChassisComponent component, ref ItemSlotInsertAttemptEvent args)
     {

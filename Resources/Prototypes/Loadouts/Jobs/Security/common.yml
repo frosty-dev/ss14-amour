@@ -26,7 +26,7 @@
 
 # Mask
 
-- type: itemLoadout # Honk
+- type: itemLoadout # Amour
   id: SecurityMaskBalaclava
   equipment: SecurityMaskBalaclava
 - type: startingGear

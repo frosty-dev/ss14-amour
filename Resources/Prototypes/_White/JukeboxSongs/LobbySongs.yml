@@ -157,7 +157,7 @@
   path:
     path: /Audio/Ambience/voyage_neverending.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: CosmicTemperance
   name: "Music - Cosmic Temperance"
   path:
@@ -175,139 +175,139 @@
   path:
     path: /Audio/White/Music/Lobby/Music/Its_just_a_burning_memory.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: AnamnesisoftheworldsSin
   name: "Music - Anamnesis of the world's Sin"
   path:
     path: /Audio/_Honk/Jukebox/blinch_Anamnesis_of_the worlds_Sin.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: DarkMatterMoon
   name: "Music - Dark Matter Moon"
   path:
     path: /Audio/_Honk/Jukebox/blinch_Dark_Matter_Moon.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: EmptyOcean
   name: "Music - Empty Ocean"
   path:
     path: /Audio/_Honk/Jukebox/blinch_Empty_Ocean.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: GoldenWinPiano
   name: "Music - Golden Win Piano"
   path:
     path: /Audio/_Honk/Jukebox/blinch_Golden_Win_Piano.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: KillerXChase
   name: "Music - Killer X Chase"
   path:
     path: /Audio/_Honk/Jukebox/blinch_Killer_X_Chase.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: PathLootCrusaders
   name: "Music - PathLoot Crusaders"
   path:
     path: /Audio/_Honk/Jukebox/blinch_PathLoot_Crusaders.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: PristintheMirror
   name: "Music - Prist in the Mirror"
   path:
     path: /Audio/_Honk/Jukebox/blinch_Prist_in_the_Mirror.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: StarJudgment
   name: "Music - Star Judgment"
   path:
     path: /Audio/_Honk/Jukebox/blinch_Star_Judgment.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: WheelofFaith
   name: "Music - Wheel of Faith"
   path:
     path: /Audio/_Honk/Jukebox/blinch_Wheel_of_Faith.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: TheUnknown
   name: "Music - The Unknown"
   path:
     path: /Audio/_Honk/Jukebox/The_Unknown.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: EscapeintheNight
   name: "Music - Escape in the Night"
   path:
     path: /Audio/_Honk/Jukebox/Escape_in_the_Night.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: BossTheme
   name: "Music - Boss Theme"
   path:
     path: /Audio/_Honk/Jukebox/Boss_Theme.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: BattleThemeII
   name: "Music - Battle Theme II"
   path:
     path: /Audio/_Honk/Jukebox/Battle_Theme_II.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: GameOver
   name: "Music - Game_Over..."
   path:
     path: /Audio/_Honk/Jukebox/Game_Over.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: TryAgain
   name: "Music - Try Again?"
   path:
     path: /Audio/_Honk/Jukebox/Try_Again.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: BeastsandBetrayal
   name: "Music - Beasts_and_Betrayal"
   path:
     path: /Audio/_Honk/Jukebox/Beasts_and_Betrayal.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: BattleThemeI
   name: "Music - Battle Theme I"
   path:
     path: /Audio/_Honk/Jukebox/Battle_Theme_I.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: HEAVENSAYSMANDELA
   name: "Music - HEAVEN SAYS MANDELA"
   path:
     path: /Audio/_Honk/Jukebox/HEAVEN_SAYS_MANDELA.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: CYBERSWORLD
   name: "Music - CYBERS WORLD?"
   path:
     path: /Audio/_Honk/Jukebox/Toby_Fox_A_CYBERS_WORLD.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: BIGSHOT
   name: "Music - BIG SHOT"
   path:
     path: /Audio/_Honk/Jukebox/Toby_Fox_BIG_SHOT.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: NOWSYOURCHANCETOBEA
   name: "Music - NOWS YOUR CHANCE TO BE A"
   path:
     path: /Audio/_Honk/Jukebox/Toby_Fox_NOWS_YOUR_CHANCE_TO_BE_A.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: PandoraPalace
   name: "Music - Pandora Palace"
   path:
     path: /Audio/_Honk/Jukebox/Toby_Fox_Pandora_Palace.ogg
 
-- type: jukebox # HONK
+- type: jukebox # Amour
   id: AttackoftheKillerQueen
   name: "Music - Attack of the Killer Queen"
   path:

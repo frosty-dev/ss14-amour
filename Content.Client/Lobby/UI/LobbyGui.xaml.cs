@@ -26,7 +26,7 @@ namespace Content.Client.Lobby.UI
 
             OptionsButton.OnPressed += _ => _userInterfaceManager.GetUIController<OptionsUIController>().ToggleWindow();
             DiscordButton.OnPressed += _ => _stalinManager.RequestUri();
-            ChangelogHonk.OnPressed += _ => _userInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
+            ChangelogAmour.OnPressed += _ => _userInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
             QuitButton.OnPressed += _ => _consoleHost.ExecuteCommand("disconnect");
         }
 

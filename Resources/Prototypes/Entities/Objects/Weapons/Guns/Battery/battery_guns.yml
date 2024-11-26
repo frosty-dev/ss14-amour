@@ -231,7 +231,7 @@
 - type: entity
   name: laser rifle
   parent: BaseWeaponBattery
-  id: WeaponLaserCarbineOld #HonkFix
+  id: WeaponLaserCarbineOld # Amour Fix
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
   - type: Sprite

@@ -7,7 +7,7 @@
     - to: gauze
       steps:
       - material: Cloth
-        amount: 1 # Honk Edit due to different balance of the item
-        doAfter: 3 # Honk Edit Ahead of everyone
+        amount: 1 # Amour Edit due to different balance of the item
+        doAfter: 3 # Amour Edit Ahead of everyone
   - node: gauze
     entity: Gauze1
