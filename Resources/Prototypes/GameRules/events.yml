@@ -88,7 +88,7 @@
   - type: StationEvent
     weight: 6.5
     duration: 1
-    earliestStart: 60Amour from 40 to 60
+    earliestStart: 60 # Amour from 40 to 60
     reoccurrenceDelay: 20
     minimumPlayers: 30 # Amour from 20 to 30
   - type: RandomSpawnRule
