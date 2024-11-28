@@ -17,6 +17,8 @@
   icon: "JobIconInspector"
   arrivalNotificationPrototype: InspectorArrivalNotification
   supervisors: job-supervisors-captain
+  whitelistedSpecies:
+    - Human
   access:
     - Service
     - Lawyer
