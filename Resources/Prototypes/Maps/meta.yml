@@ -1,7 +1,7 @@
 - type: gameMap
   id: Meta
   mapName: 'Meta Station'
-  mapPath: /Maps/meta.yml
+  mapPath: /Maps/_Honk/Stations/meta.yml
   minPlayers: 50
   stations:
     Meta:
@@ -28,6 +28,7 @@
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
+            Maid: [ 1, 1 ] # Amour
             #engineering
             ChiefEngineer: [ 1, 1 ]
             SeniorEngineer: [ 1, 1 ]
@@ -41,11 +42,12 @@
             MedicalDoctor: [ 4, 4 ]
             MedicalIntern: [ 3, 6 ]
             Paramedic: [ 1, 1 ]
+            Psychologist: [ 1, 1 ] # Amour
             #science
             ResearchDirector: [ 1, 1 ]
-            SeniorResearcher: [ 1, 1 ]        
+            SeniorResearcher: [ 1, 1 ]
             Scientist: [ 4, 6 ]
-            ResearchAssistant: [ 3, 6 ] 
+            ResearchAssistant: [ 3, 6 ]
             Borg: [ 2, 2 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
@@ -64,3 +66,5 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+            Bomzh: [ 1, 0 ] # Amour
+            Reporter: [ 1, 1 ] # Amour

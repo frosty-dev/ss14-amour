@@ -1,7 +1,7 @@
 - type: gameMap
   id: Triumph
   mapName: 'Triumph Station'
-  mapPath: /Maps/White/Triumph.yml
+  mapPath: /Maps/_Honk/Stations/Triumph.yml
   minPlayers: 20
   stations:
     TriumphStation:

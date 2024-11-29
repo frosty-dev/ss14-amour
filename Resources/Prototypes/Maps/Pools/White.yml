@@ -2,7 +2,7 @@
   id: WhiteMapPool
   maps:
   - WonderBox
-#  - Triumph  #Ебал в рот мапперов
+  - Triumph # Amour edit
   - WhiteBox
   - WhiteMoose
   - DryDock
@@ -10,5 +10,5 @@
 # - Train    # Temporary
 # - Scoupidia
 # - Bagel    # Она утонула
-# - Polaris
+  - Polaris # Amour edit
 # - Void
