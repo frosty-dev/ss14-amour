@@ -369,3 +369,16 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellBookWizardGlasses
+  name: spellbook-glasses-name
+  description: spellbook-glasses-desc
+  productEntity: ClothingEyesWizardGlasses
+  cost:
+    SpellPoint: 2
+  categories:
+  - MagicItems
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

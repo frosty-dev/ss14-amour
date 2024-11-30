@@ -17,7 +17,7 @@
   icon: "JobIconInspector"
   arrivalNotificationPrototype: InspectorArrivalNotification
   supervisors: job-supervisors-captain
-  whitelistedSpecies: # Amour EDIT
+  whitelistedSpecies:
     - Human
   access:
     - Service
