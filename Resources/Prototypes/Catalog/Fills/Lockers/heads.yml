@@ -334,3 +334,32 @@
         - id: ClothingUnderwearBottomBoxersInspector # WD
         - id: ClothingUnderwearBottomPantiesInspector # WD
         - id: ClothingUnderwearTopBraInspector # WD
+
+- type: entity # Amour
+  id: LockerInspectorFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerInspector
+  components:
+    - type: StorageFill
+      contents:
+        - id: ClothingOuterJacketInspector
+        - id: ClothingOuterWinterInspector
+        - id: ClothingOuterOverCoatInspector
+        - id: ClothingOuterTrenchCoatInspector
+        - id: ClothingNeckCloakInspector
+        - id: ClothingNeckMantleInspector
+        - id: ClothingNeckInspectorbadge
+        - id: ClothingHeadHatInspector
+        - id: ClothingHeadCapInspector
+        - id: ClothingEyesGlassesInspector
+        - id: ClothingBackpackSatchelInspector
+        - id: ClothingUniformJumpsuitWhiteInspector
+        - id: ClothingUniformJumpskirtInspector
+        - id: ClothingUniformJumpskirtInspectorFormal
+        - id: ClothingHandsGlovesInspector
+        - id: ClothingHeadsetAltSecurityCommand
+        - id: RubberStampInspector
+        - id: ClothingUnderwearBottomBoxersInspector
+        - id: ClothingUnderwearBottomPantiesInspector
+        - id: ClothingUnderwearTopBraInspector
+        - id: ClothingOuterHardsuitInspector

@@ -1,7 +1,7 @@
 - type: gameMap
   id: WonderBox
   mapName: 'WonderBox Station'
-  mapPath: /Maps/White/WonderBox.yml
+  mapPath: /Maps/_Honk/Stations/WonderBox.yml
   minPlayers: 20
   stations:
     WonderBoxStation:
@@ -63,5 +63,6 @@
             Borg: [ 2, 2 ]
             Maid: [ 1, 1 ]
             Bomzh: [ 1, 0 ]
-
+            Psychologist: [ 1, 1 ] # Amour
+            Inspector: [ 1, 1 ] # Amour
 
