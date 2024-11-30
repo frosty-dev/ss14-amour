@@ -9,6 +9,9 @@
     layers:
       - state: icon
         map: ["enum.GunVisualLayers.Base"]
+      - state: shinano
+        visible: false
+        map: [ "enum.ModuleVisualState.ShutterModule" ]
   - type: Item
     sprite: White/Objects/Weapons/Guns/Launchers/shinano-inhands.rsi
     size: Large
@@ -16,6 +19,7 @@
     - 0,0,2,1
   - type: Clothing
     sprite: White/Objects/Weapons/Guns/Launchers/shinano-inhands.rsi
+    quickEquip: false
     slots:
     - Back
     - suitStorage
@@ -44,11 +48,22 @@
         name: Shutter Module
         insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
         ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 1
+        priority: 4
         whitelist:
           tags:
           - BaseShutterModule
   - type: ContainerContainer
     containers:
       shutter_module: !type:ContainerSlot
+      ballistic-ammo: !type:Container
+        ents: []
   - type: Appearance
+  - type: EmitSoundOnPickup
+    sound:
+      collection: RiflesPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: RiflesDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: RiflesDrop

@@ -764,6 +764,9 @@
   - type: ActiveTimerTrigger
     timeRemaining: 0.3
   - type: DeleteOnTrigger
+  - type: SoundOnTrigger # WD
+    sound:
+      path: "/Audio/Effects/flash_bang.ogg"
 
 # This is supposed to spawn shrapnel and stuff so uhh... TODO?
 - type: entity
