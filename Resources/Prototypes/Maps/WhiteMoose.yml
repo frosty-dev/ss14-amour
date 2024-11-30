@@ -2,7 +2,7 @@
   id: WhiteMoose
   mapName: 'WhiteMoose Station'
   mapPath: /Maps/White/WhiteMoose.yml
-  minPlayers: 10
+  minPlayers: 0
   stations:
     WhiteMooseStation:
       stationProto: StandardNanotrasenStation
