@@ -41,13 +41,16 @@
       - state: grenade
   - type: FlashOnTrigger
     range: 6
-    stunTime: 3 # WD
-    knockdownTime: 10 # WD
+    stunTime: 3
+    knockdownTime: 10
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
   - type: ActiveTimerTrigger
     timeRemaining: 0.6
   - type: DeleteOnTrigger
+  - type: SoundOnTrigger
+    sound:
+      path: "/Audio/Effects/flash_bang.ogg"
 
 - type: entity
   parent: BaseBulletShinanoGranade
