@@ -1,5 +1,6 @@
 - type: entity
   id: BaseBulletShinanoGranade
+  parent: BaseBullet
   abstract: true
   name: base shinano granade
   components:
@@ -39,11 +40,13 @@
     layers:
       - state: grenade
   - type: FlashOnTrigger
-    range: 5
-    stunTime: 2 # WD
+    range: 6
+    stunTime: 3 # WD
     knockdownTime: 10 # WD
   - type: SpawnOnTrigger
     proto: GrenadeFlashEffect
+  - type: ActiveTimerTrigger
+    timeRemaining: 0.6
   - type: DeleteOnTrigger
 
 - type: entity
@@ -66,6 +69,8 @@
         Quantity: 50
   - type: SoundOnTrigger
     sound: /Audio/Items/smoke_grenade_smoke.ogg
+  - type: ActiveTimerTrigger
+    timeRemaining: 0.6
   - type: DeleteOnTrigger
 
 - type: entity
@@ -85,6 +90,8 @@
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
+  - type: ActiveTimerTrigger
+    timeRemaining: 0.5
 
 - type: entity
   parent: [BaseBullet, BaseBulletTrail]
@@ -99,7 +106,7 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 15
+        Blunt: 20
   - type: StaminaDamageOnCollide
     ignoreResistances: true
-    damage: 80
+    damage: 100
