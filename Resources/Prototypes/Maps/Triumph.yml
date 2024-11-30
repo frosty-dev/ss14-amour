@@ -2,7 +2,7 @@
   id: Triumph
   mapName: 'Triumph Station'
   mapPath: /Maps/_Honk/Stations/Triumph.yml
-  minPlayers: 20
+  minPlayers: 0 # Amour
   stations:
     TriumphStation:
       stationProto: StandardNanotrasenStation

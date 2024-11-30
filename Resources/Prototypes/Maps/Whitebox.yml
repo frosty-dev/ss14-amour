@@ -2,7 +2,7 @@
   id: WhiteBox
   mapName: 'Box Station'
   mapPath: /Maps/_Honk/Stations/WhiteBox.yml
-  minPlayers: 0
+  minPlayers: 0 # Amour
   stations:
     Boxstation:
       stationProto: StandardNanotrasenStation

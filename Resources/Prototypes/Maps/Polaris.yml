@@ -2,7 +2,7 @@
   id: Polaris
   mapName: 'Polaris Station'
   mapPath: /Maps/_Honk/Stations/Polaris.yml
-  minPlayers: 20
+  minPlayers: 0 # Amour
   stations:
     PolarisStation:
       stationProto: StandardNanotrasenStation
