@@ -47,6 +47,14 @@
         {
             "name": "inhand-right",
             "directions": 4
+        },
+        {
+            "name": "folded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "folded-inhand-right",
+            "directions": 4
         }
     ]
 }
