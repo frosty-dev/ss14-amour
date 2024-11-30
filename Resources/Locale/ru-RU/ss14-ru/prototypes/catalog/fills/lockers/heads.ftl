@@ -43,3 +43,6 @@ ent-LockerHeadOfSecurityFilledHardsuit = { ent-LockerHeadOfSecurity }
 ent-LockerInspectorFilled = { ent-LockerInspector }
     .suffix = Заполненный
     .desc = { ent-LockerInspector.desc }
+ent-LockerInspectorFilledHardsuit = { ent-LockerInspector }
+    .suffix = Заполненный, Скафандр
+    .desc = { ent-LockerInspector.desc }

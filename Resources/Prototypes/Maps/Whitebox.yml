@@ -1,7 +1,7 @@
 - type: gameMap
   id: WhiteBox
   mapName: 'Box Station'
-  mapPath: /Maps/White/Whitebox.yml
+  mapPath: /Maps/_Honk/Stations/Whitebox.yml
   minPlayers: 0
   stations:
     Boxstation:
@@ -59,3 +59,7 @@
             SeniorEngineer: [ 1, 1 ]
             Borg: [ 2, 2 ]
             Brigmedic: [ 1, 1 ]
+            Maid: [ 1, 1 ] # Amour
+            Bomzh: [ 1, 0 ] # Amour
+            Reporter: [ 1, 1 ] # Amour
+            Psychologist: [ 1, 1 ] # Amour
