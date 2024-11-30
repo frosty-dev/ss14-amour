@@ -23,11 +23,17 @@ public sealed class VibratorSystem : SharedVibratorSystem
         if (args.Key != _vibration || !component.IsVibrating)
             return;
 
+        if (_animationSystem.HasRunningAnimation(uid, _vibration))
+            return;
+
         _animationSystem.Play(uid, GetAnimation(), _vibration);
     }
 
     public override void ToggleVibrate(EntityUid uid, VibratorComponent component)
     {
+        if (_animationSystem.HasRunningAnimation(uid, _vibration))
+            return;
+
         if (component.IsVibrating)
             _animationSystem.Play(uid, GetAnimation(), _vibration);
 
