@@ -335,7 +335,7 @@
         - id: ClothingUnderwearBottomPantiesInspector # WD
         - id: ClothingUnderwearTopBraInspector # WD
 
-- type: entity # Amour
+- type: entity # WD
   id: LockerInspectorFilledHardsuit
   suffix: Filled, Hardsuit
   parent: LockerInspector
