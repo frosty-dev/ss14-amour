@@ -11,6 +11,7 @@ using Content.Shared.Ensnaring.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Throwing;
+using Content.Shared.Popups;
 
 namespace Content.Server.Ensnaring;
 
@@ -151,9 +152,11 @@ public sealed partial class EnsnareableSystem
         Dirty(component.Ensnared.Value, ensnareable);
         component.Ensnared = null;
 
+        _popup.PopupEntity(Loc.GetString("ensnare-component-try-free-complete", ("ensnare", ensnare)), target, target, PopupType.Medium); // WD
+
         UpdateAlert(target, ensnareable);
         var ev = new EnsnareRemoveEvent(component.WalkSpeed, component.SprintSpeed);
-        RaiseLocalEvent(ensnare, ev);
+        RaiseLocalEvent(target, ev); // WD fix from ensnare to target
     }
 
     /// <summary>
