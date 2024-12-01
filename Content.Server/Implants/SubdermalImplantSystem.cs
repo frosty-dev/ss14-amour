@@ -26,6 +26,9 @@ using Robust.Shared.Collections;
 using Robust.Shared.Enums;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Map.Components;
+using Content.Server.Ensnaring;
+using Content.Shared.Ensnaring.Components;
+using System.Linq;
 using GrammarSystem = Content.Shared._Amour.GrammarSystem.GrammarSystem;
 
 namespace Content.Server.Implants;
@@ -45,7 +48,8 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!; // WD
-    [Dependency] private readonly GrammarSystem _grammar = default!; //Amour
+    [Dependency] private readonly EnsnareableSystem _ensnareable = default!; // WD
+    [Dependency] private readonly GrammarSystem _grammar = default!; // Amour
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private HashSet<Entity<MapGridComponent>> _targetGrids = [];
@@ -90,11 +94,26 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 
     private void OnFreedomImplant(EntityUid uid, SubdermalImplantComponent component, UseFreedomImplantEvent args)
     {
-        if (!TryComp<CuffableComponent>(component.ImplantedEntity, out var cuffs) || cuffs.Container.ContainedEntities.Count < 1)
-            return;
+        // WD EDIT START
+        var ensnareCheck = TryComp<EnsnareableComponent>(component.ImplantedEntity, out var ensnareable) && ensnareable.Container.ContainedEntities.Count > 0;
+        if (ensnareCheck && ensnareable != null)
+        {
+            var ensnaringUid = ensnareable.Container.ContainedEntities.First();
+            if (TryComp<EnsnaringComponent>(ensnaringUid, out var ensnaringComp))
+                _ensnareable.ForceFree(ensnaringUid, ensnaringComp);
+        }
 
-        _cuffable.Uncuff(component.ImplantedEntity.Value, cuffs.LastAddedCuffs, cuffs.LastAddedCuffs);
-        args.Handled = true;
+        var cuffCheck = TryComp<CuffableComponent>(component.ImplantedEntity, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0;
+        if (cuffCheck && cuffs != null && component.ImplantedEntity != null)
+        {
+            _cuffable.Uncuff(component.ImplantedEntity.Value, cuffs.LastAddedCuffs, cuffs.LastAddedCuffs);
+        }
+
+        if (ensnareCheck || cuffCheck)
+        {
+            args.Handled = true;
+        }
+        // WD EDIT END
     }
 
     private void OnActivateImplantEvent(EntityUid uid, SubdermalImplantComponent component, ActivateImplantEvent args)
@@ -230,7 +249,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         QueueDel(uid);
     }
 
-    //Amour Start
+    // Amour Start
     private void OnGenderSwapImplant(EntityUid uid, SubdermalImplantComponent component, UseGenderSwapImplantEvent args)
     {
         if (component.ImplantedEntity is not { } ent)
@@ -266,5 +285,5 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         args.Handled = true;
         QueueDel(uid);
     }
-    //Amour End
+    // Amour End
 }
