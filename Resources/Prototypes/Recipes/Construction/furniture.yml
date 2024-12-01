@@ -1017,7 +1017,7 @@
   id: KitchenSpike
   name: meat spike
   description: A spike found in kitchens butchering animals.
-  graph: MeatSpike
+  graph: MeatSpikeWD # WD Edit
   startNode: start
   targetNode: MeatSpike
   category: construction-category-furniture
