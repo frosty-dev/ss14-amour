@@ -143,5 +143,5 @@
     module_type: "shutter_module"
     tag: Grenade
   - type: Sprite
-    sprite: White\Objects\Weapons\modulesOnWeapon.rsi
+    sprite: White/Objects/Weapons/modulesOnWeapon.rsi
     state: telescopic
