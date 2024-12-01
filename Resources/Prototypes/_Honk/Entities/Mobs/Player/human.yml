@@ -18,5 +18,4 @@
     factions:
     - Syndicate
   - type: AutoTraitor
-    giveUplink: false
-    giveObjectives: false
+    profile: TraitorReinforcement
