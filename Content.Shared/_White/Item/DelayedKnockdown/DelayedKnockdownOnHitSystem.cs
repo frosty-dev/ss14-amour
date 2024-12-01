@@ -4,6 +4,8 @@ using Content.Shared.Speech.EntitySystems;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Content.Shared._White.Implants.NeuroControl;
+using Content.Shared.Electrocution;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._White.Item.DelayedKnockdown;
@@ -14,6 +16,7 @@ public sealed class DelayedKnockdownOnHitSystem : EntitySystem
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly SharedStutteringSystem _stutter = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedElectrocutionSystem _electrocution = default!;
 
     public override void Initialize()
     {
@@ -35,6 +38,12 @@ public sealed class DelayedKnockdownOnHitSystem : EntitySystem
 
             if (!TryComp(uid, out StandingStateComponent? standingState) || !standingState.CanLieDown)
                 continue;
+
+            if (HasComp<NeuroStabilizationComponent>(uid))
+            {
+                _electrocution.TryDoElectrocution(uid, null, 5, TimeSpan.FromSeconds(1), false, 0.5f, null, true);
+                continue;
+            }
 
             if (jitterTime > TimeSpan.Zero)
                 _jitter.DoJitter(uid, jitterTime, true, status: statusEffects);
