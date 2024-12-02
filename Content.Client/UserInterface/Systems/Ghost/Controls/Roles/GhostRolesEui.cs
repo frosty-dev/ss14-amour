@@ -1,4 +1,4 @@
-using System.Linq; // Updated before upstream
+using System.Linq;
 using Content.Client.Eui;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Shared.Eui;
@@ -9,7 +9,7 @@ using Robust.Client.GameObjects;
 namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
 {
     [UsedImplicitly]
-    public sealed class GhostRolesEui : BaseEui
+    public sealed class GhostRolesEui : BaseEui // WD Edit ahead of wizden upstream
     {
         private readonly GhostRolesWindow _window;
         private GhostRoleRulesWindow? _windowRules = null;

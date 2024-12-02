@@ -4,7 +4,6 @@
     <BoxContainer Name="Buttons"
                   Orientation="Vertical"
                   SeparationOverride="5">
-        <!-- Updated before upstream!!! -->
         <!-- Buttons are added here by code -->
     </BoxContainer>
 </BoxContainer>
