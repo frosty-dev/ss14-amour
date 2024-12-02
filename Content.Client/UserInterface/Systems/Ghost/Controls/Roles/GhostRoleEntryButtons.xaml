@@ -1,6 +1,7 @@
 ﻿<BoxContainer xmlns="https://spacestation14.io"
               Orientation="Horizontal"
               HorizontalAlignment="Stretch">
+    <!-- Updated before upstream!!! -->
     <Button Name="RequestButton"
             Access="Public"
             Text="{Loc 'ghost-roles-window-request-role-button'}"
