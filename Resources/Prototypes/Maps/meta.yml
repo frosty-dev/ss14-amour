@@ -1,7 +1,7 @@
 - type: gameMap
   id: Meta
   mapName: 'Meta Station'
-  mapPath: /Maps/_Honk/Stations/meta.yml
+  mapPath: /Maps/_Honk/Stations/Meta.yml
   minPlayers: 0 # Amour
   stations:
     Meta:
