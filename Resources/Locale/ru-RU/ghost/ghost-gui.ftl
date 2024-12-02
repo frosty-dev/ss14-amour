@@ -23,7 +23,7 @@ ghost-target-window-title = Телепорт призрака
 ghost-target-window-current-button = Телепорт в: { $name }
 
 ghost-roles-window-title = Роли призраков
-
+ghost-roles-window-available-button = Доступно ({$rolesCount})
 ghost-roles-window-join-raffle-button = Начать лотерею
 ghost-roles-window-raffle-in-progress-button =
     Участвовать ({$time} осталось, { $players ->

@@ -10,19 +10,16 @@ using Robust.Shared.Utility;
 namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
 {
     [GenerateTypedNameReferences]
-    public sealed partial class GhostRolesEntry : BoxContainer
+    public sealed partial class GhostRoleButtonsBox : BoxContainer // WD Edit ahead of wizden upstream
     {
         private SpriteSystem _spriteSystem;
         public event Action<GhostRoleInfo>? OnRoleSelected;
         public event Action<GhostRoleInfo>? OnRoleFollow;
 
-        public GhostRolesEntry(string name, string description, bool hasAccess, FormattedMessage? reason, IEnumerable<GhostRoleInfo> roles, SpriteSystem spriteSystem)
+        public GhostRoleButtonsBox(bool hasAccess, FormattedMessage? reason, IEnumerable<GhostRoleInfo> roles, SpriteSystem spriteSystem) // WD Edit ahead of wizden upstream
         {
             RobustXamlLoader.Load(this);
             _spriteSystem = spriteSystem;
-
-            Title.Text = name;
-            Description.SetMessage(description);
 
             foreach (var role in roles)
             {
@@ -45,7 +42,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
                     {
                         TextureScale = new Vector2(0.4f, 0.4f),
                         Stretch = TextureRect.StretchMode.KeepCentered,
-                        Texture = _spriteSystem.Frame0(new SpriteSpecifier.Texture(new ("/Textures/Interface/Nano/lock.svg.192dpi.png"))),
+                        Texture = _spriteSystem.Frame0(new SpriteSpecifier.Texture(new("/Textures/Interface/Nano/lock.svg.192dpi.png"))),
                         HorizontalExpand = true,
                         HorizontalAlignment = HAlignment.Right,
                     });
