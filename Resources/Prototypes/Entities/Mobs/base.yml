@@ -57,7 +57,7 @@
     - trigger:
         !type:DamageTypeTrigger
         damageType: Blunt
-        damage: 1500
+        damage: 1500 # WD Edit from 400 to 1500
       behaviors:
       - !type:GibBehavior { }
     - trigger:
