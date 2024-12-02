@@ -119,8 +119,8 @@
   - type: Item
     sprite: White/Objects/Weapons/Guns/SMG/c20r-inhands.rsi
   - type: Gun
-    minAngle: 11
-    maxAngle: 19
+    minAngle: 1 # WD
+    maxAngle: 7 # WD
     shotsPerBurst: 5
     availableModes:
     - SemiAuto
@@ -217,9 +217,9 @@
     - type: Item
       sprite: White/Objects/Weapons/Guns/SMG/drozd-inhands.rsi
     - type: Gun
-      minAngle: 21
-      maxAngle: 32
-      fireRate: 6
+      minAngle: 4 # WD
+      maxAngle: 10 # WD
+      fireRate: 5 # WD
       selectedMode: FullAuto
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
