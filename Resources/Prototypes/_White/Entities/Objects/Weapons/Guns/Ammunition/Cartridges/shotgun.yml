@@ -6,6 +6,7 @@
   - type: Tag
     tags:
     - ShellRubberShotgun
+    - Cartridge
   - type: Sprite
     layers:
     - state: rubber
