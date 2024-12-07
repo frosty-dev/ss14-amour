@@ -73219,13 +73219,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 11023
-    components:
-    - type: Transform
-      parent: 11022
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingBeltPlantFilled
   entities:
   - uid: 11037
@@ -73532,15 +73525,6 @@ entities:
     components:
     - type: Transform
       parent: 11142
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: ClothingEyesHudMedSec
-  entities:
-  - uid: 11024
-    components:
-    - type: Transform
-      parent: 11022
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -73863,13 +73847,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 11025
-    components:
-    - type: Transform
-      parent: 11022
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 11175
     components:
     - type: Transform
@@ -73938,15 +73915,6 @@ entities:
     - type: Transform
       pos: 41.493343,-57.314545
       parent: 2
-- proto: ClothingHeadHatBeretSecurity
-  entities:
-  - uid: 11026
-    components:
-    - type: Transform
-      parent: 11022
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingHeadHatBowlerHat
   entities:
   - uid: 11179
@@ -74972,13 +74940,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-  - uid: 11027
-    components:
-    - type: Transform
-      parent: 11022
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 11338
     components:
     - type: Transform
@@ -75065,13 +75026,6 @@ entities:
     - type: InsideEntityStorage
 - proto: ClothingMaskSterile
   entities:
-  - uid: 11028
-    components:
-    - type: Transform
-      parent: 11022
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 11390
     components:
     - type: Transform
@@ -75205,15 +75159,6 @@ entities:
     - type: Transform
       pos: -6.4873962,52.56498
       parent: 2
-- proto: ClothingOuterArmorBasic
-  entities:
-  - uid: 11029
-    components:
-    - type: Transform
-      parent: 11022
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingOuterArmorBulletproof
   entities:
   - uid: 11407
@@ -75424,15 +75369,6 @@ entities:
     - type: Transform
       pos: 45.44214,-62.516068
       parent: 2
-- proto: ClothingOuterCoatLab
-  entities:
-  - uid: 11030
-    components:
-    - type: Transform
-      parent: 11022
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingOuterCoatPirate
   entities:
   - uid: 11418
@@ -75653,13 +75589,6 @@ entities:
     - type: InsideEntityStorage
 - proto: ClothingOuterHardsuitSecurity
   entities:
-  - uid: 11031
-    components:
-    - type: Transform
-      parent: 11022
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 11339
     components:
     - type: Transform
@@ -75904,15 +75833,6 @@ entities:
     - type: Transform
       pos: 68.49056,16.310373
       parent: 2
-- proto: ClothingShoesBootsJack
-  entities:
-  - uid: 11032
-    components:
-    - type: Transform
-      parent: 11022
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingShoesBootsMag
   entities:
   - uid: 11289
@@ -76358,15 +76278,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ClothingUniformJumpskirtSec
-  entities:
-  - uid: 11033
-    components:
-    - type: Transform
-      parent: 11022
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingUniformJumpsuitColorDarkGreen
   entities:
   - uid: 11266
@@ -76563,15 +76474,6 @@ entities:
     components:
     - type: Transform
       parent: 1354
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: ClothingUniformJumpsuitSec
-  entities:
-  - uid: 11034
-    components:
-    - type: Transform
-      parent: 11022
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -87321,13 +87223,6 @@ entities:
       parent: 2
 - proto: DoubleEmergencyNitrogenTankFilled
   entities:
-  - uid: 11035
-    components:
-    - type: Transform
-      parent: 11022
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 11345
     components:
     - type: Transform
@@ -87356,13 +87251,6 @@ entities:
       parent: 2
 - proto: DoubleEmergencyOxygenTankFilled
   entities:
-  - uid: 11036
-    components:
-    - type: Transform
-      parent: 11022
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 11346
     components:
     - type: Transform
@@ -129029,6 +128917,16 @@ entities:
     - type: PointLight
       color: '#D56C6CFF'
       enabled: True
+- proto: LockerBrigmedicFilled
+  entities:
+  - uid: 11023
+    components:
+    - type: Transform
+      pos: -11.5,32.5
+      parent: 2
+    - type: PointLight
+      color: '#D56C6CFF'
+      enabled: True
 - proto: LockerCaptainFilledNoLaser
   entities:
   - uid: 11410
@@ -130313,64 +130211,6 @@ entities:
       enabled: True
 - proto: LockerMedical
   entities:
-  - uid: 11022
-    components:
-    - type: Transform
-      pos: -11.5,32.5
-      parent: 2
-    - type: PointLight
-      color: '#D56C6CFF'
-      enabled: True
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 11027
-          - 11036
-          - 11029
-          - 11023
-          - 11032
-          - 11025
-          - 11035
-          - 11031
-          - 11028
-          - 11024
-          - 11034
-          - 11026
-          - 11030
-          - 11033
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
   - uid: 11387
     components:
     - type: Transform
@@ -143024,7 +142864,7 @@ entities:
     - type: Transform
       parent: 1288
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143033,7 +142873,7 @@ entities:
     - type: Transform
       parent: 1288
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143042,7 +142882,7 @@ entities:
     - type: Transform
       parent: 1298
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143051,7 +142891,7 @@ entities:
     - type: Transform
       parent: 1298
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143060,7 +142900,7 @@ entities:
     - type: Transform
       parent: 1308
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143069,7 +142909,7 @@ entities:
     - type: Transform
       parent: 1308
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -143079,21 +142919,21 @@ entities:
       pos: 4.166244,-61.42392
       parent: 2
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
   - uid: 20753
     components:
     - type: Transform
       pos: 4.173121,-61.326607
       parent: 2
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
   - uid: 20754
     components:
     - type: Transform
       pos: 4.166244,-61.51767
       parent: 2
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
 - proto: ReagentContainerFlourSmall
   entities:
   - uid: 20755
@@ -152438,6 +152278,13 @@ entities:
     components:
     - type: Transform
       pos: 48.5,-0.5
+      parent: 2
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 11022
+    components:
+    - type: Transform
+      pos: -8.5,31.5
       parent: 2
 - proto: SpawnPointCaptain
   entities:
