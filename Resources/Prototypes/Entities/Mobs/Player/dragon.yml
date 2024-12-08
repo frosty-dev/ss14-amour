@@ -151,6 +151,8 @@
       true
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: TTS # WD
+    voicePrototypeId: Garrosh
 
 - type: entity
   parent: BaseMobDragon

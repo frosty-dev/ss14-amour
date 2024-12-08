@@ -80,7 +80,13 @@
   id: BaseAimModule
 
 - type: Tag
+  id: HolographicAimModule
+
+- type: Tag
   id: BaseShutterModule
+
+- type: Tag
+  id: HasLightModule
 
 - type: Tag
   id: DoorjackUsable
@@ -123,3 +129,24 @@
 
 - type: Tag
   id: MirrorShieldGhetto
+
+- type: Tag
+  id: EnergyCellCarbine
+
+- type: Tag
+  id: EnergyCellDisabler
+
+- type: Tag
+  id: EnergyCellDisablerSmg
+
+- type: Tag
+  id: EnergyCellLaserCannon
+
+- type: Tag
+  id: EnergyCellLaserRetro
+
+- type: Tag
+  id: EnergyCellMakeshift
+
+- type: Tag
+  id: MagazineKalashLightRifleBox

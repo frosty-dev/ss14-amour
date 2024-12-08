@@ -241,6 +241,7 @@
       - CartridgePistolRubber
       - CartridgeMagnumRubber
       - ShellShotgunBeanbag
+      - ShellShotgunRubberShot # WD
       - CartridgeRifleRubber
       - CartridgeLightRifleRubber
       - MagazineBoxMagnumRubber
@@ -428,8 +429,11 @@
       - WeaponAdvancedLaser
       - WeaponLaserCannon
       - WeaponLaserCarbine
+      - EnergyCellCarbine
       - WeaponXrayCannon
       - WeaponDisablerSMG
+      - EnergyCellDisablerSmg
+      - EnergyCellDisabler
       - ClothingHandsGlovesMagnetic
       - ClothingHandsGlovesMagneticAdvanced
       - ExplosivePayload
@@ -812,6 +816,17 @@
       - LightModule
       - FlameHiderModule
       - ShinanoGrenadeBeanbagRecipe
+      - CartridgePistolRubber
+      - ShellShotgunRubberShot
+      - CartridgeRifleRubber
+      - CartridgeLightRifleRubber
+      - MagazineBoxPistolRubber
+      - MagazineBoxRifleRubber
+      - MagazineBoxLightRifleRubber
+      - MagazinePistolHighCapacity
+      - MagazinePistolHighCapacityPractice
+      - MagazinePistolHighCapacityRubber
+      - EnergyCellDisabler
     dynamicRecipes:
       - CartridgeLightRifleIncendiary
       - CartridgeMagnumIncendiary
@@ -821,10 +836,7 @@
       - CartridgeMagnumUranium
       - CartridgePistolUranium
       - CartridgeRifleUranium
-      - CartridgeLightRifleRubber
       - CartridgeMagnumRubber
-      - CartridgePistolRubber
-      - CartridgeRifleRubber
       - ExplosivePayload
       - FlashPayload
       - HoloprojectorSecurity
@@ -836,10 +848,7 @@
       - MagazineBoxMagnumUranium
       - MagazineBoxPistolUranium
       - MagazineBoxRifleUranium
-      - MagazineBoxLightRifleRubber
       - MagazineBoxMagnumRubber
-      - MagazineBoxPistolRubber
-      - MagazineBoxRifleRubber
       - MagazineGrenadeEmpty
       - GrenadeEMP
       - GrenadeFlash
@@ -855,8 +864,10 @@
       - WeaponDisablerPractice
       - WeaponAdvancedLaser
       - WeaponDisablerSMG
+      - EnergyCellDisablerSmg
       - WeaponLaserCannon
       - WeaponLaserCarbine
+      - EnergyCellCarbine
       - WeaponXrayCannon
       - WeaponTempGun # WD EDIT
       - PowerCageSmall

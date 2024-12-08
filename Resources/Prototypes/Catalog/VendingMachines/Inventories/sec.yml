@@ -20,6 +20,8 @@
     SecurityWhistle: 5
     CombatKnife: 2
     RadioHandheldSecurity: 5
+    LightModule: 4
+    HolographicSightModule: 4
 
   contrabandInventory:
     FoodDonutHomer: 12
@@ -27,4 +29,5 @@
 
   emaggedInventory:
     ExGrenade: 1
-    Truncheon: 3 # WD edit end
+    Truncheon: 3
+    SilencerModule: 1 # WD edit end
