@@ -105,7 +105,7 @@
     sprite: Clothing/OuterClothing/Coats/insp_coat.rsi
 
 - type: entity
-  parent: ClothingOuterStorageToggleableBase
+  parent: [ ClothingOuterStorageToggleableBase, AllowSuitStorageClothing] # WD added AllowSuitStorageClothing
   id: ClothingOuterCoatJensen
   name: jensen coat
   description: A jensen coat.
@@ -424,7 +424,7 @@
 
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing] # WD added AllowSuitStorageClothing
   id: ClothingOuterCoatAMG
   name: armored medical gown
   description: The version of the medical gown, with elements of a bulletproof vest, looks strange, but your heart is protected.
@@ -496,7 +496,7 @@
 
 #WHITE START
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing] # WD added AllowSuitStorageClothing
   id: ClothingOuterTrenchCoatInspector
   name: inspector's trenchcoat
   description: A thick leather trench, specially designed for the inspector. For real badass guys!
@@ -517,7 +517,7 @@
           Heat: 0.90
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing] # WD added AllowSuitStorageClothing
   id: ClothingOuterJacketInspector
   name: inspector's jacket
   description: Official station inspector's coat. Let the command respect you!

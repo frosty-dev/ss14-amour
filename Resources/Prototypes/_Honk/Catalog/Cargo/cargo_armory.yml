@@ -1,0 +1,9 @@
+﻿- type: cargoProduct
+  id: ArmoryKLMG
+  icon:
+    sprite: _Honk/Objects/Weapons/Guns/LMGs/klmg-icons.rsi
+    state: icon
+  product: CrateArmoryKLMG
+  cost: 10000
+  category: cargoproduct-category-name-armory
+  group: market
