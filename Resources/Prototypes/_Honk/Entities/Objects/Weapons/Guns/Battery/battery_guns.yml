@@ -109,13 +109,13 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: EnergyCellСarbine
+        startingItem: EnergyCellCarbine
         priority: 4
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
           tags:
-          - EnergyCellСarbine
+          - EnergyCellCarbine
       aim_module:
         name: Aim Module
         insertSound: /Audio/White/Gun/Modules/insertmodule.ogg

@@ -428,8 +428,11 @@
       - WeaponAdvancedLaser
       - WeaponLaserCannon
       - WeaponLaserCarbine
+      - EnergyCellCarbine
       - WeaponXrayCannon
       - WeaponDisablerSMG
+      - EnergyCellDisablerSmg
+      - EnergyCellDisabler
       - ClothingHandsGlovesMagnetic
       - ClothingHandsGlovesMagneticAdvanced
       - ExplosivePayload
@@ -822,6 +825,7 @@
       - MagazinePistolHighCapacity
       - MagazinePistolHighCapacityPractice
       - MagazinePistolHighCapacityRubber
+      - EnergyCellDisabler
     dynamicRecipes:
       - CartridgeLightRifleIncendiary
       - CartridgeMagnumIncendiary
@@ -859,8 +863,10 @@
       - WeaponDisablerPractice
       - WeaponAdvancedLaser
       - WeaponDisablerSMG
+      - EnergyCellDisablerSmg
       - WeaponLaserCannon
       - WeaponLaserCarbine
+      - EnergyCellCarbine
       - WeaponXrayCannon
       - WeaponTempGun # WD EDIT
       - PowerCageSmall

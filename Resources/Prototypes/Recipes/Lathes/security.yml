@@ -797,3 +797,33 @@
      Plastic: 400
      Glass: 600
      Silver: 100
+
+- type: latheRecipe
+  id: EnergyCellCarbine
+  result: EnergyCellCarbine
+  category: Ammo
+  completetime: 6
+  materials:
+    Steel: 400
+    Glass: 200
+    Plastic: 300
+
+- type: latheRecipe
+  id: EnergyCellDisabler
+  result: EnergyCellDisabler
+  category: Ammo
+  completetime: 6
+  materials:
+    Steel: 200
+    Glass: 100
+    Plastic: 100
+
+- type: latheRecipe
+  id: EnergyCellDisablerSmg
+  result: EnergyCellDisablerSmg
+  category: Ammo
+  completetime: 6
+  materials:
+    Steel: 200
+    Glass: 150
+    Plastic: 300

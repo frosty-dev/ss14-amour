@@ -45,6 +45,7 @@
   cost: 7500
   recipeUnlocks:
   - WeaponLaserCarbine
+  - EnergyCellCarbine
 
 - type: technology
   id: NonlethalAmmunition
@@ -104,6 +105,7 @@
   - TelescopicShield
   - HoloprojectorSecurity
   - WeaponDisablerSMG
+  - EnergyCellDisablerSmg
 
 # Tier 2
 
