@@ -5,7 +5,7 @@
   description: Kalashnikov Light Machine Gun is as reliable as the assault rifle. Uses .30 rifle ammo.
   components:
   - type: Sprite
-    sprite: _Honk/Objects/Weapons/Guns/LMGs/klmg-icons.rsi
+    sprite: White/_Honk/Objects/Weapons/Guns/LMGs/klmg-icons.rsi
     layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
@@ -22,10 +22,10 @@
       sprite: White/Objects/Weapons/modulesOnWeapon.rsi
       map: [ "enum.ModuleVisualState.AimModule" ]
   - type: Item
-    sprite: _Honk/Objects/Weapons/Guns/LMGs/klmg-inhands.rsi
+    sprite: White/_Honk/Objects/Weapons/Guns/LMGs/klmg-inhands.rsi
     size: Huge
   - type: Clothing
-    sprite: _Honk/Objects/Weapons/Guns/LMGs/klmg-inhands.rsi
+    sprite: White/_Honk/Objects/Weapons/Guns/LMGs/klmg-inhands.rsi
   - type: MagazineVisuals
     magState: mag
     steps: 5

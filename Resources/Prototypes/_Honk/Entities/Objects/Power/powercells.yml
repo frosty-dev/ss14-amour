@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BasePowerCellHonk
   abstract: true
   parent: BaseItem
@@ -43,28 +43,28 @@
 
 - type: entity
   parent: BasePowerCellHonk
-  id: EnergyCellСarbine
+  id: EnergyCellCarbine
   suffix: Full
   name: энергетическая батарея карабина
   description: Перезаряжаемый элемент питания. Модифицирован для работы с лазерной винтовкой.
   components:
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletTrailLaser
+    fireCost: 50
   - type: Sprite
-    sprite: _Honk/Objects/Power/carbine_energy_cells.rsi
+    sprite: White/_Honk/Objects/Power/carbine_energy_cells.rsi
     layers:
     - map: [ "enum.PowerCellVisualLayers.Base" ]
       state: battery
     - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
       state: o2
       shader: unshaded
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletTrailLaser
-    fireCost: 50
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    maxCharge: 800
+    startingCharge: 800
   - type: Tag
     tags:
-    - EnergyCellСarbine
+    - EnergyCellCarbine
 
 - type: entity
   parent: BasePowerCellHonk
@@ -74,7 +74,7 @@
   description: Перезаряжаемый элемент питания. Модифицирован для работы с дизейблером.
   components:
   - type: Sprite
-    sprite: _Honk/Objects/Power/disabler_energy_cells.rsi
+    sprite: White/_Honk/Objects/Power/disabler_energy_cells.rsi
     layers:
     - map: [ "enum.PowerCellVisualLayers.Base" ]
       state: battery
@@ -99,7 +99,7 @@
   description: Перезаряжаемый элемент питания. Модифицирован для работы с дизейблером-пулемётом.
   components:
   - type: Sprite
-    sprite: _Honk/Objects/Power/disabler_smg_energy_cells.rsi
+    sprite: White/_Honk/Objects/Power/disabler_smg_energy_cells.rsi
     layers:
     - map: [ "enum.PowerCellVisualLayers.Base" ]
       state: battery

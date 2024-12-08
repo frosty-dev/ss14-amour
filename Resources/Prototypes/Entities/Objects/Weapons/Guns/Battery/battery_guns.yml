@@ -229,9 +229,9 @@
   - type: Appearance
 
 - type: entity
-  name: laser rifle
+  name: laser rifle old
   parent: BaseWeaponBattery
-  id: WeaponLaserCarbineOld # Amour Fix
+  id: WeaponLaserCarbineOld
   description: Favoured by Nanotrasen Security for being cheap and easy to use.
   components:
   - type: Sprite
@@ -478,7 +478,7 @@
   - type: Appearance
 
 - type: entity
-  name: disabler old
+  name: disabler Old
   parent: BaseWeaponBatterySmall
   id: WeaponDisablerOld
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
