@@ -240,6 +240,7 @@
       - CartridgePistolRubber
       - CartridgeMagnumRubber
       - ShellShotgunBeanbag
+      - ShellShotgunRubberShot # WD
       - CartridgeRifleRubber
       - CartridgeLightRifleRubber
       - MagazineBoxMagnumRubber
@@ -811,6 +812,16 @@
       - LightModule
       - FlameHiderModule
       - ShinanoGrenadeBeanbagRecipe
+      - CartridgePistolRubber
+      - ShellShotgunRubberShot
+      - CartridgeRifleRubber
+      - CartridgeLightRifleRubber
+      - MagazineBoxPistolRubber
+      - MagazineBoxRifleRubber
+      - MagazineBoxLightRifleRubber
+      - MagazinePistolHighCapacity
+      - MagazinePistolHighCapacityPractice
+      - MagazinePistolHighCapacityRubber
     dynamicRecipes:
       - CartridgeLightRifleIncendiary
       - CartridgeMagnumIncendiary
@@ -820,10 +831,7 @@
       - CartridgeMagnumUranium
       - CartridgePistolUranium
       - CartridgeRifleUranium
-      - CartridgeLightRifleRubber
       - CartridgeMagnumRubber
-      - CartridgePistolRubber
-      - CartridgeRifleRubber
       - ExplosivePayload
       - FlashPayload
       - HoloprojectorSecurity
@@ -835,10 +843,7 @@
       - MagazineBoxMagnumUranium
       - MagazineBoxPistolUranium
       - MagazineBoxRifleUranium
-      - MagazineBoxLightRifleRubber
       - MagazineBoxMagnumRubber
-      - MagazineBoxPistolRubber
-      - MagazineBoxRifleRubber
       - MagazineGrenadeEmpty
       - GrenadeEMP
       - GrenadeFlash

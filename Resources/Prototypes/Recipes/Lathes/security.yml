@@ -139,6 +139,15 @@
     Steel: 100
 
 - type: latheRecipe
+  id: ShellShotgunRubberShot
+  result: ShellShotgunRubberShot
+  completetime: 2
+  category: Ammo
+  materials:
+    Plastic: 10
+    Steel: 10
+
+- type: latheRecipe
   id: ShellShotgunBeanbag
   result: ShellShotgunBeanbag
   category: Ammo
@@ -273,6 +282,32 @@
   applyMaterialDiscount: false # ingredients dropped when destroyed
   materials:
     Steel: 500
+
+- type: latheRecipe
+  id: MagazinePistolHighCapacity
+  result: MagazinePistolHighCapacity
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 200
+
+- type: latheRecipe
+  id: MagazinePistolHighCapacityPractice
+  result: MagazinePistolHighCapacityPractice
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 40
+    Plastic: 160
+
+- type: latheRecipe
+  id: MagazinePistolHighCapacityRubber
+  result: MagazinePistolHighCapacityRubber
+  category: Ammo
+  completetime: 5
+  materials:
+    Steel: 120
+    Plastic: 80
 
 - type: latheRecipe
   id: MagazinePistol
@@ -700,9 +735,9 @@
   completetime: 3
   category: Modules
   materials:
-     Steel: 200
+     Steel: 100
      Plastic: 100
-     Glass: 200
+     Glass: 100
 
 - type: latheRecipe
   id: LaserModule
@@ -710,8 +745,8 @@
   completetime: 6
   category: Modules
   materials:
-     Steel: 1500
-     Plastic: 1000
+     Steel: 500
+     Plastic: 300
      Glass: 300
 
 - type: latheRecipe
@@ -721,7 +756,6 @@
   category: Modules
   materials:
      Steel: 200
-     Plastic: 200
 
 - type: latheRecipe
   id: SilencerModule
@@ -730,7 +764,7 @@
   category: Modules
   materials:
      Steel: 400
-     Plastic: 300
+     Plastic: 100
 
 - type: latheRecipe
   id: AcceleratorModule
@@ -738,10 +772,10 @@
   completetime: 12
   category: Modules
   materials:
-     Steel: 3500
-     Plastic: 1000
-     Glass: 500
-     Gold: 1000
+     Steel: 500
+     Plastic: 100
+     Gold: 500
+     Silver: 100
 
 - type: latheRecipe
   id: HolographicSightModule
@@ -749,9 +783,9 @@
   completetime: 6
   category: Modules
   materials:
-     Steel: 500
-     Plastic: 700
-     Glass: 300
+     Steel: 400
+     Plastic: 200
+     Glass: 500
 
 - type: latheRecipe
   id: TelescopicSightModule
@@ -759,7 +793,7 @@
   completetime: 12
   category: Modules
   materials:
-     Steel: 1000
-     Plastic: 1400
+     Steel: 500
+     Plastic: 400
      Glass: 600
-     Silver: 800
+     Silver: 100
