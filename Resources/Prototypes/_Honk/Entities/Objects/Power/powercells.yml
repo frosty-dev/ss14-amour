@@ -45,7 +45,7 @@
   parent: BasePowerCellHonk
   id: EnergyCellCarbine
   suffix: Full
-  name: энергитическая батарея карабина
+  name: энергетическая батарея карабина
   description: Перезаряжаемый элемент питания. Модифицирован для работы с лазерной винтовкой.
   components:
   - type: ProjectileBatteryAmmoProvider
@@ -70,7 +70,7 @@
   parent: BasePowerCellHonk
   id: EnergyCellDisabler
   suffix: Full
-  name: энергитическая батарея дизейблера
+  name: энергетическая батарея дизейблера
   description: Перезаряжаемый элемент питания. Модифицирован для работы с дизейблером.
   components:
   - type: Sprite
@@ -95,7 +95,7 @@
   parent: BasePowerCellHonk
   id: EnergyCellDisablerSmg
   suffix: Full
-  name: энергитическая батарея дизейблера пулемёта
+  name: энергетическая батарея дизейблера пулемёта
   description: Перезаряжаемый элемент питания. Модифицирован для работы с дизейблером-пулемётом.
   components:
   - type: Sprite
