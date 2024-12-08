@@ -15661,6 +15661,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 7.5,-1.5
       parent: 2
+  - uid: 1192
+    components:
+    - type: Transform
+      pos: 10.5,43.5
+      parent: 2
+    - type: PaintableAirlock
+      department: Security
 - proto: AirlockDetectiveGlassLocked
   entities:
   - uid: 225
@@ -18219,12 +18226,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -21.5,41.5
-      parent: 2
-  - uid: 1192
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 10.5,43.5
       parent: 2
 - proto: AirlockServiceCaptainLocked
   entities:
@@ -132868,49 +132869,49 @@ entities:
       pos: 6.7808495,-46.50002
       parent: 2
     - type: RCDAmmo
-      charges: 757
+      charges: 1135
   - uid: 19599
     components:
     - type: Transform
       pos: 6.7808495,-46.030556
       parent: 2
     - type: RCDAmmo
-      charges: 757
+      charges: 1135
   - uid: 19600
     components:
     - type: Transform
       pos: 6.7808495,-45.564182
       parent: 2
     - type: RCDAmmo
-      charges: 757
+      charges: 1135
   - uid: 19601
     components:
     - type: Transform
       pos: 6.4999847,-46.441338
       parent: 2
     - type: RCDAmmo
-      charges: 757
+      charges: 1135
   - uid: 19602
     components:
     - type: Transform
       pos: 6.4999847,-45.968784
       parent: 2
     - type: RCDAmmo
-      charges: 757
+      charges: 1135
   - uid: 19603
     components:
     - type: Transform
       pos: 6.4999847,-45.502415
       parent: 2
     - type: RCDAmmo
-      charges: 757
+      charges: 1135
   - uid: 19604
     components:
     - type: Transform
       pos: 4.636591,-46.013115
       parent: 2
     - type: RCDAmmo
-      charges: 757
+      charges: 1135
 - proto: ReagentContainerFlour
   entities:
   - uid: 19605

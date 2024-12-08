@@ -14983,6 +14983,13 @@ entities:
     - type: Transform
       pos: -7.5,-10.5
       parent: 2
+  - uid: 544
+    components:
+    - type: Transform
+      pos: -14.5,15.5
+      parent: 2
+    - type: PaintableAirlock
+      department: Security
 - proto: AirlockDetectiveLocked
   entities:
   - uid: 200
@@ -17118,12 +17125,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -13.5,18.5
-      parent: 2
-  - uid: 544
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -14.5,15.5
       parent: 2
   - uid: 27996
     components:
@@ -142864,7 +142865,7 @@ entities:
     - type: Transform
       parent: 1288
     - type: RCDAmmo
-      charges: 2553
+      charges: 3829
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -142873,7 +142874,7 @@ entities:
     - type: Transform
       parent: 1288
     - type: RCDAmmo
-      charges: 2553
+      charges: 3829
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -142882,7 +142883,7 @@ entities:
     - type: Transform
       parent: 1298
     - type: RCDAmmo
-      charges: 2553
+      charges: 3829
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -142891,7 +142892,7 @@ entities:
     - type: Transform
       parent: 1298
     - type: RCDAmmo
-      charges: 2553
+      charges: 3829
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -142900,7 +142901,7 @@ entities:
     - type: Transform
       parent: 1308
     - type: RCDAmmo
-      charges: 2553
+      charges: 3829
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -142909,7 +142910,7 @@ entities:
     - type: Transform
       parent: 1308
     - type: RCDAmmo
-      charges: 2553
+      charges: 3829
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -142919,21 +142920,21 @@ entities:
       pos: 4.166244,-61.42392
       parent: 2
     - type: RCDAmmo
-      charges: 2553
+      charges: 3829
   - uid: 20753
     components:
     - type: Transform
       pos: 4.173121,-61.326607
       parent: 2
     - type: RCDAmmo
-      charges: 2553
+      charges: 3829
   - uid: 20754
     components:
     - type: Transform
       pos: 4.166244,-61.51767
       parent: 2
     - type: RCDAmmo
-      charges: 2553
+      charges: 3829
 - proto: ReagentContainerFlourSmall
   entities:
   - uid: 20755
