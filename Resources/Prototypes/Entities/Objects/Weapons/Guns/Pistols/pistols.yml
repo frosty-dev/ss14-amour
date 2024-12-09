@@ -264,6 +264,7 @@
         whitelist:
           tags:
             - MagazinePistol
+            - MagazinePistolHighCapacity
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistolRubber
