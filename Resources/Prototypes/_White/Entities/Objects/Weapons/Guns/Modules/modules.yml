@@ -9,6 +9,9 @@
     sprite: White/Objects/Weapons/modules.rsi
     size: Tiny
   - type: Appearance
+  - type: GuideHelp
+    guides:
+    - WeaponModules
 
 - type: entity
   parent: BaseModule

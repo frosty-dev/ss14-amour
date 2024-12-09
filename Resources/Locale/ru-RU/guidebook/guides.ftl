@@ -71,3 +71,5 @@ guide-entry-space-ninja = Космические Ниндзя
 
 guide-entry-writing = Разметка письма
 guide-entry-glossary = Словарь терминов
+
+guide-entry-weapon-modules = Оружейные модули

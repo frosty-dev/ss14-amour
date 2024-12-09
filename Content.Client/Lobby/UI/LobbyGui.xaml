@@ -55,7 +55,7 @@
                     <Control VerticalExpand="True" />
 
                     <RichTextLabel Name="LabelName" Access="Public" HorizontalAlignment="Left"
-                                          VerticalAlignment="Center" Margin="0 0 0 420" />
+                                          VerticalAlignment="Center" Margin="0 0 0 450" />
 
                     <!-- Left Bot Panel -->
                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
@@ -94,6 +94,18 @@
                                 Name="OptionsButton"
                                 Access="Public"
                                 ButtonText="Опции"
+                                Margin="0 7 0 7" />
+
+                            <buttons:OhioLobbyTextButton
+                                Name="AHelpButton"
+                                Access="Public"
+                                ButtonText="AHelp"
+                                Margin="0 7 0 7" />
+
+                            <buttons:OhioLobbyTextButton
+                                Name="ChangelogWD"
+                                Access="Public"
+                                ButtonText="Изменения"
                                 Margin="0 7 0 7" />
 
                             <buttons:OhioLobbyTextButton
