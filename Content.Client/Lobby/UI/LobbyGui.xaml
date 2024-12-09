@@ -75,7 +75,7 @@
                                 Access="Public"
                                 ToggleMode="True"
                                 ButtonText="Ready"
-                                Margin="0 7 0 7" />
+                                Margin="0 0 0 7" />
 
                             <buttons:OhioUICommandButton
                                 Name="ObserveButton"
@@ -113,19 +113,6 @@
                                 Access="Public"
                                 ButtonText="Привязать Discord"
                                 Margin="0 7 0 7" />
-
-                            <buttons:OhioLobbyTextButton
-                                Name="AHelpButton"
-                                Access="Public"
-                                ButtonText="AHelp"
-                                Margin="0 7 0 7" />
-
-                            <buttons:OhioLobbyTextButton
-                                Name="ChangelogAmour"
-                                Access="Public"
-                                ButtonText="Changelog"
-                                Margin="0 7 0 7"
-                                />
 
                             <buttons:OhioLobbyTextButton
                                 Name="QuitButton"
