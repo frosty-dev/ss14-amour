@@ -12,6 +12,8 @@
   - type: Sprite
   - type: Item
     size: Huge
+    shape:
+    - 0,0,4,1
   - type: AmmoCounter
   - type: Gun
     fireRate: 2
@@ -44,6 +46,9 @@
   components:
   - type: Item
     size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
   - type: Tag
     tags:
     - Sidearm
