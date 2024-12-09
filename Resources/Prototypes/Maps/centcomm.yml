@@ -1,7 +1,7 @@
 - type: gameMap
   id: CentComm
   mapName: 'Central Command'
-  mapPath: /Maps/_Honk/Stations/centcomm.yml
+  mapPath: /Maps/White/centcomm.yml
   minPlayers: 10
   stations:
     centcomm:

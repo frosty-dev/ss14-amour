@@ -59,7 +59,7 @@
             SeniorEngineer: [ 1, 1 ]
             Borg: [ 2, 2 ]
             Brigmedic: [ 1, 1 ]
-            Maid: [ 1, 1 ] # Amour
-            Bomzh: [ 1, 0 ] # Amour
-            Reporter: [ 1, 1 ] # Amour
-            Psychologist: [ 1, 1 ] # Amour
+            Maid: [ 1, 1 ]
+            Bomzh: [ 1, 0 ]
+            Reporter: [ 1, 1 ]
+            Psychologist: [ 1, 1 ]

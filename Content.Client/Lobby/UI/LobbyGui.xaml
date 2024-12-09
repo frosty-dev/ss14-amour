@@ -55,7 +55,7 @@
                     <Control VerticalExpand="True" />
 
                     <RichTextLabel Name="LabelName" Access="Public" HorizontalAlignment="Left"
-                                          VerticalAlignment="Center" Margin="0 0 0 420" />
+                                          VerticalAlignment="Center" Margin="0 0 0 450" />
 
                     <!-- Left Bot Panel -->
                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
@@ -75,7 +75,7 @@
                                 Access="Public"
                                 ToggleMode="True"
                                 ButtonText="Ready"
-                                Margin="0 7 0 7" />
+                                Margin="0 0 0 7" />
 
                             <buttons:OhioUICommandButton
                                 Name="ObserveButton"
@@ -97,23 +97,22 @@
                                 Margin="0 7 0 7" />
 
                             <buttons:OhioLobbyTextButton
-                                Name="DiscordButton"
-                                Access="Public"
-                                ButtonText="Привязать Discord"
-                                Margin="0 7 0 7" />
-
-                            <buttons:OhioLobbyTextButton
                                 Name="AHelpButton"
                                 Access="Public"
                                 ButtonText="AHelp"
                                 Margin="0 7 0 7" />
 
                             <buttons:OhioLobbyTextButton
-                                Name="ChangelogAmour"
+                                Name="ChangelogWD"
                                 Access="Public"
-                                ButtonText="Changelog"
-                                Margin="0 7 0 7"
-                                />
+                                ButtonText="Изменения"
+                                Margin="0 7 0 7" />
+
+                            <buttons:OhioLobbyTextButton
+                                Name="DiscordButton"
+                                Access="Public"
+                                ButtonText="Привязать Discord"
+                                Margin="0 7 0 7" />
 
                             <buttons:OhioLobbyTextButton
                                 Name="QuitButton"

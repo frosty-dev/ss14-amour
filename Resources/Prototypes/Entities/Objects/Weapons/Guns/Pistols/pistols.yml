@@ -264,6 +264,7 @@
         whitelist:
           tags:
             - MagazinePistol
+            - MagazinePistolHighCapacity
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistolRubber
@@ -271,6 +272,30 @@
         whitelist:
           tags:
             - CartridgePistol
+      barrel_module:
+        name: Barrel Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 3
+        whitelist:
+          tags:
+          - BaseBarrelModule
+      handguard_module:
+        name: Handguard Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 3
+        whitelist:
+          tags:
+            - BaseHandGuardModule
+      aim_module:
+        name: Aim Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 3
+        whitelist:
+          tags:
+            - HolographicAimModule
 
 - type: entity
   name: N1984

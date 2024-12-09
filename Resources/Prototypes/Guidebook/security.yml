@@ -6,6 +6,7 @@
   - Forensics
   - Defusal
   - CriminalRecords
+  - WeaponModules # WD
 
 - type: guideEntry
   id: Forensics
@@ -21,3 +22,8 @@
   id: CriminalRecords
   name: guide-entry-criminal-records
   text: "/ServerInfo/Guidebook/Security/CriminalRecords.xml"
+
+- type: guideEntry # WD
+  id: WeaponModules
+  name: guide-entry-weapon-modules
+  text: "/ServerInfo/Guidebook/Security/WeaponModules.xml"
