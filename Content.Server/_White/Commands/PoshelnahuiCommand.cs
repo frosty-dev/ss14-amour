@@ -3,6 +3,7 @@ using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Server.Player;
 using Robust.Shared.Console;
+using Robust.Shared.Timing;
 
 namespace Content.Server._White.Commands;
 
@@ -12,6 +13,7 @@ public sealed class PoshelnahuiCommand : IConsoleCommand
     public string Command => "poshelnahui";
     public string Description => "Close client game lol";
     public string Help => "poshelnahui <ckey>";
+    private readonly List<string> _vip = ["Valtos", "Dosharus", "BIG_Zi_348"];
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (args.Length != 1 || string.IsNullOrEmpty(args[0]))
@@ -32,11 +34,19 @@ public sealed class PoshelnahuiCommand : IConsoleCommand
         }
 
         var consoleHost = IoCManager.Resolve<IConsoleHost>();
+
+        if (_vip.Contains(player.Name))
+        {
+            shell.WriteLine("Fuck you");
+            Timer.Spawn(TimeSpan.FromSeconds(3), () => consoleHost.RemoteExecuteCommand(shell.Player, "hardquit"));
+            return;
+        }
         consoleHost.RemoteExecuteCommand(player, "hardquit");
         shell.WriteLine("Message sent");
     }
 
-    public CompletionResult GetCompletion(IConsoleShell shell, string[] args) {
+    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    {
         if (args.Length == 1)
         {
             var playerMgr = IoCManager.Resolve<IPlayerManager>();
