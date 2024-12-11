@@ -76,6 +76,12 @@
   description: global-antagonist-unknown-description
   weight: 12
 
+- type: antagonist
+  id: globalAntagonistSnail
+  name: global-antagonist-snail-name
+  description: global-antagonist-snail-description
+  weight: 13
+
 
 # Amour
 
