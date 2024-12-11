@@ -377,7 +377,7 @@
     - type: SalvageMobRestrictions
 
 - type: entity # WD Ahead of wizden
-  parent: SimpleSpaceMobBase
+  parent: SimpleMobBase # WD edit
   id: MobSnail
   name: snail
   description: Revolting unless you're french.
@@ -545,11 +545,14 @@
       settings: default
   - type: Sprite
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: deathsnail
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: deatheyes
+      shader: unshaded
   - type: PointLight
     color: red
-    energy: 2
+    energy: 0.2
     range: 3
   - type: AmbientSound
     range: 5
@@ -559,6 +562,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 0.5
     baseSprintSpeed : 1
+  - type: GlobalAntagonist
+    antagonistPrototype: globalAntagonistSnail
   # WD EDIT END
 
 - type: entity # WD Ahead of wizden
