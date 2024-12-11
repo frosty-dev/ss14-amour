@@ -22,6 +22,8 @@ global-antagonist-spider-clown-name = Гигантский хонк-паук
 global-antagonist-spider-clown-description = Соразмерный с человеком агрессивный клоун-паук. ХОНК!
 global-antagonist-rats-name = Гигантская крыса
 global-antagonist-rats-description = Вечноголодная и агрессивная крыса
+global-antagonist-snail-name = Улитка
+global-antagonist-snail-description = Она пришла
 global-antagonist-unknown-name = Неизвестно
 global-antagonist-unknown-description = Подозрительно!!
 
