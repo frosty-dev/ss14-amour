@@ -32,3 +32,7 @@ ghost-teleport-menu-ghosts-label = Призраки
 ghost-teleport-menu-left-label = Вышедшие из тела
 ghost-teleport-menu-locations-label = Локации и объекты
 ghost-teleport-menu-count-label = Количество
+
+
+global-antagonist-demolitionist-name = Подрывник
+global-antagonist-demolitionist-description = Пришёл, чтобы красиво уйти

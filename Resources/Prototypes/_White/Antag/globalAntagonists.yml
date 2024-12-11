@@ -75,3 +75,12 @@
   name: global-antagonist-unknown-name
   description: global-antagonist-unknown-description
   weight: 12
+
+
+# Amour
+
+- type: antagonist
+  id: globalAntagonistDemolitionist
+  name: global-antagonist-demolitionist-name
+  description: global-antagonist-demolitionist-description
+  weight: 100

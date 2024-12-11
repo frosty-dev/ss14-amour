@@ -19,3 +19,12 @@
     - Syndicate
   - type: AutoTraitor
     profile: TraitorReinforcement
+
+- type: entity
+  parent: MobHumanDemolitionist
+  id: MobHumanDemolitionistShuttle
+  name: подрывник синдиката
+  suffix: Human, Base, Shuttle
+  components:
+  - type: GlobalAntagonist
+    antagonistPrototype: globalAntagonistDemolitionist
