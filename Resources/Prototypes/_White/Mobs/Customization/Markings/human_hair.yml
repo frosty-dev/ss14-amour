@@ -567,3 +567,1294 @@
   sprites:
     - sprite: White/Mobs/Customization/human_hair.rsi
       state: ziegler
+
+
+
+- type: marking
+  id: HumanHairClassicAfro
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: afro
+- type: marking
+  id: HumanHairClassicAfro2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: afro2
+- type: marking
+  id: HumanHairClassicBigafro
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bigafro
+- type: marking
+  id: HumanHairClassicAntenna
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: antenna
+- type: marking
+  id: HumanHairClassicBalding
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: e
+- type: marking
+  id: HumanHairClassicBedhead
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bedhead
+- type: marking
+  id: HumanHairClassicBedheadv2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bedheadv2
+- type: marking
+  id: HumanHairClassicBedheadv3
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bedheadv3
+- type: marking
+  id: HumanHairClassicLongBedhead
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: long_bedhead
+- type: marking
+  id: HumanHairClassicLongBedhead2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: long_bedhead2
+- type: marking
+  id: HumanHairClassicFloorlengthBedhead
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: floorlength_bedhead
+- type: marking
+  id: HumanHairClassicBeehive
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: beehive
+- type: marking
+  id: HumanHairClassicBeehivev2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: beehivev2
+- type: marking
+  id: HumanHairClassicBob
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bob
+- type: marking
+  id: HumanHairClassicBob2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bob2
+- type: marking
+  id: HumanHairClassicBobcut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bobcut
+- type: marking
+  id: HumanHairClassicBob4
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bob4
+- type: marking
+  id: HumanHairClassicBob5
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bob5
+- type: marking
+  id: HumanHairClassicBobcurl
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bobcurl
+- type: marking
+  id: HumanHairClassicBoddicker
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: boddicker
+- type: marking
+  id: HumanHairClassicBowlcut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bowlcut
+- type: marking
+  id: HumanHairClassicBowlcut2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bowlcut2
+- type: marking
+  id: HumanHairClassicBraid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: braid
+- type: marking
+  id: HumanHairClassicBraided
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: braided
+- type: marking
+  id: HumanHairClassicBraidfront
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: braidfront
+- type: marking
+  id: HumanHairClassicBraid2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: braid2
+- type: marking
+  id: HumanHairClassicHbraid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: hbraid
+- type: marking
+  id: HumanHairClassicShortbraid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: shortbraid
+- type: marking
+  id: HumanHairClassicBraidtail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: braidtail
+- type: marking
+  id: HumanHairClassicBun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bun
+- type: marking
+  id: HumanHairClassicBunhead2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bunhead2
+- type: marking
+  id: HumanHairClassicBun3
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bun3
+- type: marking
+  id: HumanHairClassicLargebun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: largebun
+- type: marking
+  id: HumanHairClassicManbun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: manbun
+- type: marking
+  id: HumanHairClassicTightbun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: tightbun
+- type: marking
+  id: HumanHairClassicBusiness
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: business
+- type: marking
+  id: HumanHairClassicBusiness2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: business2
+- type: marking
+  id: HumanHairClassicBusiness3
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: business3
+- type: marking
+  id: HumanHairClassicBusiness4
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: business4
+- type: marking
+  id: HumanHairClassicBuzzcut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: buzzcut
+- type: marking
+  id: HumanHairClassicCia
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: cia
+- type: marking
+  id: HumanHairClassicCoffeehouse
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: coffeehouse
+- type: marking
+  id: HumanHairClassicCombover
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: combover
+- type: marking
+  id: HumanHairClassicCornrows
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: cornrows
+- type: marking
+  id: HumanHairClassicCornrows2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: cornrows2
+- type: marking
+  id: HumanHairClassicCornrowbun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: cornrowbun
+- type: marking
+  id: HumanHairClassicCornrowbraid
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: cornrowbraid
+- type: marking
+  id: HumanHairClassicCornrowtail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: cornrowtail
+- type: marking
+  id: HumanHairClassicCrewcut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: crewcut
+- type: marking
+  id: HumanHairClassicCrewcut2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: crewcut2
+- type: marking
+  id: HumanHairClassicCurls
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: curls
+- type: marking
+  id: HumanHairClassicC
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: c
+- type: marking
+  id: HumanHairClassicDandypompadour
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: dandypompadour
+- type: marking
+  id: HumanHairClassicDevilock
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: devilock
+- type: marking
+  id: HumanHairClassicDoublebun
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: doublebun
+- type: marking
+  id: HumanHairClassicDoublebunLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+  - sprite: White/Mobs/Customization/old_human_hair.rsi
+    state: doublebun_long
+- type: marking
+  id: HumanHairClassicDreads
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: dreads
+- type: marking
+  id: HumanHairClassicDrillruru
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: drillruru
+- type: marking
+  id: HumanHairClassicDrillhairextended
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: drillhairextended
+- type: marking
+  id: HumanHairClassicEmo
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: emo
+- type: marking
+  id: HumanHairClassicEmofringe
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: emofringe
+- type: marking
+  id: HumanHairClassicNofade
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: nofade
+- type: marking
+  id: HumanHairClassicHighfade
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: highfade
+- type: marking
+  id: HumanHairClassicMedfade
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: medfade
+- type: marking
+  id: HumanHairClassicLowfade
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: lowfade
+- type: marking
+  id: HumanHairClassicBaldfade
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: baldfade
+- type: marking
+  id: HumanHairClassicFeather
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: feather
+- type: marking
+  id: HumanHairClassicFather
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: father
+- type: marking
+  id: HumanHairClassicSargeant
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: sargeant
+- type: marking
+  id: HumanHairClassicFlair
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: flair
+- type: marking
+  id: HumanHairClassicBigflattop
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bigflattop
+- type: marking
+  id: HumanHairClassicFlow
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: f
+- type: marking
+  id: HumanHairClassicGelled
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: gelled
+- type: marking
+  id: HumanHairClassicGentle
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: gentle
+- type: marking
+  id: HumanHairClassicHalfbang
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: halfbang
+- type: marking
+  id: HumanHairClassicHalfbang2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: halfbang2
+- type: marking
+  id: HumanHairClassicHalfshaved
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: halfshaved
+- type: marking
+  id: HumanHairClassicHedgehog
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: hedgehog
+- type: marking
+  id: HumanHairClassicHimecut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: himecut
+- type: marking
+  id: HumanHairClassicHimecut2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: himecut2
+- type: marking
+  id: HumanHairClassicShorthime
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: shorthime
+- type: marking
+  id: HumanHairClassicHimeup
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: himeup
+- type: marking
+  id: HumanHairClassicHitop
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: hitop
+- type: marking
+  id: HumanHairClassicJade
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: jade
+- type: marking
+  id: HumanHairClassicJensen
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: jensen
+- type: marking
+  id: HumanHairClassicJoestar
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: joestar
+- type: marking
+  id: HumanHairClassicKeanu
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: keanu
+- type: marking
+  id: HumanHairClassicKusanagi
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: kusanagi
+- type: marking
+  id: HumanHairClassicLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: long
+- type: marking
+  id: HumanHairClassicLong2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: long2
+- type: marking
+  id: HumanHairClassicLong3
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: long3
+- type: marking
+  id: HumanHairClassicLongWithBundles
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: longbundled
+- type: marking
+  id: HumanHairClassicLongovereye
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: longovereye
+- type: marking
+  id: HumanHairClassicLbangs
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: lbangs
+- type: marking
+  id: HumanHairClassicLongemo
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: longemo
+- type: marking
+  id: HumanHairClassicLongfringe
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: longfringe
+- type: marking
+  id: HumanHairClassicLongsidepart
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: longsidepart
+- type: marking
+  id: HumanHairClassicMegaeyebrows
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: megaeyebrows
+- type: marking
+  id: HumanHairClassicMessy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: messy
+- type: marking
+  id: HumanHairClassicModern
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: modern
+- type: marking
+  id: HumanHairClassicMohawk
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: d
+- type: marking
+  id: HumanHairClassicNitori
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: nitori
+- type: marking
+  id: HumanHairClassicReversemohawk
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: reversemohawk
+- type: marking
+  id: HumanHairClassicUnshavenMohawk
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: unshaven_mohawk
+- type: marking
+  id: HumanHairClassicMulder
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: mulder
+- type: marking
+  id: HumanHairClassicOdango
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: odango
+- type: marking
+  id: HumanHairClassicOmbre
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: ombre
+- type: marking
+  id: HumanHairClassicOneshoulder
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: oneshoulder
+- type: marking
+  id: HumanHairClassicShortovereye
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: shortovereye
+- type: marking
+  id: HumanHairClassicOxton
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: oxton
+- type: marking
+  id: HumanHairClassicParted
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: parted
+- type: marking
+  id: HumanHairClassicPart
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: part
+- type: marking
+  id: HumanHairClassicKagami
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: kagami
+- type: marking
+  id: HumanHairClassicPigtails
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: pigtails
+- type: marking
+  id: HumanHairClassicPigtails2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: pigtails2
+- type: marking
+  id: HumanHairClassicPixie
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: pixie
+- type: marking
+  id: HumanHairClassicPompadour
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: pompadour
+- type: marking
+  id: HumanHairClassicBigpompadour
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: bigpompadour
+- type: marking
+  id: HumanHairClassicPonytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: ponytail
+- type: marking
+  id: HumanHairClassicPonytail2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: ponytail2
+- type: marking
+  id: HumanHairClassicPonytail3
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: ponytail3
+- type: marking
+  id: HumanHairClassicPonytail4
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: ponytail4
+- type: marking
+  id: HumanHairClassicPonytail5
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: ponytail5
+- type: marking
+  id: HumanHairClassicPonytail6
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: ponytail6
+- type: marking
+  id: HumanHairClassicPonytail7
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: ponytail7
+- type: marking
+  id: HumanHairClassicHighponytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: highponytail
+- type: marking
+  id: HumanHairClassicStail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: stail
+- type: marking
+  id: HumanHairClassicLongstraightponytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: longstraightponytail
+- type: marking
+  id: HumanHairClassicCountry
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: country
+- type: marking
+  id: HumanHairClassicFringetail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: fringetail
+- type: marking
+  id: HumanHairClassicSidetail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: sidetail
+- type: marking
+  id: HumanHairClassicSidetail2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: sidetail2
+- type: marking
+  id: HumanHairClassicSidetail3
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: sidetail3
+- type: marking
+  id: HumanHairClassicSidetail4
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: sidetail4
+- type: marking
+  id: HumanHairClassicSpikyponytail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: spikyponytail
+- type: marking
+  id: HumanHairClassicPoofy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: poofy
+- type: marking
+  id: HumanHairClassicQuiff
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: quiff
+- type: marking
+  id: HumanHairClassicRonin
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: ronin
+- type: marking
+  id: HumanHairClassicShaved
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: shaved
+- type: marking
+  id: HumanHairClassicShavedpart
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: shavedpart
+- type: marking
+  id: HumanHairClassicShortbangs
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: shortbangs
+- type: marking
+  id: HumanHairClassicA
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: a
+- type: marking
+  id: HumanHairClassicShorthair2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: shorthair2
+- type: marking
+  id: HumanHairClassicShorthair3
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: shorthair3
+- type: marking
+  id: HumanHairClassicD
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: d
+- type: marking
+  id: HumanHairClassicE
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: e
+- type: marking
+  id: HumanHairClassicF
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: f
+- type: marking
+  id: HumanHairClassicShorthairg
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: shorthairg
+- type: marking
+  id: HumanHairClassic80s
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: 80s
+- type: marking
+  id: HumanHairClassicRosa
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: rosa
+- type: marking
+  id: HumanHairClassicB
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: b
+- type: marking
+  id: HumanHairClassicSidecut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: sidecut
+- type: marking
+  id: HumanHairClassicSkinhead
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: skinhead
+- type: marking
+  id: HumanHairClassicProtagonist
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: protagonist
+- type: marking
+  id: HumanHairClassicSpikey
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: spikey
+- type: marking
+  id: HumanHairClassicSpiky
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: spiky
+- type: marking
+  id: HumanHairClassicSpiky2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: spiky2
+- type: marking
+  id: HumanHairClassicSpookyLong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: spookylong
+- type: marking
+  id: HumanHairClassicSwept
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: swept
+- type: marking
+  id: HumanHairClassicSwept2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: swept2
+- type: marking
+  id: HumanHairClassicShoulderLengthOverEye
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: shoulderlengthovereye
+- type: marking
+  id: HumanHairClassicThinning
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: thinning
+- type: marking
+  id: HumanHairClassicThinningfront
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: thinningfront
+- type: marking
+  id: HumanHairClassicThinningrear
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: thinningrear
+- type: marking
+  id: HumanHairClassicTopknot
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: topknot
+- type: marking
+  id: HumanHairClassicTressshoulder
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: tressshoulder
+- type: marking
+  id: HumanHairClassicTrimmed
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: trimmed
+- type: marking
+  id: HumanHairClassicTrimflat
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: trimflat
+- type: marking
+  id: HumanHairClassicTwintail
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: twintail
+- type: marking
+  id: HumanHairClassicTwoStrands
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: twostrands
+- type: marking
+  id: HumanHairClassicUndercut
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: undercut
+- type: marking
+  id: HumanHairClassicUndercutleft
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: undercutleft
+- type: marking
+  id: HumanHairClassicUndercutright
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: undercutright
+- type: marking
+  id: HumanHairClassicUnkept
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: unkept
+- type: marking
+  id: HumanHairClassicUpdo
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: updo
+- type: marking
+  id: HumanHairClassicVlong
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: vlong
+- type: marking
+  id: HumanHairClassicLongest
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: longest
+- type: marking
+  id: HumanHairClassicLongest2
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: longest2
+- type: marking
+  id: HumanHairClassicVeryshortovereyealternate
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: veryshortovereyealternate
+- type: marking
+  id: HumanHairClassicVlongfringe
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: vlongfringe
+- type: marking
+  id: HumanHairClassicVolaju
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: volaju
+- type: marking
+  id: HumanHairClassicWisp
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: wisp
+- type: marking
+  id: HumanHairClassicUneven
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: uneven
+- type: marking
+  id: HumanHairClassicTailed
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: White/Mobs/Customization/old_human_hair.rsi
+      state: tailed
