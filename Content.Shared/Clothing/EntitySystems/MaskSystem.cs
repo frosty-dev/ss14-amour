@@ -35,7 +35,7 @@ public sealed class MaskSystem : EntitySystem
     private void OnToggleMask(Entity<MaskComponent> ent, ref ToggleMaskEvent args)
     {
         var (uid, mask) = ent;
-        if (mask.ToggleActionEntity == null || !_timing.IsFirstTimePredicted)
+        if (mask.ToggleActionEntity == null || !_timing.IsFirstTimePredicted || !mask.IsEnabled) // WD Ahead of wizden
             return;
 
         if (!_inventorySystem.TryGetSlotEntity(args.Performer, "mask", out var existing) || !uid.Equals(existing))
@@ -53,7 +53,7 @@ public sealed class MaskSystem : EntitySystem
     // set to untoggled when unequipped, so it isn't left in a 'pulled down' state
     private void OnGotUnequipped(EntityUid uid, MaskComponent mask, GotUnequippedEvent args)
     {
-        if (!mask.IsToggled)
+        if (!mask.IsToggled || !mask.IsEnabled) // WD Ahead of wizden
             return;
 
         mask.IsToggled = false;
@@ -66,7 +66,7 @@ public sealed class MaskSystem : EntitySystem
     private void ToggleMaskComponents(EntityUid uid, MaskComponent mask, EntityUid wearer, string? equippedPrefix = null, bool isEquip = false)
     {
         Dirty(uid, mask);
-        if (mask.ToggleActionEntity is {} action)
+        if (mask.ToggleActionEntity is { } action)
             _actionSystem.SetToggled(action, mask.IsToggled);
 
         var maskEv = new ItemMaskToggledEvent(wearer, equippedPrefix, mask.IsToggled, isEquip);
@@ -78,6 +78,8 @@ public sealed class MaskSystem : EntitySystem
 
     private void OnFolded(Entity<MaskComponent> ent, ref FoldedEvent args)
     {
+        if (ent.Comp.DisableOnFolded) // WD Ahead of wizden
+            ent.Comp.IsEnabled = !args.IsFolded;
         ent.Comp.IsToggled = args.IsFolded;
 
         ToggleMaskComponents(ent.Owner, ent.Comp, ent.Owner);
