@@ -13,16 +13,19 @@ namespace Content.Client._White.Economy.Ui;
 public sealed partial class VendingMenu : DefaultWindow
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-
+    
     public event Action<int>? OnItemSelected;
     public Action<VendingMachineWithdrawMessage>? OnWithdraw;
-
+    public string filter = "";
     public VendingMenu()
     {
         MinSize = SetSize = new Vector2(250, 150);
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+       // SearchBar.OnTextChanged += UpdateFilter;
     }
+
+   
 
     /// <summary>
     /// Populates the list of available items on the vending machine interface
@@ -55,7 +58,7 @@ public sealed partial class VendingMenu : DefaultWindow
         for (var i = 0; i < inventory.Count; i++)
         {
             var entry = inventory[i];
-
+            
             var itemName = entry.ID;
             Texture? icon = null;
             if (_prototypeManager.TryIndex<EntityPrototype>(entry.ID, out var prototype))
@@ -73,6 +76,8 @@ public sealed partial class VendingMenu : DefaultWindow
             var j = i;
             vendingItem.VendingItemBuyButton.OnPressed += _ => { OnItemSelected?.Invoke(j); };
 
+
+            if(filter == "" || (prototype?.Name?.Contains(filter) == true)) //WD
             VendingContents.AddChild(vendingItem);
         }
 

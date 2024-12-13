@@ -15,10 +15,11 @@ namespace Content.Client.VendingMachines
         [ViewVariables]
         private List<int> _cachedFilteredIndex = new();
 
+        private VendingMachineComponent component = new();//WD edit
         public VendingMachineBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
         }
-
+       
         protected override void Open()
         {
             base.Open();
@@ -26,7 +27,7 @@ namespace Content.Client.VendingMachines
             var vendingMachineSys = EntMan.System<VendingMachineSystem>();
 
             // WD EDIT START
-            var component = EntMan.GetComponent<VendingMachineComponent>(Owner);
+            component = EntMan.GetComponent<VendingMachineComponent>(Owner);
             _cachedInventory = vendingMachineSys.GetAllInventory(Owner, component);
 
             _menu = new VendingMenu { Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName };
@@ -34,12 +35,31 @@ namespace Content.Client.VendingMachines
             _menu.OnClose += Close;
             _menu.OnItemSelected += OnItemSelected;
             _menu.OnWithdraw += SendMessage;
+            _menu.SearchBar.OnTextChanged += UpdateFilter;
             // WD EDIT END
 
             _menu.Populate(_cachedInventory, component.PriceMultiplier, component.Credits);
 
             _menu.OpenCenteredLeft();
         }
+
+        // WD EDIT START
+        private void UpdateFilter(Robust.Client.UserInterface.Controls.LineEdit.LineEditEventArgs obj)
+        {
+            if (_menu != null)
+            {
+                _menu.filter = obj.Text;
+                _menu.Populate(_cachedInventory, component.PriceMultiplier, component.Credits);
+            }
+        }
+        // WD EDIT END
+
+
+
+
+
+
+
 
         protected override void UpdateState(BoundUserInterfaceState state)
         {
@@ -84,7 +104,7 @@ namespace Content.Client.VendingMachines
 
         private void OnSearchChanged(string? filter)
         {
-            //_menu?.Populate(_cachedInventory, out _cachedFilteredIndex, filter);
+            //_menu?.filter = (filter ?? "");
         }
     }
 }
