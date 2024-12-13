@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": "waggier",
+    "size": {
+        "x": 2000,
+        "y": 1200
+    },
+    "states": [
+        {
+            "name": "brig2",
+            "delays": [
+                [
+                    1
+                ]
+            ]
+        }
+    ]
+}
