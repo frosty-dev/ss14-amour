@@ -2,7 +2,7 @@
   id: Meta
   mapName: 'Meta Station'
   mapPath: /Maps/_Honk/Stations/Meta.yml
-  minPlayers: 0 # Amour
+  minPlayers: 0
   stations:
     Meta:
       stationProto: StandardNanotrasenStation

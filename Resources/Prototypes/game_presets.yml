@@ -33,7 +33,7 @@
   - extended
   - shittersafari
   name: extended-title
-  showInVote: true # Amour EDIT
+  showInVote: true # WD EDIT
   description: extended-description
   rules:
   - BasicStationEventScheduler
@@ -46,7 +46,7 @@
   - greenshift
   - shittersafarideluxeedition
   name: greenshift-title
-  showInVote: true # Amour EDIT
+  showInVote: true # WD EDIT
   description: greenshift-description
   rules:
   - BasicRoundstartVariation

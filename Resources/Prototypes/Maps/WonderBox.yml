@@ -2,7 +2,7 @@
   id: WonderBox
   mapName: 'WonderBox Station'
   mapPath: /Maps/_Honk/Stations/WonderBox.yml
-  minPlayers: 0 # Amour
+  minPlayers: 0
   stations:
     WonderBoxStation:
       stationProto: StandardNanotrasenStation
