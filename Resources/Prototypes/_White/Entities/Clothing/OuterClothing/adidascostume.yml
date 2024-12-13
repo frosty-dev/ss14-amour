@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingOuterStorageBase
-  id: adidascostume
+  id: ClothingOuterCoatАdidascostume
   name: Серый спортивный костюм
   description: Когда-то костюмы Абибаса были очень популярны. Сейчас же это больше культурное наследие. Странно, почему так хочется семечек?
   components:
