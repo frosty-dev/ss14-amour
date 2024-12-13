@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: adidascostume
+  name: Серый спортивный костюм
+  description: Когда-то костюмы Абибаса были очень популярны. Сейчас же это больше культурное наследие. Странно, почему так хочется семечек?
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/adidascostume.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/adidascostume.rsi
+  - type: StorageFill
+    contents:
+    - id: FoodSnackSemki
