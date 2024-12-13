@@ -1,4 +1,4 @@
-﻿using Content.Server.GameTicking;
+using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
 using Content.Server.Voting.Managers;
 using Content.Shared.Voting;

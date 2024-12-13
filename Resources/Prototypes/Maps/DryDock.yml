@@ -2,7 +2,7 @@
   id: DryDock
   mapName: 'DryDock Station'
   mapPath: /Maps/_Honk/Stations/DryDock.yml
-  minPlayers: 0 # Amour
+  minPlayers: 0
   stations:
     DryDockStation:
       stationProto: StandardNanotrasenStation
