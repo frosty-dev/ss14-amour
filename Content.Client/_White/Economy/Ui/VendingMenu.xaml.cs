@@ -16,12 +16,13 @@ public sealed partial class VendingMenu : DefaultWindow
 
     public event Action<int>? OnItemSelected;
     public Action<VendingMachineWithdrawMessage>? OnWithdraw;
-
+    public string filter = "";
     public VendingMenu()
     {
         MinSize = SetSize = new Vector2(250, 150);
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+        // SearchBar.OnTextChanged += UpdateFilter;
     }
 
     /// <summary>
@@ -38,7 +39,7 @@ public sealed partial class VendingMenu : DefaultWindow
                 return;
             OnWithdraw?.Invoke(new VendingMachineWithdrawMessage());
         };
-        
+
         VendingContents.RemoveAllChildren();
         if (inventory.Count == 0)
         {
@@ -67,13 +68,15 @@ public sealed partial class VendingMenu : DefaultWindow
             if (itemName.Length > longestEntry.Length)
                 longestEntry = itemName;
 
-            var price = (int)(entry.Price * priceMultiplier);
+            var price = (int) (entry.Price * priceMultiplier);
             var vendingItem = new VendingItem($"{itemName} [{entry.Amount}]", price > 0 ? $"{price} \u00a2" : "выдать", icon);
 
             var j = i;
             vendingItem.VendingItemBuyButton.OnPressed += _ => { OnItemSelected?.Invoke(j); };
 
-            VendingContents.AddChild(vendingItem);
+
+            if (filter == "" || (prototype?.Name?.Contains(filter) == true))
+                VendingContents.AddChild(vendingItem);
         }
 
         SetSizeAfterUpdate(longestEntry.Length);
