@@ -13,7 +13,7 @@ namespace Content.Client._White.Economy.Ui;
 public sealed partial class VendingMenu : DefaultWindow
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    
+
     public event Action<int>? OnItemSelected;
     public Action<VendingMachineWithdrawMessage>? OnWithdraw;
     public string filter = "";
@@ -22,10 +22,8 @@ public sealed partial class VendingMenu : DefaultWindow
         MinSize = SetSize = new Vector2(250, 150);
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-       // SearchBar.OnTextChanged += UpdateFilter;
+        // SearchBar.OnTextChanged += UpdateFilter;
     }
-
-   
 
     /// <summary>
     /// Populates the list of available items on the vending machine interface
@@ -41,7 +39,7 @@ public sealed partial class VendingMenu : DefaultWindow
                 return;
             OnWithdraw?.Invoke(new VendingMachineWithdrawMessage());
         };
-        
+
         VendingContents.RemoveAllChildren();
         if (inventory.Count == 0)
         {
@@ -58,7 +56,7 @@ public sealed partial class VendingMenu : DefaultWindow
         for (var i = 0; i < inventory.Count; i++)
         {
             var entry = inventory[i];
-            
+
             var itemName = entry.ID;
             Texture? icon = null;
             if (_prototypeManager.TryIndex<EntityPrototype>(entry.ID, out var prototype))
@@ -70,15 +68,15 @@ public sealed partial class VendingMenu : DefaultWindow
             if (itemName.Length > longestEntry.Length)
                 longestEntry = itemName;
 
-            var price = (int)(entry.Price * priceMultiplier);
+            var price = (int) (entry.Price * priceMultiplier);
             var vendingItem = new VendingItem($"{itemName} [{entry.Amount}]", price > 0 ? $"{price} \u00a2" : "выдать", icon);
 
             var j = i;
             vendingItem.VendingItemBuyButton.OnPressed += _ => { OnItemSelected?.Invoke(j); };
 
 
-            if(filter == "" || (prototype?.Name?.Contains(filter) == true)) //WD
-            VendingContents.AddChild(vendingItem);
+            if (filter == "" || (prototype?.Name?.Contains(filter) == true))
+                VendingContents.AddChild(vendingItem);
         }
 
         SetSizeAfterUpdate(longestEntry.Length);

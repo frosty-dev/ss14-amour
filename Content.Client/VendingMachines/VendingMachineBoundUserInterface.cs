@@ -15,11 +15,11 @@ namespace Content.Client.VendingMachines
         [ViewVariables]
         private List<int> _cachedFilteredIndex = new();
 
-        private VendingMachineComponent component = new();//WD edit
+        private VendingMachineComponent component = new(); // WD edit
         public VendingMachineBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
         }
-       
+
         protected override void Open()
         {
             base.Open();
@@ -53,13 +53,6 @@ namespace Content.Client.VendingMachines
             }
         }
         // WD EDIT END
-
-
-
-
-
-
-
 
         protected override void UpdateState(BoundUserInterfaceState state)
         {
