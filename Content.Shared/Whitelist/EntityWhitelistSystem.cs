@@ -81,4 +81,17 @@ public sealed class EntityWhitelistSystem : EntitySystem
             }
         }
     }
+
+    /// <summary>
+    /// WD Ahead of wizden.
+    /// Helper function to determine if Whitelist is not null and entity is not on the list
+    /// </summary>
+    public bool IsWhitelistFail(EntityWhitelist? whitelist, EntityUid uid)
+    {
+        if (whitelist == null)
+            return false;
+
+        return !IsValid(whitelist, uid);
+    }
+
 }
