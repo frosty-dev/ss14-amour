@@ -469,9 +469,3 @@
   id: IMercuryITie
   entity: ClothingNeckTieIMercuryI
   sponsorOnly: true
-
-# AugustNacist1488
-- type: sponsorLoadout
-  id: AugustNacist1488Cloak
-  entity: ClothingAugustNeckFluff
-  sponsorOnly: true
