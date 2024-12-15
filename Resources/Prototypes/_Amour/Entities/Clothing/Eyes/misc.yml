@@ -1,0 +1,175 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBlindfoldDarkblue
+  name: blindfold
+  suffix: Dark Blue
+  description: The bind leading the blind.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    state: darkblueicon
+  - type: Clothing
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    equippedPrefix: darkblue
+  - type: Blindfold
+  - type: FlashImmunity
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBlindfoldDarkpink
+  name: blindfold
+  suffix: Dark Pink
+  description: The bind leading the blind.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    state: darkpinkicon
+  - type: Clothing
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    equippedPrefix: darkpink
+  - type: Blindfold
+  - type: FlashImmunity
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBlindfoldGreen
+  name: blindfold
+  suffix: Green
+  description: The bind leading the blind.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    state: greenicon
+  - type: Clothing
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    equippedPrefix: green
+  - type: Blindfold
+  - type: FlashImmunity
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBlindfoldGrey
+  name: blindfold
+  suffix: Grey
+  description: The bind leading the blind.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    state: greyicon
+  - type: Clothing
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    equippedPrefix: grey
+  - type: Blindfold
+  - type: FlashImmunity
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBlindfoldLightblue
+  name: blindfold
+  suffix: Light Blue
+  description: The bind leading the blind.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    state: lightblueicon
+  - type: Clothing
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    equippedPrefix: lightblue
+  - type: Blindfold
+  - type: FlashImmunity
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBlindfoldOrange
+  name: blindfold
+  suffix: Orange
+  description: The bind leading the blind.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    state: orangeicon
+  - type: Clothing
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    equippedPrefix: orange
+  - type: Blindfold
+  - type: FlashImmunity
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBlindfoldPink
+  name: blindfold
+  suffix: Pink
+  description: The bind leading the blind.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    state: pinkicon
+  - type: Clothing
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    equippedPrefix: pink
+  - type: Blindfold
+  - type: FlashImmunity
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBlindfoldPurple
+  name: blindfold
+  suffix: Purple
+  description: The bind leading the blind.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    state: purpleicon
+  - type: Clothing
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    equippedPrefix: purple
+  - type: Blindfold
+  - type: FlashImmunity
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBlindfoldRed
+  name: blindfold
+  suffix: Red
+  description: The bind leading the blind.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    state: redicon
+  - type: Clothing
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    equippedPrefix: red
+  - type: Blindfold
+  - type: FlashImmunity
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBlindfoldWhite
+  name: blindfold
+  suffix: White
+  description: The bind leading the blind.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    state: whiteicon
+  - type: Clothing
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    equippedPrefix: white
+  - type: Blindfold
+  - type: FlashImmunity
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBlindfoldYellow
+  name: blindfold
+  suffix: Yellow
+  description: The bind leading the blind.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    state: yellowicon
+  - type: Clothing
+    sprite: White/_Amour/Clothing/Eyes/Misc/blindfold.rsi
+    equippedPrefix: yellow
+  - type: Blindfold
+  - type: FlashImmunity

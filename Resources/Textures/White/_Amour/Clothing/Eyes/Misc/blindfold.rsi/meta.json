@@ -1,0 +1,88 @@
+{
+    "version": "0.0.1",
+    "license": "CC-BY-SA 3.0",
+    "copyright": "Blindfolds by @Kilath",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "darkblueicon"
+        },
+        {
+            "name": "darkpinkicon"
+        },
+        {
+            "name": "greenicon"
+        },
+        {
+            "name": "greyicon"
+        },
+        {
+            "name": "lightblueicon"
+        },
+        {
+            "name": "orangeicon"
+        },
+        {
+            "name": "pinkicon"
+        },
+        {
+            "name": "purpleicon"
+        },
+        {
+            "name": "redicon"
+        },
+        {
+            "name": "whiteicon"
+        },
+        {
+            "name": "yellowicon"
+        },
+        {
+            "name": "darkblue-equipped-EYES",
+            "directions": 4
+        },
+        {
+            "name": "darkpink-equipped-EYES",
+            "directions": 4
+        },
+        {
+            "name": "green-equipped-EYES",
+            "directions": 4
+        },
+        {
+            "name": "grey-equipped-EYES",
+            "directions": 4
+        },
+        {
+            "name": "lightblue-equipped-EYES",
+            "directions": 4
+        },
+        {
+            "name": "orange-equipped-EYES",
+            "directions": 4
+        },
+        {
+            "name": "pink-equipped-EYES",
+            "directions": 4
+        },
+        {
+            "name": "purple-equipped-EYES",
+            "directions": 4
+        },
+        {
+            "name": "red-equipped-EYES",
+            "directions": 4
+        },
+        {
+            "name": "white-equipped-EYES",
+            "directions": 4
+        },
+        {
+            "name": "yellow-equipped-EYES",
+            "directions": 4
+        }
+    ]
+}

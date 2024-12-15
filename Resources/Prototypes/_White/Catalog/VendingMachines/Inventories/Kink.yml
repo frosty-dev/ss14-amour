@@ -6,7 +6,18 @@
     ClothingMaskSexyMime: 6
     ClothingMaskSexyClown: 6
     ClothingMaskMuzzle: 6
-    ClothingEyesBlindfold: 6
+    ClothingEyesBlindfold: 2
+    ClothingEyesBlindfoldDarkblue: 1
+    ClothingEyesBlindfoldDarkpink: 1
+    ClothingEyesBlindfoldGreen: 1
+    ClothingEyesBlindfoldGrey: 1
+    ClothingEyesBlindfoldLightblue: 1
+    ClothingEyesBlindfoldOrange: 1
+    ClothingEyesBlindfoldPink: 1
+    ClothingEyesBlindfoldPurple: 1
+    ClothingEyesBlindfoldRed: 1
+    ClothingEyesBlindfoldWhite: 1
+    ClothingEyesBlindfoldYellow: 1
     ClothingHeadHatCatEars: 6
     ClothingHeadHatBunny: 6
     DildoHuman: 3
