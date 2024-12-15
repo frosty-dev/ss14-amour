@@ -344,3 +344,13 @@
   completetime: 5
   materials:
     Steel: 300
+
+- type: latheRecipe
+  id: SoapOmega
+  result: SoapOmega
+  category: Tools
+  completetime: 10
+  materials:
+    Plastic: 3000
+    Silver: 100
+    Gold: 100

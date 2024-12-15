@@ -50,8 +50,6 @@
     SpaceCash500: 1.0
     SpaceCash1000: 0.75
     SpaceCash2500: 0.5
-    # blueprints WD
-    BlueprintFulton: 1.0
 
 - type: weightedRandomEntity
   id: SalvageRewardEpic
@@ -78,3 +76,4 @@
     SpaceCash10000: 0.5
     # blueprints WD
     BlueprintSeismicCharge: 1.0
+    BlueprintSoapOmega: 1.0

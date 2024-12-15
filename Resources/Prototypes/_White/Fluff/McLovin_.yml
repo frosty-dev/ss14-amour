@@ -1,14 +1,14 @@
 ﻿- type: entity
   parent: ClothingNeckBase
-  id: ClothingAugustNeckFluff
+  id: ClothingMcLovin_NeckFluff
   name: пустотный плащ
   suffix: fluff
   description: Плащ, который был создан на мировой кузнице Лавовых земель одним из шахтёров.
   components:
   - type: Sprite
-    sprite: White/Fluff/AugustNacist1488/void_cloak.rsi
+    sprite: White/Fluff/McLovin_/void_cloak.rsi
 
 - type: sponsorLoadout
-  id: NeckLoadoutAugust
-  entity: ClothingAugustNeckFluff
+  id: NeckLoadoutMcLovin_
+  entity: ClothingMcLovin_NeckFluff
   sponsorOnly: true
