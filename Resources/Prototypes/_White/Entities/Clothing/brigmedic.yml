@@ -1,0 +1,144 @@
+- type: entity
+  parent: ClothingOuterArmorBasic
+  id: ClothingOuterArmorBrigmedic
+  name: brigmedic armor vest
+  description: A standard Type I armored vest that provides decent protection against most types of damage. Has a brigmedic coloring.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/OuterClothing/kevlar_brigmed.rsi
+  - type: Clothing
+    sprite: White/Clothing/OuterClothing/kevlar_brigmed.rsi
+
+- type: entity
+  parent: ClothingBackpackBrigmedic
+  id: ClothingBackpackBrigmedicNew
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Back/Backpacks/brigmedic.rsi
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackBrigmedicFilled
+  id: ClothingBackpackBrigmedicNewFilled
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Back/Backpacks/brigmedic.rsi
+
+- type: entity
+  parent: ClothingHeadHatBeretBrigmedic
+  id: ClothingHeadHatBeretBrigmedicNew
+  name: brigmedic beret
+  description: A stylish clothing option for brigmedics.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Head/beret_brigmedic.rsi
+  - type: Clothing
+    sprite: White/Clothing/Head/beret_brigmedic.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffelBrigmedic
+  id: ClothingBackpackDuffelBrigmedicNew
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Back/Duffels/brigmedic.rsi
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackDuffelBrigmedicFilled
+  id: ClothingBackpackDuffelBrigmedicNewFilled
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Back/Duffels/brigmedic.rsi
+
+- type: entity
+  parent: ClothingHeadsetBrigmedic
+  id: ClothingHeadsetBrigmedicNew
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Ears/Headsets/brigmedic.rsi
+  - type: Clothing
+    sprite: White/Clothing/Ears/Headsets/brigmedic.rsi
+
+- type: entity
+  parent: ClothingMaskBreathMedicalSecurity
+  id: ClothingMaskBreathBrigmedic
+  name: brigmedic mask
+  description: A medical mask with a small layer of protection against damage and viruses.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Mask/brigmedic.rsi
+  - type: Clothing
+    sprite: White/Clothing/Mask/brigmedic.rsi
+
+- type: entity
+  parent: ClothingBackpackSatchelBrigmedic
+  id: ClothingBackpackSatchelBrigmedicNew
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Back/Satchels/brigmedic.rsi
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelBrigmedicFilled
+  id: ClothingBackpackSatchelBrigmedicNewFilled
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Back/Satchels/brigmedic.rsi
+
+- type: entity
+  parent: ClothingOuterCoatAMG
+  id: ClothingOuterCoatBrigmedic
+  components:
+  - type: Sprite
+    sprite: White/Clothing/OuterClothing/Coats/brigmedic.rsi
+  - type: Clothing
+    sprite: White/Clothing/OuterClothing/Coats/brigmedic.rsi
+
+- type: entity
+  parent: ClothingUniformJumpsuitBrigmedic
+  id: ClothingUniformJumpsuitBrigmedicNew
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Uniforms/Jumpsuit/brigmedic.rsi
+  - type: Clothing
+    sprite: White/Clothing/Uniforms/Jumpsuit/brigmedic.rsi
+
+- type: entity
+  parent: ClothingUniformJumpskirtBrigmedic
+  id: ClothingUniformJumpskirtBrigmedicNew
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Uniforms/Jumpskirt/brigmedic.rsi
+  - type: Clothing
+    sprite: White/Clothing/Uniforms/Jumpskirt/brigmedic.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetBasic
+  id: ClothingHeadHelmetBrigmedic
+  name: brigmedic helmet
+  description: Standard brigmedic gear. Protects the head from impacts.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Head/helmet_brigmedic.rsi
+  - type: Clothing
+    sprite: White/Clothing/Head/helmet_brigmedic.rsi
+
+- type: entity
+  parent: ClothingOuterHardsuitBrigmedic
+  id: ClothingOuterHardsuitBrigmedicNew
+  components:
+  - type: Sprite
+    sprite: White/Clothing/OuterClothing/hardsuit_brigmedic.rsi
+  - type: Clothing
+    sprite: White/Clothing/OuterClothing/hardsuit_brigmedic.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitBrigmedicNew
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitBrigmedic
+  id: ClothingHeadHelmetHardsuitBrigmedicNew
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Head/Hardsuits/brigmedic.rsi
+  - type: Clothing
+    sprite: White/Clothing/Head/Hardsuits/brigmedic.rsi
