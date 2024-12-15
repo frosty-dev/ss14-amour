@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseBlueprint
+  id: BlueprintSoapOmega
+  name: omega soap blueprint
+  description: A blueprint with a schematic of an omega soap. It can be inserted into an autolathe.
+  components:
+  - type: Blueprint
+    providedRecipes:
+    - SoapOmega
