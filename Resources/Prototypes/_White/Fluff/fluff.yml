@@ -1225,3 +1225,13 @@
       sprite: White/Fluff/IMercuryI/tie.rsi
     - type: Clothing
       sprite: White/Fluff/IMercuryI/tie.rsi
+
+# Feda_Plevajecki
+- type: marking
+  id: Feda_Plevajecki_Fins
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  sponsorOnly: true
+  sprites:
+  - sprite: White/Fluff/Feda_Plevajecki/shark.rsi
+    state: shark
