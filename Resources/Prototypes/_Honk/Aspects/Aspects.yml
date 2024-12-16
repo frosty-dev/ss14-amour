@@ -10,3 +10,16 @@
     startAudio:
       path: /Audio/White/Aspects/accent.ogg
   - type: CaucasianAccentAspect
+
+- type: entity
+  id: AlasAccentAspect
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: Aspect
+    name: "Увы"
+    description: "Экипаж станции преисполнился осознанием бытия. Все проблемы в жизни, вся повседневная суета - это слишком тяжёло, увы."
+    weight: 3
+    startAudio:
+      path: /Audio/White/Aspects/accent.ogg
+  - type: AlasAccentAspect
