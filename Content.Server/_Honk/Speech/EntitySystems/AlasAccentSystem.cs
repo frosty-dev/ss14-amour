@@ -34,6 +34,12 @@ public sealed class AlasAccentSystem : EntitySystem
                 case ',':
                     modificator = @" увы.";
                     break;
+                case '?':
+                    modificator = @".. увы.";
+                    break;
+                case '!':
+                    modificator = @" Увы.";
+                    break;
                 default:
                     modificator = @", увы.";
                     break;
