@@ -1,0 +1,183 @@
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterRobeBotany
+  name: luxury robe
+  suffix: Botany
+  description: An opulent garment crafted from sumptuous fabrics, its unparalleled comfort and elegance is perfect for cozy evenings.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/botany.rsi
+  - type: Clothing
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/botany.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterRobeBotany]
+  id: ClothingOuterRobeBotanyOpened
+  noSpawn: true
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterRobeBrass
+  name: luxury robe
+  suffix: Brass
+  description: An opulent garment crafted from sumptuous fabrics, its unparalleled comfort and elegance is perfect for cozy evenings.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/brass.rsi
+  - type: Clothing
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/brass.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterRobeBrass]
+  id: ClothingOuterRobeBrassOpened
+  noSpawn: true
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterRobeLime
+  name: luxury robe
+  suffix: Lime
+  description: An opulent garment crafted from sumptuous fabrics, its unparalleled comfort and elegance is perfect for cozy evenings.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/lime.rsi
+  - type: Clothing
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/lime.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterRobeLime]
+  id: ClothingOuterRobeLimeOpened
+  noSpawn: true
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterRobeSpace
+  name: luxury robe
+  suffix: Space
+  description: An opulent garment crafted from sumptuous fabrics, its unparalleled comfort and elegance is perfect for cozy evenings.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/space.rsi
+  - type: Clothing
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/space.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterRobeSpace]
+  id: ClothingOuterRobeSpaceOpened
+  noSpawn: true
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterRobeSteel
+  name: luxury robe
+  suffix: Steel
+  description: An opulent garment crafted from sumptuous fabrics, its unparalleled comfort and elegance is perfect for cozy evenings.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/steel.rsi
+  - type: Clothing
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/steel.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterRobeSteel]
+  id: ClothingOuterRobeSteelOpened
+  noSpawn: true
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterRobeWave
+  name: luxury robe
+  suffix: Wave
+  description: An opulent garment crafted from sumptuous fabrics, its unparalleled comfort and elegance is perfect for cozy evenings.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/wave.rsi
+  - type: Clothing
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/wave.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterRobeWave]
+  id: ClothingOuterRobeWaveOpened
+  noSpawn: true
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterRobeWine
+  name: luxury robe
+  suffix: Wine
+  description: An opulent garment crafted from sumptuous fabrics, its unparalleled comfort and elegance is perfect for cozy evenings.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/wine.rsi
+  - type: Clothing
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/wine.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterRobeWine]
+  id: ClothingOuterRobeWineOpened
+  noSpawn: true
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterRobeMallow
+  name: luxury robe
+  suffix: Mallow
+  description: An opulent garment crafted from sumptuous fabrics, its unparalleled comfort and elegance is perfect for cozy evenings.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/мallow.rsi
+  - type: Clothing
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Foldable/мallow.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterRobeMallow]
+  id: ClothingOuterRobeMallowOpened
+  noSpawn: true
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterRobeTransparentBublegum
+  name: luxury robe
+  suffix: TransparentBublegum
+  description: An opulent garment crafted from sumptuous fabrics, its unparalleled comfort and elegance is perfect for cozy evenings.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Transparent/bublegum.rsi
+  - type: Clothing
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Transparent/bublegum.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterRobeTransparentOcean
+  name: luxury robe
+  suffix: TransparentOcean
+  description: An opulent garment crafted from sumptuous fabrics, its unparalleled comfort and elegance is perfect for cozy evenings.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Transparent/ocean.rsi
+  - type: Clothing
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Transparent/ocean.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterRobeTransparentSunset
+  name: luxury robe
+  suffix: TransparentSunset
+  description: An opulent garment crafted from sumptuous fabrics, its unparalleled comfort and elegance is perfect for cozy evenings.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Transparent/sunset.rsi
+  - type: Clothing
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Transparent/sunset.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterRobeTransparentTwilight
+  name: luxury robe
+  suffix: TransparentTwilight
+  description: An opulent garment crafted from sumptuous fabrics, its unparalleled comfort and elegance is perfect for cozy evenings.
+  components:
+  - type: Sprite
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Transparent/twilight.rsi
+  - type: Clothing
+    sprite: White/_Amour/Clothing/OuterClothing/Coats/Robes/Transparent/twilight.rsi
