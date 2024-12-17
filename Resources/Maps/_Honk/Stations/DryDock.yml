@@ -12743,6 +12743,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -93.5,3.5
       parent: 2
+  - uid: 338
+    components:
+    - type: Transform
+      pos: -141.5,4.5
+      parent: 2
 - proto: AirlockDetectiveGlassLocked
   entities:
   - uid: 124
@@ -13977,13 +13982,6 @@ entities:
     components:
     - type: Transform
       pos: -138.5,3.5
-      parent: 2
-- proto: AirlockSecurityLawyerLocked
-  entities:
-  - uid: 338
-    components:
-    - type: Transform
-      pos: -141.5,4.5
       parent: 2
 - proto: AirlockShuttle
   entities:
@@ -47972,15 +47970,6 @@ entities:
     - type: Transform
       pos: -170.68552,14.30678
       parent: 2
-- proto: ClothingOuterHardsuitBrigmedic
-  entities:
-  - uid: 6687
-    components:
-    - type: Transform
-      parent: 6686
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: ClothingOuterHardsuitEngineering
   entities:
   - uid: 6621
@@ -79921,7 +79910,7 @@ entities:
     - type: PointLight
       color: '#D56C6CFF'
       enabled: True
-- proto: LockerBrigmedicFilled
+- proto: LockerBrigmedicFilledHardsuit
   entities:
   - uid: 6686
     components:
@@ -79931,43 +79920,6 @@ entities:
     - type: PointLight
       color: '#D56C6CFF'
       enabled: True
-    - type: EntityStorage
-      air:
-        volume: 200
-        immutable: False
-        temperature: 293.14673
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 6687
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: LockerCaptainFilledNoLaser
   entities:
   - uid: 11374
@@ -80468,9 +80420,9 @@ entities:
     - type: PointLight
       color: '#D56C6CFF'
       enabled: True
-- proto: LockerInspectorFilled
+- proto: LockerInspectorFilledHardsuit
   entities:
-  - uid: 11401
+  - uid: 6687
     components:
     - type: Transform
       pos: -142.5,5.5
@@ -92183,6 +92135,13 @@ entities:
     - type: Transform
       pos: -93.5,-7.5
       parent: 2
+- proto: SpawnMobAlexander
+  entities:
+  - uid: 13299
+    components:
+    - type: Transform
+      pos: -111.5,-13.5
+      parent: 2
 - proto: SpawnMobBandito
   entities:
   - uid: 9524
@@ -92198,26 +92157,12 @@ entities:
     - type: Transform
       pos: -186.5,-8.5
       parent: 2
-- proto: SpawnMobCatFloppa
-  entities:
-  - uid: 13297
-    components:
-    - type: Transform
-      pos: -43.5,-16.5
-      parent: 2
 - proto: SpawnMobCatKitten
   entities:
   - uid: 13298
     components:
     - type: Transform
       pos: -114.5,-11.5
-      parent: 2
-- proto: SpawnMobCatSpace
-  entities:
-  - uid: 13299
-    components:
-    - type: Transform
-      pos: -64.5,20.5
       parent: 2
 - proto: SpawnMobCorgi
   entities:
@@ -92228,6 +92173,11 @@ entities:
       parent: 2
 - proto: SpawnMobCrabAtmos
   entities:
+  - uid: 13297
+    components:
+    - type: Transform
+      pos: -64.5,20.5
+      parent: 2
   - uid: 13301
     components:
     - type: Transform
@@ -92304,6 +92254,20 @@ entities:
       rot: 3.141592653589793 rad
       pos: -157.5,17.5
       parent: 2
+- proto: SpawnMobSlothPaperwork
+  entities:
+  - uid: 11401
+    components:
+    - type: Transform
+      pos: -43.5,-16.5
+      parent: 2
+- proto: SpawnMobSmile
+  entities:
+  - uid: 16873
+    components:
+    - type: Transform
+      pos: -196.5,2.5
+      parent: 2
 - proto: SpawnMobSpiderSalvage
   entities:
   - uid: 13312
@@ -92315,6 +92279,13 @@ entities:
     components:
     - type: Transform
       pos: -53.5,50.5
+      parent: 2
+- proto: SpawnMobWalter
+  entities:
+  - uid: 16874
+    components:
+    - type: Transform
+      pos: -189.5,-25.5
       parent: 2
 - proto: SpawnPointAtmos
   entities:
