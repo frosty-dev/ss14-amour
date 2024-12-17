@@ -121692,7 +121692,7 @@ entities:
     - type: PointLight
       color: '#D56C6CFF'
       enabled: True
-- proto: LockerBrigmedicFilled
+- proto: LockerBrigmedicFilledHardsuit
   entities:
   - uid: 12016
     components:
@@ -132869,49 +132869,49 @@ entities:
       pos: 6.7808495,-46.50002
       parent: 2
     - type: RCDAmmo
-      charges: 1135
+      charges: 1702
   - uid: 19599
     components:
     - type: Transform
       pos: 6.7808495,-46.030556
       parent: 2
     - type: RCDAmmo
-      charges: 1135
+      charges: 1702
   - uid: 19600
     components:
     - type: Transform
       pos: 6.7808495,-45.564182
       parent: 2
     - type: RCDAmmo
-      charges: 1135
+      charges: 1702
   - uid: 19601
     components:
     - type: Transform
       pos: 6.4999847,-46.441338
       parent: 2
     - type: RCDAmmo
-      charges: 1135
+      charges: 1702
   - uid: 19602
     components:
     - type: Transform
       pos: 6.4999847,-45.968784
       parent: 2
     - type: RCDAmmo
-      charges: 1135
+      charges: 1702
   - uid: 19603
     components:
     - type: Transform
       pos: 6.4999847,-45.502415
       parent: 2
     - type: RCDAmmo
-      charges: 1135
+      charges: 1702
   - uid: 19604
     components:
     - type: Transform
       pos: 4.636591,-46.013115
       parent: 2
     - type: RCDAmmo
-      charges: 1135
+      charges: 1702
 - proto: ReagentContainerFlour
   entities:
   - uid: 19605
@@ -144037,6 +144037,13 @@ entities:
       parent: 2
     - type: SpamEmitSound
       enabled: False
+- proto: SpawnMobAlexander
+  entities:
+  - uid: 26767
+    components:
+    - type: Transform
+      pos: 20.5,-0.5
+      parent: 2
 - proto: SpawnMobBandito
   entities:
   - uid: 21236
@@ -144128,6 +144135,13 @@ entities:
     - type: Transform
       pos: -38.5,-28.5
       parent: 2
+- proto: SpawnMobCrabAtmos
+  entities:
+  - uid: 26766
+    components:
+    - type: Transform
+      pos: 21.5,-27.5
+      parent: 2
 - proto: SpawnMobFoxRenault
   entities:
   - uid: 21255
@@ -144179,6 +144193,13 @@ entities:
     components:
     - type: Transform
       pos: -32.5,-28.5
+      parent: 2
+- proto: SpawnMobMcGriff
+  entities:
+  - uid: 26771
+    components:
+    - type: Transform
+      pos: -11.5,50.5
       parent: 2
 - proto: SpawnMobMedibot
   entities:
@@ -144319,12 +144340,40 @@ entities:
     - type: Transform
       pos: 63.5,-3.5
       parent: 2
+- proto: SpawnMobPossumMorty
+  entities:
+  - uid: 26768
+    components:
+    - type: Transform
+      pos: 50.5,-0.5
+      parent: 2
 - proto: SpawnMobShiva
   entities:
   - uid: 21288
     components:
     - type: Transform
       pos: -1.5,57.5
+      parent: 2
+- proto: SpawnMobSlothPaperwork
+  entities:
+  - uid: 26772
+    components:
+    - type: Transform
+      pos: 20.5,13.5
+      parent: 2
+- proto: SpawnMobSmile
+  entities:
+  - uid: 26770
+    components:
+    - type: Transform
+      pos: 68.5,-21.5
+      parent: 2
+- proto: SpawnMobWalter
+  entities:
+  - uid: 26769
+    components:
+    - type: Transform
+      pos: 56.5,-7.5
       parent: 2
 - proto: SpawnPointAtmos
   entities:

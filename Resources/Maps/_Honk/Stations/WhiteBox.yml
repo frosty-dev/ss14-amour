@@ -128918,7 +128918,7 @@ entities:
     - type: PointLight
       color: '#D56C6CFF'
       enabled: True
-- proto: LockerBrigmedicFilled
+- proto: LockerBrigmedicFilledHardsuit
   entities:
   - uid: 11023
     components:
@@ -142865,7 +142865,7 @@ entities:
     - type: Transform
       parent: 1288
     - type: RCDAmmo
-      charges: 3829
+      charges: 5743
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -142874,7 +142874,7 @@ entities:
     - type: Transform
       parent: 1288
     - type: RCDAmmo
-      charges: 3829
+      charges: 5743
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -142883,7 +142883,7 @@ entities:
     - type: Transform
       parent: 1298
     - type: RCDAmmo
-      charges: 3829
+      charges: 5743
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -142892,7 +142892,7 @@ entities:
     - type: Transform
       parent: 1298
     - type: RCDAmmo
-      charges: 3829
+      charges: 5743
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -142901,7 +142901,7 @@ entities:
     - type: Transform
       parent: 1308
     - type: RCDAmmo
-      charges: 3829
+      charges: 5743
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -142910,7 +142910,7 @@ entities:
     - type: Transform
       parent: 1308
     - type: RCDAmmo
-      charges: 3829
+      charges: 5743
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -142920,21 +142920,21 @@ entities:
       pos: 4.166244,-61.42392
       parent: 2
     - type: RCDAmmo
-      charges: 3829
+      charges: 5743
   - uid: 20753
     components:
     - type: Transform
       pos: 4.173121,-61.326607
       parent: 2
     - type: RCDAmmo
-      charges: 3829
+      charges: 5743
   - uid: 20754
     components:
     - type: Transform
       pos: 4.166244,-61.51767
       parent: 2
     - type: RCDAmmo
-      charges: 3829
+      charges: 5743
 - proto: ReagentContainerFlourSmall
   entities:
   - uid: 20755
@@ -152036,6 +152036,13 @@ entities:
       parent: 2
     - type: SpamEmitSound
       enabled: False
+- proto: SpawnMobAlexander
+  entities:
+  - uid: 11024
+    components:
+    - type: Transform
+      pos: 37.5,-5.5
+      parent: 2
 - proto: SpawnMobBandito
   entities:
   - uid: 22294
@@ -152052,7 +152059,7 @@ entities:
       parent: 2
 - proto: SpawnMobCatKitten
   entities:
-  - uid: 22296
+  - uid: 11028
     components:
     - type: Transform
       pos: 69.5,-26.5
@@ -152077,6 +152084,13 @@ entities:
     components:
     - type: Transform
       pos: -10.5,-27.5
+      parent: 2
+- proto: SpawnMobCrabAtmos
+  entities:
+  - uid: 11027
+    components:
+    - type: Transform
+      pos: 18.5,-44.5
       parent: 2
 - proto: SpawnMobDrone
   entities:
@@ -152177,12 +152191,26 @@ entities:
     - type: Transform
       pos: -21.5,50.5
       parent: 2
+- proto: SpawnMobPossumMorty
+  entities:
+  - uid: 11025
+    components:
+    - type: Transform
+      pos: 44.5,-19.5
+      parent: 2
 - proto: SpawnMobRaccoonMorticia
   entities:
   - uid: 22317
     components:
     - type: Transform
       pos: -33.5,-30.5
+      parent: 2
+- proto: SpawnMobShiva
+  entities:
+  - uid: 11026
+    components:
+    - type: Transform
+      pos: 15.5,38.5
       parent: 2
 - proto: SpawnMobSlothPaperwork
   entities:

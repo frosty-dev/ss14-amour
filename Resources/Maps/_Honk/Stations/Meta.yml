@@ -6464,7 +6464,8 @@ entities:
           -6,7:
             0: 65535
           -5,7:
-            0: 65535
+            0: 65023
+            2: 512
           0,7:
             0: 65535
           1,6:
@@ -6963,18 +6964,18 @@ entities:
             0: 65535
           12,-8:
             0: 30591
-            2: 34944
+            3: 34944
           13,-8:
             0: 17487
-            2: 13104
-            3: 34944
+            3: 13104
+            4: 34944
           13,-7:
             0: 65535
           13,-6:
             0: 65535
           14,-8:
             0: 52431
-            3: 13104
+            4: 13104
           14,-7:
             0: 65535
           14,-6:
@@ -6995,44 +6996,44 @@ entities:
             0: 65535
           16,-4:
             0: 32631
-            4: 136
-            5: 32768
+            5: 136
+            6: 32768
           16,-3:
             0: 32631
-            5: 32904
+            6: 32904
           16,-2:
             0: 65399
-            5: 136
+            6: 136
           16,-1:
             0: 13299
           17,-4:
-            4: 51
+            5: 51
             0: 53196
-            5: 12288
+            6: 12288
           17,-3:
-            5: 12339
+            6: 12339
             0: 53196
           17,-2:
-            5: 51
+            6: 51
             0: 65484
           16,-7:
             0: 65522
           16,-6:
             0: 32767
-            5: 32768
+            6: 32768
           16,-5:
             0: 32631
-            5: 136
-            4: 32768
+            6: 136
+            5: 32768
           17,-7:
             0: 65527
           17,-6:
             0: 53247
-            5: 12288
+            6: 12288
           17,-5:
-            5: 51
+            6: 51
             0: 53196
-            4: 12288
+            5: 12288
           12,-9:
             0: 61941
           13,-9:
@@ -7165,12 +7166,12 @@ entities:
             0: 8930
           16,-8:
             0: 60395
-            5: 4
+            6: 4
           17,-8:
             0: 65535
           18,-8:
             0: 12914
-            5: 137
+            6: 137
           18,-7:
             0: 47858
           18,-6:
@@ -7195,19 +7196,19 @@ entities:
             0: 3983
           16,-9:
             0: 59951
-            5: 1216
+            6: 1216
           17,-9:
             0: 65375
-            5: 160
+            6: 160
           17,-10:
             0: 40960
-            5: 24560
+            6: 24560
           18,-10:
             0: 4096
-            5: 8976
+            6: 8976
           18,-9:
             0: 12896
-            5: 35227
+            6: 35227
           10,-10:
             0: 63249
           10,-9:
@@ -7676,7 +7677,7 @@ entities:
             0: 65535
           3,-14:
             0: 61713
-            5: 3822
+            6: 3822
           3,-13:
             0: 65535
           -2,-16:
@@ -8186,11 +8187,11 @@ entities:
           20,7:
             0: 4369
           19,-8:
-            5: 51
+            6: 51
           16,-10:
-            5: 60608
+            6: 60608
           19,-9:
-            5: 13107
+            6: 13107
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -8220,6 +8221,29 @@ entities:
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -57897,8 +57921,10 @@ entities:
   - uid: 9457
     components:
     - type: Transform
-      pos: 1.5189121,50.574677
+      pos: 1.4678519,50.569218
       parent: 2
+    - type: Foldable
+      folded: True
   - uid: 9458
     components:
     - type: Transform
@@ -118088,6 +118114,16 @@ entities:
     - type: PointLight
       color: '#D56C6CFF'
       enabled: True
+- proto: LockerBrigmedicFilledHardsuit
+  entities:
+  - uid: 17988
+    components:
+    - type: Transform
+      pos: -18.5,30.5
+      parent: 2
+    - type: PointLight
+      color: '#D56C6CFF'
+      enabled: True
 - proto: LockerCaptainFilled
   entities:
   - uid: 17946
@@ -119450,14 +119486,6 @@ entities:
         - 0
         - 0
         - 0
-  - uid: 17988
-    components:
-    - type: Transform
-      pos: -18.5,30.5
-      parent: 2
-    - type: PointLight
-      color: '#D56C6CFF'
-      enabled: True
 - proto: LockerParamedicFilled
   entities:
   - uid: 17989
@@ -130524,14 +130552,14 @@ entities:
       pos: 43.381737,8.657005
       parent: 2
     - type: RCDAmmo
-      charges: 757
+      charges: 1135
   - uid: 19552
     components:
     - type: Transform
       pos: 43.631737,8.657005
       parent: 2
     - type: RCDAmmo
-      charges: 757
+      charges: 1135
 - proto: ReagentContainerFlour
   entities:
   - uid: 19553
@@ -139697,7 +139725,7 @@ entities:
     - type: Transform
       pos: 26.5,-1.5
       parent: 2
-- proto: SpawnMobCat
+- proto: SpawnMobCatRuntime
   entities:
   - uid: 21154
     components:
@@ -139930,6 +139958,13 @@ entities:
     components:
     - type: Transform
       pos: 35.5,-22.5
+      parent: 2
+- proto: SpawnPointBrigmedic
+  entities:
+  - uid: 26812
+    components:
+    - type: Transform
+      pos: -17.5,30.5
       parent: 2
 - proto: SpawnPointCaptain
   entities:
