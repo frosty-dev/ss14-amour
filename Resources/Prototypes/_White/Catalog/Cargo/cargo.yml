@@ -296,3 +296,13 @@
   cost: 2000
   category: Security
   group: market
+  
+  - type: cargoProduct
+  id: cargoPackedSoil
+  icon:
+    sprite: White/Objects/Weapons/Guns/Shotguns/rubber_pump.rsi
+    state: icon
+  product: CratePackedSoil
+  cost: 2000
+  category: cargoproduct-category-name-hydroponics
+  group: market

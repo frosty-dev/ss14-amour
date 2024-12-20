@@ -1,0 +1,14 @@
+- type: entity
+  name: упаковка почвы
+  description: Можно засыпать в каркас грядки.
+  id: packedSoil
+  parent: BaseItem
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Misc/apronbar.rsi
+    state: icon
+  - type: Tag
+    tags:
+      - PackedSoil

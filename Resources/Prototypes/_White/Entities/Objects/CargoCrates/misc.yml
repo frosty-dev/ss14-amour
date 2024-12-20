@@ -1,0 +1,9 @@
+- type: entity
+  parent: CrateHydroponics
+  id: CratePackedSoil
+  name: ящик с почвой
+  components:
+  - type: StorageFill
+    contents:
+      - id: packedSoil
+        amount: 3

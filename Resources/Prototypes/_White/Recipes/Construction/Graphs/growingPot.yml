@@ -1,0 +1,56 @@
+- type: constructionGraph
+  id: growingPot
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DestroyEntity {}
+      edges:
+        - to: GrowingPotNoSoil
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - material: WoodPlank
+              amount: 15
+              doAfter: 1
+            - material: MetalRod
+              amount: 4
+              doAfter: 1
+
+    - node: GrowingPotNoSoil
+      entity: GrowingPotNoSoil
+      edges:
+        - to: GrowingPot
+          completed:
+            - !type:SnapToGrid
+              southRotation: true
+          steps:
+            - tag: PackedSoil
+              name: упаковка почвы
+              icon:
+                sprite: Structures/Piping/Atmospherics/pipe.rsi
+                state: pipeStraight
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank1
+              amount: 15
+            - !type:SpawnPrototype
+              prototype: PartRodMetal1
+              amount: 4
+          steps: 
+            - tool: Screwing
+              doAfter: 1
+              
+    - node: GrowingPot
+      entity: GrowingPotEmpty
+      edges:
+        - to: GrowingPotNoSoil
+          completed:
+            - !type:SpawnPrototype
+              prototype: packedSoil
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 1

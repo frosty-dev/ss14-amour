@@ -1,0 +1,84 @@
+- type: entity
+  name: самодельная грядка
+  parent: [GrowingPotNoSoil, hydroponicsSoil]
+  id: GrowingPot
+  description: Позволяет выращивать различные культуры.
+  components:
+  - type: Transform
+    anchored: true
+  - type: Construction
+    graph: growingPot
+    node: GrowingPot
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 5
+            max: 10
+  
+- type: entity
+  id: GrowingPotEmpty
+  parent: GrowingPot
+  suffix: Empty
+  components:
+  - type: PlantHolder
+    waterLevel: 0
+    nutritionLevel: 0
+    
+- type: entity
+  name: каркас самодельной грядки
+  id: GrowingPotNoSoil
+  parent: BaseStructure
+  placement:
+    mode: SnapgridCenter
+  description: Позволяет выращивать различные культуры, однако не хватает земли...
+  components:
+  - type: Tag
+    tags:
+      - Structure
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.1"
+        density: 60
+        hard: true
+        mask:
+        - MachineMask
+  - type: Appearance
+  - type: Clickable
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: Structures/Hydroponics/misc.rsi
+    state: soil
+    noRot: true
+  - type: Construction
+    graph: growingPot
+    node: GrowingPotNoSoil
+  - type: Anchorable
+  - type: Damageable
+    DamageContainer: StructuralInorganic
+    DamageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 5
+            max: 10
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
