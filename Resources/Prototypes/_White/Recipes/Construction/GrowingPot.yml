@@ -4,7 +4,7 @@
   description: Деревнянная грядка для выращивания.
   graph: growingPot
   startNode: start
-  targetNode: GrowingPot
+  targetNode: growingPot
   category: construction-category-furniture
   icon:
     sprite: Structures/Furniture/furniture.rsi

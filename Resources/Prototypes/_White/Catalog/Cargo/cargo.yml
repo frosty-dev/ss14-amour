@@ -296,8 +296,8 @@
   cost: 2000
   category: Security
   group: market
-  
-  - type: cargoProduct
+
+- type: cargoProduct
   id: cargoPackedSoil
   icon:
     sprite: White/Objects/Weapons/Guns/Shotguns/rubber_pump.rsi
