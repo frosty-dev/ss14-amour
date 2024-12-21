@@ -23,3 +23,20 @@ signal-port-name-logic-output-high = Верхний выход
 signal-port-description-logic-output-high = Этот порт вызывается всякий раз, когда на входе есть возрастающийся край.
 signal-port-name-logic-output-low = Нижний выход
 signal-port-description-logic-output-low = Этот порт вызывается всякий раз, когда на входе есть понижающийся край.
+
+## Anomaly sync network locale start
+signal-port-name-decaying = Распад
+signal-port-description-decaying = Этот порт вызывается всякий раз, когда связанная аномалия начинает исчезать.
+
+signal-port-name-stabilize = Стабильно
+signal-port-description-stabilize = Этот порт вызывается всякий раз, когда связанная аномалия стабилизируется.
+
+signal-port-name-growing = Рост
+signal-port-description-growing = Этот порт вызывается всякий раз, когда связанная аномалия начинает расти.
+
+signal-port-name-pulse = Импульс
+signal-port-description-pulse = Этот порт вызывается всякий раз, когда связанная аномалия издаёт импульс.
+
+signal-port-name-supercrit = Сверхкритичтно
+signal-port-description-supercrit = Этот порт вызывается всякий раз, когда связанная аномалия достигает сверхкритического состояния и взрывается.
+## Anomaly sync network locale end
