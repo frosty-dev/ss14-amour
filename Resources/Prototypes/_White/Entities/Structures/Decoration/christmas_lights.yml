@@ -1,0 +1,39 @@
+- type: entity
+  id: ChristmasLights
+  name: christmas lights
+  description: Feeling jolly.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Appearance
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: White/Structures/Decoration/christmas_lights.rsi
+    layers:
+    - state: icon
+    - state: unshaded
+      shader: unshaded
+  - type: Icon
+    sprite: White/Structures/Decoration/christmas_lights.rsi
+    state: icon
+  - type: Transform
+    anchored: true
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/smash.ogg"
