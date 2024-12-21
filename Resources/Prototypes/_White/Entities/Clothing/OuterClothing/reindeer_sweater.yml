@@ -1,0 +1,19 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterReindeerSweater
+  name: reindeer sweater
+  description: A cozy sweater designed to celebrate the holiday season.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/OuterClothing/reindeer_sweater.rsi
+  - type: Clothing
+    sprite: White/Clothing/OuterClothing/reindeer_sweater.rsi
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/White/Items/handling/cloth_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/White/Items/handling/cloth_drop.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/White/Items/handling/cloth_drop.ogg

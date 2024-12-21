@@ -23,7 +23,6 @@ public sealed partial class HaltComponent : Component
         ["dontmove-phrase"] = new SoundPathSpecifier("/Audio/Voice/Complionator/dontmove.ogg"),
         ["floor-phrase"] = new SoundPathSpecifier("/Audio/Voice/Complionator/floor.ogg"),
         ["robocop-phrase"] = new SoundPathSpecifier("/Audio/Voice/Complionator/robocop.ogg"),
-        ["god-phrase"] = new SoundPathSpecifier("/Audio/Voice/Complionator/god.ogg"),
         ["freeze-phrase"] = new SoundPathSpecifier("/Audio/Voice/Complionator/freeze.ogg"),
         ["imperial-phrase"] = new SoundPathSpecifier("/Audio/Voice/Complionator/imperial.ogg"),
         ["bash-phrase"] = new SoundPathSpecifier("/Audio/Voice/Complionator/bash.ogg"),
@@ -31,7 +30,6 @@ public sealed partial class HaltComponent : Component
         ["asshole-phrase"] = new SoundPathSpecifier("/Audio/Voice/Complionator/asshole.ogg"),
         ["stfu-phrase"] = new SoundPathSpecifier("/Audio/Voice/Complionator/stfu.ogg"),
         ["shutup-phrase"] = new SoundPathSpecifier("/Audio/Voice/Complionator/shutup.ogg"),
-        ["super-phrase"] = new SoundPathSpecifier("/Audio/Voice/Complionator/super.ogg"),
         ["dredd-phrase"] = new SoundPathSpecifier("/Audio/Voice/Complionator/dredd.ogg")
     };
 }
