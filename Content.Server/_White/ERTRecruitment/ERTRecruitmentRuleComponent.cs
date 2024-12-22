@@ -13,6 +13,8 @@ public sealed partial class ERTRecruitmentRuleComponent : Component
 
     [DataField("minPlayer")] public int MinPlayer = 4;
 
+    [DataField("earliestStart")] public int EarliestStart = 45;
+
     public static SoundSpecifier ERTYes = new SoundPathSpecifier("/Audio/Announcements/ert_yes.ogg");
     public static SoundSpecifier ERTNo = new SoundPathSpecifier("/Audio/Announcements/ert_no.ogg");
 
@@ -21,8 +23,8 @@ public sealed partial class ERTRecruitmentRuleComponent : Component
 
     [ViewVariables]
     public EntityUid? Outpost;
-   //[ViewVariables]
-   // public EntityUid? Shuttle;
+    //[ViewVariables]
+    // public EntityUid? Shuttle;
     [ViewVariables]
     public EntityUid? TargetStation;
 }

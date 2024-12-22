@@ -20883,7 +20883,7 @@ entities:
       parent: 1668
     - type: FaxMachine
       name: CentComm
-- proto: FaxMachineSyndie
+- proto: FaxMachineSyndieCommand
   entities:
   - uid: 3902
     components:
