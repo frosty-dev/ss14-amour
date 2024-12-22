@@ -2,7 +2,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.GhostRecruitment;
 
-[Serializable,NetSerializable]
+[Serializable, NetSerializable]
 public sealed class GhostsRecruitmentSuccessEvent
 {
     public string RecruitmentName;
@@ -15,7 +15,7 @@ public sealed class GhostsRecruitmentSuccessEvent
 
 
 
-[Serializable,NetSerializable]
+[Serializable, NetSerializable]
 public abstract class CancelableEventArgs
 {
     /// <summary>
