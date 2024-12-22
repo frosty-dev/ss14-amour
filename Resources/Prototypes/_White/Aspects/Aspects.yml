@@ -24,18 +24,19 @@
         path: /Audio/White/Aspects/accent.ogg
     - type: FastAndFuriousAspect
 
-- type: entity
-  id: RandomAppearanceAspect
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-    - type: Aspect
-      name: Random appearance
-      description: Экипаж перестал узнавать друг-друга в лицо
-      weight: 3
-      startAudio:
-        path: /Audio/White/Aspects/accent.ogg
-    - type: RandomAppearanceAspect
+# Not funny
+# - type: entity
+#   id: RandomAppearanceAspect
+#   parent: BaseGameRule
+#   noSpawn: true
+#   components:
+#     - type: Aspect
+#       name: Random appearance
+#       description: Экипаж перестал узнавать друг-друга в лицо
+#       weight: 3
+#       startAudio:
+#         path: /Audio/White/Aspects/accent.ogg
+#     - type: RandomAppearanceAspect
 
 - type: entity
   id: BombassAspect
