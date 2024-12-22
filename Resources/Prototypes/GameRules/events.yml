@@ -603,7 +603,7 @@
   noSpawn: true
   components:
   - type: StationEvent
+    maxOccurrences: 1 # everyone ignores this event
     weight: 5
-    reoccurrenceDelay: 30
     duration: 1
   - type: SpaceLawChangeRule

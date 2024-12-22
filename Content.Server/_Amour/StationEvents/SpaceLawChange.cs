@@ -104,6 +104,8 @@ namespace Content.Server._Amour.StationEvents
             var faxes = EntityManager.EntityQuery<FaxMachineComponent>();
             foreach (var fax in faxes)
             {
+                if (!fax.ReceiveStationGoal)
+                    continue;
                 _faxSystem.Receive(fax.Owner, printout, null, fax);
             }
         }
