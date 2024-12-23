@@ -1,2 +1,2 @@
-ent-supplybot = робот снабжения
+ent-supplybot = грузобот
     .desc = Доставляет груз! 
