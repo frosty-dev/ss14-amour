@@ -1,0 +1,77 @@
+- type: entity
+  id: LockerVeteran
+  parent: LockerBaseSecure
+  name: veteran's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: vet_locker
+    stateDoorOpen: vet_open
+    stateDoorClosed: vet_door
+  - type: AccessReader
+    access: [ [ "ChiefEngineer" ] ]
+
+- type: entity
+  id: LockerBrigadier
+  parent: LockerBaseSecure
+  name: brigadier's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: brigadier_locker
+    stateDoorOpen: brigadier_open
+    stateDoorClosed: brigadier_door
+  - type: AccessReader
+    access: [ [ "ChiefEngineer" ] ]
+
+- type: entity
+  id: LockerMedicalOfficer
+  parent: LockerBaseSecure
+  name: medical officer's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: mofficer_locker
+    stateDoorOpen: mofficer_open
+    stateDoorClosed: mofficer_door
+  - type: AccessReader
+    access: [ [ "Medical" ] ]
+
+- type: entity
+  id: LockerCargoHunter
+  parent: LockerBaseSecure
+  name: cargo hunter's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: cargo_hunt_locker
+    stateDoorOpen: cargo_hunt_open
+    stateDoorClosed: cargo_hunt_door
+  - type: AccessReader
+    access: [ [ "ChiefEngineer" ] ]
+
+- type: entity
+  id: LockerLeadResearcher
+  parent: LockerBaseSecure
+  name: lead researcher's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: lead_res_locker
+    stateDoorOpen: lead_res_open
+    stateDoorClosed: lead_res_door
+  - type: AccessReader
+    access: [ [ "Research" ] ]
+
+- type: entity
+  id: LockerHeadCleaner
+  parent: LockerBaseSecure
+  name: head cleaner's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: head_cleaner_locker
+    stateDoorOpen: head_cleaner_open
+    stateDoorClosed: head_cleaner_door
+  - type: AccessReader
+    access: [ [ "ChiefEngineer" ] ]
