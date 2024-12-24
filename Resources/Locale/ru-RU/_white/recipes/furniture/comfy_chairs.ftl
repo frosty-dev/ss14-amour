@@ -21,3 +21,9 @@ ent-RedChairComfy = красное удобное кресло
 
 ent-WhiteChairComfy = белое удобное кресло
     .desc = Оно выглядит удобным.
+
+ent-BrownChairComfy = коричневое удобное кресло
+    .desc = Оно выглядит удобным.
+
+ent-LightBlueChairComfy = светло-синее удобное кресло
+    .desc = Оно выглядит удобным.
