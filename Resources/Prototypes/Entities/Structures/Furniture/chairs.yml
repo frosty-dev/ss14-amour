@@ -190,7 +190,7 @@
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
     state: comfy-greyscale
-    color: "#23242c"
+    color: "#606060"
   - type: Construction
     graph: Seat
     node: blackChairComfy
