@@ -2,15 +2,19 @@ using Content.Server.GameTicking;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Server._White.ERTRecruitment;
+using Content.Server._White.JoinQueue;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared._White.AuthPanel;
 using Content.Shared._White.GhostRecruitment;
+using Content.Shared.Ghost;
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Player;
 
 namespace Content.Server._White.AuthPanel;
 
@@ -26,17 +30,16 @@ public sealed class AuthPanelSystem : EntitySystem
     [Dependency] private readonly ERTRecruitmentRule _ert = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly GameTicker _ticker = default!;
 
     public Dictionary<AuthPanelAction, HashSet<EntityUid>> Counter = new();
     public Dictionary<AuthPanelAction, HashSet<int>> CardIndexes = new();
     public string Reason = "";
-
-    public static int MaxCount = 2;
-
-    public static int RandomAcceptRate = 8;
-
+    public static int MaxCount = 1;
+    public static int DelayNextAction = 10;
+    public static int EarliestStart = 45;
     private TimeSpan? _delay;
-
     public override void Initialize()
     {
         SubscribeLocalEvent<AuthPanelComponent, AuthPanelButtonPressedMessage>(OnButtonPressed);
@@ -53,6 +56,11 @@ public sealed class AuthPanelSystem : EntitySystem
 
     private void OnRestart(RoundRestartCleanupEvent ev)
     {
+        ClearPanel();
+    }
+
+    private void ClearPanel()
+    {
         Counter.Clear();
         CardIndexes.Clear();
 
@@ -63,7 +71,26 @@ public sealed class AuthPanelSystem : EntitySystem
     {
         if (args.Action is AuthPanelAction.ERTRecruit)
         {
-            if (_random.Next(10) < RandomAcceptRate)
+            var query = EntityQueryEnumerator<GhostComponent, ActorComponent>();
+            var ghostList = new List<EntityUid>();
+            while (query.MoveNext(out var ghost, out _, out _))
+            {
+                ghostList.Add(ghost);
+            }
+
+            // if (_ticker.RoundDuration() < TimeSpan.FromMinutes(EarliestStart))
+            // {
+            //     var station = _station.GetStationInMap(Transform(uid).MapID);
+
+            //     if (station != null)
+            //         _ert.DeclineERT(station.Value);
+            //     _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough time passed");
+            //     return;
+            // }
+
+            var playerCount = _playerManager.PlayerCount;
+            //if (playerCount - ghostList.Count > playerCount / 2 && ghostList.Count > 3)
+            if (true)
             {
                 _gameTicker.AddGameRule(ERTRecruitmentRuleComponent.EventName);
             }
@@ -73,7 +100,7 @@ public sealed class AuthPanelSystem : EntitySystem
 
                 if (station != null)
                     _ert.DeclineERT(station.Value);
-                _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - due to random");
+                _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough ghosts");
             }
 
             foreach (var entities in Counter.Values)
@@ -85,6 +112,8 @@ public sealed class AuthPanelSystem : EntitySystem
                 }
             }
         }
+
+        Timer.Spawn(TimeSpan.FromSeconds(DelayNextAction), () => ClearPanel());
     }
 
     private void OnButtonPressed(EntityUid uid, AuthPanelComponent component, AuthPanelButtonPressedMessage args)

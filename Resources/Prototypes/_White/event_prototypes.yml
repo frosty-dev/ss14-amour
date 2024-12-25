@@ -7,5 +7,4 @@
       weight: 0
       duration: 30
     - type: ERTRecruitmentRule
-      minPlayer: 4
-      earliestStart: 30
+      minPlayer: 3

@@ -29,7 +29,6 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
     [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly IConfigurationManager _cfgManager = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
@@ -90,14 +89,6 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
             return;
         }
 
-        if (_ticker.RoundDuration() < TimeSpan.FromMinutes(component.EarliestStart))
-        {
-            _logger.Debug("Not enough time passed!");
-            DeclineERT(component.TargetStation.Value);
-            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough time passed");
-            return;
-        }
-
         _chatSystem.DispatchStationAnnouncement(component.TargetStation.Value, Loc.GetString("ert-wait-message"), colorOverride: Color.Gold);
 
         /*
@@ -123,7 +114,7 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
         {
             if (component.TargetStation != null)
                 DeclineERT(component.TargetStation.Value);
-            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Event disabled");
+            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"{"ERT Declined - Event disabled"}");
             _recruitment.Cleanup(ERTRecruitmentRuleComponent.EventName);
             return;
         }
