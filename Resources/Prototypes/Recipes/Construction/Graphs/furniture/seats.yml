@@ -76,6 +76,23 @@
             - material: Steel
               amount: 2
               doAfter: 1
+        #WD edit start
+        - to: chairComfy
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: brownChairComfy
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        - to: lightBlueChairComfy
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+        #WD edit end
         - to: chairPilotSeat
           steps:
             - material: Steel
@@ -356,38 +373,38 @@
     - node: brownChairComfy
       entity: BrownComfyChair
       edges:
-      - to: start
-        completed:
-        - !type:SpawnPrototype
-          prototype: SheetSteel1
-          amount: 2
-        steps:
-        - tool: Screwing
-          doAfter: 1
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
 
     - node: lightBlueChairComfy
       entity: LightBlueComfyChair
       edges:
-      - to: start
-        completed:
-        - !type:SpawnPrototype
-          prototype: SheetSteel1
-          amount: 2
-        steps:
-        - tool: Screwing
-          doAfter: 1
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
 
     - node: chairComfy
       entity: ComfyChair
       edges:
-      - to: start
-        completed:
-        - !type:SpawnPrototype
-          prototype: SheetSteel1
-          amount: 2
-        steps:
-        - tool: Screwing
-          doAfter: 1
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: SheetSteel1
+              amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
 
     # WD edit end
 

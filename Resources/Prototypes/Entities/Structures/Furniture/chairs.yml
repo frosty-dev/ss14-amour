@@ -190,7 +190,7 @@
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
     state: comfy-greyscale
-    color: "#23242c"
+    color: "#606060" # WD Fix
   - type: Construction
     graph: Seat
     node: blackChairComfy
@@ -566,7 +566,7 @@
   - type: Sprite
     sprite: Structures/Furniture/chairs.rsi
     state: pufi-box-greyscale
-    color: "#23242c"
+    color: "#606060" # WD Fix
   - type: Construction
     graph: Seat
     node: blackPaddedStool
