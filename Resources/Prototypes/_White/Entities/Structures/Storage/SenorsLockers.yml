@@ -3,6 +3,7 @@
   parent: LockerBaseSecure
   abstract: true
   name: base senors locker
+  description: Стандартное хранилище НаноТрайзен.
   components:
   - type: Sprite
     sprite: White/Structures/Storage/senor_lockers.rsi
@@ -11,7 +12,7 @@
 - type: entity
   id: LockerVeteran
   parent: BaseSenorsLocker
-  name: veteran's locker
+  name: шкаф ветерана
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -19,12 +20,40 @@
     stateDoorOpen: vet_open
     stateDoorClosed: vet_door
   - type: AccessReader
-    access: [ [ "ChiefEngineer" ] ]
+    access: [ [ "Security" ] ]
+
+- type: entity
+  id: LockerVeteranFilled
+  parent: LockerVeteran
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: FlashlightSeclite
+      - id: ClothingUniformJumpsuitSecGrey
+        prob: 0.3
+      - id: ClothingHeadHelmetBasic
+      - id: ClothingOuterArmorBasic
+      - id: ClothingBeltSeniorSecurityFilled
+      - id: Flash
+        prob: 0.5
+      - id: ClothingEyesGlassesSecurity
+      - id: ClothingHeadsetAltSecurity
+      - id: ClothingHandsGlovesColorBlack
+      - id: ClothingShoesBootsJack
+      - id: WeaponMeleeNeedle
+        prob: 0.1
+      - id: WeaponDisabler
+      - id: HoloprojectorSecurity
+        prob: 0.6
+      - id: WeaponPistolMk58Nonlethal
+      - id: SurveillanceBodyCamera
+      - id: MagazinePistol
 
 - type: entity
   id: LockerBrigadier
   parent: BaseSenorsLocker
-  name: brigadier's locker
+  name: шкаф бригадира
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -32,12 +61,41 @@
     stateDoorOpen: brigadier_open
     stateDoorClosed: brigadier_door
   - type: AccessReader
-    access: [ [ "ChiefEngineer" ] ]
+    access: [ [ "Engineering" ] ]
+
+- type: entity
+  id: LockerBrigadierFilled
+  parent: LockerBrigadier
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHandsGlovesColorYellow
+      - id: ClothingMaskGas
+      - id: ClothingShoesBootsMag
+      - id: ClothingBeltUtilityImproved
+      - id: ClothingEyesGlassesMeson
+      - id: ClothingHeadHatBeretEngineering
+
+- type: entity
+  id: LockerBrigadierFilledHurdsuit
+  parent: LockerBrigadier
+  suffix: Filled, Hardsuit
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterHardsuitEngineering
+      - id: ClothingHandsGlovesColorYellow
+      - id: ClothingMaskGas
+      - id: ClothingShoesBootsMag
+      - id: ClothingBeltUtilityImproved
+      - id: ClothingEyesGlassesMeson
+      - id: ClothingHeadHatBeretEngineering
 
 - type: entity
   id: LockerMedicalOfficer
   parent: BaseSenorsLocker
-  name: medical officer's locker
+  name: шкаф медицинского офицера
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -48,9 +106,44 @@
     access: [ [ "Medical" ] ]
 
 - type: entity
+  id: LockerMedicalOfficerFilled
+  parent: LockerMedicalOfficer
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: HandheldHealthAnalyzer
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingHeadsetMedical
+      - id: ClothingEyesHudMedical
+      - id: ClothingBeltMedical
+      - id: ClothingHeadHatSurgcapGreen
+        prob: 0.1
+        orGroup: Surgcaps
+      - id: ClothingHeadHatSurgcapPurple
+        prob: 0.05
+        orGroup: Surgcaps
+      - id: ClothingHeadHatSurgcapBlue
+        prob: 0.90
+        orGroup: Surgcaps
+      - id: ClothingUniformJumpsuitMedicalDoctor
+      - id: ClothingUniformJumpskirtMedicalDoctor
+      - id: UniformScrubsColorBlue
+        prob: 0.5
+        orGroup: Surgshrubs
+      - id: UniformScrubsColorGreen
+        prob: 0.1
+        orGroup: Surgshrubs
+      - id: UniformScrubsColorPurple
+        prob: 0.05
+        orGroup: Surgshrubs
+      - id: ClothingMaskSterile
+      - id: ExpandedMedkitFilled
+    
+- type: entity
   id: LockerCargoHunter
   parent: BaseSenorsLocker
-  name: cargo hunter's locker
+  name: шкаф охотника карго
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -58,12 +151,34 @@
     stateDoorOpen: cargo_hunt_open
     stateDoorClosed: cargo_hunt_door
   - type: AccessReader
-    access: [ [ "ChiefEngineer" ] ]
+    access: [ [ "Salvage" ] ]
+
+- type: entity
+  id: LockerCargoHunterFilled
+  parent: LockerCargoHunter
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingBeltUtilityFilled
+      - id: SurvivalKnife
+      - id: HandheldGPSBasic
+      - id: RadioHandheld
+      - id: SeismicCharge
+        amount: 2
+      - id: OreBag
+        prob: 0.5
+      - id: Flare
+        prob: 0.3
+      - id: Flare
+        prob: 0.3
+      - id: Flare
+        prob: 0.3
+      - id: ClothingOuterHardsuitImprovedSpatio
 
 - type: entity
   id: LockerLeadResearcher
   parent: BaseSenorsLocker
-  name: lead researcher's locker
+  name: шкаф ведущего исследователя
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -74,14 +189,17 @@
     access: [ [ "Research" ] ]
 
 - type: entity
-  id: LockerHeadCleaner
-  parent: BaseSenorsLocker
-  name: head cleaner's locker
+  id: LockerLeadResearcherFilled
+  parent: LockerLeadResearcher
   components:
-  - type: Appearance
-  - type: EntityStorageVisuals
-    stateBaseClosed: head_cleaner_locker
-    stateDoorOpen: head_cleaner_open
-    stateDoorClosed: head_cleaner_door
-  - type: AccessReader
-    access: [ [ "ChiefEngineer" ] ]
+  - type: StorageFill
+    contents:
+      - id: ClothingHandsGlovesLatex
+      - id: ClothingHeadsetScience
+      - id: ClothingMaskSterile
+      - id: ClothingOuterCoatRnd
+      - id: AnomalyScanner
+      - id: NodeScanner
+      - id: NetworkConfigurator
+        prob: 0.5
+      - id: ClothingShoesBootsMagSci

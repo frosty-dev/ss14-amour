@@ -1,0 +1,12 @@
+- type: entity
+  id: LockerHeadCleaner
+  parent: BaseSenorsLocker
+  name: head cleaner's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: head_cleaner_locker
+    stateDoorOpen: head_cleaner_open
+    stateDoorClosed: head_cleaner_door
+  - type: AccessReader
+    access: [ [ "Janitor" ] ]

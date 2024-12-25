@@ -6,3 +6,17 @@
     - type: Sprite
       sprite: White/Specific/expmedkit.rsi
       state: icon
+
+- type: entity
+  id: ExpandedMedkitFilled
+  parent: ExpandedMedkit
+  suffix: Filled
+  components:
+    - type: StorageFill
+      contents:
+        - id: MedicatedSuture
+          amount: 2
+        - id: RegenerativeMesh
+          amount: 2
+        - id: PillCanisterDylovene
+        - id: PillCanisterKelotane
