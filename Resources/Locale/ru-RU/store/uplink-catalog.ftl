@@ -91,7 +91,7 @@ uplink-pistol-magazine-c20r-desc = Магазин с 30 патронами. Со
 uplink-pistol-magazine-caseless-name = Пистолетный магазин (.25 безгильзовые)
 uplink-pistol-magazine-caseless-desc = Пистолетный магазин на 10 патронов. Совместим с Коброй.
 
-uplink-speedloader-magnum-name = Спидлоадер (.40 магнум)
+uplink-speedloader-magnum-name = Спидлоадер (.45 магнум)
 uplink-speedloader-magnu-desc = Револьверный спидлоадер с 6 патронами. Совместим с Питоном.
 
 uplink-mosin-ammo-name = Коробка патронов (.30 винтовочные)

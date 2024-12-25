@@ -100,8 +100,8 @@
 
 - type: entity
   parent: CrateWeaponSecure
-  id: Crate40magnum
-  name: ящик патронов .40 магнум
+  id: Crate45magnum
+  name: ящик патронов .45 магнум
   components:
   - type: StorageFill
     contents:
