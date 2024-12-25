@@ -26,10 +26,6 @@
       collection: Snores
     Honk:
       collection: BikeHorn
-    Moan:
-      collection: MoanMale
-    Awo:
-      collection: AwoMale
     Sigh:
       collection: MaleSigh
     Crying:
@@ -42,6 +38,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Moan: # Amour
+      collection: MoanMale
+    Awo: # Amour
+      collection: AwoMale
 
 - type: emoteSounds
   id: FemaleHuman
@@ -69,13 +69,25 @@
     Snore:
       collection: Snores
     Honk:
-      collection: CluwneHorn
-    Moan:
+      collection: BikeHorn
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCrying
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp
+    Moan: # Amour
       collection: MoanFemale
-    Awo:
+    Awo: # Amour
       collection: Awo
 
-- type: emoteSounds
+- type: emoteSounds # Amour
   id: MaleVulpkanin
   params:
     variation: 0.125
@@ -110,6 +122,18 @@
       collection: Yapping
     Awo:
       collection: AwoMale
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCrying
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
 
 - type: emoteSounds
   id: FemaleVulpkanin
@@ -137,7 +161,7 @@
     Snore:
       collection: Snores
     Honk:
-      collection: CluwneHorn
+      collection: BikeHorn
     Moan:
       collection: MoanFemale
     Awo:
@@ -145,7 +169,7 @@
     Barking:
       collection: Barking
     Yapping:
-      collection: BikeHorn
+      collection: Yapping
     Sigh:
       collection: FemaleSigh
     Crying:
@@ -196,12 +220,12 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
-    Moan:
-      collection: MoanMale
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Moan: # Amour
+      collection: MoanMale
 
 - type: emoteSounds
   id: FemaleFelinid
@@ -238,12 +262,12 @@
       collection: FelinidGrowls
     Purr:
       collection: FelinidPurrs
-    Moan:
-      collection: MoanFemale
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Moan: # Amour
+      collection: MoanFemale
 
 - type: emoteSounds
   id: SoundsHarpy
@@ -300,15 +324,14 @@
       collection: HarpyCaws
     Chirp:
       collection: HarpyChirps
-    Awo:
-      collection: Awo
-    Moan:
-      collection: HarpyMoan
-
     Gasp:
       collection: HarpyGasp
     DefaultDeathgasp:
       collection: HarpyDeathGasp
+    Awo: # Amour
+      collection: Awo
+    Moan: # Amour
+      collection: HarpyMoan
 
 - type: emoteSounds
   id: MaleReptilian
@@ -321,8 +344,6 @@
       path: /Audio/Animals/lizard_happy.ogg
     Honk:
       collection: BikeHorn
-    Moan:
-      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Whistle:
       collection: Whistles
     Crying:
@@ -333,6 +354,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Moan: # Amour
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
 
 - type: emoteSounds
   id: AnimalReptilian
@@ -363,6 +386,8 @@
       collection: FemaleCry
     Weh:
       collection: Weh
+    Moan: # Amour
+      path: /Audio/Voice/Reptilian/reptilian_scream.ogg
 
 - type: emoteSounds
   id: MaleSlime
@@ -403,6 +428,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Moan: # Amour
+      collection: MoanMale
   params:
     variation: 0.125
 
@@ -445,6 +472,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Moan: # Amour
+      collection: MoanFemale
   params:
     variation: 0.125
 
@@ -512,14 +541,14 @@
       path: /Audio/Voice/Arachnid/arachnid_chitter.ogg
     Click:
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
-    Moan:
-      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
     Weh:
       collection: Weh
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Moan: # Amour
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
 
 - type: emoteSounds
   id: AnimalArachnid
@@ -554,6 +583,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Moan: # Amour
+      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
 
 - type: emoteSounds
   id: UnisexDwarf
@@ -582,8 +613,6 @@
       collection: MaleSigh
     Honk:
       collection: BikeHorn
-    Moan:
-      collection: MoanMale
     Crying:
       collection: MaleCrying
     Whistle:
@@ -594,6 +623,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Moan: # Amour
+      collection: MoanMale
   params:
     variation: 0.125
     pitch: 0.75
@@ -625,8 +656,6 @@
       collection: FemaleSigh
     Honk:
       collection: BikeHorn
-    Moan:
-      collection: MoanFemale
     Crying:
       collection: FemaleCrying
     Whistle:
@@ -637,6 +666,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Moan: # Amour
+      collection: MoanFemale
   params:
     variation: 0.125
     pitch: 0.75
@@ -662,6 +693,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MothDeathGasp
+    Moan: # Amour
+      path: /Audio/Voice/Moth/moth_scream.ogg
 
 - type: emoteSounds
   id: FemaleMoth
@@ -684,6 +717,8 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: MothDeathGasp
+    Moan: # Amour
+      path: /Audio/Voice/Moth/moth_scream.ogg
 
 - type: emoteSounds
   id: AnimalMoth
