@@ -77,6 +77,11 @@
               amount: 2
               doAfter: 1
         #WD edit start
+        - to: chairComfy
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
         - to: brownChairComfy
           steps:
             - material: Steel

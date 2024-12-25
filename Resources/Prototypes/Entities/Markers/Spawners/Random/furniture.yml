@@ -9,6 +9,7 @@
           state: comfy-random
     - type: RandomSpawner
       prototypes:
+        - ComfyChair # WD
         - BlackComfyChair
         - BlueComfyChair
         - GreenComfyChair
@@ -17,8 +18,8 @@
         - PurpleComfyChair
         - RedComfyChair
         - WhiteComfyChair
-        - LightBlueComfyChair
-        - BrownComfyChair
+        - LightBlueComfyChair # WD
+        - BrownComfyChair # WD
       chance: 1
 
 - type: entity
