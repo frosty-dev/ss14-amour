@@ -33,13 +33,15 @@ public sealed class AuthPanelSystem : EntitySystem
 
     public static int MaxCount = 2;
 
+    public static int RandomAcceptRate = 8;
+
     private TimeSpan? _delay;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<AuthPanelComponent,AuthPanelButtonPressedMessage>(OnButtonPressed);
-        SubscribeLocalEvent<AuthPanelComponent,AuthPanelPerformActionEvent>(OnPerformAction);
-        SubscribeLocalEvent<RecruitedComponent,ERTRecruitedReasonEvent>(OnReason);
+        SubscribeLocalEvent<AuthPanelComponent, AuthPanelButtonPressedMessage>(OnButtonPressed);
+        SubscribeLocalEvent<AuthPanelComponent, AuthPanelPerformActionEvent>(OnPerformAction);
+        SubscribeLocalEvent<RecruitedComponent, ERTRecruitedReasonEvent>(OnReason);
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
     }
@@ -61,7 +63,7 @@ public sealed class AuthPanelSystem : EntitySystem
     {
         if (args.Action is AuthPanelAction.ERTRecruit)
         {
-            if (_random.Next(10) < 2)
+            if (_random.Next(10) < RandomAcceptRate)
             {
                 _gameTicker.AddGameRule(ERTRecruitmentRuleComponent.EventName);
             }
@@ -71,6 +73,7 @@ public sealed class AuthPanelSystem : EntitySystem
 
                 if (station != null)
                     _ert.DeclineERT(station.Value);
+                _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - due to random");
             }
 
             foreach (var entities in Counter.Values)
@@ -91,7 +94,7 @@ public sealed class AuthPanelSystem : EntitySystem
         if (!access.Contains("Command"))
         {
             _popup.PopupEntity(Loc.GetString("auth-panel-no-access"),
-                args.Actor,args.Actor);
+                args.Actor, args.Actor);
             return;
         }
 
@@ -112,22 +115,22 @@ public sealed class AuthPanelSystem : EntitySystem
         if (!Counter.TryGetValue(args.Button, out var hashSet))
         {
             hashSet = new HashSet<EntityUid>();
-            Counter.Add(args.Button,hashSet);
+            Counter.Add(args.Button, hashSet);
         }
 
-        if(hashSet.Count == MaxCount)
+        if (hashSet.Count == MaxCount)
             return;
 
         if (!CardIndexes.TryGetValue(args.Button, out var cardSet))
         {
             cardSet = new HashSet<int>();
-            CardIndexes.Add(args.Button,cardSet);
+            CardIndexes.Add(args.Button, cardSet);
         }
 
         if (cardSet.Contains(access.Count))
         {
             _popup.PopupEntity(Loc.GetString("auth-panel-used-ID"),
-                args.Actor,args.Actor);
+                args.Actor, args.Actor);
             return;
         }
 
@@ -148,19 +151,19 @@ public sealed class AuthPanelSystem : EntitySystem
         if (hashSet.Count == MaxCount)
         {
             var ev = new AuthPanelPerformActionEvent(args.Button);
-            RaiseLocalEvent(uid,ev);
+            RaiseLocalEvent(uid, ev);
         }
     }
 
     public void UpdateUserInterface(AuthPanelAction rawaction)
     {
-        if(!Counter.TryGetValue(rawaction,out var hashSet))
+        if (!Counter.TryGetValue(rawaction, out var hashSet))
             return;
 
-        var action = new AuthPanelConfirmationAction(rawaction, hashSet.Count, MaxCount,Reason);
+        var action = new AuthPanelConfirmationAction(rawaction, hashSet.Count, MaxCount, Reason);
 
         var query = EntityQueryEnumerator<AuthPanelComponent>();
-        while (query.MoveNext(out var uid,out _))
+        while (query.MoveNext(out var uid, out _))
         {
             if (!_ui.HasUi(uid, AuthPanelUiKey.Key))
                 return;
@@ -168,7 +171,7 @@ public sealed class AuthPanelSystem : EntitySystem
             var state = new AuthPanelConfirmationActionState(action);
 
             _ui.SetUiState(uid, AuthPanelUiKey.Key, state);
-            _appearance.SetData(uid,AuthPanelVisualLayers.Confirm,true);
+            _appearance.SetData(uid, AuthPanelVisualLayers.Confirm, true);
         }
     }
 

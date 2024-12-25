@@ -7,6 +7,8 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Events;
 using Content.Server._White.GhostRecruitment;
 using Content.Server.GameTicking.Components;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared._White;
 using Content.Shared._White.GhostRecruitment;
 using JetBrains.Annotations;
@@ -29,6 +31,7 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
     [Dependency] private readonly IConfigurationManager _cfgManager = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IEntityManager _entities = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     private ISawmill _logger = default!;
 
@@ -76,14 +79,14 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
         if (component.TargetStation == null || component.IsBlocked || IsDisabled)
         {
             ForceEndSelf(uid, gameRule);
-            _logger.Debug("oopsie doopsie we make a poopie poopie on starting event!");
+            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Event disabled");
             return;
         }
 
         if (_recruitment.GetEventSpawners(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayer)
         {
-            _logger.Debug("Not enough spawners!");
             DeclineERT(component.TargetStation.Value);
+            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough spawners");
             return;
         }
 
@@ -91,6 +94,7 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
         {
             _logger.Debug("Not enough time passed!");
             DeclineERT(component.TargetStation.Value);
+            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough time passed");
             return;
         }
 
@@ -109,15 +113,25 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
     protected override void Ended(EntityUid uid, ERTRecruitmentRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
     {
         base.Ended(uid, component, gameRule, args);
+        var ertsys = _entities.System<ERTRecruitmentRule>();
 
-        var check1 = component.IsBlocked;
+        var check1 = component.IsBlocked || ertsys.IsDisabled;
 
         var check2 = _recruitment.GetAllRecruited(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayer;
 
-        if (check1 || check2)
+        if (check1)
         {
             if (component.TargetStation != null)
                 DeclineERT(component.TargetStation.Value);
+            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Event disabled");
+            _recruitment.Cleanup(ERTRecruitmentRuleComponent.EventName);
+            return;
+        }
+        if (check2)
+        {
+            if (component.TargetStation != null)
+                DeclineERT(component.TargetStation.Value);
+            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough ghosts willing to play ERT");
             _recruitment.Cleanup(ERTRecruitmentRuleComponent.EventName);
             return;
         }
@@ -127,7 +141,6 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
                 AcceptERT(component.TargetStation.Value);
 
             _recruitment.EndRecruitment(ERTRecruitmentRuleComponent.EventName);
-            var ertsys = _entities.System<ERTRecruitmentRule>();
             ertsys.IsDisabled = true;
         }
 
