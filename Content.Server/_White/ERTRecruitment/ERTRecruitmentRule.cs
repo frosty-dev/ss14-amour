@@ -1,15 +1,12 @@
 using System.Linq;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Events;
 using Content.Server._White.GhostRecruitment;
 using Content.Server.GameTicking.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
-using Content.Shared._White;
 using Content.Shared._White.GhostRecruitment;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
@@ -29,7 +26,6 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
     [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly IConfigurationManager _cfgManager = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
     [Dependency] private readonly IEntityManager _entities = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
@@ -74,7 +70,6 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
         GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
-        _logger.Debug("Event is started");
 
         if (component.TargetStation == null || component.IsBlocked || IsDisabled)
         {
@@ -83,18 +78,10 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
             return;
         }
 
-        if (_recruitment.GetEventSpawners(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayer)
+        if (_recruitment.GetEventSpawners(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayers)
         {
             DeclineERT(component.TargetStation.Value);
             _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough spawners");
-            return;
-        }
-
-        if (_ticker.RoundDuration() < TimeSpan.FromMinutes(component.EarliestStart))
-        {
-            _logger.Debug("Not enough time passed!");
-            DeclineERT(component.TargetStation.Value);
-            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough time passed");
             return;
         }
 
@@ -117,13 +104,13 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
 
         var check1 = component.IsBlocked || ertsys.IsDisabled;
 
-        var check2 = _recruitment.GetAllRecruited(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayer;
+        var check2 = _recruitment.GetAllRecruited(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayers;
 
         if (check1)
         {
             if (component.TargetStation != null)
                 DeclineERT(component.TargetStation.Value);
-            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Event disabled");
+            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"{"ERT Declined - Event disabled"}");
             _recruitment.Cleanup(ERTRecruitmentRuleComponent.EventName);
             return;
         }

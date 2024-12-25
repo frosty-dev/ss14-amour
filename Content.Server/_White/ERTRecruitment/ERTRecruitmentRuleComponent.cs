@@ -11,9 +11,10 @@ public sealed partial class ERTRecruitmentRuleComponent : Component
     [ViewVariables]
     public MapId? MapId = null;
 
-    [DataField("minPlayer")] public int MinPlayer = 4;
-
-    [DataField("earliestStart")] public int EarliestStart = 45;
+    /// <summary>
+    /// Minimal amount of players, who will become ERT recruits.
+    /// </summary>
+    [DataField] public int MinPlayers = 3;
 
     public static SoundSpecifier ERTYes = new SoundPathSpecifier("/Audio/Announcements/ert_yes.ogg");
     public static SoundSpecifier ERTNo = new SoundPathSpecifier("/Audio/Announcements/ert_no.ogg");
