@@ -1,15 +1,12 @@
 using System.Linq;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Events;
 using Content.Server._White.GhostRecruitment;
 using Content.Server.GameTicking.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
-using Content.Shared._White;
 using Content.Shared._White.GhostRecruitment;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
@@ -73,7 +70,6 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
         GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
-        _logger.Debug("Event is started");
 
         if (component.TargetStation == null || component.IsBlocked || IsDisabled)
         {
@@ -82,7 +78,7 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
             return;
         }
 
-        if (_recruitment.GetEventSpawners(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayer)
+        if (_recruitment.GetEventSpawners(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayers)
         {
             DeclineERT(component.TargetStation.Value);
             _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough spawners");
@@ -108,7 +104,7 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
 
         var check1 = component.IsBlocked || ertsys.IsDisabled;
 
-        var check2 = _recruitment.GetAllRecruited(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayer;
+        var check2 = _recruitment.GetAllRecruited(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayers;
 
         if (check1)
         {

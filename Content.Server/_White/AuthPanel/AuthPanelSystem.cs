@@ -2,7 +2,6 @@ using Content.Server.GameTicking;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Server._White.ERTRecruitment;
-using Content.Server._White.JoinQueue;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -12,7 +11,6 @@ using Content.Shared._White.GhostRecruitment;
 using Content.Shared.Ghost;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
-using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Player;
 
@@ -25,7 +23,6 @@ public sealed class AuthPanelSystem : EntitySystem
     [Dependency] private readonly AccessReaderSystem _access = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ERTRecruitmentRule _ert = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
@@ -36,10 +33,27 @@ public sealed class AuthPanelSystem : EntitySystem
     public Dictionary<AuthPanelAction, HashSet<EntityUid>> Counter = new();
     public Dictionary<AuthPanelAction, HashSet<int>> CardIndexes = new();
     public string Reason = "";
-    public static int MaxCount = 1;
-    public static int DelayNextAction = 10;
+    /// <summary>
+    /// Minimal Amount of votes needed for action.
+    /// </summary>
+    public static int MinCount = 3;
+
+    /// <summary>
+    /// Amount of minutes before action can be called. Counting from round start.
+    /// </summary>
     public static int EarliestStart = 45;
+
+    /// <summary>
+    /// Amount of seconds before action can be called. Counting from previous vote.
+    /// </summary>
+    public static int DelayDuration = 5;
+
+    /// <summary>
+    /// Amount of minutes before action can be called. Counting from previous call for vote.
+    /// </summary>
+    public static int TimeoutDuration = 10;
     private TimeSpan? _delay;
+    private TimeSpan? _timeout;
     public override void Initialize()
     {
         SubscribeLocalEvent<AuthPanelComponent, AuthPanelButtonPressedMessage>(OnButtonPressed);
@@ -56,7 +70,11 @@ public sealed class AuthPanelSystem : EntitySystem
 
     private void OnRestart(RoundRestartCleanupEvent ev)
     {
-        ClearPanel();
+        Counter.Clear();
+        CardIndexes.Clear();
+
+        _delay = null;
+        _timeout = null;
     }
 
     private void ClearPanel()
@@ -65,12 +83,36 @@ public sealed class AuthPanelSystem : EntitySystem
         CardIndexes.Clear();
 
         _delay = null;
+        _timeout = null;
+
+        var action = new AuthPanelConfirmationAction(AuthPanelAction.ERTRecruit, 0, MinCount, "");
+        var query = EntityQueryEnumerator<AuthPanelComponent>();
+        while (query.MoveNext(out var uid, out _))
+        {
+            if (!_ui.HasUi(uid, AuthPanelUiKey.Key))
+                continue;
+
+            var state = new AuthPanelConfirmationActionState(action);
+            _ui.SetUiState(uid, AuthPanelUiKey.Key, state);
+            _appearance.SetData(uid, AuthPanelVisualLayers.Confirm, false);
+        }
     }
 
     private void OnPerformAction(EntityUid uid, AuthPanelComponent component, AuthPanelPerformActionEvent args)
     {
         if (args.Action is AuthPanelAction.ERTRecruit)
         {
+
+            if (_ticker.RoundDuration() < TimeSpan.FromMinutes(EarliestStart))
+            {
+                var station = _station.GetStationInMap(Transform(uid).MapID);
+
+                if (station != null)
+                    _ert.DeclineERT(station.Value);
+                _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough time passed");
+                return;
+            }
+
             var query = EntityQueryEnumerator<GhostComponent, ActorComponent>();
             var ghostList = new List<EntityUid>();
             while (query.MoveNext(out var ghost, out _, out _))
@@ -78,19 +120,8 @@ public sealed class AuthPanelSystem : EntitySystem
                 ghostList.Add(ghost);
             }
 
-            // if (_ticker.RoundDuration() < TimeSpan.FromMinutes(EarliestStart))
-            // {
-            //     var station = _station.GetStationInMap(Transform(uid).MapID);
-
-            //     if (station != null)
-            //         _ert.DeclineERT(station.Value);
-            //     _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough time passed");
-            //     return;
-            // }
-
             var playerCount = _playerManager.PlayerCount;
-            //if (playerCount - ghostList.Count > playerCount / 2 && ghostList.Count > 3)
-            if (true)
+            if (playerCount - ghostList.Count > playerCount / 2 && ghostList.Count > MinCount)
             {
                 _gameTicker.AddGameRule(ERTRecruitmentRuleComponent.EventName);
             }
@@ -112,8 +143,6 @@ public sealed class AuthPanelSystem : EntitySystem
                 }
             }
         }
-
-        Timer.Spawn(TimeSpan.FromSeconds(DelayNextAction), () => ClearPanel());
     }
 
     private void OnButtonPressed(EntityUid uid, AuthPanelComponent component, AuthPanelButtonPressedMessage args)
@@ -147,7 +176,7 @@ public sealed class AuthPanelSystem : EntitySystem
             Counter.Add(args.Button, hashSet);
         }
 
-        if (hashSet.Count == MaxCount)
+        if (hashSet.Count >= MinCount)
             return;
 
         if (!CardIndexes.TryGetValue(args.Button, out var cardSet))
@@ -171,16 +200,17 @@ public sealed class AuthPanelSystem : EntitySystem
         }
 
         cardSet.Add(access.Count);
-        _delay = _timing.CurTime + TimeSpan.FromSeconds(5);
+        _delay = _timing.CurTime + TimeSpan.FromSeconds(DelayDuration);
 
         Reason = args.Reason;
         UpdateUserInterface(args.Button);
         _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"{ToPrettyString(args.Actor):player} vote for {args.Button}. Reason: {Reason}");
 
-        if (hashSet.Count == MaxCount)
+        if (hashSet.Count >= MinCount)
         {
             var ev = new AuthPanelPerformActionEvent(args.Button);
             RaiseLocalEvent(uid, ev);
+            _timeout = _timing.CurTime + TimeSpan.FromMinutes(TimeoutDuration);
         }
     }
 
@@ -189,13 +219,13 @@ public sealed class AuthPanelSystem : EntitySystem
         if (!Counter.TryGetValue(rawaction, out var hashSet))
             return;
 
-        var action = new AuthPanelConfirmationAction(rawaction, hashSet.Count, MaxCount, Reason);
+        var action = new AuthPanelConfirmationAction(rawaction, hashSet.Count, MinCount, Reason);
 
         var query = EntityQueryEnumerator<AuthPanelComponent>();
         while (query.MoveNext(out var uid, out _))
         {
             if (!_ui.HasUi(uid, AuthPanelUiKey.Key))
-                return;
+                continue;
 
             var state = new AuthPanelConfirmationActionState(action);
 
@@ -206,12 +236,14 @@ public sealed class AuthPanelSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        if (_delay == null)
-            return;
-
-        if (_timing.CurTime >= _delay)
+        if (_delay != null && _timing.CurTime >= _delay)
         {
             _delay = null;
+        }
+
+        if (_timeout != null && _timing.CurTime >= _timeout)
+        {
+            ClearPanel();
         }
     }
 }
