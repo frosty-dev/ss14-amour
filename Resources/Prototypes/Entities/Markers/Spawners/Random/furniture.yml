@@ -17,6 +17,8 @@
         - PurpleComfyChair
         - RedComfyChair
         - WhiteComfyChair
+        - LightBlueComfyChair
+        - BrownComfyChair
       chance: 1
 
 - type: entity
