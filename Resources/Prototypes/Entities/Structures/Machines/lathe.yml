@@ -214,7 +214,6 @@
        - MagazineShotgun
        - MagazineShotgunSlug
        - MagazineLightRifleBox
-       - MagazinePistolCaselessRifleBox
        - CartridgePistol
        - CartridgeMagnum
        - ShellShotgun
@@ -903,7 +902,6 @@
   - type: EmagLatheRecipes
     emagStaticRecipes:
      - MagazineLightRifleBox
-     - MagazinePistolCaselessRifleBox
      - CartridgeMagnumAP
      - CartridgeAntiMateriel
      - CartridgeCaselessRifle
