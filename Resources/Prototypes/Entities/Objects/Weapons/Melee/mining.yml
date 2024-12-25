@@ -75,6 +75,13 @@
   name: crusher dagger
   description: A scaled down version of a proto-kinetic crusher. Uses kinetic energy to vibrate the blade at high speeds.
   components:
+#WD edit start
+  - type: EmbeddableProjectile
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 15
+#WD edit end
   - type: Sprite
     sprite: Objects/Weapons/Melee/crusher_dagger.rsi
     state: icon
