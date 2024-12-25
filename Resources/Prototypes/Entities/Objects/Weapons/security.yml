@@ -108,14 +108,19 @@
     wideAnimationRotation: -135
     damage:
       types:
-        Blunt: 20
+        Blunt: 18 # WD edit start
     soundHit:
-      path: "/Audio/Weapons/smash.ogg"
+      path: "/Audio/Weapons/genhit3.ogg"
     bluntStaminaDamageFactor: 1.5
+  - type: StaminaDamageOnHit
+    damage: 12 # WD edit end
   - type: Item
     size: Normal
+    storedRotation: -44 # WD
+    shape: # WD
+    - 0,0,0,2
   - type: Tag
-    tags: 
+    tags:
     - Truncheon
   - type: Clothing
     sprite: Objects/Weapons/Melee/truncheon.rsi

@@ -64,6 +64,9 @@
   id: Bloodpack
 
 - type: Tag
+  id: BlueprintAutolathe
+
+- type: Tag
   id: BodyBag
 
 - type: Tag
@@ -263,7 +266,7 @@
 
 - type: Tag
   id: CannonBall
-  
+
 - type: Tag
   id: CannotSuicide
 

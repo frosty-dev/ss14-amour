@@ -1,0 +1,236 @@
+# Colors for pointlight
+# BDC07F - yellow
+# 7FC080 - green
+# C07F7F - red
+# 7F93C0 - blue
+
+- type: entity
+  id: BaseWeaponPowerCellHonk
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: MagazineAmmoProvider
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: EmitSoundOnPickup
+    sound:
+      collection: LasersPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: LasersDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: LasersDrop
+
+- type: entity
+  id: BaseWeaponPowerCellSmallHonk
+  parent: BaseWeaponPowerCellHonk
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/taser.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
+
+#- type: entity
+#  name: svalinn laser pistol
+#  parent: BaseWeaponPowerCellSmall
+#  id: WeaponLaserSvalinn
+#  description: A cheap and widely used laser pistol.
+#  components:
+#  - type: Sprite
+#    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+#    layers:
+#    - state: base
+#      map: ["enum.GunVisualLayers.Base"]
+#    - state: mag-unshaded-4
+#      map: ["enum.GunVisualLayers.MagUnshaded"]
+#      shader: unshaded
+#  - type: Item
+#    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+#  - type: MagazineVisuals
+#    magState: mag
+#    steps: 5
+#    zeroVisible: true
+#  - type: PointLightBattery
+#  - type: PointLight
+#    radius: 1.3
+#    energy: 0.15
+#    color: "#BDC07F"
+
+- type: entity
+  name: laser rifle
+  id: WeaponLaserCarbine
+  parent: BaseWeaponPowerCellHonk
+  description: Favoured by Nanotrasen Security for being cheap and easy to use.
+  components:
+  - type: Clothing
+    sprite: White/_Honk/Objects/Weapons/Guns/Battery/laser_gun.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: WeaponModules
+  - type: Sprite
+    sprite: White/_Honk/Objects/Weapons/Guns/Battery/laser_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+    - state: aim_module
+      visible: false
+      sprite: White/Objects/Weapons/modulesOnSMGs.rsi
+      map: [ "enum.ModuleVisualState.AimModule" ]
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: EnergyCellCarbine
+        priority: 4
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - EnergyCellCarbine
+      aim_module:
+        name: Aim Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 3
+        whitelist:
+          tags:
+          - HolographicAimModule
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: PointLightBattery
+  - type: PointLight
+    radius: 1.3
+    energy: 0.15
+    color: "#7FC080"
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      aim_module: !type:ContainerSlot
+
+- type: entity
+  parent: BaseWeaponPowerCellSmallHonk
+  id: WeaponDisabler
+  name: disabler
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+  - type: Tag
+    tags:
+    - Taser
+    - Sidearm
+  - type: Sprite
+    sprite: White/_Honk/Objects/Weapons/Guns/Battery/disabler.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: EnergyCellDisabler
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - EnergyCellDisabler
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GuideHelp
+    guides:
+    - Security
+
+- type: entity
+  name: disabler SMG
+  parent: BaseWeaponPowerCellHonk
+  id: WeaponDisablerSMG
+  description: Advanced weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+  - type: Item
+    size: Large
+  - type: Tag
+    tags:
+    - Taser
+    - Sidearm
+  - type: Sprite
+    sprite: White/_Honk/Objects/Weapons/Guns/Battery/disabler_smg.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Gun
+    selectedMode: FullAuto
+    fireRate: 4
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: EnergyCellDisablerSmg
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - EnergyCellDisablerSmg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: StaticPrice
+    price: 260

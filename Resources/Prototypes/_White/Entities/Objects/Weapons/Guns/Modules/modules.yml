@@ -9,6 +9,9 @@
     sprite: White/Objects/Weapons/modules.rsi
     size: Tiny
   - type: Appearance
+  - type: GuideHelp
+    guides:
+    - WeaponModules
 
 - type: entity
   parent: BaseModule
@@ -111,19 +114,23 @@
   parent: BaseAimModule
   id: HolographicSightModule
   name: "holographic sight"
-  description: Holographic sight for rifles  (lecter, CV, drozd, WT).
+  description: Holographic sight for rifles (lecter, CV, drozd, WT).
   components:
   - type: AimModule
     value: "holographic"
     module_type: "aim_module"
   - type: Sprite
     state: holographic
+  - type: Tag
+    tags:
+      - BaseAimModule
+      - HolographicAimModule
 
 - type: entity
   parent: BaseAimModule
   id: TelescopicSightModule
   name: "telescopic sight"
-  description: Telescopic sight for rifles  (lecter, CV, drozd, WT).
+  description: Telescopic sight for rifles (lecter, CV, drozd, WT).
   components:
   - type: AimModule
     divisor: 0.15
@@ -142,3 +149,6 @@
     value: "shinano"
     module_type: "shutter_module"
     tag: Grenade
+  - type: Sprite
+    sprite: White/Objects/Weapons/modulesOnWeapon.rsi
+    state: telescopic

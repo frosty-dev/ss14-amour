@@ -64,6 +64,7 @@
     CrateArmoryLaser: 1.0
     CrateArmoryShotgun: 1.0
     CrateArmoryPistols: 1.0
+    CrateArmoryKLMG: 1.0 # WD
     # rare armor
     ClothingOuterArmorRiot: 1.0
     # rare chemicals
@@ -73,3 +74,6 @@
     SpaceCash2500: 1.0
     SpaceCash5000: 0.75
     SpaceCash10000: 0.5
+    # blueprints WD
+    BlueprintSeismicCharge: 1.0
+    BlueprintSoapOmega: 1.0

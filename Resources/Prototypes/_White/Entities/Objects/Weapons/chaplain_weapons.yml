@@ -104,6 +104,10 @@
     - belt
     - suitStorage
   - type: Item
+    size: Huge
+    storedRotation: -44
+    shape:
+    - 0, 0, 1, 3
     sprite: White/Objects/Weapons/Chaplain/claymore.rsi
   - type: MeleeWeapon
     damage:
@@ -130,6 +134,10 @@
     - belt
     - suitStorage
   - type: Item
+    size: Huge
+    storedRotation: -44
+    shape:
+    - 0, 0, 1, 3
     sprite: White/Objects/Weapons/Chaplain/chainsword.rsi
   - type: MeleeWeapon
     soundHit:
@@ -159,6 +167,10 @@
     energy: 2
     color: lightblue
   - type: Item
+    size: Huge
+    storedRotation: -44
+    shape:
+    - 0, 0, 1, 3
     sprite: White/Objects/Weapons/Chaplain/forceweapon.rsi
 
 # Позволяет блокировать быстрее, средненький урон.
@@ -177,6 +189,10 @@
     - belt
     - suitStorage
   - type: Item
+    size: Huge
+    storedRotation: -44
+    shape:
+    - 0, 0, 1, 3
     sprite: White/Objects/Weapons/Chaplain/katana.rsi
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -212,6 +228,10 @@
     - back
     - suitStorage
   - type: Item
+    size: Huge
+    storedRotation: -44
+    shape:
+    - 0, 0, 1, 3
     sprite: White/Objects/Weapons/Chaplain/multiverse.rsi
   - type: RandomDamage
   - type: Sharp
@@ -236,14 +256,18 @@
     - back
     - suitStorage
   - type: Item
+    size: Huge
+    storedRotation: -44
+    shape:
+    - 0, 0, 2, 3
     sprite: White/Objects/Weapons/Chaplain/scythe-inhands.rsi
   - type: Sharp
 
-# Может пиздеть
+# Может пиздеть и может давать пизды
 - type: entity
   parent: HolyKatana
   id: PossessedBlade
-  name: одержимый клинок
+  name: Одержимый Клинок
   description: Когда на станции царит хаос, приятно иметь рядом друга.
   components:
   - type: Sprite
@@ -257,13 +281,25 @@
     - suitStorage
   - type: GhostRole
     allowSpeech: true
-    name: Одержимый Клинок
-    description: Вы - одержимый клинок. Подчиняйтесь своему владельцу.
-    rules: ghost-role-component-default-rules
+    name: ghost-role-information-possessed-blade-name
+    description: ghost-role-information-possessed-blade-description
+    rules: ghost-role-information-possessed-blade-rules
   - type: GhostTakeoverAvailable
   - type: Examiner
   - type: Item
+    size: Huge
+    storedRotation: 44
+    shape:
+    - 0, 0, 1, 3
     sprite: White/Objects/Weapons/Chaplain/possessed.rsi
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 13
+  - type: CombatMode
+  - type: UseDelay
+    delay: 2.0
+  - type: PacifiedOnChaplainAction
 
 # Приклеен к руке, быстро и громко бьет
 - type: entity
@@ -340,6 +376,9 @@
     state: icon
   - type: Item
     size: Huge
+    storedRotation: 44
+    shape:
+    - 0, 0, 0, 4
     sprite: White/Objects/Weapons/Chaplain/staff.rsi
   - type: Clothing
     sprite: White/Objects/Weapons/Chaplain/staff.rsi
@@ -380,6 +419,9 @@
   - type: Item
     sprite: White/Objects/Weapons/Chaplain/pitchfork.rsi
     size: Huge
+    storedRotation: -44
+    shape:
+    - 0, 0, 1, 3
   - type: Clothing
     sprite: White/Objects/Weapons/Chaplain/pitchfork.rsi
     slots:
@@ -438,6 +480,9 @@
     state: icon
   - type: Item
     size: Huge
+    storedRotation: -44
+    shape:
+    - 0, 0, 1, 3
     sprite: White/Objects/Weapons/Chaplain/hammer.rsi
   - type: Clothing
     sprite: White/Objects/Weapons/Chaplain/hammer.rsi
@@ -457,6 +502,9 @@
     soundSwing:
       collection: HammerMiss
   - type: DisarmMalus
+  - type: KnockDownOnHit
+    knockDownBehavior: NoDrop
+    knockdownTime: 0.4
 
 # Имеет все инструменты в себе, но работает медленно и почти не наносит урона
 - type: entity

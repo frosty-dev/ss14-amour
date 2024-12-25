@@ -11,6 +11,7 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Shared._White.Blocking;
 
@@ -21,16 +22,17 @@ public sealed class MeleeBlockSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<HandsComponent, MeleeBlockAttemptEvent>(OnBlockAttempt,
-            after: new[] {typeof(BlockingSystem)});
+            after: new[] { typeof(BlockingSystem) });
         SubscribeLocalEvent<MeleeWeaponComponent, MeleeHitEvent>(OnHit,
-            before: new[] {typeof(StaminaSystem), typeof(MeleeThrowOnHitSystem)},
-            after: new[] {typeof(BackstabSystem)});
+            before: new[] { typeof(StaminaSystem), typeof(MeleeThrowOnHitSystem) },
+            after: new[] { typeof(BackstabSystem) });
         SubscribeLocalEvent<MeleeBlockComponent, ExaminedEvent>(OnExamine);
     }
 
@@ -74,6 +76,9 @@ public sealed class MeleeBlockSystem : EntitySystem
             return;
 
         if (TryComp(uid.Value, out ItemToggleComponent? toggle) && !toggle.Activated)
+            return;
+
+        if (!_mobStateSystem.IsAlive(ent))
             return;
 
         _audio.PlayPredicted(block.BlockSound, ent, args.Attacker);

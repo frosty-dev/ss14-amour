@@ -66,3 +66,7 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50
+  - type: Construction # WD
+    deconstructionTarget: null
+    graph: ClothingHeadBucketHelmet
+    node: start

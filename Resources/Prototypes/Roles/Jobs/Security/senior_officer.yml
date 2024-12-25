@@ -30,7 +30,7 @@
   - Maintenance
   - Service
   - External
-  - Medical
+  - Cryogenics
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

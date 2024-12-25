@@ -9,6 +9,9 @@
     state: icon
   - type: Item
     size: Normal
+    storedRotation: -44 # WD
+    shape: # WD
+    - 0,0,0,2
     sprite: Objects/Weapons/Melee/white_cane.rsi
   - type: MeleeWeapon
     wideAnimationRotation: 45

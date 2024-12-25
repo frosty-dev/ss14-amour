@@ -48,6 +48,10 @@
     - suitStorage
   - type: Item
     sprite: White/Objects/Weapons/Chaplain/spellblade.rsi
+    size: Large
+    storedRotation: 44
+    shape:
+    - 0, 0, 1, 3
   - type: UserInterface
     interfaces:
       enum.SpellBladeUiKey.Key:
@@ -88,6 +92,9 @@
         Structural: 60
   - type: Item
     size: Huge
+    storedRotation: -44
+    shape:
+    - 0, 0, 1, 3
     sprite: White/Objects/Weapons/mjolnir.rsi
   - type: Clothing
     quickEquip: false
@@ -142,3 +149,26 @@
     message: bolt-barrage-component-extra-message
   - type: BoltBarrage
   - type: GiftIgnore
+
+- type: entity
+  parent: [ClothingEyesBase, ShowSecurityIcons, ShowMedicalIcons]
+  id: ClothingEyesWizardGlasses
+  name: солнцезащитные очки
+  description: Подходят как для СБ, так и для карго.
+  suffix: Wizard
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+  - type: ShowAntagonistIcons
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: ClothingGrantComponent
+    component:
+    - type: NightVision
+    - type: ThermalVision

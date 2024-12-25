@@ -42,3 +42,15 @@
   components:
   - type: Implanter
     implant: NeuroStabilizationImplant
+
+- type: entity
+  parent: BaseImplantOnlyImplanterSyndi
+  id: VoiceActivatedBombImplanter
+  suffix: voice activated bomb
+  components:
+  - type: Implanter
+    implant: VoiceActivatedBombImplant
+  - type: TriggerOnVoice
+  - type: Tag
+    tags:
+      - VoiceActivatedBombImplant

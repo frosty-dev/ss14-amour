@@ -126,6 +126,8 @@
     color: "#404040"
   - type: GlobalAntagonist
     antagonistPrototype: globalAntagonistRats
+  - type: TTS # WD
+    voicePrototypeId: Sheogorath
 
 - type: entity
   id: MobRatKingBuff

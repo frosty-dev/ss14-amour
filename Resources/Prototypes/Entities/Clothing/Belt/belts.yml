@@ -124,6 +124,7 @@
         - Multitool
         - AppraisalTool
       components:
+        - AccessOverrider # WD
         - SprayPainter
         - NetworkConfigurator
         - RCD
@@ -182,31 +183,33 @@
     sprite: Clothing/Belt/assault.rsi
   - type: Clothing
     sprite: Clothing/Belt/assault.rsi
-  - type: Storage
-    whitelist:
-      components:
-        - Stunbaton
-        - FlashOnTrigger
-        - SmokeOnTrigger
-        - Flash
-        - Handcuff
-        - BallisticAmmoProvider
-        - Ammo
-  - type: ItemMapper
-    mapLayers:
-      flashbang:
-        whitelist:
-          components:
-          - FlashOnTrigger
-      stunbaton:
-        whitelist:
-          components:
-          - Stunbaton
-      tear_gas_grenade:
-        whitelist:
-          components:
-          - SmokeOnTrigger
-    sprite: Clothing/Belt/belt_overlay.rsi
+  # WD EDIT START (it's already inherited from ClothingBeltSecurity)
+  # - type: Storage
+  #   whitelist:
+  #     components:
+  #       - Stunbaton
+  #       - FlashOnTrigger
+  #       - SmokeOnTrigger
+  #       - Flash
+  #       - Handcuff
+  #       - BallisticAmmoProvider
+  #       - Ammo
+  # - type: ItemMapper
+  #   mapLayers:
+  #     flashbang:
+  #       whitelist:
+  #         components:
+  #         - FlashOnTrigger
+  #     stunbaton:
+  #       whitelist:
+  #         components:
+  #         - Stunbaton
+  #     tear_gas_grenade:
+  #       whitelist:
+  #         components:
+  #         - SmokeOnTrigger
+  #  sprite: Clothing/Belt/belt_overlay.rsi
+  # WD EDIT END
   - type: Appearance
 
 - type: entity
@@ -515,6 +518,8 @@
         - MagazineMagnum
         - CombatKnife
         - Truncheon
+        - HolofanProjector # WD
+        - ClusterBang # WD
       components:
         - Stunbaton
         - FlashOnTrigger

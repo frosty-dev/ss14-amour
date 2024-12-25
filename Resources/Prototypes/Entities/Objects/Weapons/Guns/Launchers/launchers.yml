@@ -33,7 +33,7 @@
 
 - type: entity
   name: china lake
-  parent: [BaseWeaponLauncher, BaseGunWieldable]
+  parent: BaseWeaponLauncher # WD removed BaseGunWieldable
   id: WeaponLauncherChinaLake
   description: PLOOP
   components:
@@ -57,6 +57,8 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+    minAngle: 10 # WD
+    maxAngle: 10 # WD
   - type: BallisticAmmoProvider
     whitelist:
       tags:

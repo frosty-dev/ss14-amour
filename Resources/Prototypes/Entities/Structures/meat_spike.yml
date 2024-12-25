@@ -52,7 +52,7 @@
           Empty: { state: spike }
           Bloody: { state: spikebloody }
   - type: Construction
-    graph: MeatSpike
+    graph: MeatSpikeWD # WD Edit
     node: MeatSpike
   - type: GuideHelp
     guides:

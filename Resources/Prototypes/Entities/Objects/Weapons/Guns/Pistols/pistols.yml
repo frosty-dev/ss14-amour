@@ -174,6 +174,16 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
+    - state: barrel_module
+      visible: false
+      map: [ "enum.ModuleVisualState.BarrelModule" ]
+    - state: handguard_module
+      visible: false
+      map: [ "enum.ModuleVisualState.HandGuardModule" ]
+    - state: aim_module
+      visible: false
+      sprite: White/Objects/Weapons/modulesOnPistols.rsi
+      map: [ "enum.ModuleVisualState.AimModule" ]
   - type: Clothing
     sprite: White/Objects/Weapons/Guns/Pistols/mk58.rsi
   - type: Gun
@@ -182,6 +192,61 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: WeaponModules
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 4
+        whitelist:
+          tags:
+            - MagazinePistol
+            - MagazinePistolHighCapacity
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+      barrel_module:
+        name: Barrel Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 3
+        whitelist:
+          tags:
+          - BaseBarrelModule
+      handguard_module:
+        name: Handguard Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 3
+        whitelist:
+          tags:
+            - BaseHandGuardModule
+      aim_module:
+        name: Aim Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 3
+        whitelist:
+          tags:
+            - HolographicAimModule
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      handguard_module: !type:ContainerSlot
+      barrel_module: !type:ContainerSlot
+      aim_module: !type:ContainerSlot
+  - type: PointLight
+    enabled: false
+    autoRot: true
+  - type: Appearance
 
 - type: entity
   id: WeaponPistolMk58Nonlethal
@@ -199,6 +264,7 @@
         whitelist:
           tags:
             - MagazinePistol
+            - MagazinePistolHighCapacity
       gun_chamber:
         name: Chamber
         startingItem: CartridgePistolRubber
@@ -206,6 +272,30 @@
         whitelist:
           tags:
             - CartridgePistol
+      barrel_module:
+        name: Barrel Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 3
+        whitelist:
+          tags:
+          - BaseBarrelModule
+      handguard_module:
+        name: Handguard Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 3
+        whitelist:
+          tags:
+            - BaseHandGuardModule
+      aim_module:
+        name: Aim Module
+        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
+        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
+        priority: 3
+        whitelist:
+          tags:
+            - HolographicAimModule
 
 - type: entity
   name: N1984

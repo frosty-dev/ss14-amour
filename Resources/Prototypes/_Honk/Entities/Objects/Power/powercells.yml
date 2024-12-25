@@ -1,0 +1,117 @@
+- type: entity
+  id: BasePowerCellHonk
+  abstract: true
+  parent: BaseItem
+  components:
+  - type: Item
+    size: Tiny
+  - type: Battery
+    pricePerJoule: 0.15
+  - type: PowerCell
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 200
+    intensitySlope: 1.5
+  - type: Sprite
+    sprite: Objects/Power/power_cells.rsi
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 5
+  - type: InjectableSolution
+    solution: battery
+  - type: DrawableSolution
+    solution: battery
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Licoxide
+        Quantity: 5
+  - type: Tag
+    tags:
+    - DroneUsable
+    - PowerCell
+  - type: Appearance
+  - type: PowerCellVisuals
+  - type: Riggable
+  - type: PointLight
+    enabled: false
+    color: "#7FC080"
+    radius: 1.05
+    energy: 0.3
+  - type: PointLightRealBattery
+
+- type: entity
+  parent: BasePowerCellHonk
+  id: EnergyCellCarbine
+  suffix: Full
+  name: энергетическая батарея карабина
+  description: Перезаряжаемый элемент питания. Модифицирован для работы с лазерной винтовкой.
+  components:
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletTrailLaser
+    fireCost: 50
+  - type: Sprite
+    sprite: White/_Honk/Objects/Power/carbine_energy_cells.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: battery
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 800
+    startingCharge: 800
+  - type: Tag
+    tags:
+    - EnergyCellCarbine
+
+- type: entity
+  parent: BasePowerCellHonk
+  id: EnergyCellDisabler
+  suffix: Full
+  name: энергетическая батарея дизейблера
+  description: Перезаряжаемый элемент питания. Модифицирован для работы с дизейблером.
+  components:
+  - type: Sprite
+    sprite: White/_Honk/Objects/Power/disabler_energy_cells.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: battery
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Tag
+    tags:
+    - EnergyCellDisabler
+
+- type: entity
+  parent: BasePowerCellHonk
+  id: EnergyCellDisablerSmg
+  suffix: Full
+  name: энергетическая батарея дизейблера пулемёта
+  description: Перезаряжаемый элемент питания. Модифицирован для работы с дизейблером-пулемётом.
+  components:
+  - type: Sprite
+    sprite: White/_Honk/Objects/Power/disabler_smg_energy_cells.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: battery
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisablerSmg
+    fireCost: 33
+  - type: Battery
+    maxCharge: 990
+    startingCharge: 990
+  - type: Tag
+    tags:
+    - EnergyCellDisablerSmg

@@ -10860,8 +10860,8 @@ entities:
           -37,0:
             0: 48009
           -36,1:
-            2: 4096
-            0: 3300
+            2: 4128
+            0: 3268
           -37,1:
             0: 28851
           -36,2:
@@ -18416,6 +18416,18 @@ entities:
     - type: Transform
       pos: 12.8871565,-5.2782454
       parent: 17144
+- proto: BoxRubberShot
+  entities:
+  - uid: 17282
+    components:
+    - type: Transform
+      pos: -155.6516,7.5998025
+      parent: 2
+  - uid: 17283
+    components:
+    - type: Transform
+      pos: -155.35992,7.5685525
+      parent: 2
 - proto: BoxShotgunPractice
   entities:
   - uid: 921
@@ -47706,10 +47718,10 @@ entities:
       parent: 2
 - proto: ClosetLegalFilled
   entities:
-  - uid: 6584
+  - uid: 17276
     components:
     - type: Transform
-      pos: -142.5,5.5
+      pos: -142.5,3.5
       parent: 2
 - proto: ClosetMaintenance
   entities:
@@ -81064,8 +81076,7 @@ entities:
   - uid: 11429
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -134.15556,6.36669
+      pos: -134.33968,6.5407124
       parent: 2
 - proto: Jukebox
   entities:
@@ -82140,6 +82151,16 @@ entities:
     components:
     - type: Transform
       pos: -160.5,16.5
+      parent: 2
+    - type: PointLight
+      color: '#D56C6CFF'
+      enabled: True
+- proto: LockerInspectorFilled
+  entities:
+  - uid: 13551
+    components:
+    - type: Transform
+      pos: -142.5,5.5
       parent: 2
     - type: PointLight
       color: '#D56C6CFF'
@@ -94809,6 +94830,13 @@ entities:
     - type: Transform
       pos: -155.5,16.5
       parent: 2
+- proto: SpawnPointInspector
+  entities:
+  - uid: 17277
+    components:
+    - type: Transform
+      pos: -140.5,5.5
+      parent: 2
 - proto: SpawnPointJanitor
   entities:
   - uid: 13548
@@ -94823,15 +94851,15 @@ entities:
       parent: 2
 - proto: SpawnPointLawyer
   entities:
+  - uid: 6584
+    components:
+    - type: Transform
+      pos: -144.5,2.5
+      parent: 2
   - uid: 13550
     components:
     - type: Transform
       pos: -142.5,0.5
-      parent: 2
-  - uid: 13551
-    components:
-    - type: Transform
-      pos: -140.5,5.5
       parent: 2
 - proto: SpawnPointLibrarian
   entities:
@@ -97633,6 +97661,16 @@ entities:
     - type: Transform
       pos: 15.5,-1.5
       parent: 17144
+  - uid: 17278
+    components:
+    - type: Transform
+      pos: -154.5,7.5
+      parent: 2
+  - uid: 17279
+    components:
+    - type: Transform
+      pos: -155.5,7.5
+      parent: 2
 - proto: TableBrass
   entities:
   - uid: 13944
@@ -114084,6 +114122,18 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -149.58974,10.572603
+      parent: 2
+- proto: WeaponRubberShotgun
+  entities:
+  - uid: 17280
+    components:
+    - type: Transform
+      pos: -154.60992,7.8289695
+      parent: 2
+  - uid: 17281
+    components:
+    - type: Transform
+      pos: -154.48492,7.495636
       parent: 2
 - proto: WeaponRevolverMateba
   entities:

@@ -56,7 +56,11 @@ public sealed class ChangelingConditionsSystem : EntitySystem
     {
         var title = Loc.GetString("objective-condition-absorb-dna", ("count", component.NeedToAbsorb));
 
+        var description = Loc.GetString("objective-condition-absorb-dna-desc");
+
         _metaData.SetEntityName(uid, title, args.Meta);
+
+        _metaData.SetEntityDescription(uid, description, args.Meta);
     }
 
     private void OnAbsorbDnaGetProgress(EntityUid uid, AbsorbDnaConditionComponent component, ref ObjectiveGetProgressEvent args)
@@ -74,7 +78,7 @@ public sealed class ChangelingConditionsSystem : EntitySystem
         if (requiredDna == absorbed)
             return 1f;
 
-        var progress = MathF.Min(absorbed/(float)requiredDna, 1f);
+        var progress = MathF.Min(absorbed / (float) requiredDna, 1f);
 
         return progress;
     }
@@ -156,7 +160,7 @@ public sealed class ChangelingConditionsSystem : EntitySystem
 
     private float GetAbsorbChangelingProgress(MindComponent mind, EntityUid target)
     {
-        if(!_mind.TryGetMind(mind.CurrentEntity!.Value, out var selfMindId, out _))
+        if (!_mind.TryGetMind(mind.CurrentEntity!.Value, out var selfMindId, out _))
             return 0f;
 
         if (!TryComp<MindComponent>(target, out var targetMind))

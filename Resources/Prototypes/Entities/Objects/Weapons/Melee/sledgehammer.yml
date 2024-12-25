@@ -25,3 +25,10 @@
         Structural: 10
   - type: Item
     size: Large
+    storedRotation: -44 # WD
+    shape: # WD
+    - 0,0,1,3
+  - type: KnockDownOnHit
+    knockDownBehavior: NoDrop
+    knockdownTime: 0.8
+    requireWield: true

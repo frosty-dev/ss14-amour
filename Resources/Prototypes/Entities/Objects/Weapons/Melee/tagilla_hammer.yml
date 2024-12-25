@@ -39,3 +39,7 @@
       isBloodDagger: false
     - type: UseDelay
       delay: 1
+    - type: KnockDownOnHit
+      knockDownBehavior: NoDrop
+      knockdownTime: 0.8
+      requireWield: true

@@ -1,5 +1,6 @@
 using Content.Shared._White.RCD;
 using Content.Shared.RCD.Systems;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
@@ -76,4 +77,11 @@ public sealed partial class RCDComponent : Component
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
     public Transform ConstructionTransform { get; private set; } = default!;
+
+    /// <summary>
+    /// WD.
+    /// A blacklist for limiting entities of the same construction group on one tile.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? BlacklistOnOneTile;
 }

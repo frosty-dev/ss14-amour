@@ -27,7 +27,7 @@ namespace Content.Server._White.AspectsSystem.Aspects
         private float _timeElapsedForTraitor;
 
         private float _wacky;
-        private const float WackyAaa = 60;
+        private const float WackyAaa = 430;
 
         protected override void Started(EntityUid uid, TraitoredAspectComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
         {
@@ -39,7 +39,7 @@ namespace Content.Server._White.AspectsSystem.Aspects
             if (!HasTraitorGameRule())
                 ForceEndSelf(uid, gameRule);
 
-            _wacky = _random.Next(300, 360);
+            _wacky = _random.Next(720, 860);
         }
 
         protected override void ActiveTick(EntityUid uid, TraitoredAspectComponent component, GameRuleComponent gameRule, float frameTime)
@@ -74,9 +74,7 @@ namespace Content.Server._White.AspectsSystem.Aspects
             var traitors = _traitorRuleSystem.GetOtherTraitorMindsAliveAndConnected(null);
 
             if (traitors.Count == 0)
-            {
-                ForceEndSelf(uid, rule);
-            }
+                return;
 
             foreach (var traitor in traitors)
             {
@@ -86,9 +84,9 @@ namespace Content.Server._White.AspectsSystem.Aspects
                 var traitorMind = traitor.Mind.OwnedEntity;
 
                 if (traitorMind == null)
-                    return;
+                    continue;
 
-                _chatManager.DispatchServerMessage(session, "Внимание, коммуникации синдиката перехвачены, вас раскрыли!");
+                _chatManager.DispatchServerMessage(session, "Внимание, коммуникации синдиката были перехвачены, скоро вас раскроют!");
                 _audio.PlayEntity("/Audio/White/Aspects/palevo.ogg", traitorMind.Value, traitorMind.Value);
             }
         }
@@ -97,18 +95,20 @@ namespace Content.Server._White.AspectsSystem.Aspects
         {
             var traitors = _traitorRuleSystem.GetOtherTraitorMindsAliveAndConnected(null);
 
-            var msg = "Станция, служба контрразведки нанотрейзен рассекретила секретную передачу Синдиката и выяснила имена проникниших на вашу станцию агентов. Агенты имеют следующие имена: \n";
+            var msg = "Станция, служба контрразведки НаноТрейзен рассекретила передачу Синдиката и выяснила проникниших на вашу станцию агентов. Агенты имеют следующие имена: \n";
 
             foreach (var traitor in traitors)
             {
                 var name = traitor.Mind.CharacterName;
                 if (!string.IsNullOrEmpty(name))
                 {
-                    msg += $" {name} - УБЕЙТЕ ЕГО НАХУЙ\n";
+                    msg += $" {name}\n";
                 }
             }
 
-            _chatSystem.DispatchGlobalAnnouncement(msg, "Мяукиман Крысус", colorOverride: Color.Aquamarine);
+            msg = msg + "\nОфицерскому составу - немедленно устранить вышеперечисленных агентов.";
+
+            _chatSystem.DispatchGlobalAnnouncement(msg, "Центральное Командование", colorOverride: Color.Aquamarine);
 
             ForceEndSelf(uid, rule);
         }

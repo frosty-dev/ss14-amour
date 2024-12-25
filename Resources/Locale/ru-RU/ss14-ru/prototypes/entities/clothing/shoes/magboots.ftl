@@ -6,3 +6,5 @@ ent-ClothingShoesBootsMagBlinding = магнитные сапоги ослепл
     .desc = Они будут отлично смотреться на ловкаче вроде вас.
 ent-ClothingShoesBootsMagSyndie = кроваво-красные магнитные сапоги
     .desc = Созданные по технологии реверс-инжиниринга магнитные ботинки. Собственность Мародёров Горлакса.
+ent-ClothingShoesBootsMagSci = { ent-ClothingShoesBootsMag }
+    .desc = { ent-ClothingShoesBootsMag.desc }

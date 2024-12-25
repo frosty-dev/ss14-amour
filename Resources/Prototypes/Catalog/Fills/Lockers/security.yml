@@ -101,6 +101,31 @@
         prob: 0.15
 
 - type: entity
+  id: LockerBrigmedicFilledHardsuit
+  suffix: Brigmedic, Filled, Hardsuit
+  parent: LockerBrigmedicFilled
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponDisabler
+      - id: TrackingImplanter
+      - id: BrigmedicHypospray
+      - id: ClothingHeadHatBeretBrigmedic
+      - id: ClothingMaskSterile
+      - id: ClothingOuterCoatAMG
+      - id: ClothingUniformJumpsuitBrigmedic
+      - id: ClothingUniformJumpskirtBrigmedic
+      - id: ClothingUniformJumpskirtOfLife
+        prob: 0.1
+      - id: ClothingEyesHudMedSec
+      - id: ClothingHandsGlovesNitrile
+      - id: ClothingBeltMedicalRig
+      - id: MedkitFilled
+      - id: ClothingNeckCloakMoth #bзззз, молепокалипсис
+        prob: 0.15
+      - id: ClothingOuterHardsuitBrigmedic
+
+- type: entity
   id: LockerDetectiveFilled
   suffix: Filled
   parent: LockerDetective

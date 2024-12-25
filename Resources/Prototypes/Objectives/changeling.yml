@@ -70,7 +70,7 @@
   parent: [BaseChangelingObjective, BaseLivingObjective]
   id: EscapeShuttleObjectiveCh
   name: Escape to centcom alive and unrestrained.
-  description: One of our undercover agents will debrief you when you arrive. Don't show up in cuffs.
+  description: Like a virus infecting a new host — penetrate deep into Nanotrasen system unnoticed.
   components:
   - type: Objective
     difficulty: 1.3

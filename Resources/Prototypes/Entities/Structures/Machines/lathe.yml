@@ -99,7 +99,7 @@
   id: Autolathe
   parent: BaseLatheLube
   name: autolathe
-  description: It produces basic items using metal and glass.
+  description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
   - type: Sprite
     sprite: Structures/Machines/autolathe.rsi
@@ -240,6 +240,7 @@
       - CartridgePistolRubber
       - CartridgeMagnumRubber
       - ShellShotgunBeanbag
+      - ShellShotgunRubberShot # WD
       - CartridgeRifleRubber
       - CartridgeLightRifleRubber
       - MagazineBoxMagnumRubber
@@ -275,6 +276,18 @@
       - HolographicSightModule
       - TelescopicSightModule
   - type: BluespaceStorage
+  - type: BlueprintReceiver
+    whitelist:
+      tags:
+      - BlueprintAutolathe
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      blueprint: !type:Container
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - blueprint
 
 - type: entity
   id: AutolatheHyperConvection
@@ -427,8 +440,11 @@
       - WeaponAdvancedLaser
       - WeaponLaserCannon
       - WeaponLaserCarbine
+      - EnergyCellCarbine
       - WeaponXrayCannon
       - WeaponDisablerSMG
+      - EnergyCellDisablerSmg
+      - EnergyCellDisabler
       - ClothingHandsGlovesMagnetic
       - ClothingHandsGlovesMagneticAdvanced
       - ExplosivePayload
@@ -676,6 +692,7 @@
     - BorgModuleClowning
     - BorgModuleDefibrillator
     - BorgModuleAdvancedTreatment
+    - BorgModuleResque # WD
     - RipleyHarness
     - RipleyLArm
     - RipleyRArm
@@ -810,6 +827,17 @@
       - LightModule
       - FlameHiderModule
       - ShinanoGrenadeBeanbagRecipe
+      - CartridgePistolRubber
+      - ShellShotgunRubberShot
+      - CartridgeRifleRubber
+      - CartridgeLightRifleRubber
+      - MagazineBoxPistolRubber
+      - MagazineBoxRifleRubber
+      - MagazineBoxLightRifleRubber
+      - MagazinePistolHighCapacity
+      - MagazinePistolHighCapacityPractice
+      - MagazinePistolHighCapacityRubber
+      - EnergyCellDisabler
     dynamicRecipes:
       - CartridgeLightRifleIncendiary
       - CartridgeMagnumIncendiary
@@ -819,10 +847,7 @@
       - CartridgeMagnumUranium
       - CartridgePistolUranium
       - CartridgeRifleUranium
-      - CartridgeLightRifleRubber
       - CartridgeMagnumRubber
-      - CartridgePistolRubber
-      - CartridgeRifleRubber
       - ExplosivePayload
       - FlashPayload
       - HoloprojectorSecurity
@@ -834,10 +859,7 @@
       - MagazineBoxMagnumUranium
       - MagazineBoxPistolUranium
       - MagazineBoxRifleUranium
-      - MagazineBoxLightRifleRubber
       - MagazineBoxMagnumRubber
-      - MagazineBoxPistolRubber
-      - MagazineBoxRifleRubber
       - MagazineGrenadeEmpty
       - GrenadeEMP
       - GrenadeFlash
@@ -853,8 +875,10 @@
       - WeaponDisablerPractice
       - WeaponAdvancedLaser
       - WeaponDisablerSMG
+      - EnergyCellDisablerSmg
       - WeaponLaserCannon
       - WeaponLaserCarbine
+      - EnergyCellCarbine
       - WeaponXrayCannon
       - WeaponTempGun # WD EDIT
       - PowerCageSmall

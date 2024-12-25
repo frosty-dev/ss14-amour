@@ -473,3 +473,13 @@
   alpha: 0.9
   ghostName: BIG_Zi_348
   ghostDescription: Зенит космической энергии — генезис сознания из пустоты.
+
+#McLovin_
+- type: customGhost
+  id: McLovin_-ghost
+  ckey: McLovin_
+  sprite: White/Ghosts/McLovin_-ghost.rsi
+  alpha: 0.9
+  ghostName: Ash drake
+  ghostDescription: Почитаемый хранитель некрополя.
+  size: 0.75, 0.75

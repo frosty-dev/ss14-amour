@@ -1,0 +1,26 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadBucketHelmet
+  name: bucket helmet
+  description: A regular bucket with two eye holes. When worn on the head, something sticky inside latches on the earpiece.
+  components:
+  - type: Sprite
+    sprite: White/_Engi/Clothing/Head/bucketHelmet.rsi
+  - type: Clothing
+    sprite: White/_Engi/Clothing/Head/bucketHelmet.rsi
+  - type: IdentityBlocker
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+  - type: Tag
+    tags:
+    - HidesHair
+    - WhitelistChameleon
+  - type: Construction
+    deconstructionTarget: start
+    graph: ClothingHeadBucketHelmet
+    node: helmet
+  - type: Item
+    size: Normal
+  - type: BucketHelmet

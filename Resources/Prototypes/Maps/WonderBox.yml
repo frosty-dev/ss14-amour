@@ -2,7 +2,7 @@
   id: WonderBox
   mapName: 'WonderBox Station'
   mapPath: /Maps/White/WonderBox.yml
-  minPlayers: 20
+  minPlayers: 0
   stations:
     WonderBoxStation:
       stationProto: StandardNanotrasenStation
@@ -63,5 +63,6 @@
             Borg: [ 2, 2 ]
             Maid: [ 1, 1 ]
             Bomzh: [ 1, 0 ]
-
+            Psychologist: [ 1, 1 ]
+            Inspector: [ 1, 1 ]
 

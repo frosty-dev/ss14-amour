@@ -104,23 +104,13 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
-    - state: barrel_module
-      visible: false
-      map: [ "enum.ModuleVisualState.BarrelModule" ]
-    - state: handguard_module
-      visible: false
-      map: [ "enum.ModuleVisualState.HandGuardModule" ]
-    - state: aim_module
-      visible: false
-      sprite: White/Objects/Weapons/modulesOnSMGs.rsi
-      map: [ "enum.ModuleVisualState.AimModule" ]
   - type: Clothing
     sprite: White/Objects/Weapons/Guns/SMG/c20r-inhands.rsi
   - type: Item
     sprite: White/Objects/Weapons/Guns/SMG/c20r-inhands.rsi
   - type: Gun
-    minAngle: 11
-    maxAngle: 19
+    minAngle: 1 # WD
+    maxAngle: 7 # WD
     shotsPerBurst: 5
     availableModes:
     - SemiAuto
@@ -130,7 +120,6 @@
       path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
   - type: ChamberMagazineAmmoProvider
     autoEject: true
-  - type: WeaponModules
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -149,37 +138,10 @@
         whitelist:
           tags:
           - CartridgePistol
-      barrel_module:
-        name: Barrel Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 2
-        whitelist:
-          tags:
-          - BaseBarrelModule
-      handguard_module:
-        name: Handguard Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-          - BaseHandGuardModule
-      aim_module:
-        name: Aim Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-          - BaseAimModule
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-      handguard_module: !type:ContainerSlot
-      barrel_module: !type:ContainerSlot
-      aim_module: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
     steps: 4
@@ -217,9 +179,9 @@
     - type: Item
       sprite: White/Objects/Weapons/Guns/SMG/drozd-inhands.rsi
     - type: Gun
-      minAngle: 21
-      maxAngle: 32
-      fireRate: 6
+      minAngle: 4 # WD
+      maxAngle: 10 # WD
+      fireRate: 5 # WD
       selectedMode: FullAuto
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
@@ -248,7 +210,7 @@
           name: Barrel Module
           insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
           ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-          priority: 2
+          priority: 3
           whitelist:
             tags:
             - BaseBarrelModule
@@ -409,7 +371,7 @@
         name: Handguard Module
         insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
         ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 2
+        priority: 3
         whitelist:
           tags:
             - BaseHandGuardModule
@@ -417,7 +379,7 @@
         name: Aim Module
         insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
         ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 2
+        priority: 3
         whitelist:
           tags:
             - BaseAimModule
@@ -466,7 +428,7 @@
           name: Barrel Module
           insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
           ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-          priority: 2
+          priority: 3
           whitelist:
             tags:
             - BaseBarrelModule

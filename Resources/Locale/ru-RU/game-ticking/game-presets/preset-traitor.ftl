@@ -25,8 +25,8 @@ traitor-death-match-end-round-description-entry = ПДА { $originalName }, с {
 traitor-role-greeting =
     Вы - агент Синдиката.
     Ваши цели и кодовые слова перечислены в меню персонажа.
-    Воспользуйтесь аплинком, встроенным в ваш ПДА, чтобы приобрести всё необходимое для выполнения работы.
-    Смерть  Nanotrasen!
+    Воспользуйтесь аплинком, чтобы приобрести всё необходимое для выполнения работы.
+    Смерть НаноТрейзен!
 
 traitor-role-codewords =
     Кодовые слова следующие:
@@ -37,10 +37,14 @@ traitor-role-codewords =
 traitor-role-uplink-code =
     Установите мелодия рингтона на {$code} чтобы разблокировать аплинк.
     Не забудьте заблокировать его после этого, иначе сотрудники станции тоже легко откроют его!
+traitor-role-uplink-implant =
+    Ваш имплант аплинк активирован, воспользуйтесь им из хотбара.
+    Аплинк надежно защищён, пока кто-нибудь не извлечёт его из вашего тела.
 
 # don't need all the flavour text for character menu
 traitor-role-codewords-short =
     Кодовые слова::
     {$codewords}.
 
-traitor-role-uplink-code-short = Код от вашего аплинка - {$code}. Set it as your PDA ringtone to access uplink.
+traitor-role-uplink-code-short = Код от вашего аплинка - {$code}. Установите его в качестве рингтона на своём ПДА для доступа к аплинку.
+traitor-role-uplink-implant-short = Ваш аплинк был имплантирован. Воспользуйтесь им из хотбара.

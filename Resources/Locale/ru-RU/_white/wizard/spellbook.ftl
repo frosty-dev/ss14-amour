@@ -37,8 +37,8 @@ spellbook-mime-desc = { ent-ActionMimeTouchSpell.desc }
 spellbook-recall-name = { ent-ActionInstantRecallSpell }
 spellbook-recall-desc = { ent-ActionInstantRecallSpell.desc }
 
-spellbook-smite-name = { ent-ActionSmite }
-spellbook-smite-desc = { ent-ActionSmite.desc }
+spellbook-smite-name = { ent-ActionSmiteWizard }
+spellbook-smite-desc = { ent-ActionSmiteWizard.desc }
 
 spellbook-mindswap-name = { ent-ActionMindswapSpell }
 spellbook-mindswap-desc = { ent-ActionMindswapSpell.desc }
@@ -69,3 +69,6 @@ spellbook-spellblade-desc = Клинок, наполненный магией, �
 
 spellbook-mjolnir-name = Мьёльнир
 spellbook-mjolnir-desc = Могучий двуручный молот Тора. Ударив им по врагам, вы заставите их отлететь от вас, а также оглушить на 1,5 секунды. Вы можете его бросить для достижения того же эффекта.
+
+spellbook-glasses-name = Волшебные очки
+spellbook-glasses-desc = Стиль, удобство, аэродинамика, а так же несколько рунических улучшений. Эти очки защищают глаза от яркого света, а так же проливают свет на покров яви, между видимым и невидимым.

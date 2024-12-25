@@ -1286,3 +1286,17 @@
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: tailed
+- type: marking
+  id: HumanHairShaped
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: Mobs/Customization/human_hair.rsi
+      state: shaped
+- type: marking
+  id: HumanHairLongbow
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: Mobs/Customization/human_hair.rsi
+      state: longbow
