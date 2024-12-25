@@ -1,6 +1,6 @@
-ent-WindoorAssembly = заготовка раздвижного стекла
+ent-WindoorAssembly = заготовка раздвижного окна
     .desc = Оно открывается, оно закрывается, и вы можете видеть сквозь него!
-ent-WindoorAssemblySecure = заготовка усиленного раздвижного стекла
+ent-WindoorAssemblySecure = заготовка бронированного раздвижного окна
     .desc = Оно открывается, оно закрывается, и вы можете видеть сквозь него! Это выглядит крепким.
 ent-AirlockExternalGlass = { ent-AirlockExternal }
     .suffix = Стеклянный, Наружний
