@@ -8,4 +8,4 @@ ent-TileFlesh = пол из плоти
     .desc = Фу! Мерзость.
 
 ent-TileWoodLarge = большой деревянный пол
-    .desc = Может послужить неплохим метательным оружием.
+    .desc = { ent-FloorTileItemBase.desc }

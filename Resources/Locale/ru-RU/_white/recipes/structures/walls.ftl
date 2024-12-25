@@ -2,10 +2,10 @@ ent-MeatWall = мясная стена
     .desc = Липкая.
 
 ent-ShuttleWall = стена шаттла
-    .desc = Удерживает воздух внутри, а ассистентов снаружи.
+    .desc = { ent-BaseWall.desc }
 
 ent-InteriorShuttleWall = внутренняя стена шаттла
-    .desc = Удерживает воздух внутри, а ассистентов снаружи. Более дешёвая и менее крепкая, по сравнению с обычной стеной шаттла.
+    .desc = { ent-BaseWall.desc }
 
 ent-DiagonalShuttleWall = стена шаттла
-    .desc = Удерживает воздух внутри, а ассистентов снаружи.
+    .desc = { ent-BaseWall.desc }

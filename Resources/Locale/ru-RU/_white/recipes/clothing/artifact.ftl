@@ -1,2 +1,2 @@
-ent-Artifact = инопланетный артефакт
-    .desc = Странный инопланетный артефакт
+ent-Artifact = { ent-BaseXenoArtifact }
+    .desc = { ent-BaseXenoArtifact.desc }
