@@ -98,7 +98,7 @@
   - type: FaxMachine
     name: "ERR*?*%!"
     responsePings: false
-    notifyAdmins: true
+    notifyAdmins: false # WD
   - type: Emagged
 
 - type: entity
@@ -113,3 +113,20 @@
       receiveStationGoal: true # WD
     - type: StealTarget
       stealGroup: FaxMachineCaptain
+
+- type: entity # WD
+  parent: FaxMachineBase
+  id: FaxMachineSyndieCommand
+  name: syndicate long range fax machine
+  suffix: Syndicate Command
+  components:
+  - type: Sprite
+    layers:
+      - state: icon
+        map: [ "base" ]
+        color: "#a3a3a3"
+  - type: FaxMachine
+    name: "Syndicate Command"
+    responsePings: false
+    notifyAdmins: true
+  - type: Emagged

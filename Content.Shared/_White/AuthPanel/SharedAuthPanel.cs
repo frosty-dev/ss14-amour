@@ -73,5 +73,5 @@ public sealed class AuthPanelPerformActionEvent : EntityEventArgs
 [Serializable, NetSerializable]
 public enum AuthPanelVisualLayers : byte
 {
-   Confirm
+    Confirm
 }

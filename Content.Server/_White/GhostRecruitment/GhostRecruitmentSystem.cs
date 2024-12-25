@@ -32,10 +32,10 @@ public sealed class GhostRecruitmentSystem : EntitySystem
     /// <param name="recruitmentName">name of recruitment. <see cref="GhostRecruitmentSpawnPointComponent"/></param>
     public void StartRecruitment(string recruitmentName)
     {
-        var query = EntityQueryEnumerator<GhostComponent,ActorComponent>();
-        while (query.MoveNext(out var uid,out _,out var actorComponent))
+        var query = EntityQueryEnumerator<GhostComponent, ActorComponent>();
+        while (query.MoveNext(out var uid, out _, out var actorComponent))
         {
-            OpenEui(uid,recruitmentName,actorComponent);
+            OpenEui(uid, recruitmentName, actorComponent);
         }
     }
 
@@ -44,7 +44,7 @@ public sealed class GhostRecruitmentSystem : EntitySystem
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="recruitmentName">name of recruitment. <see cref="GhostRecruitmentSpawnPointComponent"/></param>
-    public void Recruit(EntityUid uid,string recruitmentName)
+    public void Recruit(EntityUid uid, string recruitmentName)
     {
         EnsureComp<GhostRecruitedComponent>(uid).RecruitmentName = recruitmentName;
     }
@@ -63,31 +63,30 @@ public sealed class GhostRecruitmentSystem : EntitySystem
 
         var count = 0;
 
-        var maxCount = Math.Max(3, _playerManager.PlayerCount / 6);
-
+        var maxCount = Math.Max(3, _playerManager.PlayerCount / 8);
         var query = EntityQueryEnumerator<GhostRecruitedComponent>();
 
-        while (query.MoveNext(out var uid,out var ghostRecruitedComponent))
+        while (query.MoveNext(out var uid, out var ghostRecruitedComponent))
         {
-            if(ghostRecruitedComponent.RecruitmentName != recruitmentName)
+            if (ghostRecruitedComponent.RecruitmentName != recruitmentName)
                 continue;
 
             if (!TryComp<ActorComponent>(uid, out var actorComponent))
                 continue;
 
             // if there are too many recruited, then just skip
-            if(count >= spawners.Count || count >= maxCount)
+            if (count >= spawners.Count || count >= maxCount)
                 continue;
 
             var (spawnerUid, spawnerComponent) = spawners[count];
 
-            TransferMind(uid,spawnerUid,spawnerComponent);
+            TransferMind(uid, spawnerUid, spawnerComponent);
             count++;
 
             EnsureComp<RecruitedComponent>(uid).RecruitmentName = recruitmentName;
 
-            var ghostEvent = new GhostRecruitmentSuccessEvent(recruitmentName,actorComponent.PlayerSession);
-            RaiseLocalEvent(uid,ghostEvent);
+            var ghostEvent = new GhostRecruitmentSuccessEvent(recruitmentName, actorComponent.PlayerSession);
+            RaiseLocalEvent(uid, ghostEvent);
         }
 
         var ghostsEvent = new GhostsRecruitmentSuccessEvent(recruitmentName);
@@ -112,14 +111,14 @@ public sealed class GhostRecruitmentSystem : EntitySystem
         }
     }
 
-    private void TransferMind(EntityUid from,EntityUid spawnerUid,GhostRecruitmentSpawnPointComponent? component = null)
+    private void TransferMind(EntityUid from, EntityUid spawnerUid, GhostRecruitmentSpawnPointComponent? component = null)
     {
-        if (!Resolve(spawnerUid, ref component) || !TryComp<ActorComponent>(from,out var actorComponent))
+        if (!Resolve(spawnerUid, ref component) || !TryComp<ActorComponent>(from, out var actorComponent))
             return;
 
         var entityUid = Spawn(spawnerUid, component);
 
-        if(!entityUid.HasValue)
+        if (!entityUid.HasValue)
             return;
 
         var mind = actorComponent.PlayerSession.GetMind();
@@ -131,7 +130,7 @@ public sealed class GhostRecruitmentSystem : EntitySystem
         _mind.UnVisit(mind.Value);
     }
 
-    private EntityUid? Spawn(EntityUid spawnerUid,GhostRecruitmentSpawnPointComponent? component = null)
+    private EntityUid? Spawn(EntityUid spawnerUid, GhostRecruitmentSpawnPointComponent? component = null)
     {
         if (!Resolve(spawnerUid, ref component))
             return null;
@@ -166,27 +165,27 @@ public sealed class GhostRecruitmentSystem : EntitySystem
         }
     }
 
-    public void OpenEui(EntityUid uid,string recruitmentName,ActorComponent? actorComponent = null)
+    public void OpenEui(EntityUid uid, string recruitmentName, ActorComponent? actorComponent = null)
     {
-        if(!Resolve(uid,ref actorComponent))
+        if (!Resolve(uid, ref actorComponent))
             return;
         var eui = new GhostRecruitmentEuiAccept(uid, recruitmentName, this);
 
-        Logger.Debug("Added EUI to "+ uid);
-        if(_openUis.TryAdd(actorComponent.PlayerSession,eui))
-            _eui.OpenEui(eui,actorComponent.PlayerSession);
+        Logger.Debug("Added EUI to " + uid);
+        if (_openUis.TryAdd(actorComponent.PlayerSession, eui))
+            _eui.OpenEui(eui, actorComponent.PlayerSession);
     }
 
     public void ClearEui(string recruitmentName)
     {
-        foreach (var (session,eui) in _openUis)
+        foreach (var (session, eui) in _openUis)
         {
             if (session.AttachedEntity != null)
                 CloseEui(session.AttachedEntity.Value, recruitmentName);
         }
     }
 
-    public void CloseEui(EntityUid uid,string recruitmentName,ActorComponent? actorComponent = null)
+    public void CloseEui(EntityUid uid, string recruitmentName, ActorComponent? actorComponent = null)
     {
         if (!Resolve(uid, ref actorComponent))
             return;
@@ -197,7 +196,7 @@ public sealed class GhostRecruitmentSystem : EntitySystem
         if (!_openUis.ContainsKey(session))
             return;
 
-        Logger.Debug("Removed EUI from "+ uid);
+        Logger.Debug("Removed EUI from " + uid);
         _openUis.Remove(session, out var eui);
 
         eui?.Close();

@@ -1,12 +1,12 @@
 using System.Linq;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Server.GameTicking;
-using Content.Server.GameTicking.Rules.Components;
+using Content.Server.GameTicking.Events;
 using Content.Server.StationEvents.Events;
 using Content.Server._White.GhostRecruitment;
 using Content.Server.GameTicking.Components;
-using Content.Shared._White;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared._White.GhostRecruitment;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
@@ -26,6 +26,8 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
     [Dependency] private readonly MapLoaderSystem _map = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly IConfigurationManager _cfgManager = default!;
+    [Dependency] private readonly IEntityManager _entities = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     private ISawmill _logger = default!;
 
@@ -36,8 +38,8 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
         base.Initialize();
 
         _logger = Logger.GetSawmill("ERTRecruit");
-        //SubscribeLocalEvent<RoundStartAttemptEvent>(OnStartAttempt);
-        SubscribeLocalEvent<RecruitedComponent,GhostRecruitmentSuccessEvent>(OnRecruitmentSuccess);
+        SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
+        SubscribeLocalEvent<RecruitedComponent, GhostRecruitmentSuccessEvent>(OnRecruitmentSuccess);
     }
 
     protected override void Added(EntityUid uid, ERTRecruitmentRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
@@ -51,9 +53,6 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
 
         if (IsDisabled)
         {
-            if (component.TargetStation != null)
-                DeclineERT(component.TargetStation.Value);
-
             component.IsBlocked = true;
             return;
         }
@@ -71,24 +70,22 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
         GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
-        _logger.Debug("Event is started");
 
-        if (component.TargetStation == null || component.IsBlocked)
+        if (component.TargetStation == null || component.IsBlocked || IsDisabled)
         {
-            ForceEndSelf(uid,gameRule);
-            _logger.Debug("oopsie doopsie we make a poopie poopie on starting event!");
+            ForceEndSelf(uid, gameRule);
+            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Event disabled");
             return;
         }
 
-        if (_recruitment.GetEventSpawners(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayer)
+        if (_recruitment.GetEventSpawners(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayers)
         {
-            _logger.Debug("Not enough spawners!");
-
             DeclineERT(component.TargetStation.Value);
+            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough spawners");
             return;
         }
 
-        _chatSystem.DispatchStationAnnouncement(component.TargetStation.Value,Loc.GetString("ert-wait-message"),colorOverride: Color.Gold);
+        _chatSystem.DispatchStationAnnouncement(component.TargetStation.Value, Loc.GetString("ert-wait-message"), colorOverride: Color.Gold);
 
         /*
         if (TryComp<ShuttleComponent>(component.Shuttle, out var shuttle) && component.Outpost != null)
@@ -103,50 +100,67 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
     protected override void Ended(EntityUid uid, ERTRecruitmentRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
     {
         base.Ended(uid, component, gameRule, args);
+        var ertsys = _entities.System<ERTRecruitmentRule>();
 
-        if (component.IsBlocked || _recruitment.GetAllRecruited(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayer ||
-            !_recruitment.EndRecruitment(ERTRecruitmentRuleComponent.EventName))
+        var check1 = component.IsBlocked || ertsys.IsDisabled;
+
+        var check2 = _recruitment.GetAllRecruited(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayers;
+
+        if (check1)
         {
             if (component.TargetStation != null)
                 DeclineERT(component.TargetStation.Value);
+            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"{"ERT Declined - Event disabled"}");
             _recruitment.Cleanup(ERTRecruitmentRuleComponent.EventName);
             return;
         }
+        if (check2)
+        {
+            if (component.TargetStation != null)
+                DeclineERT(component.TargetStation.Value);
+            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough ghosts willing to play ERT");
+            _recruitment.Cleanup(ERTRecruitmentRuleComponent.EventName);
+            return;
+        }
+        else
+        {
+            if (component.TargetStation != null)
+                AcceptERT(component.TargetStation.Value);
 
-        if (component.TargetStation != null)
-            AcceptERT(component.TargetStation.Value);
+            _recruitment.EndRecruitment(ERTRecruitmentRuleComponent.EventName);
+            ertsys.IsDisabled = true;
+        }
+
     }
 
     private void OnRecruitmentSuccess(EntityUid uid, RecruitedComponent component, GhostRecruitmentSuccessEvent args)
     {
         var ev = new ERTRecruitedReasonEvent();
-        RaiseLocalEvent(uid,ev);
+        RaiseLocalEvent(uid, ev);
 
         if (args.PlayerSession != null)
         {
-
             _chat.DispatchServerMessage(args.PlayerSession, Loc.GetString("ert-description"));
             _chat.DispatchServerMessage(args.PlayerSession, Loc.GetString("ert-reason", ("reason", ev.Reason)));
         }
     }
 
-    private void OnStartAttempt(RoundStartAttemptEvent ev)
+    private void OnRoundStart(RoundStartingEvent ev)
     {
-        if(_cfgManager.GetCVar(WhiteCVars.LoadErtMap))
-            SpawnMap();
+        //if (_cfgManager.GetCVar(WhiteCVars.LoadErtMap))
+        SpawnMap();
     }
-
 
     public void AcceptERT(EntityUid targetStation)
     {
-        _chatSystem.DispatchStationAnnouncement(targetStation,Loc.GetString("ert-accept-message"),
-           colorOverride: Color.Gold,announcementSound:ERTRecruitmentRuleComponent.ERTYes);
+        _chatSystem.DispatchStationAnnouncement(targetStation, Loc.GetString("ert-accept-message"),
+           colorOverride: Color.Gold, announcementSound: ERTRecruitmentRuleComponent.ERTYes);
     }
 
     public void DeclineERT(EntityUid targetStation)
     {
-        _chatSystem.DispatchStationAnnouncement(targetStation,Loc.GetString("ert-deny-message"),
-            colorOverride: Color.Gold,announcementSound:ERTRecruitmentRuleComponent.ERTNo);
+        _chatSystem.DispatchStationAnnouncement(targetStation, Loc.GetString("ert-deny-message"),
+            colorOverride: Color.Gold, announcementSound: ERTRecruitmentRuleComponent.ERTNo);
     }
 
     private bool SpawnMap()
@@ -161,7 +175,7 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
 
         if (!_map.TryLoad(mapId, ERTMapComponent.OutpostMap.ToString(), out var outpostGrids, options) || outpostGrids.Count == 0)
         {
-            _logger.Error( $"Error loading map {ERTMapComponent.OutpostMap}!");
+            _logger.Error($"Error loading map {ERTMapComponent.OutpostMap}!");
             return false;
         }
         _logger.Debug($"Loaded map {ERTMapComponent.OutpostMap} on {mapId}!");
@@ -191,7 +205,6 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
             return false;
         }
         */
-
 
         var ertMap = EnsureComp<ERTMapComponent>(outpost);
         ertMap.MapId = mapId;
