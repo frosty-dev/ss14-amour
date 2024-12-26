@@ -156,6 +156,7 @@
 - type: entity
   id: LockerCargoHunterFilled
   parent: LockerCargoHunter
+  suffix: Filled
   components:
   - type: StorageFill
     contents:
