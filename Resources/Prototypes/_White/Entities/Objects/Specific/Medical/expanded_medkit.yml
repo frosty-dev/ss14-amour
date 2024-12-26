@@ -1,7 +1,7 @@
 - type: entity
   parent: Medkit
   id: ExpandedMedkit
-  name: expanded medkit
+  name: расширенная аптечка
   components:
     - type: Sprite
       sprite: White/Specific/expmedkit.rsi

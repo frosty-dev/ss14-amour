@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseSenorsLocker
+  id: BaseSeniorsLocker
   parent: LockerBaseSecure
   abstract: true
   name: base senors locker
@@ -11,7 +11,7 @@
 
 - type: entity
   id: LockerVeteran
-  parent: BaseSenorsLocker
+  parent: BaseSeniorsLocker
   name: шкаф ветерана
   components:
   - type: Appearance
@@ -52,7 +52,7 @@
 
 - type: entity
   id: LockerBrigadier
-  parent: BaseSenorsLocker
+  parent: BaseSeniorsLocker
   name: шкаф бригадира
   components:
   - type: Appearance
@@ -94,7 +94,7 @@
 
 - type: entity
   id: LockerMedicalOfficer
-  parent: BaseSenorsLocker
+  parent: BaseSeniorsLocker
   name: шкаф медицинского офицера
   components:
   - type: Appearance
@@ -142,7 +142,7 @@
     
 - type: entity
   id: LockerCargoHunter
-  parent: BaseSenorsLocker
+  parent: BaseSeniorsLocker
   name: шкаф охотника карго
   components:
   - type: Appearance
@@ -177,7 +177,7 @@
 
 - type: entity
   id: LockerLeadResearcher
-  parent: BaseSenorsLocker
+  parent: BaseSeniorsLocker
   name: шкаф ведущего исследователя
   components:
   - type: Appearance
@@ -191,9 +191,11 @@
 - type: entity
   id: LockerLeadResearcherFilled
   parent: LockerLeadResearcher
+  suffix: Filled
   components:
   - type: StorageFill
     contents:
+      - id: AnomalyLocator
       - id: ClothingHandsGlovesLatex
       - id: ClothingHeadsetScience
       - id: ClothingMaskSterile
@@ -201,5 +203,4 @@
       - id: AnomalyScanner
       - id: NodeScanner
       - id: NetworkConfigurator
-        prob: 0.5
       - id: ClothingShoesBootsMagSci
