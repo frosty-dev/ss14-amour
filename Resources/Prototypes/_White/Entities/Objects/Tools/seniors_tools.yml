@@ -16,6 +16,9 @@
       sprite: White/Objects/Tools/impcrowbar.rsi
     - type: Item
       sprite: White/Objects/Tools/impcrowbar.rsi
+      size: Small
+      storedSprite: null
+      storedRotation: -63
 
 - type: entity
   parent: Wrench
@@ -30,6 +33,9 @@
       sprite: White/Objects/Tools/impwrench.rsi
     - type: Item
       sprite: White/Objects/Tools/impwrench.rsi
+      size: Small
+      storedSprite: null
+      storedRotation: -44
     - type: MeleeWeapon
       attackRate: 1.5
       damage:
@@ -55,6 +61,7 @@
       state: icon
     - type: Item
       sprite: White/Objects/Tools/impscrewdriver.rsi
+      storedRotation: -90
     - type: UseDelay
     - type: MeleeWeapon
       attackRate: 1
@@ -72,6 +79,12 @@
     - type: PhysicalComposition
       materialComposition:
         Steel: 100
+    - type: EmitSoundOnPickup
+      sound:
+        path: /Audio/White/Items/handling/screwdriver_pickup.ogg
+    - type: EmitSoundOnDrop
+      sound:
+        path: /Audio/Items/screwdriver_drop.ogg
 
 - type: entity
   parent: BaseItem
@@ -83,6 +96,7 @@
       price: 500
     - type: Item
       sprite: White/Objects/Tools/impwirecutter.rsi
+      storedRotation: -90
     - type: Sprite
       sprite: White/Objects/Tools/impwirecutter.rsi
       state: icon
@@ -110,6 +124,12 @@
     - type: PhysicalComposition
       materialComposition:
         Steel: 100
+    - type: EmitSoundOnPickup
+      sound:
+        path: /Audio/White/Items/handling/wirecutter_pickup.ogg
+    - type: EmitSoundOnDrop
+      sound:
+        path: /Audio/Items/wirecutter_drop.ogg
 
 - type: entity
   parent: BaseWelder

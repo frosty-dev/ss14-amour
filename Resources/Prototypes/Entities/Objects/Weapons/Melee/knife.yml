@@ -42,10 +42,13 @@
   - type: Item
     sprite: Objects/Weapons/Melee/kitchen_knife.rsi
     storedRotation: -45
+  - type: EmbeddableProjectile # WD
+    sound: /Audio/Weapons/star_hit.ogg
   - type: DamageOtherOnHit # WD
     damage:
       types:
-        Piercing: 20
+        Piercing: 10
+        Slash: 10
   - type: GuideHelp
     guides:
     - Chef
@@ -73,6 +76,13 @@
     damage:
       types:
         Slash: 13 # WD
+  - type: EmbeddableProjectile # WD
+    sound: /Audio/Weapons/star_hit.ogg
+  - type: DamageOtherOnHit # WD
+    damage:
+      types:
+        Piercing: 10
+        Slash: 13
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/cleaver.rsi
@@ -104,7 +114,8 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 27 # WD
+        Piercing: 15 # WD
+        Slash: 12 # WD
   - type: Item
     sprite: Objects/Weapons/Melee/combat_knife.rsi
     storedRotation: -45
@@ -144,7 +155,8 @@
   - type: DamageOtherOnHit # WD
     damage:
       types:
-        Piercing: 44
+        Piercing: 32
+        Slash: 12
   - type: Item
     sprite: Objects/Weapons/Melee/kukri_knife.rsi
 

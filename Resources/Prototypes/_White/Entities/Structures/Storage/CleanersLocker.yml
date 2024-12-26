@@ -1,0 +1,37 @@
+- type: entity
+  id: LockerCleaner
+  parent: BaseSeniorsLocker
+  name: шкаф уборщика
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: head_cleaner_locker
+    stateDoorOpen: head_cleaner_open
+    stateDoorClosed: head_cleaner_door
+  - type: AccessReader
+    access: [ [ "Janitor" ] ]
+    
+- type: entity
+  id: LockerCleanerFilled
+  parent: LockerCleaner
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: MopItem
+        amount: 2
+      - id: BoxMousetrap
+        amount: 2
+      - id: WetFloorSign
+        amount: 3
+      - id: TrashBag
+        amount: 2
+      - id: LightReplacer
+      - id: BoxLightMixed
+      - id: Holoprojector
+      - id: SoapNT
+        amount: 2
+      - id: FlashlightLantern
+        amount: 2
+      - id: Plunger
+        amount: 2

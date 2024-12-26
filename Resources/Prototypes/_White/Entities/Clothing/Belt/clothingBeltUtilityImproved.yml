@@ -1,0 +1,13 @@
+- type: entity
+  id: ClothingBeltUtilityImproved
+  parent: ClothingBeltUtility
+  suffix: Brigadier
+  components:
+  - type: StorageFill
+    contents:
+      - id: ImprovedCrowbar
+      - id: ImprovedWrench
+      - id: ImprovedScrewdriver
+      - id: ImprovedWirecutter
+      - id: ImprovedWelder
+      - id: Multitool
