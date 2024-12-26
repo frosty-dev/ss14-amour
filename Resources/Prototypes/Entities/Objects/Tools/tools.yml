@@ -129,9 +129,10 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/wrench.rsi
-    storedSprite:
-      sprite: Objects/Tools/wrench.rsi
-      state: storage
+    storedRotation: -44 # WD
+    # storedSprite: # WD removed
+    #   sprite: Objects/Tools/wrench.rsi
+    #   state: storage
   - type: MeleeWeapon
     wideAnimationRotation: 135
     attackRate: 1.5
@@ -177,9 +178,10 @@
   - type: Item
     sprite: Objects/Tools/crowbar.rsi
     size: Small
-    storedSprite:
-      sprite: Objects/Tools/crowbar.rsi
-      state: storage
+    storedRotation: -63 # WD
+    # storedSprite: # WD removed
+    #   sprite: Objects/Tools/crowbar.rsi
+    #   state: storage
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -213,9 +215,9 @@
     state: red-icon
   - type: Item
     heldPrefix: red
-    storedSprite:
-      sprite: Objects/Tools/crowbar.rsi
-      state: red-storage
+    # storedSprite: # WD removed
+    #   sprite: Objects/Tools/crowbar.rsi
+    #   state: red-storage
 
 - type: entity
   name: multitool
