@@ -140,7 +140,7 @@
         orGroup: Surgshrubs
       - id: ClothingMaskSterile
       - id: ExpandedMedkitFilled
-    
+
 - type: entity
   id: LockerCargoHunter
   parent: BaseSeniorsLocker
@@ -205,4 +205,3 @@
       - id: AnomalyScanner
       - id: NodeScanner
       - id: NetworkConfigurator
-      - id: ClothingHandsGlovesMagnetic
