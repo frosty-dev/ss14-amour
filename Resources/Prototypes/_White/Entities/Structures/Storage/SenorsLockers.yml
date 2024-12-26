@@ -49,6 +49,7 @@
       - id: WeaponPistolMk58Nonlethal
       - id: SurveillanceBodyCamera
       - id: MagazinePistol
+      - id: ClothingHeadHatBeretSecurity
 
 - type: entity
   id: LockerBrigadier
@@ -204,4 +205,4 @@
       - id: AnomalyScanner
       - id: NodeScanner
       - id: NetworkConfigurator
-      - id: ClothingShoesBootsMagSci
+      - id: ClothingHandsGlovesMagnetic
