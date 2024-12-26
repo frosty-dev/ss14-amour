@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from ParadiseSS13 at https://github.com/ss220club/Paradise-SS220/blob/master/icons/mob/winter_mob.dmi",
+  "states": [
+    {
+      "name": "dead",
+      "delays": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "name": "reindeer",
+      "directions": 4
+    }
+  ]
+}
