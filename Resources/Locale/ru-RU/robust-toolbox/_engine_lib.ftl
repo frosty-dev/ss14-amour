@@ -13,12 +13,13 @@ zzzz-subject-pronoun =
        *[neuter] оно
     }
 # Used internally by the OBJECT() function.
+# I know it's wrong, but I don't have gender studies degree and it's just works.
 zzzz-object-pronoun =
     { GENDER($ent) ->
-        [male] его
-        [female] её
-        [epicene] их
-       *[neuter] его
+        [male] него
+        [female] неё
+        [epicene] них
+       *[neuter] него
     }
 # Used internally by the POSS-PRONOUN() function.
 zzzz-possessive-pronoun =
@@ -53,8 +54,8 @@ zzzz-conjugate-be =
 # Used internally by the CONJUGATE-HAVE() function.
 zzzz-conjugate-have =
     { GENDER($ent) ->
-        [epicene] have
-       *[other] has
+        [epicene] имеют
+       *[other] имеет
     }
 # Used internally by the CONJUGATE-BASIC() function.
 zzzz-conjugate-basic =

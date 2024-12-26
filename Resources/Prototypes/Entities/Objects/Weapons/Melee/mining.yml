@@ -85,6 +85,13 @@
     damage:
       types:
         Slash: 15
+  - type: EmbeddableProjectile # WD
+    sound: /Audio/Weapons/star_hit.ogg
+  - type: DamageOtherOnHit # WD
+    damage:
+      types:
+        Piercing: 17
+        Slash: 15
   - type: Tag
     tags:
     - Knife
