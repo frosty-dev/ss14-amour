@@ -1,0 +1,43 @@
+- type: entity # WD
+  parent: BaseStructure
+  id: DecorationSnowman
+  name: snowman
+  description: It seems he is following you.
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: White/Objects/Decoration/NewYear/snowman.rsi
+    state: snowman
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 190
+        mask:
+        - HighImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/Footsteps/snowstep3.ogg
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/star_hit.ogg"
