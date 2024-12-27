@@ -4,11 +4,14 @@
   id: GrowingPot
   description: Позволяет выращивать различные культуры.
   components:
+  - type: Sprite
+    sprite: Structures/Hydroponics/growingpot.rsi
+    state: pot_filled
   - type: Transform
     anchored: true
   - type: Construction
     graph: growingPot
-    node: GrowingPot
+    node: growingPot
   - type: Destructible
     thresholds:
     - trigger:
@@ -38,6 +41,11 @@
     mode: SnapgridCenter
   description: Позволяет выращивать различные культуры, однако не хватает земли...
   components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Structures/Hydroponics/growingpot.rsi
+    state: pot_empty
+    noRot: true
   - type: Tag
     tags:
       - Structure
@@ -55,13 +63,9 @@
   - type: Clickable
   - type: Transform
     noRot: true
-  - type: Sprite
-    sprite: Structures/Hydroponics/misc.rsi
-    state: soil
-    noRot: true
   - type: Construction
     graph: growingPot
-    node: GrowingPotNoSoil
+    node: growingPotNoSoil
   - type: Anchorable
   - type: Damageable
     DamageContainer: StructuralInorganic

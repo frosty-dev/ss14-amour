@@ -6,7 +6,7 @@
       actions:
         - !type:DestroyEntity {}
       edges:
-        - to: GrowingPotNoSoil
+        - to: growingPotNoSoil
           completed:
             - !type:SnapToGrid
               southRotation: true
@@ -18,10 +18,10 @@
               amount: 4
               doAfter: 1
 
-    - node: GrowingPotNoSoil
+    - node: growingPotNoSoil
       entity: GrowingPotNoSoil
       edges:
-        - to: GrowingPot
+        - to: growingPot
           completed:
             - !type:SnapToGrid
               southRotation: true
@@ -43,10 +43,10 @@
             - tool: Screwing
               doAfter: 1
               
-    - node: GrowingPot
+    - node: growingPot
       entity: GrowingPotEmpty
       edges:
-        - to: GrowingPotNoSoil
+        - to: growingPotNoSoil
           completed:
             - !type:SpawnPrototype
               prototype: packedSoil

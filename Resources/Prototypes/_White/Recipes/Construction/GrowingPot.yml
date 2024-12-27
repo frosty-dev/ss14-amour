@@ -7,8 +7,8 @@
   targetNode: growingPot
   category: construction-category-furniture
   icon:
-    sprite: Structures/Furniture/furniture.rsi
-    state: bed
+    sprite: Structures\Hydroponics\growingpot.rsi
+    state: pot_filled
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
