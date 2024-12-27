@@ -41,7 +41,7 @@ public sealed class AuthPanelSystem : EntitySystem
     /// <summary>
     /// Amount of minutes before action can be called. Counting from round start.
     /// </summary>
-    public static int EarliestStart = 45;
+    public static int EarliestStart = 60;
 
     /// <summary>
     /// Amount of seconds before action can be called. Counting from previous vote.
