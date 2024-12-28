@@ -214,6 +214,8 @@
        - MagazineShotgun
        - MagazineShotgunSlug
        - MagazineLightRifleBox
+       - MagazinePistolCaselessRifle
+       - MagazinePistolHighCapacity
        - CartridgePistol
        - CartridgeMagnum
        - ShellShotgun
