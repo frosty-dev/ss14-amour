@@ -1,7 +1,7 @@
 - type: gameMap
   id: WonderBox
   mapName: 'WonderBox Station'
-  mapPath: /Maps/White/WonderBox.yml
+  mapPath: /Maps/White/WonderBoxNY.yml
   minPlayers: 0
   stations:
     WonderBoxStation:
