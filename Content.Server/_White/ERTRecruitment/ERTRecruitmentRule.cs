@@ -7,6 +7,7 @@ using Content.Server._White.GhostRecruitment;
 using Content.Server.GameTicking.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared._White;
 using Content.Shared._White.GhostRecruitment;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
@@ -147,8 +148,9 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
 
     private void OnRoundStart(RoundStartingEvent ev)
     {
-        //if (_cfgManager.GetCVar(WhiteCVars.LoadErtMap))
-        SpawnMap();
+        // Disabled in dev - Resources/ConfigPresets/Build/development.toml
+        if (_cfgManager.GetCVar(WhiteCVars.LoadErtMap))
+            SpawnMap();
     }
 
     public void AcceptERT(EntityUid targetStation)

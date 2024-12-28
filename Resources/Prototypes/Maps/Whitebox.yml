@@ -1,8 +1,8 @@
 - type: gameMap
   id: WhiteBox
   mapName: 'Box Station'
-  mapPath: /Maps/_Honk/Stations/WhiteBox.yml
-  minPlayers: 0 # Amour
+  mapPath: /Maps/White/WhiteboxNY.yml
+  minPlayers: 0
   stations:
     Boxstation:
       stationProto: StandardNanotrasenStation
