@@ -23,8 +23,8 @@ public sealed class WhiteCVars
     * Bullet trails
     */
 
-        public static readonly CVarDef<bool> EnableLightsGlowing =
-            CVarDef.Create("white.enable_lights_glowing", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+    public static readonly CVarDef<bool> EnableLightsGlowing =
+        CVarDef.Create("white.enable_lights_glowing", true, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /*
  * Offer Indicator
@@ -207,9 +207,9 @@ public sealed class WhiteCVars
     public static readonly CVarDef<float> JukeboxVolume =
         CVarDef.Create("white.jukebox_volume", 0f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
-     /*
-    * Chat
-      */
+    /*
+   * Chat
+     */
 
     public static readonly CVarDef<string> SeparatedChatSize =
         CVarDef.Create("white.chat_size_separated", "0.6;0", CVar.CLIENTONLY | CVar.ARCHIVE);
@@ -231,9 +231,9 @@ public sealed class WhiteCVars
         CVarDef.Create("white.admin.deadChatAdmin", false, CVar.CLIENT | CVar.REPLICATED | CVar.ARCHIVE);
 
 
-        /*
-     * End of round stats
-        */
+    /*
+ * End of round stats
+    */
 
     /// <summary>
     ///     The amount of blood lost required to trigger the BloodLost end of round stat.
@@ -313,7 +313,7 @@ public sealed class WhiteCVars
     /// <summary>
     ///     Should load a ERT map?
     /// </summary>
-    public static readonly CVarDef<bool> LoadErtMap = CVarDef.Create("white.ert_load", false, CVar.SERVERONLY);
+    public static readonly CVarDef<bool> LoadErtMap = CVarDef.Create("white.ert_load", true, CVar.SERVERONLY);
 
     public static readonly CVarDef<bool> LogChatActions =
         CVarDef.Create("white.log_to_chat", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED);
@@ -345,11 +345,11 @@ public sealed class WhiteCVars
      */
 
     // Applies Projectile and Melee damage.
-    public static readonly CVarDef<float> DamageModifier  =
+    public static readonly CVarDef<float> DamageModifier =
         CVarDef.Create("damage.modifier", 1.0f, CVar.REPLICATED);
 
     // Applies ALL damage, EVEN walls and etc.
-    public static readonly CVarDef<float> DamageGetModifier  =
+    public static readonly CVarDef<float> DamageGetModifier =
         CVarDef.Create("damage.get_modifier", 1.0f, CVar.REPLICATED);
 
     public static readonly CVarDef<bool> AutoKickVpnUsers =
