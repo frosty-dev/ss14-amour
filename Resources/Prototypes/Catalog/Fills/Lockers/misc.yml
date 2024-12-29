@@ -123,6 +123,8 @@
   components:
     - type: StorageFill
       contents:
+        - id: PackedSoil
+          prob: 0.10
         - id: Lantern
           prob: 0.20
         - id: Wirecutter

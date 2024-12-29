@@ -7,7 +7,7 @@
   targetNode: growingPot
   category: construction-category-furniture
   icon:
-    sprite: Structures\Hydroponics\growingpot.rsi
+    sprite: White/Structures/growingpot.rsi
     state: pot_filled
   objectType: Structure
   placementMode: SnapgridCenter

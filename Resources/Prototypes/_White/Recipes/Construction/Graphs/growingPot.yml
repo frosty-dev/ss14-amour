@@ -13,7 +13,7 @@
           steps:
             - material: WoodPlank
               amount: 15
-              doAfter: 1
+              doAfter: 4
             - material: MetalRod
               amount: 4
               doAfter: 1
@@ -22,15 +22,17 @@
       entity: GrowingPotNoSoil
       edges:
         - to: growingPot
+          conditions:
+            - !type:EntityAnchored
           completed:
             - !type:SnapToGrid
               southRotation: true
           steps:
-            - tag: PackedSoil
+            - tag: PackedSoilTag
               name: упаковка почвы
               icon:
-                sprite: Structures/Piping/Atmospherics/pipe.rsi
-                state: pipeStraight
+                sprite: White/Structures/growingpot.rsi
+                state: packed_soil
         - to: start
           completed:
             - !type:SpawnPrototype
@@ -47,10 +49,13 @@
       entity: GrowingPotEmpty
       edges:
         - to: growingPotNoSoil
+          conditions:
+            - !type:EntityAnchored
           completed:
             - !type:SpawnPrototype
-              prototype: packedSoil
+              prototype: PackedSoil
               amount: 1
+            - !type:EmptyAllContainers
           steps:
             - tool: Prying
-              doAfter: 1
+              doAfter: 5

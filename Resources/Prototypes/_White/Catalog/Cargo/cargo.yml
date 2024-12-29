@@ -300,9 +300,9 @@
 - type: cargoProduct
   id: cargoPackedSoil
   icon:
-    sprite: White/Objects/Weapons/Guns/Shotguns/rubber_pump.rsi
-    state: icon
+    sprite: White/Structures/growingpot.rsi
+    state: packed_soil
   product: CratePackedSoil
-  cost: 2000
+  cost: 500
   category: cargoproduct-category-name-hydroponics
   group: market

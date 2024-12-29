@@ -5,7 +5,7 @@
   description: Позволяет выращивать различные культуры.
   components:
   - type: Sprite
-    sprite: Structures/Hydroponics/growingpot.rsi
+    sprite: White/Structures/growingpot.rsi
     state: pot_filled
   - type: Transform
     anchored: true
@@ -43,7 +43,7 @@
   components:
   - type: InteractionOutline
   - type: Sprite
-    sprite: Structures/Hydroponics/growingpot.rsi
+    sprite: White/Structures/growingpot.rsi
     state: pot_empty
     noRot: true
   - type: Tag

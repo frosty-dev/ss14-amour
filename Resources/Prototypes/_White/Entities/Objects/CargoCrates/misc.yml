@@ -2,8 +2,9 @@
   parent: CrateHydroponics
   id: CratePackedSoil
   name: ящик с почвой
+  description: Ящик, содержащий три упаковки с почвой
   components:
   - type: StorageFill
     contents:
-      - id: packedSoil
-        amount: 3
+      - id: PackedSoil
+        amount: 5

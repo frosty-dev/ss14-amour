@@ -949,7 +949,7 @@
   id: Ore
 
 - type: Tag
-  id: PackedSoil # WD edit
+  id: PackedSoilTag # WD edit
 
 - type: Tag
   id: Packet
