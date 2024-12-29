@@ -450,3 +450,21 @@
     back: ClothingBackpackSatchelScience
     ears: ClothingHeadsetRD
     outerClothing: ClothingOuterCoatRD
+
+# WD. Mercenary
+
+- type: startingGear
+  id: MercenaryStandardGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMercenary
+    back: ClothingBackpackMercFilledStandard
+    head: ClothingHeadBandMerc
+    mask: ClothingMaskGasMerc
+    eyes: ClothingEyesGlassesMercenary
+    ears: ClothingHeadsetFreelance
+    gloves: ClothingHandsMercGlovesCombat
+    outerClothing: ClothingOuterVestWebMerc
+    shoes: ClothingShoesBootsMercFilled
+    pocket1: ClothingPouchMedical
+    pocket2: ClothingPouchGrenade
+    belt: WeaponLaserSvalinn

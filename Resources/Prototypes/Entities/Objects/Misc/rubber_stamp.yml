@@ -286,3 +286,16 @@
   - type: Sprite
     sprite: Objects/Misc/bureaucracy.rsi
     state: stamp-inspector
+
+- type: entity # WD
+  name: mercenaries rubber stamp
+  parent: RubberStampBase
+  id: RubberStampMercenaries
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-mercenary
+    stampedColor: "#36451b"
+    stampState: "paper_stamp-mercenary"
+  - type: Sprite
+    state: stamp-mercenary

@@ -20,7 +20,7 @@
 
 - type: randomHumanoidSettings
   id: Nanotrasen
-  speciesBlacklist: 
+  speciesBlacklist:
     - Arachnid
     - Diona
     - Moth
@@ -911,3 +911,48 @@
       nameSegments:
       - names_first
       - names_last
+
+# WD. Mercenary
+
+- type: entity
+  name: mercenary standard spawner
+  id: MercenaryStandardSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Tools/appraisal-tool.rsi
+      state: icon
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidMercenaryStandard
+    chance: 1
+
+- type: entity
+  id: RandomHumanoidMercenaryStandard
+  name: mercenary standard ghost role
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/appraisal-tool.rsi
+    state: icon
+  - type: RandomHumanoidSpawner
+    settings: MercenaryStandard
+
+- type: randomHumanoidSettings
+  id: MercenaryStandard
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-mercenary-standard-name
+    description: ghost-role-information-mercenary-standard-description
+    rules: ghost-role-information-mercenary-standard-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [ MercenaryStandardGear ]
+  - type: RandomMetadata
+    nameSegments:
+    - names_first
+    - names_last

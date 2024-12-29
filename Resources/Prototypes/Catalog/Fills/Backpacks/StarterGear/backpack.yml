@@ -411,3 +411,25 @@
         - id: Cutlass
         - id: WeaponRevolverPirate
         - id: ClothingEyesEyepatch
+
+# WD. Mercenary
+
+- type: entity
+  parent: ClothingBackpackMerc
+  id: ClothingBackpackMercFilledStandard
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvival
+    - id: RubberStampMercenaries
+    - id: TelescopicBaton
+    - id: Zipties
+    - id: BoxMRE
+    - id: ThrowingKnivesKit
+    - id: CrowbarRed
+    - id: Tourniquet
+    - id: Lighter
+    - id: CigPackBlack
+    - id: SpaceCash500
+    - id: FlashlightLantern
