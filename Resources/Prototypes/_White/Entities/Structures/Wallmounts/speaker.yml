@@ -1,0 +1,58 @@
+- type: entity
+  id: HOPSpeaker
+  name: loudspeaker
+  description: An especially extravagant way to move the queue.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wallmount
+  components:
+  - type: HopSpeaker
+  - type: PapersSpeech
+  - type: Speech
+  - type: Transform
+    anchored: true
+  - type: WallMount
+    arc: 360
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Appearance
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: White/Structures/Wallmounts/speaker.rsi
+    state: speaker
+    noRot: true
+  - type: TriggerOnSignal
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  - type: ApcPowerReceiver
+    powerLoad: 500
+    needsPower: true
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: ExtensionCableReceiver
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/smash.ogg"
