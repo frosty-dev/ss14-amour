@@ -510,3 +510,12 @@
   ghostName: Ash drake
   ghostDescription: Почитаемый хранитель некрополя.
   size: 0.75, 0.75
+
+#nekovich
+- type: customGhost
+  id: nekovich-ghost
+  ckey: nekovich
+  sprite: White/Ghosts/nekovich-ghost.rsi
+  alpha: 0.9
+  ghostName: nekovich
+  ghostDescription:  Law's Left Hand.
