@@ -1,0 +1,48 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantieZero
+  name: мантия "Ноль"
+  description: Камуфляжная мантия элитного бойца, покрытая кровью тысяч невинных.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Neck/mantles/zero-manties.rsi
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingNeckMantieDuneHat
+  name: пустынный капюшон
+  description: Пыльный капюшон плотно закрывающий голову от песчаных вихрей.
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Neck/mantles/dune_mantie.rsi
+    state: icon-HELMET
+  - type: Clothing
+    sprite: White/Clothing/Neck/mantles/dune_mantie.rsi
+    state: equipped-HELMET
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckMantieDune
+  name: пустынная мантия
+  description: Покрытая въевшейся пылью мантия, отлично защищающая от непогоды. Такие носят на гиблых мирах-пустошах - кочевники и рейдеры. Поможет вам не схлопотать солнечный удар слишком быстро.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Neck/mantles/dune_mantie.rsi
+  - type: Item
+    size: Normal
+  - type: ToggleableClothing
+    clothingPrototype: ClothingNeckMantieDuneHat
+    requiredSlot:
+    - neck
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: Tag
+    tags:
+    - ClothMade

@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodHoodieStreamer
+  noSpawn: true
+  name: капюшон
+  description: Если хочешь быть загадочным и привлекательным.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Head/Hoods/Coat/cute-hood.rsi
+  - type: Clothing
+    sprite: White/Clothing/Head/Hoods/Coat/cute-hood.rsi

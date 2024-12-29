@@ -1,0 +1,105 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitConcord
+  name: комбинезон Конкорда
+  description: Одобрено МС.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Uniforms/Jumpsuit/condord_uniform.rsi
+  - type: Clothing
+    sprite: White/Clothing/Uniforms/Jumpsuit/condord_uniform.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitConcordOfficer
+  name: комбинезон офицера Конкорда
+  description: Одобрено МС.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Uniforms/Jumpsuit/concord_officer_uniform.rsi
+  - type: Clothing
+    sprite: White/Clothing/Uniforms/Jumpsuit/concord_officer_uniform.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPencilSkirt
+  name: юбка Карандаш
+  description: Обтягивающая юбка с белой рубашкой для истинный бизнес-леди.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Uniforms/Jumpsuit/pencil_skirt.rsi
+  - type: Clothing
+    sprite: White/Clothing/Uniforms/Jumpsuit/pencil_skirt.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSWATUniform
+  name: униформа спецназа
+  description: Качественный комбинезон из сочетания простой хлопковой ткани и кевлара, довольно сложно прорубить ножём.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Uniforms/Jumpsuit/swat-uniform.rsi
+  - type: Clothing
+    sprite: White/Clothing/Uniforms/Jumpsuit/swat-uniform.rsi
+  - type: Item
+    size: Normal
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.85
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitZeroSamurai
+  name: кимоно мечника
+  description: Удобное просторное кимоно, не стенсняющее движений, в его кармане... старый плеер?
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/Jumpsuit/ukata.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/Jumpsuit/ukata.rsi
+    - type: Item
+      size: Normal
+    - type: Tag
+      tags:
+      - ClothMade
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitWhiteTShirt
+  name: белая футболка с джинсами
+  description: Модно. Милимастично. Стильно. Молодёжно.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Uniforms/Jumpsuit/white-t-shirt.rsi
+  - type: Clothing
+    sprite: White/Clothing/Uniforms/Jumpsuit/white-t-shirt.rsi
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitZero
+  name: униформа "Ноль"
+  description: Удобная униформа из прочных и эластичных материалов, состоящая из штанов "карго" и чёрной водолазки.
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Uniforms/Jumpsuit/zero-uniform.rsi
+    - type: Clothing
+      sprite: White/Clothing/Uniforms/Jumpsuit/zero-uniform.rsi
+    - type: Item
+      size: Normal
+    - type: Tag
+      tags:
+      - ClothMade

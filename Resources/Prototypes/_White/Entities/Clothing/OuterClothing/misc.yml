@@ -1,0 +1,69 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterApronChefNew
+  name: модный фартук шефа
+  suffix: Chef
+  description: Новенький фартук белого цвета с дополнительными карманами для всяческих принадлежностей.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/OuterClothing/Misc/apron-chef-new.rsi
+  - type: Clothing
+    sprite: White/Clothing/OuterClothing/Misc/apron-chef-new.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterApronBotanistNew
+  name: фартук ботаника
+  suffix: Botanical
+  description: Новенький фартук синего цвета с дополнительными карманами для всяческих принадлежностей.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/OuterClothing/Misc/apron-botanist-new.rsi
+  - type: Clothing
+    sprite: White/Clothing/OuterClothing/Misc/apron-botanist-new.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterPunkBomber
+  name: куртка панка
+  description: Просто не вступайте в армию, пока не узнаете, в какой войне вы участвуете.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/OuterClothing/Misc/bomber_punk.rsi
+  - type: Clothing
+    sprite: White/Clothing/OuterClothing/Misc/bomber_punk.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterHoodieStreamer
+  name: стримерский худи
+  description: Тёплый и уютный, с карманами и капюшоном.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/OuterClothing/Misc/cute-hoodie.rsi
+  - type: Clothing
+    sprite: White/Clothing/OuterClothing/Misc/cute-hoodie.rsi
+  - type: TemperatureProtection
+    coefficient: 0.1
+  - type: Item
+    size: Normal
+  - type: Armor
+    modifiers:
+      coefficients:
+        Heat: 0.95
+  - type: Food
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 30
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 30
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: StaticPrice
+    price: 70
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodHoodieStreamer

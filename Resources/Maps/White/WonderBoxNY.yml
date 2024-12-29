@@ -127418,6 +127418,16 @@ entities:
     - type: Transform
       pos: -6.5,-17.5
       parent: 2
+- proto: HOPSpeaker
+  entities:
+  - uid: 28202
+    components:
+    - type: Transform
+      pos: 12.5,4.5
+      parent: 2
+    - type: DeviceLinkSink
+      links:
+      - 28203
 - proto: HospitalCurtains
   entities:
   - uid: 18974
@@ -140844,49 +140854,49 @@ entities:
       pos: 6.7808495,-46.50002
       parent: 2
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
   - uid: 21037
     components:
     - type: Transform
       pos: 6.7808495,-46.030556
       parent: 2
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
   - uid: 21038
     components:
     - type: Transform
       pos: 6.7808495,-45.564182
       parent: 2
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
   - uid: 21039
     components:
     - type: Transform
       pos: 6.4999847,-46.441338
       parent: 2
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
   - uid: 21040
     components:
     - type: Transform
       pos: 6.4999847,-45.968784
       parent: 2
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
   - uid: 21041
     components:
     - type: Transform
       pos: 6.4999847,-45.502415
       parent: 2
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
   - uid: 21042
     components:
     - type: Transform
       pos: 4.636591,-46.013115
       parent: 2
     - type: RCDAmmo
-      charges: 1702
+      charges: 2553
 - proto: ReagentContainerFlour
   entities:
   - uid: 21043
@@ -148997,6 +149007,15 @@ entities:
       linkedPorts:
         504:
         - Pressed: DoorBolt
+  - uid: 28203
+    components:
+    - type: Transform
+      pos: 11.22633,1.624537
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        28202:
+        - Pressed: Trigger
 - proto: SignalSwitch
   entities:
   - uid: 22143

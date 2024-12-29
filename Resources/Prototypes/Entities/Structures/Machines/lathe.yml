@@ -378,6 +378,7 @@
       - HolofanProjector
       - BluespaceBeaker
       - SyringeBluespace
+      - BlueSpacePillCanister # WD
       - WeaponForceGun
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
@@ -1025,6 +1026,7 @@
       - CryostasisBeaker
       - BluespaceBeaker
       - SyringeBluespace
+      - BlueSpacePillCanister # WD
       - SyringeCryostasis
       - ClothingEyesHudMedical
   - type: BluespaceStorage
