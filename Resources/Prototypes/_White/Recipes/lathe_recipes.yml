@@ -354,3 +354,13 @@
     Plastic: 3000
     Silver: 100
     Gold: 100
+
+- type: latheRecipe
+  id: BlueSpacePillCanister
+  result: BlueSpacePillCanister
+  completetime: 2
+  materials:
+    Steel: 300
+    Plastic: 300
+    Plasma: 100
+    Silver: 50
