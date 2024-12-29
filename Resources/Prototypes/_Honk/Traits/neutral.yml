@@ -11,3 +11,10 @@
   description: Ой вей, вы тоже хотите деняг?
   components:
   - type: JewishAccent
+
+- type: trait
+  id: German
+  name: Немецкий акцент
+  description: Йа йа, зер гут!
+  components:
+  - type: GermanAccent
