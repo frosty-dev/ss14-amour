@@ -904,6 +904,7 @@
   - type: EmagLatheRecipes
     emagStaticRecipes:
      - MagazineLightRifleBox
+     - MagazinePistolCaselessRifle
      - CartridgeMagnumAP
      - CartridgeAntiMateriel
      - CartridgeCaselessRifle
