@@ -17236,7 +17236,7 @@ entities:
       pos: -5.5,34.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -28698.818
+      secondsUntilStateChange: -28775.1
       state: Opening
   - uid: 550
     components:
@@ -129213,6 +129213,16 @@ entities:
     - type: Transform
       pos: 2.6503239,-35.626648
       parent: 2
+- proto: HOPSpeaker
+  entities:
+  - uid: 19581
+    components:
+    - type: Transform
+      pos: -12.5,-27.5
+      parent: 2
+    - type: DeviceLinkSink
+      links:
+      - 28457
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 18961
@@ -136743,11 +136753,6 @@ entities:
     components:
     - type: Transform
       pos: 5.5,-23.5
-      parent: 2
-  - uid: 19581
-    components:
-    - type: Transform
-      pos: -12.5,-27.5
       parent: 2
   - uid: 19582
     components:
@@ -145475,7 +145480,7 @@ entities:
     - type: Transform
       parent: 1329
     - type: RCDAmmo
-      charges: 12921
+      charges: 19381
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -145484,7 +145489,7 @@ entities:
     - type: Transform
       parent: 1329
     - type: RCDAmmo
-      charges: 12921
+      charges: 19381
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -145493,7 +145498,7 @@ entities:
     - type: Transform
       parent: 1339
     - type: RCDAmmo
-      charges: 12921
+      charges: 19381
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -145502,7 +145507,7 @@ entities:
     - type: Transform
       parent: 1339
     - type: RCDAmmo
-      charges: 12921
+      charges: 19381
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -145511,7 +145516,7 @@ entities:
     - type: Transform
       parent: 1349
     - type: RCDAmmo
-      charges: 12921
+      charges: 19381
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -145520,7 +145525,7 @@ entities:
     - type: Transform
       parent: 1349
     - type: RCDAmmo
-      charges: 12921
+      charges: 19381
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -145530,21 +145535,21 @@ entities:
       pos: 4.166244,-61.42392
       parent: 2
     - type: RCDAmmo
-      charges: 12921
+      charges: 19381
   - uid: 20912
     components:
     - type: Transform
       pos: 4.173121,-61.326607
       parent: 2
     - type: RCDAmmo
-      charges: 12921
+      charges: 19381
   - uid: 20913
     components:
     - type: Transform
       pos: 4.166244,-61.51767
       parent: 2
     - type: RCDAmmo
-      charges: 12921
+      charges: 19381
 - proto: ReagentContainerFlourSmall
   entities:
   - uid: 20914
@@ -151888,6 +151893,15 @@ entities:
         - Pressed: Toggle
         21805:
         - Pressed: Toggle
+  - uid: 28457
+    components:
+    - type: Transform
+      pos: -11.775041,-26.963995
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        19581:
+        - Pressed: Trigger
 - proto: SignAnomaly
   entities:
   - uid: 21966
