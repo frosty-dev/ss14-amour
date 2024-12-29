@@ -44,6 +44,7 @@ public sealed class RandomAccentAspect : AspectSystem<RandomAccentAspectComponen
                 return;
 
             var mob = ev.Mob;
+            ApplyRandomAccent(mob);
             ChatHelper.SendAspectDescription(mob, Loc.GetString("random-accent-aspect-desc"));
         }
     }
