@@ -1,7 +1,6 @@
 ﻿using System.Numerics;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
-using Content.Shared.CombatMode.Pacification;
 
 namespace Content.Client._White.Cult;
 
