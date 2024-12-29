@@ -9,6 +9,7 @@ public static class UnsafePseudoIoC // Я НАНАВИЖУ IOCMAANGERRESOLVEPOSH
     public static void Initialize()
     {
         ConfigurationManager = IoCManager.Resolve<IConfigurationManager>();
+        ChatHelper.Initialize(IoCManager.Resolve<ISharedPlayerManager>(), IoCManager.Resolve<IChatManager>());// heh IOCMAANGERRESOLVEPOSHEL NAHUI
     }
 
 }
