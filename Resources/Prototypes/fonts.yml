@@ -61,3 +61,7 @@
 - type: font
   id: Emoji
   path: /Fonts/NotoEmoji.ttf
+
+- type: font # WD
+  id: BureaucracyPixel
+  path: /Fonts/BureaucracyPixel/BureaucracyPixel.ttf

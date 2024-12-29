@@ -1,0 +1,24 @@
+- type: entity
+  name: блюспейс баночка для таблеток
+  id: BlueSpacePillCanister
+  parent: BaseStorageItem
+  description: Вмещает до 100 таблеток.
+  components:
+  - type: Item
+    size: Tiny
+    sprite: White/Objects/Specific/Chemistry/bluespace_pill_canister.rsi
+  - type: Sprite
+    sprite: White/Objects/Specific/Chemistry/bluespace_pill_canister.rsi
+    state: bluespace_pill_canister
+  - type: Tag
+    tags:
+      - PillCanister
+  - type: Storage
+    grid:
+    - 0,0,10,10
+    quickInsert: true
+    areaInsert: true
+    areaInsertRadius: 1
+    storageInsertSound: /Audio/Effects/pill_insert.ogg
+    storageRemoveSound: /Audio/Effects/pill_remove.ogg
+  - type: Dumpable

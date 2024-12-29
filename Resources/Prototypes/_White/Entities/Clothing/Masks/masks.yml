@@ -1,0 +1,40 @@
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskSratVPodjesde
+  name: маска скрытности
+  description: Маска незаметность свободно ананизм невидимость скрытно шаттл синдикат.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Mask/guy_fox.rsi
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: White/Clothing/Mask/guy_fox.rsi
+  - type: BreathMask
+  - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - ClothMade
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasTatemori
+  name: противогаз "T-Oni"
+  description: Элитный противогаз-полумаска в нео японской стилистике.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Mask/gas_tatemori.rsi
+  - type: Item
+    size: Small
+  - type: Clothing
+    sprite: White/Clothing/Mask/gas_tatemori.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.95
+        Heat: 0.8
+  - type: Tag
+    tags:
+    - ClothMade

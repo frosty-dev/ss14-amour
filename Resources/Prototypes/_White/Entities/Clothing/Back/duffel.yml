@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelKon
+  name: вещмешок Конкорда
+  description: Вместительный вещмешок для вещей, одобрено МС.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Back/Duffels/concordbag.rsi
+    state: icon
+  - type: Storage
+    maxItemSize: Ginormous
+    grid:
+    - 0,0,11,4

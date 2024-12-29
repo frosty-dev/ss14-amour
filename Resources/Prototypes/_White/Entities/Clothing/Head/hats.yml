@@ -1,0 +1,37 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretConcord
+  name: берет Конкорда
+  description: Синий берет, одобрено МС.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Head/Hats/concord_beret.rsi
+  - type: Clothing
+    sprite: White/Clothing/Head/Hats/concord_beret.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatStreamerCap
+  name: шапка стримера
+  description: С этой шапкой вы будете в центре внимания! Или нет.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Head/Hats/streamer_cap.rsi
+  - type: Clothing
+    sprite: White/Clothing/Head/Hats/streamer_cap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: BeretZero
+  name: берет "Ноль"
+  description: Камуфляжный берет элитного бойца со знаком отличия в виде цифры "0". Пахнет кровью.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Head/Hats/zero_beret.rsi
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: White/Clothing/Head/Hats/zero_beret.rsi
+  - type: Tag
+    tags:
+    - ClothMade
