@@ -42,7 +42,9 @@ public sealed class SkeletonAspect : AspectSystem<SkeletonAspectComponent>
         foreach (var ent in entitiesToPolymorph)
         {
             PolymorphEntity(ent.Key, ent.Value);
+            ChatHelper.SendAspectDescription(ent.Key, Loc.GetString("skeleton-aspect-desc"));
         }
+    
     }
 
     private void HandleLateJoin(PlayerSpawnCompleteEvent ev)
@@ -57,6 +59,8 @@ public sealed class SkeletonAspect : AspectSystem<SkeletonAspectComponent>
                 return;
 
             PolymorphEntity(ev.Mob);
+
+            ChatHelper.SendAspectDescription(ev.Mob, Loc.GetString("skeleton-aspect-desc"));
         }
     }
 

@@ -30,6 +30,7 @@ public sealed class RandomItemAspect : AspectSystem<RandomItemAspectComponent>
         while (query.MoveNext(out var ent, out _))
         {
             GiveItem(ent, component);
+            ChatHelper.SendAspectDescription(ent, Loc.GetString("random-item-aspect-desc"));
         }
 
     }
@@ -48,6 +49,7 @@ public sealed class RandomItemAspect : AspectSystem<RandomItemAspectComponent>
             var mob = ev.Mob;
 
             GiveItem(mob, component);
+            ChatHelper.SendAspectDescription(mob, Loc.GetString("random-item-aspect-desc"));
         }
     }
 

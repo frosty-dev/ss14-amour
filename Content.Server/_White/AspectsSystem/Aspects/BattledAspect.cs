@@ -43,6 +43,7 @@ public sealed class BattledAspect : AspectSystem<BattledAspectComponent>
         while (query.MoveNext(out var ent, out _))
         {
             GiveItem(ent);
+            ChatHelper.SendAspectDescription(ent, Loc.GetString("battled-aspect-desc"));
         }
 
     }
@@ -61,6 +62,7 @@ public sealed class BattledAspect : AspectSystem<BattledAspectComponent>
             var mob = ev.Mob;
 
             GiveItem(mob);
+            ChatHelper.SendAspectDescription(mob, Loc.GetString("battled-aspect-desc"));
         }
     }
 

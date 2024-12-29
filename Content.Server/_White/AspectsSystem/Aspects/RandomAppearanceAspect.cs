@@ -24,6 +24,7 @@ public sealed class RandomAppearanceAspect : AspectSystem<RandomAppearanceAspect
         while (query.MoveNext(out var ent, out _))
         {
             EnsureComp<RandomHumanComponent>(ent);
+            ChatHelper.SendAspectDescription(ent, Loc.GetString("random-appearance-aspect-desc"));
         }
     }
 
@@ -41,6 +42,7 @@ public sealed class RandomAppearanceAspect : AspectSystem<RandomAppearanceAspect
             var mob = ev.Mob;
 
             EnsureComp<RandomHumanComponent>(mob);
+            ChatHelper.SendAspectDescription(mob, Loc.GetString("random-appearance-aspect-desc"));
         }
     }
 }

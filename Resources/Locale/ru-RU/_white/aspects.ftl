@@ -1,1 +1,10 @@
 immersive-aspect-desc = Для осмотра своего окружение, нажмите клавишу присмотреться/прицелиться (по умолчанию - Пробел).
+skeleton-aspect-desc = temp1.
+battled-aspect-desc = temp2.
+cat-ears-aspect-desc = temp3.
+dancing-aspect-desc = temp4.
+drunk-aspect-desc = temp5.
+fast-and-furious-aspect-desc = temp6.
+random-accent-aspect-desc = temp7.
+random-appearance-aspect-desc = temp8.
+random-item-aspect-desc = temp9.

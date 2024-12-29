@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server._White.AspectsSystem.Aspects.Components;
 using Content.Server._White.AspectsSystem.Base;
@@ -48,9 +48,7 @@ public sealed class ImmersiveAspect : AspectSystem<ImmersiveAspectComponent>
 
             FuckUpEye(entity, 0.6f);
             AddTelescope(entity);
-            _playerManager.TryGetSessionByEntity(entity, out var session);
-            if (session != null)
-                _chatManager.DispatchServerMessage(session, Loc.GetString("immersive-aspect-desc"));
+            ChatHelper.SendAspectDescription(entity, Loc.GetString("immersive-aspect-desc"));
         }
     }
 
@@ -83,9 +81,7 @@ public sealed class ImmersiveAspect : AspectSystem<ImmersiveAspectComponent>
 
             FuckUpEye(ev.Mob, 0.6f);
             AddTelescope(ev.Mob);
-            _playerManager.TryGetSessionByEntity(ev.Mob, out var session);
-            if (session != null)
-                _chatManager.DispatchServerMessage(session, Loc.GetString("immersive-aspect-desc"));
+            ChatHelper.SendAspectDescription(ev.Mob, Loc.GetString("immersive-aspect-desc"));
         }
     }
 

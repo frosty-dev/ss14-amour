@@ -27,6 +27,8 @@ public sealed class DrunkAspect : AspectSystem<DrunkAspectComponent>
         while (query.MoveNext(out var ent, out _))
         {
             _drunkSystem.TryApplyDrunkenness(ent, 50);
+
+            ChatHelper.SendAspectDescription(ent, Loc.GetString("drunk-aspect-desc"));
         }
     }
 
@@ -44,6 +46,9 @@ public sealed class DrunkAspect : AspectSystem<DrunkAspectComponent>
             var mob = ev.Mob;
 
             _drunkSystem.TryApplyDrunkenness(mob, 50);
+
+            ChatHelper.SendAspectDescription(mob, Loc.GetString("drunk-aspect-desc"));
+
         }
     }
 }

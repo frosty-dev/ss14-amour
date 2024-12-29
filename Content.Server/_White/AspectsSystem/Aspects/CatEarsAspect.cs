@@ -66,6 +66,7 @@ public sealed class CatEarsAspect : AspectSystem<CatEarsAspectComponent>
         while (query.MoveNext(out var ent, out var appearance))
         {
             AddMarkings(ent, appearance);
+            ChatHelper.SendAspectDescription(ent, Loc.GetString("cat-ears-aspect-desc"));
         }
     }
 
@@ -81,6 +82,7 @@ public sealed class CatEarsAspect : AspectSystem<CatEarsAspectComponent>
                 return;
 
             AddMarkings(ev.Mob);
+            ChatHelper.SendAspectDescription(ev.Mob, Loc.GetString("cat-ears-aspect-desc"));
         }
     }
 
