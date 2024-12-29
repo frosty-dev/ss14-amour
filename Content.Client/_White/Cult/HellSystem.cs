@@ -1,6 +1,7 @@
 ﻿using System.Numerics;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
+using Content.Shared.CombatMode.Pacification;
 
 namespace Content.Client._White.Cult;
 
@@ -23,7 +24,7 @@ public sealed class HellSystem : EntitySystem
         if (sprite.LayerMapTryGet(HellKey.Key, out _))
             return;
 
-        var adj = sprite.Bounds.Height / 2 + 1.0f/32 * 6.0f;
+        var adj = sprite.Bounds.Height / 2 + 1.0f / 32 * 6.0f;
 
         var layer = sprite.AddLayer(new SpriteSpecifier.Rsi(new ResPath(Rsi), "animated"));
 
