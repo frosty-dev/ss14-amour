@@ -1,0 +1,115 @@
+- type: entity
+  name: упакованный подарок
+  parent: BaseItem
+  id: FoodSnackLeDildoWrappedBase
+  description: Странного вида подарок, завёрнутый в разноцветную бумажную упаковку.
+  abstract: true
+  components:
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodSnackLeDildo1
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  name: леденец странного вида
+  parent: FoodSnackBase
+  id: FoodSnackLeDildoBase
+  description: Проигрывает своему аналогу в долговечности.
+  abstract: true
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - flavorLeDildo
+  - type: Item
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 30
+
+- type: entity
+  parent: FoodSnackLeDildoWrappedBase
+  id: FoodSnackLeDildoWrapped1
+  components:
+  - type: Sprite
+    sprite: _Amour/Objects/Consumable/Food/ledildowrapped1.rsi
+    state: icon
+  - type: Item
+    sprite: _Amour/Objects/Consumable/Food/ledildowrapped1.rsi
+    heldPrefix: null
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodSnackLeDildo1
+
+- type: entity
+  parent: FoodSnackLeDildoBase
+  id: FoodSnackLeDildo1
+  components:
+  - type: Sprite
+    sprite: _Amour/Objects/Consumable/Food/ledildo1.rsi
+    state: icon
+  - type: Item
+    sprite: _Amour/Objects/Consumable/Food/ledildo1.rsi
+    heldPrefix: null
+
+- type: entity
+  parent: FoodSnackLeDildoWrappedBase
+  id: FoodSnackLeDildoWrapped2
+  components:
+  - type: Sprite
+    sprite: _Amour/Objects/Consumable/Food/ledildowrapped2.rsi
+    state: icon
+  - type: Item
+    sprite: _Amour/Objects/Consumable/Food/ledildowrapped2.rsi
+    heldPrefix: null
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodSnackLeDildo2
+
+- type: entity
+  parent: FoodSnackLeDildoBase
+  id: FoodSnackLeDildo2
+  components:
+  - type: Sprite
+    sprite: _Amour/Objects/Consumable/Food/ledildo2.rsi
+    state: icon
+  - type: Item
+    sprite: _Amour/Objects/Consumable/Food/ledildo2.rsi
+    heldPrefix: null
+
+- type: entity
+  parent: FoodSnackLeDildoWrappedBase
+  id: FoodSnackLeDildoWrapped3
+  components:
+  - type: Sprite
+    sprite: _Amour/Objects/Consumable/Food/ledildowrapped3.rsi
+    state: icon
+  - type: Item
+    sprite: _Amour/Objects/Consumable/Food/ledildowrapped3.rsi
+    heldPrefix: null
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodSnackLeDildo3
+
+- type: entity
+  parent: FoodSnackLeDildoBase
+  id: FoodSnackLeDildo3
+  components:
+  - type: Sprite
+    sprite: _Amour/Objects/Consumable/Food/ledildo3.rsi
+    state: icon
+  - type: Item
+    sprite: _Amour/Objects/Consumable/Food/ledildo3.rsi
+    heldPrefix: null
