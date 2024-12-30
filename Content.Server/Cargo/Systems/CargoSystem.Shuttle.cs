@@ -25,7 +25,7 @@ public sealed partial class CargoSystem
 
     private static readonly SoundPathSpecifier ApproveSound = new("/Audio/Effects/Cargo/ping.ogg");
 
-    private const string TradeStationMapPath = "/Maps/Shuttles/trading_outpost.yml";
+    private const string TradeStationMapPath = "/Maps/Shuttles/White/trading_outpostNY.yml"; // WD
 
     private void InitializeShuttle()
     {
@@ -355,7 +355,7 @@ public sealed partial class CargoSystem
             return;
 
         var stackPrototype = _protoMan.Index<StackPrototype>(component.CashType);
-        _stack.Spawn((int)price, stackPrototype, xform.Coordinates);
+        _stack.Spawn((int) price, stackPrototype, xform.Coordinates);
         _audio.PlayPvs(ApproveSound, uid);
         UpdatePalletConsoleInterface(uid);
     }
