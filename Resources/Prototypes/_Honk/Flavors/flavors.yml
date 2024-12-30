@@ -2,3 +2,8 @@
   id: flavorhard
   flavorType: Complex
   description: жёстко
+
+- type: flavor
+  id: flavorLeDildo
+  flavorType: Complex
+  description: как прошлый год

@@ -1,6 +1,9 @@
 - type: vendingMachineInventory
   id: KinkMachineInventory
   startingInventory:
+    FoodSnackLeDildoWrapped1: 5
+    FoodSnackLeDildoWrapped2: 5
+    FoodSnackLeDildoWrapped3: 5
     PinkHandcuffs: 3
     ClothingUniformJumpskirtJanimaid: 6
     ClothingMaskSexyMime: 6

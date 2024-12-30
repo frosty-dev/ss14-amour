@@ -150,6 +150,12 @@
 - author: BIG_Zi_348
   changes:
   - message: "Добавлен немецкий акцент."
-    type: Fix
+    type: Add
   id: 24
   time: '2024-12-29T18:00:13.0000000+00:00'
+- author: BIG_Zi_348
+  changes:
+  - message: "Добавлены особые подарки в Кинк-о-Мат."
+    type: Add
+  id: 25
+  time: '2024-12-30T18:00:13.0000000+00:00'
