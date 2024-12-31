@@ -30,7 +30,7 @@ public sealed partial class ArtifactSystem
 
         _usedNodeIds.Clear();
 
-        var uninitializedNodes = new List<ArtifactNode> { new(){ Id = GetValidNodeId() } };
+        var uninitializedNodes = new List<ArtifactNode> { new() { Id = GetValidNodeId() } };
         var createdNodes = 1;
 
         while (uninitializedNodes.Count > 0)
@@ -50,7 +50,7 @@ public sealed partial class ArtifactSystem
                     break;
                 }
 
-                var child = new ArtifactNode {Id = GetValidNodeId(), Depth = node.Depth + 1};
+                var child = new ArtifactNode { Id = GetValidNodeId(), Depth = node.Depth + 1 };
                 node.Edges.Add(child.Id);
                 child.Edges.Add(node.Id);
 
@@ -239,5 +239,68 @@ public sealed partial class ArtifactSystem
     public ArtifactNode GetNodeFromId(int id, IEnumerable<ArtifactNode> nodes)
     {
         return nodes.First(x => x.Id == id);
+    }
+
+    /// <summary>
+    /// WD.
+    /// Generate an Artifact tree with fully developed nodes.
+    /// </summary>
+    private void GenerateSafeArtifactNodeTree(EntityUid artifact, List<ArtifactNode> allNodes, int nodesToCreate)
+    {
+        if (nodesToCreate < 1)
+        {
+            Log.Error($"nodesToCreate {nodesToCreate} is less than 1. Aborting artifact tree generation.");
+            return;
+        }
+
+        _usedNodeIds.Clear();
+
+        var uninitializedNodes = new List<ArtifactNode> { new() { Id = GetValidNodeId() } };
+        var createdNodes = 1;
+
+        while (uninitializedNodes.Count > 0)
+        {
+            var node = uninitializedNodes[0];
+            uninitializedNodes.Remove(node);
+
+            node.Trigger = GetRandomTrigger(artifact, ref node);
+            node.Effect = GetSafeRandomEffect(artifact, ref node);
+
+            var maxChildren = _random.Next(1, MaxEdgesPerNode - 1);
+
+            for (var i = 0; i < maxChildren; i++)
+            {
+                if (nodesToCreate <= createdNodes)
+                {
+                    break;
+                }
+
+                var child = new ArtifactNode { Id = GetValidNodeId(), Depth = node.Depth + 1 };
+                node.Edges.Add(child.Id);
+                child.Edges.Add(node.Id);
+
+                uninitializedNodes.Add(child);
+                createdNodes++;
+            }
+
+            allNodes.Add(node);
+        }
+    }
+
+    /// <summary>
+    /// WD.
+    /// </summary>
+    private string GetSafeRandomEffect(EntityUid artifact, ref ArtifactNode node)
+    {
+        var allEffects = _prototype.EnumeratePrototypes<ArtifactEffectPrototype>()
+            .Where(x => (x.Whitelist?.IsValid(artifact, EntityManager) ?? true) && (!x.Blacklist?.IsValid(artifact, EntityManager) ?? true) && x.Safe).ToList();
+        var validDepth = allEffects.Select(x => x.TargetDepth).Distinct().ToList();
+
+        var weights = GetDepthWeights(validDepth, node.Depth);
+        var selectedRandomTargetDepth = GetRandomTargetDepth(weights);
+        var targetEffects = allEffects
+            .Where(x => x.TargetDepth == selectedRandomTargetDepth).ToList();
+
+        return _random.Pick(targetEffects).ID;
     }
 }

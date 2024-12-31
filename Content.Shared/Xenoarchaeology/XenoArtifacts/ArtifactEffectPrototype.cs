@@ -41,4 +41,10 @@ public sealed partial class ArtifactEffectPrototype : IPrototype
 
     [DataField("blacklist")]
     public EntityWhitelist? Blacklist;
+
+    /// <summary>
+    /// WD. Is it safe for random items?
+    /// </summary>
+    [DataField]
+    public bool Safe = false;
 }

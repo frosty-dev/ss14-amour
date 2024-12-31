@@ -4,6 +4,7 @@
   id: EffectIntercom
   targetDepth: 2
   effectHint: artifact-effect-hint-communication
+  safe: true # WD
   permanentComponents:
   - type: RadioMicrophone
     powerRequired: false
@@ -31,6 +32,7 @@
   id: EffectRandomInstrument
   targetDepth: 2
   effectHint: artifact-effect-hint-mental
+  safe: true # WD
   permanentComponents:
   - type: Instrument
   - type: ActivatableUI
@@ -43,6 +45,7 @@
   id: EffectStorage
   targetDepth: 2
   effectHint: artifact-effect-hint-storage
+  safe: true # WD
   whitelist:
     components:
     - Item # it doesnt necessarily have to be restricted from structures, but i think it'll be better that way
@@ -62,6 +65,7 @@
   id: EffectPhasing
   targetDepth: 2
   effectHint: artifact-effect-hint-phasing
+  safe: true # WD
   permanentComponents:
   - type: PhasingArtifact
 
@@ -83,6 +87,7 @@
   id: EffectSolutionStorage
   targetDepth: 2
   effectHint: artifact-effect-hint-storage
+  safe: true # WD
   whitelist:
     components:
     - Item
@@ -112,6 +117,7 @@
   id: EffectSpeedUp
   targetDepth: 2
   effectHint: artifact-effect-hint-displacement
+  safe: true # WD
   whitelist:
     components:
     - Item
@@ -124,6 +130,7 @@
   id: EffectDrill
   targetDepth: 3
   effectHint: artifact-effect-hint-drill
+  safe: true # WD
   whitelist:
     components:
     - Item
@@ -142,6 +149,7 @@
   id: EffectPowerGen20K
   targetDepth: 3
   effectHint: artifact-effect-hint-release
+  safe: true # WD
   blacklist:
     components:
     - Item
@@ -159,6 +167,7 @@
   id: EffectBigIron
   targetDepth: 3
   effectHint: artifact-effect-hint-gun
+  safe: true # WD
   whitelist:
     components:
     - Item
@@ -192,6 +201,7 @@
   id: EffectSentience
   targetDepth: 3
   effectHint: artifact-effect-hint-sentience
+  safe: true # WD
   permanentComponents:
   - type: GhostRole
     allowMovement: true
@@ -208,6 +218,7 @@
   id: EffectMultitool
   targetDepth: 3
   effectHint: artifact-effect-hint-multitool
+  safe: true # WD
   whitelist:
     components:
     - Item

@@ -3,6 +3,8 @@ using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Shared._White;
+using Content.Shared.Damage;
+using Content.Shared.Stacks;
 using Content.Shared.Item;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
@@ -16,7 +18,7 @@ public sealed class RandomArtifactsSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly StationSystem _station = default!;
 
-    private float _itemToArtifactRatio; // from 0 to 100. In % percents. Default is 0.7%
+    private float _itemToArtifactRatio; // from 0 to 100. In % percents. Default is 0.4%
     private bool _artifactsEnabled;
 
     public override void Initialize()
@@ -34,11 +36,12 @@ public sealed class RandomArtifactsSystem : EntitySystem
         if (!_artifactsEnabled)
             return;
 
-        // Removing old artifact-items and replace it with new funny stealthy items
-        foreach (var oldArtifact in EntityQuery<ArtifactComponent>())
-        {
-            QueueDel(oldArtifact.Owner);
-        }
+        // No we don't
+        // // Removing old artifact-items and replace it with new funny stealthy items
+        // foreach (var oldArtifact in EntityQuery<ArtifactComponent>())
+        // {
+        //     QueueDel(oldArtifact.Owner);
+        // }
 
         var items = EntityQuery<ItemComponent>().ToList();
         _random.Shuffle(items);
@@ -55,8 +58,13 @@ public sealed class RandomArtifactsSystem : EntitySystem
             if (!HasComp<StationDataComponent>(station))
                 continue;
 
+            if (HasComp<StackComponent>(entity))
+                continue;
+
             var artifactComponent = EnsureComp<ArtifactComponent>(entity);
-            _artifactsSystem.RandomizeArtifact(entity, artifactComponent);
+            _artifactsSystem.SafeRandomizeArtifact(entity, artifactComponent);
+
+            EnsureComp<DamageableComponent>(entity);
         }
     }
 
