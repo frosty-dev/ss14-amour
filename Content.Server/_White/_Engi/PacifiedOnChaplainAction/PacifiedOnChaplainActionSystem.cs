@@ -32,6 +32,9 @@ namespace Content.Server._White._Engi.PacifiedOnChaplainAction
 
         private void Action(PacifiedOnChaplainActionComponent component, EntityUid target, EntityUid user)
         {
+            if (!HasComp<PacifiedOnChaplainActionComponent>(target))
+                return;
+
             var popup = "";
 
             if (HasComp<PacifiedComponent>(target))
