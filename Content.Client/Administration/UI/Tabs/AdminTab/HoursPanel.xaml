@@ -1,0 +1,22 @@
+<DefaultWindow
+    xmlns="https://spacestation14.io"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    Title="Накрутка времени" MinSize="300 300">
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="Игрок" MinWidth="100" />
+            <Control MinWidth="50" />
+            <LineEdit Name="PlayerNameLine" MinWidth="100" HorizontalExpand="True" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="Время" MinWidth="100" />
+            <Control MinWidth="50" />
+            <LineEdit Name="MinutesLine" MinWidth="100" HorizontalExpand="True" />
+            <Button Name="HourButton" Text="+1h (0)"/>
+        </BoxContainer>
+        <OptionButton Name="RoleOption" />
+        <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" MinWidth="200"/>
+        <Control VerticalExpand="True" Margin="10" />
+        <Button Name="SubmitButton" Text="Добавить время" />
+    </BoxContainer>
+</DefaultWindow>
