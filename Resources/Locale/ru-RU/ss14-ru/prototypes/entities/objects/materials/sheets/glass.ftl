@@ -10,7 +10,6 @@ ent-SheetGlass1 = { ent-SheetGlass }
     .suffix = Один
     .desc = { ent-SheetGlass.desc }
 ent-SheetGlassLingering0 = { ent-SheetGlass }
-    .suffix = Не исчезают закончившись, 0
     .desc = { ent-SheetGlass.desc }
 ent-SheetRGlass = бронестекло
     .suffix = Полный
