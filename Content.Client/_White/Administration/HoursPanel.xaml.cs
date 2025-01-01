@@ -8,7 +8,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using static Robust.Client.UserInterface.Controls.LineEdit;
 
-namespace Content.Client.Administration.UI.Tabs.AdminTab;
+namespace Content.Client._White.Administration;
 
 [GenerateTypedNameReferences]
 [UsedImplicitly]
@@ -24,21 +24,23 @@ public sealed partial class HoursPanel : DefaultWindow
         MinutesLine.OnTextChanged += UpdateButtonsText;
         RoleOption.OnItemSelected += args => RoleOption.SelectId(args.Id);
         SubmitButton.OnPressed += _ => OnSubmitButtonOnPressed(roles);
+        SaveButton.OnPressed += _ => OnSaveButtonOnPressed();
         OnNamesChanged();
         InitRoleList(roles);
+
     }
-    private void InitRoleList(Dictionary<int, string> Roles)
+    private void InitRoleList(Dictionary<int, string> roles)
     {
         var roleInd = 0;
         RoleOption.AddItem("общее", roleInd);
-        Roles.Add(roleInd, "Overall");
+        roles.Add(roleInd, "Overall");
         roleInd++;
         foreach (var dep in IoCManager.Resolve<IPrototypeManager>().EnumeratePrototypes<DepartmentPrototype>())
         {
             foreach (var role in dep.Roles)
             {
                 RoleOption.AddItem(Loc.GetString($"Job{role.Id}"), roleInd);
-                Roles.Add(roleInd, $"Job{role.Id}");
+                roles.Add(roleInd, $"Job{role.Id}");
                 roleInd++;
             }
         }
@@ -53,21 +55,21 @@ public sealed partial class HoursPanel : DefaultWindow
 
     private void AddMinutes(uint add)
     {
-        OnNamesChanged();
         if (!TryGetMinutes(MinutesLine.Text, out var minutes))
             minutes = 0;
 
         MinutesLine.Text = $"{minutes + add}";
         UpdateButtons(minutes + add);
+        OnNamesChanged();
     }
 
     private void UpdateButtonsText(LineEditEventArgs obj)
     {
-        OnNamesChanged();
         if (!TryGetMinutes(obj.Text, out var minutes))
             return;
 
         UpdateButtons(minutes);
+        OnNamesChanged();
     }
 
     private void UpdateButtons(uint minutes)
@@ -90,5 +92,13 @@ public sealed partial class HoursPanel : DefaultWindow
     {
         IoCManager.Resolve<IClientConsoleHost>().ExecuteCommand(
             $"playtime_addrole {PlayerNameLine.Text} {roles[RoleOption.SelectedId]} {MinutesLine.Text}");
+        SaveButton.Disabled = false;
+    }
+
+    private void OnSaveButtonOnPressed()
+    {
+        IoCManager.Resolve<IClientConsoleHost>().ExecuteCommand(
+            $"playtime_save {PlayerNameLine.Text}");
+        SaveButton.Disabled = true;
     }
 }

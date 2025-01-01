@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
     xmlns:at="clr-namespace:Content.Client.Administration.UI.Tabs.AdminTab"
+    xmlns:wd="clr-namespace:Content.Client._White.Administration"
     Margin="4"
     MinSize="50 50">
     <BoxContainer Orientation="Vertical">
@@ -18,7 +19,7 @@
             <cc:CommandButton Command="adminlogs" Text="{Loc admin-player-actions-window-admin-logs}"/>
             <cc:CommandButton Command="faxui" Text="{Loc admin-player-actions-window-admin-fax}"/>
             <cc:UICommandButton Command="enableShuttleCall" Text="{Loc admin-player-actions-window-shuttle-call}" WindowType="{x:Type at:AdminShuttleCallEnableWindow}"/>
-            <cc:UICommandButton Command="" Text="Накрутка времени" WindowType="{x:Type at:HoursPanel }"/>
+            <cc:UICommandButton Text="Накрутка времени" WindowType="{x:Type wd:HoursPanel }"/>
         </GridContainer>
     </BoxContainer>
 </Control>
