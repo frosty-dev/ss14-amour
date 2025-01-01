@@ -197,6 +197,10 @@ public sealed class HealingSystem : EntitySystem
             _popupSystem.PopupEntity(msg, target, target, PopupType.Medium);
         }
 
+        var delay = isNotSelf
+            ? component.Delay
+            : component.Delay * GetScaledHealingPenalty(user, component);
+
         var doAfterEventArgs =
             new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(), target, target: target, used: uid)
             {
