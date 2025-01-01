@@ -302,7 +302,6 @@ public sealed partial class ArtifactSystem : EntitySystem
     [PublicAPI]
     public void SafeRandomizeArtifact(EntityUid uid, ref ArtifactComponent component)
     {
-        component.NodesMax = 5;
         var nodeAmount = _random.Next(component.NodesMin, component.NodesMax);
 
         GenerateSafeArtifactNodeTree(uid, ref component.NodeTree, nodeAmount);

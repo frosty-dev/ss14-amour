@@ -2,6 +2,7 @@
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
+using Content.Server._White.RandomArtifactDesc;
 using Content.Shared._White;
 using Content.Shared.Damage;
 using Content.Shared.Stacks;
@@ -9,6 +10,8 @@ using Content.Shared.Item;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 using Robust.Server.GameObjects;
+using Content.Shared.Body.Organ;
+using Content.Shared.Body.Part;
 
 namespace Content.Server._White.RandomArtifacts;
 
@@ -18,6 +21,7 @@ public sealed class RandomArtifactsSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
 
     private float _itemToArtifactRatio; // from 0 to 100. In % percents. Default is 0.4%
     private bool _artifactsEnabled;
@@ -65,9 +69,19 @@ public sealed class RandomArtifactsSystem : EntitySystem
             if (HasComp<PointLightComponent>(entity))
                 continue;
 
-            var artifactComponent = EnsureComp<ArtifactComponent>(entity);
-            _artifactsSystem.SafeRandomizeArtifact(entity, ref artifactComponent);
+            if (HasComp<OrganComponent>(entity))
+                continue;
 
+            if (HasComp<BodyPartComponent>(entity))
+                continue;
+
+            // var artifactComponent = EnsureComp<ArtifactComponent>(entity);
+            var comp = (ArtifactComponent) _componentFactory.GetComponent("Artifact");
+            comp.Owner = entity;
+            _artifactsSystem.SafeRandomizeArtifact(entity, ref comp);
+            AddComp(entity, comp);
+
+            EnsureComp<RandomArtifactDescComponent>(entity);
             EnsureComp<DamageableComponent>(entity);
         }
     }
@@ -87,7 +101,11 @@ public sealed class RandomArtifactsSystem : EntitySystem
 
             foreach (var (_, artifact) in items)
             {
-                RemComp<ArtifactComponent>(artifact.Owner);
+                if (HasComp<RandomArtifactDescComponent>(artifact.Owner))
+                {
+                    RemComp<ArtifactComponent>(artifact.Owner);
+                    RemComp<RandomArtifactDescComponent>(artifact.Owner);
+                }
             }
         }
 
