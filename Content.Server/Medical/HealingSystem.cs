@@ -1,10 +1,10 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.Medical.Components;
 using Content.Server.Popups;
 using Content.Server.Stack;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -36,7 +36,7 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
 
     public override void Initialize()
     {
@@ -72,7 +72,6 @@ public sealed class HealingSystem : EntitySystem
             _bloodstreamSystem.TryModifyBleedAmount(entity.Owner, healing.BloodlossModifier);
             if (isBleeding != bloodstream.BleedAmount > 0)
             {
-                dontRepeat = true;
                 _popupSystem.PopupEntity(Loc.GetString("medical-item-stop-bleeding"), entity, args.User);
             }
         }
@@ -116,7 +115,7 @@ public sealed class HealingSystem : EntitySystem
         _audio.PlayPvs(healing.HealingEndSound, entity.Owner, AudioHelpers.WithVariation(0.125f, _random).WithVolume(1f));
 
         // Logic to determine the whether or not to repeat the healing action
-        args.Repeat = (HasDamage(entity.Comp, healing) && !dontRepeat);
+        args.Repeat = ((HasDamage(entity.Comp, healing) || HasBleedingToHeal(entity, healing)) && !dontRepeat); // WD added HasBleedingToHeal()
         if (!args.Repeat && !dontRepeat)
             _popupSystem.PopupEntity(Loc.GetString("medical-item-finished-using", ("item", args.Used)), entity.Owner, args.User);
         args.Handled = true;
@@ -174,6 +173,7 @@ public sealed class HealingSystem : EntitySystem
             return false;
 
         var anythingToDo =
+            HasBleedingToHeal(target, component) || // WD Edit
             HasDamage(targetDamage, component) ||
             component.ModifyBloodLevel > 0 // Special case if healing item can restore lost blood...
                 && TryComp<BloodstreamComponent>(target, out var bloodstream)
@@ -191,17 +191,11 @@ public sealed class HealingSystem : EntitySystem
 
         var isNotSelf = user != target;
 
-        //Amour
         if (isNotSelf)
         {
             var msg = Loc.GetString("medical-item-popup-target", ("user", Identity.Entity(user, EntityManager)), ("item", uid));
             _popupSystem.PopupEntity(msg, target, target, PopupType.Medium);
         }
-        //Amour
-
-        var delay = isNotSelf
-            ? component.Delay
-            : component.Delay * GetScaledHealingPenalty(user, component);
 
         var doAfterEventArgs =
             new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(), target, target: target, used: uid)
@@ -236,5 +230,22 @@ public sealed class HealingSystem : EntitySystem
         //basically make it scale from 1 to the multiplier.
         var modifier = percentDamage * (component.SelfHealPenaltyMultiplier - 1) + 1;
         return Math.Max(modifier, 1);
+    }
+
+
+    /// <summary>
+    /// WD.
+    /// </summary>
+    private bool HasBleedingToHeal(EntityUid target, HealingComponent healing)
+    {
+        if (healing.BloodlossModifier == float.NegativeZero)
+            return false;
+
+        if (!TryComp<BloodstreamComponent>(target, out var bloodstream))
+            return false;
+
+        var isBleeding = bloodstream.BleedAmount > 0;
+
+        return isBleeding;
     }
 }

@@ -296,4 +296,17 @@ public sealed partial class ArtifactSystem : EntitySystem
     {
         return allNodes.First(n => n.Depth == 0);
     }
+
+    /// <summary>
+    /// WD. Randomize a given artifact.
+    /// </summary>
+    [PublicAPI]
+    public void SafeRandomizeArtifact(EntityUid uid, ref ArtifactComponent component)
+    {
+        var nodeAmount = _random.Next(component.NodesMin, component.NodesMax);
+
+        GenerateSafeArtifactNodeTree(uid, ref component.NodeTree, nodeAmount);
+        var firstNode = GetRootNode(component.NodeTree);
+        EnterNode(uid, ref firstNode, component);
+    }
 }

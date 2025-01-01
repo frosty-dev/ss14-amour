@@ -25,3 +25,5 @@ ent-BaseUplinkRadio40TC = { ent-BaseUplinkRadio }
 ent-BaseUplinkRadioDebug = { ent-BaseUplinkRadio }
     .suffix = Дебаг
     .desc = { ent-BaseUplinkRadio.desc }
+ent-BaseUplinkRadio60TC = { ent-BaseUplinkRadio }
+    .desc = { ent-BaseUplinkRadio.desc }
