@@ -8,6 +8,7 @@ using Content.Shared.Stacks;
 using Content.Shared.Item;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
+using Robust.Server.GameObjects;
 
 namespace Content.Server._White.RandomArtifacts;
 
@@ -61,8 +62,11 @@ public sealed class RandomArtifactsSystem : EntitySystem
             if (HasComp<StackComponent>(entity))
                 continue;
 
+            if (HasComp<PointLightComponent>(entity))
+                continue;
+
             var artifactComponent = EnsureComp<ArtifactComponent>(entity);
-            _artifactsSystem.SafeRandomizeArtifact(entity, artifactComponent);
+            _artifactsSystem.SafeRandomizeArtifact(entity, ref artifactComponent);
 
             EnsureComp<DamageableComponent>(entity);
         }

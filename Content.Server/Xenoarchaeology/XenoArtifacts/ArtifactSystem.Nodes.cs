@@ -245,7 +245,7 @@ public sealed partial class ArtifactSystem
     /// WD.
     /// Generate an Artifact tree with fully developed nodes.
     /// </summary>
-    private void GenerateSafeArtifactNodeTree(EntityUid artifact, List<ArtifactNode> allNodes, int nodesToCreate)
+    private void GenerateSafeArtifactNodeTree(EntityUid artifact, ref List<ArtifactNode> allNodes, int nodesToCreate)
     {
         if (nodesToCreate < 1)
         {
