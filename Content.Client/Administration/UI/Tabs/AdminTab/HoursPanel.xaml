@@ -16,7 +16,6 @@
         </BoxContainer>
         <OptionButton Name="RoleOption" />
         <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" MinWidth="200"/>
-        <Control VerticalExpand="True" Margin="10" />
         <Button Name="SubmitButton" Text="Добавить время" />
     </BoxContainer>
 </DefaultWindow>
