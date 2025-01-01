@@ -245,7 +245,7 @@ public sealed partial class ArtifactSystem
     /// WD.
     /// Generate an Artifact tree with fully developed nodes.
     /// </summary>
-    private void GenerateSafeArtifactNodeTree(EntityUid artifact, List<ArtifactNode> allNodes, int nodesToCreate)
+    private void GenerateSafeArtifactNodeTree(EntityUid artifact, ref List<ArtifactNode> allNodes, int nodesToCreate)
     {
         if (nodesToCreate < 1)
         {
@@ -264,7 +264,7 @@ public sealed partial class ArtifactSystem
             uninitializedNodes.Remove(node);
 
             node.Trigger = GetRandomTrigger(artifact, ref node);
-            node.Effect = GetSafeRandomEffect(artifact, ref node);
+            node.Effect = GetRandomEffect(artifact, ref node);
 
             var maxChildren = _random.Next(1, MaxEdgesPerNode - 1);
 
@@ -285,18 +285,24 @@ public sealed partial class ArtifactSystem
 
             allNodes.Add(node);
         }
+
+        foreach (var item in allNodes)
+        {
+            if (item.Depth <= 3)
+                item.Effect = GetSafeRandomEffect(artifact, item.Depth);
+        }
     }
 
     /// <summary>
     /// WD.
     /// </summary>
-    private string GetSafeRandomEffect(EntityUid artifact, ref ArtifactNode node)
+    private string GetSafeRandomEffect(EntityUid artifact, int nodeDepth)
     {
         var allEffects = _prototype.EnumeratePrototypes<ArtifactEffectPrototype>()
             .Where(x => (x.Whitelist?.IsValid(artifact, EntityManager) ?? true) && (!x.Blacklist?.IsValid(artifact, EntityManager) ?? true) && x.Safe).ToList();
         var validDepth = allEffects.Select(x => x.TargetDepth).Distinct().ToList();
 
-        var weights = GetDepthWeights(validDepth, node.Depth);
+        var weights = GetDepthWeights(validDepth, nodeDepth);
         var selectedRandomTargetDepth = GetRandomTargetDepth(weights);
         var targetEffects = allEffects
             .Where(x => x.TargetDepth == selectedRandomTargetDepth).ToList();

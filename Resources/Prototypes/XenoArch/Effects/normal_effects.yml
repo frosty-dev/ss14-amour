@@ -124,7 +124,6 @@
   id: EffectBananaSpawn
   targetDepth: 0
   effectHint: artifact-effect-hint-creation
-  safe: true # WD
   components:
   - type: SpawnArtifact
     maxSpawns: 20

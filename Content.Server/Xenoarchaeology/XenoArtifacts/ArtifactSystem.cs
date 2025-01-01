@@ -300,12 +300,11 @@ public sealed partial class ArtifactSystem : EntitySystem
     /// WD. Randomize a given artifact.
     /// </summary>
     [PublicAPI]
-    public void SafeRandomizeArtifact(EntityUid uid, ArtifactComponent component)
+    public void SafeRandomizeArtifact(EntityUid uid, ref ArtifactComponent component)
     {
-        component.NodesMax = 5;
         var nodeAmount = _random.Next(component.NodesMin, component.NodesMax);
 
-        GenerateSafeArtifactNodeTree(uid, component.NodeTree, nodeAmount);
+        GenerateSafeArtifactNodeTree(uid, ref component.NodeTree, nodeAmount);
         var firstNode = GetRootNode(component.NodeTree);
         EnterNode(uid, ref firstNode, component);
     }
