@@ -14,6 +14,8 @@ using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 using static Robust.Client.UserInterface.Controls.LineEdit;
 using Content.Shared.Players.PlayTimeTracking;
+using System.Runtime.CompilerServices;
+
 
 namespace Content.Client.Administration.UI.Tabs.AdminTab;
 
@@ -21,125 +23,81 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab;
 [UsedImplicitly]
 public sealed partial class HoursPanel : DefaultWindow
 {
-    private enum Roles
-    {
-        Overall,
-
-        //Write in alphabetical order!
-
-        AtmosphericTechnician,
-        Bartender,
-        Bomzh,
-        Borg,
-        Botanist,
-        Boxer,
-        Brigmedic,
-        Captain,
-        CargoTechnician,
-        Chaplain,
-        Chef,
-        Chemist,
-        ChiefEngineer,
-        ChiefMedicalOfficer,
-        Clown,
-        Detective,
-        HeadOfPersonnel,
-        HeadOfSecurity,
-        Inspector,
-        Janitor,
-        Lawyer,
-        Librarian,
-        Maid,
-        MedicalDoctor,
-        MedicalIntern,
-        Mime,
-        Musician,
-        Paramedic,
-        Passenger,
-        Psychologist,
-        Quartermaster,
-        Reporter,
-        ResearchAssistant,
-        ResearchDirector,
-        SalvageSpecialist,
-        Scientist,
-        SecurityCadet,
-        SecurityOfficer,
-        SeniorEngineer,
-        SeniorOfficer,
-        SeniorPhysician,
-        SeniorResearcher,
-        ServiceWorker,
-        StationEngineer,
-        TechnicalAssistant,
-        Visitor,
-        Warden,
-        Zookeeper
-    }
-
-
     public HoursPanel()
     {
         RobustXamlLoader.Load(this);
+        var roles = new Dictionary<int, string>();
+        PlayerNameLine.OnTextChanged += _ => OnNamesChanged();
         PlayerList.OnSelectionChanged += OnPlayerSelectionChanged;
         HourButton.OnPressed += _ => AddMinutes(60);
         MinutesLine.OnTextChanged += UpdateButtonsText;
-
-        RoleOption.AddItem("OverAll");
-        foreach (var dep in IoCManager.Resolve<IPrototypeManager>().EnumeratePrototypes<DepartmentPrototype>())
-        {
-            foreach (var role in dep.Roles)
-            {
-                RoleOption.AddItem(role.Id);
-            }
-        }
-        RoleOption.RemoveItem(RoleOption.GetItemId());
-        RoleOption.Select(0);
-
+        RoleOption.OnItemSelected += args => RoleOption.SelectId(args.Id);
+        SubmitButton.OnPressed += _ => OnSubmitButtonOnPressed(roles);
+        OnNamesChanged();
+        InitRoleList(roles);
     }
-    private void SetRoles()
+    private void InitRoleList(Dictionary<int, string> Roles)
     {
-        int roleInd = 0;
+        var roleInd = 0;
+        RoleOption.AddItem("общее", roleInd);
+        Roles.Add(roleInd, "Overall");
+        roleInd++;
         foreach (var dep in IoCManager.Resolve<IPrototypeManager>().EnumeratePrototypes<DepartmentPrototype>())
         {
-
             foreach (var role in dep.Roles)
             {
-                RoleOption.AddItem(role.Id, roleInd++);
+                RoleOption.AddItem(Loc.GetString($"Job{role.Id}"), roleInd);
+                Roles.Add(roleInd, $"Job{role.Id}");
+                roleInd++;
             }
         }
+        RoleOption.SelectId(0);
     }
+
     private bool TryGetMinutes(string str, out uint minutes)
     {
         minutes = 0;
-        return string.IsNullOrWhiteSpace(str) || uint.TryParse(str, out minutes);
+        return !string.IsNullOrWhiteSpace(str) && uint.TryParse(str, out minutes);
     }
+
     private void AddMinutes(uint add)
     {
+        OnNamesChanged();
         if (!TryGetMinutes(MinutesLine.Text, out var minutes))
-            return;
+            minutes = 0;
 
         MinutesLine.Text = $"{minutes + add}";
         UpdateButtons(minutes + add);
     }
+
     private void UpdateButtonsText(LineEditEventArgs obj)
     {
+        OnNamesChanged();
         if (!TryGetMinutes(obj.Text, out var minutes))
             return;
 
         UpdateButtons(minutes);
     }
+
     private void UpdateButtons(uint minutes)
     {
         HourButton.Text = $"+1h ({minutes / 60})";
     }
+
     private void OnNamesChanged()
     {
-        SubmitButton.Disabled = string.IsNullOrEmpty(PlayerNameLine.Text);
+        SubmitButton.Disabled = string.IsNullOrEmpty(PlayerNameLine.Text) || !TryGetMinutes(MinutesLine.Text, out _);
     }
+
     private void OnPlayerSelectionChanged(PlayerInfo? player)
     {
         PlayerNameLine.Text = player?.Username ?? string.Empty;
         OnNamesChanged();
+    }
+
+    private void OnSubmitButtonOnPressed(Dictionary<int, string> roles)
+    {
+        IoCManager.Resolve<IClientConsoleHost>().ExecuteCommand(
+            $"playtime_addrole {PlayerNameLine.Text} {roles[RoleOption.SelectedId]} {MinutesLine.Text}");
     }
 }

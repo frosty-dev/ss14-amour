@@ -11,7 +11,7 @@
         <BoxContainer Orientation="Horizontal">
             <Label Text="Время" MinWidth="100" />
             <Control MinWidth="50" />
-            <LineEdit Name="MinutesLine" MinWidth="100" HorizontalExpand="True" />
+            <LineEdit Name="MinutesLine" MinWidth="100" HorizontalExpand="True" PlaceHolder="минуты" />
             <Button Name="HourButton" Text="+1h (0)"/>
         </BoxContainer>
         <OptionButton Name="RoleOption" />
