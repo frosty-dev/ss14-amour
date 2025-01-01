@@ -2,7 +2,9 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
+using Content.Shared.Inventory;
 using Content.Shared.Localizations;
+using Content.Shared.Tag;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using System.Linq;
@@ -34,6 +36,14 @@ namespace Content.Server.Chemistry.ReagentEffects
         [DataField]
         [JsonPropertyName("ignoreResistances")]
         public bool IgnoreResistances = true;
+
+        /// <summary>
+        ///     WD.
+        ///     Whether this will work through hardsuits or not.
+        /// </summary>
+        [DataField]
+        [JsonPropertyName("pierceHardsuit")]
+        public bool PierceHardsuit = true;
 
         protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         {
@@ -112,6 +122,11 @@ namespace Content.Server.Chemistry.ReagentEffects
 
         public override void Effect(ReagentEffectArgs args)
         {
+            if (!PierceHardsuit &&
+                args.EntityManager.System<InventorySystem>().TryGetSlotEntity(args.SolutionEntity, "outerClothing", out var suit) &&
+                args.EntityManager.System<TagSystem>().HasTag(suit.Value, "Hardsuit"))
+                return; // WD
+
             var scale = ScaleByQuantity ? args.Quantity : FixedPoint2.New(1);
             scale *= args.Scale;
 
