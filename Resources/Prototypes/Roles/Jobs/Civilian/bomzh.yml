@@ -28,6 +28,11 @@
   canBeAntag: true
   access:
   - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: BomzhAccent
+
 
 - type: startingGear
   id: BomzhGear
