@@ -150,3 +150,6 @@
 
 - type: Tag
   id: MagazineKalashLightRifleBox
+
+- type: Tag
+  id: PackedSoilTag
