@@ -7,6 +7,8 @@ using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using static Robust.Client.UserInterface.Controls.LineEdit;
+using Content.Shared._White.Administration;
+using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client._White.Administration;
 
@@ -16,19 +18,43 @@ public sealed partial class HoursPanel : DefaultWindow
 {
     public HoursPanel()
     {
+        var owner = new HoursPanelSystem(this);
         RobustXamlLoader.Load(this);
         var roles = new Dictionary<int, string>();
         PlayerNameLine.OnTextChanged += _ => OnNamesChanged();
+        PlayerNameLine.OnTextEntered += _ => OnNameSubmited(owner, roles);
         PlayerList.OnSelectionChanged += OnPlayerSelectionChanged;
         HourButton.OnPressed += _ => AddMinutes(60);
         MinutesLine.OnTextChanged += UpdateButtonsText;
-        RoleOption.OnItemSelected += args => RoleOption.SelectId(args.Id);
+        RoleOption.OnItemSelected += args => OnItemSelected(args, owner, roles);
         SubmitButton.OnPressed += _ => OnSubmitButtonOnPressed(roles);
         SaveButton.OnPressed += _ => OnSaveButtonOnPressed();
         OnNamesChanged();
         InitRoleList(roles);
-
     }
+
+    public void UpdateTime(TimeSpan? time)
+    {
+        if (time == null)
+            TimeDisplayer.Text = $"Время игры: нет данных";
+        else
+            TimeDisplayer.Text = $"Время игры: {time}";
+    }
+
+    private void OnItemSelected(OptionButton.ItemSelectedEventArgs args, HoursPanelSystem owner, Dictionary<int, string> roles)
+    {
+        RoleOption.SelectId(args.Id);
+        OnNameSubmited(owner, roles);
+    }
+
+    private void OnNameSubmited(HoursPanelSystem owner, Dictionary<int, string> roles)
+    {
+        if (string.IsNullOrWhiteSpace(PlayerNameLine.Text))
+            return;
+
+        owner.SendPlayerTimeRequest(new HoursPanelMessage(PlayerNameLine.Text, roles[RoleOption.SelectedId]));
+    }
+
     private void InitRoleList(Dictionary<int, string> roles)
     {
         var roleInd = 0;
@@ -100,5 +126,11 @@ public sealed partial class HoursPanel : DefaultWindow
         IoCManager.Resolve<IClientConsoleHost>().ExecuteCommand(
             $"playtime_save {PlayerNameLine.Text}");
         SaveButton.Disabled = true;
+    }
+    private void GetPlayerTime()
+    {
+        if (string.IsNullOrWhiteSpace(PlayerNameLine.Text))
+            return;
+
     }
 }
