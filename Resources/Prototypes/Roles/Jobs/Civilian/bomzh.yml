@@ -37,6 +37,6 @@
 - type: startingGear
   id: BomzhGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCaptain
+    jumpsuit: ClothingUniformJumpsuitWhiteBomzh
     outerClothing: ClothingOuterOverCoatBomzh
     id: BomzhPDA
