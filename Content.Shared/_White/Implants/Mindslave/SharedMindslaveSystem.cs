@@ -43,6 +43,7 @@ public abstract class SharedMindslaveSystem : EntitySystem
         if (HasComp<MindShieldComponent>(args.Target) ||
             HasComp<MindSlaveComponent>(args.Target) ||
             HasComp<CultistComponent>(args.Target) ||
+            HasComp<UnslavableComponent>(args.Target) ||
             HasComp<Revolutionary.Components.RevolutionaryComponent>(args.Target))
         {
             message = Loc.GetString("mindslave-cant-insert");
