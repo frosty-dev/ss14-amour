@@ -2,21 +2,27 @@ using Content.Shared._White.Administration;
 
 namespace Content.Client._White.Administration;
 
-public sealed class HoursPanelSystem : SharedHoursPanelSystem
+public sealed class HoursPanelSystem : EntitySystem
 {
-    public HoursPanel Panel { get; }
+    private HoursPanel _panel;
     public HoursPanelSystem(HoursPanel panel)
     {
-        Panel = panel;
+        _panel = panel;
     }
 
-    protected override void OnHoursPanelMessage(HoursPanelMessage message, EntitySessionEventArgs eventArgs)
+    public override void Initialize()
     {
-        if (message.Time != null)
-            Panel.UpdateTime(message.Time);
+        base.Initialize();
+
+        SubscribeNetworkEvent<HoursPanelMessageToClient>(OnHoursPanelMessage);
     }
 
-    public void SendPlayerTimeRequest(HoursPanelMessage message)
+    private void OnHoursPanelMessage(HoursPanelMessageToClient message, EntitySessionEventArgs eventArgs)
+    {
+        _panel.UpdateTime(message.Time);
+    }
+
+    public void SendPlayerTimeRequest(HoursPanelMessageToServer message)
     {
         RaiseNetworkEvent(message);
     }

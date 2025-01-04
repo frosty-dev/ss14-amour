@@ -2,25 +2,38 @@ using Content.Shared._White.Administration;
 using Robust.Server.Player;
 using Content.Server.Players.PlayTimeTracking;
 
+
 namespace Content.Server._White.Administration;
 
-public sealed class HoursPanelSystem : SharedHoursPanelSystem
+public sealed class HoursPanelSystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPlayTimeTrackingManager _playTimeTracking = default!;
-    protected override void OnHoursPanelMessage(HoursPanelMessage message, EntitySessionEventArgs eventArgs)
+    public override void Initialize()
     {
-        if (message.Time != null)
-            return;
+        base.Initialize();
 
+        SubscribeNetworkEvent<HoursPanelMessageToServer>(OnHoursPanelMessage);
+    }
+    private void OnHoursPanelMessage(HoursPanelMessageToServer message, EntitySessionEventArgs eventArgs)
+    {
         if (_playerManager.TryGetSessionByUsername(message.PlayerCKey, out var player))
             return;
 
+        if (player == null)
+            return;
+
+        TimeSpan timer;
+
         if (message.Job == "Overall")
         {
-            var timer = _playTimeTracking.GetOverallPlaytime(player!);
-            RaiseNetworkEvent(new HoursPanelMessage(message.PlayerCKey, message.Job, timer));
-            return;
+            timer = _playTimeTracking.GetOverallPlaytime(player!);
         }
+        else
+        {
+            timer = _playTimeTracking.GetPlayTimeForTracker(player!, message.Job);
+        }
+
+        RaiseNetworkEvent(new HoursPanelMessageToClient(timer));
     }
 }

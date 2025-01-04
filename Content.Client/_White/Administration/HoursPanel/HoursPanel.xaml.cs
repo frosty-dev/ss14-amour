@@ -52,7 +52,7 @@ public sealed partial class HoursPanel : DefaultWindow
         if (string.IsNullOrWhiteSpace(PlayerNameLine.Text))
             return;
 
-        owner.SendPlayerTimeRequest(new HoursPanelMessage(PlayerNameLine.Text, roles[RoleOption.SelectedId]));
+        owner.SendPlayerTimeRequest(new HoursPanelMessageToServer(PlayerNameLine.Text, roles[RoleOption.SelectedId]));
     }
 
     private void InitRoleList(Dictionary<int, string> roles)
