@@ -19,6 +19,29 @@
     - Syndicate
   - type: AutoTraitor
     profile: TraitorReinforcement
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 200
+    intensitySlope: 10
+    maxIntensity: 10
+    canCreateVacuum: false
+    deleteAfterExplosion: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 70
+      behaviors:
+      - !type:ExplodeBehavior
+      - !type:GibBehavior
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 1500
+      behaviors:
+      - !type:GibBehavior { }
+
 
 - type: entity
   parent: MobHumanDemolitionist
