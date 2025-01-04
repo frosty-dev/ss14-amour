@@ -10,7 +10,7 @@ using static Robust.Client.UserInterface.Controls.LineEdit;
 using Content.Shared._White.Administration;
 using Robust.Client.UserInterface.Controls;
 
-namespace Content.Client._White.Administration;
+namespace Content.Client._White.Administration.HoursPanelSystems;
 
 [GenerateTypedNameReferences]
 [UsedImplicitly]

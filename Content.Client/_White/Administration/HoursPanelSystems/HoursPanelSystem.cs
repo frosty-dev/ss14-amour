@@ -1,6 +1,7 @@
 using Content.Shared._White.Administration;
+using static Content.Client._White.Administration.HoursPanelSystems.HoursPanel;
 
-namespace Content.Client._White.Administration;
+namespace Content.Client._White.Administration.HoursPanelSystems;
 
 public sealed class HoursPanelSystem : EntitySystem
 {
