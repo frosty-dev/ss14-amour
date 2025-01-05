@@ -179,7 +179,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 10 # WD
+        Slash: 10 # WD
   - type: Sprite
     sprite: Clothing/Head/Hats/greyflatcap.rsi
   - type: Clothing
