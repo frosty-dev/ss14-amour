@@ -9,6 +9,7 @@ using Content.Shared.Database;
 using Content.Shared.Hands;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
@@ -29,6 +30,7 @@ public abstract class SharedStunSystem : EntitySystem
     [Dependency] private readonly SharedStandingStateSystem _standingState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!; // WD
 
     /// <summary>
     /// Friction modifier for knocked down players.
@@ -117,7 +119,7 @@ public abstract class SharedStunSystem : EntitySystem
         if (!TryComp(uid, out StandingStateComponent? standing) || !(!standing.CanLieDown || standing.AutoGetUp)) // WD edit
             return;
 
-        if (standing.AutoGetUp && !_container.IsEntityInContainer(uid)) // WD edit
+        if (standing.AutoGetUp && !_container.IsEntityInContainer(uid) && _mobStateSystem.IsAlive(uid)) // WD edit
         {
             _standingState.TryStandUp(uid, standing);
             return;

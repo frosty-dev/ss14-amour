@@ -14,17 +14,28 @@
       time: 36000 #10 hrs
     - !type:AgeRequirement
       requiredAge: 20
+    - !type:SpeciesRequirement
+      species:
+      - Human
+      - Felinid
+  weight: 10
   icon: "JobIconInspector"
   arrivalNotificationPrototype: InspectorArrivalNotification
   supervisors: job-supervisors-captain
   whitelistedSpecies:
     - Human
+    - Felinid
+  canBeAntag: true
   access:
     - Service
     - Lawyer
     - Brig
     - Maintenance
     - Command
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff
 
 - type: startingGear
   id: InspectorGear

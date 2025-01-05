@@ -91,7 +91,10 @@ alerts-pulling-name = Вы тянете
 alerts-pulling-desc = Вы что-то тянете. Щелкните по иконке, чтобы перестать.
 
 alerts-bleed-name = [color=red]Кровотечение[/color]
-alerts-bleeding-desc = У вас [color=#C10000]кровотечение[/color], вколите [color=#3D9CBF]экстренный медипен[/color] или перебинтуйтесь.
+alerts-bleed-desc = У вас [color=#C10000]кровотечение[/color], вколите [color=#3D9CBF]экстренный медипен[/color] или перебинтуйтесь.
+
+alerts-bleeding-name = { alerts-bleed-name }
+alerts-bleeding-desc = { alerts-bleed-desc }
 
 alerts-pacified-name = [color=green]Пацифизм[/color]
 alerts-pacified-desc = Вы чувствуете себя умиротворенно и не можете вредить живым существам.
