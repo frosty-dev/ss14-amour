@@ -374,6 +374,6 @@
   components:
   - type: Aspect
     name: "DeleteVendingMachineAspect"
-    description: "Некий Жабак украл все торговые автоматы!"
+    description: "Какой-то смышлённый агент синдиката украл все торговые автоматы!"
     weight: 3
   - type: DeleteVendingMachine
