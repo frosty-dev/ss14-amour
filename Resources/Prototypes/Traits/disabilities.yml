@@ -79,3 +79,14 @@
   description: trait-snoring-desc
   components:
     - type: Snoring
+
+- type: trait # WD
+  id: Limping
+  traitGear: Cane
+  name: Хромота
+  description: Слабость в ногах мешает вам нормально передвигаться, трость может немного помочь.
+  blacklist:
+    components:
+      - BorgChassis
+  components:
+  - type: Limping

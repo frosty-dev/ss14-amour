@@ -5,7 +5,8 @@
   components:
     - type: Aspect
       name: Акценты вне контроля
-      description: Всегда интересно, какой акцент вы услышите следующим
+      sender: Федерация Космических Волшебников
+      description: Всегда интересно, какой акцент вы услышите следующим.
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -18,7 +19,7 @@
   components:
     - type: Aspect
       name: Fast and Furious
-      description: Люди спешат и не важно куда
+      description: Новейшие разработки в области фильтрации питьевой воды привели к непредвиденным результатам. КПД двигательных систем большинства органических и неорганических существ возрос на 60%!
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -58,7 +59,7 @@
   components:
     - type: Aspect
       name: Drunk
-      description: На станции стоит явный запах вчерашнего веселья... и кажется оно только начинается
+      description: На станции стоит явный запах вчерашнего веселья... и кажется оно только начинается.
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -71,7 +72,7 @@
   components:
     - type: Aspect
       name: Cargo Rich
-      description: Карго работало усердно в прошлую смену, за что они и были награждены премией в размере 100000 кредитов
+      description: Карго работало усердно в прошлую смену, за что они и были награждены премией в размере 100000 кредитов.
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -97,7 +98,7 @@
   components:
     - type: Aspect
       name: Weak Walls
-      description: На стенах явно экономили
+      description: В связи с невыполнением экономических показателей за предыдущий финансовый период - было принято решение на экономии строительных материалов для стен.
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -110,7 +111,7 @@
   components:
     - type: Aspect
       name: No engine
-      description: Какой-то смышлённый агент синдиката решил украсть все ваши генераторы энергии целиком
+      description: Какой-то смышлённый агент синдиката решил украсть все ваши генераторы энергии целиком.
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -123,7 +124,8 @@
   components:
     - type: Aspect
       name: Airunlock
-      description: Кого волнует безопасность? Экипаж свободно может ходить по всем отсекам, ведь все шлюзы теперь для них доступны
+      sender: Федерация Космических Волшебников
+      description: Кого волнует безопасность? Экипаж свободно может ходить по всем отсекам, ведь все шлюзы теперь для них доступны.
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -137,7 +139,8 @@
   components:
     - type: Aspect
       name: Bloody
-      description: В эту смену любая незначительная травма может оказаться летальной
+      sender: Федерация Космических Волшебников
+      description: В эту смену любая незначительная травма может оказаться летальной.
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -150,6 +153,7 @@
   components:
     - type: Aspect
       name: Weak
+      sender: Федерация Космических Волшебников
       description: Удары стали слабее. Пули мягче. К чему это приведёт?
       weight: 1
       startAudio:
@@ -163,7 +167,7 @@
   components:
     - type: Aspect
       name: Battled
-      description: Люди очень насторожены и готовы дать отпор в любую секунду
+      description: Люди очень насторожены и готовы дать отпор в любую секунду.
       weight: 1
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -189,6 +193,7 @@
   components:
     - type: Aspect
       name: Presents
+      sender: Федерация Космических Волшебников
       description: А вы верите в Деда Мороза?
       weight: 3
       startAudio:
@@ -202,6 +207,7 @@
   components:
     - type: Aspect
       name: Dance
+      sender: Федерация Космических Волшебников
       description: Танцуют все!
       weight: 3
       startAudio:
@@ -215,7 +221,8 @@
   components:
     - type: Aspect
       name: Reflect
-      description: Ваше отражение повсюду
+      sender: Федерация Космических Волшебников
+      description: Ваше отражение повсюду.
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -228,7 +235,8 @@
   components:
     - type: Aspect
       name: Slippery
-      description: Постарайтесь не поскальзываться!
+      sender: Федерация Космических Волшебников
+      description: Постарайтесь не подскальзываться!
       weight: 2
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -241,7 +249,7 @@
   components:
     - type: Aspect
       name: Extra TC
-      description: Синдикат выделил 10 дополнительных телекристаллов для предателей
+      description: Синдикат выделил 10 дополнительных телекристаллов для предателей.
       requires: Traitors
       weight: 3
       isHidden: true
@@ -254,7 +262,8 @@
   components:
     - type: Aspect
       name: Whisper
-      description: Из-за боли в горле речь дается вам с трудом
+      sender: Федерация Космических Волшебников
+      description: Вы слишком шумные, мы запрещаем вам повышать голос!
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -268,6 +277,7 @@
   components:
     - type: Aspect
       name: Darkness
+      sender: Федерация Космических Волшебников
       description: Почему все так темно?
       weight: 2
       startAudio:
@@ -281,7 +291,7 @@
   components:
     - type: Aspect
       name: Stolen Floor
-      description: Рабочие забыли положить плитку при строительстве станции
+      description: Рабочие забыли положить плитку при строительстве станции.
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -294,7 +304,7 @@
   components:
     - type: Aspect
       name: Are We In Dungeon
-      description: В связи с невероятной хрупкостью окон было решено заменить их на стены
+      description: В связи с невероятной хрупкостью окон было решено заменить их на стены.
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -307,7 +317,7 @@
   components:
     - type: Aspect
       name: Cat Ears And Tail
-      description: Из-за ошибки в системе клонирования на ЦК все члены экипажа стали походить на фелинидов
+      description: Из-за ошибки в системе клонирования на ЦК все члены экипажа стали походить на фелинидов.
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -333,7 +343,7 @@
   components:
     - type: Aspect
       name: Random item
-      description: ЦК выдало каждому члену экипажа определённый предмет
+      description: ЦК выдало каждому члену экипажа определённый предмет.
       weight: 3
       startAudio:
         path: /Audio/White/Aspects/accent.ogg
@@ -346,7 +356,7 @@
   components:
   - type: Aspect
     name: Immersive
-    description: В связи с недавними трагичными событиями экипаж станции погрузился в себя
+    description: В связи с недавними трагичными событиями экипаж станции погрузился в себя.
     weight: 3
     startAudio:
       path: /Audio/White/Aspects/accent.ogg
@@ -374,6 +384,6 @@
   components:
   - type: Aspect
     name: "DeleteVendingMachineAspect"
-    description: "Некий Жабак украл все торговые автоматы!"
+    description: "Какой-то смышлённый агент синдиката украл все торговые автоматы!"
     weight: 3
   - type: DeleteVendingMachine

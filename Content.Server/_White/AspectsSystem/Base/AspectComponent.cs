@@ -12,6 +12,8 @@ public sealed partial class AspectComponent : Component
 
     [DataField] public string? Requires;
 
+    [DataField] public string? Sender;
+
     [DataField] public float Weight = 1.0f;
 
     [DataField] public bool IsForbidden;

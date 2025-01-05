@@ -418,7 +418,7 @@ public sealed class WhiteCVars
         CVarDef.Create("white.random_artifacts_enabled", true, CVar.SERVERONLY);
 
     public static readonly CVarDef<float> ItemToArtifactRatio =
-        CVarDef.Create("white.random_artifacts_ratio", 0.4f, CVar.SERVERONLY);
+        CVarDef.Create("white.random_artifacts_ratio", 0.5f, CVar.SERVERONLY);
 
     public static readonly CVarDef<string> ACWebhook =
         CVarDef.Create("ac.webhook", "", CVar.SERVERONLY);

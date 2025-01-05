@@ -66,8 +66,10 @@ public abstract class AspectSystem<T> : GameRuleSystem<T> where T : Component
 
         if (aspect is { Description: not null, IsHidden: false })
         {
-            _chatSystem.DispatchGlobalAnnouncement(aspect.Description, playSound: false,
-                colorOverride: Color.Aquamarine);
+            _chatSystem.DispatchGlobalAnnouncement(aspect.Description,
+            sender: aspect.Sender ??= "Центральное Командование",
+            playSound: false,
+            colorOverride: Color.Aquamarine);
         }
 
         _audio.PlayGlobal(aspect.StartAudio, Filter.Broadcast(), true);
@@ -105,14 +107,17 @@ public abstract class AspectSystem<T> : GameRuleSystem<T> where T : Component
 
         if (aspect is { Name: not null, IsHidden: false })
         {
-            _chatSystem.DispatchGlobalAnnouncement($"Именем аспекта являлось: {aspect.Name}", playSound: false,
-                colorOverride: Color.Aquamarine);
+
+            _chatSystem.DispatchGlobalAnnouncement($"Именем аспекта являлось: {aspect.Name}",
+            sender: aspect.Sender ??= "Центральное Командование",
+            playSound: false,
+            colorOverride: Color.Aquamarine);
         }
 
         _audio.PlayGlobal(aspect.EndAudio, Filter.Broadcast(), true);
     }
 
-#region Helpers
+    #region Helpers
 
     /// <summary>
     /// Forces this aspect to end prematurely.
@@ -140,5 +145,5 @@ public abstract class AspectSystem<T> : GameRuleSystem<T> where T : Component
         return grids.Count > 0;
     }
 
-#endregion
+    #endregion
 }
