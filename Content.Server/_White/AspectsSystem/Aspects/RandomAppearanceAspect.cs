@@ -11,10 +11,11 @@ namespace Content.Server._White.AspectsSystem.Aspects;
 
 public sealed class RandomAppearanceAspect : AspectSystem<RandomAppearanceAspectComponent>
 {
+    [Dependency] private readonly ChatHelper _chatHelper = default!;
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(HandleLateJoin, after: new [] {typeof(StationRecordsSystem)});
+        SubscribeLocalEvent<PlayerSpawnCompleteEvent>(HandleLateJoin, after: new[] { typeof(StationRecordsSystem) });
     }
 
     protected override void Started(EntityUid uid, RandomAppearanceAspectComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -41,6 +42,7 @@ public sealed class RandomAppearanceAspect : AspectSystem<RandomAppearanceAspect
             var mob = ev.Mob;
 
             EnsureComp<RandomHumanComponent>(mob);
+            _chatHelper.SendAspectDescription(mob, Loc.GetString("random-appearance-aspect-desc"));
         }
     }
 }

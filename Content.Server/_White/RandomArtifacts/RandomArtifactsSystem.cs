@@ -23,7 +23,7 @@ public sealed class RandomArtifactsSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
 
-    private float _itemToArtifactRatio; // from 0 to 100. In % percents. Default is 0.4%
+    private float _itemToArtifactRatio; // from 0 to 100. In % percents. Default is 0.5%
     private bool _artifactsEnabled;
 
     public override void Initialize()
@@ -76,7 +76,7 @@ public sealed class RandomArtifactsSystem : EntitySystem
                 continue;
 
             // var artifactComponent = EnsureComp<ArtifactComponent>(entity);
-            var comp = (ArtifactComponent) _componentFactory.GetComponent("Artifact");
+            var comp = (ArtifactComponent)_componentFactory.GetComponent("Artifact");
             comp.Owner = entity;
             _artifactsSystem.SafeRandomizeArtifact(entity, ref comp);
             AddComp(entity, comp);
@@ -88,7 +88,7 @@ public sealed class RandomArtifactsSystem : EntitySystem
 
     private HashSet<ItemComponent> GetPercentageOfHashSet(List<ItemComponent> sourceList, float percentage)
     {
-        var countToAdd = (int) Math.Round((double) sourceList.Count * percentage / 100);
+        var countToAdd = (int)Math.Round((double)sourceList.Count * percentage / 100);
 
         return sourceList.Where(x => !Transform(x.Owner).Anchored).Take(countToAdd).ToHashSet();
     }

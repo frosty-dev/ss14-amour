@@ -21,6 +21,7 @@ public sealed class CatEarsAspect : AspectSystem<CatEarsAspectComponent>
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly ChatHelper _chatHelper = default!;
 
     private MarkingPrototype _ears = default!;
     private MarkingPrototype _tail = default!;
@@ -81,6 +82,7 @@ public sealed class CatEarsAspect : AspectSystem<CatEarsAspectComponent>
                 return;
 
             AddMarkings(ev.Mob);
+            _chatHelper.SendAspectDescription(ev.Mob, Loc.GetString("cat-ears-aspect-desc"));
         }
     }
 
@@ -94,18 +96,18 @@ public sealed class CatEarsAspect : AspectSystem<CatEarsAspectComponent>
             case "Felinid":
                 return;
             case "Human":
-            {
-                if (!appearance.MarkingSet.TryGetCategory(MarkingCategories.HeadTop, out var markings) ||
-                    markings.Count == 0)
-                    AddEars(appearance);
+                {
+                    if (!appearance.MarkingSet.TryGetCategory(MarkingCategories.HeadTop, out var markings) ||
+                        markings.Count == 0)
+                        AddEars(appearance);
 
-                if (!appearance.MarkingSet.TryGetCategory(MarkingCategories.Tail, out markings) || markings.Count == 0)
-                    AddTail(appearance);
+                    if (!appearance.MarkingSet.TryGetCategory(MarkingCategories.Tail, out markings) || markings.Count == 0)
+                        AddTail(appearance);
 
-                Dirty(uid, appearance);
-                ChangeEmotesVoice(uid, appearance);
-                return;
-            }
+                    Dirty(uid, appearance);
+                    ChangeEmotesVoice(uid, appearance);
+                    return;
+                }
             default:
                 AddEars(appearance);
                 AddTail(appearance);

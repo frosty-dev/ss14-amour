@@ -11,6 +11,8 @@ namespace Content.Server._White.AspectsSystem.Aspects;
 
 public sealed class DancingAspect : AspectSystem<DancingAspectComponent>
 {
+    [Dependency] private readonly ChatHelper _chatHelper = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -45,6 +47,7 @@ public sealed class DancingAspect : AspectSystem<DancingAspectComponent>
             var mob = ev.Mob;
 
             EnsureComp<DancingComponent>(mob);
+            _chatHelper.SendAspectDescription(mob, Loc.GetString("dancing-aspect-desc"));
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using Content.Server.GameTicking.Rules.Components;
+using System.Numerics;
 using Content.Server._White.AspectsSystem.Aspects.Components;
 using Content.Server._White.AspectsSystem.Base;
 using Content.Server.GameTicking;
@@ -8,18 +7,14 @@ using Content.Shared._White.Telescope;
 using Content.Shared.Humanoid;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
-using Content.Server.Chat.Managers;
-using Robust.Shared.Player;
 
 namespace Content.Server._White.AspectsSystem.Aspects;
 
 public sealed class ImmersiveAspect : AspectSystem<ImmersiveAspectComponent>
 {
-
     [Dependency] private readonly SharedContentEyeSystem _eye = default!;
     [Dependency] private readonly SharedTelescopeSystem _telescope = default!;
-    [Dependency] private readonly IChatManager _chatManager = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private readonly ChatHelper _chatHelper = default!;
 
     public override void Initialize()
     {
@@ -48,9 +43,7 @@ public sealed class ImmersiveAspect : AspectSystem<ImmersiveAspectComponent>
 
             FuckUpEye(entity, 0.6f);
             AddTelescope(entity);
-            _playerManager.TryGetSessionByEntity(entity, out var session);
-            if (session != null)
-                _chatManager.DispatchServerMessage(session, Loc.GetString("immersive-aspect-desc"));
+            _chatHelper.SendAspectDescription(entity, Loc.GetString("immersive-aspect-desc"));
         }
     }
 
@@ -83,9 +76,7 @@ public sealed class ImmersiveAspect : AspectSystem<ImmersiveAspectComponent>
 
             FuckUpEye(ev.Mob, 0.6f);
             AddTelescope(ev.Mob);
-            _playerManager.TryGetSessionByEntity(ev.Mob, out var session);
-            if (session != null)
-                _chatManager.DispatchServerMessage(session, Loc.GetString("immersive-aspect-desc"));
+            _chatHelper.SendAspectDescription(ev.Mob, Loc.GetString("immersive-aspect-desc"));
         }
     }
 
