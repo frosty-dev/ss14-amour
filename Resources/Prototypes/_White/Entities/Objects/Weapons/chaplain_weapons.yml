@@ -347,7 +347,7 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/White/Items/hit/chainhit.ogg
-    range: 1.5
+    range: 2
     attackRate: 0.5
     damage:
       types:
