@@ -26,17 +26,17 @@ public sealed class KnockDownOnHitSystem : EntitySystem
         if (time <= TimeSpan.Zero)
             return;
 
+        if (ent.Comp.RequireWield)
+        {
+            if (!TryComp<WieldableComponent>(args.Weapon, out var weapon))
+                return;
+
+            if (!weapon.Wielded)
+                return;
+        }
+
         foreach (var uid in args.HitEntities)
         {
-            if (ent.Comp.RequireWield)
-            {
-                if (!TryComp<WieldableComponent>(args.Weapon, out var weapon))
-                    continue;
-
-                if (!weapon.Wielded)
-                    continue;
-            }
-
             _stun.TryKnockdown(uid, time, true, behavior: ent.Comp.KnockDownBehavior);
         }
     }

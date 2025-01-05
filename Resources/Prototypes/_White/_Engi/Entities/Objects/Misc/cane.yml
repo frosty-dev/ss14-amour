@@ -1,0 +1,41 @@
+- type: entity
+  parent: BaseItem
+  id: OldCane
+  name: трость старика
+  description: Изношенная деревянная трость.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/cane.rsi
+    state: cane
+  - type: Item
+    size: Normal
+    storedRotation: -44
+    shape:
+    - 0,0,0,2
+    sprite: Objects/Weapons/Melee/cane.rsi
+  - type: Appearance
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    damage:
+      types:
+        Blunt: 5
+  - type: StaminaDamageOnHit
+    damage: 25
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 5
+  - type: DirectBallsHit
+  - type: MeleeThrowOnHit
+    lifetime: 0.1
+    speed: 3
+    requireWield: true
+  - type: UseDelay
+    delay: 1
+  - type: Prying
+  - type: Tool
+    qualities:
+      - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
