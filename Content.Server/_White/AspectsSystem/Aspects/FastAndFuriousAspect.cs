@@ -13,6 +13,7 @@ namespace Content.Server._White.AspectsSystem.Aspects;
 
 public sealed class FastAndFuriousAspect : AspectSystem<FastAndFuriousAspectComponent>
 {
+    [Dependency] private readonly ChatHelper _chatHelper = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -39,7 +40,6 @@ public sealed class FastAndFuriousAspect : AspectSystem<FastAndFuriousAspectComp
         while (query.MoveNext(out var ent, out _))
         {
             EnsureComp<FastAndFuriousComponent>(ent);
-            ChatHelper.SendAspectDescription(ent, Loc.GetString("fast-and-furious-aspect-desc"));
         }
     }
 
@@ -54,7 +54,7 @@ public sealed class FastAndFuriousAspect : AspectSystem<FastAndFuriousAspectComp
             return;
 
         ModifySpeedIfActive(ev.Mob);
-        ChatHelper.SendAspectDescription(ev.Mob, Loc.GetString("fast-and-furious-aspect-desc"));
+        _chatHelper.SendAspectDescription(ev.Mob, Loc.GetString("fast-and-furious-aspect-desc"));
     }
 
     private void ModifySpeedIfActive(EntityUid mob)

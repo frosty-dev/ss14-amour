@@ -1,33 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Content.Server.Chat.Managers;
 using Robust.Shared.Player;
 
-namespace Content.Server._White.AspectsSystem.Base
+namespace Content.Server._White.AspectsSystem.Base;
+
+public sealed class ChatHelper : EntitySystem
 {
-    public static class ChatHelper
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
+
+    public void SendAspectDescription(EntityUid mob, string messageKey)
     {
-        [Dependency] private static ISharedPlayerManager _playerManager = default!;
-        [Dependency] private static IChatManager _chatManager = default!;
-
-
-
-
-        public static void Initialize(ISharedPlayerManager playerManager, IChatManager chatManager)
+        _playerManager.TryGetSessionByEntity(mob, out var session);
+        if (session != null)
         {
-            _playerManager = playerManager;
-            _chatManager = chatManager;
-        }
-        public static void SendAspectDescription(EntityUid mob, string messageKey)
-        {
-            _playerManager.TryGetSessionByEntity(mob, out var session);
-            if (session != null)
-            {
-                _chatManager.DispatchServerMessage(session, Loc.GetString(messageKey));
-            }
+            _chatManager.DispatchServerMessage(session, Loc.GetString(messageKey));
         }
     }
 }

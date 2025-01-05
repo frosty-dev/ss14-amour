@@ -11,6 +11,7 @@ namespace Content.Server._White.AspectsSystem.Aspects;
 public sealed class DrunkAspect : AspectSystem<DrunkAspectComponent>
 {
     [Dependency] private readonly SharedDrunkSystem _drunkSystem = default!;
+    [Dependency] private readonly ChatHelper _chatHelper = default!;
 
     public override void Initialize()
     {
@@ -27,8 +28,6 @@ public sealed class DrunkAspect : AspectSystem<DrunkAspectComponent>
         while (query.MoveNext(out var ent, out _))
         {
             _drunkSystem.TryApplyDrunkenness(ent, 50);
-
-            ChatHelper.SendAspectDescription(ent, Loc.GetString("drunk-aspect-desc"));
         }
     }
 
@@ -47,8 +46,7 @@ public sealed class DrunkAspect : AspectSystem<DrunkAspectComponent>
 
             _drunkSystem.TryApplyDrunkenness(mob, 50);
 
-            ChatHelper.SendAspectDescription(mob, Loc.GetString("drunk-aspect-desc"));
-
+            _chatHelper.SendAspectDescription(mob, Loc.GetString("drunk-aspect-desc"));
         }
     }
 }

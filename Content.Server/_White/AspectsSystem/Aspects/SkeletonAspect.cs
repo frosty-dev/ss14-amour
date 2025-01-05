@@ -13,6 +13,7 @@ namespace Content.Server._White.AspectsSystem.Aspects;
 
 public sealed class SkeletonAspect : AspectSystem<SkeletonAspectComponent>
 {
+    [Dependency] private readonly ChatHelper _chatHelper = default!;
     // [Dependency] private readonly IPrototypeManager _protoMan = default!;
     // [Dependency] private readonly PolymorphSystem _polymorph = default!;
     // [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
@@ -42,9 +43,8 @@ public sealed class SkeletonAspect : AspectSystem<SkeletonAspectComponent>
         foreach (var ent in entitiesToPolymorph)
         {
             PolymorphEntity(ent.Key, ent.Value);
-            ChatHelper.SendAspectDescription(ent.Key, Loc.GetString("skeleton-aspect-desc"));
         }
-    
+
     }
 
     private void HandleLateJoin(PlayerSpawnCompleteEvent ev)
@@ -60,7 +60,7 @@ public sealed class SkeletonAspect : AspectSystem<SkeletonAspectComponent>
 
             PolymorphEntity(ev.Mob);
 
-            ChatHelper.SendAspectDescription(ev.Mob, Loc.GetString("skeleton-aspect-desc"));
+            _chatHelper.SendAspectDescription(ev.Mob, Loc.GetString("skeleton-aspect-desc"));
         }
     }
 
