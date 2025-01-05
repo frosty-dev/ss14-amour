@@ -28,6 +28,7 @@
         Blunt: 3
   - type: UseDelay
     delay: 1
+  - type: LimpingHelper # WD
 
 - type: entity
   name: cane blade
