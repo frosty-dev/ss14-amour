@@ -50,11 +50,18 @@ public sealed class FastAndFuriousAspect : AspectSystem<FastAndFuriousAspectComp
 
     private void HandleLateJoin(PlayerSpawnCompleteEvent ev)
     {
-        if (!ev.LateJoin)
-            return;
+        var query = EntityQueryEnumerator<FastAndFuriousAspectComponent, GameRuleComponent>();
+        while (query.MoveNext(out var ruleEntity, out _, out var gameRule))
+        {
+            if (!GameTicker.IsGameRuleAdded(ruleEntity, gameRule))
+                continue;
 
-        ModifySpeedIfActive(ev.Mob);
-        _chatHelper.SendAspectDescription(ev.Mob, Loc.GetString("fast-and-furious-aspect-desc"));
+            if (!ev.LateJoin)
+                return;
+
+            ModifySpeedIfActive(ev.Mob);
+            _chatHelper.SendAspectDescription(ev.Mob, Loc.GetString("fast-and-furious-aspect-desc"));
+        }
     }
 
     private void ModifySpeedIfActive(EntityUid mob)
