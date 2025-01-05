@@ -14,7 +14,7 @@
     - Trigger
   - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
     explosionType: DemolitionCharge
-    totalIntensity: 475
+    totalIntensity: 400
     intensitySlope: 8
     maxIntensity: 75
     canCreateVacuum: false
