@@ -16,9 +16,17 @@ namespace Content.Client._White.Administration.HoursPanelSystems;
 [UsedImplicitly]
 public sealed partial class HoursPanel : DefaultWindow
 {
+
+    private HoursPanelSystem _huetaSystem =new();
     public HoursPanel()
     {
-        var owner = new HoursPanelSystem(this);
+       // var owner = new HoursPanelSystem(this);
+        var owner = _huetaSystem;
+        owner._panel = this;
+
+
+
+
         RobustXamlLoader.Load(this);
         var roles = new Dictionary<int, string>();
         PlayerNameLine.OnTextChanged += _ => OnNamesChanged();
