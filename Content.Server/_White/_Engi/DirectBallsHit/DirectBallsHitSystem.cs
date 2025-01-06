@@ -10,6 +10,7 @@ using Content.Shared.Popups;
 using Content.Shared._White.Implants.NeuroControl;
 using Robust.Shared.Timing;
 using Content.Server.Chat.Systems;
+using Content.Server._White.Mood;
 
 namespace Content.Server._White._Engi.DirectBallsHit;
 
@@ -21,6 +22,7 @@ public sealed class DirectBallsHitSystem : EntitySystem
     [Dependency] private readonly SharedElectrocutionSystem _electrocution = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly MoodSystem _mood = default!;
 
     public override void Initialize()
     {
@@ -42,10 +44,15 @@ public sealed class DirectBallsHitSystem : EntitySystem
 
         foreach (var uid in args.HitEntities)
         {
-            _popupSystem.PopupEntity(
-                Loc.GetString("direct-balls-hit", ("uid", uid)),
-                uid,
-                PopupType.SmallCaution);
+            if (TryComp<MoodComponent>(uid, out var mood))
+            {
+                _popupSystem.PopupEntity(
+                    Loc.GetString("direct-balls-hit", ("uid", uid)),
+                    uid,
+                    PopupType.SmallCaution);
+
+                _mood.ApplyEffect(uid, mood, "GotHitInTheBalls");
+            }
 
             Timer.Spawn(TimeSpan.FromSeconds(0.5f), () => _chat.TryEmoteWithChat(uid, "Scream"));
 

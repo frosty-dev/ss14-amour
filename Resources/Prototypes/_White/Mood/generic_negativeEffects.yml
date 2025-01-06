@@ -41,3 +41,9 @@
   id: MobHighPressure
   description: "На меня оказывается огромное давление!"
   moodChange: enum.MoodChangeLevel.Medium
+
+- type: moodEffect
+  id: GotHitInTheBalls
+  description: "Господи... Как же больно..."
+  moodChange: enum.MoodChangeLevel.Large
+  timeout: 1
