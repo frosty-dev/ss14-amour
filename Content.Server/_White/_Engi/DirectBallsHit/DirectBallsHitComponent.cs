@@ -9,10 +9,10 @@ public sealed partial class DirectBallsHitComponent : Component
     public TimeSpan KnockdownTime = TimeSpan.FromSeconds(2.0f);
 
     [DataField]
-    public TimeSpan JitterTime = TimeSpan.FromSeconds(2.0f);
+    public TimeSpan JitterTime = TimeSpan.FromSeconds(4.0f);
 
     [DataField]
-    public TimeSpan StutterTime = TimeSpan.FromSeconds(2.0f);
+    public TimeSpan StutterTime = TimeSpan.FromSeconds(4.0f);
 
     [DataField]
     public SharedStandingStateSystem.DropHeldItemsBehavior KnockDownBehavior = SharedStandingStateSystem.DropHeldItemsBehavior.AlwaysDrop;

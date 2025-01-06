@@ -1,7 +1,10 @@
 ﻿- type: trait
   id: Caucasian
   name: Кавказский акцент
-  description: Эу брат, пачэму ты нэ вибрал чэрту
+  description: Эу брат, пачэму ты нэ вибрал чэрту?
+  blacklist:
+    components:
+      - BorgChassis
   components:
   - type: CaucasianAccent
 
@@ -9,6 +12,9 @@
   id: Jewish
   name: Еврейский акцент
   description: Ой вей, вы тоже хотите деняг?
+  blacklist:
+    components:
+      - BorgChassis
   components:
   - type: JewishAccent
 
@@ -16,5 +22,8 @@
   id: German
   name: Немецкий акцент
   description: Йа йа, зер гут!
+  blacklist:
+    components:
+      - BorgChassis
   components:
   - type: GermanAccent

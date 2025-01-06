@@ -136,7 +136,7 @@ public sealed class HungerSystem : EntitySystem
             return;
 
         //WD start
-        if (_net.IsServer && component.CurrentThreshold != HungerThreshold.Overfed)
+        if (_net.IsServer)
         {
             var ev = new MoodEffectEvent("Hunger" + component.CurrentThreshold);
             RaiseLocalEvent(uid, ev);
