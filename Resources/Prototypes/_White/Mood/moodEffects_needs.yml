@@ -1,8 +1,9 @@
 #Hunger
 - type: moodEffect
   id: HungerOverfed
-  description: "Во мне столько жира..."
-  moodChange: enum.MoodChangeLevel.Small
+  description: "Мой желудок полон!"
+  moodChange: enum.MoodChangeLevel.Medium
+  positive: true
   category: "Hunger"
 
 - type: moodEffect
@@ -24,11 +25,18 @@
   moodChange: enum.MoodChangeLevel.Big
   category: "Hunger"
 
+- type: moodEffect
+  id: HungerDead
+  description: "Умираю от голода!"
+  moodChange: enum.MoodChangeLevel.Huge
+  category: "Hunger"
+
 #Thirst
 - type: moodEffect
   id: ThirstOverHydrated
-  description: "СЛИШКОМ МНОГО ВОДЫ..."
-  moodChange: enum.MoodChangeLevel.Small
+  description: "Не хочу пить."
+  moodChange: enum.MoodChangeLevel.Medium
+  positive: true
   category: "Thirst"
 
 - type: moodEffect
@@ -46,8 +54,14 @@
 
 - type: moodEffect
   id: ThirstParched
-  description: "ВОДЫ!"
+  description: "Хочу пить!"
   moodChange: enum.MoodChangeLevel.Big
+  category: "Thirst"
+
+- type: moodEffect
+  id: ThirstDead
+  description: "Умираю от жажды!"
+  moodChange: enum.MoodChangeLevel.Huge
   category: "Thirst"
 
 #Health

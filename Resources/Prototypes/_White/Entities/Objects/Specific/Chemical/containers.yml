@@ -32,7 +32,7 @@
     - type: Spillable
       solution: beaker
     - type: StaticPrice
-      price: 150
+      price: 15
     - type: Label
       originalName: химический картридж
     - type: Tag

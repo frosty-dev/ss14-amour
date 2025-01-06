@@ -519,3 +519,12 @@
   alpha: 0.9
   ghostName: nekovich
   ghostDescription:  Law's Left Hand.
+
+#Feda_Plevajecki
+- type: customGhost
+  id: Feda_Plevajecki-ghost
+  ckey: Feda_Plevajecki
+  sprite: White/Ghosts/Feda_Plevajecki-ghost.rsi
+  alpha: 0.9
+  ghostName: Шарки
+  ghostDescription:  Буль-буль.

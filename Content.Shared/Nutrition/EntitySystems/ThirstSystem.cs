@@ -10,6 +10,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared._White.Mood;
 using Robust.Shared.Utility;
+using Robust.Shared.Network;
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -22,6 +23,7 @@ public sealed class ThirstSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
+    [Dependency] private readonly INetManager _net = default!; // WD edit
 
     [ValidatePrototypeId<StatusIconPrototype>]
     private const string ThirstIconOverhydratedId = "ThirstIconOverhydrated";
@@ -65,7 +67,7 @@ public sealed class ThirstSystem : EntitySystem
         UpdateEffects(uid, component);
 
         TryComp(uid, out MovementSpeedModifierComponent? moveMod);
-            _movement.RefreshMovementSpeedModifiers(uid, moveMod);
+        _movement.RefreshMovementSpeedModifiers(uid, moveMod);
     }
 
     private void OnRefreshMovespeed(EntityUid uid, ThirstComponent component, RefreshMovementSpeedModifiersEvent args)
@@ -172,7 +174,7 @@ public sealed class ThirstSystem : EntitySystem
         }
 
         // WD start
-        if (component.CurrentThirstThreshold != ThirstThreshold.OverHydrated)
+        if (_net.IsServer)
         {
             var ev = new MoodEffectEvent("Thirst" + component.CurrentThirstThreshold);
             RaiseLocalEvent(uid, ev);
