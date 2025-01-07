@@ -13,6 +13,7 @@ namespace Content.Server._White.AspectsSystem.Aspects;
 public sealed class RandomAccentAspect : AspectSystem<RandomAccentAspectComponent>
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ChatHelper _chatHelper = default!;
 
     public override void Initialize()
     {
@@ -43,8 +44,8 @@ public sealed class RandomAccentAspect : AspectSystem<RandomAccentAspectComponen
                 return;
 
             var mob = ev.Mob;
-
             ApplyRandomAccent(mob);
+            _chatHelper.SendAspectDescription(mob, Loc.GetString("random-accent-aspect-desc"));
         }
     }
 

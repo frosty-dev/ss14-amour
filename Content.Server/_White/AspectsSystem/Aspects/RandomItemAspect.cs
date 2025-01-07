@@ -14,6 +14,7 @@ public sealed class RandomItemAspect : AspectSystem<RandomItemAspectComponent>
 {
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly RandomGiftSystem _giftSystem = default!;
+    [Dependency] private readonly ChatHelper _chatHelper = default!;
 
     public override void Initialize()
     {
@@ -48,6 +49,7 @@ public sealed class RandomItemAspect : AspectSystem<RandomItemAspectComponent>
             var mob = ev.Mob;
 
             GiveItem(mob, component);
+            _chatHelper.SendAspectDescription(mob, Loc.GetString("random-item-aspect-desc"));
         }
     }
 
@@ -62,10 +64,10 @@ public sealed class RandomItemAspect : AspectSystem<RandomItemAspectComponent>
 
         var transform = CompOrNull<TransformComponent>(player);
 
-        if(transform == null)
+        if (transform == null)
             return;
 
-        if(!HasComp<HandsComponent>(player))
+        if (!HasComp<HandsComponent>(player))
             return;
 
         var weaponEntity = EntityManager.SpawnEntity(component.Item, transform.Coordinates);

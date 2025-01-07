@@ -18,6 +18,7 @@ public sealed class BattledAspect : AspectSystem<BattledAspectComponent>
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private readonly ChatHelper _chatHelper = default!;
 
     private NonPeacefulRoundItemsPrototype _nonPeacefulRoundItemsPrototype = default!;
 
@@ -32,7 +33,7 @@ public sealed class BattledAspect : AspectSystem<BattledAspectComponent>
     {
         base.Started(uid, component, gameRule, args);
 
-        var prototypes =  _prototypeManager.EnumeratePrototypes<NonPeacefulRoundItemsPrototype>().ToList();
+        var prototypes = _prototypeManager.EnumeratePrototypes<NonPeacefulRoundItemsPrototype>().ToList();
 
         if (prototypes.Count == 0)
             ForceEndSelf(uid, gameRule);
@@ -61,6 +62,7 @@ public sealed class BattledAspect : AspectSystem<BattledAspectComponent>
             var mob = ev.Mob;
 
             GiveItem(mob);
+            _chatHelper.SendAspectDescription(mob, Loc.GetString("battled-aspect-desc"));
         }
     }
 
@@ -72,10 +74,10 @@ public sealed class BattledAspect : AspectSystem<BattledAspectComponent>
 
         var transform = CompOrNull<TransformComponent>(player);
 
-        if(transform == null)
+        if (transform == null)
             return;
 
-        if(!HasComp<HandsComponent>(player))
+        if (!HasComp<HandsComponent>(player))
             return;
 
         var weaponEntity = EntityManager.SpawnEntity(item, transform.Coordinates);
