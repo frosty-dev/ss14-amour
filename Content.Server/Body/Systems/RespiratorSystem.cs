@@ -301,22 +301,41 @@ public sealed class RespiratorSystem : EntitySystem
         if (targetState.CurrentState != MobState.Critical)
             return false;
 
+        if (_inventorySystem.TryGetSlotEntity(user, "head", out var helmetUidUser) &&
+            EntityManager.TryGetComponent<IngestionBlockerComponent>(helmetUidUser, out var blockerHelmetUser) &&
+            blockerHelmetUser.Enabled)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("cpr-helmet-block-user"), user, user);
+            return false;
+        }
+
+        if (_inventorySystem.TryGetSlotEntity(target, "head", out var helmetUidTarget) &&
+            EntityManager.TryGetComponent<IngestionBlockerComponent>(helmetUidTarget, out var blockerHelmetTarget) &&
+            blockerHelmetTarget.Enabled)
+        {
+            _popupSystem.PopupEntity(
+                Loc.GetString("cpr-helmet-block-target", ("target", Identity.Entity(target, EntityManager))), target, user);
+            return false;
+        }
+
         if (_inventorySystem.TryGetSlotEntity(user, "mask", out var maskUidUser) &&
-            EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUidUser, out var blockerUser) &&
-            blockerUser.Enabled)
+            EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUidUser, out var blockerMaskUser) &&
+            blockerMaskUser.Enabled)
         {
             _popupSystem.PopupEntity(Loc.GetString("cpr-mask-block-user"), user, user);
             return false;
         }
 
-        if (!_inventorySystem.TryGetSlotEntity(target, "mask", out var maskUidTarget) ||
-            !EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUidTarget, out var blockerTarget) ||
-            !blockerTarget.Enabled)
-            return true;
+        if (_inventorySystem.TryGetSlotEntity(target, "mask", out var maskUidTarget) &&
+            EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUidTarget, out var blockerMaskTarget) &&
+            blockerMaskTarget.Enabled)
+        {
+            _popupSystem.PopupEntity(
+                Loc.GetString("cpr-mask-block-target", ("target", Identity.Entity(target, EntityManager))), target, user);
+            return false;
+        }
 
-        _popupSystem.PopupEntity(
-            Loc.GetString("cpr-mask-block-target", ("target", Identity.Entity(target, EntityManager))), target, user);
-        return false;
+        return true;
     }
 
     private void DoCPR(EntityUid target, RespiratorComponent comp, EntityUid user)
