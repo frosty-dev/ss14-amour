@@ -40,7 +40,7 @@ namespace Content.Client.Wires.UI
             IoCManager.InjectDependencies(this);
 
             Owner = owner;
-            var rootContainer = new LayoutContainer {Name = "WireRoot"};
+            var rootContainer = new LayoutContainer { Name = "WireRoot" };
             AddChild(rootContainer);
 
             MouseFilter = MouseFilterMode.Stop;
@@ -104,9 +104,9 @@ namespace Content.Client.Wires.UI
                 VerticalAlignment = VAlignment.Bottom
             };
 
-            wrappingHBox.AddChild(new Control {MinSize = new Vector2(20, 0)});
+            wrappingHBox.AddChild(new Control { MinSize = new Vector2(20, 0) });
             wrappingHBox.AddChild(_wiresHBox);
-            wrappingHBox.AddChild(new Control {MinSize = new Vector2(20, 0)});
+            wrappingHBox.AddChild(new Control { MinSize = new Vector2(20, 0) });
 
             bottomWrap.AddChild(bottomPanel);
 
@@ -201,7 +201,7 @@ namespace Content.Client.Wires.UI
 
             var middle = new PanelContainer
             {
-                PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#3C4841")},
+                PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#3C4841") },
                 Children =
                 {
                     new BoxContainer
@@ -224,13 +224,13 @@ namespace Content.Client.Wires.UI
             _topContainer.AddChild(new PanelContainer
             {
                 MinSize = new Vector2(0, 2),
-                PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#525252ff")}
+                PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#525252ff") }
             });
             _topContainer.AddChild(middle);
             _topContainer.AddChild(new PanelContainer
             {
                 MinSize = new Vector2(0, 2),
-                PanelOverride = new StyleBoxFlat {BackgroundColor = Color.FromHex("#525252ff")}
+                PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#525252ff") }
             });
             CloseButton.OnPressed += _ => Close();
             SetSize = new Vector2(320, 200);
@@ -583,28 +583,21 @@ namespace Content.Client.Wires.UI
                     VerticalAlignment = VAlignment.Center,
                 });
                 hBox.AddChild(lightContainer);
-                hBox.AddChild(new Control {MinSize = new Vector2(6, 0)});
+                hBox.AddChild(new Control { MinSize = new Vector2(6, 0) });
                 AddChild(hBox);
             }
         }
 
         private sealed class HelpPopup : Popup
         {
-            private const string Text = "Click on the gold contacts with a multitool in hand to pulse their wire.\n" +
-                                        "Click on the wires with a pair of wirecutters in hand to cut/mend them.\n\n" +
-                                        "The lights at the top show the state of the machine, " +
-                                        "messing with wires will probably do stuff to them.\n" +
-                                        "Wire layouts are different each round, " +
-                                        "but consistent between machines of the same type.";
-
             public HelpPopup()
             {
                 var label = new RichTextLabel();
-                label.SetMessage(Text);
+                label.SetMessage(Loc.GetString("wires-menu-help-popup"));
                 AddChild(new PanelContainer
                 {
-                    StyleClasses = {ExamineSystem.StyleClassEntityTooltip},
-                    Children = {label}
+                    StyleClasses = { ExamineSystem.StyleClassEntityTooltip },
+                    Children = { label }
                 });
             }
         }
