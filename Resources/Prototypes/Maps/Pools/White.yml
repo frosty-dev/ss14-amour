@@ -2,6 +2,7 @@
   id: WhiteMapPool
   maps:
   - WonderBox
+  - Molecule # Amour Exclusive
   - Triumph # Amour edit
   - WhiteBox
   - WhiteMoose
