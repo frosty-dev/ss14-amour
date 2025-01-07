@@ -1,20 +1,20 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "dosharus",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
-    {
-      "name": "pot_filled"
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "dosharus",
+    "size": {
+        "x": 32,
+        "y": 32
     },
-    {
-      "name": "pot_empty"
-    },
-    {
-      "name": "packed_soil"
-    }
-  ]
+    "states": [
+        {
+            "name": "pot_filled"
+        },
+        {
+            "name": "pot_empty"
+        },
+        {
+            "name": "packed_soil"
+        }
+    ]
 }

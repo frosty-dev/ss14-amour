@@ -5,7 +5,7 @@
   parent: BaseItem
   components:
   - type: Item
-    size: Small
+    size: Normal
   - type: Sprite
     sprite: White/Structures/growingpot.rsi
     state: packed_soil
@@ -13,4 +13,4 @@
     tags:
       - PackedSoilTag
   - type: StaticPrice
-    price: 50
+    price: 10
