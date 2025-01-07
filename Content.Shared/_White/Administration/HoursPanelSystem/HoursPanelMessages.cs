@@ -14,6 +14,7 @@ public sealed class HoursPanelMessageToServer : EntityEventArgs
     }
 }
 
+[Serializable, NetSerializable]
 public sealed class HoursPanelMessageToClient : EntityEventArgs
 {
     public TimeSpan Time { get; }

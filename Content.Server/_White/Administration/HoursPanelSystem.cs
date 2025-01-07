@@ -17,7 +17,7 @@ public sealed class HoursPanelSystem : EntitySystem
     }
     private void OnHoursPanelMessage(HoursPanelMessageToServer message, EntitySessionEventArgs eventArgs)
     {
-        if (_playerManager.TryGetSessionByUsername(message.PlayerCKey, out var player))
+        if (!_playerManager.TryGetSessionByUsername(message.PlayerCKey, out var player))
             return;
 
         if (player == null)

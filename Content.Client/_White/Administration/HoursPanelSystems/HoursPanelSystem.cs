@@ -8,16 +8,13 @@ public sealed class HoursPanelSystem : EntitySystem
     public HoursPanel? _panel;
   
   
-    public HoursPanelSystem()
-    {
-      
-    }
+ 
 
     //private HoursPanel _panel;
-    //public HoursPanelSystem(HoursPanel panel)
-    //{
-    //    _panel = panel;
-    //}
+    public HoursPanelSystem()
+    {
+
+    }
 
 
     public override void Initialize()
@@ -29,14 +26,14 @@ public sealed class HoursPanelSystem : EntitySystem
 
     private void OnHoursPanelMessage(HoursPanelMessageToClient message, EntitySessionEventArgs eventArgs)
     {
-        _panel.UpdateTime(message.Time);
+        _panel?.UpdateTime(message.Time);
     }
 
     public void SendPlayerTimeRequest(HoursPanelMessageToServer message)
-    {  
-    var _entityManager = IoCManager.Resolve<EntityManager>();
-      var  _che = _entityManager.System<CheZaHuetaSystem>();
+    {
+        var _entityManager = IoCManager.Resolve<EntityManager>();
+        var _che = _entityManager.System<CheZaHuetaSystem>();
         _che.SendNetMessage(message);
-        //RaiseNetworkEvent(message);
+      //  RaiseNetworkEvent(message);
     }
 }
