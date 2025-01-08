@@ -33,3 +33,7 @@
 #- type: animatedLobbyScreen
 #  id: FifthLobbyScreen
 #  path: Ohio/Lobby/backgrounds/5.rsi
+
+- type: animatedLobbyScreen
+  id: waggierBrig2
+  path: /Textures/White/_Honk/Lobby/backgrounds/waggier.rsi
