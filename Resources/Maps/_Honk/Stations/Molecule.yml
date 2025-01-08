@@ -25738,6 +25738,33 @@ entities:
           - 3610
           - 3607
           - 3608
+- proto: ClothingBackpackDuffelSurgeryFilled
+  entities:
+  - uid: 6039
+    components:
+    - type: Transform
+      pos: -2.5269132,-20.290066
+      parent: 2
+    - type: GroupExamine
+      group:
+      - hoverMessage: ""
+        contextText: verb-examine-group-other
+        icon: /Textures/Interface/examine-star.png
+        components:
+        - Armor
+        - ClothingSpeedModifier
+        - FireProtection
+        entries:
+        - message: >-
+            Обеспечивает следующую защиту:
+
+            - [color=orange]Взрывной[/color] урон [color=white]содержимому[/color] снижается на [color=lightblue]10%[/color].
+          priority: 0
+          component: Armor
+        - message: Понижает вашу скорость бега на [color=yellow]10%[/color].
+          priority: 0
+          component: ClothingSpeedModifier
+        title: null
 - proto: ClothingBeltSuspenders
   entities:
   - uid: 3614
@@ -43387,13 +43414,6 @@ entities:
     - type: Transform
       pos: 22.431057,-28.348642
       parent: 2
-- proto: Hemostat
-  entities:
-  - uid: 6039
-    components:
-    - type: Transform
-      pos: -2.4746547,-20.653513
-      parent: 2
 - proto: HighSecArmoryLocked
   entities:
   - uid: 6040
@@ -48722,13 +48742,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 43.5,-27.5
       parent: 2
-- proto: Saw
-  entities:
-  - uid: 9647
-    components:
-    - type: Transform
-      pos: -2.432989,-20.32018
-      parent: 2
 - proto: SbHampter
   entities:
   - uid: 6846
@@ -48742,13 +48755,6 @@ entities:
     - type: ContainerContainer
       containers:
         item: !type:ContainerSlot {}
-- proto: Scalpel
-  entities:
-  - uid: 6847
-    components:
-    - type: Transform
-      pos: -2.516322,-20.111847
-      parent: 2
 - proto: Screen
   entities:
   - uid: 6848
