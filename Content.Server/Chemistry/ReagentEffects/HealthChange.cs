@@ -121,7 +121,7 @@ namespace Content.Server.Chemistry.ReagentEffects
         }
 
         public override void Effect(ReagentEffectArgs args)
-        {
+        {   // TODO Make something out of this acid system
             if (!PierceHardsuit &&
                 args.EntityManager.System<InventorySystem>().TryGetSlotEntity(args.SolutionEntity, "outerClothing", out var suit) &&
                 args.EntityManager.System<TagSystem>().HasTag(suit.Value, "Hardsuit"))
