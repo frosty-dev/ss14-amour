@@ -1,0 +1,16 @@
+- type: construction
+  id: GrowingPot
+  name: самодельная грядка
+  description: Деревнянная грядка для выращивания.
+  graph: growingPot
+  startNode: start
+  targetNode: growingPot
+  category: construction-category-furniture
+  icon:
+    sprite: White/Structures/growingpot.rsi
+    state: pot_filled
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked

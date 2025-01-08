@@ -1,0 +1,16 @@
+- type: entity
+  name: упаковка почвы
+  description: Можно засыпать в каркас грядки.
+  id: PackedSoil
+  parent: BaseItem
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: White/Structures/growingpot.rsi
+    state: packed_soil
+  - type: Tag
+    tags:
+      - PackedSoilTag
+  - type: StaticPrice
+    price: 10
