@@ -81,7 +81,7 @@
   id: MusicMessagesfromtheStars
   name: "[NEW] Song - Messages from the Stars"
   path:
-    path: /Audio/White/Jukebox/Music_Messages_from_the_Stars.ogg
+    path: /Audio/White/Jukebox/Music/Messages_from_the_Stars.ogg
 
 # Music
 
@@ -161,7 +161,7 @@
   id: CosmicTemperance
   name: "Music - Cosmic Temperance"
   path:
-    path: /Audio/_Honk//blinch_Cosmic_Temperance.ogg
+    path: /Audio/_Honk/Jukebox/blinch_Cosmic_Temperance.ogg
 
 - type: jukebox # WD
   id: LibetsDelay
@@ -323,7 +323,7 @@
   id: ANeonGlowLightstheWay
   name: "[NEW] Music - A Neon Glow Lights the Way"
   path:
-    path: /Audio/White/Juskebox/Music/A_Neon_Glow_Lights_the_Way.ogg
+    path: /Audio/White/Jukebox/Music/A_Neon_Glow_Lights_the_Way.ogg
 
 - type: jukebox # WD
   id: AnotherMedium
