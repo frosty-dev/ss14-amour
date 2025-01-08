@@ -56546,88 +56546,88 @@ entities:
       pos: -156.5,-24.5
       parent: 2
     - type: FaxMachine
-      destinationAddress: Перма
       name: Перма
+      destinationAddress: Перма
   - uid: 7862
     components:
     - type: Transform
       pos: -58.5,18.5
       parent: 2
     - type: FaxMachine
-      destinationAddress: Атмос
       name: Атмос
+      destinationAddress: Атмос
   - uid: 7863
     components:
     - type: Transform
       pos: -19.5,0.5
       parent: 2
     - type: FaxMachine
-      destinationAddress: Глава Персонала
       name: Глава Персонала
+      destinationAddress: Глава Персонала
   - uid: 7864
     components:
     - type: Transform
       pos: 1.5,-3.5
       parent: 2
     - type: FaxMachine
-      destinationAddress: Мостик
       name: Мостик
+      destinationAddress: Мостик
   - uid: 7865
     components:
     - type: Transform
       pos: -68.5,-18.5
       parent: 2
     - type: FaxMachine
-      destinationAddress: Квартирмейстер
       name: Квартирмейстер
+      destinationAddress: Квартирмейстер
   - uid: 7866
     components:
     - type: Transform
       pos: -8.5,-9.5
       parent: 2
     - type: FaxMachine
-      destinationAddress: Капитан
       name: Капитан
+      destinationAddress: Капитан
   - uid: 7867
     components:
     - type: Transform
       pos: -61.5,3.5
       parent: 2
     - type: FaxMachine
-      destinationAddress: Старший Инженер
       name: Старший Инженер
+      destinationAddress: Старший Инженер
   - uid: 7868
     components:
     - type: Transform
       pos: -144.5,3.5
       parent: 2
     - type: FaxMachine
-      destinationAddress: Юриспруденция
       name: Юриспруденция
+      destinationAddress: Юриспруденция
   - uid: 7869
     components:
     - type: Transform
       pos: -163.5,8.5
       parent: 2
     - type: FaxMachine
-      destinationAddress: Смотряшка
       name: Смотряшка
+      destinationAddress: Смотряшка
   - uid: 7870
     components:
     - type: Transform
       pos: -156.5,16.5
       parent: 2
     - type: FaxMachine
-      destinationAddress: Глава Охранной Службы
       name: Глава Охранной Службы
+      destinationAddress: Глава Охранной Службы
   - uid: 7871
     components:
     - type: Transform
       pos: -47.5,-19.5
       parent: 2
     - type: FaxMachine
-      destinationAddress: Библиотека
       name: Библиотека
+      destinationAddress: Библиотека
 - proto: FenceMetalGate
   entities:
   - uid: 7872
@@ -80743,6 +80743,16 @@ entities:
     - type: Transform
       pos: -195.02905,1.4667006
       parent: 2
+- proto: HOPSpeaker
+  entities:
+  - uid: 17284
+    components:
+    - type: Transform
+      pos: -16.5,1.5
+      parent: 2
+    - type: DeviceLinkSink
+      links:
+      - 17285
 - proto: HotplateMachineCircuitboard
   entities:
   - uid: 11380
@@ -92700,6 +92710,16 @@ entities:
         - Pressed: Toggle
         13120:
         - Pressed: Toggle
+  - uid: 17285
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -16.466427,0.33086193
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        17284:
+        - Pressed: Trigger
 - proto: SignArmory
   entities:
   - uid: 13200
@@ -114123,18 +114143,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -149.58974,10.572603
       parent: 2
-- proto: WeaponRubberShotgun
-  entities:
-  - uid: 17280
-    components:
-    - type: Transform
-      pos: -154.60992,7.8289695
-      parent: 2
-  - uid: 17281
-    components:
-    - type: Transform
-      pos: -154.48492,7.495636
-      parent: 2
 - proto: WeaponRevolverMateba
   entities:
   - uid: 11349
@@ -114175,6 +114183,18 @@ entities:
       parent: 2
     - type: Gun
       fireRate: 6.5
+- proto: WeaponRubberShotgun
+  entities:
+  - uid: 17280
+    components:
+    - type: Transform
+      pos: -154.60992,7.8289695
+      parent: 2
+  - uid: 17281
+    components:
+    - type: Transform
+      pos: -154.48492,7.495636
+      parent: 2
 - proto: WeaponShotgunEnforcer
   entities:
   - uid: 16804
