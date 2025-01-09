@@ -1,0 +1,29 @@
+- type: construction
+  name: external airlock
+  id: airlockExternal
+  graph: Airlock
+  startNode: start
+  targetNode: external
+  category: construction-category-structures
+  description: It opens, it closes, it might crush you, and there might be only space behind it. Has to be manually activated.
+  icon: { sprite: Structures/Doors/Airlocks/Standard/external.rsi, state: closed }
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
+  name: external airlock
+  id: airlockExternalGlass
+  graph: Airlock
+  startNode: start
+  targetNode: externalGlass
+  category: construction-category-structures
+  description: It opens, it closes, it might crush you, and there might be only space behind it. Has to be manually activated. 
+  icon: { sprite: Structures/Doors/Airlocks/Standard/external.rsi, state: closed }
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
