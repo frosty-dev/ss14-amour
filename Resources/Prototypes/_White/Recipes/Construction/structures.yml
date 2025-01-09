@@ -21,7 +21,7 @@
   targetNode: externalGlass
   category: construction-category-structures
   description: It opens, it closes, it might crush you, and there might be only space behind it. Has to be manually activated. 
-  icon: { sprite: Structures/Doors/Airlocks/Standard/external.rsi, state: closed }
+  icon: { sprite: Structures/Doors/Airlocks/Glass/external.rsi, state: closed }
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: false
