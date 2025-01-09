@@ -78984,6 +78984,16 @@ entities:
     - type: Transform
       pos: -59.195984,19.542858
       parent: 2
+- proto: HOPSpeaker
+  entities:
+  - uid: 16875
+    components:
+    - type: Transform
+      pos: -16.5,1.5
+      parent: 2
+    - type: DeviceLinkSink
+      links:
+      - 16876
 - proto: HotplateMachineCircuitboard
   entities:
   - uid: 11250
@@ -90372,6 +90382,16 @@ entities:
         - Pressed: Toggle
         12947:
         - Pressed: Toggle
+  - uid: 16876
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -16.456532,0.37585077
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        16875:
+        - Pressed: Trigger
 - proto: SignArmory
   entities:
   - uid: 13000

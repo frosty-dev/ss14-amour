@@ -11658,7 +11658,7 @@ entities:
       pos: 23.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -13437.97
+      secondsUntilStateChange: -13636.046
       state: Opening
 - proto: AirlockExternalGlassShuttleCargo
   entities:
@@ -13424,12 +13424,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 23.5,1.5
-      parent: 2
-  - uid: 13024
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -13.5,2.5
       parent: 2
   - uid: 13025
     components:
@@ -75279,6 +75273,17 @@ entities:
     - type: Transform
       pos: -45.404816,2.6740484
       parent: 2
+- proto: HOPSpeaker
+  entities:
+  - uid: 13024
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -13.5,2.5
+      parent: 2
+    - type: DeviceLinkSink
+      links:
+      - 16330
 - proto: HospitalCurtainsOpen
   entities:
   - uid: 6375
@@ -83055,7 +83060,7 @@ entities:
     - type: Transform
       parent: 14573
     - type: RCDAmmo
-      charges: 150
+      charges: 225
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -83064,7 +83069,7 @@ entities:
     - type: Transform
       parent: 14573
     - type: RCDAmmo
-      charges: 150
+      charges: 225
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -83073,7 +83078,7 @@ entities:
     - type: Transform
       parent: 14634
     - type: RCDAmmo
-      charges: 150
+      charges: 225
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -83082,7 +83087,7 @@ entities:
     - type: Transform
       parent: 14634
     - type: RCDAmmo
-      charges: 150
+      charges: 225
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -83091,7 +83096,7 @@ entities:
     - type: Transform
       parent: 6372
     - type: RCDAmmo
-      charges: 150
+      charges: 225
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -83100,7 +83105,7 @@ entities:
     - type: Transform
       parent: 6372
     - type: RCDAmmo
-      charges: 150
+      charges: 225
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -86945,6 +86950,16 @@ entities:
         - Pressed: Toggle
         15194:
         - Pressed: Toggle
+  - uid: 16330
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -10.532192,3.6885402
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        13024:
+        - Pressed: Trigger
 - proto: SignalButtonWindows
   entities:
   - uid: 13356
@@ -106899,18 +106914,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: WeaponRubberShotgun
-  entities:
-  - uid: 14524
-    components:
-    - type: Transform
-      pos: 3.4590678,15.842787
-      parent: 2
-  - uid: 14531
-    components:
-    - type: Transform
-      pos: 3.4746928,15.608412
-      parent: 2
 - proto: WeaponRifleAk
   entities:
   - uid: 8783
@@ -106936,6 +106939,18 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: WeaponRubberShotgun
+  entities:
+  - uid: 14524
+    components:
+    - type: Transform
+      pos: 3.4590678,15.842787
+      parent: 2
+  - uid: 14531
+    components:
+    - type: Transform
+      pos: 3.4746928,15.608412
+      parent: 2
 - proto: WeaponShotgunHandmade
   entities:
   - uid: 12244
@@ -107123,7 +107138,7 @@ entities:
       pos: -6.5,-20.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -98991.91
+      secondsUntilStateChange: -99189.984
       state: Opening
 - proto: WindoorAssembly
   entities:

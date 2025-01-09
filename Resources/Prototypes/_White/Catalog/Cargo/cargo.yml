@@ -296,3 +296,13 @@
   cost: 2000
   category: Security
   group: market
+
+- type: cargoProduct
+  id: cargoPackedSoil
+  icon:
+    sprite: White/Structures/growingpot.rsi
+    state: packed_soil
+  product: CratePackedSoil
+  cost: 500
+  category: cargoproduct-category-name-hydroponics
+  group: market
