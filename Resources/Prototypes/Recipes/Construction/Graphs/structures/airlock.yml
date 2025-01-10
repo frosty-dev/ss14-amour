@@ -77,6 +77,15 @@
       - material: ReinforcedGlass
         amount: 1
         doAfter: 2
+## WD edit start
+    - to: externalAssembly
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 2
+## WD edit end
     - to: wired
       conditions:
       - !type:EntityAnchored {}
@@ -113,6 +122,55 @@
       steps:
       - tool: Prying
         doAfter: 5
+
+## WD edit start
+  - node: externalAssembly
+    entity: AirlockAssemblyExternal
+    edges:
+    - to: electronics
+      conditions:
+      - !type:EntityAnchored {}
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 5
+    - to: external
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+        doAfter: 2.5
+    - to: externalAssemblyGlass
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: ReinforcedGlass
+        amount: 1
+        doAfter: 2
+
+  - node: externalAssemblyGlass
+    entity: AirlockAssemblyExternalGlass
+    edges:
+    - to: externalGlass
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+        doAfter: 2.5 
+    - to: externalAssembly
+      conditions:
+      - !type:EntityAnchored {}
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetRGlass1
+        amount: 1
+      steps:
+      - tool: Prying
+        doAfter: 5
+## WD edit end
 
 ## Glass airlock
   - node: glassAirlock
@@ -154,6 +212,23 @@
         amount: 2
         doAfter: 2
 
+## WD edit start
+  - node: externalGlass
+    entity: AirlockExternalGlass
+    edges:
+    - to: externalAssemblyGlass
+      conditions:
+      - !type:EntityAnchored {}
+      - !type:DoorWelded {}
+      - !type:DoorBolted
+        value: false
+      - !type:WirePanel {}
+      - !type:AllWiresCut
+      steps:
+      - tool: Prying
+        doAfter: 5
+## WD edit end
+
 ## Standard airlock
   - node: airlock
     entity: Airlock
@@ -193,6 +268,23 @@
       - material: Plasteel
         amount: 2
         doAfter: 2
+
+## WD edit start
+  - node: external
+    entity: AirlockExternal
+    edges:
+    - to: externalAssembly
+      conditions:
+      - !type:EntityAnchored {}
+      - !type:DoorWelded {}
+      - !type:DoorBolted
+        value: false
+      - !type:WirePanel {}
+      - !type:AllWiresCut
+      steps:
+      - tool: Prying
+        doAfter: 5
+## WD edit end
 
 ## High security door
   - node: highSecDoor
