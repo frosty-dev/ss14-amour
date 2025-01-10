@@ -63,10 +63,6 @@ entities:
     - type: Broadphase
     - type: OccluderTree
     - type: LoadedMap
-    - type: MaterialStorage
-      storage: {}
-    - type: BecomesStation
-      id: MoleculeStation
   - uid: 2
     components:
     - type: MetaData
@@ -6107,6 +6103,10 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: MaterialStorage
+      storage: {}
+    - type: BecomesStation
+      id: MoleculeStation
     - type: Joint
       joints:
         docking293852: !type:WeldJoint
