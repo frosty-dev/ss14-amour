@@ -205,20 +205,20 @@ namespace Content.Server.GameTicking
                         switch (similarity)
                         {
                             case >= 85f:
-                            {
-                                _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-character-almost-same",
-                                    ("player", player.Name), ("try", false), ("oldName", mind.CharacterName), ("newName", character.Name)));
-                                checkAvoid = true;
-                                sameChar = true;
-                                break;
-                            }
+                                {
+                                    _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-character-almost-same",
+                                        ("player", player.Name), ("try", false), ("oldName", mind.CharacterName), ("newName", character.Name)));
+                                    checkAvoid = true;
+                                    sameChar = true;
+                                    break;
+                                }
                             case >= 50f:
-                            {
-                                _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-character-almost-same",
-                                    ("player", player.Name), ("try", true), ("oldName", mind.CharacterName),
-                                    ("newName", character.Name)));
-                                break;
-                            }
+                                {
+                                    _chatManager.SendAdminAlert(Loc.GetString("ghost-respawn-character-almost-same",
+                                        ("player", player.Name), ("try", true), ("oldName", mind.CharacterName),
+                                        ("newName", character.Name)));
+                                    break;
+                                }
                         }
                     }
                 }
@@ -286,7 +286,7 @@ namespace Content.Server.GameTicking
             _mind.SetUserId(newMind, data.UserId);
 
             var jobPrototype = _prototypeManager.Index<JobPrototype>(jobId);
-            var job = new JobComponent {Prototype = jobId};
+            var job = new JobComponent { Prototype = jobId };
             _roles.MindAddRole(newMind, job, silent: silent);
             var jobName = _jobs.MindTryGetJobName(newMind);
 
@@ -337,11 +337,11 @@ namespace Content.Server.GameTicking
                     Loc.GetString("latejoin-arrival-sender"),
                     playDefaultSound: false);
             }
-
-            if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
-            {
-                EntityManager.AddComponent<OwOAccentComponent>(mob);
-            }
+            // WD Don't need this bullshit
+            // if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
+            // {
+            //     EntityManager.AddComponent<OwOAccentComponent>(mob);
+            // }
 
             _stationJobs.TryAssignJob(station, jobPrototype, player.UserId);
 
