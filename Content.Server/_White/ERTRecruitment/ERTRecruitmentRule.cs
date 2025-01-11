@@ -72,8 +72,16 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
     {
         base.Started(uid, component, gameRule, args);
 
-        if (component.TargetStation == null || component.IsBlocked || IsDisabled)
+        if (component.TargetStation == null)
         {
+            ForceEndSelf(uid, gameRule);
+            _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Target Station is missing");
+            return;
+        }
+
+        if (component.IsBlocked || IsDisabled)
+        {
+            DeclineERT(component.TargetStation.Value);
             ForceEndSelf(uid, gameRule);
             _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Event disabled");
             return;
@@ -82,6 +90,7 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
         if (_recruitment.GetEventSpawners(ERTRecruitmentRuleComponent.EventName).Count() < component.MinPlayers)
         {
             DeclineERT(component.TargetStation.Value);
+            ForceEndSelf(uid, gameRule);
             _adminLogger.Add(LogType.EventStarted, LogImpact.High, $"ERT Declined - Not enough spawners");
             return;
         }
