@@ -71,6 +71,12 @@ public sealed class SlurredSystem : SharedSlurredSystem
                     'a' => "ah",
                     'u' => "oo",
                     'c' => "k",
+                    // WD EDIT START
+                    'о' => "а",
+                    'к' => "кх",
+                    'щ' => "шч",
+                    'ц' => "тс",
+                    // WD EDIT END
                     _ => $"{character}",
                 };
 
@@ -90,7 +96,7 @@ public sealed class SlurredSystem : SharedSlurredSystem
                 }
             }
 
-            if (!_random.Prob(scale * 3/20))
+            if (!_random.Prob(scale * 3 / 20))
             {
                 sb.Append(character);
                 continue;
