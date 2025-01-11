@@ -4,13 +4,12 @@ using Content.Server._Honk.Speech.Components;
 using Content.Server._Honk.AspectsSystem.Aspects.Components;
 using Content.Server._White.AspectsSystem.Base;
 using Content.Shared.Mind.Components;
-using Robust.Shared.Random;
 
 namespace Content.Server._Honk.Aspects;
 
 public sealed class AlasAccentAspect : AspectSystem<AlasAccentAspectComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ChatHelper _chatHelper = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -41,6 +40,7 @@ public sealed class AlasAccentAspect : AspectSystem<AlasAccentAspectComponent>
 
             var mob = ev.Mob;
             EntityManager.EnsureComponent<AlasAccentComponent>(mob);
+            _chatHelper.SendAspectDescription(mob, Loc.GetString("alas-aspect-desc"));
         }
     }
 }

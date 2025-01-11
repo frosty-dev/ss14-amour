@@ -5,6 +5,7 @@
   components:
   - type: Aspect
     name: "Ежжи брат"
+    sender: Федерация Космических Волшебников
     description: "Всэгда интэрэсно, какой ежжи брат вы услишитэ слэдующим."
     weight: 3
     startAudio:
@@ -18,8 +19,20 @@
   components:
   - type: Aspect
     name: "Увы"
+    sender: Федерация Космических Волшебников
     description: "Экипаж станции преисполнился осознанием бытия. Все проблемы в жизни, вся повседневная суета - это слишком тяжёло, увы."
-    weight: 3
+    weight: 2
     startAudio:
       path: /Audio/White/Aspects/accent.ogg
   - type: AlasAccentAspect
+
+- type: entity
+  id: DeleteVendingMachineAspect
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: Aspect
+    name: "DeleteVendingMachineAspect"
+    description: "Какой-то смышлённый агент синдиката украл все торговые автоматы!"
+    weight: 3
+  - type: DeleteVendingMachine
