@@ -4,6 +4,6 @@
     sprite: _Honk/Objects/Weapons/Guns/LMGs/klmg-icons.rsi
     state: icon
   product: CrateArmoryKLMG
-  cost: 10000
+  cost: 14000
   category: cargoproduct-category-name-armory
   group: market
