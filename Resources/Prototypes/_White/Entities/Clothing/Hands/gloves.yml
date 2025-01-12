@@ -2,7 +2,7 @@
   parent: ClothingHandsGlovesColorBlack
   id: ClothingHandsGlovesColorBlackSecurity
   name: офицерские перчатки
-  description: Кожаные чёрные перчатки, которые не спасут вас от поджаривания.
+  description: Кожаные чёрные перчатки, которые немного спасут вас от поджаривания.
   components:
     - type: Sprite
       sprite: White/Clothing/Hands/Gloves/blacksecurity.rsi
@@ -13,3 +13,5 @@
       fiberColor: fibers-black
     - type: Item
       sprite: White/Clothing/Hands/Gloves/blacksecurity.rsi
+    - type: Insulated
+      coefficient: 0.5
