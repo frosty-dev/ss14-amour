@@ -165,7 +165,7 @@
       - id: ClothingEyesGlassesSunglasses
       - id: ClothingUniformJumpsuitCentcomOfficial
       - id: ClothingShoesBootsJack
-      - id: ClothingHandsGlovesColorBlack
+      - id: ClothingHandsGlovesColorBlackSecurity # WD
       - id: ClothingHeadsetAltCentComFake
       - id: Paper
       - id: Pen

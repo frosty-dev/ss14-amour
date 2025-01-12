@@ -1,0 +1,15 @@
+- type: entity
+  parent: ClothingHandsGlovesColorBlack
+  id: ClothingHandsGlovesColorBlackSecurity
+  name: офицерские перчатки
+  description: Кожанные чёрные перчатки, которые не спасут вас от поджаривания.
+  components:
+    - type: Sprite
+      sprite: White/Clothing/Hands/Gloves/blacksecurity.rsi
+    - type: Clothing
+      sprite: White/Clothing/Hands/Gloves/blacksecurity.rsi
+    - type: Fiber
+      fiberMaterial: fibers-leather
+      fiberColor: fibers-black
+    - type: Item
+      sprite: White/Clothing/Hands/Gloves/blacksecurity.rsi
