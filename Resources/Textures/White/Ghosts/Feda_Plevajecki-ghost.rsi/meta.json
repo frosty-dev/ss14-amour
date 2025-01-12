@@ -9,7 +9,7 @@
   "states": [
     {
         "name": "animated",
-        "directions": 4
+        "directions": 1
     }
   ]
 }
