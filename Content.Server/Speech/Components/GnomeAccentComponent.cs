@@ -5,4 +5,4 @@ namespace Content.Server.Speech.Components;
 /// </summary>
 [RegisterComponent]
 public sealed partial class GnomeAccentComponent : Component
-{}
+{ }

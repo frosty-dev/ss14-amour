@@ -133,3 +133,39 @@
     accent-bomzh-words-130: accent-bomzh-words-replace-130
     accent-bomzh-words-131: accent-bomzh-words-replace-131
     accent-bomzh-words-132: accent-bomzh-words-replace-132
+
+- type: accent
+  id: gnome
+  wordReplacements:
+    accent-gnome-words-1: accent-gnome-words-replace-1
+    accent-gnome-words-2: accent-gnome-words-replace-2
+    accent-gnome-words-3: accent-gnome-words-replace-3
+    accent-gnome-words-4: accent-gnome-words-replace-4
+    accent-gnome-words-5: accent-gnome-words-replace-5
+    accent-gnome-words-6: accent-gnome-words-replace-6
+    accent-gnome-words-7: accent-gnome-words-replace-7
+    accent-gnome-words-8: accent-gnome-words-replace-8
+    accent-gnome-words-9: accent-gnome-words-replace-9
+    accent-gnome-words-10: accent-gnome-words-replace-10
+    accent-gnome-words-11: accent-gnome-words-replace-11
+    accent-gnome-words-12: accent-gnome-words-replace-12
+    accent-gnome-words-13: accent-gnome-words-replace-13
+    accent-gnome-words-14: accent-gnome-words-replace-14
+    accent-gnome-words-15: accent-gnome-words-replace-15
+    accent-gnome-words-16: accent-gnome-words-replace-16
+    accent-gnome-words-17: accent-gnome-words-replace-17
+    accent-gnome-words-18: accent-gnome-words-replace-18
+    accent-gnome-words-19: accent-gnome-words-replace-19
+    accent-gnome-words-20: accent-gnome-words-replace-20
+    accent-gnome-words-21: accent-gnome-words-replace-21
+    accent-gnome-words-22: accent-gnome-words-replace-22
+    accent-gnome-words-23: accent-gnome-words-replace-23
+    accent-gnome-words-24: accent-gnome-words-replace-24
+    accent-gnome-words-25: accent-gnome-words-replace-25
+    accent-gnome-words-26: accent-gnome-words-replace-26
+    accent-gnome-words-27: accent-gnome-words-replace-27
+    accent-gnome-words-28: accent-gnome-words-replace-28
+    accent-gnome-words-29: accent-gnome-words-replace-29
+    accent-gnome-words-30: accent-gnome-words-replace-30
+    accent-gnome-words-31: accent-gnome-words-replace-31
+    accent-gnome-words-32: accent-gnome-words-replace-32
