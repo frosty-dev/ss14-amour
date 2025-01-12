@@ -14,7 +14,7 @@
         Piercing: 18
         Heat: 18
     soundHit:
-      path: /Audio/Weapons/smash.ogg
+      path: /Audio/Weapons/eblade1.ogg
   - type: DamageOtherOnHit
     damage:
       types:
