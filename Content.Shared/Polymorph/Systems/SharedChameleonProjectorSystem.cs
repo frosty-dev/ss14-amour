@@ -16,6 +16,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Shared.Polymorph.Systems;
@@ -36,7 +37,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
-
+    [Dependency] private readonly IGameTiming _gameTiming = default!; // WD
     public override void Initialize()
     {
         base.Initialize();
@@ -44,6 +45,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
         SubscribeLocalEvent<ChameleonDisguiseComponent, InteractHandEvent>(OnDisguiseInteractHand, before: [typeof(SharedItemSystem)]);
         SubscribeLocalEvent<ChameleonDisguiseComponent, DamageChangedEvent>(OnDisguiseDamaged);
         SubscribeLocalEvent<ChameleonDisguiseComponent, ComponentShutdown>(OnDisguiseShutdown);
+        SubscribeLocalEvent<ChameleonDisguiseComponent, GotEquippedHandEvent>(OnPickup); // WD
 
         SubscribeLocalEvent<ChameleonProjectorComponent, AfterInteractEvent>(OnInteract);
         SubscribeLocalEvent<ChameleonProjectorComponent, GetVerbsEvent<UtilityVerb>>(OnGetVerbs);
@@ -62,11 +64,19 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
         args.Handled = true;
     }
 
+    /// <summary>
+    /// WD. Horrible fix, but functional.
+    /// </summary>
+    private void OnPickup(Entity<ChameleonDisguiseComponent> ent, ref GotEquippedHandEvent args)
+    {
+        Timer.Spawn(100, () => TryReveal(ent.Comp.User));
+    }
+
     private void OnDisguiseDamaged(Entity<ChameleonDisguiseComponent> ent, ref DamageChangedEvent args)
     {
         // anything that would damage both like an explosion gets doubled
         // feature? projector makes your atoms weaker or some bs
-        if (args.DamageDelta is {} damage)
+        if (args.DamageDelta is { } damage)
             _damageable.TryChangeDamage(ent.Comp.User, damage);
     }
 
@@ -81,7 +91,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     private void OnInteract(Entity<ChameleonProjectorComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || args.Target is not {} target)
+        if (args.Handled || !args.CanReach || args.Target is not { } target)
             return;
 
         args.Handled = true;
@@ -126,7 +136,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     private void OnToggleNoRot(Entity<ChameleonProjectorComponent> ent, ref DisguiseToggleNoRotEvent args)
     {
-        if (ent.Comp.Disguised is not {} uid)
+        if (ent.Comp.Disguised is not { } uid)
             return;
 
         var xform = Transform(uid);
@@ -137,7 +147,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     private void OnToggleAnchored(Entity<ChameleonProjectorComponent> ent, ref DisguiseToggleAnchoredEvent args)
     {
-        if (ent.Comp.Disguised is not {} uid)
+        if (ent.Comp.Disguised is not { } uid)
             return;
 
         var xform = Transform(uid);
@@ -249,7 +259,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     /// </summary>
     public void RevealProjector(Entity<ChameleonProjectorComponent> ent)
     {
-        if (ent.Comp.Disguised is {} user)
+        if (ent.Comp.Disguised is { } user)
             TryReveal(user);
     }
 
@@ -261,7 +271,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     /// <remarks>
     /// This would probably be a good thing to add to engine in the future.
     /// </remarks>
-    protected bool CopyComp<T>(Entity<ChameleonDisguiseComponent> ent) where T: Component, new()
+    protected bool CopyComp<T>(Entity<ChameleonDisguiseComponent> ent) where T : Component, new()
     {
         if (!GetSrcComp<T>(ent.Comp, out var src))
             return true;
@@ -277,13 +287,13 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
     /// <summary>
     /// Try to get a single component from the source entity/prototype.
     /// </summary>
-    private bool GetSrcComp<T>(ChameleonDisguiseComponent comp, [NotNullWhen(true)] out T? src) where T: Component
+    private bool GetSrcComp<T>(ChameleonDisguiseComponent comp, [NotNullWhen(true)] out T? src) where T : Component
     {
         src = null;
         if (TryComp(comp.SourceEntity, out src))
             return true;
 
-        if (comp.SourceProto is not {} protoId)
+        if (comp.SourceProto is not { } protoId)
             return false;
 
         if (!_proto.TryIndex<EntityPrototype>(protoId, out var proto))
