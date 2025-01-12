@@ -17,6 +17,7 @@
       prototype: RandomHumanoidSpawnerERTLeader
       recruitmentName: ERTRecruitment
       priority: 1
+      jobId: ERTLeader
     - type: Sprite
       layers:
         - state: green
@@ -31,6 +32,7 @@
       prototype: RandomHumanoidSpawnerERTLeaderEVA
       recruitmentName: ERTRecruitment
       priority: 1
+      jobId: ERTLeader
     - type: Sprite
       layers:
         - state: green
@@ -44,6 +46,7 @@
     - type: GhostRecruitmentSpawnPoint
       prototype: RandomHumanoidSpawnerERTJanitor
       recruitmentName: ERTRecruitment
+      jobId: ERTJanitor
     - type: Sprite
       layers:
         - state: green
@@ -57,6 +60,7 @@
     - type: GhostRecruitmentSpawnPoint
       prototype: RandomHumanoidSpawnerERTJanitorEVA
       recruitmentName: ERTRecruitment
+      jobId: ERTJanitor
     - type: Sprite
       layers:
         - state: green
@@ -71,6 +75,7 @@
       prototype: RandomHumanoidSpawnerERTEngineer
       recruitmentName: ERTRecruitment
       priority: 2
+      jobId: ERTEngineer
     - type: Sprite
       layers:
         - state: green
@@ -85,6 +90,7 @@
       prototype: RandomHumanoidSpawnerERTEngineerEVA
       recruitmentName: ERTRecruitment
       priority: 2
+      jobId: ERTEngineer
     - type: Sprite
       layers:
         - state: green
@@ -99,6 +105,7 @@
       prototype: RandomHumanoidSpawnerERTSecurity
       recruitmentName: ERTRecruitment
       priority: 2
+      jobId: ERTSecurity
     - type: Sprite
       layers:
         - state: green
@@ -113,6 +120,7 @@
       prototype: RandomHumanoidSpawnerERTSecurityEVA
       recruitmentName: ERTRecruitment
       priority: 2
+      jobId: ERTSecurity
     - type: Sprite
       layers:
         - state: green
@@ -127,6 +135,7 @@
       prototype: RandomHumanoidSpawnerERTMedical
       recruitmentName: ERTRecruitment
       priority: 2
+      jobId: ERTMedical
     - type: Sprite
       layers:
         - state: green
@@ -141,6 +150,7 @@
       prototype: RandomHumanoidSpawnerERTMedicalEVA
       recruitmentName: ERTRecruitment
       priority: 2
+      jobId: ERTMedical
     - type: Sprite
       layers:
         - state: green

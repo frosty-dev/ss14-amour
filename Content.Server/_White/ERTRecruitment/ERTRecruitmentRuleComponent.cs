@@ -16,6 +16,11 @@ public sealed partial class ERTRecruitmentRuleComponent : Component
     /// </summary>
     [DataField] public int MinPlayers = 3;
 
+    /// <summary>
+    /// Minimal playtime to be eligible for recruitment.
+    /// </summary>
+    [DataField] public TimeSpan OverallPlaytime = TimeSpan.FromHours(10);
+
     public static SoundSpecifier ERTYes = new SoundPathSpecifier("/Audio/Announcements/ert_yes.ogg");
     public static SoundSpecifier ERTNo = new SoundPathSpecifier("/Audio/Announcements/ert_no.ogg");
 
