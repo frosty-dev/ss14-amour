@@ -506,7 +506,7 @@
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - CommonBottom # WD
-  - CommonGloves # WD
+  - CommonGlovesSecurity # WD
   - CommonSecurityBelt # WD
   - CommonSecurityBackpack
   - CommonSecurityShoes
@@ -528,7 +528,7 @@
   - WardenJumpsuit
   - CommonBottom # WD
   - CommonSecurityBackpack
-  - CommonGloves # WD
+  - CommonGlovesSecurity # WD
   - CommonSecurityBelt # WD
   - CommonSecurityShoes
   - WardenPDA
@@ -550,7 +550,7 @@
   - CommonSecurityBackpack
   - SecurityOuterClothing
   - CommonSecurityBelt # WD
-  - CommonGloves # WD
+  - CommonGlovesSecurity # WD
   - CommonSecurityShoes
   - SeniorOfficerPDA
   - CommonSecurityJobTrinkets # WD
@@ -588,7 +588,7 @@
   - CommonSecurityBackpack
   - SecurityOuterClothing
   - CommonSecurityBelt # WD
-  - CommonGloves # WD
+  - CommonGlovesSecurity # WD
   - CommonSecurityShoes
   - SecurityPDA
   - CommonSecurityJobTrinkets # WD
@@ -628,7 +628,7 @@
   - SecurityCadetJumpsuit
   - CommonBottom # WD
   - CommonSecurityBackpack
-  - CommonGloves # WD
+  - CommonGlovesSecurity # WD
   - CommonSecurityShoes
   - SecurityCadetPDA
   - CommonSecurityJobTrinkets # WD

@@ -39,7 +39,7 @@
         prob: 0.5
       - id: ClothingEyesGlassesSecurity
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingHandsGlovesColorBlack
+      - id: ClothingHandsGlovesColorBlackSecurity # WD
       - id: ClothingShoesBootsJack
       - id: WeaponMeleeNeedle
         prob: 0.1

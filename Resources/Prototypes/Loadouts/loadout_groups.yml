@@ -745,6 +745,7 @@
   - GlovesColorBlack
   - GlovesFingerless
 
+
 - type: loadoutGroup # Amour
   id: AssistentGloves
   name: loadout-group-gloves
@@ -752,6 +753,15 @@
   loadouts:
   - AssistantHandsGlovesColorYellow
   - GlovesColorBlack
+  - GlovesFingerless
+
+
+- type: loadoutGroup # WD
+  id: CommonGlovesSecurity
+  name: loadout-group-gloves
+  minLimit: 0
+  loadouts:
+  - GlovesColorBlackSecurity
   - GlovesFingerless
 
 - type: loadoutGroup
@@ -1593,7 +1603,7 @@
   minLimit: 0
   loadouts:
   - GlovesLatex
-  - GlovesColorBlack
+  - GlovesColorBlackSecurity # WD
   - GlovesForensic
 
 - type: loadoutGroup
