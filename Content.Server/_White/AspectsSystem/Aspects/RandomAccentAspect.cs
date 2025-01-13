@@ -7,6 +7,7 @@ using Content.Server._White.AspectsSystem.Base;
 using Content.Server.GameTicking.Components;
 using Content.Shared.Mind.Components;
 using Robust.Shared.Random;
+using Content.Server._White.Accent.BomzhAccent;
 
 namespace Content.Server._White.AspectsSystem.Aspects;
 
@@ -69,6 +70,8 @@ public sealed class RandomAccentAspect : AspectSystem<RandomAccentAspectComponen
         Moth,
         French,
         Gnome,
+        Bomzh,
+        Frontallisp
     }
 
     private void ApplyRandomAccent(EntityUid uid)
@@ -100,7 +103,7 @@ public sealed class RandomAccentAspect : AspectSystem<RandomAccentAspectComponen
             case AccentType.Pirate:
                 EntityManager.EnsureComponent<PirateAccentComponent>(uid);
                 break;
-            case AccentType.Russian:
+            case AccentType.Russian: // Untranslated
                 EntityManager.EnsureComponent<RussianAccentComponent>(uid);
                 break;
             case AccentType.OwO:
@@ -127,11 +130,17 @@ public sealed class RandomAccentAspect : AspectSystem<RandomAccentAspectComponen
             case AccentType.Moth:
                 EntityManager.EnsureComponent<MothAccentComponent>(uid);
                 break;
-            case AccentType.French:
+            case AccentType.French: // Untranslated
                 EntityManager.EnsureComponent<FrenchAccentComponent>(uid);
                 break;
             case AccentType.Gnome:
                 EntityManager.EnsureComponent<GnomeAccentComponent>(uid);
+                break;
+            case AccentType.Bomzh:
+                EntityManager.EnsureComponent<BomzhAccentComponent>(uid);
+                break;
+            case AccentType.Frontallisp:
+                EntityManager.EnsureComponent<FrontalLispComponent>(uid);
                 break;
         }
     }

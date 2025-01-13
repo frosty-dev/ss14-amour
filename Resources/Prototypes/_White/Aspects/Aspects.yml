@@ -375,15 +375,3 @@
 #      startAudio:
 #        path: /Audio/White/Aspects/accent.ogg
 #    - type: SkeletonAspect
-
-# Amour Start
-- type: entity
-  id: DeleteVendingMachineAspect
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: Aspect
-    name: "DeleteVendingMachineAspect"
-    description: "Какой-то смышлённый агент синдиката украл все торговые автоматы!"
-    weight: 3
-  - type: DeleteVendingMachine
