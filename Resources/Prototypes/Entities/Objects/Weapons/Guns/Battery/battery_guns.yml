@@ -801,7 +801,6 @@
   id: WeaponEgun
   description: Egun
   components:
-    - type: WeaponModules
     - type: Sprite
       sprite: Objects/Weapons/Guns/Battery/egun.rsi
       layers:
@@ -813,10 +812,6 @@
         - state: mag-twomode2-4
           map: ["enum.GunVisualLayers.TwoModeSecond"]
           shader: unshaded
-        - state: aim_module
-          visible: false
-          sprite: White/Objects/Weapons/modulesOnEGUN.rsi
-          map: [ "enum.ModuleVisualState.AimModule" ]
     - type: Clothing
       sprite: Objects/Weapons/Guns/Battery/egun.rsi
       quickEquip: false
@@ -847,16 +842,3 @@
       size: Large
       shape:
       - 0, 0, 3, 1
-    - type: ItemSlots
-      slots:
-        aim_module:
-          name: Aim Module
-          insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-          ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-          priority: 3
-          whitelist:
-            tags:
-            - HolographicAimModule
-    - type: ContainerContainer
-      containers:
-        aim_module: !type:ContainerSlot

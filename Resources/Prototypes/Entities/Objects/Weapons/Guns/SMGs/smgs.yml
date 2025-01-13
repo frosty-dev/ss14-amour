@@ -77,16 +77,6 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
-    - state: barrel_module
-      visible: false
-      map: [ "enum.ModuleVisualState.BarrelModule" ]
-    - state: handguard_module
-      visible: false
-      map: [ "enum.ModuleVisualState.HandGuardModule" ]
-    - state: aim_module
-      visible: false
-      sprite: White/Objects/Weapons/modulesOnAtreides.rsi
-      map: [ "enum.ModuleVisualState.AimModule" ]
   - type: Item
     sprite: White/Objects/Weapons/Guns/SMG/atreides-inhands.rsi
   - type: Clothing
@@ -95,63 +85,10 @@
     fireRate: 10
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
-  - type: WeaponModules
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazinePistolSubMachineGun
-        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-        priority: 4
-        whitelist:
-          tags:
-            - MagazinePistolSubMachineGun
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgePistol
-        priority: 1
-        whitelist:
-          tags:
-            - CartridgePistol
-      barrel_module:
-        name: Barrel Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-          - BaseBarrelModule
-      handguard_module:
-        name: Handguard Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-          - BaseHandGuardModule
-      aim_module:
-        name: Aim Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-          - HolographicAimModule
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
-      handguard_module: !type:ContainerSlot
-      barrel_module: !type:ContainerSlot
-      aim_module: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
     steps: 1
     zeroVisible: true
-  - type: PointLight
-    enabled: false
-    autoRot: true
   - type: Appearance
 
 - type: entity
@@ -317,24 +254,14 @@
   description: An excellent fully automatic Heavy SMG. Uses .45 magnum ammo.
   components:
   - type: Sprite
-    sprite: White/Objects/Weapons/Guns/SMG/vector.rsi
+    sprite: Objects/Weapons/Guns/SMGs/vector.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
-      - state: barrel_module
-        visible: false
-        map: [ "enum.ModuleVisualState.BarrelModule" ]
-      - state: handguard_module
-        visible: false
-        map: [ "enum.ModuleVisualState.HandGuardModule" ]
-      - state: aim_module
-        visible: false
-        sprite: White/Objects/Weapons/modulesOnVector.rsi
-        map: [ "enum.ModuleVisualState.AimModule" ]
   - type: Clothing
-    sprite: White/Objects/Weapons/Guns/SMG/vector.rsi
+    sprite: Objects/Weapons/Guns/SMGs/vector.rsi
   - type: Gun
     fireRate: 6
     selectedMode: FullAuto
@@ -342,7 +269,6 @@
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
     availableModes:
     - FullAuto
-  - type: WeaponModules
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -350,7 +276,7 @@
         startingItem: MagazineMagnumSubMachineGun
         insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
-        priority: 4
+        priority: 2
         whitelist:
           tags:
             - MagazineMagnumSubMachineGun
@@ -361,44 +287,10 @@
         whitelist:
           tags:
             - CartridgeMagnum
-      barrel_module:
-        name: Barrel Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-          - BaseBarrelModule
-      handguard_module:
-        name: Handguard Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-          - BaseHandGuardModule
-      aim_module:
-        name: Aim Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-          - BaseAimModule
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
-      handguard_module: !type:ContainerSlot
-      barrel_module: !type:ContainerSlot
-      aim_module: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
     steps: 1
     zeroVisible: true
-  - type: PointLight
-    enabled: false
-    autoRot: true
   - type: Appearance
 
 - type: entity
@@ -582,27 +474,3 @@
         whitelist:
           tags:
             - CartridgeMagnum
-      barrel_module:
-        name: Barrel Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-          - BaseBarrelModule
-      handguard_module:
-        name: Handguard Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-          - BaseHandGuardModule
-      aim_module:
-        name: Aim Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-          - BaseAimModule

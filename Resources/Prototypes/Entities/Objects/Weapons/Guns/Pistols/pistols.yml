@@ -304,22 +304,12 @@
   description: The sidearm of any self respecting officer.     Comes in .45 magnum, the lord's caliber.
   components:
   - type: Sprite
-    sprite: White/Objects/Weapons/Guns/Pistols/N1984.rsi
+    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
-    - state: barrel_module
-      visible: false
-      map: [ "enum.ModuleVisualState.BarrelModule" ]
-    - state: handguard_module
-      visible: false
-      map: [ "enum.ModuleVisualState.HandGuardModule" ]
-    - state: aim_module
-      visible: false
-      sprite: White/Objects/Weapons/modulesOnPistols.rsi
-      map: [ "enum.ModuleVisualState.AimModule" ]
   - type: Clothing
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
   - type: Gun
@@ -332,7 +322,6 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
-  - type: WeaponModules
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -340,7 +329,7 @@
         startingItem: MagazineMagnum
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
-        priority: 4
+        priority: 2
         whitelist:
           tags:
             - MagazineMagnum
@@ -351,41 +340,6 @@
         whitelist:
           tags:
             - CartridgeMagnum
-      barrel_module:
-        name: Barrel Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-          - BaseBarrelModule
-      handguard_module:
-        name: Handguard Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-            - BaseHandGuardModule
-      aim_module:
-        name: Aim Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-            - HolographicAimModule
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
-      handguard_module: !type:ContainerSlot
-      barrel_module: !type:ContainerSlot
-      aim_module: !type:ContainerSlot
-  - type: PointLight
-    enabled: false
-    autoRot: true
-  - type: Appearance
 
 - type: entity
   name: N1984
@@ -400,7 +354,7 @@
         startingItem: MagazineMagnumRubber
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
-        priority: 4
+        priority: 2
         whitelist:
           tags:
             - MagazineMagnum
@@ -411,27 +365,3 @@
         whitelist:
           tags:
             - CartridgeMagnum
-      barrel_module:
-        name: Barrel Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-          - BaseBarrelModule
-      handguard_module:
-        name: Handguard Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-            - BaseHandGuardModule
-      aim_module:
-        name: Aim Module
-        insertSound: /Audio/White/Gun/Modules/insertmodule.ogg
-        ejectSound: /Audio/White/Gun/Modules/ejectmodule.ogg
-        priority: 3
-        whitelist:
-          tags:
-            - HolographicAimModule
