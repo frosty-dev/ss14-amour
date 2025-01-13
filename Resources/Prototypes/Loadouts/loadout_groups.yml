@@ -745,6 +745,14 @@
   - GlovesColorBlack
   - GlovesFingerless
 
+- type: loadoutGroup # WD
+  id: CommonGlovesSecurity
+  name: loadout-group-gloves
+  minLimit: 0
+  loadouts:
+  - GlovesColorBlackSecurity
+  - GlovesFingerless
+
 - type: loadoutGroup
   id: CommonShoes
   name: loadout-group-shoes
@@ -1584,7 +1592,7 @@
   minLimit: 0
   loadouts:
   - GlovesLatex
-  - GlovesColorBlack
+  - GlovesColorBlackSecurity # WD
   - GlovesForensic
 
 - type: loadoutGroup

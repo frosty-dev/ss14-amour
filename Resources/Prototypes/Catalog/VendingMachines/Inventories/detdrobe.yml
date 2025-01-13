@@ -17,7 +17,7 @@
     ClothingNeckTieDet: 2
     ClothingShoesLeather: 2
     ClothingShoesColorBrown: 2
-    ClothingHandsGlovesColorBlack: 2
+    ClothingHandsGlovesColorBlackSecurity: 2 # WD
     ClothingHandsGlovesLatex: 2
     CigPackGreen: 4
     SmokingPipeFilledTobacco: 1

@@ -822,6 +822,7 @@
     stealGroup: AnimalTropico
 
 
+# WD
 - type: entity #WHY MUST YOU THROW ERRORS HOW DARE YOU
   name: Gnome #this thing is covered in comments, its for my sanity, ignore them please.
   parent: [BaseSimpleMob, MobCombat, MobAtmosExposed]
@@ -995,6 +996,5 @@
       collection: GnomesDeathCollection
     canOtherHearDeathSound: True
   - type: Thieving
-    stripTimeReduction: 4
+    stripTimeReduction: 2.5
   - type: Pacified
-

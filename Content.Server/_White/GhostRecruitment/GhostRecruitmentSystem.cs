@@ -11,6 +11,12 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Content.Shared.Roles;
+using Content.Server.Roles;
+using Content.Shared.Roles.Jobs;
+using Content.Server.Station.Systems;
+using Robust.Shared.Prototypes;
+using Content.Server.Players.PlayTimeTracking;
 
 namespace Content.Server._White.GhostRecruitment;
 
@@ -23,18 +29,26 @@ public sealed class GhostRecruitmentSystem : EntitySystem
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
+    [Dependency] private readonly StationSpawningSystem _spawningSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPlayTimeTrackingManager _playTimeTracking = default!;
 
     private readonly Dictionary<ICommonSession, GhostRecruitmentEuiAccept> _openUis = new();
 
     /// <summary>
     /// starts recruiting ghosts, showing them a menu with a choice to recruit.
     /// </summary>
-    /// <param name="recruitmentName">name of recruitment. <see cref="GhostRecruitmentSpawnPointComponent"/></param>
-    public void StartRecruitment(string recruitmentName)
+    /// <param name="recruitmentName">Name of recruitment. <see cref="GhostRecruitmentSpawnPointComponent"/></param>
+    /// <param name="overallPlaytime">Minimal playtime to be eligible for recruitment.</param>
+    public void StartRecruitment(string recruitmentName, TimeSpan? overallPlaytime)
     {
         var query = EntityQueryEnumerator<GhostComponent, ActorComponent>();
         while (query.MoveNext(out var uid, out _, out var actorComponent))
         {
+            if (overallPlaytime != null && _playTimeTracking.GetOverallPlaytime(actorComponent.PlayerSession) < overallPlaytime)
+                continue;
+
             OpenEui(uid, recruitmentName, actorComponent);
         }
     }
@@ -121,13 +135,20 @@ public sealed class GhostRecruitmentSystem : EntitySystem
         if (!entityUid.HasValue)
             return;
 
-        var mind = actorComponent.PlayerSession.GetMind();
+        var userId = actorComponent.PlayerSession.UserId;
+        var entityName = EntityManager.GetComponent<MetaDataComponent>((EntityUid) entityUid).EntityName;
 
-        if (!mind.HasValue)
-            return;
+        var newMind = _mind.CreateMind(userId, entityName);
 
-        _mind.TransferTo(mind.Value, entityUid.Value);
-        _mind.UnVisit(mind.Value);
+        var job = new JobComponent { Prototype = component.JobId };
+
+        _roleSystem.MindAddRole(newMind, job);
+        _mind.SetUserId(newMind, userId);
+        _mind.TransferTo(newMind, entityUid);
+
+        _prototypeManager.TryIndex(job.Prototype, out var jobProto);
+        if (jobProto != null)
+            _spawningSystem.SetPdaAndIdCardData((EntityUid) entityUid, entityName, jobProto, null);
     }
 
     private EntityUid? Spawn(EntityUid spawnerUid, GhostRecruitmentSpawnPointComponent? component = null)
