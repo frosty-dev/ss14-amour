@@ -1,0 +1,20 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "made by Aviu",
+    "size": {
+        "x": 48,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "holographic"
+        },
+        {
+            "name": "telescopic"
+        },
+        {
+            "name": "aim_module"
+        }
+    ]
+}
