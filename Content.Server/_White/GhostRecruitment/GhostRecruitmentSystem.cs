@@ -77,7 +77,7 @@ public sealed class GhostRecruitmentSystem : EntitySystem
 
         var count = 0;
 
-        var maxCount = Math.Max(3, _playerManager.PlayerCount / 9);
+        var maxCount = Math.Max(3, _playerManager.PlayerCount / 12);
         var query = EntityQueryEnumerator<GhostRecruitedComponent>();
 
         while (query.MoveNext(out var uid, out var ghostRecruitedComponent))
