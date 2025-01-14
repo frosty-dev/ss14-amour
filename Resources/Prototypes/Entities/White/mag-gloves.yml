@@ -23,6 +23,7 @@
     - type: Fiber
       fiberMaterial: fibers-nanomachines
     - type: FingerprintMask
+    - type: Insulated
     - type: MagneticGloves
       glovesActiveTime: 60
       glovesCooldown: 60

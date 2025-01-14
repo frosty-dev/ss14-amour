@@ -319,6 +319,16 @@
   equipment:
     gloves: ClothingHandsGlovesColorBlack
 
+
+- type: itemLoadout # WD
+  id: GlovesColorBlackSecurity
+  equipment: GlovesColorBlackSecurity
+- type: startingGear
+  id: GlovesColorBlackSecurity
+  equipment:
+    gloves: ClothingHandsGlovesColorBlackSecurity
+
+
 - type: itemLoadout
   id: GlovesColorWhite
   equipment: GlovesColorWhite

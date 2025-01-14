@@ -10,7 +10,7 @@
   bodyTypes:
   - TajaranNormal
   sponsorOnly: true
-  forAmins: true
+  forAdmins: true
 
 
 - type: markingPoints

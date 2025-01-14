@@ -104,7 +104,7 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
         }
         */
 
-        _recruitment.StartRecruitment(ERTRecruitmentRuleComponent.EventName);
+        _recruitment.StartRecruitment(ERTRecruitmentRuleComponent.EventName, component.OverallPlaytime);
     }
 
     protected override void Ended(EntityUid uid, ERTRecruitmentRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
