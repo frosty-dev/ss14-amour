@@ -1,7 +1,7 @@
 ent-ClothingOuterSuitCarp = костюм карпа
    .desc = Специальный костюм, который заставляет тебя выглядеть как космический карп, если у тебя плохое зрение.
-ent-ClothingOuterVestWebMercMeaty = жилет мерча
-   .desc = Самое то для мяукалок!
+ent-ClothingOuterVestWebMercMeaty = тактический жилет наёмника
+   .desc = Высококачественный муляж бронежилета из прочного картона. Он неудивительно гибкий и легкий.
 ent-ClothingOuterWinterHoSUnarmored = зимнее пальто начальника охраны
    .desc = Прочное пальто, теплое пальто, но не бронированное.
 ent-ClothingOuterWinterWardenUnarmored = зимнее пальто начальника
