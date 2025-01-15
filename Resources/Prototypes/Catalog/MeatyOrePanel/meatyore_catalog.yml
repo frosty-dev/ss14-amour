@@ -544,6 +544,17 @@
   categories:
     - MeatyOreBoots
 
+- type: listing
+  id: MeatyClothingShoesClownLarge
+  productEntity: ClothingShoesClownLarge
+  name: ent-ClothingShoesClownLarge
+  description: ent-ClothingShoesClownLarge.desc
+  cost:
+    MeatyOreCoin: 2
+  categories:
+    - MeatyOreBoots
+    - MeatyOreNew
+
 # Glasses
 
 - type: listing
@@ -595,6 +606,83 @@
     MeatyOreCoin: 3
   categories:
     - MeatyOreGlasses
+
+- type: listing
+  id: MeatyClothingEyesGlassesJensen
+  productEntity: ClothingEyesGlassesJensen
+  name: ent-ClothingEyesGlassesJensen
+  description: ent-ClothingEyesGlassesJensen.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreGlasses
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingEyesGlassesJamjar
+  productEntity: ClothingEyesGlassesJamjar
+  name: ent-ClothingEyesGlassesJamjar
+  description: ent-ClothingEyesGlassesJamjar.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreGlasses
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingEyesHudBeerMeaty
+  productEntity: ClothingEyesHudBeerMeaty
+  name: ent-ClothingEyesHudBeerMeaty
+  description: ent-ClothingEyesHudBeerMeaty.desc
+  cost:
+    MeatyOreCoin: 2
+  categories:
+    - MeatyOreGlasses
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingEyesGlassesMaidMeaty
+  productEntity: ClothingEyesGlassesMaidMeaty
+  name: ent-ClothingEyesGlassesMaidMeaty
+  description: ent-ClothingEyesGlassesMaidMeaty.desc
+  cost:
+    MeatyOreCoin: 3
+  categories:
+    - MeatyOreGlasses
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingEyesGlassesGarMeaty
+  productEntity: ClothingEyesGlassesGarMeaty
+  name: ent-ClothingEyesGlassesGarMeaty
+  description: ent-ClothingEyesGlassesGarMeaty.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreGlasses
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingEyesGlassesGarOrangeMeaty
+  productEntity: ClothingEyesGlassesGarOrangeMeaty
+  name: ent-ClothingEyesGlassesGarOrangeMeaty
+  description: ent-ClothingEyesGlassesGarOrangeMeaty.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreGlasses
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingEyesGlassesGarGigaMeaty
+  productEntity: ClothingEyesGlassesGarGigaMeaty
+  name: ent-ClothingEyesGlassesGarGigaMeaty
+  description: ent-ClothingEyesGlassesGarGigaMeaty.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreGlasses
+    - MeatyOreNew
 
 # Uniforms
 
@@ -1785,6 +1873,17 @@
     - MeatyOreToys
 
 - type: listing
+  id: MeatyBeachBall
+  productEntity: BeachBall
+  name: ent-BeachBall
+  description: ent-BeachBall.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreToys
+    - MeatyOreNew
+
+- type: listing
   id: MeatyFoamBlade
   productEntity: FoamBlade
   name: ent-FoamBlade
@@ -1823,6 +1922,17 @@
     MeatyOreCoin: 2
   categories:
     - MeatyOreToys
+
+- type: listing
+  id: MeatyBalloonNT
+  productEntity: BalloonNT
+  name: ent-BalloonNT
+  description: ent-BalloonNT.desc
+  cost:
+    MeatyOreCoin: 2
+  categories:
+    - MeatyOreToys
+    - MeatyOreNew
 
 - type: listing
   id: MeatyPonderingOrb
@@ -2063,6 +2173,28 @@
     MeatyOreCoin: 3
   categories:
     - MeatyOreToys
+
+- type: listing
+  id: MeatyPlushieHampter
+  productEntity: PlushieHampter
+  name: ent-PlushieHampter
+  description: ent-PlushieHampter.desc
+  cost:
+    MeatyOreCoin: 2
+  categories:
+    - MeatyOreToys
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyWhoopieCushion
+  productEntity: WhoopieCushion
+  name: ent-WhoopieCushion
+  description: ent-WhoopieCushion.desc
+  cost:
+    MeatyOreCoin: 5
+  categories:
+    - MeatyOreToys
+    - MeatyOreNew
 
 # Misc
 
