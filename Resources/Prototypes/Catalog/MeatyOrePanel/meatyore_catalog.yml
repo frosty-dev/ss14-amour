@@ -250,6 +250,259 @@
   categories:
     - MeatyOreHats
 
+- type: listing
+  id: MeatyClothingHeadBandMerc
+  productEntity: ClothingHeadBandMerc
+  name: ent-ClothingHeadBandMerc
+  description: ent-ClothingHeadBandMerc.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadBandSkull
+  productEntity: ClothingHeadBandSkull
+  name: ent-ClothingHeadBandSkull
+  description: ent-ClothingHeadBandSkull.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadBandBotany
+  productEntity: ClothingHeadBandBotany
+  name: ent-ClothingHeadBandBotany
+  description: ent-ClothingHeadBandBotany.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadBandGold
+  productEntity: ClothingHeadBandGold
+  name: ent-ClothingHeadBandGold
+  description: ent-ClothingHeadBandGold.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadBandBlack
+  productEntity: ClothingHeadBandBlack
+  name: ent-ClothingHeadBandBlack
+  description: ent-ClothingHeadBandBlack.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadBandGrey
+  productEntity: ClothingHeadBandGrey
+  name: ent-ClothingHeadBandGrey
+  description: ent-ClothingHeadBandGrey.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadBandGreen
+  productEntity: ClothingHeadBandGreen
+  name: ent-ClothingHeadBandGreen
+  description: ent-ClothingHeadBandGreen.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadBandBrown
+  productEntity: ClothingHeadBandBrown
+  name: ent-ClothingHeadBandBrown
+  description: ent-ClothingHeadBandBrown.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadBandRed
+  productEntity: ClothingHeadBandRed
+  name: ent-ClothingHeadBandRed
+  description: ent-ClothingHeadBandRed.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadHatStreamerCap
+  productEntity: ClothingHeadHatStreamerCap
+  name: ent-ClothingHeadHatStreamerCap
+  description: ent-ClothingHeadHatStreamerCap.desc
+  cost:
+    MeatyOreCoin: 3
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyBeretZero
+  productEntity: BeretZero
+  name: ent-BeretZero
+  description: ent-BeretZero.desc
+  cost:
+    MeatyOreCoin: 2
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadHatBizarreSoft
+  productEntity: ClothingHeadHatBizarreSoft
+  name: ent-ClothingHeadHatBizarreSoft
+  description: ent-ClothingHeadHatBizarreSoft.desc
+  cost:
+    MeatyOreCoin: 5
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadHatCowboyBountyHunter
+  productEntity: ClothingHeadHatCowboyBountyHunter
+  name: ent-ClothingHeadHatCowboyBountyHunter
+  description: ent-ClothingHeadHatCowboyBountyHunter.desc
+  cost:
+    MeatyOreCoin: 2
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadHatBeretMerc
+  productEntity: ClothingHeadHatBeretMerc
+  name: ent-ClothingHeadHatBeretMerc
+  description: ent-ClothingHeadHatBeretMerc.desc
+  cost:
+    MeatyOreCoin: 2
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadHatYellowsoft
+  productEntity: ClothingHeadHatYellowsoft
+  name: ent-ClothingHeadHatYellowsoft
+  description: ent-ClothingHeadHatYellowsoft.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadHatGreensoft
+  productEntity: ClothingHeadHatGreensoft
+  name: ent-ClothingHeadHatGreensoft
+  description: ent-ClothingHeadHatGreensoft.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadHatMimesoft
+  productEntity: ClothingHeadHatMimesoft
+  name: ent-ClothingHeadHatMimesoft
+  description: ent-ClothingHeadHatMimesoft.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadHatPurplesoft
+  productEntity: ClothingHeadHatPurplesoft
+  name: ent-ClothingHeadHatPurplesoft
+  description: ent-ClothingHeadHatPurplesoft.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadHatCorpsoft
+  productEntity: ClothingHeadHatCorpsoft
+  name: ent-ClothingHeadHatCorpsoft
+  description: ent-ClothingHeadHatCorpsoft.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadHatBluesoft
+  productEntity: ClothingHeadHatBluesoft
+  name: ent-ClothingHeadHatBluesoft
+  description: ent-ClothingHeadHatBluesoft.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadHatBlacksoft
+  productEntity: ClothingHeadHatBlacksoft
+  name: ent-ClothingHeadHatBlacksoft
+  description: ent-ClothingHeadHatBlacksoft.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadHatRedsoft
+  productEntity: ClothingHeadHatRedsoft
+  name: ent-ClothingHeadHatRedsoft
+  description: ent-ClothingHeadHatRedsoft.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingHeadHatOrangesoft
+  productEntity: ClothingHeadHatOrangesoft
+  name: ent-ClothingHeadHatOrangesoft
+  description: ent-ClothingHeadHatOrangesoft.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreHats
+    - MeatyOreNew
+
 # Masks
 
 - type: listing
@@ -301,6 +554,127 @@
     MeatyOreCoin: 1
   categories:
     - MeatyOreMasks
+
+- type: listing
+  id: MeatyClothingMaskNeckGaiter
+  productEntity: ClothingMaskNeckGaiter
+  name: ent-ClothingMaskNeckGaiter
+  description: ent-ClothingMaskNeckGaiter.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreMasks
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingMaskSratVPodjesde
+  productEntity: ClothingMaskSratVPodjesde
+  name: ent-ClothingMaskSratVPodjesde
+  description: ent-ClothingMaskSratVPodjesde.desc
+  cost:
+    MeatyOreCoin: 5
+  categories:
+    - MeatyOreMasks
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingMaskBandMerc
+  productEntity: ClothingMaskBandMerc
+  name: ent-ClothingMaskBandMerc
+  description: ent-ClothingMaskBandMerc.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreMasks
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingMaskBandSkull
+  productEntity: ClothingMaskBandSkull
+  name: ent-ClothingMaskBandSkull
+  description: ent-ClothingMaskBandSkull.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreMasks
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingMaskBandBotany
+  productEntity: ClothingMaskBandBotany
+  name: ent-ClothingMaskBandBotany
+  description: ent-ClothingMaskBandBotany.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreMasks
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingMaskBandGold
+  productEntity: ClothingMaskBandGold
+  name: ent-ClothingMaskBandGold
+  description: ent-ClothingMaskBandGold.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreMasks
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingMaskBandBlack
+  productEntity: ClothingMaskBandBlack
+  name: ent-ClothingMaskBandBlack
+  description: ent-ClothingMaskBandBlack.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreMasks
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingMaskBandGrey
+  productEntity: ClothingMaskBandGrey
+  name: ent-ClothingMaskBandGrey
+  description: ent-ClothingMaskBandGrey.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreMasks
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingMaskBandGreen
+  productEntity: ClothingMaskBandGreen
+  name: ent-ClothingMaskBandGreen
+  description: ent-ClothingMaskBandGreen.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreMasks
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingMaskBandBrown
+  productEntity: ClothingMaskBandBrown
+  name: ent-ClothingMaskBandBrown
+  description: ent-ClothingMaskBandBrown.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreMasks
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingMaskBandRed
+  productEntity: ClothingMaskBandRed
+  name: ent-ClothingMaskBandRed
+  description: ent-ClothingMaskBandRed.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreMasks
+    - MeatyOreNew
 
 # Boots
 
@@ -1136,6 +1510,39 @@
   categories:
     - MeatyOreUniforms
 
+- type: listing
+  id: MeatyClothingUniformJumpsuitZeroSamurai
+  productEntity: ClothingUniformJumpsuitZeroSamurai
+  name: ent-ClothingUniformJumpsuitZeroSamurai
+  description: ent-ClothingUniformJumpsuitZeroSamurai.desc
+  cost:
+    MeatyOreCoin: 2
+  categories:
+    - MeatyOreUniforms
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingUniformJumpsuitWhiteTShirt
+  productEntity: ClothingUniformJumpsuitWhiteTShirt
+  name: ent-ClothingUniformJumpsuitWhiteTShirt
+  description: ent-ClothingUniformJumpsuitWhiteTShirt.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreUniforms
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingUniformJumpsuitZero
+  productEntity: ClothingUniformJumpsuitZero
+  name: ent-ClothingUniformJumpsuitZero
+  description: ent-ClothingUniformJumpsuitZero.desc
+  cost:
+    MeatyOreCoin: 2
+  categories:
+    - MeatyOreUniforms
+    - MeatyOreNew
+
 # Gloves
 
 - type: listing
@@ -1579,6 +1986,28 @@
     MeatyOreCoin: 3
   categories:
     - MeatyOreCloaks
+
+- type: listing
+  id: MeatyClothingOuterPunkBomber
+  productEntity: ClothingOuterPunkBomber
+  name: ent-ClothingOuterPunkBomber
+  description: ent-ClothingOuterPunkBomber.desc
+  cost:
+    MeatyOreCoin: 2
+  categories:
+    - MeatyOreCloaks
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingOuterHoodieStreamer
+  productEntity: ClothingOuterHoodieStreamer
+  name: ent-ClothingOuterHoodieStreamer
+  description: ent-ClothingOuterHoodieStreamer.desc
+  cost:
+    MeatyOreCoin: 3
+  categories:
+    - MeatyOreCloaks
+    - MeatyOreNew
 
 # Toys
 
@@ -2419,6 +2848,83 @@
     MeatyOreCoin: 3
   categories:
     - MeatyOreCapes
+
+- type: listing
+  id: MeatyClothingNeckCloakVoid
+  productEntity: ClothingNeckCloakVoid
+  name: ent-ClothingNeckCloakVoid
+  description: ent-ClothingNeckCloakVoid.desc
+  cost:
+    MeatyOreCoin: 3
+  categories:
+    - MeatyOreCapes
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingNeckStoleChaplain
+  productEntity: ClothingNeckStoleChaplain
+  name: ent-ClothingNeckStoleChaplain
+  description: ent-ClothingNeckStoleChaplain.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreCapes
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingNeckTieRed
+  productEntity: ClothingNeckTieRed
+  name: ent-ClothingNeckTieRed
+  description: ent-ClothingNeckTieRed.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreCapes
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingNeckTieDet
+  productEntity: ClothingNeckTieDet
+  name: ent-ClothingNeckTieDet
+  description: ent-ClothingNeckTieDet.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreCapes
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingNeckTieSci
+  productEntity: ClothingNeckTieSci
+  name: ent-ClothingNeckTieSci
+  description: ent-ClothingNeckTieSci.desc
+  cost:
+    MeatyOreCoin: 1
+  categories:
+    - MeatyOreCapes
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingNeckMantieDune
+  productEntity: ClothingNeckMantieDune
+  name: ent-ClothingNeckMantieDune
+  description: ent-ClothingNeckMantieDune.desc
+  cost:
+    MeatyOreCoin: 2
+  categories:
+    - MeatyOreCapes
+    - MeatyOreNew
+
+- type: listing
+  id: MeatyClothingNeckMantieZero
+  productEntity: ClothingNeckMantieZero
+  name: ent-ClothingNeckMantieZero
+  description: ent-ClothingNeckMantieZero.desc
+  cost:
+    MeatyOreCoin: 2
+  categories:
+    - MeatyOreCapes
+    - MeatyOreNew
 
 # Dj
 
