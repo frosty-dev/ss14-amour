@@ -12,5 +12,5 @@
         state: any
   - type: RandomSpawner
     prototypes:
-      - BrokenBottle
-    chance: 0
+      - VendingMachineKink # Amour
+    chance: 1 # Amour
