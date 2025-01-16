@@ -1,0 +1,16 @@
+- type: entity
+  id: RandomVendingAmour
+  name: amour vending machine spawner
+  description: spawns special stuff on amour server
+  suffix: Amour
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Machines/VendingMachines/random.rsi
+        state: any
+  - type: RandomSpawner
+    prototypes:
+      - BrokenBottle
+    chance: 0
