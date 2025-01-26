@@ -16,6 +16,6 @@
   icon: { sprite: _Amour/Objects/Devices/protocolcrab17.rsi, state: icon }
   productEntity: ProtocolCRAB17
   cost:
-    Telecrystal: 8
+    Telecrystal: 6
   categories:
   - UplinkDisruption
