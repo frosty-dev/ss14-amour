@@ -499,6 +499,6 @@
   ckey: Feda_Plevajecki
   sprite: White/Ghosts/Feda_Plevajecki-ghost.rsi
   alpha: 0.9
-  ghostName: Шарки
-  ghostDescription:  Буль-буль.
-  size: 0.7, 0.7
+  ghostName: Feda_Plevajecki
+  ghostDescription: Не злите добрых людей.
+  size: 0.5, 0.5
