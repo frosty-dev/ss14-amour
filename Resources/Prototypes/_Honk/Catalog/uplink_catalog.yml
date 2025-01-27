@@ -8,3 +8,14 @@
     Telecrystal: 12
   categories:
   - UplinkAllies
+
+- type: listing
+  id: UplinkProtocolCRAB17
+  name: Протокол КРАБ-17
+  description: Подозрительный телефон с загруженным протоколом "КРАБ-17". Привяжите свою карту и наблюдайте за падением экономики всей станции.
+  icon: { sprite: _Amour/Objects/Devices/protocolcrab17.rsi, state: icon }
+  productEntity: ProtocolCRAB17
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkDisruption
