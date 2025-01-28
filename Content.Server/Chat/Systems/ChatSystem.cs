@@ -357,7 +357,7 @@ public sealed partial class ChatSystem : SharedChatSystem
         return ev.Message;
     }
 
-#region Announcements
+    #region Announcements
 
     /// <summary>
     /// Dispatches an announcement to all.
@@ -437,9 +437,9 @@ public sealed partial class ChatSystem : SharedChatSystem
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Station Announcement on {station} from {sender}: {message}");
     }
 
-#endregion
+    #endregion
 
-#region Private API
+    #region Private API
 
     private void SendEntitySpeak(
         EntityUid source,
@@ -754,7 +754,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         var playerName = changeling.HiveName;
 
-        message = $"{char.ToUpper(message[0])}{message[1..]}";
+        message = OopsConcat(char.ToUpper(message[0]).ToString(), message[1..]);
 
         var wrappedMessage = Loc.GetString("chat-manager-send-changeling-chat-wrap-message",
             ("player", playerName),
@@ -855,9 +855,9 @@ public sealed partial class ChatSystem : SharedChatSystem
             clients.ToList(), author: player.UserId);
     }
 
-#endregion
+    #endregion
 
-#region Utility
+    #region Utility
 
     private enum MessageRangeCheckResult
     {
@@ -1135,7 +1135,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         return sb.ToString();
     }
 
-#endregion
+    private static string OopsConcat(string a, string b)
+    {
+        // This exists to prevent Roslyn being clever and compiling something that fails sandbox checks.
+        return a + b;
+    }
+
+    #endregion
 }
 
 /// <summary>
