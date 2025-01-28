@@ -11,7 +11,7 @@ public sealed class TextTools
     {
         if (str.Length > 1)
         {
-            return char.ToUpper(str[0]) + str.Remove(0, 1);
+            return OopsConcat(char.ToUpper(str[0]).ToString(), str.Remove(0, 1));
         }
         else if (str.Length == 1)
         {
@@ -21,5 +21,11 @@ public sealed class TextTools
         {
             return str;
         }
+    }
+
+    private static string OopsConcat(string a, string b)
+    {
+        // This exists to prevent Roslyn being clever and compiling something that fails sandbox checks.
+        return a + b;
     }
 }
