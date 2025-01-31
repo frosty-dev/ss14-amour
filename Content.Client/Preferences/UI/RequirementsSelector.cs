@@ -134,7 +134,7 @@ public abstract class RequirementsSelector<T> : BoxContainer where T : IPrototyp
 
                     _loadoutWindow = new LoadoutWindow(profile, _loadout, protoManager.Index(_loadout.Role), session, collection)
                     {
-                        Title = Loc.GetString(Proto.ID + "-loadout"),
+                        Title = Loc.GetString("Job" + Proto.ID),
                     };
 
                     _loadoutWindow.RefreshLoadouts(_loadout, session, collection);
