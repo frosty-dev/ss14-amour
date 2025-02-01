@@ -310,3 +310,11 @@
   components:
   - type: AccessReader
     access: [["Security"], ["Command"]]
+
+- type: entity # WD
+  parent: DoorElectronics
+  id: DoorElectronicsMercenary
+  suffix: Mercenary, Locked
+  components:
+  - type: AccessReader
+    access: [["Mercenary"]]

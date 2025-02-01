@@ -950,3 +950,16 @@
     - state: idseniorofficer
   - type: PresetIdCard
     job: SeniorOfficer
+
+- type: entity # WD
+  parent: IDCardStandard
+  id: MercenaryIDCard
+  name: mercenary ID card
+  suffix: Merc
+  components:
+  - type: Sprite
+    layers:
+    - state: non_faction
+  - type: Access
+    tags:
+    - Mercenary
