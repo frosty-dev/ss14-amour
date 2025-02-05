@@ -502,3 +502,12 @@
   ghostName: Feda_Plevajecki
   ghostDescription: Не злите добрых людей.
   size: 0.5, 0.5
+
+#Kemuri
+- type: customGhost
+  id: Kemuri-ghost
+  ckey: Kemuri
+  sprite: White/Ghosts/kemuri-ghost.rsi
+  alpha: 0.9
+  ghostName: Loughshinny
+  ghostDescription: Искра, готовая разгореться в бурю.
