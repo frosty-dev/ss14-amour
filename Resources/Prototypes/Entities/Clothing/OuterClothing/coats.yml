@@ -401,29 +401,6 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
 
 - type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterCoatSyndieCapMeaty
-  name: syndicate's coat
-  description: The syndicate's coat is made of durable fabric, with gilded patterns.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterCoatSyndieCapArmoredMeaty
-  name: syndicate's armored coat
-  description: The syndicate's armored coat is made of durable fabric, with gilded patterns.
-  components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
-
-
-- type: entity
   parent: [ClothingOuterStorageBase, AllowSuitStorageClothing] # WD added AllowSuitStorageClothing
   id: ClothingOuterCoatAMG
   name: armored medical gown
