@@ -1,55 +1,74 @@
 ﻿- type: storeCategory
+  id: MeatyOreNew
+  name: meatyore-store-category-new
+  priority: 0
+
+- type: storeCategory
   id: MeatyOreHats
   name: meatyore-store-category-hats
+  priority: 1
 
 - type: storeCategory
   id: MeatyOreMasks
   name: meatyore-store-category-masks
+  priority: 2
 
 - type: storeCategory
   id: MeatyOreBoots
   name: meatyore-store-category-boots
+  priority: 3
 
 - type: storeCategory
   id: MeatyOreGlasses
   name: meatyore-store-category-glasses
+  priority: 4
 
 - type: storeCategory
   id: MeatyOrePersonal
   name: meatyore-store-category-personal
+  priority: 5
 
 - type: storeCategory
   id: MeatyOreSuits
   name: meatyore-store-category-suits
+  priority: 6
 
 - type: storeCategory
   id: MeatyOreUniforms
   name: meatyore-store-category-uniforms
+  priority: 7
 
 - type: storeCategory
   id: MeatyOreGloves
   name: meatyore-store-category-gloves
+  priority: 8
 
 - type: storeCategory
   id: MeatyOreCloaks
   name: meatyore-store-category-cloaks
+  priority: 9
+
+- type: storeCategory
+  id: MeatyOreCapes
+  name: meatyore-store-category-capes
+  priority: 10
 
 - type: storeCategory
   id: MeatyOreToys
   name: meatyore-store-category-toys
+  priority: 11
 
 - type: storeCategory
-  id: MeatyOreSpecial
-  name: meatyore-store-category-special
-
-- type: storeCategory
-  id: MeatyOreNew
-  name: НОВОЕ!!!
+  id: MeatyOreMisc
+  name: meatyore-store-category-misc
+  priority: 12
 
 - type: storeCategory
   id: MeatyOreAntag
   name: meatyore-store-category-antag
+  priority: 13
 
 - type: storeCategory
   id: DjJukeboxCategory
   name: dj-jukebox-store-category
+  priority: 14

@@ -1,4 +1,4 @@
-ent-WhiteJukebox = Бумбокс
+ent-Boombox = Бумбокс
     .desc = Меня это раздражает.
 
 ent-TapeRecorder = Мысль

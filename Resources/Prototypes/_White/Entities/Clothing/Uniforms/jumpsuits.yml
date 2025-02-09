@@ -76,7 +76,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitWhiteTShirt
   name: белая футболка с джинсами
-  description: Модно. Милимастично. Стильно. Молодёжно.
+  description: Модно. Минималистично. Стильно. Молодёжно.
   components:
   - type: Sprite
     sprite: White/Clothing/Uniforms/Jumpsuit/white-t-shirt.rsi
