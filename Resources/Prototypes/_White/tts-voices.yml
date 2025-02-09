@@ -853,7 +853,7 @@
   id: DinahHecat
 
 - type: ttsVoice
-  name: tts-voice-name-aesop-sharp 
+  name: tts-voice-name-aesop-sharp
   sex: Male
   speaker: aesop_sharp
   id: AesopSharp
