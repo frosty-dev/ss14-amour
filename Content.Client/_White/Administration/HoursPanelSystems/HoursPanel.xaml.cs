@@ -9,6 +9,8 @@ using Robust.Shared.Prototypes;
 using static Robust.Client.UserInterface.Controls.LineEdit;
 using Content.Shared._White.Administration;
 using Robust.Client.UserInterface.Controls;
+using System.Diagnostics.CodeAnalysis;
+using Robust.Client.Graphics.Clyde;
 
 namespace Content.Client._White.Administration.HoursPanelSystems;
 
@@ -16,43 +18,35 @@ namespace Content.Client._White.Administration.HoursPanelSystems;
 [UsedImplicitly]
 public sealed partial class HoursPanel : DefaultWindow
 {
-
-    public HoursPanelSystem _huetaSystem;
-    
-
     public HoursPanel()
     {
         RobustXamlLoader.Load(this);
 
         var entityManager = IoCManager.Resolve<IEntityManager>();
-        _huetaSystem = entityManager.System<HoursPanelSystem>();
-        _huetaSystem._panel = this;
-        var owner = _huetaSystem;
+        var hoursPanelSystem = entityManager.System<HoursPanelSystem>();
+        hoursPanelSystem.Panel = this;
         var roles = new Dictionary<int, string>();
         PlayerNameLine.OnTextChanged += _ => OnNamesChanged();
-        PlayerNameLine.OnTextEntered += _ => OnNameSubmited(owner, roles);
+        PlayerNameLine.OnTextEntered += _ => OnNameSubmited(hoursPanelSystem, roles);
         PlayerList.OnSelectionChanged += OnPlayerSelectionChanged;
         HourButton.OnPressed += _ => AddMinutes(60);
         MinutesLine.OnTextChanged += UpdateButtonsText;
-        RoleOption.OnItemSelected += args => OnItemSelected(args, owner, roles);
-        SubmitButton.OnPressed += _ => OnSubmitButtonOnPressed(roles);
+        RoleOption.OnItemSelected += args => OnItemSelected(args, hoursPanelSystem, roles);
+        SubmitButton.OnPressed += _ => OnSubmitButtonOnPressed(roles, hoursPanelSystem);
         SaveButton.OnPressed += _ => OnSaveButtonOnPressed();
         OnNamesChanged();
         InitRoleList(roles);
 
-
     }
-
-
-
     public void UpdateTime(TimeSpan? time)
     {
-        if (time == null)
-            TimeDisplayer.Text = $"Время игры: нет данных";
+        if (time != null)
+        {
+            var t = (TimeSpan) time;
+            TimeDisplayer.Text = $"Время игры: {Math.Floor(t.TotalHours) + string.Format(" ч {0:%m} м", t)}";
+        }
         else
-            TimeDisplayer.Text = $"Время игры: {time}";
-
-        
+            TimeDisplayer.Text = $"Время игры: нет данных";
     }
 
     private void OnItemSelected(OptionButton.ItemSelectedEventArgs args, HoursPanelSystem owner, Dictionary<int, string> roles)
@@ -128,13 +122,13 @@ public sealed partial class HoursPanel : DefaultWindow
         OnNamesChanged();
     }
 
-    private void OnSubmitButtonOnPressed(Dictionary<int, string> roles)
+    private void OnSubmitButtonOnPressed(Dictionary<int, string> roles, HoursPanelSystem owner)
     {
         IoCManager.Resolve<IClientConsoleHost>().ExecuteCommand(
             $"playtime_addrole {PlayerNameLine.Text} {roles[RoleOption.SelectedId]} {MinutesLine.Text}");
         SaveButton.Disabled = false;
 
-        _huetaSystem.SendPlayerTimeRequest(new HoursPanelMessageToServer(PlayerNameLine.Text, roles[RoleOption.SelectedId]));
+        owner.SendPlayerTimeRequest(new HoursPanelMessageToServer(PlayerNameLine.Text, roles[RoleOption.SelectedId]));
     }
 
     private void OnSaveButtonOnPressed()
@@ -142,11 +136,5 @@ public sealed partial class HoursPanel : DefaultWindow
         IoCManager.Resolve<IClientConsoleHost>().ExecuteCommand(
             $"playtime_save {PlayerNameLine.Text}");
         SaveButton.Disabled = true;
-    }
-    private void GetPlayerTime()
-    {
-        if (string.IsNullOrWhiteSpace(PlayerNameLine.Text))
-            return;
-
     }
 }
