@@ -14,6 +14,7 @@
             <LineEdit Name="MinutesLine" MinWidth="100" HorizontalExpand="True" PlaceHolder="минуты" />
             <Button Name="HourButton" Text="+1h (0)"/>
         </BoxContainer>
+        <Label Name="TimeDisplayer" Text="Время игры: " />
         <OptionButton Name="RoleOption" />
         <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" MinWidth="200"/>
         <Button Name="SubmitButton" Text="Добавить время" />

@@ -1,0 +1,161 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesMercenaryMeaty
+  name: mercenary glasses
+  description: Glasses made for combat.
+  suffix: Meaty
+  components:
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/mercglasses.rsi
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesSunglassesMeaty
+  name: sun glasses
+  description: Useful both for security and cargonia.
+  suffix: Meaty
+  components:
+    - type: Sprite
+      sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+    - type: Clothing
+      sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+    - type: Tag
+      tags:
+        - HamsterWearable
+        - WhitelistChameleon
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatSyndieCapMeaty
+  name: syndicate's coat
+  description: The syndicate's coat is made of durable fabric, with gilded patterns.
+  suffix: Meaty
+  components:
+    - type: Sprite
+      sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
+    - type: Clothing
+      sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatSyndieCapArmoredMeaty
+  name: syndicate's armored coat
+  description: The syndicate's armored coat is made of durable fabric, with gilded patterns.
+  suffix: Meaty
+  components:
+    - type: Sprite
+      sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
+    - type: Clothing
+      sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterWinterSyndieCapMeaty
+  name: syndicate's winter coat
+  description: "The syndicate's winter coat is made of durable fabric, with gilded patterns, and coarse wool."
+  suffix: Meaty
+  components:
+    - type: Sprite
+      sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecap.rsi
+    - type: Clothing
+      sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecap.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterWinterSyndieCapArmoredMeaty
+  name: syndicate's armored winter coat
+  description: "The syndicate's armored winter coat is made of durable fabric, with gilded patterns, and coarse wool."
+  suffix: Meaty
+  components:
+    - type: Sprite
+      sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
+    - type: Clothing
+      sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterWinterSyndieMeaty
+  name: syndicate's winter coat
+  description: Insulated winter coat, looks like a merch from "Syndieland"
+  suffix: Meaty
+  components:
+    - type: Sprite
+      sprite: Clothing/OuterClothing/WinterCoats/syndicate/wintercoatsyndie.rsi
+    - type: Clothing
+      sprite: Clothing/OuterClothing/WinterCoats/syndicate/wintercoatsyndie.rsi
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesHudBeerMeaty
+  name: beer goggles
+  description: A pair of sunHud outfitted with apparatus to scan reagents, as well as providing an innate understanding of liquid viscosity while in motion.
+  suffix: Meaty
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Hud/beergoggles.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Hud/beergoggles.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesMaidMeaty
+  name: maid's sunglasses
+  description: Maid's sunglasses. Clean and cute.
+  suffix: Meaty
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Eyes/Glasses/maidglasses.rsi
+  - type: Clothing
+    sprite: White/Clothing/Eyes/Glasses/maidglasses.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesGarMeaty
+  name: gar glasses
+  description: Go beyond impossible and kick reason to the curb!
+  suffix: Meaty
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/gar.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/gar.rsi
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesGarOrangeMeaty
+  name: orange gar glasses
+  description: Just who the hell do you think I am?!
+  suffix: Meaty
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/gar.rsi
+    state: icon-alt
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/gar.rsi
+    equippedPrefix: alt
+  - type: Item
+    heldPrefix: alt
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesGarGigaMeaty
+  name: giga gar glasses
+  description: We evolve past the person we were a minute before. Little by little we advance with each turn. That's how a drill works!
+  suffix: Meaty
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/gar.rsi
+    state: icon-super
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/gar.rsi
+    equippedPrefix: super
+  - type: Item
+    heldPrefix: super
