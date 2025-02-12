@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodRaincoat
+  noSpawn: true
+  name: капюшок
+  description: Если хочешь быть загадочным и привлекательным.
+  components:
+  - type: Sprite
+    sprite: White/Clothing/Head/Hoods/Raincoats/hoodgreenraincoat.rsi
+  - type: Clothing
+    sprite: White/Clothing/Head/Hoods/Raincoats/hoodgreenraincoat.rsi
