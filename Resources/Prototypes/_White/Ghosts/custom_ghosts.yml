@@ -511,3 +511,12 @@
   alpha: 0.9
   ghostName: Loughshinny
   ghostDescription: Искра, готовая разгореться в бурю.
+
+#DIGGLER2009
+- type: customGhost
+  id: DIGGLER2009-ghost
+  ckey: DIGGLER2009
+  sprite: White/Ghosts/DIGGLER2009-ghost.rsi
+  alpha: 0.9
+  ghostName: Pramanix
+  ghostDescription: Любите врагов ваших, благословляйте проклинающих вас, благотворите ненавидящим вас и молитесь за обижающих вас и гонящих вас.
