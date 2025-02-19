@@ -520,3 +520,12 @@
   alpha: 0.9
   ghostName: Pramanix
   ghostDescription: Любите врагов ваших, благословляйте проклинающих вас, благотворите ненавидящим вас и молитесь за обижающих вас и гонящих вас.
+
+#Deliko
+- type: customGhost
+  id: Deliko-ghost
+  ckey: Deliko
+  sprite: White/Ghosts/deliko-ghost.rsi
+  alpha: 0.9
+  ghostName: МГЕ Русланчек
+  ghostDescription: Лучше бы ты даже из кроватки не вылезал.
