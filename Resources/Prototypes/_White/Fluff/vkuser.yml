@@ -1,0 +1,66 @@
+﻿- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakRaincoat
+  name: прародительский плащ
+  suffix: fluff
+  components:
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodRaincoat
+    requiredSlot: NECK
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+      storagebase: !type:Container
+        ents: []
+    slot: head
+  - type: Clothing
+    sprite: White/Fluff/vkuser/raincoat.rsi
+  - type: Sprite
+    sprite: White/Fluff/vkuser/raincoat.rsi
+    state: icon_green
+  - type: Appearance
+  - type: FluffColorForClothing
+    mainItem: true
+    specifier: Raincoat
+    currentColor: green
+    colors:
+      - green
+      - red
+  - type: Tag
+    tags:
+      - ClothMade
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoodRaincoat
+  noSpawn: true
+  name: прародительский капюшон
+  suffix: fluff
+  components:
+  - type: Sprite
+    sprite: White/Fluff/vkuser/hoodraincoat.rsi
+    state: icon_green
+  - type: Clothing
+    sprite: White/Fluff/vkuser/hoodraincoat.rsi
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: HideLayerClothing
+    slots:
+    - Hair
+  - type: FluffColorForClothing
+    specifier: Raincoat
+    currentColor: green
+    colors:
+      - green
+      - red
+
+- type: entity
+  id: ActionFluffColorForClothing
+  name: Поменять цвет
+  description: Меняет цвет вашей экипировки.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: BigItem
+    useDelay: 1
+    event: !type:FluffColorForClothingEvent

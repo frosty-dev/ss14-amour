@@ -526,6 +526,33 @@
   ckey: Feda_Plevajecki
   sprite: White/Ghosts/Feda_Plevajecki-ghost.rsi
   alpha: 0.9
-  ghostName: Шарки
-  ghostDescription:  Буль-буль.
-  size: 0.7, 0.7
+  ghostName: Feda_Plevajecki
+  ghostDescription: Не злите добрых людей.
+  size: 0.5, 0.5
+
+#Kemuri
+- type: customGhost
+  id: Kemuri-ghost
+  ckey: Kemuri
+  sprite: White/Ghosts/kemuri-ghost.rsi
+  alpha: 0.9
+  ghostName: Loughshinny
+  ghostDescription: Искра, готовая разгореться в бурю.
+
+#DIGGLER2009
+- type: customGhost
+  id: DIGGLER2009-ghost
+  ckey: DIGGLER2009
+  sprite: White/Ghosts/diggler2009-ghost.rsi
+  alpha: 0.9
+  ghostName: Pramanix
+  ghostDescription: Любите врагов ваших, благословляйте проклинающих вас, благотворите ненавидящим вас и молитесь за обижающих вас и гонящих вас.
+
+#Deliko
+- type: customGhost
+  id: Deliko-ghost
+  ckey: Deliko
+  sprite: White/Ghosts/deliko-ghost.rsi
+  alpha: 0.9
+  ghostName: МГЕ Русланчек
+  ghostDescription: Лучше бы ты даже из кроватки не вылезал.

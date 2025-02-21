@@ -311,3 +311,5 @@
       sprite: Clothing/Neck/Cloaks/inspector.rsi
     - type: TypingIndicatorClothing
       proto: lawyer
+    - type: StealTarget
+      stealGroup: HeadCloak

@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
     xmlns:at="clr-namespace:Content.Client.Administration.UI.Tabs.AdminTab"
-    xmlns:wd="clr-namespace:Content.Client._White.Administration"
+    xmlns:wd="clr-namespace:Content.Client._White.Administration.HoursPanelSystems"
     Margin="4"
     MinSize="50 50">
     <BoxContainer Orientation="Vertical">

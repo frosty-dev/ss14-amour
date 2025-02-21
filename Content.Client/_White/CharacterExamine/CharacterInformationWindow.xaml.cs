@@ -41,7 +41,7 @@ public sealed partial class CharacterInformationWindow : FancyWindow
 
         var unknown = Loc.GetString("generic-unknown");
         // Capitalize the first letter of each word (Title Case)
-        unknown = string.Join(" ", unknown.Split(' ').Select(s => char.ToUpper(s[0]) + s[1..]));
+        unknown = string.Join(" ", unknown.Split(' ').Select(s => OopsConcat(char.ToUpper(s[0]).ToString(), s[1..])));
 
         _name.SetMarkup(unknown);
         _job.SetMarkup(unknown);
@@ -112,4 +112,11 @@ public sealed partial class CharacterInformationWindow : FancyWindow
             Margin = new Thickness(8, 8, 0, 0),
         });
     }
+
+    private static string OopsConcat(string a, string b)
+    {
+        // This exists to prevent Roslyn being clever and compiling something that fails sandbox checks.
+        return a + b;
+    }
+
 }

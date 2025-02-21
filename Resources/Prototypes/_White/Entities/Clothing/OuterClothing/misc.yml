@@ -36,34 +36,12 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterHoodieStreamer
-  name: стримерский худи
-  description: Тёплый и уютный, с карманами и капюшоном.
+  name: стримерское худи
+  description: Тёплое и уютное, с карманами и капюшоном.
   components:
   - type: Sprite
     sprite: White/Clothing/OuterClothing/Misc/cute-hoodie.rsi
   - type: Clothing
     sprite: White/Clothing/OuterClothing/Misc/cute-hoodie.rsi
-  - type: TemperatureProtection
-    coefficient: 0.1
-  - type: Item
-    size: Normal
-  - type: Armor
-    modifiers:
-      coefficients:
-        Heat: 0.95
-  - type: Food
-    requiresSpecialDigestion: true
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 30
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 30
-  - type: Tag
-    tags:
-    - ClothMade
-  - type: StaticPrice
-    price: 70
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodHoodieStreamer

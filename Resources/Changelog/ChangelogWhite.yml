@@ -1,49 +1,4 @@
 ﻿Entries:
-- author: nairsark
-  changes:
-  - message: "\u0412\u0435\u0440\u043D\u0443\u043B \u043A\u043E\u0440\u043F\u043E\u0440\
-      \u0430\u0442\u0438\u0432\u043D\u044B\u0435 \u0437\u0430\u043A\u043E\u043D\u044B\
-      \ \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E"
-    type: Tweak
-  - message: Asimov law set
-    type: Add
-  id: 160
-  time: '2024-02-27T12:00:28.0000000+00:00'
-  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/128
-- author: nairsark
-  changes:
-  - message: "RCD \u0438 \u0437\u0430\u0440\u044F\u0434\u044B RCD \u0438\u0437 \u043E\
-      \u0431\u044B\u0447\u043D\u044B\u0445 \u0438\u043D\u0436\u0435\u043D\u0435\u0440\
-      \u043D\u044B\u0445 \u0448\u043A\u0430\u0444\u0447\u0438\u043A\u043E\u0432."
-    type: Remove
-  - message: "\u0422\u043E\u043F\u043E\u0440 \u0441\u043D\u043E\u0432\u0430 \u043C\
-      \u043E\u0436\u0435\u0442 \u0441\u043D\u0438\u043C\u0430\u0442\u044C \u043D\u0430\
-      \u043F\u043E\u043B\u044C\u043D\u043E\u0435 \u043F\u043E\u043A\u0440\u044B\u0442\
-      \u0438\u0435"
-    type: Add
-  id: 161
-  time: '2024-02-27T12:07:11.0000000+00:00'
-  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/132
-- author: ThereDrD
-  changes:
-  - message: "\u0420\u0435\u0441\u043F\u0440\u0430\u0439\u0442 \u0441\u0442\u043E\u043B\
-      \u0430, \u043A\u043D\u0438\u0436\u043D\u044B\u0445 \u043F\u043E\u043B\u043E\u043A\
-      \ \u0438 \u0442\u0443\u043C\u0431\u043E\u0447\u043A\u0438"
-    type: Add
-  id: 162
-  time: '2024-02-28T14:00:28.0000000+00:00'
-  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/136
-- author: Aviu
-  changes:
-  - message: "\u041F\u0440\u0438 \u043F\u0440\u043E\u043C\u0430\u0445\u0435 \u041B\
-      \u041A\u041C \u0430\u0442\u0430\u043A\u043E\u0439 \u043A\u0443\u043B\u0434\u0430\
-      \u0443\u043D \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439 \u0430\u0442\
-      \u0430\u043A\u0438 \u0442\u0435\u043F\u0435\u0440\u044C \u0432\u0434\u0432\u043E\
-      \u0435 \u043C\u0435\u043D\u044C\u0448\u0435."
-    type: Tweak
-  id: 163
-  time: '2024-02-28T14:32:51.0000000+00:00'
-  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/140
 - author: ThereDrD
   changes:
   - message: "\u0424\u0438\u043A\u0441 \u0432\u0430\u0439\u0442\u043B\u0438\u0441\u0442\
@@ -8954,3 +8909,51 @@
   id: 659
   time: '2025-01-13T21:05:45.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/884
+- author: Ivangelion
+  changes:
+  - message: "\u041F\u043B\u0430\u0449 \u0438\u043D\u0441\u043F\u0435\u043A\u0442\u043E\
+      \u0440\u0430 \u0442\u0435\u043F\u0435\u0440\u044C \u043F\u0440\u0430\u0432\u0438\
+      \u043B\u044C\u043D\u043E \u0441\u0447\u0438\u0442\u0430\u0435\u0442\u0441\u044F\
+      \ \u0446\u0435\u043B\u044C\u044E \u0432\u043E\u0440\u0430"
+    type: Fix
+  id: 660
+  time: '2025-02-02T08:33:01.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/888
+- author: BIG_Zi_348
+  changes:
+  - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u043E \u0431\u043E\u043B\
+      \u044C\u0448\u0435 \u0432\u0435\u0449\u0435\u0439 \u0432 \u0434\u043E\u043D\u0430\
+      \u0442\u0448\u043E\u043F."
+    type: Add
+  id: 661
+  time: '2025-02-09T16:59:35.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/893
+- author: BIG_Zi_348
+  changes:
+  - message: "\u0418\u0441\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0430 \u043A\u043D\
+      \u043E\u043F\u043A\u0430 \u0434\u043E\u043D\u0430\u0442\u0448\u043E\u043F\u0430\
+      \ \u0434\u043B\u044F \u0441\u043B\u0430\u0439\u043C\u043E\u043B\u044E\u0434\u043E\
+      \u0432."
+    type: Fix
+  id: 662
+  time: '2025-02-09T19:10:11.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/895
+- author: Nonne46
+  changes:
+  - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u043E 70 \u043D\u043E\
+      \u0432\u044B\u0445 \u0433\u043E\u043B\u043E\u0441\u043E\u0432! Abaddon, Achemist,\
+      \ Anti-Mage, Arc Warden, Batrider, Bloodseeker, Bounty Hunter, Bristleback,\
+      \ Broodmother, Centaur Warrunner, Clinkz, Clockwerk, Crystal Maiden, Dazzle,\
+      \ Disruptor, Doom, Dragon Knight, Dragon Knight Dragon, Drow Ranger, Earthshaker,\
+      \ Ember Spirit, Enigma, Gyrocopter, Huskar, Invoker, Juggernaut, Keeper Of The\
+      \ Light, Kunkka, Legion Commander, Legion Commander Demon, Lich, Lina, Luna,\
+      \ Lycan, Lycan Wolf, Meepo, Mirana, Monkey King, Monkey King Crown, Necrophos,\
+      \ Nyx Assassin, Omniknight, Outworld Destroyer, Phantom Assassin, Phantom Assassin\
+      \ Arcana, Phantom Lancer, Pudge, Queen Of Pain, Razor, Riki, Rubick, Sand King,\
+      \ Shadow Fiend, Shadow Shaman, Skywrath Mage, Slardar, Slark, Spirit Breaker,\
+      \ Storm Spirit, Sven, Templar Assassin, Tidehunter, Treant Protector, Underlord,\
+      \ Ursa, Windranger, Winter Wyvern, Witch Doctor, Wraith King \u0438 Zeus."
+    type: Add
+  id: 663
+  time: '2025-02-09T19:40:49.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/897
