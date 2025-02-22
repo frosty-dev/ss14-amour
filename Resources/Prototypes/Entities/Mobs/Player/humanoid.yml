@@ -20,7 +20,7 @@
 
 - type: randomHumanoidSettings
   id: Nanotrasen
-  speciesBlacklist: 
+  speciesBlacklist:
     - Arachnid
     - Diona
     - Moth
@@ -706,6 +706,7 @@
     - type: RandomMetadata
       nameSegments:
       - names_clown
+    - type: Pacified # WD
 
 - type: randomHumanoidSettings
   id: ClownTroupeBanana
@@ -721,6 +722,7 @@
     - type: RandomMetadata
       nameSegments:
       - names_clown
+    - type: Pacified # WD
 
 # Traveling exotic chef
 
