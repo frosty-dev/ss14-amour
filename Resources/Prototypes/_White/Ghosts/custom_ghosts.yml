@@ -556,3 +556,12 @@
   alpha: 0.9
   ghostName: МГЕ Русланчек
   ghostDescription: Лучше бы ты даже из кроватки не вылезал.
+
+#Dragon4ik
+- type: customGhost
+  id: Dragon4ik-ghost
+  ckey: Dragon4ik
+  sprite: White/Ghosts/dragon4ik-ghost.rsi
+  alpha: 0.9
+  ghostName: Dragon4ik
+  ghostDescription: Роскошные синие волосы, украшенные изящными бантиками, плавными волнами спадают на её стройную фигуру, а за спиной распахиваются крылья — одно светлое и воздушное, другое тёмное и загадочное.
