@@ -9,7 +9,7 @@
   "states": [
     {
       "name": "animated",
-        "delays": [
+      "delays": [
             [
                 0.1,
                 0.1,
