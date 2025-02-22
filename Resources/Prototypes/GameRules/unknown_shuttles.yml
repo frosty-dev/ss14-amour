@@ -8,8 +8,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 5
-  # reoccurrenceDelay: 30 # Amour EDIT
-    maxOccurrences: 1 # Amour EDIT
+    reoccurrenceDelay: 30
     duration: 1
     maxOccurrences: 1 # WD
   - type: LoadMapRule
@@ -25,8 +24,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 5
-  # reoccurrenceDelay: 30 # Amour EDIT
-    maxOccurrences: 1 # Amour EDIT
+    reoccurrenceDelay: 30
     duration: 1
     maxOccurrences: 1 # WD
   - type: LoadMapRule
@@ -42,8 +40,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 5
-  # reoccurrenceDelay: 30 # Amour EDIT
-    maxOccurrences: 1 # Amour EDIT
+    reoccurrenceDelay: 30
     duration: 1
     maxOccurrences: 1 # WD
   - type: LoadMapRule
@@ -59,8 +56,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 2
-  # reoccurrenceDelay: 30 # Amour EDIT
-    maxOccurrences: 1 # Amour EDIT
+    reoccurrenceDelay: 30
     duration: 1
     maxOccurrences: 1 # WD
   - type: LoadMapRule
@@ -76,9 +72,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     weight: 2
-  # reoccurrenceDelay: 30 # Amour EDIT
-    maxOccurrences: 1 # Amour EDIT
-    minimumPlayers: 30 # Amour EDIT
+    reoccurrenceDelay: 30
     duration: 1
     maxOccurrences: 1 # WD
     earliestStart: 40 # WD
