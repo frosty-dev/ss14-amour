@@ -30,14 +30,14 @@ public sealed partial class InteractionPanelWindow : DefaultWindow
 
     public void AddButton(InteractionEntry entry)
     {
-        if(!_prototypeManager.TryIndex<InteractionPrototype>(entry.Prototype, out var prototype)
+        if (!_prototypeManager.TryIndex<InteractionPrototype>(entry.Prototype, out var prototype)
            || !_prototypeManager.TryIndex(prototype.Group, out var groupPrototype))
             return;
 
         if (!Groups.TryGetValue(prototype.Group, out var box))
             return;
 
-        if(DisCheckbox.Pressed && !entry.Enabled)
+        if (DisCheckbox.Pressed && !entry.Enabled)
             return;
 
         var btn = new InteractionPanelButton();
@@ -59,7 +59,7 @@ public sealed partial class InteractionPanelWindow : DefaultWindow
             var box = new BoxContainer();
             Interactions.AddChild(box);
             box.Orientation = BoxContainer.LayoutOrientation.Vertical;
-            Groups.Add(prototype.ID,Interactions.ChildCount - 1);
+            Groups.Add(prototype.ID, Interactions.ChildCount - 1);
         }
 
         var messageUser = new FormattedMessage();

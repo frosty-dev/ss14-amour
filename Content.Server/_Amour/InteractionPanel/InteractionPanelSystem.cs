@@ -40,11 +40,11 @@ public sealed class InteractionPanelSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<InteractionPanelComponent,GetVerbsEvent<Verb>>(OnVerb);
-        SubscribeLocalEvent<InteractionPanelComponent,ComponentInit>(OnInit);
-        SubscribeLocalEvent<InteractionPanelComponent,PanelDoAfterEvent>(OnPanel);
-        SubscribeLocalEvent<InteractionPanelComponent,ChangeDirectionAttemptEvent>(OnCancelable);
-        SubscribeLocalEvent<InteractionPanelComponent,UpdateCanMoveEvent>(OnCancelable);
+        SubscribeLocalEvent<InteractionPanelComponent, GetVerbsEvent<Verb>>(OnVerb);
+        SubscribeLocalEvent<InteractionPanelComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<InteractionPanelComponent, PanelDoAfterEvent>(OnPanel);
+        SubscribeLocalEvent<InteractionPanelComponent, ChangeDirectionAttemptEvent>(OnCancelable);
+        SubscribeLocalEvent<InteractionPanelComponent, UpdateCanMoveEvent>(OnCancelable);
     }
 
     private void OnCancelable(EntityUid uid, InteractionPanelComponent component, CancellableEntityEventArgs args)
@@ -58,12 +58,12 @@ public sealed class InteractionPanelSystem : EntitySystem
     private void OnPanel(EntityUid uid, InteractionPanelComponent component, PanelDoAfterEvent args)
     {
         component.IsBlocked = false;
-        if(args.Cancelled
+        if (args.Cancelled
            || !_prototypeManager.TryIndex<InteractionPrototype>(args.Prototype, out var prototype)
            || !TryComp<InteractionPanelComponent>(args.Target, out var targetInteractionPanelComponent))
             return;
 
-        Interact(new Entity<InteractionPanelComponent>(uid,component),new Entity<InteractionPanelComponent>(args.Target.Value,targetInteractionPanelComponent),prototype,false);
+        Interact(new Entity<InteractionPanelComponent>(uid, component), new Entity<InteractionPanelComponent>(args.Target.Value, targetInteractionPanelComponent), prototype, false);
     }
 
     private void OnInit(EntityUid uid, InteractionPanelComponent component, ComponentInit args)
@@ -84,14 +84,14 @@ public sealed class InteractionPanelSystem : EntitySystem
         args.Verbs.Add(new Verb()
         {
             Text = Loc.GetString("interaction-open"),
-            Act = () => OpenPanel(args.User,args.User,uid)
+            Act = () => OpenPanel(args.User, args.User, uid)
         });
     }
 
     public void OpenPanel(EntityUid panelOpener, Entity<InteractionPanelComponent?> user,
         Entity<InteractionPanelComponent?> target)
     {
-        if(!Resolve(user,ref user.Comp) || !Resolve(target,ref target.Comp)
+        if (!Resolve(user, ref user.Comp) || !Resolve(target, ref target.Comp)
                                         || !_playerManager.TryGetSessionByEntity(panelOpener, out var session))
             return;
 
@@ -99,8 +99,8 @@ public sealed class InteractionPanelSystem : EntitySystem
             return;
 
         _eui.OpenEui(new InteractionPanelEui(
-            new Entity<InteractionPanelComponent>(user,user.Comp),
-            new Entity<InteractionPanelComponent>(target,target.Comp)),
+            new Entity<InteractionPanelComponent>(user, user.Comp),
+            new Entity<InteractionPanelComponent>(target, target.Comp)),
             session);
     }
 
@@ -108,8 +108,8 @@ public sealed class InteractionPanelSystem : EntitySystem
         Entity<InteractionPanelComponent?> target, ProtoId<InteractionPrototype> protoId)
     {
         //TODO: Пиздец... пиздец.... пиздец....
-        if(   !Resolve(user,ref user.Comp)
-           || !Resolve(target,ref target.Comp)
+        if (!Resolve(user, ref user.Comp)
+           || !Resolve(target, ref target.Comp)
            || user.Comp.IsActive || user.Comp.IsBlocked
            || target.Comp.IsActive || target.Comp.IsBlocked
            || user.Comp.Timeout > _gameTiming.CurTime
@@ -120,28 +120,28 @@ public sealed class InteractionPanelSystem : EntitySystem
         if (!_mobStateSystem.IsAlive(user) || !_mobStateSystem.IsAlive(target))
             return;
 
-        if(!Check(user!,target!,prototype, out var check))
+        if (!Check(user!, target!, prototype, out var check))
         {
-            if(_playerManager.TryGetSessionByEntity(user,out var session) || session is null)
+            if (_playerManager.TryGetSessionByEntity(user, out var session) || session is null)
                 return;
 
             var message = ParseMessage(target, $"interaction-fail-{check.GetType().Name.ToLower()}");
-            _chatManager.ChatMessageToOne(ChatChannel.Emotes,message,message,EntityUid.Invalid,false,session.Channel);
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, message, EntityUid.Invalid, false, session.Channel);
             return;
         }
 
         if (prototype.BeginningTimeout == TimeSpan.Zero)
         {
-            Interact(user!,target!,prototype);
+            Interact(user!, target!, prototype);
             return;
         }
 
         user.Comp.IsBlocked = true;
 
-        if(prototype.PreBeginMessages.Count > 0)
+        if (prototype.PreBeginMessages.Count > 0)
         {
             _chatSystem.TrySendInGameICMessage(user,
-                ParseMessage(target,_robustRandom.Pick(prototype.PreBeginMessages)),
+                ParseMessage(target, _robustRandom.Pick(prototype.PreBeginMessages)),
                 InGameICChatType.Emote,
                 false);
         }
@@ -150,7 +150,7 @@ public sealed class InteractionPanelSystem : EntitySystem
             EntityManager,
             user,
             prototype.BeginningTimeout,
-            new PanelDoAfterEvent(prototype.ID),user,target
+            new PanelDoAfterEvent(prototype.ID), user, target
             )
         {
             BreakOnDamage = true,
@@ -162,13 +162,13 @@ public sealed class InteractionPanelSystem : EntitySystem
     private void Interact(Entity<InteractionPanelComponent> user,
         Entity<InteractionPanelComponent> target, InteractionPrototype prototype, bool hasChecked = true)
     {
-        if(!hasChecked && !Check(user,target,prototype, out var check))
+        if (!hasChecked && !Check(user, target, prototype, out var check))
         {
-            if(_playerManager.TryGetSessionByEntity(user,out var session) || session is null)
+            if (_playerManager.TryGetSessionByEntity(user, out var session) || session is null)
                 return;
 
             var message = ParseMessage(target, $"interaction-fail-{check.GetType().Name.ToLower()}");
-            _chatManager.ChatMessageToOne(ChatChannel.Emotes,message,message,EntityUid.Invalid,false,session.Channel);
+            _chatManager.ChatMessageToOne(ChatChannel.Emotes, message, message, EntityUid.Invalid, false, session.Channel);
             return;
         }
 
@@ -177,12 +177,12 @@ public sealed class InteractionPanelSystem : EntitySystem
         user.Comp.EndTime = _gameTiming.CurTime + prototype.EndTime;
         user.Comp.IsActive = true;
         user.Comp.CurrentAction = prototype.ID;
-        user.Comp.CurrentPartner = new Entity<InteractionPanelComponent>(target,target.Comp);
+        user.Comp.CurrentPartner = new Entity<InteractionPanelComponent>(target, target.Comp);
 
-        if(prototype.BeginningMessages.Count > 0)
+        if (prototype.BeginningMessages.Count > 0)
         {
             _chatSystem.TrySendInGameICMessage(user,
-                ParseMessage(target,_robustRandom.Pick(prototype.BeginningMessages)),
+                ParseMessage(target, _robustRandom.Pick(prototype.BeginningMessages)),
                 InGameICChatType.Emote,
                 false);
         }
@@ -192,18 +192,18 @@ public sealed class InteractionPanelSystem : EntitySystem
 
         foreach (var action in prototype.BeginningActions)
         {
-            action.Run(user!,target!,EntityManager);
+            action.Run(user!, target!, EntityManager);
         }
 
         _actionBlockerSystem.UpdateCanMove(user);
         _actionBlockerSystem.UpdateCanMove(target);
 
-        RaiseLocalEvent(user,new InteractionBeginningEvent(prototype.ID,user,target));
+        RaiseLocalEvent(user, new InteractionBeginningEvent(prototype.ID, user, target));
     }
 
     private string GetName(EntityUid target)
     {
-        if(!TryComp<MindComponent>(target,out var mind) || mind.CharacterName is null)
+        if (!TryComp<MindComponent>(target, out var mind) || mind.CharacterName is null)
             return MetaData(target).EntityName;
 
         return mind.CharacterName;
@@ -224,7 +224,7 @@ public sealed class InteractionPanelSystem : EntitySystem
     }
 
     public bool Check(Entity<InteractionPanelComponent> user,
-        Entity<InteractionPanelComponent> target, InteractionPrototype prototype,[NotNullWhen(false)] out IInteractionCheck? check)
+        Entity<InteractionPanelComponent> target, InteractionPrototype prototype, [NotNullWhen(false)] out IInteractionCheck? check)
     {
         check = null;
         foreach (var checkout in prototype.Checks.Where(check => !check.IsAvailable(user!, target!, EntityManager)))
@@ -243,7 +243,7 @@ public sealed class InteractionPanelSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var component))
         {
-            if(component.EndTime > _gameTiming.CurTime || !component.IsActive)
+            if (component.EndTime > _gameTiming.CurTime || !component.IsActive)
                 continue;
 
             if (component.CurrentPartner is null)
@@ -270,7 +270,7 @@ public sealed class InteractionPanelSystem : EntitySystem
 
                 foreach (var action in prototype.EndingActions)
                 {
-                    action.Run(user,component.CurrentPartner.Value,EntityManager);
+                    action.Run(user, component.CurrentPartner.Value, EntityManager);
                 }
             }
 

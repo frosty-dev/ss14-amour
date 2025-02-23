@@ -9,6 +9,10 @@ public sealed class HasSmallDistance : IInteractionCheck
     {
         var transformSystem = entityManager.System<SharedTransformSystem>();
 
+        if (!entityManager.HasComponent<TransformComponent>(user) ||
+            !entityManager.HasComponent<TransformComponent>(target))
+            return false;
+
         if (_range <= 0)
             return true;
 
