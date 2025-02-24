@@ -492,6 +492,7 @@
   alpha: 0.9
   ghostName: Nekovich
   ghostDescription: Law's Left Hand.
+  size: 1.0, 1.0
 
 #Feda_Plevajecki
 - type: customGhost
