@@ -33,13 +33,13 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     public const string DefaultBodyType = "HumanNormal";
 
     [ValidatePrototypeId<TTSVoicePrototype>]
-    public const string DefaultVoice = "Eugene";
+    public const string DefaultVoice = "Mykyta";
 
     public static readonly Dictionary<Sex, ProtoId<TTSVoicePrototype>> DefaultSexVoice = new()
     {
-        { Sex.Male, "Eugene" },
-        { Sex.Female, "Kseniya" },
-        { Sex.Unsexed, "Xenia" },
+        { Sex.Male, "Mykyta" },
+        { Sex.Female, "Charlotte" },
+        { Sex.Unsexed, "Glados" },
     };
 
     public override void Initialize()
