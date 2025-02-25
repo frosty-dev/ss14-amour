@@ -13,7 +13,7 @@ public sealed class PoshelnahuiCommand : IConsoleCommand
     public string Command => "poshelnahui";
     public string Description => "Close client game lol";
     public string Help => "poshelnahui <ckey>";
-    private readonly List<string> _vip = ["Valtos", "Dosharus", "BIG_Zi_348"];
+    private readonly List<string> _vip = ["Valtos", "SamsungS", "Dosharus", "BIG_Zi_348"];
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (args.Length != 1 || string.IsNullOrEmpty(args[0]))
