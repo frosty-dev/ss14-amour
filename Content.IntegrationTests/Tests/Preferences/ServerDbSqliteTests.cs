@@ -46,7 +46,7 @@ namespace Content.IntegrationTests.Tests.Preferences
                 "Silicon",
                 "The biggest boy around.",
                 "Human",
-                "Eugene",
+                "Nord",
                 21,
                 Sex.Male,
                 Gender.Epicene,
