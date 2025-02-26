@@ -517,8 +517,8 @@
   ckey: nekovich
   sprite: White/Ghosts/nekovich-ghost.rsi
   alpha: 0.9
-  ghostName: nekovich
-  ghostDescription:  Law's Left Hand.
+  ghostName: Nekovich
+  ghostDescription: Law's Left Hand.
 
 #Feda_Plevajecki
 - type: customGhost
@@ -555,7 +555,7 @@
   sprite: White/Ghosts/deliko-ghost.rsi
   alpha: 0.9
   ghostName: МГЕ Русланчек
-  ghostDescription: Лучше бы ты даже из кроватки не вылезал.
+  ghostDescription: Будешь машинистом в тепловозе.
 
 #Dragon4ik
 - type: customGhost
