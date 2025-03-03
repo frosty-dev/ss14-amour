@@ -1247,3 +1247,22 @@
     sprite: White/Fluff/Feda_Plevajecki/sho_form.rsi
   - type: Clothing
     sprite: White/Fluff/Feda_Plevajecki/sho_form.rsi
+
+# Korzinka_
+- type: marking
+  id: Korzinka__dogears
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  sponsorOnly: true
+  sprites:
+  - sprite: White/Fluff/Korzinka_/dogears.rsi
+    state: dogears
+
+- type: marking
+  id: Korzinka__dogtail
+  bodyPart: Tail
+  markingCategory: Tail
+  sponsorOnly: true
+  sprites:
+  - sprite: White/Fluff/Korzinka_/dogtail.rsi
+    state: dogtail
