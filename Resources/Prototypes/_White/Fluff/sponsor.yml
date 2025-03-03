@@ -469,3 +469,9 @@
   id: IMercuryITie
   entity: ClothingNeckTieIMercuryI
   sponsorOnly: true
+
+# Feda_Plevajecki
+- type: sponsorLoadout
+  id: Feda_PlevajeckiJumpsuit
+  entity: ClothingUniformJumpsuitAOI
+  sponsorOnly: true
