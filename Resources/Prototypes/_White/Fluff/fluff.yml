@@ -1235,3 +1235,15 @@
   sprites:
   - sprite: White/Fluff/Feda_Plevajecki/shark.rsi
     state: shark
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitAOI
+  name: Униформа АоИ
+  suffix: fluff
+  description: Форма соответствует стандартам современных военных подразделений, предназначенных для боевых действий в засушливых и пустынных условиях.
+  components:
+  - type: Sprite
+    sprite: White/Fluff/Feda_Plevajecki/sho_form.rsi
+  - type: Clothing
+    sprite: White/Fluff/Feda_Plevajecki/sho_form.rsi
