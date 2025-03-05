@@ -30,9 +30,10 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
+      sprite: White/Structures/deepSpaceCom.rsi
       state: comm
     - map: ["computerLayerKeys"]
-      state: generic_keys
+      state: id_key
   - type: ActivatableUI
     key: enum.DeepSpaceComUiKey.Key
   - type: UserInterface
