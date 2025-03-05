@@ -1,23 +1,24 @@
 - type: vendingMachineInventory
   id: SalvageEquipmentInventory
   startingInventory:
-    WeaponProtoKineticAccelerator: 2
-    WeaponCrusher: 1
-    WeaponCrusherDagger: 2
-    HandheldGPSBasic: 4
-    Crowbar: 2
-    BoxMRE: 3
+    WeaponProtoKineticAccelerator: 4 # WD start
     Pickaxe: 4
-    SurvivalKnife: 2
     OreBag: 4
+    SeismicCharge: 3
+    SurvivalKnife: 2
+    Crowbar: 2
     Flare: 10
     FlashlightLantern: 3
     Floodlight: 2
-    RadioHandheld: 4
-    InflatableWallStack1: 20
-    InflatableDoorStack1: 10
-    SeismicCharge: 3
+    PowerCellMedium: 3
+    HandheldGPSBasic: 3
+    RadioHandheld: 3
     FultonBeacon: 2
     Fulton: 3
+    BoxInflatable: 2
+    BoxMRE: 2
+    ClothingEyesGlassesMeson: 3
+    ClothingPouchMedical: 2
+    ClothingPouchGrenade: 2 # WD end
   emaggedInventory:
     JetpackBlackFilled: 1

@@ -14,7 +14,7 @@
     materialComposition:
       Cloth: 35
   - type: StaticPrice
-    price: 200
+    price: 50
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/White/Web/walk1.ogg

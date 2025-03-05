@@ -381,6 +381,10 @@
       - WeaponForceGun
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
+      - WeaponAdvancedProtoKineticAccelerator # WD start
+      - SeismicCharge
+      - WeaponCrusherDagger
+      - WeaponCrusher # WD end
       - WeaponTetherGun
       - WeaponGrapplingGun
       - ClothingBackpackHolding

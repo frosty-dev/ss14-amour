@@ -1,0 +1,59 @@
+- type: entity
+  parent: BaseItem
+  id: WeaponAdvancedProtoKineticAccelerator
+  name: advanced proto-kinetic accelerator
+  description: Apka.
+  components:
+  - type: Sprite
+    sprite: White/Objects/Weapons/advanced_kinetic.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: Item
+    sprite: White/Objects/Weapons/advanced_kinetic.rsi
+    size: Normal
+  - type: GunWieldBonus
+    minAngle: -43
+    maxAngle: -43
+  - type: Wieldable
+  - type: Gun
+    angleDecay: 45
+    minAngle: 44
+    maxAngle: 45
+    fireRate: 6
+    ShotsPerBurst: 3
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+  - type: AmmoCounter
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        empty-icon:
+          True: { visible: False }
+          False: { visible: True }
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.7
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+      params:
+        volume: -1
+        pitch: 1.2
+        variation: 0.08
+  - type: BasicEntityAmmoProvider
+    proto: BulletKinetic
+    capacity: 3
+    count: 2
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: UseDelay
+    delay: 1
