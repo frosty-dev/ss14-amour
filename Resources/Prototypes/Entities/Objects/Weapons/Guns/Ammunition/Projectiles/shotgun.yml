@@ -10,7 +10,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 40
+        Piercing: 50 # WD start
+  - type: StaminaDamageOnCollide
+    ignoreResistances: false
+    damage: 80 # WD end
 
 - type: entity
   id: PelletShotgunBeanbag
