@@ -30,10 +30,10 @@
 
 - type: entity
   parent: BaseBlueprint
-  id: BlueprintSeismicCharge
-  name: seismic charge blueprint
-  description: A blueprint with a schematic of a seismic charge. It can be inserted into an autolathe.
+  id: BlueprintMiningDrillDiamond # WD start
+  name: diamond mining drill blueprint
+  description: A blueprint with a schematic of a diamond mining drill. It can be inserted into an autolathe.
   components:
   - type: Blueprint
     providedRecipes:
-    - SeismicCharge
+    - MiningDrillDiamond # WD end
