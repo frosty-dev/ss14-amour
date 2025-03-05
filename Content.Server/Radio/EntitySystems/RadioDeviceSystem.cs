@@ -4,6 +4,7 @@ using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Radio.Components;
+using Content.Shared._White.DeepSpaceCom; // WD
 using Content.Server.Speech;
 using Content.Server.Speech.Components;
 using Content.Shared.UserInterface;
@@ -51,6 +52,11 @@ public sealed class RadioDeviceSystem : EntitySystem
         SubscribeLocalEvent<IntercomComponent, ToggleIntercomMicMessage>(OnToggleIntercomMic);
         SubscribeLocalEvent<IntercomComponent, ToggleIntercomSpeakerMessage>(OnToggleIntercomSpeaker);
         SubscribeLocalEvent<IntercomComponent, SelectIntercomChannelMessage>(OnSelectIntercomChannel);
+
+        SubscribeLocalEvent<DeepSpaceComComponent, BeforeActivatableUIOpenEvent>(OnBeforeDeepSpaceComUiOpen); // WD start
+        SubscribeLocalEvent<DeepSpaceComComponent, ToggleDeepSpaceComMicrophoneMessage>(OnToggleDeepSpaceComMic);
+        SubscribeLocalEvent<DeepSpaceComComponent, ToggleDeepSpaceComSpeakerMessage>(OnToggleDeepSpaceComSpeaker);
+        SubscribeLocalEvent<DeepSpaceComComponent, SelectDeepSpaceComChannelMessage>(OnSelectDeepSpaceComChannel); // WD end
     }
 
     public override void Update(float frameTime)
@@ -264,4 +270,55 @@ public sealed class RadioDeviceSystem : EntitySystem
         var state = new IntercomBoundUIState(micEnabled, speakerEnabled, availableChannels, selectedChannel);
         _ui.SetUiState(uid, IntercomUiKey.Key, state);
     }
+
+    private void OnBeforeDeepSpaceComUiOpen(EntityUid uid, DeepSpaceComComponent component, BeforeActivatableUIOpenEvent args) // WD start
+    {
+        UpdateDeepSpaceComUi(uid, component);
+    }
+
+    private void OnToggleDeepSpaceComMic(EntityUid uid, DeepSpaceComComponent component, ToggleDeepSpaceComMicrophoneMessage args)
+    {
+        if (component.RequiresPower && !this.IsPowered(uid, EntityManager))
+            return;
+
+        SetMicrophoneEnabled(uid, args.Actor, args.Enabled, true);
+        UpdateDeepSpaceComUi(uid, component);
+    }
+
+    private void OnToggleDeepSpaceComSpeaker(EntityUid uid, DeepSpaceComComponent component, ToggleDeepSpaceComSpeakerMessage args)
+    {
+        if (component.RequiresPower && !this.IsPowered(uid, EntityManager))
+            return;
+
+        SetSpeakerEnabled(uid, args.Actor, args.Enabled, true);
+        UpdateDeepSpaceComUi(uid, component);
+    }
+
+    private void OnSelectDeepSpaceComChannel(EntityUid uid, DeepSpaceComComponent component, SelectDeepSpaceComChannelMessage args)
+    {
+        if (component.RequiresPower && !this.IsPowered(uid, EntityManager))
+            return;
+
+        if (!_protoMan.TryIndex<RadioChannelPrototype>(args.Channel, out _) || !component.SupportedChannels.Contains(args.Channel))
+            return;
+
+        if (TryComp<RadioMicrophoneComponent>(uid, out var mic))
+            mic.BroadcastChannel = args.Channel;
+        if (TryComp<RadioSpeakerComponent>(uid, out var speaker))
+            speaker.Channels = new(){ args.Channel };
+        UpdateDeepSpaceComUi(uid, component);
+    }
+
+    private void UpdateDeepSpaceComUi(EntityUid uid, DeepSpaceComComponent component)
+    {
+        var micComp = CompOrNull<RadioMicrophoneComponent>(uid);
+        var speakerComp = CompOrNull<RadioSpeakerComponent>(uid);
+
+        var micEnabled = micComp?.Enabled ?? false;
+        var speakerEnabled = speakerComp?.Enabled ?? false;
+        var availableChannels = component.SupportedChannels;
+        var selectedChannel = micComp?.BroadcastChannel ?? SharedChatSystem.CommonChannel;
+        var state = new DeepSpaceComBoundUIState(micEnabled, speakerEnabled, availableChannels, selectedChannel);
+        _ui.SetUiState(uid, DeepSpaceComUiKey.Key, state);
+    } // WD end
 }
