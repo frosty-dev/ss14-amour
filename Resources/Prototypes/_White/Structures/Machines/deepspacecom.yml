@@ -1,0 +1,62 @@
+- type: entity
+  parent: BaseComputer
+  id: ComputerDeepSpaceCom
+  name: deep space communications desk
+  description: A computer.
+  components:
+  - type: ApcPowerReceiver
+  - type: Electrified
+    enabled: false
+    usesApcPower: true
+  - type: RadioMicrophone
+    powerRequired: true
+    unobstructedRequired: true
+    listenRange: 2
+    toggleOnInteract: false
+  - type: RadioSpeaker
+    toggleOnInteract: false
+  - type: DeepSpaceCom
+    supportedChannels:
+    - DeepSpace
+    - Common
+  - type: TTS # check tts work
+    id: Sentrybot
+  - type: Speech
+    speechVerb: Robotic
+  - type: Sprite # replace sprites in future
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      sprite: White/Structures/deepSpaceCom.rsi
+      state: comm
+    - map: ["computerLayerKeys"]
+      state: id_key
+  - type: ActivatableUI
+    key: enum.DeepSpaceComUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.DeepSpaceComUiKey.Key:
+        type: DeepSpaceComBoundUI
+  - type: Computer
+    board: DeepSpaceComComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#3c5eb5"
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic
+
+- type: entity
+  parent: BaseComputerCircuitboard
+  id: DeepSpaceComComputerCircuitboard
+  name: deepspacecom computer board
+  description: A computer printed circuit board for a DeepSpaceCom desk.
+  components:
+  - type: Sprite
+    state: cpu_command
+  - type: ComputerBoard
+    prototype: ComputerDeepSpaceCom
