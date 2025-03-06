@@ -10,7 +10,7 @@
     - ShellShotgun
   - type: CartridgeAmmo
     count: 6
-    spread: 28
+    spread: 14 # WD
     soundEject:
       collection: ShellEject
   - type: Sprite
@@ -125,9 +125,9 @@
       ammo:
         reagents:
         - ReagentId: ChloralHydrate
-          Quantity: 5
+          Quantity: 12 # WD
   - type: SolutionTransfer
-    maxTransferAmount: 7
+    maxTransferAmount: 15 # WD
   - type: SpentAmmoVisuals
     state: "practice"
 

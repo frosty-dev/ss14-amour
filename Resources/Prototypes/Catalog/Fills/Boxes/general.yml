@@ -441,6 +441,9 @@
   - type: Storage
     grid:
     - 0,0,9,2
+    whitelist: # WD start
+      components:
+      - ExtinguishOnInteract # WD end
   - type: StorageFill
     contents:
       - id: Candle
@@ -466,6 +469,9 @@
   - type: Storage
     grid:
     - 0,0,9,2
+    whitelist: # WD start
+      components:
+      - ExtinguishOnInteract # WD end
   - type: StorageFill
     contents:
       - id: CandleSmall

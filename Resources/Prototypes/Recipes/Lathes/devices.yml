@@ -212,6 +212,51 @@
     Glass: 500
     Silver: 100
 
+- type: latheRecipe # WD start
+  id: WeaponAdvancedProtoKineticAccelerator
+  result: WeaponAdvancedProtoKineticAccelerator
+  category: Weapons
+  completetime: 5
+  materials:
+    Steel: 800
+    Plasma: 400
+    Glass: 200
+    Uranium: 200
+    Silver: 300
+    Gold: 600
+
+- type: latheRecipe
+  id: SeismicCharge
+  result: SeismicCharge
+  category: Weapons
+  completetime: 3
+  materials:
+    Plastic: 800
+    Plasma: 100
+    Glass: 200
+
+- type: latheRecipe
+  id: WeaponCrusherDagger
+  result: WeaponCrusherDagger
+  category: Weapons
+  completetime: 5
+  materials:
+    Steel: 500
+    Plastic: 200
+    Silver: 100
+
+- type: latheRecipe
+  id: WeaponCrusher
+  result: WeaponCrusher
+  category: Weapons
+  completetime: 5
+  materials:
+    Steel: 2000
+    Plastic: 400
+    Glass: 300
+    Plasma: 300
+    Silver: 200 # WD end
+
 - type: latheRecipe
   id: WeaponTetherGun
   result: WeaponTetherGun

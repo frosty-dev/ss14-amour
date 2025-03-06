@@ -27,7 +27,7 @@
         - Patch
         - Healing
   - type: StaticPrice
-    price: 250
+    price: 75
   - type: Appearance
 
 - type: entity
@@ -50,8 +50,6 @@
         - SmokeOnTrigger
         - ClusterGrenade
         - ExplodeOnTrigger
-  - type: StaticPrice
-    price: 125
   - type: Appearance
 
 - type: entity
@@ -118,7 +116,7 @@
     maxFillLevels: 1
     fillBaseName: fill-
   - type: StaticPrice
-    price: 110
+    price: 40
   - type: Appearance
 
 - type: entity
@@ -165,5 +163,5 @@
     slots: [pocket, belt]
     quickEquip: false
   - type: StaticPrice
-    price: 150
+    price: 70
   - type: Appearance

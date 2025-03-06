@@ -26,6 +26,8 @@
         loop: true
         volume: -10
         maxDistance: 5
+  - type: StaticPrice # WD
+    price: 5 # WD
 
   - type: Sprite
     sprite: Objects/Misc/flare.rsi

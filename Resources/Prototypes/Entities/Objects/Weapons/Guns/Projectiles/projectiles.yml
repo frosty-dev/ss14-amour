@@ -420,6 +420,7 @@
     layers:
     - state: chronobolt
       shader: unshaded
+  - type: GatheringProjectile # WD
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
@@ -487,9 +488,10 @@
     damage:
       types:
         Blunt: 0
+        Structural: 15 # WD
   # Short lifespan
   - type: TimedDespawn
-    lifetime: 0.4
+    lifetime: 0.2 # WD
 
 - type: entity
   parent: BaseBullet

@@ -1,0 +1,29 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'deepspacecom-menu-title'}"
+                      MinSize="355 150"
+                      SetSize="355 150">
+    <BoxContainer Orientation="Vertical"
+                  HorizontalExpand="True"
+                  VerticalExpand="True"
+                  Margin="5 0 5 0">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" VerticalExpand="True">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="False" HorizontalAlignment="Left">
+                <Label Text="{Loc 'deepspacecom-channel-label'}"  HorizontalAlignment="Center"/>
+                <OptionButton Name="ChannelOptions" VerticalExpand="True" MinWidth="125"/>
+            </BoxContainer>
+        </BoxContainer>
+        <Control MinHeight="10"/>
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" HorizontalAlignment="Right" Margin="5 0 5 5">
+            <Button Name="MicButton" ToggleMode="True" Text="{Loc 'deepspacecom-button-text-mic'}" StyleClasses="OpenRight" MinWidth="70"/>
+            <Button Name="SpeakerButton" ToggleMode="True" Text="{Loc 'deepspacecom-button-text-speaker'}" StyleClasses="OpenLeft" MinWidth="70"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical">
+            <PanelContainer StyleClasses="LowDivider" />
+            <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
+                <Label Text="{Loc 'deepspacecom-flavor-text'}" StyleClasses="WindowFooterText"
+                       HorizontalAlignment="Right" HorizontalExpand="True"  Margin="0 0 5 0" />
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
