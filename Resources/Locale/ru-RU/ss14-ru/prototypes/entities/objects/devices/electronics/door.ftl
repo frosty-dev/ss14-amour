@@ -76,5 +76,3 @@ ent-DoorElectronicsTheatre = { ent-DoorElectronics }
     .desc = { ent-DoorElectronics.desc }
 ent-DoorElectronicsVault = { ent-DoorElectronics }
     .desc = { ent-DoorElectronics.desc }
-ent-DoorElectronicsMercenary = { ent-DoorElectronics }
-    .desc = { ent-DoorElectronics.desc }

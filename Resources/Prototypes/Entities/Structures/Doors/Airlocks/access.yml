@@ -1227,16 +1227,3 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSyndicateAgent ]
-
-# WD
-
-- type: entity
-  parent: Airlock
-  id: AirlockMercenaryLocked
-  suffix: Mercenary, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsMercenary ]
-  - type: Wires
-    layoutId: AirlockArmory

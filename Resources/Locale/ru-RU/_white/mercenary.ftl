@@ -28,3 +28,12 @@ ghost-role-information-mercenary-standard-rules = Вы - опытный наём
     Вы не помните ничего из своей предыдущей жизни, если администратор не сказал вам обратное.
     Вам разрешается помнить знания об игре в целом, например, как готовить, как использовать предметы и т.д.
     Вам [color=red]НЕ[/color] разрешается помнить, имя, внешность и т.д. вашего предыдущего персонажа.
+
+stamp-component-stamped-name-mercenary = Контракт
+
+ent-DoorElectronicsMercenary = { ent-DoorElectronics }
+    .desc = { ent-DoorElectronics.desc }
+
+ent-AirlockMercenaryLocked = { ent-Airlock }
+    .suffix = Наёмник, Закрыт
+    .desc = { ent-Airlock.desc } В углу имеется небольшой символ Администрации сектора.

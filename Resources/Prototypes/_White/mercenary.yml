@@ -1,0 +1,156 @@
+# Equipment
+- type: entity
+  parent: ClothingBackpackMerc
+  id: ClothingBackpackMercFilledStandard
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvival
+    - id: RubberStampMercenaries
+    - id: TelescopicBaton
+    - id: Zipties
+    - id: BoxMRE
+    - id: ThrowingKnivesKit
+    - id: CrowbarRed
+    - id: Tourniquet
+    - id: Lighter
+    - id: CigPackBlack
+    - id: SpaceCash500
+    - id: FlashlightLantern
+
+- type: startingGear
+  id: MercenaryStandardGear
+  equipment:
+    id: MercenaryIDCard
+    jumpsuit: ClothingUniformJumpsuitMercenary
+    back: ClothingBackpackMercFilledStandard
+    head: ClothingHeadBandMerc
+    mask: ClothingMaskGasMerc
+    eyes: ClothingEyesGlassesMercenary
+    ears: ClothingHeadsetFreelance
+    gloves: ClothingHandsMercGlovesCombat
+    outerClothing: ClothingOuterVestWebMerc
+    shoes: ClothingShoesBootsMercFilled
+    pocket1: ClothingPouchMedical
+    pocket2: ClothingPouchGrenade
+    belt: WeaponLaserSvalinn
+
+# Role
+- type: entity
+  name: mercenary standard spawner
+  id: MercenaryStandardSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Clothing\Mask\merc.rsi
+      state: icon
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidMercenaryStandard
+    chance: 1
+
+- type: entity
+  id: RandomHumanoidMercenaryStandard
+  name: mercenary standard ghost role
+  components:
+  - type: Sprite
+    sprite: Clothing\Mask\merc.rsi
+    state: icon
+  - type: RandomHumanoidSpawner
+    settings: MercenaryStandard
+
+- type: randomHumanoidSettings
+  id: MercenaryStandard
+  randomizeName: false
+  components:
+  - type: GhostRole
+    name: ghost-role-information-mercenary-standard-name
+    description: ghost-role-information-mercenary-standard-description
+    rules: ghost-role-information-mercenary-standard-rules
+    raffle:
+      settings: short
+  - type: GhostTakeoverAvailable
+  - type: Loadout
+    prototypes: [ MercenaryStandardGear ]
+  - type: RandomMetadata
+    nameSegments:
+    - names_first
+    - names_last
+
+# Book
+- type: entity
+  parent: BookBase
+  id: BookMercenary
+  name: history of mercenaries from the beginning of time
+  description: The book tells about different forms of mercenary work in several historical periods. The author condemns the phenomenon itself, but it is still interesting to read.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_old
+      color: "#65802d"
+    - state: decor_diagonal
+      color: "#737334"
+    - state: decor_wingette_circle
+      color: gold
+    - state: icon_question
+    - state: detail_bookmark
+      color: "#0a0a09"
+  - type: Paper
+    content: book-text-merc
+
+# Stamp
+- type: entity
+  name: mercenaries rubber stamp
+  parent: RubberStampBase
+  id: RubberStampMercenaries
+  suffix: DO NOT MAP
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-mercenary
+    stampedColor: "#36451b"
+    stampState: "paper_stamp-mercenary"
+  - type: Sprite
+    state: stamp-mercenary
+
+# Airlock
+- type: accessLevel
+  id: Mercenary
+  name: id-card-access-level-mercenary
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsMercenary
+  suffix: Mercenary, Locked
+  components:
+  - type: AccessReader
+    access: [["Mercenary"]]
+
+- type: entity
+  parent: IDCardStandard
+  id: MercenaryIDCard
+  name: mercenary ID card
+  suffix: Merc
+  components:
+  - type: Sprite
+    layers:
+    - state: non_faction
+  - type: Access
+    tags:
+    - Mercenary
+
+- type: entity
+  parent: Airlock
+  id: AirlockMercenaryLocked
+  suffix: Mercenary, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMercenary ]
+  - type: Wires
+    layoutId: AirlockArmory
+

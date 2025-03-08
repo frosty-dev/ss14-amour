@@ -311,6 +311,3 @@ ent-AirlockSecurityLawyerLocked = { ent-Airlock }
     .desc = { ent-Airlock.desc }
 ent-AirlockSyndicateLocked = { ent-Airlock }
     .desc = { ent-Airlock.desc }
-ent-AirlockMercenaryLocked = { ent-Airlock }
-    .suffix = Наёмник, Закрыт
-    .desc = { ent-Airlock.desc } В углу имеется небольшой символ Администрации сектора.
