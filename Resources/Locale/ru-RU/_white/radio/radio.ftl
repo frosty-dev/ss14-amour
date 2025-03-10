@@ -1,0 +1,10 @@
+ent-EncryptionKeyStationMasterAnotherSector = { ent-EncryptionKeyStationMaster }
+    .desc = { ent-EncryptionKeyStationMaster.desc } К сожалению, коды шифрования в этом секторе другие.
+ent-EncryptionKeyMedicalAnotherSector = { ent-EncryptionKeyMedical }
+    .desc = { ent-EncryptionKeyMedical.desc } К сожалению, коды шифрования в этом секторе другие.
+ent-EncryptionKeyCommandAnotherSector = { ent-EncryptionKeyCommand }
+    .desc = { ent-EncryptionKeyCommand.desc } К сожалению, коды шифрования в этом секторе другие.
+ent-EncryptionKeyScienceAnotherSector = { ent-EncryptionKeyScience }
+    .desc = { ent-EncryptionKeyScience.desc } К сожалению, коды шифрования в этом секторе другие.
+ent-EncryptionKeyCargoAnotherSector = { ent-EncryptionKeyCargo }
+    .desc = { ent-EncryptionKeyCargo.desc } К сожалению, коды шифрования в этом секторе другие.

@@ -1,0 +1,59 @@
+- type: entity
+  parent: ClothingHeadsetAlt
+  id: ClothingHeadsetAltCommandAnotherSector
+  name: command over-ear headset
+  suffix: Another Sector
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyStationMasterAnotherSector
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/command.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/command.rsi
+
+- type: entity
+  parent: ClothingHeadsetMedical
+  id: ClothingHeadsetCMOAnotherSector
+  name: cmo headset
+  description: A headset used by the CMO.
+  suffix: Another Sector
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyMedicalAnotherSector
+      - EncryptionKeyCommandAnotherSector
+      - EncryptionKeyCommon
+
+- type: entity
+  parent: ClothingHeadsetScience
+  id: ClothingHeadsetRDAnotherSector
+  name: rd headset
+  description: Lamarr used to love chewing on this...
+  suffix: Another Sector
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyScienceAnotherSector
+      - EncryptionKeyCommandAnotherSector
+      - EncryptionKeyCommon
+
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetCargoAnotherSector
+  name: cargo headset
+  description: A headset used by supply employees.
+  suffix: Another Sector
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCargoAnotherSector
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/cargo.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/cargo.rsi

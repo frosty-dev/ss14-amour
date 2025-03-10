@@ -814,6 +814,7 @@
       settings: DisasterVictimCaptain
 
 - type: randomHumanoidSettings
+  parent: Nanotrasen # WD
   id: DisasterVictimResearchDirector
   randomizeName: false
   components:
@@ -832,6 +833,7 @@
       - names_last
 
 - type: randomHumanoidSettings
+  parent: Nanotrasen # WD
   id: DisasterVictimCMO
   randomizeName: false
   components:
@@ -850,6 +852,7 @@
       - names_last
 
 - type: randomHumanoidSettings
+  parent: Nanotrasen # WD
   id: DisasterVictimCaptain
   randomizeName: false
   components:
