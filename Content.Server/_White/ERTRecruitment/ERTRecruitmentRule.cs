@@ -137,7 +137,7 @@ public sealed class ERTRecruitmentRule : StationEventSystem<ERTRecruitmentRuleCo
             if (component.TargetStation != null)
                 AcceptERT(component.TargetStation.Value);
 
-            _recruitment.EndRecruitment(ERTRecruitmentRuleComponent.EventName);
+            _recruitment.EndRecruitment(ERTRecruitmentRuleComponent.EventName, component.OverallPlaytime);
             ertsys.IsDisabled = true;
         }
 
