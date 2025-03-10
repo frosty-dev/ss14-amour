@@ -1,0 +1,31 @@
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelMedical
+  id: ClothingBackpackSatchelMedicalAnotherSector
+  components:
+  - type: StorageFill
+    contents:
+      - id: OmnizineChemistryBottle
+      - id: OmnizineChemistryBottle
+      - id: OmnizineChemistryBottle
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelCaptain
+  id: ClothingBackpackSatchelCaptainAnotherSector
+  components:
+  - type: StorageFill
+    contents:
+      - id: SpaceCash30000
+
+- type: entity
+  noSpawn: true
+  parent: ClothingBackpackSatchelScience
+  id: ClothingBackpackSatchelScienceAnotherSector
+  components:
+  - type: StorageFill
+    contents:
+      - id: ResearchDisk10000
+      - id: ResearchDisk10000
+      - id: ResearchDisk10000
+      - id: ResearchDisk10000

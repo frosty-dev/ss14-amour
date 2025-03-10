@@ -379,7 +379,7 @@
     head: ClothingHeadMirror
     neck: ClothingCloakCmo
     id: CMOPDA
-    back: ClothingBackpackMedical
+    back: ClothingBackpackMedicalAnotherSector # WD
     ears: ClothingHeadsetCMOAnotherSector # WD
     belt: ClothingBeltMedical
     outerClothing: ClothingOuterCoatLabCmo
@@ -392,7 +392,7 @@
     head: ClothingHeadHatBeretCmo
     neck: ClothingNeckMantleCMO
     id: CMOPDA
-    back: ClothingBackpackSatchelMedical
+    back: ClothingBackpackSatchelMedicalAnotherSector # WD
     ears: ClothingHeadsetCMOAnotherSector # WD
     belt: ClothingBeltMedical
     outerClothing: ClothingOuterCoatLabCmo
@@ -408,7 +408,7 @@
     head: ClothingHeadHatCaptain
     neck: ClothingNeckCloakCap
     id: CaptainPDA
-    back: ClothingBackpackCaptain
+    back: ClothingBackpackCaptainAnotherSector # WD
     ears: ClothingHeadsetAltCommandAnotherSector # WD
     outerClothing: ClothingOuterArmorCaptainCarapace
 
@@ -422,7 +422,7 @@
     head: ClothingHeadHatCapcap
     neck: ClothingNeckMantleCap
     id: CaptainPDA
-    back: ClothingBackpackSatchelCaptain
+    back: ClothingBackpackSatchelCaptainAnotherSector # WD
     ears: ClothingHeadsetAltCommandAnotherSector # WD
     outerClothing: ClothingOuterArmorCaptainCarapace
 
@@ -435,7 +435,7 @@
     head: ClothingHeadHatBeretRND
     neck: ClothingNeckCloakRd
     id: RnDPDA
-    back: ClothingBackpackScience
+    back: ClothingBackpackScienceAnotherSector # WD
     ears: ClothingHeadsetRDAnotherSector # WD
     outerClothing: ClothingOuterCoatRD
 
@@ -447,6 +447,6 @@
     head: ClothingHeadHatBeretRND
     neck: ClothingNeckMantleRD
     id: RnDPDA
-    back: ClothingBackpackSatchelScience
+    back: ClothingBackpackSatchelScienceAnotherSector # WD
     ears: ClothingHeadsetRDAnotherSector # WD
     outerClothing: ClothingOuterCoatRD
