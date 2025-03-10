@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseSign
+  id: PicturesBase
+  abstract: true
+  components:
+  - type: WallMount
+    arc: 360
+  - type: Sprite
+    drawdepth: WallTops
+    sprite: White/Structures/pictures.rsi
+    scale: 0.3, 0.3
+
+- type: entity
+  parent: PicturesBase
+  id: PictureFrozenMoment
+  name: замерзший момент
+  description: Он тянет руку с кольцом, она отворачивается. Между ними — тишина, в которой может скрываться как отказ, так и надежда.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    state: frozenmoment

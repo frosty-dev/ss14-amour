@@ -1,0 +1,11 @@
+{
+    "version": 1,
+    "copyright": "frozenmoment made by Kaynydy",
+    "size": {
+        "x": 96,
+        "y": 96
+    },
+    "states": [
+        { "name": "frozenmoment" }
+    ]
+}
