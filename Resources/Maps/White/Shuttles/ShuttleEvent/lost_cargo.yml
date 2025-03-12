@@ -17,7 +17,7 @@ entities:
       name: Cargo shuttle
     - type: Transform
       pos: 2.2710133,-2.4148211
-      parent: invalid
+      parent: 140
     - type: MapGrid
       chunks:
         -1,0:
@@ -193,6 +193,14 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: OccluderTree
     - type: Shuttle
@@ -202,6 +210,19 @@ entities:
     - type: GravityShake
       shakeTimes: 10
     - type: GasTileOverlay
+  - uid: 140
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
+    - type: LoadedMap
 - proto: AirCanister
   entities:
   - uid: 2
@@ -209,6 +230,8 @@ entities:
     - type: Transform
       pos: -3.5,-1.5
       parent: 1
+    - type: PolymorphableCanister
+      currentPrototype: AirCanister
 - proto: AirlockGlassShuttle
   entities:
   - uid: 3
@@ -303,7 +326,7 @@ entities:
   - uid: 93
     components:
     - type: Transform
-      pos: -1.3692467,7.6214685
+      pos: -3.7203684,7.754469
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -635,6 +658,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: -2.5,7.5
       parent: 1
+- proto: ComputerDeepSpaceCom
+  entities:
+  - uid: 194
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -1.5,7.5
+      parent: 1
 - proto: ComputerShuttle
   entities:
   - uid: 80
@@ -879,12 +910,6 @@ entities:
       parent: 1
 - proto: LostCargoTechnicianSpawner
   entities:
-  - uid: 69
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,2.5
-      parent: 1
   - uid: 187
     components:
     - type: Transform
@@ -946,6 +971,13 @@ entities:
       parent: 1
     - type: ApcPowerReceiver
       powerLoad: 0
+- proto: RandomCash
+  entities:
+  - uid: 195
+    components:
+    - type: Transform
+      pos: -3.5,7.5
+      parent: 1
 - proto: RandomPosterAny
   entities:
   - uid: 124
@@ -1100,11 +1132,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,7.5
-      parent: 1
-  - uid: 140
-    components:
-    - type: Transform
-      pos: -1.5,7.5
       parent: 1
 - proto: Thruster
   entities:
