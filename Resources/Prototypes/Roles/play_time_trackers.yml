@@ -169,3 +169,15 @@
 
 - type: playTimeTracker
   id: JobMaid
+
+- type: playTimeTracker
+  id: JobCargoTechnicianAnotherSector
+
+- type: playTimeTracker
+  id: JobChiefMedicalOfficerAnotherSector
+
+- type: playTimeTracker
+  id: JobCaptainAnotherSector
+
+- type: playTimeTracker
+  id: JobResearchDirectorAnotherSector

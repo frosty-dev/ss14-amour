@@ -5,7 +5,7 @@
 
 - type: preloadedGrid
   id: ShuttleCargoLost
-  path: /Maps/Shuttles/ShuttleEvent/lost_cargo.yml
+  path: /Maps/Shuttles/ShuttleEvent/White/lost_cargo.yml
   copies: 1 # WD from 2 to 1
 
 - type: preloadedGrid

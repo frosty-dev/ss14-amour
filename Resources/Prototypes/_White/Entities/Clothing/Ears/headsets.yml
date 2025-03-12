@@ -1,23 +1,16 @@
 - type: entity
-  parent: ClothingHeadsetAlt
+  parent: ClothingHeadsetAltCommand
   id: ClothingHeadsetAltCommandAnotherSector
-  name: command over-ear headset
   suffix: Another Sector
   components:
   - type: ContainerFill
     containers:
       key_slots:
       - EncryptionKeyStationMasterAnotherSector
-  - type: Sprite
-    sprite: Clothing/Ears/Headsets/command.rsi
-  - type: Clothing
-    sprite: Clothing/Ears/Headsets/command.rsi
 
 - type: entity
   parent: ClothingHeadsetMedical
   id: ClothingHeadsetCMOAnotherSector
-  name: cmo headset
-  description: A headset used by the CMO.
   suffix: Another Sector
   components:
   - type: ContainerFill
@@ -30,8 +23,6 @@
 - type: entity
   parent: ClothingHeadsetScience
   id: ClothingHeadsetRDAnotherSector
-  name: rd headset
-  description: Lamarr used to love chewing on this...
   suffix: Another Sector
   components:
   - type: ContainerFill
@@ -42,10 +33,8 @@
       - EncryptionKeyCommon
 
 - type: entity
-  parent: ClothingHeadset
+  parent: ClothingHeadsetCargo
   id: ClothingHeadsetCargoAnotherSector
-  name: cargo headset
-  description: A headset used by supply employees.
   suffix: Another Sector
   components:
   - type: ContainerFill
@@ -53,7 +42,13 @@
       key_slots:
       - EncryptionKeyCargoAnotherSector
       - EncryptionKeyCommon
-  - type: Sprite
-    sprite: Clothing/Ears/Headsets/cargo.rsi
-  - type: Clothing
-    sprite: Clothing/Ears/Headsets/cargo.rsi
+
+- type: entity
+  parent: ClothingHeadsetService
+  id: ClothingHeadsetServiceContractor
+  noSpawn: true
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon

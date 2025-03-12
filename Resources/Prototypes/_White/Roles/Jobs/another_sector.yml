@@ -1,0 +1,34 @@
+- type: job
+  id: CargoTechnicianAnotherSector
+  name: job-name-cargotech
+  description: job-description-cargotech
+  playTimeTracker: JobCargoTechnicianAnotherSector
+  icon: "JobIconCargoTechnician"
+  supervisors: job-supervisors-qm
+
+- type: job
+  id: ChiefMedicalOfficerAnotherSector
+  name: job-name-cmo
+  description: job-description-cmo
+  playTimeTracker: JobChiefMedicalOfficerAnotherSector
+  icon: "JobIconChiefMedicalOfficer"
+  supervisors: job-supervisors-captain
+
+- type: job
+  id: CaptainAnotherSector
+  name: job-name-captain
+  description: job-description-captain
+  playTimeTracker: JobCaptainAnotherSector
+  icon: "JobIconCaptain"
+  supervisors: job-supervisors-centcom
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: job
+  id: ResearchDirectorAnotherSector
+  name: job-name-rd
+  description: job-description-rd
+  playTimeTracker: JobResearchDirectorAnotherSector
+  icon: "JobIconResearchDirector"
+  supervisors: job-supervisors-captain

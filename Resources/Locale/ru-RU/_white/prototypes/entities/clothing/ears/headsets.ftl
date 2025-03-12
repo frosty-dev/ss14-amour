@@ -6,3 +6,5 @@ ent-ClothingHeadsetRDAnotherSector = { ent-ClothingHeadsetRD }
     .desc = { ent-ClothingHeadsetRD.desc }
 ent-ClothingHeadsetCargoAnotherSector = { ent-ClothingHeadsetCargo }
     .desc = { ent-ClothingHeadsetCargo.desc }
+ent-ClothingHeadsetServiceContractor = { ent-ClothingHeadsetService }
+    .desc = { ent-ClothingHeadsetService.desc }
