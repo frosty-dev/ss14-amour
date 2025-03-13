@@ -28,7 +28,7 @@ entities:
     - type: MetaData
     - type: Transform
       pos: 0.3842575,0.4217209
-      parent: invalid
+      parent: 451
     - type: MapGrid
       chunks:
         -1,-1:
@@ -602,6 +602,18 @@ entities:
     - type: RadiationGridResistance
     - type: SpreaderGrid
     - type: GridPathfinding
+  - uid: 451
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AirlockExternalGlass
   entities:
   - uid: 3
@@ -2134,6 +2146,14 @@ entities:
     - type: Transform
       pos: -3.6894722,2.437179
       parent: 2
+- proto: DeepSpaceComWallMount
+  entities:
+  - uid: 774
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -2.5,10.5
+      parent: 2
 - proto: DiceBag
   entities:
   - uid: 285
@@ -2155,6 +2175,8 @@ entities:
     - type: Transform
       pos: -4.5,2.5
       parent: 2
+    - type: FaxMachine
+      name: Неизвестный
 - proto: FigureSpawner
   entities:
   - uid: 288
@@ -2772,6 +2794,18 @@ entities:
     - type: Transform
       pos: 0.5,-15.5
       parent: 2
+- proto: GeraldiyRubberStamp
+  entities:
+  - uid: 775
+    components:
+    - type: MetaData
+      desc: Старая и потёртая печать. На ней почти высохли чернила, но она все ещё может послужить убедительным аргументом в руках нужных людей.
+      name: печать федерации волшебников
+    - type: Transform
+      pos: -4.0507927,2.3569171
+      parent: 2
+    - type: Stamp
+      stampedName: Федерация Волшебников
 - proto: GravityGeneratorMini
   entities:
   - uid: 390

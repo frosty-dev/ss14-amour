@@ -326,7 +326,7 @@ entities:
   - uid: 93
     components:
     - type: Transform
-      pos: -3.7203684,7.754469
+      pos: -1.366688,7.6937246
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -604,6 +604,12 @@ entities:
     - type: Transform
       pos: -0.5,-0.5
       parent: 1
+  - uid: 69
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -0.5,2.5
+      parent: 1
   - uid: 71
     components:
     - type: Transform
@@ -644,14 +650,14 @@ entities:
     - type: Transform
       pos: -0.5,5.5
       parent: 1
-- proto: ChairPilotSeat
-  entities:
-  - uid: 70
+  - uid: 139
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,2.5
+      rot: 1.5707963267948966 rad
+      pos: -1.5,2.5
       parent: 1
+- proto: ChairPilotSeat
+  entities:
   - uid: 79
     components:
     - type: Transform
@@ -663,8 +669,8 @@ entities:
   - uid: 194
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.5,7.5
+      rot: 1.5707963267948966 rad
+      pos: -3.5,7.5
       parent: 1
 - proto: ComputerShuttle
   entities:
@@ -810,12 +816,12 @@ entities:
   - uid: 99
     components:
     - type: Transform
-      pos: -3.2915764,7.812316
+      pos: -1.616936,7.547891
       parent: 1
   - uid: 100
     components:
     - type: Transform
-      pos: -3.4715438,7.654894
+      pos: -1.53352,7.422891
       parent: 1
 - proto: GasPipeBend
   entities:
@@ -973,10 +979,10 @@ entities:
       powerLoad: 0
 - proto: RandomCash
   entities:
-  - uid: 195
+  - uid: 126
     components:
     - type: Transform
-      pos: -3.5,7.5
+      pos: -1.5,7.5
       parent: 1
 - proto: RandomPosterAny
   entities:
@@ -1122,16 +1128,10 @@ entities:
       parent: 1
 - proto: TableReinforced
   entities:
-  - uid: 126
+  - uid: 70
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -1.5,2.5
-      parent: 1
-  - uid: 139
-    components:
-    - type: Transform
-      pos: -3.5,7.5
+      pos: -1.5,7.5
       parent: 1
 - proto: Thruster
   entities:
