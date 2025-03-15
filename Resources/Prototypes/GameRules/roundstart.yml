@@ -316,7 +316,7 @@
         color: Aqua
       startingGear: WizardGear
       components:
-      - type: Unslavable
+      - type: Unslavable # WD
       - type: Wizard
       - type: WizardAppearance
       - type: GlobalAntagonist
