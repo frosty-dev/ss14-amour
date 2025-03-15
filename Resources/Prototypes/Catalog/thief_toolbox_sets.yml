@@ -111,19 +111,19 @@
   - SmokeGrenade
   - SmokeGrenade
 
-- type: thiefBackpackSet
-  id: SlaverySet
-  name: thief-backpack-category-slavery-name
-  description: thief-backpack-category-slavery-description
-  sprite:
-    sprite: /Textures/Clothing/Head/Hats/syndiecap_maa.rsi
-    state: icon
-  content:
-  - MindSlaveImplanter
-  - MindSlaveImplanter
-  - MindSlaveImplanter
-  - ClothingOuterCoatSyndieCap
-  - ClothingHeadHatSyndieMAA
+# - type: thiefBackpackSet # Буквальная легализация армии  метадружков
+#   id: SlaverySet
+#   name: thief-backpack-category-slavery-name
+#   description: thief-backpack-category-slavery-description
+#   sprite:
+#     sprite: /Textures/Clothing/Head/Hats/syndiecap_maa.rsi
+#     state: icon
+#   content:
+#   - MindSlaveImplanter
+#   - MindSlaveImplanter
+#   - MindSlaveImplanter
+#   - ClothingOuterCoatSyndieCap
+#   - ClothingHeadHatSyndieMAA
 
 - type: thiefBackpackSet
   id: HiTechSet
