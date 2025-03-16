@@ -111,7 +111,7 @@
   - SmokeGrenade
   - SmokeGrenade
 
-# - type: thiefBackpackSet # Буквальная легализация армии  метадружков
+# - type: thiefBackpackSet # Буквальная легализация армии метадружков
 #   id: SlaverySet
 #   name: thief-backpack-category-slavery-name
 #   description: thief-backpack-category-slavery-description
