@@ -21,9 +21,6 @@
   playTimeTracker: JobCaptainAnotherSector
   icon: "JobIconCaptain"
   supervisors: job-supervisors-centcom
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
 
 - type: job
   id: ResearchDirectorAnotherSector
@@ -32,3 +29,23 @@
   playTimeTracker: JobResearchDirectorAnotherSector
   icon: "JobIconResearchDirector"
   supervisors: job-supervisors-captain
+
+- type: job
+  id: ClownContractor
+  name: клоун контрактник
+  description: job-description-clown
+  playTimeTracker: JobClownContractor
+  icon: "JobIconVisitor"
+  supervisors: job-supervisors-hop
+  access:
+  - ClownContractor
+
+- type: job
+  id: ChefContractor
+  name: шеф-повар контрактник
+  description: job-description-chef
+  playTimeTracker: JobChefContractor
+  icon: "JobIconVisitor"
+  supervisors: job-supervisors-hop
+  access:
+  - ChefContractor

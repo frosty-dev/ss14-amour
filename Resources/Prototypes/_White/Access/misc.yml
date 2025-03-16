@@ -1,0 +1,18 @@
+- type: accessGroup
+  id: Everything
+  tags:
+  - AllAccess
+  - NuclearOperative
+  - SyndicateAgent
+  - CentralCommand
+  - Mercenary
+  - ClownContractor
+  - ChefContractor
+
+- type: accessLevel
+  id: ClownContractor
+  name: Клоун контрактник
+
+- type: accessLevel
+  id: ChefContractor
+  name: Шеф-повар контрактник

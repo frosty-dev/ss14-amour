@@ -1,0 +1,235 @@
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsClownContractor
+  suffix: ClownContractor, Locked
+  components:
+  - type: AccessReader
+    access: [["ClownContractor"]]
+
+- type: entity
+  parent: Airlock
+  id: AirlockClownContractorLocked
+  suffix: ClownContractor, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClownContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockClownContractorGlassLocked
+  suffix: ClownContractor, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClownContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: AirlockShuttle
+  id: AirlockClownContractorShuttleLocked
+  suffix: ClownContractor, Docking, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClownContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockClownContractorGlassShuttleLocked
+  suffix: ClownContractor, Glass, Docking, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClownContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: Windoor
+  id: WindoorClownContractorLocked
+  suffix: ClownContractor, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClownContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureClownContractorLocked
+  suffix: ClownContractor, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClownContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorPlasma
+  id: PlasmaWindoorClownContractorLocked
+  suffix: ClownContractor, Locked, Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClownContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorUranium
+  id: UraniumWindoorClownContractorLocked
+  suffix: ClownContractor, Locked, Uranium
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClownContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorSecurePlasma
+  id: PlasmaWindoorSecureClownContractorLocked
+  suffix: ClownContractor, Locked, Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClownContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorSecureUranium
+  id: UraniumWindoorSecureClownContractorLocked
+  suffix: ClownContractor, Locked, Uranium
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsClownContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsChefContractor
+  suffix: ChefContractor, Locked
+  components:
+  - type: AccessReader
+    access: [["ChefContractor"]]
+
+- type: entity
+  parent: Airlock
+  id: AirlockChefContractorLocked
+  suffix: ChefContractor, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChefContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockChefContractorGlassLocked
+  suffix: ChefContractor, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChefContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: AirlockShuttle
+  id: AirlockChefContractorShuttleLocked
+  suffix: ChefContractor, Docking, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChefContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockChefContractorGlassShuttleLocked
+  suffix: ChefContractor, Glass, Docking, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChefContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: Windoor
+  id: WindoorChefContractorLocked
+  suffix: ChefContractor, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChefContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureChefContractorLocked
+  suffix: ChefContractor, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChefContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorPlasma
+  id: PlasmaWindoorChefContractorLocked
+  suffix: ChefContractor, Locked, Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChefContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorUranium
+  id: UraniumWindoorChefContractorLocked
+  suffix: ChefContractor, Locked, Uranium
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChefContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorSecurePlasma
+  id: PlasmaWindoorSecureChefContractorLocked
+  suffix: ChefContractor, Locked, Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChefContractor ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorSecureUranium
+  id: UraniumWindoorSecureChefContractorLocked
+  suffix: ChefContractor, Locked, Uranium
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsChefContractor ]
+  - type: Wires
+    layoutId: AirlockArmory

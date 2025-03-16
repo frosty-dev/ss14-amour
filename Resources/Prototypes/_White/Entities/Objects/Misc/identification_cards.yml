@@ -29,3 +29,23 @@
   components:
   - type: PresetIdCard
     job: ResearchDirectorAnotherSector
+
+- type: entity
+  parent: IDCardStandard
+  id: ClownIDCardContractor
+  components:
+  - type: Sprite
+    layers:
+    - state: non_faction
+  - type: PresetIdCard
+    job: ClownContractor
+
+- type: entity
+  parent: IDCardStandard
+  id: ChefIDCardContractor
+  components:
+  - type: Sprite
+    layers:
+    - state: non_faction
+  - type: PresetIdCard
+    job: ChefContractor

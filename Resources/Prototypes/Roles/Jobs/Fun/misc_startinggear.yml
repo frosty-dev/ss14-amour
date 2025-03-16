@@ -313,7 +313,7 @@
 - type: startingGear
   id: BananaClown
   equipment:
-    id: ClownPDA # TODO
+    id: ClownIDCardContractor # WD
     back: ClothingBackpackClown
     shoes: ClothingShoesClownBanana
     jumpsuit: ClothingUniformJumpsuitClownBanana
@@ -328,7 +328,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitClown
     shoes: ClothingShoesClown
-    id: ClownPDA # TODO
+    id: ClownIDCardContractor # WD
     back: ClothingBackpackClown
     ears: ClothingHeadsetServiceContractor # WD
     mask: ClothingMaskClown
@@ -365,7 +365,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitChef
     shoes: ClothingShoesColorWhite
-    id: ChefPDA # TODO
+    id: ChefIDCardContractor # WD
     back: ClothingBackpackSatchel
     ears: ClothingHeadsetServiceContractor # WD
     belt: ClothingBeltChef
