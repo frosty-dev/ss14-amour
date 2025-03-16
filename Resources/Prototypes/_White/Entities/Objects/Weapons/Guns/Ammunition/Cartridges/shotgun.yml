@@ -3,10 +3,6 @@
   name: ружейный патрон (.49 резиновая дробь)
   parent: BaseShellShotgun
   components:
-  - type: Tag
-    tags:
-    - ShellRubberShotgun
-    - Cartridge
   - type: Sprite
     layers:
     - state: rubber
