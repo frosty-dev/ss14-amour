@@ -384,7 +384,7 @@
     - id: MobGiantSpiderAngry
       prob: 0.05
 
-- type: entity
+- type: entity # WD
   id: BorerSpawn
   parent: BaseGameRule
   noSpawn: true
@@ -432,6 +432,7 @@
     minimumPlayers: 30
     weight: 2
     duration: 1
+    maxOccurrences: 1 # WD
   - type: ZombieRule
   - type: AntagSelection
     definitions:
@@ -466,6 +467,7 @@
     weight: 5.5
     minimumPlayers: 20
     duration: 1
+    maxOccurrences: 2 # WD
   - type: LoadMapRule
     preloadedGrid: ShuttleStriker
   - type: NukeopsRule
@@ -500,6 +502,7 @@
     weight: 8
     minimumPlayers: 15
     reoccurrenceDelay: 30
+    maxOccurrences: 2 # WD
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg

@@ -35,6 +35,7 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
+    - type: LoadedMap
   - uid: 1668
     components:
     - type: MetaData
@@ -5009,12 +5010,12 @@ entities:
   - uid: 6612
     components:
     - type: Transform
-      pos: 2.170168,-2.5148773
+      pos: 2.372785,-2.519488
       parent: 1668
   - uid: 6618
     components:
     - type: Transform
-      pos: 2.060793,-2.4055023
+      pos: 2.372785,-2.248655
       parent: 1668
 - proto: BoxHandcuff
   entities:
@@ -5050,7 +5051,7 @@ entities:
   - uid: 1457
     components:
     - type: Transform
-      pos: 1.5702643,-2.4016738
+      pos: 2.643887,-2.561155
       parent: 1668
 - proto: BoxSterileMask
   entities:
@@ -18973,6 +18974,14 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 8.5,22.5
+      parent: 1668
+- proto: ComputerDeepSpaceCom
+  entities:
+  - uid: 646
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,-2.5
       parent: 1668
 - proto: ComputerId
   entities:
@@ -34414,11 +34423,6 @@ entities:
     - type: Transform
       pos: 2.5,-2.5
       parent: 1668
-  - uid: 646
-    components:
-    - type: Transform
-      pos: 1.5,-2.5
-      parent: 1668
   - uid: 647
     components:
     - type: Transform
@@ -41323,11 +41327,6 @@ entities:
       parent: 1668
 - proto: WeaponCapacitorRecharger
   entities:
-  - uid: 1446
-    components:
-    - type: Transform
-      pos: 2.5,-2.5
-      parent: 1668
   - uid: 1447
     components:
     - type: Transform

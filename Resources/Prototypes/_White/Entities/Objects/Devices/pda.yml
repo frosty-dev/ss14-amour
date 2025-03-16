@@ -1,0 +1,41 @@
+- type: entity
+  parent: CargoPDA
+  id: CargoPDAAnotherSector
+  noSpawn: true
+  components:
+  - type: Pda
+    id: CargoIDCardAnotherSector
+    state: pda-cargo
+
+- type: entity
+  parent: CMOPDA
+  id: CMOPDAAnotherSector
+  noSpawn: true
+  components:
+  - type: Pda
+    id: CMOIDCardAnotherSector
+    state: pda-cmo
+
+- type: entity
+  parent: CaptainPDA
+  id: CaptainPDAAnotherSector
+  noSpawn: true
+  components:
+  - type: Pda
+    id: CaptainIDCardAnotherSector
+    state: pda-captain
+    penSlot:
+      startingItem: PenCap
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: RnDPDA
+  id: RnDPDAAnotherSector
+  noSpawn: true
+  components:
+  - type: Pda
+    id: RDIDCardAnotherSector
+    state: pda-rd

@@ -1,0 +1,51 @@
+- type: job
+  id: CargoTechnicianAnotherSector
+  name: job-name-cargotech
+  description: job-description-cargotech
+  playTimeTracker: JobCargoTechnicianAnotherSector
+  icon: "JobIconCargoTechnician"
+  supervisors: job-supervisors-qm
+
+- type: job
+  id: ChiefMedicalOfficerAnotherSector
+  name: job-name-cmo
+  description: job-description-cmo
+  playTimeTracker: JobChiefMedicalOfficerAnotherSector
+  icon: "JobIconChiefMedicalOfficer"
+  supervisors: job-supervisors-captain
+
+- type: job
+  id: CaptainAnotherSector
+  name: job-name-captain
+  description: job-description-captain
+  playTimeTracker: JobCaptainAnotherSector
+  icon: "JobIconCaptain"
+  supervisors: job-supervisors-centcom
+
+- type: job
+  id: ResearchDirectorAnotherSector
+  name: job-name-rd
+  description: job-description-rd
+  playTimeTracker: JobResearchDirectorAnotherSector
+  icon: "JobIconResearchDirector"
+  supervisors: job-supervisors-captain
+
+- type: job
+  id: ClownContractor
+  name: клоун контрактник
+  description: job-description-clown
+  playTimeTracker: JobClownContractor
+  icon: "JobIconVisitor"
+  supervisors: job-supervisors-hop
+  access:
+  - ClownContractor
+
+- type: job
+  id: ChefContractor
+  name: шеф-повар контрактник
+  description: job-description-chef
+  playTimeTracker: JobChefContractor
+  icon: "JobIconVisitor"
+  supervisors: job-supervisors-hop
+  access:
+  - ChefContractor

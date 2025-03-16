@@ -56,9 +56,9 @@ thief-backpack-category-smuggler-description =
 
 thief-backpack-category-slavery-name = набор рабовладельца
 thief-backpack-category-slavery-description =
-    Набор, состоящий из трёх имплантеров подчинения
-    и стильной одежды рабовладельца.
-    Собери собственную армию послушных рабов!
+    Набор для кукловода.
+    Включает в себя имплант подчинения, стильный прикид рабовладельца,
+    мыло для удаления своих отпечатков и особые ключи шифрования.
 
 thief-backpack-category-hitech-name = высокотехнологичный набор
 thief-backpack-category-hitech-description =

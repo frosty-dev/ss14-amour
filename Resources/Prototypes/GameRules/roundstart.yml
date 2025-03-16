@@ -81,7 +81,7 @@
     selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ NukeopsCommander ]
-      fallbackRoles: [ Nukeops, NukeopsMedic ]
+    # fallbackRoles: [ Nukeops, NukeopsMedic ] # WD
       max: 1
       playerRatio: 10
       startingGear: SyndicateCommanderGearFull
@@ -100,7 +100,7 @@
       - type: NukeopsRole
         prototype: NukeopsCommander
     - prefRoles: [ NukeopsMedic ]
-      fallbackRoles: [ Nukeops, NukeopsCommander ]
+    # fallbackRoles: [ Nukeops, NukeopsCommander ] # WD
       max: 1
       playerRatio: 10
       startingGear: SyndicateOperativeMedicFull
@@ -118,7 +118,7 @@
       - type: NukeopsRole
         prototype: NukeopsMedic
     - prefRoles: [ Nukeops ]
-      fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
+    # fallbackRoles: [ NukeopsCommander, NukeopsMedic ] # WD
       min: 0
       max: 3
       playerRatio: 10
@@ -316,6 +316,7 @@
         color: Aqua
       startingGear: WizardGear
       components:
+      - type: Unslavable # WD
       - type: Wizard
       - type: WizardAppearance
       - type: GlobalAntagonist

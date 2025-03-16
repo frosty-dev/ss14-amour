@@ -278,7 +278,7 @@
   description: uplink-mind-slave-desc
   productEntity: MindSlaveImplanter
   cost:
-    Telecrystal: 6
+    Telecrystal: 10
   categories:
   - UplinkImplants
 
