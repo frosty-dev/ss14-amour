@@ -21,10 +21,10 @@ public abstract partial class SharedBorgSystem : EntitySystem
     [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] protected readonly ItemSlotsSystem ItemSlots = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!; // Giedi EDIT
-    [Dependency] protected readonly IRobustRandom RobustRandom = default!; // Giedi EDIT
+    [Dependency] protected readonly IPrototypeManager PrototypeManager = default!; // PARSEC EDIT
+    [Dependency] protected readonly IRobustRandom RobustRandom = default!; // PARSEC EDIT
 
-    private HashSet<TTSVoicePrototype> _voices = new ();
+    private HashSet<TTSVoicePrototype> _voices = new();
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -45,7 +45,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
         GenerateVoiceList(); // WD edit
     }
 
-    // Giedi added
+    // PARSEC added
     private void EnsureRandomTTS(EntityUid uid, SharedTTSComponent component, ComponentInit args)
     {
         if (!HasComp<BorgChassisComponent>(uid))
@@ -63,7 +63,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
             .Where(x => x.BorgVoice)
             .ToHashSet();
     }
-    // Giedi added
+    // PARSEC added
 
     private void OnItemSlotInsertAttempt(EntityUid uid, BorgChassisComponent component, ref ItemSlotInsertAttemptEvent args)
     {
