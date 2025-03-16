@@ -94,7 +94,3 @@ ent-CluwneIDCard = ID карта клувна
     .suffix = Неснимаемое
 ent-ResearchAssistantIDCard = ID карта научного ассистента
     .desc = { ent-IDCardStandard.desc }
-ent-MaidIDCard = ID карта прислуги
-    .desc = { ent-IDCardStandard.desc }
-ent-BomzhIDCard = грязная ID карта
-    .desc = Старая и грязная карта дожившая до нашего времени.

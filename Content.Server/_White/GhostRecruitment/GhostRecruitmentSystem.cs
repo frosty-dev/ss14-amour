@@ -67,8 +67,9 @@ public sealed class GhostRecruitmentSystem : EntitySystem
     /// Arranges the ghosts that agreed by roles.
     /// </summary>
     /// <param name="recruitmentName">name of recruitment. <see cref="GhostRecruitmentSpawnPointComponent"/></param>
+    /// <param name="overallPlaytime">Minimal playtime to be eligible for recruitment.</param>
     /// <returns>is success?</returns>
-    public bool EndRecruitment(string recruitmentName)
+    public bool EndRecruitment(string recruitmentName, TimeSpan? overallPlaytime)
     {
         var spawners = GetEventSpawners(recruitmentName).ToList();
 
@@ -86,6 +87,9 @@ public sealed class GhostRecruitmentSystem : EntitySystem
                 continue;
 
             if (!TryComp<ActorComponent>(uid, out var actorComponent))
+                continue;
+
+            if (overallPlaytime != null && _playTimeTracking.GetOverallPlaytime(actorComponent.PlayerSession) < overallPlaytime)
                 continue;
 
             // if there are too many recruited, then just skip

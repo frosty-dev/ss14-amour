@@ -16,7 +16,7 @@
     - id: Tourniquet
     - id: Lighter
     - id: CigPackBlack
-    - id: SpaceCash500
+    - id: SpaceCash5000
     - id: FlashlightLantern
 
 - type: startingGear
@@ -79,6 +79,8 @@
     nameSegments:
     - names_first
     - names_last
+  - type: FillIDCard
+    isContractor: true
 
 # Book
 - type: entity
@@ -120,7 +122,7 @@
 # Airlock
 - type: accessLevel
   id: Mercenary
-  name: id-card-access-level-mercenary
+  name: Наёмник
 
 - type: entity
   parent: DoorElectronics
@@ -139,9 +141,17 @@
   - type: Sprite
     layers:
     - state: non_faction
-  - type: Access
-    tags:
-    - Mercenary
+  - type: PresetIdCard
+    job: Mercenary
+
+- type: job
+  id: Mercenary
+  name: наёмник
+  description: ghost-role-information-mercenary-standard-description
+  playTimeTracker: JobMercenary
+  icon: "JobIconVisitor"
+  access:
+  - Mercenary
 
 - type: entity
   parent: Airlock
@@ -154,3 +164,101 @@
   - type: Wires
     layoutId: AirlockArmory
 
+- type: entity
+  parent: AirlockGlass
+  id: AirlockMercenaryGlassLocked
+  suffix: Mercenary, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMercenary ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: AirlockShuttle
+  id: AirlockMercenaryShuttleLocked
+  suffix: Mercenary, Docking, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMercenary ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockMercenaryGlassShuttleLocked
+  suffix: Mercenary, Glass, Docking, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMercenary ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: Windoor
+  id: WindoorMercenaryLocked
+  suffix: Mercenary, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMercenary ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorSecure
+  id: WindoorSecureMercenaryLocked
+  suffix: Mercenary, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMercenary ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorPlasma
+  id: PlasmaWindoorMercenaryLocked
+  suffix: Mercenary, Locked, Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMercenary ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorUranium
+  id: UraniumWindoorMercenaryLocked
+  suffix: Mercenary, Locked, Uranium
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMercenary ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorSecurePlasma
+  id: PlasmaWindoorSecureMercenaryLocked
+  suffix: Mercenary, Locked, Plasma
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMercenary ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: WindoorSecureUranium
+  id: UraniumWindoorSecureMercenaryLocked
+  suffix: Mercenary, Locked, Uranium
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMercenary ]
+  - type: Wires
+    layoutId: AirlockArmory

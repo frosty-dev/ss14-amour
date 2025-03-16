@@ -1,0 +1,51 @@
+- type: entity
+  parent: CargoIDCard
+  id: CargoIDCardAnotherSector
+  noSpawn: true
+  components:
+  - type: PresetIdCard
+    job: CargoTechnicianAnotherSector
+
+- type: entity
+  parent: CMOIDCard
+  id: CMOIDCardAnotherSector
+  noSpawn: true
+  components:
+  - type: PresetIdCard
+    job: ChiefMedicalOfficerAnotherSector
+
+- type: entity
+  parent: CaptainIDCard
+  id: CaptainIDCardAnotherSector
+  noSpawn: true
+  components:
+  - type: PresetIdCard
+    job: CaptainAnotherSector
+
+- type: entity
+  parent: RDIDCard
+  id: RDIDCardAnotherSector
+  noSpawn: true
+  components:
+  - type: PresetIdCard
+    job: ResearchDirectorAnotherSector
+
+- type: entity
+  parent: IDCardStandard
+  id: ClownIDCardContractor
+  components:
+  - type: Sprite
+    layers:
+    - state: non_faction
+  - type: PresetIdCard
+    job: ClownContractor
+
+- type: entity
+  parent: IDCardStandard
+  id: ChefIDCardContractor
+  components:
+  - type: Sprite
+    layers:
+    - state: non_faction
+  - type: PresetIdCard
+    job: ChefContractor

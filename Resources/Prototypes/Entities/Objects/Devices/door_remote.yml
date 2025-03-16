@@ -176,5 +176,6 @@
   - type: Access
     groups:
     - AllAccess
+    - Everything # WD
     tags:
     - CentralCommand

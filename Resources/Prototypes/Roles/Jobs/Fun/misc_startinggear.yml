@@ -316,12 +316,12 @@
 - type: startingGear
   id: BananaClown
   equipment:
-    id: ClownPDA
+    id: ClownIDCardContractor # WD
     back: ClothingBackpackClown
     shoes: ClothingShoesClownBanana
     jumpsuit: ClothingUniformJumpsuitClownBanana
     mask: ClothingMaskClownBanana
-    ears: ClothingHeadsetService
+    ears: ClothingHeadsetServiceContractor # WD
     pocket1: BikeHorn
     pocket2: ClownRecorder
 
@@ -331,9 +331,9 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitClown
     shoes: ClothingShoesClown
-    id: ClownPDA
+    id: ClownIDCardContractor # WD
     back: ClothingBackpackClown
-    ears: ClothingHeadsetService
+    ears: ClothingHeadsetServiceContractor # WD
     mask: ClothingMaskClown
     pocket1: BikeHorn
     pocket2: ClownRecorder
@@ -345,9 +345,9 @@
     jumpsuit: ClothingUniformJumpsuitCargo
     shoes: ClothingShoesColorBlack
     head: ClothingHeadHatCargosoft
-    id: CargoPDA
+    id: CargoPDAAnotherSector # WD
     back: ClothingBackpackCargo
-    ears: ClothingHeadsetCargo
+    ears: ClothingHeadsetCargoAnotherSector # WD
     pocket1: AppraisalTool
 
 - type: startingGear
@@ -356,9 +356,9 @@
     jumpsuit: ClothingUniformJumpsuitCargo
     shoes: ClothingShoesBootsWinterCargo
     head: ClothingHeadHatCargosoft
-    id: CargoPDA
+    id: CargoPDAAnotherSector # WD
     back: ClothingBackpackDuffelCargo
-    ears: ClothingHeadsetCargo
+    ears: ClothingHeadsetCargoAnotherSector # WD
     pocket1: AppraisalTool
     outerClothing: ClothingOuterWinterCargo
 
@@ -368,9 +368,9 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitChef
     shoes: ClothingShoesColorWhite
-    id: ChefPDA
+    id: ChefIDCardContractor # WD
     back: ClothingBackpackSatchel
-    ears: ClothingHeadsetService
+    ears: ClothingHeadsetServiceContractor # WD
     belt: ClothingBeltChef
 
 #CMO Disaster Victim
@@ -381,9 +381,9 @@
     shoes: ClothingShoesColorBrown
     head: ClothingHeadMirror
     neck: ClothingCloakCmo
-    id: CMOPDA
-    back: ClothingBackpackMedical
-    ears: ClothingHeadsetCMO
+    id: CMOPDAAnotherSector # WD
+    back: ClothingBackpackMedicalAnotherSector # WD
+    ears: ClothingHeadsetCMOAnotherSector # WD
     belt: ClothingBeltMedical
     outerClothing: ClothingOuterCoatLabCmo
 
@@ -394,9 +394,9 @@
     shoes: ClothingShoesColorBrown
     head: ClothingHeadHatBeretCmo
     neck: ClothingNeckMantleCMO
-    id: CMOPDA
-    back: ClothingBackpackSatchelMedical
-    ears: ClothingHeadsetCMO
+    id: CMOPDAAnotherSector # WD
+    back: ClothingBackpackSatchelMedicalAnotherSector # WD
+    ears: ClothingHeadsetCMOAnotherSector # WD
     belt: ClothingBeltMedical
     outerClothing: ClothingOuterCoatLabCmo
 
@@ -410,9 +410,9 @@
     gloves: ClothingHandsGlovesCaptain
     head: ClothingHeadHatCaptain
     neck: ClothingNeckCloakCap
-    id: CaptainPDA
-    back: ClothingBackpackCaptain
-    ears: ClothingHeadsetAltCommand
+    id: CaptainPDAAnotherSector # WD
+    back: ClothingBackpackCaptainAnotherSector # WD
+    ears: ClothingHeadsetAltCommandAnotherSector # WD
     outerClothing: ClothingOuterArmorCaptainCarapace
 
 - type: startingGear
@@ -424,9 +424,9 @@
     gloves: ClothingHandsGlovesCaptain
     head: ClothingHeadHatCapcap
     neck: ClothingNeckMantleCap
-    id: CaptainPDA
-    back: ClothingBackpackSatchelCaptain
-    ears: ClothingHeadsetAltCommand
+    id: CaptainPDAAnotherSector # WD
+    back: ClothingBackpackSatchelCaptainAnotherSector # WD
+    ears: ClothingHeadsetAltCommandAnotherSector # WD
     outerClothing: ClothingOuterArmorCaptainCarapace
 
 #RD Disaster Victim
@@ -437,9 +437,9 @@
     shoes: ClothingShoesColorBrown
     head: ClothingHeadHatBeretRND
     neck: ClothingNeckCloakRd
-    id: RnDPDA
-    back: ClothingBackpackScience
-    ears: ClothingHeadsetRD
+    id: RnDPDAAnotherSector # WD
+    back: ClothingBackpackScienceAnotherSector # WD
+    ears: ClothingHeadsetRDAnotherSector # WD
     outerClothing: ClothingOuterCoatRD
 
 - type: startingGear
@@ -449,7 +449,7 @@
     shoes: ClothingShoesColorBrown
     head: ClothingHeadHatBeretRND
     neck: ClothingNeckMantleRD
-    id: RnDPDA
-    back: ClothingBackpackSatchelScience
-    ears: ClothingHeadsetRD
+    id: RnDPDAAnotherSector # WD
+    back: ClothingBackpackSatchelScienceAnotherSector # WD
+    ears: ClothingHeadsetRDAnotherSector # WD
     outerClothing: ClothingOuterCoatRD

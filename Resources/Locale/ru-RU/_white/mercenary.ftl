@@ -35,5 +35,31 @@ ent-DoorElectronicsMercenary = { ent-DoorElectronics }
     .desc = { ent-DoorElectronics.desc }
 
 ent-AirlockMercenaryLocked = { ent-Airlock }
-    .suffix = Наёмник, Закрыт
-    .desc = { ent-Airlock.desc } В углу имеется небольшой символ Администрации сектора.
+    .desc = { ent-Airlock.desc }
+
+ent-AirlockMercenaryGlassLocked = { ent-AirlockGlass }
+    .desc = { ent-AirlockGlass.desc }
+
+ent-AirlockMercenaryShuttleLocked = { ent-AirlockShuttle }
+    .desc = { ent-AirlockShuttle.desc }
+
+ent-AirlockMercenaryGlassShuttleLocked = { ent-AirlockGlassShuttle }
+    .desc = { ent-AirlockGlassShuttle.desc }
+
+ent-WindoorMercenaryLocked = { ent-Windoor }
+    .desc = { ent-Windoor.desc }
+
+ent-WindoorSecureMercenaryLocked = { ent-WindoorSecure }
+    .desc = { ent-WindoorSecure.desc }
+
+ent-PlasmaWindoorMercenaryLocked = { ent-WindoorPlasma }
+    .desc = { ent-WindoorPlasma.desc }
+
+ent-UraniumWindoorMercenaryLocked = { ent-WindoorUranium }
+    .desc = { ent-WindoorUranium.desc }
+
+ent-PlasmaWindoorSecureMercenaryLocked = { ent-WindoorSecurePlasma }
+    .desc = { ent-WindoorSecurePlasma.desc }
+
+ent-UraniumWindoorSecureMercenaryLocked = { ent-WindoorSecureUranium }
+    .desc = { ent-WindoorSecureUranium.desc }

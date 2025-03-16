@@ -1,0 +1,54 @@
+- type: entity
+  parent: ClothingHeadsetAltCommand
+  id: ClothingHeadsetAltCommandAnotherSector
+  suffix: Another Sector
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyStationMasterAnotherSector
+
+- type: entity
+  parent: ClothingHeadsetMedical
+  id: ClothingHeadsetCMOAnotherSector
+  suffix: Another Sector
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyMedicalAnotherSector
+      - EncryptionKeyCommandAnotherSector
+      - EncryptionKeyCommon
+
+- type: entity
+  parent: ClothingHeadsetScience
+  id: ClothingHeadsetRDAnotherSector
+  suffix: Another Sector
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyScienceAnotherSector
+      - EncryptionKeyCommandAnotherSector
+      - EncryptionKeyCommon
+
+- type: entity
+  parent: ClothingHeadsetCargo
+  id: ClothingHeadsetCargoAnotherSector
+  suffix: Another Sector
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCargoAnotherSector
+      - EncryptionKeyCommon
+
+- type: entity
+  parent: ClothingHeadsetService
+  id: ClothingHeadsetServiceContractor
+  noSpawn: true
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon
