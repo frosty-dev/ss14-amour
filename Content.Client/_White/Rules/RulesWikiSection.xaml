@@ -1,6 +1,6 @@
 ﻿<BoxContainer xmlns="https://spacestation14.io"
               Orientation="Vertical" HorizontalExpand="True">
-    <Label Text="Правила сервера Giedi Prime"
+    <Label Text="Правила сервера PARSEC"
            StyleClasses="LabelHeading"
            HorizontalExpand="True"
            HorizontalAlignment="Center"/>

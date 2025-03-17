@@ -303,7 +303,7 @@ public sealed class NukeSystem : EntitySystem
         // play alert sound if time is running out
         if (nuke.RemainingTime <= nuke.AlertSoundTime && !nuke.PlayedAlertSound)
         {
-            _sound.PlayGlobalOnStation(uid, _audio.GetSound(nuke.AlertSound), new AudioParams{Volume = -5f});
+            _sound.PlayGlobalOnStation(uid, _audio.GetSound(nuke.AlertSound), new AudioParams { Volume = -5f });
             _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
             nuke.PlayedAlertSound = true;
             UpdateAppearance(uid, nuke);
@@ -572,7 +572,7 @@ public sealed class NukeSystem : EntitySystem
         _sound.StopStationEventMusic(uid, StationEventMusicType.Nuke);
         Del(uid);
 
-        Timer.Spawn(TimeSpan.FromSeconds(60), () => _roundEndSystem.EndRound(TimeSpan.FromSeconds(60))); //Giedi EDIT
+        Timer.Spawn(TimeSpan.FromSeconds(60), () => _roundEndSystem.EndRound(TimeSpan.FromSeconds(60))); // PARSEC EDIT
     }
 
     /// <summary>
