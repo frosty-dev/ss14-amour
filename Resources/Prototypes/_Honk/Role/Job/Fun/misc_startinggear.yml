@@ -1,7 +1,6 @@
 ﻿- type: startingGear
   id: SyndicateDemolitionistGearExtremely
   equipment:
-    id: AgentIDCard
     belt: ClothingBeltShahid
     mask: ClothingBalaclava
     jumpsuit: ClothingUniformJumpsuitOperative

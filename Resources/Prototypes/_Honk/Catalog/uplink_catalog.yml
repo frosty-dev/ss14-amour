@@ -5,7 +5,7 @@
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio }
   productEntity: ReinforcementRadioDemolitionist
   cost:
-    Telecrystal: 12
+    Telecrystal: 14
   categories:
   - UplinkAllies
 
