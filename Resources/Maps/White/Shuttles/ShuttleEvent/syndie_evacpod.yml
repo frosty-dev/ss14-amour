@@ -251,6 +251,7 @@ entities:
     - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
+    - type: LoadedMap
   - uid: 93
     components:
     - type: MetaData
@@ -571,6 +572,15 @@ entities:
       rot: 3.141592653589793 rad
       pos: 4.5,-0.5
       parent: 1
+- proto: ClothingHeadHatChameleon
+  entities:
+  - uid: 98
+    components:
+    - type: Transform
+      parent: 91
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: ClothingHeadHelmetSyndicate
   entities:
   - uid: 92
@@ -594,24 +604,8 @@ entities:
       fingerprints:
       - F269A3816AF5EC71576E815E8A6A9AC3
     - type: InsideEntityStorage
-- proto: ClothingHeadPyjamaSyndicateRed
+- proto: ClothingNeckChameleon
   entities:
-  - uid: 98
-    components:
-    - type: Transform
-      parent: 91
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-- proto: ClothingNeckScarfStripedSyndieRed
-  entities:
-  - uid: 101
-    components:
-    - type: Transform
-      parent: 91
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
   - uid: 102
     components:
     - type: Transform
@@ -622,6 +616,15 @@ entities:
 - proto: ClothingOuterHardsuitSyndicate
   entities:
   - uid: 95
+    components:
+    - type: Transform
+      parent: 91
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: ClothingUniformJumpsuitChameleon
+  entities:
+  - uid: 101
     components:
     - type: Transform
       parent: 91
@@ -784,13 +787,13 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 95
-          - 94
-          - 96
-          - 102
-          - 92
           - 101
+          - 102
           - 98
+          - 94
+          - 95
+          - 92
+          - 96
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
