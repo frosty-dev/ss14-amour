@@ -1,0 +1,28 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by Dosharus",
+    "size": {
+        "x": 96,
+        "y": 96
+    },
+    "states": [
+        {
+            "name": "animated",
+            "delays": [
+                [
+                    0.13,
+                    0.13,
+                    0.13,
+                    0.13,
+                    0.13,
+                    0.13,
+                    0.13,
+                    0.13,
+                    0.13,
+                    0.13
+                ]
+            ]
+        }
+    ]
+}
