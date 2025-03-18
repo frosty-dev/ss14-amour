@@ -565,3 +565,12 @@
   alpha: 0.9
   ghostName: Dragon4ik
   ghostDescription: Роскошные синие волосы, украшенные изящными бантиками, плавными волнами спадают на её стройную фигуру, а за спиной распахиваются крылья — одно светлое и воздушное, другое тёмное и загадочное.
+
+#Dosharus
+- type: customGhost
+  id: Dosharus-ghost
+  ckey: Dosharus
+  sprite: White/Ghosts/Dosharus-ghost.rsi
+  alpha: 0.9
+  ghostName: The Glorious Evolutionist
+  ghostDescription: Великая Эволюция случилась... В неожиданном месте.
