@@ -24923,6 +24923,8 @@ entities:
       parent: 1668
     - type: NavMapBeacon
       text: CentComm
+    - type: WarpPoint
+      location: Centcomm
   - uid: 9452
     components:
     - type: Transform
