@@ -30,6 +30,7 @@
   - type: Access
     groups:
     - AllAccess
+    - Everything # WD
     tags:
     - NuclearOperative
     - SyndicateAgent

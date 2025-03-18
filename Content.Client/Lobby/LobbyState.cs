@@ -244,7 +244,7 @@ namespace Content.Client.Lobby
                 _lobby!.ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
             }
 
-            _lobby!.LabelName.SetMarkup("[font=\"Bedstead\" size=20] Amour [/font]");
+            _lobby!.LabelName.SetMarkup("[font=\"Bedstead\" size=20] PARSEC: AMOUR [/font]");
             _lobby!.ChangelogLabel.SetMarkup("Список изменений:");
         }
 

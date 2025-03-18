@@ -1,6 +1,6 @@
 ﻿<BoxContainer xmlns="https://spacestation14.io"
               Orientation="Vertical" HorizontalExpand="True">
-    <Label Text="Правила сервера Amour"
+    <Label Text="Правила сервера PARSEC: AMOUR"
            StyleClasses="LabelHeading"
            HorizontalExpand="True"
            HorizontalAlignment="Center"/>

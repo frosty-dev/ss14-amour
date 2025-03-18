@@ -49,7 +49,7 @@
   abstract: true
   components:
     - type: StationCargoShuttle
-      path: /Maps/Shuttles/cargo.yml
+      path: /Maps/White/Shuttles/cargo.yml
     - type: GridSpawn
       groups:
 #        trade:
@@ -60,7 +60,7 @@
 #            - /Maps/Shuttles/trading_outpost.yml
         mining:
           paths:
-          - /Maps/Shuttles/mining.yml
+          - /Maps/White/Shuttles/mining.yml
         # Spawn last
         ruins:
           hide: true

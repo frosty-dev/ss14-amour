@@ -639,6 +639,7 @@
   id: LostCargoTechnician
   randomizeName: false
   components:
+    - type: FillIDCard # WD
     - type: GhostRole
       name: ghost-role-information-lost-cargo-technical-name
       description: ghost-role-information-lost-cargo-technical-description
@@ -706,7 +707,23 @@
     - type: RandomMetadata
       nameSegments:
       - names_clown
-    - type: Pacified # WD
+    # WD Edit start
+    - type: Pacified
+    - type: Clumsy
+      clumsyDamage:
+        types:
+          Blunt: 5
+          Piercing: 4
+        groups:
+          Burn: 3
+    - type: SleepEmitSound
+      snore: /Audio/Voice/Misc/silly_snore.ogg
+      interval: 10
+    - type: FillIDCard
+      isContractor: true
+    - type: AddImplant
+      implants: [ SadTromboneImplant ]
+    # WD Edit end
 
 - type: randomHumanoidSettings
   id: ClownTroupeBanana
@@ -722,7 +739,23 @@
     - type: RandomMetadata
       nameSegments:
       - names_clown
-    - type: Pacified # WD
+    # WD Edit start
+    - type: Pacified
+    - type: Clumsy
+      clumsyDamage:
+        types:
+          Blunt: 5
+          Piercing: 4
+        groups:
+          Burn: 3
+    - type: SleepEmitSound
+      snore: /Audio/Voice/Misc/silly_snore.ogg
+      interval: 10
+    - type: FillIDCard
+      isContractor: true
+    - type: AddImplant
+      implants: [ SadTromboneImplant ]
+    # WD Edit end
 
 # Traveling exotic chef
 
@@ -767,6 +800,8 @@
       nameSegments:
       - names_first
       - names_last
+    - type: FillIDCard # WD
+      isContractor: true
 
 # Disaster victim
 
@@ -814,6 +849,7 @@
       settings: DisasterVictimCaptain
 
 - type: randomHumanoidSettings
+  parent: Nanotrasen # WD
   id: DisasterVictimResearchDirector
   randomizeName: false
   components:
@@ -830,8 +866,10 @@
       nameSegments:
       - names_first
       - names_last
+    - type: FillIDCard # WD
 
 - type: randomHumanoidSettings
+  parent: Nanotrasen # WD
   id: DisasterVictimCMO
   randomizeName: false
   components:
@@ -848,8 +886,10 @@
       nameSegments:
       - names_first
       - names_last
+    - type: FillIDCard # WD
 
 - type: randomHumanoidSettings
+  parent: Nanotrasen # WD
   id: DisasterVictimCaptain
   randomizeName: false
   components:
@@ -866,6 +906,9 @@
       nameSegments:
       - names_first
       - names_last
+    - type: FillIDCard # WD
+    - type: AddImplant # WD
+      implants: [ MindShieldImplant ]
 
 # Syndie Disaster Victim
 

@@ -12,5 +12,5 @@ changelog-button-new-entries = Changelog (new!)
 
 changelog-tab-title-Changelog = Changelog
 changelog-tab-title-Admin = Admin
-changelog-tab-title-ChangelogWhite = Giedi Prime
-changelog-tab-title-ChangelogAmour = Amour
+changelog-tab-title-ChangelogWhite = PARSEC
+changelog-tab-title-ChangelogAmour = AMOUR

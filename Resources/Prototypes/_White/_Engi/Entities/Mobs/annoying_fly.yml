@@ -1,0 +1,68 @@
+- type: entity
+  name: надоедливая муха
+  parent: [ SimpleMobBase, FlyingMobBase ]
+  id: AnnoyingFly
+  description: Раздражает.
+  components:
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 7
+    baseSprintSpeed : 7
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: 0
+      sprite: White/_Engi/Mobs/Animals/fly.rsi
+      scale: 0.7, 0.7
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 30
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      5: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: 0
+      Dead:
+        Base: dead
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Bee
+    - Trash
+  - type: MobPrice
+    price: 50
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: ZombieImmune
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      groups:
+        Brute: 1
+  - type: AmbientSound
+    volume: -4
+    range: 4
+    sound:
+      path: /Audio/White/Ambience/Fly/mosquito.ogg
+  - type: CanEscapeInventory
+    baseResistTime: 0.4
