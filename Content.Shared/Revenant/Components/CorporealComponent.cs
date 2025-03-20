@@ -12,4 +12,7 @@ public sealed partial class CorporealComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public float MovementSpeedDebuff = 0.4f; // WD EDIT
+
+    [DataField]
+    public bool MadeVisible;
 }
