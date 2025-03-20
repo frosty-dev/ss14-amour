@@ -9,6 +9,5 @@
       map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: PelletShotgunRubberShot
-    count: 1
   - type: SpentAmmoVisuals
     state: rubber
