@@ -18,7 +18,7 @@ namespace Content.Client.Ghost
 
         public int AvailableGhostRoleCount { get; private set; }
 
-        private bool _ghostVisibility = true;
+        private bool _ghostVisibility;
 
         private bool GhostVisibility
         {
@@ -33,9 +33,9 @@ namespace Content.Client.Ghost
                 _ghostVisibility = value;
 
                 var query = AllEntityQuery<GhostComponent, SpriteComponent>();
-                while (query.MoveNext(out var uid, out _, out var sprite))
+                while (query.MoveNext(out var uid, out var ghost, out var sprite))
                 {
-                    sprite.Visible = value || uid == _playerManager.LocalEntity;
+                    UpdateVisibility((uid, ghost, sprite));
                 }
             }
         }
@@ -71,8 +71,15 @@ namespace Content.Client.Ghost
 
         private void OnStartup(EntityUid uid, GhostComponent component, ComponentStartup args)
         {
-            if (TryComp(uid, out SpriteComponent? sprite))
-                sprite.Visible = GhostVisibility || uid == _playerManager.LocalEntity;
+            UpdateVisibility((uid, component));
+        }
+
+        private void UpdateVisibility(Entity<GhostComponent?, SpriteComponent?> ghost)
+        {
+            if (!Resolve(ghost.Owner, ref ghost.Comp1, ref ghost.Comp2))
+                return;
+
+            ghost.Comp2.Visible = GhostVisibility || ghost.Comp1.Visible || ghost.Owner == _playerManager.LocalEntity;
         }
 
         private void OnToggleLighting(EntityUid uid, EyeComponent component, ToggleLightingActionEvent args)
@@ -131,7 +138,9 @@ namespace Content.Client.Ghost
         private void OnGhostState(EntityUid uid, GhostComponent component, ref AfterAutoHandleStateEvent args)
         {
             if (TryComp<SpriteComponent>(uid, out var sprite))
-                sprite.LayerSetColor(0, component.color);
+                sprite.LayerSetColor(0, component.Color);
+
+            UpdateVisibility((uid, component, null));
 
             if (uid != _playerManager.LocalEntity)
                 return;
