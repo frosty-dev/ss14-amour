@@ -6,6 +6,7 @@
   - type: Tag
     tags:
     - ShellRubberShotgun
+    - Cartridge
     - ShellShotgun
   - type: Sprite
     layers:
