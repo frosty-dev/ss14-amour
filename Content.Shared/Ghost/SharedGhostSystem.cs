@@ -53,6 +53,14 @@ namespace Content.Shared.Ghost
         {
             component.CanReturnToBody = value;
         }
+        public virtual void SetVisible(Entity<GhostComponent?> ghost, bool visible)
+        {
+            if (!Resolve(ghost.Owner, ref ghost.Comp))
+                return;
+
+            ghost.Comp.Visible = visible;
+            Dirty(ghost);
+        }
     }
 
     /// <summary>
