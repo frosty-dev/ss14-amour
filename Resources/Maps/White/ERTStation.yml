@@ -22,7 +22,6 @@ entities:
       name: ERT station "Theta-19"
     - type: Transform
     - type: Map
-      mapPaused: True
     - type: PhysicsMap
     - type: GridTree
     - type: MovedGrids
