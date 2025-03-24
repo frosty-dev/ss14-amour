@@ -45,7 +45,7 @@
 
 - type: entity
   parent: ClothingHeadsetService
-  id: ClothingHeadsetServiceContractor
+  id: ClothingHeadsetContractor
   noSpawn: true
   components:
   - type: ContainerFill
