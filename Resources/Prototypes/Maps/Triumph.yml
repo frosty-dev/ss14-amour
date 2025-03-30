@@ -1,8 +1,8 @@
 - type: gameMap
   id: Triumph
   mapName: 'Triumph Station'
-  mapPath: /Maps/_Honk/Stations/Triumph.yml
-  minPlayers: 0 # Amour
+  mapPath: /Maps/White/Triumph.yml
+  minPlayers: 20
   stations:
     TriumphStation:
       stationProto: StandardNanotrasenStation
@@ -63,4 +63,3 @@
           Borg: [ 3, 2 ]
           Maid: [ 1, 1 ]
           Bomzh: [ 1, 0 ]
-          Brigmedic: [ 1, 1 ] # Amour
