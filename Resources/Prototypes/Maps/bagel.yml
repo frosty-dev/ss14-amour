@@ -1,9 +1,8 @@
 - type: gameMap
   id: Bagel
   mapName: 'Bagel Station'
-  mapPath: /Maps/bagel.yml
-  minPlayers: 40
-  maxPlayers: 76
+  mapPath: /Maps/White/bagel.yml
+  minPlayers: 0
   stations:
     Bagel:
       stationProto: StandardNanotrasenStation
@@ -66,3 +65,5 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 2, 2 ]
+            Bomzh: [ 1, 0 ]
+            Maid: [ 1, 1 ]

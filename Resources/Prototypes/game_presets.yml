@@ -72,6 +72,7 @@
   rules:
     - BasicStationEventScheduler
     - GameRuleMeteorScheduler
+    - BasicRoundstartVariation
 
 - type: gamePreset
   id: SecretGreenshift #For Admin Use: Runs Greenshift but shows "Secret" in lobby.
@@ -80,6 +81,8 @@
   name: secret-title
   showInVote: false #Admin Use
   description: secret-description
+  rules:
+  - BasicRoundstartVariation
 
 - type: gamePreset
   id: Sandbox
@@ -170,20 +173,20 @@
   - BasicRoundstartVariation
 
 #WD EDIT START
-- type: gamePreset
-  id: Cult
-  alias:
-    - cult
-  name: cult-title
-  description: cult-description
-  showInVote: true
-  minPlayers: 15
-  rules:
-    - Cult
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - BasicRoundstartVariation
-    - GameRuleMeteorScheduler
+# - type: gamePreset
+#   id: Cult
+#   alias:
+#     - cult
+#   name: cult-title
+#   description: cult-description
+#   showInVote: true
+#   minPlayers: 20
+#   rules:
+#     - Cult
+#     - SubGamemodesRule
+#     - BasicStationEventScheduler
+#     - BasicRoundstartVariation
+#     - GameRuleMeteorScheduler
 
 - type: gamePreset
   id: Changeling
@@ -209,6 +212,89 @@
   description: wizard-description
   showInVote: true
   minPlayers: 15
+  rules:
+    - Wizard
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - BasicRoundstartVariation
+    - GameRuleMeteorScheduler
+
+- type: gamePreset
+  id: SecretTraitor #For Admin Use: Runs Traitor but shows "Secret" in lobby.
+  alias:
+    - secrettraitor
+  name: secret-title
+  showInVote: false #Admin Use
+  description: secret-description
+  rules:
+    - Traitor
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - GameRuleMeteorScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretNukeops #For Admin Use: Runs Nukeops but shows "Secret" in lobby.
+  alias:
+    - secretnukeops
+  name: secret-title
+  showInVote: false #Admin Use
+  description: secret-description
+  rules:
+    - Nukeops
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - GameRuleMeteorScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretRevolutionary #For Admin Use: Runs Revolutionary but shows "Secret" in lobby.
+  alias:
+    - secretrevolutionaries
+  name: secret-title
+  showInVote: false #Admin Use
+  description: secret-description
+  rules:
+    - Revolutionary
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - GameRuleMeteorScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretZombie #For Admin Use: Runs Zombie but shows "Secret" in lobby.
+  alias:
+  - secretzombie
+  name: secret-title
+  showInVote: false #Admin Use
+  description: secret-description
+  rules:
+    - Zombie
+    - BasicStationEventScheduler
+    - GameRuleMeteorScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretChangeling #For Admin Use: Runs Changeling but shows "Secret" in lobby.
+  alias:
+    - secretchangeling
+  name: secret-title
+  showInVote: false #Admin Use
+  description: secret-description
+  rules:
+    - Changeling
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - BasicRoundstartVariation
+    - GameRuleMeteorScheduler
+
+- type: gamePreset
+  id: SecretWizard #For Admin Use: Runs Wizard but shows "Secret" in lobby.
+  alias:
+    - secretwizard
+  name: secret-title
+  showInVote: false #Admin Use
+  description: secret-description
   rules:
     - Wizard
     - SubGamemodesRule

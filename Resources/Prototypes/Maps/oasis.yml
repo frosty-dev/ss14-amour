@@ -1,8 +1,8 @@
 - type: gameMap
   id: Oasis
   mapName: 'Oasis'
-  mapPath: /Maps/oasis.yml
-  minPlayers: 70
+  mapPath: /Maps/White/oasis.yml
+  minPlayers: 30
   stations:
     Oasis:
       stationProto: StandardNanotrasenStation
@@ -63,3 +63,5 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+            Maid: [ 1, 1 ]
+            Bomzh: [ 1, 0 ]

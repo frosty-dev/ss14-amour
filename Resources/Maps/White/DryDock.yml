@@ -94895,6 +94895,11 @@ entities:
     - type: Transform
       pos: -10.5,-11.5
       parent: 2
+  - uid: 17286
+    components:
+    - type: Transform
+      pos: -2.5,-3.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 13554

@@ -420,4 +420,17 @@ public sealed class WhiteCVars
     public static readonly CVarDef<float> ItemToArtifactRatio =
         CVarDef.Create("white.random_artifacts_ratio", 0.5f, CVar.SERVERONLY);
 
+    /*
+     * Map voting
+     */
+
+    public static readonly CVarDef<bool> MapVotingEnabled =
+        CVarDef.Create("white.map_voting_enabled", false, CVar.SERVERONLY);
+
+    /*
+     * Game voting
+     */
+
+    public static readonly CVarDef<bool> GameVotingEnabled =
+        CVarDef.Create("white.game_voting_enabled", false, CVar.SERVERONLY);
 }
