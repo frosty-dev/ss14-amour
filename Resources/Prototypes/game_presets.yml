@@ -220,6 +220,18 @@
     - GameRuleMeteorScheduler
 
 - type: gamePreset
+  id: SecretSurvival #For Admin Use: Runs Survival but shows "Secret" in lobby.
+  alias:
+    - secretsurvival
+  name: secret-title
+  showInVote: false #Admin Use
+  description: secret-description
+  rules:
+    - RampingStationEventScheduler
+    - BasicRoundstartVariation
+    - GameRuleMeteorScheduler
+
+- type: gamePreset
   id: SecretTraitor #For Admin Use: Runs Traitor but shows "Secret" in lobby.
   alias:
     - secrettraitor
