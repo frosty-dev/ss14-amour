@@ -1,7 +1,7 @@
 - type: gameMap
   id: Omega
   mapName: 'Omega'
-  mapPath: /Maps/omega.yml
+  mapPath: /Maps/White/omega.yml
   minPlayers: 10
   maxPlayers: 35
   stations:
@@ -43,9 +43,9 @@
             MedicalIntern: [ 2, 2 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            SeniorResearcher: [ 1, 1 ]        
+            SeniorResearcher: [ 1, 1 ]
             Scientist: [ 3, 3 ]
-            ResearchAssistant: [ 2, 2 ] 
+            ResearchAssistant: [ 2, 2 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -64,3 +64,5 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Borg: [ 2, 2 ]
+            Maid: [ 1, 1 ]
+            Bomzh: [ 1, 0 ]

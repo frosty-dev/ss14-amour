@@ -1,7 +1,7 @@
 - type: gameMap
   id: Scoupidia
   mapName: 'Scoupidia Station'
-  mapPath: /Maps/White/Scoupidia.yml
+  mapPath: /Maps/White/Scoupidia.yml # В ней что-то ужасно сломано
   minPlayers: 20
   stations:
     ScoupidiaStation:
