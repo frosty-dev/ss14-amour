@@ -1,14 +1,17 @@
 - type: gameMapPool
   id: WhiteMapPool
   maps:
-  - WonderBox
+  - Atom
+  - Bagel
+  - DryDock
+  - Marathon
+  - Meta
+  - Oasis
+  - Omega
+  - Packed
+  - Polaris
+  - Reach
+  - Triumph
   - WhiteBox
   - WhiteMoose
-  - DryDock
-  - Meta
-# - Triumph Связь утеряна
-# - Train    # Temporary
-# - Scoupidia
-# - Bagel    # Она утонула
-# - Polaris
-# - Void
+  - WonderBox

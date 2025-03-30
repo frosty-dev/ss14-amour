@@ -1,7 +1,7 @@
 - type: gameMap
   id: Void
   mapName: 'Void Station'
-  mapPath: /Maps/White/Void.yml
+  mapPath: /Maps/White/Void.yml # В ней что-то ужасно сломано
   minPlayers: 20
   stations:
     VoidStation:
@@ -59,3 +59,5 @@
             SeniorOfficer: [ 1, 1 ]
             SeniorPhysician: [ 1, 1 ]
             SeniorEngineer: [ 1, 1 ]
+            Bomzh: [ 1, 0 ]
+            Maid: [ 1, 1 ]

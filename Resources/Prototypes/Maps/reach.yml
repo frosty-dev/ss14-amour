@@ -1,9 +1,9 @@
 - type: gameMap
   id: Reach
   mapName: 'Reach'
-  mapPath: /Maps/reach.yml
+  mapPath: /Maps/White/reach.yml
   minPlayers: 0
-  maxPlayers: 7
+  maxPlayers: 15
   stations:
     Reach:
       stationProto: StandardNanotrasenStation
@@ -33,4 +33,5 @@
             AtmosphericTechnician: [ 1, 1 ]
             StationEngineer: [ 1, 2 ]
             Passenger: [ -1, -1 ]
-
+            Bomzh: [ 1, 0 ]
+            Maid: [ 1, 1 ]

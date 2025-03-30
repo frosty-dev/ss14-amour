@@ -9749,6 +9749,8 @@ entities:
     - type: NavMap
     - type: BecomesStation
       id: WhiteMooseStation
+    - type: MaterialStorage
+      storage: {}
   - uid: 3058
     components:
     - type: MetaData

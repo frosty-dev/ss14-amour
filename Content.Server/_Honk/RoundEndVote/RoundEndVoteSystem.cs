@@ -1,8 +1,11 @@
 using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
 using Content.Server.Voting.Managers;
+using Content.Shared._White;
+using Content.Shared.CCVar;
 using Content.Shared.Voting;
 using Robust.Server.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Honk.RoundEndVote;
@@ -12,6 +15,7 @@ public sealed class RoundEndVoteSystem : EntitySystem
     [Dependency] private readonly IVoteManager _voteManager = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
 
     public override void Initialize()
     {
@@ -28,31 +32,53 @@ public sealed class RoundEndVoteSystem : EntitySystem
             _gameTicker.DelayStart(TimeSpan.FromSeconds(60));
             Timer.Spawn(60 * 1000, () =>
             {
-                if (_playerManager.PlayerCount >= 15)
-                {
-                    _voteManager.CreateStandardVote(null, StandardVoteType.Preset);
-                }
-                else if (_playerManager.PlayerCount >= 5)
-                {
-                    _gameTicker.SetGamePreset("Extended");
-                }
+                SelectingGame();
+                SelectingMap();
             });
         }
-
-        if (_playerManager.PlayerCount >= 15)
-        {
-            _voteManager.CreateStandardVote(null, StandardVoteType.Preset);
-        }
-        else if (_playerManager.PlayerCount >= 5)
-        {
-            _gameTicker.SetGamePreset("Extended");
-        }
         else
+        {
+            SelectingGame();
+            SelectingMap();
+        }
+
+    }
+    private void SelectingGame()
+    {
+        if (_playerManager.PlayerCount <= 5)
         {
             _gameTicker.SetGamePreset("Greenshift");
         }
 
-        _voteManager.CreateStandardVote(null, StandardVoteType.Map);
+        if (_playerManager.PlayerCount > 5 && _playerManager.PlayerCount < 15)
+        {
+            _gameTicker.SetGamePreset("Extended");
+        }
+
+        if (_playerManager.PlayerCount >= 15)
+        {
+            if (_cfg.GetCVar(WhiteCVars.GameVotingEnabled))
+            {
+                _voteManager.CreateStandardVote(null, StandardVoteType.Preset);
+            }
+            else
+            {
+                _gameTicker.SetGamePreset("Secret");
+            }
+        }
+    }
+
+    private void SelectingMap()
+    {
+        if (_cfg.GetCVar(WhiteCVars.MapVotingEnabled))
+        {
+            _voteManager.CreateStandardVote(null, StandardVoteType.Map);
+        }
+        else
+        {
+            _cfg.SetCVar(CCVars.GameMap, string.Empty);
+        }
+
     }
 
 }

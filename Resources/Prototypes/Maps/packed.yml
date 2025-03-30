@@ -1,9 +1,8 @@
 - type: gameMap
   id: Packed
   mapName: 'Packed'
-  mapPath: /Maps/packed.yml
-  minPlayers: 5
-  maxPlayers: 40
+  mapPath: /Maps/White/packed.yml
+  minPlayers: 0
   stations:
     Packed:
       stationProto: StandardNanotrasenStation
@@ -59,3 +58,5 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Borg: [ 1 , 1 ]
+            Maid: [ 1, 1 ]
+            Bomzh: [ 1, 0 ]
