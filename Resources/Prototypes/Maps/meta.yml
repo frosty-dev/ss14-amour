@@ -1,7 +1,7 @@
 - type: gameMap
   id: Meta
   mapName: 'Meta Station'
-  mapPath: /Maps/White/Stations/Meta.yml
+  mapPath: /Maps/White/meta.yml
   minPlayers: 0
   stations:
     Meta:
