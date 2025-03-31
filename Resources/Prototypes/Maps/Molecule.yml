@@ -3,6 +3,7 @@
   mapName: 'Molecule Station'
   mapPath: /Maps/_Honk/Stations/Molecule.yml
   minPlayers: 0
+  maxPlayers: 25
   stations:
     MoleculeStation:
       stationProto: StandardNanotrasenStation
