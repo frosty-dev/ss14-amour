@@ -1,8 +1,8 @@
 - type: gameMap
   id: Polaris
   mapName: 'Polaris Station'
-  mapPath: /Maps/_Honk/Stations/Polaris.yml
-  minPlayers: 0 # Amour
+  mapPath: /Maps/White/Polaris.yml
+  minPlayers: 20
   stations:
     PolarisStation:
       stationProto: StandardNanotrasenStation
@@ -33,7 +33,7 @@
             ChiefMedicalOfficer: [ 1, 1 ]
             MedicalDoctor: [ 2, 2 ]
             Paramedic: [ 3, 3 ]
-            Psychologist: [ 1, 1 ] # Amour
+            Psychologist: [ 1, 1 ]
             Musician: [ 3, 3 ]
             Chemist: [ 2, 2 ]
             ResearchDirector: [ 1, 1 ]
@@ -45,7 +45,7 @@
             Librarian: [ 1, 1 ]
             Lawyer: [ 2, 2 ]
             Boxer: [ 0, 0 ]
-            Reporter: [ 2, 2 ] # Amour from 0 to 2
+            Reporter: [ 2, 2 ]
             Zookeeper: [ 0, 0 ]
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 24, 24 ]
@@ -60,6 +60,6 @@
             SeniorOfficer: [ 1, 1 ]
             SeniorPhysician: [ 1, 1 ]
             SeniorEngineer: [ 1, 1 ]
-            Bomzh: [ 1, 0 ] # Amour
-            Maid: [ 1, 1 ] # Amour
-            Brigmedic: [ 1, 1 ] # Amour
+            Bomzh: [ 1, 0 ]
+            Maid: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]

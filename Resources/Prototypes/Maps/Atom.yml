@@ -2,7 +2,8 @@
   id: Atom
   mapName: 'Atom Station'
   mapPath: /Maps/White/Atom.yml
-  minPlayers: 1
+  minPlayers: 0
+  maxPlayers: 15
   stations:
     AtomStation:
       stationProto: StandardNanotrasenStation

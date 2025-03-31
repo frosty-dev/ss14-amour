@@ -1,9 +1,8 @@
 - type: gameMap
   id: Marathon
   mapName: 'Marathon Station'
-  mapPath: /Maps/marathon.yml
-  minPlayers: 35
-  maxPlayers: 70
+  mapPath: /Maps/White/marathon.yml
+  minPlayers: 30
   stations:
     Marathon:
       stationProto: StandardNanotrasenStation
@@ -62,3 +61,5 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+            Maid: [ 1, 1 ]
+            Bomzh: [ 1, 0 ]

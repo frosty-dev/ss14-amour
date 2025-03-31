@@ -1,15 +1,19 @@
 - type: gameMapPool
   id: WhiteMapPool
   maps:
-  - WonderBox
-  - Molecule # Amour Exclusive
-  - Triumph # Amour edit
+  - Atom
+  - Bagel
+  - DryDock
+  - Marathon
+  - Meta
+  - Oasis
+  - Omega
+  - Origin
+  - Packed
+  - Polaris
+  - Reach
+  - Triumph
   - WhiteBox
   - WhiteMoose
-  - DryDock
-  - Meta
-# - Train    # Temporary
-# - Scoupidia
-# - Bagel    # Она утонула
-  - Polaris # Amour edit
-# - Void
+  - WonderBox
+  - Molecule # Amour Exclusive
