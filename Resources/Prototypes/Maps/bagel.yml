@@ -55,6 +55,8 @@
             SecurityCadet: [ 4, 4 ]
             Lawyer: [ 2, 2 ]
             SeniorOfficer: [ 1, 1 ]
+            Brigmedic: [ 1, 1 ]
+            Inspector: [ 1, 1 ]
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
@@ -65,5 +67,6 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 2, 2 ]
+            Boxer: [ 2, 2 ]
             Bomzh: [ 1, 0 ]
             Maid: [ 1, 1 ]
