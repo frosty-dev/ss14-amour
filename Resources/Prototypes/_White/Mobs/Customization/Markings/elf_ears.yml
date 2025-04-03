@@ -1,0 +1,8 @@
+﻿- type: marking
+  id: ElfEars
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Human]
+  sprites:
+    - sprite: White/Mobs/Customization/elf.rsi
+      state: elf_ears
