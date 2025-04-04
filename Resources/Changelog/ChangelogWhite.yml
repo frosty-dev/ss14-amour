@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Valtos
-  changes:
-  - message: "11 \u043D\u043E\u0432\u044B\u0445 \u0433\u043E\u043B\u043E\u0441\u043E\
-      \u0432 \u0438\u0437 Hogwarts Legacy!"
-    type: Add
-  id: 173
-  time: '2024-03-02T05:58:21.0000000+00:00'
-  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/158
 - author: Aviu
   changes:
   - message: "\u0421\u0432\u044F\u0442\u0430\u044F \u0432\u043E\u0434\u0430 \u0442\
@@ -9078,3 +9070,12 @@
   id: 672
   time: '2025-04-02T18:15:00.0000000+00:00'
   url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/941
+- author: Hero_010
+  changes:
+  - message: "\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u044B \u0410\u043B\u044C\
+      \u0432\u0438\u0439\u0441\u043A\u0438\u0435 \u0443\u0448\u0438 (\u0441\u043F\u0430\
+      \u0441\u0438\u0431\u043E \u0414\u0430\u043B\u0442\u043E\u043D\u0443)."
+    type: Add
+  id: 673
+  time: '2025-04-03T17:50:03.0000000+00:00'
+  url: https://api.github.com/repos/frosty-dev/ss14-core/pulls/942
