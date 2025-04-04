@@ -1,7 +1,7 @@
 - type: gameMap
   id: DryDock
   mapName: 'DryDock Station'
-  mapPath: /Maps/_Honk/Stations/DryDock.yml
+  mapPath: /Maps/White/DryDock.yml
   minPlayers: 0
   stations:
     DryDockStation:
