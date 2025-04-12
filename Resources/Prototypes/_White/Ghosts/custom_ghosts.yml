@@ -141,11 +141,11 @@
   size: 0.8, 0.8
 
 - type: customGhost
-  id: hitpanda-ghost
-  ckey: hitpanda
+  id: caypennow-ghost
+  ckey: CaypenNow
   sprite: White/Ghosts/hitpanda_ghost.rsi
   alpha: 0.8
-  ghostName: Панда
+  ghostName: Undefined
   ghostDescription: Полыхает...
   size: 1, 1
 
