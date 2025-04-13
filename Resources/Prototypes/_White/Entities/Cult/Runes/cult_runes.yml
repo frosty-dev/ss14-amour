@@ -47,6 +47,8 @@
     - state: empower
       color: '#F80000'
   - type: Appearance
+  - type: ActivatableUI
+    key: enum.CultEmpowerUiKey.Key
   - type: CultRuneBase
     invokePhrase: "H'drak v'loso, mir'kanas verbot!"
     gatherInvokers: false
