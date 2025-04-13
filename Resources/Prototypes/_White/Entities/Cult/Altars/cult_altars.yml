@@ -121,6 +121,8 @@
     - FactoryCultShuttleCurse
     - FactoryCultClothingBlindfold
     - FactoryCultVeilShifter
+  - type: ActivatableUI
+    key: enum.CultistAltarUiKey.Key
   - type: UserInterface
     interfaces:
       enum.CultistAltarUiKey.Key:
@@ -180,6 +182,8 @@
     products:
     - FactoryWhetstone
     - FactoryConstructShell
+  - type: ActivatableUI
+    key: enum.CultistAltarUiKey.Key
   - type: UserInterface
     interfaces:
       enum.CultistAltarUiKey.Key:
@@ -243,6 +247,8 @@
     - FactoryUnholyHalberd
     - FactoryCultRobeModify
     - FactoryCultMirrorShield
+  - type: ActivatableUI
+    key: enum.CultistAltarUiKey.Key
   - type: UserInterface
     interfaces:
       enum.CultistAltarUiKey.Key:

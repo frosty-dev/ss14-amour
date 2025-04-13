@@ -32,6 +32,8 @@ public sealed class StructureCraftBoundUserInterface : BoundUserInterface
 
         _radialContainer = new RadialContainer();
 
+        _radialContainer.Closed += Close;
+
         foreach (var prototype in _prototypeManager.EnumeratePrototypes<CultStructurePrototype>())
         {
             var radialButton = _radialContainer.AddButton(prototype.StructureName, prototype.Icon);

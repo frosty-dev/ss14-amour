@@ -274,7 +274,7 @@
   noSpawn: true
   components:
   - type: GameRule
-    minPlayers: 30 # Amour
+    minPlayers: 20
   - type: CultRule
   - type: AntagSelection
     definitions:

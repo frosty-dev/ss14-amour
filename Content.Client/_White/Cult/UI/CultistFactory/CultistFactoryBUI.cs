@@ -1,6 +1,8 @@
 ﻿using Content.Client._White.UserInterface.Radial;
 using Content.Shared._White.Cult;
+using Content.Shared._White.Cult.Components;
 using Content.Shared._White.Cult.UI;
+using Robust.Client.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client._White.Cult.UI.CultistFactory;
@@ -8,6 +10,7 @@ namespace Content.Client._White.Cult.UI.CultistFactory;
 public sealed class CultistFactoryBUI : BoundUserInterface
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
     private RadialContainer? _radialContainer;
 
     private bool _updated = false;
@@ -18,7 +21,7 @@ public sealed class CultistFactoryBUI : BoundUserInterface
     }
     private void ResetUI()
     {
-        _radialContainer?.Close();
+        _radialContainer?.Dispose();
         _radialContainer = null;
         _updated = false;
     }
@@ -29,6 +32,9 @@ public sealed class CultistFactoryBUI : BoundUserInterface
 
         if (_radialContainer != null)
             ResetUI();
+
+        if(!CanOpen())
+            return;
 
         _radialContainer = new RadialContainer();
 
@@ -58,9 +64,18 @@ public sealed class CultistFactoryBUI : BoundUserInterface
 
     private void Select(string id)
     {
-        SendMessage(new CultistFactoryItemSelectedMessage(id));
+        SendPredictedMessage(new CultistFactoryItemSelectedMessage(id));
         ResetUI();
         Close();
+    }
+
+    private bool CanOpen()
+    {
+        var localPlayer = IoCManager.Resolve<IPlayerManager>().LocalPlayer;
+
+        var uid = localPlayer?.ControlledEntity;
+
+        return uid != null && _entityManager.HasComponent<CultistComponent>(uid);
     }
 
     protected override void Dispose(bool disposing)

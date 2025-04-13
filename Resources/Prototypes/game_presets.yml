@@ -173,20 +173,20 @@
   - BasicRoundstartVariation
 
 #WD EDIT START
-# - type: gamePreset
-#   id: Cult
-#   alias:
-#     - cult
-#   name: cult-title
-#   description: cult-description
-#   showInVote: true
-#   minPlayers: 20
-#   rules:
-#     - Cult
-#     - SubGamemodesRule
-#     - BasicStationEventScheduler
-#     - BasicRoundstartVariation
-#     - GameRuleMeteorScheduler
+- type: gamePreset
+  id: Cult
+  alias:
+    - cult
+  name: cult-title
+  description: cult-description
+  showInVote: true
+  minPlayers: 20
+  rules:
+    - Cult
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - BasicRoundstartVariation
+    - GameRuleMeteorScheduler
 
 - type: gamePreset
   id: Changeling
@@ -313,4 +313,18 @@
     - BasicStationEventScheduler
     - BasicRoundstartVariation
     - GameRuleMeteorScheduler
+
+- type: gamePreset
+  id: SecretCult #For Admin Use: Runs Cult, but shows "Secret" in lobby.
+  alias:
+  - secretcult
+  name: secret-title
+  showInVote: false #Admin Use
+  description: secret-description
+  rules:
+  - Cult
+  - SubGamemodesRule
+  - BasicStationEventScheduler
+  - BasicRoundstartVariation
+  - GameRuleMeteorScheduler
 #WD EDIT END

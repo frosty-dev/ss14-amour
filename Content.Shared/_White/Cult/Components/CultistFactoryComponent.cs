@@ -1,12 +1,11 @@
-﻿using Content.Server.UserInterface;
-using Content.Shared._White.Cult;
-using Content.Shared._White.Cult.UI;
-using Robust.Server.GameObjects;
+﻿using Content.Shared._White.Cult.UI;
+using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
-namespace Content.Server._White.Cult.TimedProduction;
+namespace Content.Shared._White.Cult.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class CultistFactoryComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]

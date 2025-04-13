@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server._Miracle.Components;
 using Content.Server._Miracle.GulagSystem;
 using Content.Server._White.Cult.GameRule;
 using Content.Server.Objectives.Components;
@@ -122,6 +121,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
             return;
 
         var cultistRule = EntityManager.EntityQuery<CultRuleComponent>().FirstOrDefault();
+
         if (cultistRule?.CultTarget is null)
         {
             return;
