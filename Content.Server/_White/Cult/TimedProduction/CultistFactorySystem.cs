@@ -4,9 +4,11 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared._White.Cult;
+using Content.Shared._White.Cult.Components;
 using Content.Shared._White.Cult.Structures;
 using Content.Shared._White.Cult.Systems;
 using Content.Shared._White.Cult.UI;
+using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -37,11 +39,12 @@ public sealed class CultistFactorySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CultistFactoryComponent, InteractHandEvent>(OnInteract);
         SubscribeLocalEvent<CultistFactoryComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<CultistFactoryComponent, CultistFactoryItemSelectedMessage>(OnSelected);
 
         SubscribeLocalEvent<CultistFactoryComponent, InteractUsingEvent>(TryToggleAnchor);
+        SubscribeLocalEvent<CultistFactoryComponent, BeforeActivatableUIOpenEvent>((u, c, args) => UpdateUserInterfaceState(u, args, c));
+        SubscribeLocalEvent<CultistFactoryComponent, ActivatableUIOpenAttemptEvent>((u, c, args) => OnActivatableUI(u, args, c));
         SubscribeLocalEvent<CultistFactoryComponent, CultAnchorDoAfterEvent>(OnAnchorDoAfter);
         SubscribeLocalEvent<CultistFactoryComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<CultistFactoryComponent, ConcealEvent>(OnConceal);
@@ -70,28 +73,32 @@ public sealed class CultistFactorySystem : EntitySystem
         }
     }
 
-    private void OnInit(EntityUid uid, CultistFactoryComponent component, ComponentInit args)
+    public void UpdateUserInterfaceState(EntityUid uid, BeforeActivatableUIOpenEvent args, CultistFactoryComponent? component = null)
     {
-        UpdateAppearance(uid, component);
-    }
-
-    private void OnInteract(EntityUid uid, CultistFactoryComponent component, InteractHandEvent args)
-    {
-        if (!HasComp<ActorComponent>(args.User))
-            return;
-
-        if (!HasComp<CultistComponent>(args.User))
-            return;
-
-        if (!CanCraft(uid, component, args.User))
-            return;
-
-        var xform = Transform(uid);
-        if (!xform.Anchored)
+        if (!Resolve(uid, ref component))
             return;
 
         _ui.SetUiState(uid, CultistAltarUiKey.Key, new CultistFactoryBUIState(component.Products));
-        _ui.OpenUi(uid, CultistAltarUiKey.Key, uid);
+
+        Dirty(uid, component);
+    }
+
+    private void OnActivatableUI(EntityUid uid, ActivatableUIOpenAttemptEvent args, CultistFactoryComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        var user = args.User;
+
+        if (!HasComp<CultistComponent>(user))
+            args.Cancel();
+
+        Dirty(uid, component);
+    }
+
+    private void OnInit(EntityUid uid, CultistFactoryComponent component, ComponentInit args)
+    {
+        UpdateAppearance(uid, component);
     }
 
     private void OnSelected(EntityUid uid, CultistFactoryComponent component, CultistFactoryItemSelectedMessage args)

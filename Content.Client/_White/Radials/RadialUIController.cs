@@ -55,7 +55,8 @@ public sealed class RadialUIController : UIController, IOnStateEntered<GameplayS
             _combatMode.IsInCombatMode(user))
             return;
 
-        Close();
+        if(OpenMenu != null)
+            Close();
 
         CurrentTarget = target;
         CurrentRadials = _radialSystem.GetRadials(target, user, Radial.RadialTypes, force);
@@ -71,7 +72,10 @@ public sealed class RadialUIController : UIController, IOnStateEntered<GameplayS
     {
         OpenMenu ??= new RadialContainer();
 
-        OpenMenu.CloseButton.Controller.OnPressed += _ => Close();
+        OpenMenu.CloseButton.Controller.OnPressed += _ =>
+        {
+            Close();
+        };
 
         foreach (var radial in CurrentRadials)
         {
@@ -93,7 +97,7 @@ public sealed class RadialUIController : UIController, IOnStateEntered<GameplayS
         if (OpenMenu == null)
             return;
 
-        OpenMenu.Close();
+        OpenMenu.Close(true);
         OpenMenu = null;
     }
 

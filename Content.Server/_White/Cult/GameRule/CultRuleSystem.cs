@@ -42,8 +42,8 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly GulagSystem _gulag = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AlertsSystem _alertsSystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {
@@ -61,9 +61,6 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
     protected override void Added(EntityUid uid, CultRuleComponent rule, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, rule, gameRule, args);
-
-        var potentialTargets = FindPotentialTargets();
-        rule.CultTarget = _random.PickAndTake(potentialTargets).Mind;
     }
 
     private void OnClone(Entity<CultistComponent> ent, ref CloningEvent args)
@@ -266,6 +263,17 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
 
     private void AfterEntitySelected(Entity<CultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
+        if (ent.Comp.CultTarget == null)
+        {
+            var potentialTargets = FindPotentialTargets();
+            if (potentialTargets.Count == 0)
+            {
+                ent.Comp.CultTarget = null;
+                return;
+            }
+            ent.Comp.CultTarget = _random.PickAndTake(potentialTargets).Mind;
+        }
+
         MakeCultist(args.EntityUid, ent);
     }
 
@@ -335,12 +343,11 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
 
     private List<MindContainerComponent> FindPotentialTargets()
     {
-        var querry =
-            EntityManager.EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent, ActorComponent>();
+        var query = EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent, ActorComponent>();
 
         var potentialTargets = new List<MindContainerComponent>();
 
-        while (querry.MoveNext(out var uid, out var mind, out _, out var actor))
+        while (query.MoveNext(out var uid, out var mind, out _, out var actor))
         {
             var entity = mind.Mind;
 
@@ -350,7 +357,7 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
             if (_gulag.IsUserGulagged(actor.PlayerSession.UserId, out _))
                 continue;
 
-            if (HasComp<CultistComponent>(entity))
+            if (HasComp<CultistComponent>(uid))
                 continue;
 
             potentialTargets.Add(mind);

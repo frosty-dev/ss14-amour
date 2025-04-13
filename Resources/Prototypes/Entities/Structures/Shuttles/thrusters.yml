@@ -35,6 +35,16 @@
     - type: InteractionOutline
     - type: Sprite
     - type: Appearance
+    - type: DeviceNetwork # Parsec
+      deviceNetId: Wireless
+      receiveFrequencyId: Thruster
+    - type: WirelessNetworkConnection # Parsec
+      range: 200
+    - type: DeviceLinkSink # Parsec
+      ports:
+      - Toggle
+      - On
+      - Off
     - type: ThrusterVisuals
     - type: ApcPowerReceiver
       powerLoad: 1500

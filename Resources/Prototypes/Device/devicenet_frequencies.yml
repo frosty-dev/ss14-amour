@@ -132,3 +132,8 @@
   id: SyndicateMessagesClient
   name: device-frequency-prototype-name-syndicate-messages-client
   frequency: 2793
+# PARSEC
+- type: deviceFrequency
+  id: Thruster #used by thrusters
+  name: device-frequency-prototype-name-thrusters
+  frequency: 1512

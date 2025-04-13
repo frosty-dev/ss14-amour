@@ -1,4 +1,5 @@
 using Content.Shared._White.BuffedFlashGrenade;
+using Content.Shared._White.DeadWithoutMind;
 using Content.Shared._White.Events;
 using Content.Shared._White.StaminaProtection;
 using Content.Shared.Changeling;
@@ -56,6 +57,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowMindShieldIconsComponent>>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowAntagonistIconsComponent>>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowCriminalRecordIconsComponent>>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowDeadWithoutMindComponent>>(RelayInventoryEvent); // Parsec
 
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<EquipmentVerb>>(OnGetEquipmentVerbs);
     }

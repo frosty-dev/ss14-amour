@@ -1327,13 +1327,15 @@ public sealed partial class CultSystem : EntitySystem
         if (transform == null)
             return false;
 
-        if (!mindComponent.Mind.HasValue)
+        if (mindComponent.Mind.HasValue == false)
             return false;
 
         var shard = _entityManager.SpawnEntity("SoulShard", transform.Value);
 
+        if (shard.Valid == false)
+            return false;
+
         _mindSystem.TransferTo(mindComponent.Mind.Value, shard);
-        _mindSystem.UnVisit(mindComponent.Mind.Value);
 
         _bodySystem.GibBody(target);
 

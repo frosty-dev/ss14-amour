@@ -89,6 +89,7 @@
   - type: ShowRevIcons
   - type: ShowZombieIcons
   - type: ShowCultHud
+  - type: ShowDeadWithoutMind
   - type: Inventory
     templateId: aghost
   - type: InventorySlots

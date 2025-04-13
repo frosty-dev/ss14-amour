@@ -24,7 +24,9 @@ public sealed class CultStructureCraftSystem : EntitySystem
         if (!HasComp<CultistComponent>(args.User))
             return;
 
-        _uiSystem.CloseUi(uid, component.UserInterfaceKey, args.User);
+        if(_uiSystem.HasUi(args.User, component.UserInterfaceKey))
+            _uiSystem.CloseUi(uid, component.UserInterfaceKey, args.User);
+
         _uiSystem.OpenUi(uid, component.UserInterfaceKey, args.User);
     }
 }

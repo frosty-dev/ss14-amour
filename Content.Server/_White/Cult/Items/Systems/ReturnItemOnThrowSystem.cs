@@ -2,6 +2,7 @@
 using Content.Server.Stunnable;
 using Content.Server._White.Cult.Items.Components;
 using Content.Shared._White.Chaplain;
+using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Throwing;
 using CultistComponent = Content.Shared._White.Cult.Components.CultistComponent;
@@ -25,10 +26,14 @@ public sealed class ReturnItemOnThrowSystem : EntitySystem
     {
         var isCultist = HasComp<CultistComponent>(args.Target);
         var thrower = args.Component.Thrower;
+        var isHumanoid = HasComp<HumanoidAppearanceComponent>(args.Target);
         if (!HasComp<CultistComponent>(thrower))
             return;
 
         if (!HasComp<MobStateComponent>(args.Target))
+            return;
+
+        if(!isHumanoid)
             return;
 
         if (!isCultist && !_holyWeapon.IsHoldingHolyWeapon(args.Target))

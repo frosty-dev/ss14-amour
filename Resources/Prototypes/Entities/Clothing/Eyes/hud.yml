@@ -12,6 +12,7 @@
   abstract: true
   noSpawn: true
   components:
+  - type: ShowDeadWithoutMind
   - type: ShowHealthBars
     damageContainers:
     - Biological
