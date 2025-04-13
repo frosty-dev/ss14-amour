@@ -266,6 +266,11 @@ public sealed class CultRuleSystem : GameRuleSystem<CultRuleComponent>
         if (ent.Comp.CultTarget == null)
         {
             var potentialTargets = FindPotentialTargets();
+            if (potentialTargets.Count == 0)
+            {
+                ent.Comp.CultTarget = null;
+                return;
+            }
             ent.Comp.CultTarget = _random.PickAndTake(potentialTargets).Mind;
         }
 
