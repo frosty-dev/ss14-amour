@@ -5,6 +5,8 @@ device-frequency-prototype-name-crew-monitor = Отслеживатель эки
 device-frequency-prototype-name-lights = Умное освещение
 device-frequency-prototype-name-mailing-units = Почтовый блок
 device-frequency-prototype-name-pdas = ПДА
+# Thrusters | Parsec
+device-frequency-prototype-name-thrusters = Двигатели
 # prefixes for randomly generated device addresses
 device-address-prefix-vent = Вент-
 device-frequency-prototype-name-basic-device = Простые устройства

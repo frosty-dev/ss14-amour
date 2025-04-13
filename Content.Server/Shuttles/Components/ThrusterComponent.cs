@@ -1,8 +1,10 @@
 using System.Numerics;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Damage;
+using Content.Shared.DeviceLinking;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Shuttles.Components
 {
@@ -55,6 +57,17 @@ namespace Content.Server.Shuttles.Components
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite), DataField("nextFire", customTypeSerializer:typeof(TimeOffsetSerializer))]
         public TimeSpan NextFire;
+
+        // Parsec edit start
+        [DataField("onPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
+        public string OnPort = "On";
+
+        [DataField("offPort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
+        public string OffPort = "Off";
+
+        [DataField("togglePort", customTypeSerializer: typeof(PrototypeIdSerializer<SinkPortPrototype>))]
+        public string TogglePort = "Toggle";
+        // Parsec edit end
     }
 
     public enum ThrusterType

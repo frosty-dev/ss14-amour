@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Server.Audio;
+using Content.Server.DeviceLinking.Events;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
@@ -48,6 +49,7 @@ public sealed class ThrusterSystem : EntitySystem
         SubscribeLocalEvent<ThrusterComponent, IsHotEvent>(OnIsHotEvent);
         SubscribeLocalEvent<ThrusterComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<ThrusterComponent, EndCollideEvent>(OnEndCollide);
+        SubscribeLocalEvent<ThrusterComponent, SignalReceivedEvent>(OnSignalReceived);
 
         SubscribeLocalEvent<ThrusterComponent, ExaminedEvent>(OnThrusterExamine);
 
@@ -576,4 +578,30 @@ public sealed class ThrusterSystem : EntitySystem
     {
         return (int) Math.Log2((int) flag);
     }
+    // Parsec edit start
+    private void OnSignalReceived(EntityUid uid, ThrusterComponent component, ref SignalReceivedEvent args)
+    {
+        if (args.Port == component.OffPort && component.IsOn)
+        {
+            DisableThruster(uid, component);
+            return;
+        }
+
+        if (args.Port == component.OnPort && !component.IsOn)
+        {
+            EnableThruster(uid, component);
+            return;
+        }
+
+        switch (component.IsOn && args.Port == component.TogglePort)
+        {
+            case true:
+                DisableThruster(uid, component);
+                break;
+            case false:
+                EnableThruster(uid, component);
+                break;
+        }
+    }
+    // Parsec edit end
 }
