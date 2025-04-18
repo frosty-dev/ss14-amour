@@ -1,0 +1,36 @@
+- type: entity
+  id: ActionGuardianPowerToggle
+  name: "[color=green]Сила голопаразита[/color]"
+  description: Уникальная способность голопаразита.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: White/Interface/Guardian/powerOff.png
+    iconOn: White/Interface/Guardian/power.png
+    event: !type:ToggleGuardianPowerActionEvent
+
+- type: entity
+  id: ActionGuardianPowerOff
+  parent: ActionCombatModeToggle
+  name: "[color=red]Сила голопаразита[/color]"
+  description: Уникальная способность голопаразита.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    enabled: false
+    autoPopulate: false
+
+- type: entity
+  id: ActionChargerPower
+  name: "[color=green]Сила голопаразита[/color]"
+  description: Уникальная способность голопаразита, позволяет зарядить ваш кулак и одним ударом поразить цель.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 4
+    checkCanInteract: false
+    checkConsciousness: false
+    icon: White/Interface/Guardian/powerOff.png
+    event: !type:ChargerPowerActionEvent

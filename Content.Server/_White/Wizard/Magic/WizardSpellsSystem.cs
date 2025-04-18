@@ -404,6 +404,8 @@ public sealed class WizardSpellsSystem : EntitySystem
         _statusEffectsSystem.TryAddStatusEffect<IncorporealComponent>(msg.Performer, "Incorporeal",
             TimeSpan.FromSeconds(10), false);
 
+        Spawn("EffectEmpPulse", Transform(msg.Performer).Coordinates);
+
         Cast(msg);
     }
 

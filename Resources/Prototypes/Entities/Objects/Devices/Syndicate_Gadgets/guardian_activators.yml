@@ -9,6 +9,15 @@
     state: combat_hypo
   - type: GuardianCreator
     guardianProto: MobHoloparasiteGuardian
+    guardiansAvaliable:
+    - Assasin
+    - Charger
+    - Standart
+    - Lighting
+  - type: UserInterface # PARSEC EDIT
+    interfaces:
+      enum.GuardianSelectorUiKey.Key:
+        type: GuardianSelectorBUI
 
 - type: entity
   name: holoclown injector

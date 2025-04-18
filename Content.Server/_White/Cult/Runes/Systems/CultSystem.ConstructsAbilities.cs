@@ -157,6 +157,8 @@ public partial class CultSystem
         _statusEffectsSystem.TryAddStatusEffect<IncorporealComponent>(ev.Performer, ev.StatusEffectId,
             TimeSpan.FromSeconds(ev.Duration), false);
 
+        Spawn("EffectEmpPulse", Transform(ev.Performer).Coordinates);
+
         ev.Handled = true;
     }
 
