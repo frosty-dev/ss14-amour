@@ -1,7 +1,9 @@
+using Content.Server._White.IncorporealSystem;
 using Content.Server.Body.Systems;
+using Content.Server.Lightning;
 using Content.Server.Popups;
+using Content.Shared._White.Guardian;
 using Content.Shared.Actions;
-using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -12,7 +14,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
-using Robust.Server.GameObjects;
+using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -35,6 +37,9 @@ namespace Content.Server.Guardian
         [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+        [Dependency] private readonly LightningSystem _lightningSystem = default!;
+        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
 
         public override void Initialize()
         {
@@ -58,7 +63,92 @@ namespace Content.Server.Guardian
             SubscribeLocalEvent<GuardianHostComponent, GuardianToggleActionEvent>(OnPerformAction);
 
             SubscribeLocalEvent<GuardianComponent, AttackAttemptEvent>(OnGuardianAttackAttempt);
+
+            // PARSEC EDIT START
+            SubscribeLocalEvent<GuardianCreatorComponent, GuardianSelectorSelectedBuiMessage>(OnGuardianSelected);
+            SubscribeLocalEvent<GuardianComponent, ToggleGuardianPowerActionEvent>(OnPerformGuardianPowerAction);
+            SubscribeLocalEvent<GuardianComponent, ChargerPowerActionEvent>(OnPerformChargerPowerAction);
+            SubscribeLocalEvent<GuardianComponent, GuardianToggleActionEvent>(OnPerformGuardianAction);
         }
+
+        // PARSEC EDIT START
+
+        private void OnGuardianSelected(EntityUid uid,
+            GuardianCreatorComponent component,
+            GuardianSelectorSelectedBuiMessage args)
+        {
+            var target = GetEntity(args.Target);
+            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.Actor, component.InjectionDelay, new GuardianCreatorDoAfterEvent{SelectedType = args.GuardianType}, uid, target: target, used: uid){BreakOnMove = true});
+        }
+
+        private void OnPerformGuardianPowerAction(EntityUid uid,
+            GuardianComponent component,
+            ToggleGuardianPowerActionEvent args)
+        {
+            if(args.Handled)
+                return;
+
+            args.Handled = true;
+            ToggleGuardianPower(uid, component, !component.IsInPowerMode);
+        }
+
+        private void ToggleGuardianPower(EntityUid uid, GuardianComponent component, bool toggleValue)
+        {
+            if (component.IsInPowerMode == toggleValue)
+                return;
+
+            if(component.PowerToggleActionEntity == null)
+                return;
+
+            if (component is { IsInPowerMode: false, GuardianLoose: true })
+            {
+                _popupSystem.PopupEntity("Вы должны находится в теле, чтобы активировать способность!", uid, uid, PopupType.MediumCaution);
+                return;
+            }
+
+            component.IsInPowerMode = toggleValue;
+
+            _actionSystem.SetToggled(component.PowerToggleActionEntity, component.IsInPowerMode);
+            SetupPower(uid, component, component.GuardianType);
+        }
+
+        private void SetupPower(EntityUid uid, GuardianComponent component, GuardianSelector type)
+        {
+            if (type == GuardianSelector.Assasin)
+                SetupAssasin(uid, component);
+        }
+
+        private void SetupAssasin(EntityUid uid, GuardianComponent component)
+        {
+            if (HasComp<IncorporealComponent>(uid))
+            {
+                RemComp<IncorporealComponent>(uid);
+                _actionSystem.SetToggled(component.PowerToggleActionEntity, !component.IsInPowerMode);
+                component.IsInPowerMode = false;
+                component.DistanceAllowed = component.DistanceAllowedDefault;
+                return;
+            }
+
+            var incorporealComp = EnsureComp<IncorporealComponent>(uid);
+            incorporealComp.Effect = false;
+            component.DistanceAllowed = component.DistancePowerAssasin;
+        }
+
+        private void OnPerformChargerPowerAction(EntityUid uid, GuardianComponent component, ChargerPowerActionEvent args)
+        {
+            if(args.Handled)
+                return;
+
+            args.Handled = true;
+
+            if(component.IsCharged)
+                return;
+
+            component.IsCharged = true;
+            _audio.PlayPvs(component.ChargerSound, uid);
+        }
+
+        //Parsec edit end
 
         private void OnGuardianShutdown(EntityUid uid, GuardianComponent component, ComponentShutdown args)
         {
@@ -70,6 +160,10 @@ namespace Content.Server.Guardian
 
             _container.Remove(uid, hostComponent.GuardianContainer);
             hostComponent.HostedGuardian = null;
+            if(component.PowerToggleActionEntity != null)
+                _actionSystem.RemoveAction(uid, component.PowerToggleActionEntity); // Parsec
+            if(component.ChargerPowerActionEntity != null)
+                _actionSystem.RemoveAction(uid, component.ChargerPowerActionEntity); // parsec
             Dirty(host.Value, hostComponent);
             QueueDel(hostComponent.ActionEntity);
             hostComponent.ActionEntity = null;
@@ -82,6 +176,24 @@ namespace Content.Server.Guardian
 
             if (component.HostedGuardian != null)
                 ToggleGuardian(uid, component);
+
+            args.Handled = true;
+        }
+
+        private void OnPerformGuardianAction(EntityUid uid, GuardianComponent component, GuardianToggleActionEvent args)
+        {
+            if (args.Handled)
+                return;
+
+            if(component.Host == null)
+                return;
+
+            var host = (EntityUid) component.Host;
+
+            if(!TryComp<GuardianHostComponent>(host, out var guardianHostComponent))
+                return;
+
+            ToggleGuardian(host, guardianHostComponent);
 
             args.Handled = true;
         }
@@ -109,6 +221,19 @@ namespace Content.Server.Guardian
             }
 
             _popupSystem.PopupEntity(Loc.GetString("guardian-available"), host.Value, host.Value);
+
+            _actionSystem.AddAction(uid, ref component.ActionEntity, component.Action);
+
+            if (component.GuardianType is GuardianSelector.Standart or GuardianSelector.Lighting)
+                return;
+
+            if (component.GuardianType == GuardianSelector.Charger)
+            {
+                _actionSystem.AddAction(uid, ref component.ChargerPowerActionEntity, component.ChargerPowerAction);
+                return;
+            }
+
+            _actionSystem.AddAction(uid, ref component.PowerToggleActionEntity, component.PowerToggleAction);
         }
 
         private void OnHostInit(EntityUid uid, GuardianHostComponent component, ComponentInit args)
@@ -133,12 +258,55 @@ namespace Content.Server.Guardian
 
         private void OnGuardianAttackAttempt(EntityUid uid, GuardianComponent component, AttackAttemptEvent args)
         {
-            if (args.Cancelled || args.Target != component.Host)
+            if (args.Cancelled)
                 return;
 
-            // why is this server side code? This should be in shared
-            _popupSystem.PopupCursor(Loc.GetString("guardian-attack-host"), uid, PopupType.LargeCaution);
-            args.Cancel();
+            if (args.Target == null)
+                return;
+
+            if (args.Target == component.Host)
+            {
+                _popupSystem.PopupCursor(Loc.GetString("guardian-attack-host"), uid, PopupType.LargeCaution);
+                args.Cancel();
+                return;
+            }
+
+            var target = (EntityUid) args.Target;
+
+            if (component.GuardianType == GuardianSelector.Lighting)
+            {
+                for (var i = 0; i < component.LightingCount; i++)
+                {
+                    _lightningSystem.ShootLightning(uid, target);
+                }
+            }
+
+            if (component.GuardianType == GuardianSelector.Assasin)
+            {
+                if (!component.IsInPowerMode)
+                    return;
+
+                if (!TryComp<MeleeWeaponComponent>(args.Weapon, out var meleeWeaponComponent))
+                    return;
+
+                _damageableSystem.TryChangeDamage(args.Target,
+                    meleeWeaponComponent.Damage * component.AssasinDamageModifier,
+                    true);
+                SetupAssasin(uid, component);
+            }
+
+            if (component.GuardianType == GuardianSelector.Charger)
+            {
+                if(!component.IsCharged)
+                    return;
+
+                foreach (var hand in _handsSystem.EnumerateHands(target))
+                {
+                    _handsSystem.TryDrop(target, hand);
+                }
+
+                component.IsCharged = false;
+            }
         }
 
         public void ToggleGuardian(EntityUid user, GuardianHostComponent hostComponent)
@@ -172,6 +340,7 @@ namespace Content.Server.Guardian
             args.Handled = true;
             UseCreator(args.User, args.Target.Value, uid, component);
         }
+
         private void UseCreator(EntityUid user, EntityUid target, EntityUid injector, GuardianCreatorComponent component)
         {
             if (component.Used)
@@ -194,10 +363,11 @@ namespace Content.Server.Guardian
                 return;
             }
 
-            _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.InjectionDelay, new GuardianCreatorDoAfterEvent(), injector, target: target, used: injector){BreakOnMove = true});
+            _ui.SetUiState(injector, GuardianSelectorUiKey.Key, new GuardianSelectorBUIState(component.GuardiansAvaliable, GetNetEntity(target)));
+            _ui.OpenUi(injector, GuardianSelectorUiKey.Key, user);
         }
 
-        private void OnDoAfter(EntityUid uid, GuardianCreatorComponent component, DoAfterEvent args)
+        private void OnDoAfter(EntityUid uid, GuardianCreatorComponent component, GuardianCreatorDoAfterEvent args)
         {
             if (args.Handled || args.Args.Target == null)
                 return;
@@ -207,14 +377,16 @@ namespace Content.Server.Guardian
 
             var hostXform = Transform(args.Args.Target.Value);
             var host = EnsureComp<GuardianHostComponent>(args.Args.Target.Value);
+            var guardianProto = component.GuardianSelectorToProto[args.SelectedType]; // Parsec
             // Use map position so it's not inadvertantly parented to the host + if it's in a container it spawns outside I guess.
-            var guardian = Spawn(component.GuardianProto, _transform.GetMapCoordinates(args.Args.Target.Value, xform: hostXform));
+            var guardian = Spawn(guardianProto, _transform.GetMapCoordinates(args.Args.Target.Value, xform: hostXform)); // Parsec edit
 
             _container.Insert(guardian, host.GuardianContainer);
             host.HostedGuardian = guardian;
 
             if (TryComp<GuardianComponent>(guardian, out var guardianComp))
             {
+                guardianComp.GuardianType = args.SelectedType;
                 guardianComp.Host = args.Args.Target.Value;
                 _audio.PlayPvs("/Audio/Effects/guardian_inject.ogg", args.Args.Target.Value);
                 _popupSystem.PopupEntity(Loc.GetString("guardian-created"), args.Args.Target.Value, args.Args.Target.Value);
@@ -273,8 +445,8 @@ namespace Content.Server.Guardian
         /// </summary>
         private void OnCreatorExamine(EntityUid uid, GuardianCreatorComponent component, ExaminedEvent args)
         {
-           if (component.Used)
-               args.PushMarkup(Loc.GetString("guardian-activator-empty-examine"));
+            if (component.Used)
+                args.PushMarkup(Loc.GetString("guardian-activator-empty-examine"));
         }
 
         /// <summary>
@@ -344,7 +516,7 @@ namespace Content.Server.Guardian
             guardianComponent.GuardianLoose = true;
         }
 
-        private void RetractGuardian(EntityUid host,GuardianHostComponent hostComponent, EntityUid guardian, GuardianComponent guardianComponent)
+        private void RetractGuardian(EntityUid host, GuardianHostComponent hostComponent, EntityUid guardian, GuardianComponent guardianComponent)
         {
             if (!guardianComponent.GuardianLoose)
             {
@@ -355,6 +527,20 @@ namespace Content.Server.Guardian
             _container.Insert(guardian, hostComponent.GuardianContainer);
             DebugTools.Assert(hostComponent.GuardianContainer.Contains(guardian));
             _popupSystem.PopupEntity(Loc.GetString("guardian-entity-recall"), host);
+            if (guardianComponent.IsInPowerMode)
+            {
+                if (guardianComponent.GuardianType == GuardianSelector.Assasin)
+                {
+                    SetupPower(guardian, guardianComponent, guardianComponent.GuardianType);
+                    return;
+                }
+
+                guardianComponent.IsInPowerMode = false;
+                if (guardianComponent.PowerToggleActionEntity != null)
+                {
+                    _actionSystem.SetToggled(guardianComponent.PowerToggleActionEntity, guardianComponent.IsInPowerMode);
+                }
+            }
             guardianComponent.GuardianLoose = false;
         }
     }

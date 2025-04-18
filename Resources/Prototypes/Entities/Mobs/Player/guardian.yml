@@ -20,6 +20,7 @@
       context: "human"
     - type: MobMover
     - type: InputMover
+    - type: Puller
     - type: MovementSpeedModifier
       baseWalkSpeed: 4
       baseSprintSpeed: 5.5
@@ -29,20 +30,6 @@
           Blunt: 5
       soundHit:
         collection: MetalThud
-    - type: RandomSprite
-      available:
-        - enum.DamageStateVisualLayers.Base:
-            magic_base: ""
-          enum.DamageStateVisualLayers.BaseUnshaded:
-            magic_flare: Sixteen
-        - enum.DamageStateVisualLayers.Base:
-            miner_base: ""
-          enum.DamageStateVisualLayers.BaseUnshaded:
-            miner_flare: Sixteen
-        - enum.DamageStateVisualLayers.Base:
-            tech_base: ""
-          enum.DamageStateVisualLayers.BaseUnshaded:
-            tech_flare: Sixteen
     - type: Sprite
       drawdepth: Mobs
       sprite: White/Mobs/Aliens/Guardians/guardians.rsi
@@ -112,8 +99,8 @@
 
 # From the uplink injector
 - type: entity
-  name: Holoparasite
-  id: MobHoloparasiteGuardian
+  name: HoloparasiteStandart
+  id: MobHoloparasiteGuardianStandart
   parent: MobGuardianBase
   description: A mesmerising whirl of hard-light patterns weaves a marvelous, yet oddly familiar visage. It stands proud, tuning into its owner's life to sustain itself.
   components:
@@ -126,21 +113,207 @@
       raffle:
         settings: default
     - type: GhostTakeoverAvailable
+    - type: Sprite
+      drawdepth: Mobs
+      sprite: White/Mobs/Aliens/Guardians/guardians.rsi
+      layers:
+      - state: tech_base
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+      - state: tech_flare
+        map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        color: "#707070"
+        shader: unshaded
+      noRot: true
+    - type: Guardian
+      damageShare: 0.5
+      distance: 6
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 4.5
+      baseSprintSpeed: 6
+    - type: DamageOnHighSpeedImpact
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        collection: MetalThud
+    - type: MeleeWeapon
+      hidden: false
+      altDisarm: false
+      animation: WeaponArcFist
+      attackRate: 2.2
+      autoAttack: true
+      soundHit:
+        collection: Punch
+      damage:
+        types:
+          Blunt: 24
+          Structural: 24
     - type: NameIdentifier
       group: Holoparasite
     - type: TypingIndicator
       proto: holo
-    - type: Sprite
-      layers:
-        - state: tech_base
-          map: [ "enum.DamageStateVisualLayers.Base" ]
-        - state: tech_flare
-          map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
-          color: "#40a7d7"
-          shader: unshaded
     - type: HTN
       rootTask:
         task: SimpleHumanoidHostileCompound
+
+- type: entity
+  name: HoloparasiteAssasin
+  id: MobHoloparasiteGuardianAssasin
+  parent: MobGuardianBase
+  description: A mesmerising whirl of hard-light patterns weaves a marvelous, yet oddly familiar visage. It stands proud, tuning into its owner's life to sustain itself.
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-holoparasite-name
+    description: ghost-role-information-holoparasite-description
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: White/Mobs/Aliens/Guardians/guardians.rsi
+    layers:
+    - state: tech_base
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: tech_flare
+      map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      color: "#9d0016"
+      shader: unshaded
+    noRot: true
+  - type: Guardian
+    damageShare: 1
+    distance: 10
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 5.5
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: MeleeWeapon
+    hidden: false
+    altDisarm: false
+    animation: WeaponArcFist
+    attackRate: 2
+    autoAttack: true
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 14
+        Structural: 14
+  - type: NameIdentifier
+    group: Holoparasite
+  - type: TypingIndicator
+    proto: holo
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+
+- type: entity
+  name: HoloparasiteCharger
+  id: MobHoloparasiteGuardianCharger
+  parent: MobGuardianBase
+  description: A mesmerising whirl of hard-light patterns weaves a marvelous, yet oddly familiar visage. It stands proud, tuning into its owner's life to sustain itself.
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-holoparasite-name
+    description: ghost-role-information-holoparasite-description
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: White/Mobs/Aliens/Guardians/guardians.rsi
+    layers:
+    - state: tech_base
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: tech_flare
+      map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      color: "#54f3ff"
+      shader: unshaded
+    noRot: true
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 6
+    baseSprintSpeed: 7.5
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: MeleeWeapon
+    hidden: false
+    altDisarm: false
+    animation: WeaponArcFist
+    attackRate: 2.5
+    autoAttack: true
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 15
+        Structural: 15
+  - type: NameIdentifier
+    group: Holoparasite
+  - type: TypingIndicator
+    proto: holo
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+
+- type: entity
+  name: HoloparasiteLighting
+  id: MobHoloparasiteGuardianLighting
+  parent: MobGuardianBase
+  description: A mesmerising whirl of hard-light patterns weaves a marvelous, yet oddly familiar visage. It stands proud, tuning into its owner's life to sustain itself.
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-holoparasite-name
+    description: ghost-role-information-holoparasite-description
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: White/Mobs/Aliens/Guardians/guardians.rsi
+    layers:
+    - state: tech_base
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+    - state: tech_flare
+      map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      color: "#2000c8"
+      shader: unshaded
+    noRot: true
+  - type: MeleeWeapon
+    hidden: false
+    altDisarm: false
+    animation: WeaponArcFist
+    attackRate: 1.8
+    autoAttack: true
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 5
+        Structural: 5
+  - type: NameIdentifier
+    group: Holoparasite
+  - type: TypingIndicator
+    proto: holo
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
 
 # From Wizard deck of cards
 - type: entity
