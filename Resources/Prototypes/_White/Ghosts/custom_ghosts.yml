@@ -143,10 +143,10 @@
 - type: customGhost
   id: caypennow-ghost
   ckey: CaypenNow
-  sprite: White/Ghosts/hitpanda_ghost.rsi
+  sprite: White/Ghosts/caypennow-ghost.rsi
   alpha: 0.8
-  ghostName: Undefined
-  ghostDescription: Полыхает...
+  ghostName: Type is Undefined
+  ghostDescription: Null
   size: 1, 1
 
 - type: customGhost

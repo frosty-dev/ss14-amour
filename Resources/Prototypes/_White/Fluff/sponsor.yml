@@ -480,3 +480,9 @@
   id: ClothingNeckCloakRaincoat
   entity: ClothingNeckCloakRaincoat
   sponsorOnly: true
+
+# Zerkor_Pomidor
+- type: sponsorLoadout
+  id: Zerkor_PomidorTiara
+  entity: ClothingHeadTiara
+  sponsorOnly: true

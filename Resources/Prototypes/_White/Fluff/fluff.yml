@@ -1266,3 +1266,16 @@
   sprites:
   - sprite: White/Fluff/Korzinka_/dogtail.rsi
     state: dogtail
+
+# Zerkor_Pomidor
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadTiara
+  name: Аметистовая тиара
+  suffix: fluff
+  description: От данной тиары излучается едва уловимая аура, которая вызывает покалывание в пальцах при касании. На макушке и по краям тиары инкрустированы отполированные кристаллы фиолетового цвета, от которых идёт лёгкое свечение. Пахнет лесной прогулкой.
+  components:
+  - type: Sprite
+    sprite: White/Fluff/Zerkor_Pomidor/tiara.rsi
+  - type: Clothing
+    sprite: White/Fluff/Zerkor_Pomidor/tiara.rsi
