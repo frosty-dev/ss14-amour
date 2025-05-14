@@ -142,12 +142,11 @@
 
 - type: customGhost
   id: caypennow-ghost
-  ckey: CaypenNow
+  ckey: caypennow
   sprite: White/Ghosts/caypennow-ghost.rsi
   alpha: 0.8
-  ghostName: Type is Undefined
-  ghostDescription: Null
-  size: 1, 1
+  ghostName: null
+  ghostDescription: ...
 
 - type: customGhost
   id: quazvr-ghost
