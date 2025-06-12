@@ -124,7 +124,7 @@
 
 - type: customGhost
   id: centurion-ghost
-  ckey: centurion
+  ckey: dj_alexander
   sprite: White/Ghosts/vkuser_ghost.rsi
   alpha: 0.8
   ghostName: Central Hampter
