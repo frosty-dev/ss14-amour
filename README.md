@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="PARSEC" width="880" height="300" src="https://github.com/user-attachments/assets/bd8a079b-9ef0-46ac-b640-8c36835fbf32" />
+    <img alt="PARSEC" width="1024" height="228" src="https://github.com/user-attachments/assets/9ace4710-8c72-4c2f-9bc7-765c3e7908d1" />
 </p>
 
 Space Station 14 это ремейк SS13, который работает на собственном движке [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), написанном на C#.
