@@ -53,3 +53,7 @@
 - type: animatedLobbyScreen
   id: waggierBrig2
   path: /Textures/White/_Honk/Lobby/backgrounds/waggier.rsi
+
+- type: animatedLobbyScreen
+  id: Sects07LobbyScreen
+  path: /Textures/White/Lobby/backgrounds/sects-07.rsi
