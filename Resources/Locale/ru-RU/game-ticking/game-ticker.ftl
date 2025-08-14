@@ -1,29 +1,29 @@
-game-ticker-restart-round = Перезапуск раунда...
-game-ticker-start-round = Раунд начинается...
+game-ticker-restart-round = Залупа раунда...
+game-ticker-start-round = Залупа начинается...
 game-ticker-start-round-cannot-start-game-mode-fallback = Не удалось запустить режим { $failedGameMode }! Запускаем { $fallbackMode }...
 game-ticker-start-round-cannot-start-game-mode-restart = Не удалось запустить режим { $failedGameMode }! Перезапуск раунда...
 game-ticker-unknown-role = Неизвестный
 game-ticker-delay-start = Начало раунда было отложено на { $seconds } секунд.
 game-ticker-pause-start = Начало раунда было приостановлено.
 game-ticker-pause-start-resumed = Отсчет начала раунда возобновлен.
-game-ticker-player-join-game-message = Добро пожаловать на Космическую Станцию 14! Если вы играете впервые, обязательно нажмите ESC на клавиатуре и прочитайте правила игры, а также не бойтесь просить помощи в "Админ помощь".
+game-ticker-player-join-game-message = Салам Алейкум БРАТ. На этом сервере тебе дадут 100 обещаний и ни одно не выполнят. ТОЛЬКО НА НЕМ ты можешь узреть хоста трапа и его подсоса с именем фирмы телефонов.
 game-ticker-get-info-text =
-    Текущий раунд: [color=white]#{ $roundId }[/color]
-    Текущее количество игроков: [color=white]{ $playerCount }[/color]
-    Текущая карта: [color=white]{ $mapName }[/color]
-    Текущий режим игры: [color=white]{ $gmTitle }[/color]
+    Самсунг Гелакси С выебан раз: [color=white]#{ $roundId }[/color]
+    Количество обещаний трапа хоста: [color=white]{ $playerCount }[/color]
+    На этой карте выебан самсунг: [color=white]{ $mapName }[/color]
+    Обещанный режим игры: [color=white]{ $gmTitle }[/color]
 
 game-ticker-get-info-preround-text =
-    Текущий раунд: [color=white]#{ $roundId }[/color]
-    Текущее количество игроков: [color=white]{ $playerCount }[/color] ([color=white]{ $readyCount }[/color] { $readyCount ->
+    Самсунг Гелакси С выебан раз: [color=white]#{ $roundId }[/color]
+    Количество обещаний трапа хоста: [color=white]{ $playerCount }[/color] ([color=white]{ $readyCount }[/color] { $readyCount ->
         [one] готов
        *[other] готовы
     })
-    Текущая карта: [color=white]{ $mapName }[/color]
-    Текущий режим игры: [color=white]{ $gmTitle }[/color]
+    На этой карте выебан самсунг: [color=white]{ $mapName }[/color]
+    Обещанный режим игры: [color=white]{ $gmTitle }[/color]
 
-game-ticker-no-map-selected = [color=red]Карта ещё не выбрана![/color]
-game-ticker-player-no-jobs-available-when-joining = При попытке присоединиться к игре ни одной роли не было доступно.
+game-ticker-no-map-selected = [color=red]Место ебания самсунга еще не выбрано![/color]
+game-ticker-player-no-jobs-available-when-joining = короче нельзя зайти иди нахуй.
 # Displayed in chat to admins when a player joins
 player-join-message = Игрок { $name } присоединился к серверу!
 # Displayed in chat to admins when a player leaves

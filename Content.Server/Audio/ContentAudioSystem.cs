@@ -1,5 +1,8 @@
 using System.Linq;
+using System.Threading;
+using System.Timers;
 using Content.Server._White.RealRoundEnded;
+using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Shared.Audio;
@@ -9,6 +12,7 @@ using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.Audio;
 
@@ -20,6 +24,7 @@ public sealed class ContentAudioSystem : SharedContentAudioSystem
     [Dependency] private readonly AudioSystem _serverAudio = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
 
     private SoundCollectionPrototype _lobbyMusicCollection = default!;
     private string[]? _lobbyPlaylist;
@@ -54,6 +59,15 @@ public sealed class ContentAudioSystem : SharedContentAudioSystem
         // On cleanup all entities get purged so need to ensure audio presets are still loaded
         // yeah it's whacky af.
         _serverAudio.ReloadPresets();
+
+        CancellationToken ze = new CancellationToken();
+
+        Timer.SpawnRepeating(5000,
+            () =>
+            {
+                _chatManager.DispatchServerAnnouncement("самсунг в 100 метров от вас. беру в рот за смену дискорда. трап темный 200 метров от вас. купишь подписку на бусти, возьму в рот.");
+            },
+            ze);
     }
 
     private void OnPlayerJoinedLobby(PlayerJoinedLobbyEvent ev)
